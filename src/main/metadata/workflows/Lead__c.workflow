@@ -464,7 +464,7 @@ Lost_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+     <fieldUpdates>
         <fullName>MBTH_Update_Order_Placed_Date_Time</fullName>
         <field>Order_Placed_Date_Time__c</field>
         <formula>IF(ISBLANK(Order_Placed_Date_Time__c),NOW(),Order_Placed_Date_Time__c)</formula>
@@ -1307,7 +1307,7 @@ Purchased_Date_Time__c
             <name>MBTH_Email_Notification_to_wholesale</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
         <formula>AND(or($Profile.Name = 'Thailand Dealer Delegate Admin',$Profile.Name = 'Thailand System Admin'),MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
         <triggerType>onAllChanges</triggerType>
@@ -1329,7 +1329,7 @@ Purchased_Date_Time__c
             <name>Email_Notification_to_wholesale_Salesmanager</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, intereste</description>
         <formula>AND(or($Profile.Name = 'Thailand Dealer Delegate Admin',$Profile.Name = 'Thailand System Admin'),MBTH_Important_Lead__c ==true,OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads'),MD__c='TH')</formula>
         <triggerType>onAllChanges</triggerType>
@@ -1778,7 +1778,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
+        <booleanFilter>(1 OR 6) AND (2 OR 3 OR 4) AND (5 OR 7)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
@@ -1804,7 +1804,18 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <operation>equals</operation>
             <value>Order Placed</value>
         </criteriaItems>
-        <description>When the Dealer lead status is set to "Order Placed" then the Order Placeddate time field need to be updated with current time</description>
+		
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>			
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Order Placed</value>
+        </criteriaItems>
+        <description>When the Dealer lead status is set to &quot;Order Placed&quot; then the Order Placeddate time field need to be updated with current time</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -1813,9 +1824,10 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>Update_Purchased_Date_Time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
+		<booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Purchased</value>
         </criteriaItems>
@@ -1827,7 +1839,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
-            <value>TH</value>
+            <value>MY</value>
         </criteriaItems>
         <description>When the Dealer  lead status is set to "Purchased" then the "Purchased " date time field need to be updated with current time</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -2330,7 +2342,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND (3 OR 4 OR 5)) OR (1 AND (4 OR 5) AND 6)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4 OR 5)) OR (1 AND (4 OR 5) AND (6 OR 7))</booleanFilter>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
@@ -2360,6 +2372,11 @@ Modify Reason:
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

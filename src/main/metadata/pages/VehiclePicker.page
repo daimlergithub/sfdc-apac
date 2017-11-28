@@ -128,7 +128,7 @@
        }
        
        console.log($scope.leadVehicles.CurrentVehicle1);
-	   /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
+       /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle1 != undefined){
            $scope.vehicleCurrent1DetailText = "Edit";
            $scope.CurrentVehicle1Details = $scope.leadVehicles.CurrentVehicle1.Brand +' ' +$scope.leadVehicles.CurrentVehicle1.Class + ' ' + $scope.leadVehicles.CurrentVehicle1.Model;
@@ -161,6 +161,7 @@
              $scope.c1_vehicleMilage = $scope.leadVehicles.CurrentVehicle1.Mileage;
            if($scope.leadVehicles.CurrentVehicle1.RecordType != "")
              $scope.c1_RecType = $scope.leadVehicles.CurrentVehicle1.RecordType;
+             console.log('Vehicle Record Type'+$scope.c1_RecType)
        }
        
        /*CURRENT VEHICLE2 : Vehicle Intitialization details*/
@@ -294,7 +295,7 @@
             $scope.relatedClasses = $scope.brandsClasses[brand];
             $scope.sortedClass = orderBy( $scope.relatedClasses, '-' , false);
             $scope.models = [];
-         };
+          };
       
          /*Set the initial Model values for the vehicle which is already selected*/
          $scope.setModelValue = function(class_selected){
@@ -335,9 +336,11 @@
          }
          
          /*This method displays the details of the vehicles.*/
-		 
+         
          $scope.showDetail = function (vehicle_type, selectedBrand, selectedClass){   
-		 console.log(vehicle_type);
+         console.log(vehicle_type);         
+          console.log(selectedBrand);
+          console.log(selectedClass);
             if(angular.equals(vehicle_type, 'Interested Vehicle')){
                 $scope.status_type = 'Own Sellable';
                 $scope.vehicleDetail = true;
@@ -444,9 +447,9 @@
                 $scope.TradeInLookup = false;
             }
                 console.log($scope.status_type);
-				/*Fetch the car models based on status types here*/
+                /*Fetch the car models based on status types here*/
                 $scope.getCarModelsForLeadVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand);
-				
+                
           }  
           
           $scope.selectBrandAction = function () {
@@ -458,7 +461,7 @@
           /*Save the Vehicle Details on New or Edit*/
           $scope.saveDetail = function (vehicleType, operation) {   
               console.log(vehicleType);
-			  console.log(operation);
+              console.log(operation);
               $scope.brands.sort(function (a, b) {
                            return a.toLowerCase().localeCompare(b.toLowerCase());
                                  });
@@ -733,7 +736,7 @@
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'Edit'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleDetailText == 'New' || interestedRecType != 'Vehicle Product'}}" ng-click="showDetail('Interested Vehicle',selectedBrand,selectedClasses)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('Interested Vehicle')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-disabled="{{lead_Type != 'Used Car'|| interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/>
+     <!--   &nbsp;<input type="button" ng-disabled="{{interestedVehicleDetails != ''}}" ng-click="showList('Interested Vehicle')" class="btn" value="{!$label.Lookup_Button}"/> -->
         <!----------------- DISPLAY INTERESTED VEHICLE DETAILS ---------------->
         <div ng-if="vehicleDetail" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -781,7 +784,7 @@
     </div> -->
         <!------------ INTERESTED VEHICLE LOOKUP SECTION ---------------------->
         <div ng-if="vehicleLookup" style="background-color:#efefef;width:500px">
-            {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('Interested Vehicle',vin_no)" class="btn" value="{!$label.Search}"></input>
+         <!--   {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('Interested Vehicle',vin_no)" class="btn" value="{!$label.Search}"></input> -->
             <table class="lookup" ng-table="lookuptable">
                 <tr class="lookup" style="font-weight: bold;">
                      <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th>                       
@@ -834,9 +837,9 @@
         <td style="vertical-align: top;padding=20px">
         {!$label.Vehicle_Picker_Current1}&nbsp;</td><td><input type="text" ng-model="CurrentVehicle1Details"  disabled="disabled" style="width:300px" /> 
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)"  class="btn" value="{!$label.New_Button}"/>
-        &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New' || c1_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
+        &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle1')" class="btn" value="{!$label.Clear_Button}"/> 
-        &nbsp;<input type="button" ng-disabled="{{CurrentVehicle1Details != ''}}" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/>
+        &nbsp;<input type="button" ng-disabled="{{CurrentVehicle1Details != ''}}" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/> 
         <!----------- CURRENT VEHICLE1 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent1" style="background-color:#efefef;width:500px"> 
             <br/>
@@ -866,7 +869,7 @@
         </div>
         <!----------- CURRENT VEHICLE1 LOOKUP SECTION -------->
         <div ng-if="LookupCurrentVehicle1" style="background-color:#efefef;width:500px">
-            {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('CurrentVehicle2',vin_no)" class="btn" value="{!$label.Search}"></input>
+         <!--   {!$label.Enter_VIN_number}: <input type="text" ng-model="vin_no" name="Search"></input> <input type="button" ng-click="searchVehiclesForLookup('CurrentVehicle2',vin_no)" class="btn" value="{!$label.Search}"></input> -->
             <table class="lookup" ng-table="lookuptable">
                 <tr class="lookup" style="font-weight: bold;">
                      <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th>                       

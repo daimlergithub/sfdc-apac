@@ -56,6 +56,49 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
+	    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Actual_DM_Material1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -710,13 +753,14 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -1677,13 +1721,13 @@ Modify Reason:
         <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-    <validationRules>
+   <validationRules>
         <fullName>Add_Address_NoOfDigits</fullName>
         <active>true</active>
         <description>Additional Address should be less than or equal to 50 letters.</description>
         <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
-$Profile.Name != 'IntegrationAPI', 
-OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorDisplayField>Additional_Address__c</errorDisplayField>
         <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
@@ -1710,7 +1754,7 @@ MD__c = 'JP')</errorConditionFormula>
         <active>true</active>
         <description>Expected DM Material1 has a value, but the Status 1 is null.
 OR Status 1 is selected, but the Expected DM Material1 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp;  OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, &quot;&quot;)) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, &quot;&quot;)))) &amp;&amp;  OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
         <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1719,7 +1763,7 @@ OR Status 1 is selected, but the Expected DM Material1 is null.</description>
         <active>true</active>
         <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
 OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, &quot;&quot;)) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1728,7 +1772,7 @@ OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is nul
         <active>true</active>
         <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
 OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, &quot;&quot;)) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -1736,8 +1780,8 @@ OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is nul
         <fullName>Insufficient_Stock</fullName>
         <active>true</active>
         <description>US-DM-003:
-7. If Expected DM material's stock reaches Stock alert level, Data loader will report an error message ""Insufficient Stock"". And this record will not be uploaded successfully."</description>
-        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH') &amp;&amp; 
+7. If Expected DM material&apos;s stock reaches Stock alert level, Data loader will report an error message &quot;&quot;Insufficient Stock&quot;&quot;. And this record will not be uploaded successfully.&quot;</description>
+        <errorConditionFormula>ISPICKVAL(Status__c , &apos;Sent&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; 
 ( 
 Actual_DM_Material1__r.Threshold__c &gt; Actual_DM_Material1__r.Stock__c 
 || 
@@ -1823,7 +1867,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>TitleOfHonor_is_Required</fullName>
         <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH')</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , &apos;Null&apos;)|| ISPICKVAL( TitleOfHonor__c , &apos;&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false))</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>
@@ -1969,6 +2013,19 @@ window.open("OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.C
 } 
 }
 }</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Record_Share</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Record Share</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+var myWindow = window.open("/apex/DealerSearchPage?Id={!DM_Request__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
     </webLinks>
     <webLinks>
         <fullName>New_DM_Request_TH_Account</fullName>

@@ -116,6 +116,14 @@
         <label><!-- A6 Other contact channels --></label>
         <name>A6_Other_contact_channels</name>
     </customLabels>
+	<customLabels>
+        <label>하나의 연락처만 선택 하시기 바랍니다</label>
+        <name>KR_Company_Account_Record_Type</name>
+    </customLabels>
+	<customLabels>
+        <label>‘중복 고객 확인’  결과를 확인 하시기 바랍니다.</label>
+        <name>MBK_ONLINE_DEDUP_CHECKUP</name>
+    </customLabels>
     <customLabels>
         <label><!-- A6 Personal email --></label>
         <name>A6_Personal_email</name>
@@ -966,6 +974,22 @@
     <customLabels>
         <label>회사 이름 부서명</label>
         <name>Company_Name_Department_Title</name>
+    </customLabels>
+	<customLabels>
+        <label>작업 관리</label>
+        <name>Manage_Tasks</name>
+    </customLabels> 
+	<customLabels>
+        <label>상태 필터</label>
+        <name>Filter_Status</name>
+    </customLabels>
+	<customLabels>
+        <label>변경 상태값</label>
+        <name>New_Status</name>
+    </customLabels>
+	<customLabels>
+        <label>전체</label>
+        <name>All</name>
     </customLabels>
     <customLabels>
         <label><!-- Compared Vehicle Brand --></label>
@@ -2311,6 +2335,10 @@
     <customLabels>
         <label>신규 리드</label>
         <name>NewLead</name>
+    </customLabels>
+    <customLabels>
+        <label>새로 만들기</label>
+        <name>New_Campaign</name>
     </customLabels>
     <customLabels>
         <label>더 많은 질문을 만들까요?</label>

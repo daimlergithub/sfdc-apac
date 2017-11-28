@@ -831,4 +831,76 @@ public class LeadHelperKR
                       }
            }
     }*/
+	
+	//---------------------------- Lead Share - SFDCKR-964 ----------------------------
+    // Added By - Sreenivasareddy
+    
+    public static void leadsharehierarchy(List<lead__c> Lstnewlead) {
+       list<id> ownerids = new list<id>();
+       list<id> leadids= new list<id>();
+       
+       for(lead__c l:Lstnewlead) {
+          ownerids.add(l.OwnerId);
+          system.debug('*****leadownerlist' +ownerids);
+       }
+       if(!Test.isRunningTest()){
+       //before insert new casesharings need to delete old Leadsharings***...
+       If(Trigger.IsUpdate){
+          List<Lead__Share> sharesToDelete = [Select UserOrGroupId,RowCause,id From Lead__Share where RowCause='Ownershare' and parentId in:leadids];
+          if(!sharesToDelete.isEmpty()) {
+             delete sharesToDelete;
+          }
+       }
+       }
+        
+       Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c  from User where id in: ownerids]);
+       system.debug('Reporting Users' +usermap);
+       
+       List<Lead__Share> leadShar = new List<Lead__Share>();
+        
+       /* Sales Consultant Share Process */
+        
+       for(lead__c  led : Lstnewlead) {
+          if(!usermap.containsKey(led.ownerid))continue;
+             user u = usermap.get(led.ownerid);
+          if(u.MBK_Partner_Roles__c == 'Sales Consultant') {
+             system.debug('Team Leader' +u.MBK_Reporting_Partner_User__c);
+             if(u.MBK_Reporting_Partner_User__c!=null || u.MBK_Reporting_Partner_User__c!='') {
+                Lead__Share shareRec = new Lead__Share();
+                shareRec.ParentId = led.Id;
+                shareRec.UserOrGroupId  = u.MBK_Reporting_Partner_User__c;
+                shareRec.AccessLevel = 'edit';
+                leadShar.add(shareRec);
+             }
+             if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null || u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!='') {
+                Lead__Share shareRec1 = new Lead__Share();
+                shareRec1.ParentId = led.Id;
+                shareRec1.UserOrGroupId  = u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c;
+                shareRec1.AccessLevel = 'edit';
+                leadShar.add(shareRec1);  
+             }   
+          }
+       }
+        
+       /* Team Leader Share Process */
+        
+       for(lead__c  tlled : Lstnewlead) {
+          if(!usermap.containsKey(tlled.ownerid))continue;
+             user tlu = usermap.get(tlled.ownerid);
+          if(tlu.MBK_Partner_Roles__c == 'Team Leader') {
+             system.debug('Sales Manager' +tlu.MBK_Reporting_Partner_User__c);
+             if(tlu.MBK_Reporting_Partner_User__c!=null || tlu.MBK_Reporting_Partner_User__c!='') {
+                Lead__Share tlshareRec = new Lead__Share();
+                tlshareRec.ParentId = tlled.Id;
+                tlshareRec.UserOrGroupId  = tlu.MBK_Reporting_Partner_User__c;
+                tlshareRec.AccessLevel = 'edit';
+                leadShar.add(tlshareRec);  
+             }
+          }
+       }   
+       
+       If(leadShar != null & leadShar.size() > 0) {
+          insert leadShar;
+       }
+    }
 }

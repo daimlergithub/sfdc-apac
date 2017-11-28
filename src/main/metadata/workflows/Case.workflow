@@ -234,9 +234,19 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Complaint_update_notification</template>
     </alerts>
-	<alerts>
+    <alerts>
         <fullName>Deadline_Notification_to_Owner</fullName>
         <description>Deadline Notification to Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification_TH</template>
+    </alerts>
+    <alerts>
+        <fullName>Deadline_Notification_to_Owner1</fullName>
+        <description>Deadline Notification to Owner1</description>
         <protected>false</protected>
         <recipients>
             <type>owner</type>
@@ -253,6 +263,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Deadline_Notification_to_Owner_before_1_hourTH</fullName>
+        <description>Deadline Notification to Owner before 1 hourTH</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification_TH</template>
     </alerts>
     <alerts>
         <fullName>Email_to_Dealer_Gatekeeper_Case</fullName>
@@ -1138,7 +1158,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	 <fieldUpdates>
+    <fieldUpdates>
         <fullName>update_owner_manager</fullName>
         <field>Case_Owner_manager__c</field>
         <formula>Owner:User.Manager.Email</formula>
@@ -1483,15 +1503,40 @@
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-	  <rules>
+    <rules>
         <fullName>Case Deadline Notification TH</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Deadline_Notification_to_Owner_before_1_hourTH</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification TH1</fullName>
         <actions>
-            <name>Deadline_Notification_to_Owner</name>
+            <name>Deadline_Notification_to_Owner1</name>
             <type>Alert</type>
-        </actions>
-        <actions>
-            <name>update_owner_manager</name>
-            <type>FieldUpdate</type>
         </actions>
         <active>false</active>
         <criteriaItems>
@@ -1512,7 +1557,7 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <offsetFromField>Case.DeadLine__c</offsetFromField>
-            <timeLength>0</timeLength>
+            <timeLength>-24</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>

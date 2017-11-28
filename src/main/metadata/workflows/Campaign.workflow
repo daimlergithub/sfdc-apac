@@ -118,42 +118,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Campaign_ExecutionIndex_Calculation</fullName>
-        <field>Index__c</field>
-        <formula>IF( Previous_Campaign_Execution__c == '' , 1,  Previous_Campaign_Execution__r.Index__c + 1 )</formula>
-        <name>Campaign ExecutionIndex Calculation</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Deactivate_Campaign</fullName>
-        <field>IsActive</field>
-        <literalValue>0</literalValue>
-        <name>Deactivate Campaign</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Director_Approval</fullName>
-        <field>Status</field>
-        <literalValue>Approved</literalValue>
-        <name>Director Approval</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Field_Update</fullName>
-        <field>Status</field>
-        <literalValue>Approving</literalValue>
-        <name>Field Update</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Rejected</fullName>
         <field>Status</field>
         <literalValue>Rejected</literalValue>
@@ -167,24 +131,6 @@
         <field>Status</field>
         <literalValue>Rejected</literalValue>
         <name>Rejection</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Status_Update_to_Approving</fullName>
-        <field>Status</field>
-        <literalValue>Approving</literalValue>
-        <name>Status Update to Approving</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Status_updated_to_Rejected</fullName>
-        <field>Status</field>
-        <literalValue>Rejected</literalValue>
-        <name>Status updated to Rejected</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -211,22 +157,12 @@ RecordType.Name,
 'CAS Marketing Campaign', 'L1'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
 'Campaign Execution - Simple', 'L3'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
 'Campaign Execution - Complex', 'L3'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
+'Campaign Execution MBK - Wholesale to Dealer', 'L3'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c,
 'L2'+"_"+TEXT(YEAR(DATEVALUE(CreatedDate)))+"_"+Auto_Number__c)</formula>
         <name>Update Campaign Code</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Campiagn_record_as_read_only</fullName>
-        <field>RecordTypeId</field>
-        <lookupValue>Campaign_Execution_Complex_Lock</lookupValue>
-        <lookupValueType>RecordType</lookupValueType>
-        <name>Update Campaign record as read only</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Content_Preview</fullName>
@@ -243,15 +179,6 @@ RecordType.Name,
         <field>Status</field>
         <literalValue>Published</literalValue>
         <name>Update Status</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>campaign_status_change</fullName>
-        <field>Child_Campaign_Status__c</field>
-        <literalValue>Segmentation</literalValue>
-        <name>campaign status change</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -279,25 +206,6 @@ RecordType.Name,
         <field>Child_Campaign_Status__c</field>
         <literalValue>Execution</literalValue>
         <name>status change based on execution date</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>status_change_to_completed</fullName>
-        <field>Child_Campaign_Status__c</field>
-        <literalValue>Completed</literalValue>
-        <name>status change to completed</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>status_change_to_execution</fullName>
-        <description>campaign status will be changed o execution</description>
-        <field>Child_Campaign_Status__c</field>
-        <literalValue>Execution</literalValue>
-        <name>status change to execution</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -339,7 +247,7 @@ RecordType.Name,
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND 3 AND ( 4 OR 5)) OR (1 AND 3 AND 6 AND 7)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3 AND ( 4 OR 5)) OR (1 AND 3 AND (6 OR 8) AND 7)</booleanFilter>
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>
@@ -374,6 +282,11 @@ RecordType.Name,
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
             <value>Planning &amp; Design Campaign</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
@@ -445,24 +358,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Index Calculation</fullName>
-        <actions>
-            <name>Campaign_ExecutionIndex_Calculation</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Campaign.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Campaign Execution - Simple,Campaign Execution - Complex</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Campaign.ParentId</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>MBTH_Update status Published</fullName>
         <active>true</active>
         <booleanFilter>1 AND 2 AND 3</booleanFilter>
@@ -498,7 +393,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND (3 OR 4 )) OR (2 AND 5 AND 6)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4 )) OR (2 AND (5 OR 7) AND 6)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -529,6 +424,11 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>Planning &amp; Design Campaign</value>
         </criteriaItems>
+		 <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -538,7 +438,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4 )</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4)) OR(5 AND 6 AND 2)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -558,6 +458,16 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Planning &amp; Design Campaign</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -666,7 +576,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND  3 ) OR (2 AND 4 AND 5)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND  3 ) OR (2 AND 4 AND 5) OR (2 AND 5 AND 6)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -692,35 +602,21 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>Campaign Execution</value>
         </criteriaItems>
+		 <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
+     <rules>
         <fullName>Update Campaign Code</fullName>
         <actions>
             <name>Update_Campaign_Code</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(1=1,MD__c='JP' ||MD__c='KR' || MD__c='TH')</formula>
+        <formula>AND(1=1,MD__c=&apos;JP&apos; ||MD__c=&apos;KR&apos; || MD__c=&apos;TH&apos; || MD__c=&apos;MY&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Campaign Record as %27 Read Only%27</fullName>
-        <actions>
-            <name>Update_Campiagn_record_as_read_only</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Campaign.Status</field>
-            <operation>equals</operation>
-            <value>Closed</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Campaign.MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

@@ -106,10 +106,4 @@
         <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>Start_Date_is_less_than_the_End_Date</fullName>
-        <active>false</active>
-        <errorConditionFormula>Start_Date__c  &gt;  End_Date__c</errorConditionFormula>
-        <errorMessage>Start Date must be less than or equal to End Date</errorMessage>
-    </validationRules>
 </CustomObject>

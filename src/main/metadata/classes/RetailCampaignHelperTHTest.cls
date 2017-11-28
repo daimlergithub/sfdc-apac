@@ -31,7 +31,7 @@ public class RetailCampaignHelperTHTest {
   
      dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', Md__c='TH',Individual_Home_Phone__c='+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='12345');
         insert dealer;
-        retailcampaign=new Retail_Campaign__C(Dealer_Name__c=dealer1.id,name='test123',recordtypeid=planningRecordId,start_date__c=system.today()+1,close_Date__C=system.today()+1);
+        retailcampaign=new Retail_Campaign__C(Dealer_Name__c=dealer1.id,name='test123',recordtypeid=planningRecordId,start_date__c=system.today()+1,close_Date__C=system.today()+4);
         insert retailcampaign;
     }
 static testMethod void updateRetailCampaignEmail() {
@@ -74,5 +74,25 @@ static testMethod void updateRetailCampaignEmail() {
     test.stopTest();
    
     } 
+    }
+    
+    static testMethod void parentCampaignStatusChange_Test()
+    {
+        Test.startTest();
+        createtestdata();
+       List<Group> groupLst=new List<Group>();
+        groupLst.add(new Group(Name='1235'));
+        insert groupLst;
+        System.runAs(user2)
+        {
+            Retail_campaign__c retcampchild=new Retail_Campaign__C(name='test123',recordtypeid=executionRecordId,start_date__c=system.today()+2,close_Date__C=system.today()+2);
+            insert retcampchild;
+         List<Retail_campaign__c> lstRetailCampaign=new List<Retail_campaign__c>();
+         lstRetailCampaign.add(retcampchild);
+            
+         RetailCampaignHelperTH.parentCampaingStatusChange(lstRetailCampaign, true);
+        
+        }
+        test.stopTest();
     }
 }

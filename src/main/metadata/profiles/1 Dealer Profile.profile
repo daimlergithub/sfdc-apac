@@ -1527,6 +1527,86 @@
     </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>CampaignMember.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign_Member__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Car_Model__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Contact.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Dealer_Locator__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>DM_Material__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>DM_Request__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Recall__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Rejected_Duplicate_Log__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Retail_Task__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Survey_Question__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Lead__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>	
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Case.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Vehicle__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Vehicle_Relationship__c.Market__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.ASLead_Notification_Timing__c</field>
         <readable>false</readable>
@@ -3216,7 +3296,7 @@
         <field>Account.Marital_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	 <fieldPermissions>
+	<fieldPermissions>
         <editable>True</editable>
         <field>Account.Market__c</field>
         <readable>True</readable>

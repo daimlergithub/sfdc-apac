@@ -51,6 +51,49 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
+	    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>ATL_BTL__c</fullName>
         <description>ATL/BTL of the campaign</description>
@@ -92,6 +135,14 @@
         <description>Flag to copied on Campaign member for Opro Campaigns</description>
         <externalId>false</externalId>
         <label>Add Campaign Member ID</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Add_Preferred_Dealer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Add Preferred Dealer</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
@@ -1513,6 +1564,14 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Courtesy_Greeting__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Courtesy Greeting</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Create_Task__c</fullName>
         <defaultValue>false</defaultValue>
@@ -1888,11 +1947,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SMS</fullName>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MMS</fullName>
+                <fullName>SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1916,11 +1975,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>eMail</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2303,9 +2366,12 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -2402,6 +2468,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Message__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
+HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
+HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
+		<label>Message</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Min_Car_Age__c</fullName>
         <description>Min Car Age of the campaign</description>
@@ -2463,18 +2540,13 @@
         <fullName>OBSMSTemplate__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>OB SMS Template</label>
+        <label>Outbound Template</label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
-                <field>Template__c.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>SMS</value>
-            </filterItems>
-            <filterItems>
                 <field>$Source.Execution_Type__c</field>
                 <operation>equals</operation>
-                <value>OB Call</value>
+                <valueField>Template__c.RecordType.Name</valueField>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -5487,6 +5559,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -6697,6 +6796,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -7854,6 +7980,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -7898,6 +8028,33 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8932,6 +9089,33 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9974,6 +10158,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -10395,7 +10606,7 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
+   <recordTypes>
         <fullName>Campaign_Execution_Complex</fullName>
         <active>true</active>
         <description>For Campaign Executions with complex segmentation</description>
@@ -10983,11 +11194,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
+                <fullName>eDM</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MyM</fullName>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10998,11 +11217,7 @@
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Segmentation Only</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+          </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
@@ -11035,6 +11250,33 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12028,11 +12270,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Event</fullName>
+                <fullName>KakaoTalk</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MyM</fullName>
+                <fullName>eMail</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12043,11 +12285,11 @@
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Segmentation Only</fullName>
+			<values>
+                <fullName>MMS</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
+       </picklistValues>
         <picklistValues>
             <picklist>MBTH_Media_Type__c</picklist>
             <values>
@@ -12080,6 +12322,33 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13469,6 +13738,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -14526,6 +14822,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MyM</fullName>
                 <default>false</default>
             </values>
@@ -14570,6 +14870,33 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15792,6 +16119,33 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17324,6 +17678,33 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18945,6 +19326,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -20175,6 +20583,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -21384,6 +21819,33 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -21809,7 +22271,1107 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
+	<recordTypes>
+        <fullName>Campaign_Execution_MBK_Wholesale_to_Dealer</fullName>
+        <active>true</active>
+        <description>This record-type is used by MBK as part of Campaign Management to share Campaign Execution record from Wholesale to Dealer</description>
+        <label>Campaign Execution MBK - Wholesale to Dealer</label>
+        <picklistValues>
+            <picklist>ATL_BTL__c</picklist>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>BP_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>3 door</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Brand__c</picklist>
+            <values>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CAC_Campaign_Type__c</picklist>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitions and Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interview</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recall</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CAC_Frequency_Category__c</picklist>
+            <values>
+                <fullName>Ad Hoc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regular-Continuous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regular-Periodic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CBU_PbP__c</picklist>
+            <values>
+                <fullName>CBU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CBU%26PbP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PbP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Channels__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Executer__c</picklist>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WholeSale</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Execution_Channels__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Format__c</picklist>
+            <values>
+                <fullName>Autoshow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom Visit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Member_Sharing_Rule__c</picklist>
+            <values>
+                <fullName>One Account Multiple Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One Account One Dealer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Offer_Type__c</picklist>
+            <values>
+                <fullName>Event Participation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incentive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Response_Channels__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Visit Dealer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Sub_Type__c</picklist>
+            <values>
+                <fullName>Crosspoint</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Familiarization workshop for dormant customers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Familiarization workshop for new vehicle owners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Idle Hour Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POM%2FAdvertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts Cross Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion on Technical accessories and collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Product Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used-car buy-back%2FTrade-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VEP%28Seasonal Check%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Car_Model__c</picklist>
+            <values>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA 45 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Child_Campaign_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Segmentation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Class__c</picklist>
+            <values>
+                <fullName>A-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA 45 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ML-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Department__c</picklist>
+            <values>
+                <fullName>Aftersales%2C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Network Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales %26 Marketing</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Driven_Type__c</picklist>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WholeSale</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Driven__c</picklist>
+            <values>
+                <fullName>Campaign Organized by Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Campaign on Festivals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Event_Type__c</picklist>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Festival</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Showroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prints relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Execution_Type__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KakaoTalk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MBTH_Media_Type__c</picklist>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out Of Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Media_Type__c</picklist>
+            <values>
+                <fullName>Broadcast</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Digital</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OOH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Purpose__c</picklist>
+            <values>
+                <fullName>Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brand Enhancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase after Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Region__c</picklist>
+            <values>
+                <fullName>Eastern</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northern</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Southern</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repeat_Frequency__c</picklist>
+            <values>
+                <fullName>Bi-Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yearly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Resource_Channels__c</picklist>
+            <values>
+                <fullName>3rd Party Database</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Database</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Database</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>ALL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SegWorkingDay__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>17</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>18</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>19</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>21</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>23</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>24</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>26</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>27</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>28</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>31</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SegWorkingMonth__c</picklist>
+            <values>
+                <fullName>Apr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aug</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dec</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feb</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jul</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jun</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nov</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sep</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segmentation_Base__c</picklist>
+            <values>
+                <fullName>Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Task_Created_By__c</picklist>
+            <values>
+                <fullName>Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Task_De_dup_Range__c</picklist>
+            <values>
+                <fullName>By CAC Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>By Campaign Execution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Task_De_dup_by__c</picklist>
+            <values>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>CRM Acquisition Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRM Loyalty Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+	<searchLayouts>
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Code__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
@@ -21900,6 +23462,14 @@ PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Exection'</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Campaign_Executer_is_mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(Driven_Type__c,'Joint'), 
+ISBLANK(TEXT(Campaign_Executer__c)),MD__c = 'JP', 
+$Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Planning_Design_Campaign' )</errorConditionFormula>
+        <errorMessage>In case of Joint Campaign, Campaign Executer is mandatory.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Campaign_Not_Yet_Started_Active</fullName>
         <active>true</active>
@@ -21943,15 +23513,16 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !=&apos;IntegrationAPI&apos;,ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,&quot;DM&quot;),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Expected_Outcome_Fields</fullName>
-        <active>false</active>
-        <errorConditionFormula>OR(Expected_Response_Rate__c &gt; 1,Expected_Participation__c &gt; 1,Expected_Registration__c &gt; 1, Expected_Lead__c &gt; 1)</errorConditionFormula>
-        <errorMessage>Expected Outcome fields should not be more than 100.</errorMessage>
+	<validationRules>
+        <fullName>Get_OBSMSTemplate_on_Courtesy_Greet</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(MD__c = 'KR', Courtesy_Greeting__c = true, OBSMSTemplate__c  = '', ISBLANK(OBSMSTemplate__c) )</errorConditionFormula>
+        <errorDisplayField>OBSMSTemplate__c</errorDisplayField>
+        <errorMessage>Outbound Template is Mandatory when Courtesy Greeting is Checked</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Locked_for_Central_when_Published</fullName>
@@ -21985,13 +23556,13 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorCondition
 )</errorConditionFormula>
         <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
     </validationRules>
-    <validationRules>
+   <validationRules>
         <fullName>Locked_for_Central_when_Published_TH</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-RecordType.Name =='Planning &amp; Design Campaign',
+RecordType.Name ==&apos;Planning &amp; Design Campaign&apos;,
 
-OR(ISPICKVAL(Status,'Published'),ISPICKVAL(Status,'Closed')),
+OR(ISPICKVAL(Status,&apos;Published&apos;),ISPICKVAL(Status,&apos;Closed&apos;)),
 OR( ISCHANGED( Campaign_Code__c ),
 ISCHANGED( Name ),
 ISCHANGED( Description ), 
@@ -22013,85 +23584,8 @@ ISCHANGED( Min_Car_Age__c ),
 ISCHANGED( Max_Car_Age__c ),
 ISCHANGED( Purpose__c )
 ),
-$Profile.Name != 'IntegrationAPI', UPPER(MD__c) = 'TH')</errorConditionFormula>
-        <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Locked_for_MB_BP_when_Published</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND( 
-OR( 
-RecordType.DeveloperName == 'MB_Best_Practice', 
-RecordType.DeveloperName == 'smart_Best_Practice' 
-), 
-ISPICKVAL(Status, 'Published'), 
-!ISCHANGED(Status), 
-OR( ISCHANGED( Campaign_Code__c ), 
-ISCHANGED( Name ), 
-ISCHANGED( Status ), 
-ISCHANGED( Description ), 
-ISCHANGED( Brand__c ), 
-ISCHANGED( BP_Start_Date__c ), 
-ISCHANGED( BP_End_Date__c ), 
-ISCHANGED( Region_Due_Date__c ), 
-ISCHANGED( Retail_Start_Date__c ), 
-ISCHANGED( Retail_Due_Date__c ), 
-ISCHANGED( Region_Recommend_Number__c ), 
-ISCHANGED( Region_Best_Number__c ), 
-ISCHANGED( BP_Quarter__c ) 
-), 
-$Profile.Name != 'IntegrationAPI' 
-)</errorConditionFormula>
-        <errorMessage>You cann't change this record when Status is published.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>MB_BP_fields_are_required_when_Publish</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND( 
-OR( 
-AND( 
-RecordType.DeveloperName == 'MB_Best_Practice', 
-OR( 
-ISNULL( BP_Start_Date__c ), 
-ISNULL( BP_End_Date__c ), 
-ISNULL( Region_Due_Date__c ), 
-ISNULL( Retail_Start_Date__c ), 
-ISNULL( Retail_Due_Date__c ), 
-ISNULL( Region_Recommend_Number__c ), 
-ISNULL( Region_Best_Number__c ) 
-)), 
-AND( 
-RecordType.DeveloperName == 'smart_Best_Practice', 
-OR( 
-ISNULL( BP_Start_Date__c ), 
-ISNULL( BP_End_Date__c ), 
-ISNULL( Region_Due_Date__c ), 
-ISNULL( Retail_Start_Date__c ), 
-ISNULL( Retail_Due_Date__c ), 
-ISNULL( Region_Best_Number__c ) 
-)) 
-), 
-ISPICKVAL(Status, 'Published'), 
-$Profile.Name != 'IntegrationAPI' 
-)</errorConditionFormula>
-        <errorMessage>“BP Start Date”, “BP End Date”, “Retail Start Date”, “Retail Due Date”, “Region Due Date”, “Region Best Number” and “Region Recommend Number” are required.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Make_segementation_date_inactive</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),( Use_Segmentation_Criteria__c = TRUE),(NOT(ISBLANK(Segmentation_Date__c ) )))</errorConditionFormula>
-        <errorMessage>Segmentation criteria is on</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Only_Started_Campaign_can_be_activated</fullName>
-        <active>false</active>
-        <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
-Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
-        <errorConditionFormula>NOT(ISPICKVAL( Status , 'Started')) 
-&amp;&amp; IsActive
-&amp;&amp; (  RecordType.Name = "CAC CRM Campaign" || RecordType.Name = "Central Marketing Campaign" || RecordType.Name = "CAS Marketing Campaign")</errorConditionFormula>
-        <errorDisplayField>IsActive</errorDisplayField>
-        <errorMessage>Only Campaign with "Started" status can be activated.</errorMessage>
+$Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
+        <errorMessage>You cann&apos;t change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Parent_Campaign_Status_Ongoing</fullName>
@@ -22104,9 +23598,16 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
     <validationRules>
         <fullName>Parent_Campign_Not_Same</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,NOT(ISBLANK(Previous_Campaign_Execution__c)),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>Parent campaign must be the same as the parent campaign of previous campaign execution.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Parent_Campign_Not_Same_Generic</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( PRIORVALUE(ParentId ) &lt;&gt; ParentId,RecordType.Name = $Label.Campaign_Execution_Simple, $Permission.MYGeneric ,Create_Task__c = TRUE, $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>ParentId</errorDisplayField>
+        <errorMessage>You cannot change Parent Campaign as task is already created for this campaign.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Parent_Complete_Status_Change</fullName>
@@ -22114,15 +23615,12 @@ Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Status),'Completed'),ISCHANGED(Status), MD__c = 'JP', $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'Planning_Design_Campaign' )</errorConditionFormula>
         <errorMessage>You cannot changed the status</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Previous_Campaign_Execution_Parent</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(
-Previous_Campaign_Execution__r.ParentId  &lt;&gt;  ParentId,
-NOT(ISBLANK(Previous_Campaign_Execution__c))
-)</errorConditionFormula>
-        <errorDisplayField>Previous_Campaign_Execution__c</errorDisplayField>
-        <errorMessage>Previous campaign execution only belong to this parent campaign.</errorMessage>
+	 <validationRules>
+        <fullName>Planning_Design_Campaign_Active_MY</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Planning_Design_Campaign&apos;,ISNEW(),IsActive = True, $Permission.MYGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorDisplayField>IsActive</errorDisplayField>
+        <errorMessage>Parent Campaign can&apos;t be active if there aren&apos;t any associated campaign execution record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Record_lock_on_campaign</fullName>
@@ -22132,46 +23630,22 @@ PRIORVALUE(Consolidated_List_Completed__c) = TRUE,NOT(ISCHANGED(Child_Campaign_S
         <errorMessage>Record is Locked</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>SMS_Task_Verified_is_True</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(
-SMS_Task_Verified__c  = True,
-NOT(ISPICKVAL(Execution_Type__c,"SMS")),NOT(ISPICKVAL(Execution_Type__c,"MMS"))
-)</errorConditionFormula>
-        <errorDisplayField>SMS_Task_Verified__c</errorDisplayField>
-        <errorMessage>SMS task verified can only be true when Execution Type is SMS</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>SMS_eDM_Template_is_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND( ISBLANK(Template__c), 
 OR( 
 ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICKVAL(Execution_Type__c ,"eDM") 
-),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH')
+),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'TH')
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Start_Date_And_End_date</fullName>
-        <active>false</active>
-        <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;= EndDate , true, false)))</errorConditionFormula>
-        <errorMessage>Start Date can not be less than Today</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Start_date_can_not_be_equal_to_Today</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),ISCHANGED(StartDate) ,( MD__c = 'JP'), (IF( (StartDate) &lt;  TODAY() , true, false)))</errorConditionFormula>
-        <errorDisplayField>StartDate</errorDisplayField>
-        <errorMessage>Start Date can not be less than Today</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Use_Segmentation_Criteria</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(Use_Segmentation_Criteria__c = false,MD__c = 'JP',$Profile.Name != 'IntegrationAPI', ISBLANK(Segmentation_Date__c),RecordType.DeveloperName = 'Campaign_Executiono'  )</errorConditionFormula>
-        <errorDisplayField>Segmentation_Date__c</errorDisplayField>
-        <errorMessage>Segmentation Date is Required</errorMessage>
+	    <validationRules>
+        <fullName>TH_publish_Date_Should_be_between_start</fullName>
+        <active>true</active>
+        <errorConditionFormula>MD__c ='TH' &amp;&amp;(StartDate &gt; Publish_Date__c ||Publish_Date__c&gt; EndDate)</errorConditionFormula>
+        <errorDisplayField>Publish_Date__c</errorDisplayField>
+        <errorMessage>Campaign Publish Date Should be Between Start  Date And  End Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>not_check_active_when_new_cac_camapgin</fullName>
@@ -22263,7 +23737,19 @@ window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_C
 }
 else
 {
-window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	if (sforce.console.isInConsole()) 
+	{ 
+		javascript:sforce.console.getEnclosingPrimaryTabId( 
+		function openPrimaryTab(result) 
+		{ 	
+		sforce.console.openPrimaryTab(result.id,'/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		}
+		)
+	}
+	else
+	{	
+	window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	}
 }</url>
     </webLinks>
     <webLinks>
@@ -22283,8 +23769,7 @@ window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_
         <position>none</position>
         <protected>false</protected>
         <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+        <showsStatus>false</showsStatus>      <url>/OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -22318,11 +23803,23 @@ alert('something has gone wrong please contact your Administrator');
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }
 else
 {
-window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=012280000006I7g&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	if (sforce.console.isInConsole()) 
+	{ 
+		javascript:sforce.console.getEnclosingPrimaryTabId( 
+		function openPrimaryTab(result) 
+		{
+		sforce.console.openPrimaryTab(result.id,'/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		}
+		)
+	}
+	else
+	{
+	window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	}
 }</url>
     </webLinks>
     <webLinks>
@@ -22884,7 +24381,42 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <linkType>url</linkType>
         <masterLabel>View Previous Campaign Members</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>
+        <protected>false</protected> 
         <url>/00O?scope=1&amp;rt=5&amp;scopeid={!Campaign.Previous_Campaign_Execution__c}</url>
     </webLinks>
+	<webLinks>
+        <fullName>Create_Child_Campaign_Generic</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Child Campaign</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/701/e?RecordType=01228000001Dg46&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
+    </webLinks> 
+	<webLinks>
+        <fullName>Create_Simple_Execution_Generic</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Execution Campaign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/29.0/apex.js")} 
+
+if('{!User.ContactId}' !='')
+{
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+}
+else
+{
+window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+}</url>
+    </webLinks>
 </CustomObject>
+
+
+

@@ -23,8 +23,14 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf
             leadRS.updateOwnerwithDealer(Trigger.new);   
         }
         if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)&& usr.Profile.Name != 'IntegrationAPI'){
-     leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);  
-     leadRS.CreateRetailCopy(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+     
+     if(LeadHelperTH.booleanCampaignUpdate){
+        LeadHelperTH.booleanCampaignUpdate=false;
+        leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);  
+		LeadHelperTH.ShareRecordswithDealers(Trigger.new,Trigger.isupdate);
+		leadRS.CreateRetailCopy(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
+     
+     }
         }
   
     }

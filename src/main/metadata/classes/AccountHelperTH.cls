@@ -15,8 +15,146 @@ public class AccountHelperTH{
     **/
     public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+    public static Id dealer_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Dealer');
     public static Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
     public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
+    public static boolean consentHistoryCodeCalled = true;
+     public static  String validate(string phonestring,integer num,String fields,integer len,integer digits){
+        integer i;
+        string phon='';
+        for(i=num;i<phonestring.length();i++){
+                        if(phonestring.substring(i,i+1)=='0'){
+                            continue;
+                         }else
+                         {
+                           phon=phonestring.substring(i);
+                           
+                           break;
+                         }
+                    }
+                    //outside for loop
+                    //after removing zero's if phone size is less than 8 through error 
+                    if(phon.length()<len){
+                        return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDD or it can be in the format of DDDDDDDD';
+                        
+                    }
+                    else if(fields=='Mobile'&&!Pattern.matches('[0-9]{9}',phon)){
+                        return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
+                    }
+                    else if(!Pattern.matches('[0-9]{8}',phon)&&fields!='Mobile'){
+                        return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
+                    }
+                    else{
+                       return '+66'+phon;
+                    }
+                    
+    }
+     public static void ValidatePhoneNumberonBeforeEvents(list<Account> listNewAccounts){
+         String individualphone='+66';
+         for(Account acc:listNewAccounts){
+           if(acc.RecordTypeId!=dealer_RecordTypeId&&acc.md__c=='TH'){
+             if(!(String.IsBlank(acc.Individual_Home_Phone__c))&&acc.Individual_Home_Phone__c.length()>3){
+                 //if user inputs more than one zero after +66 it will remove all the zero's
+                 //if the Individual_Home_Phone__c starts with zero then find zero in third position 
+                 if(acc.Individual_Home_Phone__c.startsWith('+66')){
+                     String restultstring=validate(acc.Individual_Home_Phone__c,3,'Home Phone',8,11);
+                     if(restultstring.startswith('Home Phone')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Individual_Home_Phone__c=restultstring;
+                     }
+                 }
+                 else{
+                     
+                     String restultstring=validate(acc.Individual_Home_Phone__c,0,'Home Phone',8,11);
+                     if(restultstring.startswith('Home Phone')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Individual_Home_Phone__c=restultstring;
+                     }
+                 }
+             }
+             
+             
+             if(!(String.IsBlank(acc.Work_Phone__c))&&acc.Work_Phone__c.length()>3){
+                 //if user inputs more than one zero after +66 it will remove all the zero's
+                 //if the Work_Phone__c starts with zero then find zero in third position 
+                 if(acc.Work_Phone__c.startsWith('+66')){
+                     String restultstring=validate(acc.Work_Phone__c,3,'WorkPhone',8,11);
+                     if(restultstring.startswith('WorkPhone')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Work_Phone__c=restultstring;
+                     }
+                 }
+                 else{
+                     
+                     String restultstring=validate(acc.Work_Phone__c,0,'WorkPhone',8,11);
+                     if(restultstring.startswith('WorkPhone')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Work_Phone__c=restultstring;
+                     }
+                 }
+             }
+                 if(!(String.IsBlank(acc.FAX))&&acc.FAX.length()>3){
+                 //if user inputs more than one zero after +66 it will remove all the zero's
+                 //if the Work_Phone__c starts with zero then find zero in third position 
+                 if(acc.FAX.startsWith('+66')){
+                     String restultstring=validate(acc.FAX,3,'FAX',8,11);
+                     if(restultstring.startswith('FAX')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.FAX=restultstring;
+                     }
+                 }
+                 else{
+                     
+                     String restultstring=validate(acc.FAX,0,'FAX',8,11);
+                     if(restultstring.startswith('FAX')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.FAX=restultstring;
+                     }
+                 }
+             }
+              if(!(String.IsBlank(acc.Mobile__c))&&acc.Mobile__c.length()>3){
+                 //if user inputs more than one zero after +66 it will remove all the zero's
+                 //if the Work_Phone__c starts with zero then find zero in third position 
+                 if(acc.Mobile__c.startsWith('+66')){
+                     String restultstring=validate(acc.Mobile__c,3,'Mobile',9,12);
+                     //will display error messages if any
+                     if(restultstring.startswith('Mobile')){
+                         acc.addError(restultstring);
+                         
+                     }// if there is not error then it will set the mobile number by adding +66
+                     else{
+                         acc.Mobile__c=restultstring;
+                     }
+                 }
+                 else{
+                     
+                     String restultstring=validate(acc.Mobile__c,0,'Mobile',9,12);
+                     if(restultstring.startswith('Mobile')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Mobile__c=restultstring;
+                     }
+                 }
+             }
+                
+         }
+        } 
+     }
+     
+     /* End Of phone Number format */
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert)
     {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null)
@@ -92,8 +230,7 @@ public class AccountHelperTH{
             Pattern p = Pattern.compile('[0-9]{13}');
             Matcher m = p.matcher(acc.ID_Number__c);
             if(!m.matches()){
-                acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
-                
+                acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');  
             }
             else{
                 integer sum=0;
@@ -110,8 +247,10 @@ public class AccountHelperTH{
             }
         
         }
- 
+       
    }
+   
+   
    }
    }
    
@@ -131,6 +270,7 @@ public class AccountHelperTH{
                    if(acc.Opt_In_Work_Phone2__c){ acc.Opt_In_Work_Phone2__c = FALSE;}
                    if(acc.Preferred_Mobile_1__c){ acc.Preferred_Mobile_1__c = FALSE;}
                    if(acc.Preferred_Mobile_2__c){ acc.Preferred_Mobile_2__c = FALSE;}
+                   if(acc.MD__c == Label.TH) {if(acc.Opt_In_Mobile__c){ acc.Opt_In_Mobile__c= FALSE;}}
                }
            } 
         }
@@ -285,10 +425,12 @@ public class AccountHelperTH{
                 
                 if(Acc.Email__c!= OldAcc.Email__c)
                 {
+                    Acc.PersonEmail = Acc.Email__c;
                     Acc.Email_Last_Modified_By__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date__c = System.now();
                 }
-                
+                if(Acc.Email__c != OldAcc.Email__c && Acc.Email__c == null)
+                    Acc.PersonEmail = Null;
                 if(Acc.Email2__c!= OldAcc.Email2__c)
                 {
                     Acc.Email_Last_Modified_By2__c = UserInfo.getName();
@@ -760,6 +902,31 @@ public class AccountHelperTH{
         CustomLogUtil.DebugLogInsert();
         
     } 
+    
+    /**Implemented as part of the ticket SFDCTH-509 by Suresh Panduga**/
+    
+    public Static void UpdateConsentHistory(Map<Id,Account> oldAccountMap, List<Account> newAccountList){
+        List<Account_Field_History_Tracker__c> consentHistoryList = new List<Account_Field_History_Tracker__c>();
+        for(Account acc : newAccountList){
+            if(!String.isBlank(oldAccountMap.get(acc.Id).Personal_Agreement__c) || oldAccountMap.get(acc.Id).Lastest_Consent_Date__c != null){
+                if(acc.Personal_Agreement__c != oldAccountMap.get(acc.Id).Personal_Agreement__c || acc.Lastest_Consent_Date__c != oldAccountMap.get(acc.Id).Lastest_Consent_Date__c){
+                    Account_Field_History_Tracker__c consentHistory = new Account_Field_History_Tracker__c();
+                    consentHistory.Account_Record_Id__c = acc.Id;
+                    consentHistory.Personal_Agreement__c = oldAccountMap.get(acc.Id).Personal_Agreement__c;
+                    consentHistory.System_Data_Source__c = oldAccountMap.get(acc.Id).System_Data_Source__c;
+                    consentHistory.Updated_Consent_Date__c = oldAccountMap.get(acc.Id).Updated_Consent_Date__c;
+                    consentHistory.Updated_Consent_User__c = oldAccountMap.get(acc.Id).Updated_Consent_User__c;
+                    consentHistory.User_Organization__c = oldAccountMap.get(acc.Id).User_Organization__c;
+                    consentHistory.Lastest_Consent_Date__c = oldAccountMap.get(acc.Id).Lastest_Consent_Date__c;
+                    consentHistoryList.add(consentHistory);
+                }
+            }
+        }
+        if(!consentHistoryList.isEmpty()){
+            System.debug('--consentHistoryList--'+consentHistoryList);
+            insert consentHistoryList;
+        }
+    }
     
    //implemented "MD__c" field as a parameter as well so that the same will be picked and sent dynamically to EP as part of webservice 21/09/2016 Sekhar
     @Future(callout=true)   

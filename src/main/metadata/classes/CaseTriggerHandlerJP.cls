@@ -3,25 +3,26 @@ public class CaseTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-            if(Trigger.isBefore && Trigger.isupdate)
+       if(Trigger.isBefore && Trigger.isupdate)
         {
+           CaseHelperBase.updatemarket(Trigger.New);
            CaseHelperJP.caseOwner(Trigger.New, (Map<Id,Case>) Trigger.OldMap);
             
         }
     
-     if (trigger.isAfter)
-    {
-    if (trigger.isInsert){
-    System.debug('$$$$$$@@@@'+trigger.new);
-    caseHelperJP.shareCaseWithDealers(trigger.new);
-     caseHelperJP.SendEmailToNotifyDealer(trigger.new,(Map<Id,Case>)Trigger.OldMap);
-    }
-    if (trigger.isUpdate){
-    System.debug('$$$$$$@@@@'+trigger.new);
-    caseHelperJP.shareCaseWithDealers(trigger.new);
-     caseHelperJP.SendEmailToNotifyDealer(trigger.new,(Map<Id,Case>)Trigger.OldMap);
-    }
-    } 
+        if (trigger.isAfter)
+        {
+            if (trigger.isInsert){
+                System.debug('$$$$$$@@@@'+trigger.new);
+                caseHelperJP.shareCaseWithDealers(trigger.new);
+                caseHelperJP.SendEmailToNotifyDealer(trigger.new,(Map<Id,Case>)Trigger.OldMap);
+            }
+            if (trigger.isUpdate){
+                System.debug('$$$$$$@@@@'+trigger.new);
+                caseHelperJP.shareCaseWithDealers(trigger.new);
+                caseHelperJP.SendEmailToNotifyDealer(trigger.new,(Map<Id,Case>)Trigger.OldMap);
+            }
+        } 
         system.debug('Entered handler...JP handler');
         system.debug('Trigger IsDelete...' +trigger.isDelete);
         CaseHelperJP caseHelperJPd = new CaseHelperJP();
@@ -59,8 +60,8 @@ public class CaseTriggerHandlerJP
                 
             }
         }    
-		
-		if (trigger.isbefore)
+        
+        if (trigger.isbefore)
         {
           if (trigger.isInsert)
           {
@@ -72,16 +73,16 @@ public class CaseTriggerHandlerJP
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       // Implementation to addedd as required in market
-	  CaseHelperJP caseHelperJPd = new CaseHelperJP();
-	  
-	  if (trigger.isBefore)
-		{
-		if (trigger.isUpdate){
+      CaseHelperJP caseHelperJPd = new CaseHelperJP();
+      
+      if (trigger.isBefore)
+        {
+        if (trigger.isUpdate){
                 caseHelperJPd.calculateComplaintAmount(trigger.new,trigger.oldMap);
-		}		
-		}	
-		
-	   if (trigger.isAfter){
+        }       
+        }   
+        
+       if (trigger.isAfter){
             if (trigger.isDelete){
                system.debug('Entered delete condition...');
                caseHelperJPd.calculateComplaintAmount(trigger.old);
@@ -94,8 +95,8 @@ public class CaseTriggerHandlerJP
             }
         
         }
-			
-		
+            
+        
     }
     
 }

@@ -73,6 +73,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comment__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Next_Contact_Customer_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -95,6 +99,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lead_Latest_Phase__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Next_Contact_Contents__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -262,6 +270,14 @@
                 <behavior>Edit</behavior>
                 <field>Special_Offer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>At_The_Time_of_Stock__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Loaner_Vehicle__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -289,6 +305,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Photo_URL2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>At_The_Time_of_Retrieval__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

@@ -7,19 +7,121 @@
         <shortDescription>A6 Contact as part of visiting a car dealership</shortDescription>
         <value>Contact as part of visiting a car dealership</value>
     </labels>
+	<labels>
+        <fullName>Please_Select_only_one_as_a_Master</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Please Select only one as a Master</value>
+    </labels> 
+	<labels>
+        <fullName>vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge vehicle</shortDescription>
+        <value>vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>MBK_ONLINE_DEDUP_CHECKUP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KR ONLINE DEDUP CHECKUP</shortDescription>
+        <value>‘Online Deduplication’ check is required.</value>
+    </labels>
+	<labels>
+        <fullName>Interested_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Interested Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Interested_competitor_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Interested competitor Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>Current_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Current Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>Purchased_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Purchased Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Ch_Interested_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Interested Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>ch_Interested_competitor_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Interested competitor Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>ch_Current_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Current Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>ch_Purchased_Vehicle_Details</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge screen</shortDescription>
+        <value>Child Purchased Vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>Leadmerge</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Merge</shortDescription>
+        <value>Lead Merge</value>
+    </labels> 
+	<labels>
+        <fullName>Accept_Leads_case_MSG1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accept Lead / cases custom button</shortDescription>
+        <value>This record does not belong to any queue, thus cant be assigned via this button.</value>
+    </labels>
+	<labels>
+        <fullName>Accept_Leads_case_MSG2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accept Lead / cases custom button</shortDescription>
+        <value>This button is for Korea partner users only</value>
+    </labels>
     <labels>
         <fullName>A6_Email</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>A6  Email</shortDescription>
         <value>Email</value>
-    </labels>
-	<labels>
-        <fullName>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</shortDescription>
-        <value>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</value>
     </labels>
     <labels>
         <fullName>A6_Invitation_to_an_event_event_at_the_car_dealership</fullName>
@@ -34,6 +136,34 @@
         <protected>false</protected>
         <shortDescription>A6 Other contact channels</shortDescription>
         <value>Other contact channels</value>
+    </labels>
+	<labels>
+        <fullName>Manage_Tasks</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Manage Tasks on campaign</shortDescription>
+        <value>Manage Tasks</value>
+    </labels> 
+	<labels>
+        <fullName>Filter_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter Status</shortDescription>
+        <value>Filter Status</value>
+    </labels>
+	<labels>
+        <fullName>New_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Status</shortDescription>
+        <value>New Status</value>
+    </labels>
+	<labels>
+        <fullName>All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
     </labels>
     <labels>
         <fullName>A6_Personal_email</fullName>
@@ -70,12 +200,26 @@
         <shortDescription>A6 Telephone call</shortDescription>
         <value>Telephone call</value>
     </labels>
+	<labels>
+        <fullName>KR_Company_Account_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KR Company Account Record Type</shortDescription>
+        <value>Only one contact number can be selected</value>
+    </labels>
     <labels>
         <fullName>A6_Visit_to_a_car_dealership</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>A6 Visit to a car dealership</shortDescription>
         <value>Visit to a car dealership</value>
+    </labels>
+    <labels>
+        <fullName>AMG</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AMG</shortDescription>
+        <value>AMG</value>
     </labels>
     <labels>
         <fullName>A_selected_DM_Material_does_not_have_a_sufficient_stock</fullName>
@@ -483,13 +627,6 @@
         <protected>false</protected>
         <shortDescription>AlreadyProcessed</shortDescription>
         <value>This record is already processed or This button works only for Retail Company or Retail Person</value>
-    </labels>
-    <labels>
-        <fullName>AMG</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>AMG</shortDescription>
-        <value>AMG</value>
     </labels>
     <labels>
         <fullName>Amount</fullName>
@@ -1257,11 +1394,11 @@
         <value>Response Date Error</value>
     </labels>
     <labels>
-        <fullName>Campaign_Execution_Simple</fullName>
+        <fullName>Campaign_Execution_Simple</fullName> 
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Campaign Execution - Simple</shortDescription>
-        <value>Campaign Execution - Simple</value>
+        <shortDescription>Campaign Execution</shortDescription>
+        <value>Campaign Execution</value>
     </labels>
     <labels>
         <fullName>Campaign_Id</fullName>
@@ -1768,7 +1905,7 @@
         <shortDescription>Close</shortDescription>
         <value>Close</value>
     </labels>
-		    <labels>
+    <labels>
         <fullName>Close2</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1836,7 +1973,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>used in MY Address Search Validation Controller</shortDescription>
-        <value>For Company Search Account Name and any of the contact information</value>
+        <value>One of Contact Number/ Email has to be entered</value>
     </labels>
     <labels>
         <fullName>Company_Account_Information</fullName>
@@ -3431,6 +3568,13 @@ please contact the number below.</value>
         <value>If Yes, specify favorite model</value>
     </labels>
     <labels>
+        <fullName>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</shortDescription>
+        <value>If customer has no vehicle relationship, Status must not be Ã¢â‚¬ËœCustomerÃ¢â‚¬</value>
+    </labels>
+    <labels>
         <fullName>If_yes_within_which_period_do_you_plan_to_purchase</fullName>
         <categories>flows</categories>
         <language>en_US</language>
@@ -4149,6 +4293,14 @@ please contact the number below.</value>
         <shortDescription>Lead Memo</shortDescription>
         <value>Lead Memo</value>
     </labels>
+	<labels>
+        <fullName>Leadmergeupdated</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Leadmergeupdated</shortDescription>
+        <value>As for 16 fields values (” Interested Vehicle Brand”～”Purchased Vehicle VIN”), master record value will be left by Lead Merge</value>
+    </labels> 
     <labels>
         <fullName>Lead_Process_Sheet</fullName>
         <language>en_US</language>
@@ -4437,6 +4589,106 @@ please contact the number below.</value>
         <shortDescription>MBJ support</shortDescription>
         <value>MBJ support</value>
     </labels>
+	<!-- added for i2max -->	
+	<labels>
+        <fullName>MBKMessageLogDelete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBKMessageLogDelete</shortDescription>
+        <value>30</value>
+    </labels>
+    <labels>
+        <fullName>MBK_MessageType_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBK Message Type Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+	<labels>
+        <fullName>MBK_Message_Button_Name</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Button_Name</shortDescription>
+        <value>설문 시작</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Channel_KaKao</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Channel_KaKao</shortDescription>
+        <value>A</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Channel_LMS</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Channel_LMS</shortDescription>
+        <value>L</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Channel_MMS</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Channel_MMS</shortDescription>
+        <value>M</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Channel_SMS</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Channel_SMS</shortDescription>
+        <value>S</value>
+    </labels>
+	<labels>
+        <fullName>MBK_Message_ContentType</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_ContentType</shortDescription>
+        <value>application/json</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_SenderKey</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_SenderKey</shortDescription>
+        <value>c76dcff9ce0106edc23968bb52bb7728ecc36d25</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Sender_Phone</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Sender_Phone</shortDescription>
+        <value>07077057218</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_Survey</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_Survey</shortDescription>
+        <value>banz05</value>
+    </labels>
+    <labels>
+        <fullName>MBK_Message_SurveyURL</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_SurveyURL</shortDescription>
+        <value>https://www.mercedes-benz.co.kr</value>
+    </labels>
+    <!--<labels>
+        <fullName>MBK_Message_URL</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_URL</shortDescription>
+        <value>https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao</value>
+    </labels>-->
+    <labels>
+        <fullName>MBK_Message_custGubun</fullName>
+        <language>ko</language>
+        <protected>false</protected>
+        <shortDescription>MBK_Message_custGubun</shortDescription>
+        <value>benzkr</value>
+    </labels>
+ <!--added for i2max-->
     <labels>
         <fullName>MB_Complaint</fullName>
         <language>en_US</language>
@@ -4662,6 +4914,13 @@ please contact the number below.</value>
         <shortDescription>Master Record</shortDescription>
         <value>Master Record</value>
     </labels>
+	<labels>
+        <fullName>Master_and_Slave_can_not_have_same_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Master and Slave can not have same Id</shortDescription>
+        <value>Master and Slave can not have same Id</value>
+    </labels>
     <labels>
         <fullName>Media_Type</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -4823,6 +5082,13 @@ please contact the number below.</value>
         <value>N.A.</value>
     </labels>
     <labels>
+        <fullName>National_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>National ID</shortDescription>
+        <value>National ID Number / หมายเลขบัตรประชาชน</value>
+    </labels>
+    <labels>
         <fullName>Near_Dealer_1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4920,6 +5186,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>New Lead</shortDescription>
         <value>New Lead</value>
+    </labels>
+    <labels>
+        <fullName>New_Campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Campaign</shortDescription>
+        <value>New Campaign</value>
     </labels>
     <labels>
         <fullName>NewSurveyMoreQuestions</fullName>
@@ -5066,6 +5339,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>ไม่ได้</value>
     </labels>
     <labels>
+        <fullName>No_Thai_Can_t_Talk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Thai Can&apos;t Talk</shortDescription>
+        <value>ไม่ใช่ หรือไม่สะดวกคุย  ( จบการสนทนา และ Agent กล่าวขอบคุณลูกค้า) 
+(ต้องขอขอบพระคุณที่กรุณาสละเวลาในวันนี้ค่ะ และขอบพระคุณที่ใช้บริการ เมอร์เซเดส-เบนซ์ ประเทศไทย สวัสดีค่ะ)</value>
+    </labels>
+    <labels>
         <fullName>No_Users_are_available_to_assign</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5077,14 +5358,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>No, busy right now</shortDescription>
-        <value>No, busy right now</value>
+        <value>No, busy right now         : Can I call you back at any time Sir/Madam?</value>
     </labels>
     <labels>
         <fullName>No_don_t_want_to_talk</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>No, don’t want to talk</shortDescription>
-        <value>No, don’t want to talk</value>
+        <value>No, don’t want to talk    : I am sorry for your inconvenient Sir/ Madam. Thank you. Bye.</value>
     </labels>
     <labels>
         <fullName>No_master_record_found_for_duplicate_merge</fullName>
@@ -5092,6 +5373,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>No master record found for duplicate merge</shortDescription>
         <value>No master record found for duplicate merge</value>
+    </labels>
+	<labels>
+        <fullName>No_record_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No record found</shortDescription>
+        <value>No record found</value>
     </labels>
     <labels>
         <fullName>None</fullName>
@@ -5220,6 +5508,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Online Dedup callout failure</shortDescription>
         <value>Webservice Callout failed: Please contact system Administrator</value>
+    </labels>
+	<labels>
+        <fullName>Only_Company_Manager_can_export</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Only Company Manager can export</shortDescription>
+        <value>Only Company Manager can export</value>
     </labels>
     <labels>
         <fullName>Operation</fullName>
@@ -5638,6 +5933,20 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Please select only one Master Record</shortDescription>
         <value>Please select only one Master Record</value>
+    </labels>
+	<labels>
+        <fullName>Please_select_only_one_slave_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select only one slave Record</shortDescription>
+        <value>Please select only one slave Record</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_only_one_slave_and_one_Master_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select only one slave and one Master Record</shortDescription>
+        <value>Please select only one slave and one Master Record</value>
     </labels>
     <labels>
         <fullName>Pleasecheck</fullName>
@@ -6710,13 +7019,6 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>S5 A3.4 I don’t know (yet)</shortDescription>
         <value>I don’t know (yet)</value>
     </labels>
-		    <labels>
-        <fullName>Select_All_Records</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Select All Records</shortDescription>
-        <value>Select All Records</value>
-    </labels>
     <labels>
         <fullName>S5_A3_4_I_will_primarily_use_the_car_for_business</fullName>
         <language>en_US</language>
@@ -7217,7 +7519,9 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q2.1 T P2</shortDescription>
-        <value>รวมถึงคำนำหน้านาม (Title)  เพศ (Gender) ต้องถูกต้อง</value>
+        <value>สะกดด้วย.........ข้อมูลถูกต้องหรือไม่คะ (ตรวจสอบทั้งภาษาไทย และอังกฤษ)
+	**รวมถึงคำนำหน้านาม (Title)  เพศ (Gender) ต้องถูกต้อง**
+	**เพิ่มเติมสำหรับลูกค้าที่ซื้อในนามบริษัท จะต้องทวนชื่อ-ตัวสะกดของบริษัท รวมถึงรูปแบบการจดทะเบียนว่าเป็น บจก. / บมจ. / ห้างหุ้นส่วน / ตลาดหลักทรัพย์ / ธนาคาร / โรงพยาบาล  และอื่นๆ**</value>
     </labels>
     <labels>
         <fullName>S5_Q2_1_T_P3</fullName>
@@ -7225,6 +7529,13 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <protected>false</protected>
         <shortDescription>S5 Q2.1 T P3</shortDescription>
         <value>ชื่อ บริษัท ของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Q2_1_T_P3_A</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Q2 1 T P3_A</shortDescription>
+        <value>**ปีต้องเป็น ค.ศ. เท่านั้น**</value>
     </labels>
     <labels>
         <fullName>S5_Q2_1_T_P4</fullName>
@@ -7736,7 +8047,7 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q5 T TH P3</shortDescription>
-        <value>สามารถติดต่อผู้จำหน่ายฯอย่างเป็นทางการได้โดยตรงที่หมายเลข .(แจ้งเบอร์ของผู้จำหน่ายฯที่ลูกค้าซื้อรถ) หรือติดต่อกับบริษัทฯ ได้ที่หมายเลข Customer Contact Center</value>
+        <value>สามารถติดต่อผู้จำหน่ายฯอย่างเป็นทางการได้โดยตรงที่หมายเลข .(แจ้งเบอร์ของผู้จำหน่ายฯที่ลูกค้าซื้อรถ) หรือติดต่อกับบริษัทฯ ได้ที่หมายเลข Customer Contact Center 1250</value>
     </labels>
     <labels>
         <fullName>S5_Q5_T_TH_P4</fullName>
@@ -8153,11 +8464,25 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Please select address</value>
     </labels>
     <labels>
-        <fullName>Select_All</fullName>
+        <fullName>Select_All_Value</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>[Select All]</shortDescription>
         <value>[Select All]</value>
+    </labels>
+	<labels>
+        <fullName>Select_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All</shortDescription>
+        <value>Select All</value> 
+   </labels>
+    <labels>
+        <fullName>Select_All_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select All Records</shortDescription>
+        <value>Select All Records</value>
     </labels>
     <labels>
         <fullName>Select_Company</fullName>
@@ -8635,14 +8960,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH_CACPurchaseddateRequired_Error</shortDescription>
-        <value>SARI changing lead statust ot purchased please enter Purchased CAC Date  Field</value>
+        <value>SARI changing lead status to purchased please enter Purchased CAC Date  Field</value>
     </labels>
     <labels>
         <fullName>TH_CAC_LeadstatusPurchasedError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH_CAC_LeadstatusPurchasedError</shortDescription>
-        <value>SARI changing lead statust ot “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
+        <value>SARI changing lead status to “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
     </labels>
     <labels>
         <fullName>TH_Not_authorized_to_create_MB_Vehicle_record</fullName>
@@ -9756,11 +10081,25 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Yes</value>
     </labels>
     <labels>
+        <fullName>Yes_Can_Talk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes Can Talk</shortDescription>
+        <value>Yes:	Thank you Sir/ Madam.</value>
+    </labels>
+    <labels>
         <fullName>Yes_Thai</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Yes Thai</shortDescription>
         <value>ใช่</value>
+    </labels>
+    <labels>
+        <fullName>Yes_Thai_Can_talk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes Thai Can talk</shortDescription>
+        <value>ใช่ และ สะดวกคุย</value>
     </labels>
     <labels>
         <fullName>You_cannot_Delete_CaseComment</fullName>
@@ -9782,6 +10121,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>You don&apos;t have permission to update this record for case edit for KR roles</shortDescription>
         <value>You don&apos;t have permission to update this record</value>
+    </labels>
+	<labels>
+        <fullName>You_should_have_aleast_one_master_and_one_slave_record_to_merge_the_duplicates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You should have aleast one master and one slave record to merge the duplicates</shortDescription>
+        <value>You should have aleast one master and one slave record to merge the duplicates</value>
     </labels>
     <labels>
         <fullName>Your_Current_car_s</fullName>
@@ -10277,5 +10623,89 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>updateRetailCopy, (This is used by MY Market Also)</shortDescription>
         <value>updateRetailCopy</value>
+    </labels>
+	<labels>
+        <fullName>New_Component</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New_Component</shortDescription>
+        <value>true</value>
+    </labels>
+	<labels>
+        <fullName>IdeaId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Provding ID for navigating to URL</shortDescription>
+        <value>recordlist/Ideas__c/00BO0000001RszNMAS</value>
+    </labels>
+    <labels>
+        <fullName>Rug_CommunityOwnerProfile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rug CommunityOwnerProfile</shortDescription>
+        <value>RUG Membership</value>
+    </labels>
+    <labels>
+        <fullName>Rug_CommunityuserProfile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rug CommunityuserProfile</shortDescription>
+        <value>Honorary Member</value>
+    </labels>
+    <labels>
+        <fullName>Url_for_Rug_Low_static</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Url for Rug Low static</shortDescription>
+        <value>/RUGCollaboration/resource/1507784176000/Rug_low</value>
+    </labels>
+    <labels>
+        <fullName>Url_for_Rug_Med_static</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Url for Rug Med static</shortDescription>
+        <value>/RUGCollaboration/resource/1507784128000/Rug_med</value>
+    </labels>
+    <labels>
+        <fullName>Url_for_Rug_max_static</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Url for Rug max static</shortDescription>
+        <value>/RUGCollaboration/resource/1507784070000/Rug_max</value>
+    </labels>
+    <labels>
+        <fullName>assignRugPermissionSet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>assignRugPermissionSet</shortDescription>
+        <value>Company_Community_for_Force_com</value>
+    </labels>
+    <labels>
+        <fullName>getPickListValuesDepartment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>getPickListValuesDepartment</shortDescription>
+        <value>Department__c</value>
+    </labels>
+    <labels>
+        <fullName>getPickListValuesRegion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>getPickListValuesRegion</shortDescription>
+        <value>Region__c</value>
+    </labels>
+    <labels>
+        <fullName>pageRedirectionAfterReqCreation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>pageRedirectionAfterReqCreation</shortDescription>
+        <value>/rugcollaboration/s/login/</value>
+    </labels>
+    <labels>
+        <fullName>rug_userName_Extension</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>rug userName Extension</shortDescription>
+        <value>@rugcollaboration.daimler.com</value>
     </labels>
 </CustomLabels>

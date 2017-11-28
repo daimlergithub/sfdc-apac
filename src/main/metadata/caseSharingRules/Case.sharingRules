@@ -376,6 +376,20 @@
         <description>Sharing all the cases to the all users of Thailand</description>
         <name>TH_Sharing_Cases_to_All_other_TH_users</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MY_Sharing_Cases_to_All_other_MY_users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Sharing all the cases to the all users of Malaysia</description>
+        <name>MY_Sharing_Cases_to_All_other_MY_users</name>
+    </criteriaBasedRules>
     <ownerRules>
         <fullName>CAC_Case_share_to_Hanxue</fullName>
         <sharedTo>

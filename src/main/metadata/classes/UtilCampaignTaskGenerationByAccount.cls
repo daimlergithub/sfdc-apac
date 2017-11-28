@@ -34,6 +34,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     private String strOBCall = 'OB Call';
     private String streDM = 'eDM';
     private String strDM = 'DM';
+    private String strKkTlk = 'KakaoTalk';
     
     private String strOpenStatus = 'Open';
     private String strCloseStatus = 'Closed';
@@ -48,8 +49,11 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     global Map<String, Schema.RecordTypeInfo> taskRecordTypeMap;
     
     global UtilCampaignTaskGenerationByAccount(List<Campaign> cpList) 
-    {    
-        usr = [select id, Name,userRole.Name from user  where userRole.Name =: CallCenterSupervisor limit 1];
+    {   
+    	if(userinfo.getUserType() != 'PowerPartner')
+    	{
+    		usr = [select id, Name,userRole.Name from user  where userRole.Name =: CallCenterSupervisor limit 1];
+    	}
         usr_th = [select id, Name,userRole.Name from user where Username like'%siripan.chantanawilas@daimler.com%'];
         loggedinUser=[select id,Market__c from user where Id= :userinfo.getUserId()];
         //usr = [Select Id, Name,Alias from user where Alias =:alias limit 1]; 
@@ -79,7 +83,8 @@ system.debug('&******************'+cpList);
                     Campaign.Parent.Task_De_dup_Range__c,
                     Campaign.Parent.ParentId,
                     Campaign.Previous_Campaign_Execution__c,
-                    Campaign.Template__c, Status, Campaign.OwnerId
+                    Campaign.Template__c, Status, Campaign.OwnerId, Campaign.MD__c,Campaign.Campaign_Code__c, Campaign.OBSMSTemplate__c, 
+                    Campaign.OBSMSTemplate__r.Message_Detail__c, Campaign.OBSMSTemplate__r.Template_ID__c
             from CampaignMember
             where CampaignId in :cpIdList and Task_Generated__c = false]);
     } 
@@ -95,9 +100,11 @@ system.debug('&******************'+cpList);
                 cpm.Task_Generated__c = true;
             }
             
-            Map<String, Task> upSMSTaskList = new Map<String, Task>();
+            /*Map<String, Task> upSMSTaskList = new Map<String, Task>();
             Map<String, Task> upMMSTaskList = new Map<String, Task>();
             Map<String, Task> upEDMTaskList = new Map<String, Task>();
+            Map<String, Task> upDMTaskList = new Map<String, Task>();
+            Map<String, Task> upKkTlkTaskList = new Map<String, Task>();
             List<Task> upOtherTaskList = new List<Task>();
             for(task tk : taskList){
                 if(tk.Subject == strSMS){
@@ -108,6 +115,11 @@ system.debug('&******************'+cpList);
                 }
                 else if(tk.Subject == streDM){
                     upEDMTaskList.put(tk.UniqueCampaignEmail__c, tk);
+                }
+                else if(tk.Subject == strDM){
+                    upDMTaskList.put(tk.UniqueCampaignEmail__c, tk);
+                }else if(tk.Subject == strKkTlk){
+                    upKkTlkTaskList.put(tk.UniqueCampaignEmail__c, tk);
                 } else{
                     upOtherTaskList.add(tk);
                 }
@@ -116,6 +128,9 @@ system.debug('&******************'+cpList);
             taskList.addAll(upSMSTaskList.Values());
             taskList.addAll(upMMSTaskList.Values());
             taskList.addAll(upEDMTaskList.Values());
+            taskList.addAll(upDMTaskList.Values());
+            taskList.addAll(upKkTlkTaskList.Values());*/
+             system.debug( '   Size is *$*$*   ' + taskList.size());
             
             update scope;
             if(dmRequestList.size() > 0) insert dmRequestList;     
@@ -154,9 +169,17 @@ system.debug('&******************'+cpList);
 
         if(cpm.Campaign.Execution_Type__c == strOBCall) 
         {        
+        	system.debug('*$*$*$* OB Task Task Loop');
             //for(GroupMember u : obuserList) {
                 Task tsk = new Task();
-                tsk.Subject= strOBCall; 
+                //SB2017 Sushma Bharti
+                //'IF' condition added for MY for blank subject for auto created tasks
+                if(cpm.Campaign.MD__c!='MY'){
+                tsk.Subject= strOBCall;
+                } 
+                else{
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
+                } 
                 tsk.RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId();
                 tsk.Status = strOpenStatus;
                 tsk.DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c); 
@@ -178,7 +201,11 @@ system.debug('&******************'+cpList);
                        tsk.OwnerId =usr_th[0].Id;
                     }
                     else{
-                    tsk.OwnerId = usr.Id;
+                    if(loggedinUser.Market__c=='MY'){
+                    tsk.OwnerId = cpm.Campaign.OwnerId;
+                    }
+                    else{
+                    tsk.OwnerId = usr.Id;}
                     }
                 }
                 taskList.add(tsk);
@@ -186,9 +213,18 @@ system.debug('&******************'+cpList);
             
             //} Flow_URL__c = cpm.Campaign.Flow_URL__c, removed as part of SFDCJP-1765
         } 
-        else if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
+        else if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') 
+        {
+        	system.debug('*$*$*$* SMS Task Loop');
             Task tsk = new Task();
-            tsk.Subject= strSMS; 
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY'){
+            tsk.Subject= strSMS;
+            } 
+                else{
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
+                } 
             tsk.RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
@@ -204,14 +240,32 @@ system.debug('&******************'+cpList);
             tsk.WhatId = (cpm.ContactId == null ? null : cpm.CampaignId);
             tsk.ActivityDate = date.today();
             tsk.UniqueCampaignMobile__c = cpm.CampaignId + '-' + cpm.Contact.MobilePhone;
-            tsk.SMS_Content__c = cpm.Campaign.Content_Preview__c;
-            tsk.SMSTemplateID__c = cpm.Campaign.Template__c;
+            if(cpm.Campaign.MD__c == 'KR')
+            {
+            	tsk.SMS_Content__c = cpm.Campaign.OBSMSTemplate__r.Message_Detail__c;
+            	tsk.SMSTemplateID__c = cpm.Campaign.OBSMSTemplate__c;
+            }
+            else
+            {
+            	tsk.SMS_Content__c = cpm.Campaign.Content_Preview__c;
+            	tsk.SMSTemplateID__c = cpm.Campaign.Template__c;
+            }
+            
             tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
             taskList.add(tsk);
         } 
-        else if (cpm.Campaign.Execution_Type__c == mms && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
-            Task tsk = new Task();
-            tsk.Subject= mms; 
+        else if (cpm.Campaign.Execution_Type__c == mms && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') 
+        {
+        	system.debug('*$*$*$* MMS Task Loop');
+           Task tsk = new Task();
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY'){
+            tsk.Subject= mms;
+            } 
+                else{
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
+                }  
             tsk.RecordTypeId = taskRecordTypeMap.get(mms).getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
@@ -227,15 +281,73 @@ system.debug('&******************'+cpList);
             tsk.WhatId = (cpm.ContactId == null ? null : cpm.CampaignId);
             tsk.ActivityDate = date.today();
             tsk.UniqueCampaignMobile__c = cpm.CampaignId + '-' + cpm.Contact.MobilePhone;
-            tsk.SMSTemplateID__c = cpm.Campaign.Template__c;
-            tsk.eDM_Template__c = cpm.Campaign.Template__r.Template_ID__c;
+            if(cpm.Campaign.MD__c == 'KR')
+            {
+            	tsk.SMSTemplateID__c = cpm.Campaign.OBSMSTemplate__c;
+            	tsk.eDM_Template__c = cpm.Campaign.OBSMSTemplate__r.Template_ID__c;
+            }
+            else
+            {
+            	tsk.SMSTemplateID__c = cpm.Campaign.Template__c;
+            	tsk.eDM_Template__c = cpm.Campaign.Template__r.Template_ID__c;
+            }
             tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
             taskList.add(tsk);
         }
+        else if (cpm.Campaign.Execution_Type__c == strKkTlk && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') 
+        {
+        	system.debug('*$*$*$* KaKaoTalk Task Loop');
+            Task tsk = new Task();
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY')
+            {
+            tsk.Subject= strKkTlk;
+            } 
+            else
+            {
+            	tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
+            } 
+            tsk.RecordTypeId = taskRecordTypeMap.get('KakaoTalk').getRecordTypeId();
+            if(userinfo.getUserType()=='PowerPartner')
+            {
+                tsk.OwnerId = cpm.Campaign.OwnerId;
+            }
+            else
+            {
+                tsk.OwnerId = usr.Id;
+            }
+            tsk.Activity_Status__c = strVeriStatus;
+            tsk.Phone__c = cpm.Contact.MobilePhone;
+            tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
+            tsk.WhatId = (cpm.ContactId == null ? null : cpm.CampaignId);
+            tsk.ActivityDate = date.today();
+            tsk.UniqueCampaignMobile__c = cpm.CampaignId + '-' + cpm.Contact.MobilePhone;
+            if(cpm.Campaign.MD__c == 'KR')
+            {
+            	tsk.SMS_Content__c = cpm.Campaign.OBSMSTemplate__r.Message_Detail__c;
+            	tsk.SMSTemplateID__c = cpm.Campaign.OBSMSTemplate__c;
+            }
+            else
+            {
+            	tsk.SMS_Content__c = cpm.Campaign.Content_Preview__c;
+            	tsk.SMSTemplateID__c = cpm.Campaign.Template__c;
+            }
+            tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
+            taskList.add(tsk);
+        } 
         else if (cpm.Campaign.Execution_Type__c == streDM) 
         {
+        	system.debug('*$*$*$* DM Task Loop');
             Task tsk = new Task();
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY'){
             tsk.Subject= streDM; 
+            } 
+                else{
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
+                } 
             tsk.RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
@@ -262,8 +374,16 @@ system.debug('&******************'+cpList);
         } 
         else if (cpm.Campaign.Execution_Type__c == strDM) 
         {
-            Task tsk = new Task();
+        	system.debug('*$*$*$* Another DM Task Loop');
+           Task tsk = new Task();
+            //SB2017 Sushma Bharti
+            //'IF' condition added for MY for blank subject for auto created tasks
+            if(cpm.Campaign.MD__c!='MY'){
             tsk.Subject = strDM; 
+            } 
+                else{
+                tsk.Subject= cpm.Campaign.Execution_Type__c+' '+cpm.Campaign.Campaign_Code__c;
+                } 
             tsk.RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId();
             if(userinfo.getUserType()=='PowerPartner')
             {
@@ -290,6 +410,7 @@ system.debug('&******************'+cpList);
                     )
                 );
         } 
+        system.debug('dhanam123'+taskList);
         return taskList;
     }
     

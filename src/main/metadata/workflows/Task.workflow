@@ -87,7 +87,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 OR 4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Task.CallType</field>
             <operation>equals</operation>
@@ -107,6 +107,11 @@
             <field>Task.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Task.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

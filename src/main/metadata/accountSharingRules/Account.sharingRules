@@ -659,4 +659,26 @@
         <name>VIP PA share with Central CRM Manager</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Sharing_rule_for_Dealer_Account_to_MBF_roles</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <description>Sharing rule for Dealer Account to MBF roles</description>
+        <name>Sharing rule for Dealer Account to MBF roles</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
 </AccountSharingRules>

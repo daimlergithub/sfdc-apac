@@ -100,8 +100,8 @@ Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getR
   ChangeContactTarget ext = new ChangeContactTarget(new ApexPages.StandardController(vehicles));
   
     //ChangeContactTarget cct = new ChangeContactTarget();
-    ext.salesretailperson = accln4.id;
-    ext.aftersalesperson = accln4.id;
+    //ext.salesretailperson = accln4.id;
+    //ext.aftersalesperson = accln4.id;
          ext.updateit();
     //pageReference pager = page.ChangeContactTarget;
     //    Test.setCurrentPage(pager);

@@ -253,7 +253,45 @@
                 </table>
             </apex:outputpanel>
             
+             <apex:pageblock id="Readonly" rendered="{!if(recAcc.recordtype.Name = "Person Account",true,false)}">
+        
+        <apex:panelGrid columns="2" width="1000px">
+                <apex:pageblocksection columns="1" >
+                   <apex:repeat value="{!$ObjectType.Account.FieldSets.AccountMergeReadonlyPerson}" var="ci"> 
+                       <apex:outputfield value="{!Master[ci]}" /> 
+                   </apex:repeat>
+                    </apex:pageblocksection>
+                    
+                     <apex:pageblocksection columns="1" >
+                    <apex:repeat value="{!$ObjectType.Account.FieldSets.AccountMergeReadonlyPerson}" var="ci"> 
+                       <apex:outputfield value="{!Slave[ci]}" /> 
+                   </apex:repeat>
+                    </apex:pageblocksection>
+                    </apex:panelGrid>
+         
+      </apex:pageblock>
+      
+        <apex:pageblock id="Readonly1" rendered="{!if(recAcc.recordtype.Name = "Company",true,false)}">
+        
+        <apex:panelGrid columns="2" width="1000px">
+                <apex:pageblocksection columns="1" >
+                   <apex:repeat value="{!$ObjectType.Account.FieldSets.AccountMergeReadonlyCompany}" var="ci"> 
+                       <apex:outputfield value="{!Master[ci]}" /> 
+                   </apex:repeat>
+                    </apex:pageblocksection>
+                    
+                     <apex:pageblocksection columns="1" >
+                    <apex:repeat value="{!$ObjectType.Account.FieldSets.AccountMergeReadonlyCompany}" var="ci"> 
+                       <apex:outputfield value="{!Slave[ci]}" /> 
+                   </apex:repeat>
+                    </apex:pageblocksection>
+                    </apex:panelGrid>
+         
+      </apex:pageblock>
+            
         </apex:pageBlock>
+         </apex:form>
+                  <apex:form id="addresss">
          <apex:pageBlock title="{!$Label.Address_Select}" Id="pageBlock">
                 
                 
@@ -264,7 +302,7 @@
 
                         <apex:selectList id="slectaddtype" multiselect="false" value="{!selectedAddress}" size="1" >
                             <apex:selectOptions value="{!addtype}"/>
-                           <apex:actionSupport event="onchange" reRender="messages,addfrm,forms"  action="{!displayAddress}" status="Loading....."  />
+                           <apex:actionSupport event="onchange" reRender="messages,addfrm,addresss"  action="{!displayAddress}" status="Loading....."  />
                              
                         </apex:selectList>
                         </apex:actionRegion>
@@ -274,6 +312,7 @@
                 
                  
                 </apex:pageBlock> 
+                
                 <apex:pageMessages Id="messages"/> 
                  <apex:pageBlock id="addressblock" rendered="{!if(hasSuspectAdds = true,true,false)}">
                   

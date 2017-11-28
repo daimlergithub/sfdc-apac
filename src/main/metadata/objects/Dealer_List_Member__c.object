@@ -80,6 +80,17 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Class_and_Body__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign_Member__r.Class_and_Body__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Class and Body</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Company_Name__c</fullName>
         <externalId>false</externalId>
@@ -208,7 +219,7 @@
         <picklist>
             <picklistValues>
                 <fullName>Ready</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Removed</fullName>
@@ -216,7 +227,7 @@
             </picklistValues>
             <picklistValues>
                 <fullName>New</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -233,6 +244,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Model_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign_Member__r.Model_Description__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Model Description</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -315,6 +337,28 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Temp_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign_Member__r.Temp_Address__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unnormalized Address</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_ZipCode__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign_Member__r.Temp_ZipCode__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unnormalized Post Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>VehicleRelationship__c</fullName>
         <externalId>false</externalId>
@@ -385,4 +429,56 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),Participating_Dealer__r.Approve_the_List__c = TRUE)</errorConditionFormula>
         <errorMessage>Campaign is Locked</errorMessage>
     </validationRules>
+	 <validationRules>
+        <fullName>Account_cannot_be_changed</fullName>
+        <active>true</active>
+		<description>Account cannot be changed if List Maintenance CM Status is 'Ready' or 'Removed' , 
+As per JIRA SFDCJP-3118</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), 
+ISCHANGED(NewAccount__c),(OR((ISPICKVAL(List_Maintenance_CM_Status__c, "Ready")),(ISPICKVAL(List_Maintenance_CM_Status__c, "Removed")))) 
+)</errorConditionFormula>
+        <errorMessage>Account cannot be changed if List Maintenance CM Status is 'Ready' or 'Removed'</errorMessage>
+		<errorDisplayField>NewAccount__c</errorDisplayField>
+    </validationRules>	
+	 <validationRules>
+        <fullName>List_Maintenance_CM_Status_Changes</fullName>
+        <active>true</active>
+		<description>List Maintenance CM Status should be 'New' for new record, As per JIRA SFDCJP-3118</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(OR((ISPICKVAL(List_Maintenance_CM_Status__c, "Ready")),(ISPICKVAL(List_Maintenance_CM_Status__c, "Removed")))),ISNEW(), 
+(OR( 
+($Profile.Name = 'Japan Dealer Company Manager'), 
+($Profile.Name = 'Japan Dealer Sales Manager'), 
+($Profile.Name = 'Japan Dealer Sales Representative'), 
+($Profile.Name = 'Japan Dealer Service Advisor'), 
+($Profile.Name = 'Japan Dealer Service Manager'))) 
+)</errorConditionFormula>
+        <errorMessage>List Maintenance CM Status should be 'New' for new record</errorMessage>
+		<errorDisplayField>List_Maintenance_CM_Status__c</errorDisplayField>
+    </validationRules>	
+	<validationRules>
+        <fullName>LM_CM_Status_cannot_be_changes_to_New</fullName>
+        <active>true</active>
+		<description>List Maintenance CM Status cannot be changed to 'New', 
+As per JIRA SFDCJP-3118</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),ISCHANGED(List_Maintenance_CM_Status__c),NOT(ISPICKVAL(PRIORVALUE(List_Maintenance_CM_Status__c),'New')),(ISPICKVAL(List_Maintenance_CM_Status__c, "New")),NOT(ISNEW()), 
+(OR( 
+($Profile.Name = 'Japan Dealer Company Manager'), 
+($Profile.Name = 'Japan Dealer Sales Manager'), 
+($Profile.Name = 'Japan Dealer Sales Representative'), 
+($Profile.Name = 'Japan Dealer Service Advisor'), 
+($Profile.Name = 'Japan Dealer Service Manager'))) 
+)</errorConditionFormula>
+        <errorMessage>List Maintenance CM Status cannot be changed to 'New'</errorMessage>
+		<errorDisplayField>List_Maintenance_CM_Status__c</errorDisplayField>
+    </validationRules>	
+    <validationRules>
+        <fullName>Participating_Dealer_cannot_be_changed</fullName>
+        <active>true</active>
+		<description> Participating Dealer cannot be changed, As per JIRA SFDCJP-3118</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), 
+NOT(ISBLANK(PRIORVALUE(Participating_Dealer__c))),NOT(ISNEW()),ISCHANGED(Participating_Dealer__c))</errorConditionFormula>
+        <errorMessage>Participating Dealer cannot be changed</errorMessage>
+		<errorDisplayField>Participating_Dealer__c</errorDisplayField>
+    </validationRules>
+	
 </CustomObject>

@@ -6,12 +6,11 @@ public class TriggerRetailCampaignHandlerTH implements TriggerHandlerIf
     
         if(RetailCampaignHelperTH.booleanCampaignUpdate==true){
            RetailCampaignHelperTH.booleanCampaignUpdate=false;
-           RetailCampaignHelperTH.parentCampaingStatusChange(Trigger.new);
+           RetailCampaignHelperTH.parentCampaingStatusChange(Trigger.new,Trigger.Isinsert);
            
            //This will  continue as part of Dealers communities setup
            //RetailCampaignHelperTH.sharerecordswithDealers(trigger.new);
            /*if(trigger.isupdate){
-               system.debug('*********');
               RetailCampaignHelperTH.RevokeRecordaccesstoDealers(Trigger.new,(Map<Id,Retail_Campaign__C>)Trigger.oldmap,Trigger.Old);
            }*/
            

@@ -34,9 +34,12 @@ public class AddressDisplayInlineEditController {
     public String province {get;set;}
     public String LanguageSelected{get; set;}
     public boolean IsForeignNational{get; set;}
+  public Boolean AutoFill {get;set;}
+    public Boolean DisplayAutoFill {get;set;}
     public User u = [SELECT Id,Market__c,Profile.Name,contactId FROM User WHERE Id=:UserInfo.getUserId()] ;
     public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
-        this.stdController = stdController;     
+        this.stdController = stdController;  
+    AutoFill = false;     
         aid = ApexPages.currentPage().getParameters().get('id');
         Address_Validated_Flag = false;
         IsForeignNational=false;
@@ -295,7 +298,7 @@ public class AddressDisplayInlineEditController {
         If(editadds!=null)
         {                     
             addressobj.id=editadds.id;
-			addressobj.Market__c=editadds.Market__c;
+      addressobj.Market__c=editadds.Market__c;
             addressobj.Address_Type__c = editadds.Address_Type__c;
             addresspicklist=editadds.Address_Type__c;
             
@@ -333,14 +336,14 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
-            if(market=='TH' || market==Label.MY)
+            if(market=='TH' || Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
                    
                     if(market=='TH')
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
-                    else  if(addressobj.Country__c==label.MYCountry && market==Label.MY)
+                    else  if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
                     else
                         LanguageSelected='English';
@@ -582,8 +585,9 @@ public class AddressDisplayInlineEditController {
     {       
         try     
         {       
-            Validation=false;       
-            if(province!='' && province!=System.Label.SelectPicklist)      
+            Validation=false;   
+      boolean countPre=false;
+      if(province!='' && province!=System.Label.SelectPicklist)      
                 addressobj.Province__c=province;        
             if(district!='' && district!=System.Label.SelectPicklist)      
                 addressobj.District__c=district;        
@@ -592,11 +596,13 @@ public class AddressDisplayInlineEditController {
             if(addresspicklist!=null)       
                 addressobj.Address_Type__c = addresspicklist;           
             string accountid=ApexPages.currentPage().getParameters().get('id');     
-            List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid and preferred__c=true LIMIT 100];        
-                    
+            List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid LIMIT 100];        
+             
+      if(addressobj.preferred__c == true) countPre=true;
+        
             for(address__c add:objAddresses)        
             {                       
-                if(add.id!=addressobj.id && addressobj.preferred__c==true)      
+                if(add.id!=addressobj.id && add.preferred__c==true && countPre==true)      
                 {                       
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.OnePreferredError));         
                     Validation = true;          
@@ -607,7 +613,8 @@ public class AddressDisplayInlineEditController {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeError));         
                     Validation = true;          
                 }                       
-            }       
+            } 
+      
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));        
@@ -702,7 +709,7 @@ public class AddressDisplayInlineEditController {
         else if(AddressObj.ZipCode__c != null && (Pattern.matches('^[0-9]{7}$',AddressObj.ZipCode__c)))
         {
             crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-            response =  UtilWebservice.validateAddressByZipCode(addressobj);
+            response =  UtilWebservice.validateAddressByZipCode(addressobj,false);
             if(response != null && response.ValidationStatus == 'OK')
             {
                 
@@ -754,6 +761,14 @@ public class AddressDisplayInlineEditController {
             }            
         } 
     } 
+  
+  public void AutoFillAddress(){
+        AutoFill = true;
+        DisplayAutoFill = true;
+        ValidateAddressSearch();
+        
+    }
+  
     /**  Address Validation based on Zip code.
         After Address is searched using Address Search button and if user enters additional address information, It sends information to 
         EP/Tolerant for Validation.
@@ -827,10 +842,63 @@ public class AddressDisplayInlineEditController {
         mapAddressResponse = new List<addressSelectionWrapper>();      
         //Address__c AddressObjtemp1 = new Address__c();       
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-        response =  UtilWebservice.validateAddressByZipCode(addressobj);
-        
-        
-        if(response != null && response.ValidationStatus == 'OK'){
+        response =  UtilWebservice.validateAddressByZipCode(addressobj,Autofill);
+         if(response != null && response.Addresses!=null && response.AutoFillMode!=null && response.AutoFillMode && AutoFill){
+             for(Integer i=0;i<response.Addresses.size() && response.Addresses[i]!=null;i++){                
+                Address__c AddressObjtable = new Address__c(); 
+                Address_Validated_Flag = true;
+                if(response.Addresses[i].ZipCode != null && response.Addresses[i].ZipCode != ''){           
+                AddressObjtable.ZipCode__c =  response.Addresses[i].ZipCode;
+                }else {
+                AddressObjtable.ZipCode__c = AddressObj.ZipCode__c;
+                }
+                if(response.Addresses[i].ValidFields != null && response.Addresses[i].ValidFields != '' && response.Addresses[i].Valid){
+                    String ValidStr = response.Addresses[i].ValidFields;
+                    system.debug('ValidStr >> :'+ValidStr);
+                    string province;   
+                    Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
+                    UtilAddressTranslation.gettranslatedvalues(Market);
+                    if(addtrmapUpdate.containsKey(AddressObjtable.Province__c)){
+                        province = addtrmapUpdate.get(AddressObjtable.Province__c);
+                    }
+                    if(ValidStr.contains('Address_Line_1__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.Address_Line_1__c = response.Addresses[i].Address_Line_1;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_1__c   ' + AddressObjtable.Address_Line_1__c);
+                    }
+                    if(ValidStr.contains('Address_Line_2__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.Address_Line_2__c = response.Addresses[i].Address_Line_2;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2__c   ' + AddressObjtable.Address_Line_2__c);
+                    }
+                    if(ValidStr.contains('Block__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.Block__c = response.Addresses[i].Block;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Block__c   ' + AddressObjtable.Block__c);
+                    }
+                    if(ValidStr.contains('City__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.City__c = response.Addresses[i].City;
+                       //AddressObjtemp.City__c = response.Addresses[i].City;
+                        system.debug(' *$*$*$* Res AddressObjtemp.City__c   ' + AddressObjtable.City__c);
+                    }
+                    if(ValidStr.contains('District__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.District__c = response.Addresses[i].District;
+                        system.debug(' *$*$*$* Res AddressObjtemp.District__c   ' + AddressObjtable.District__c);
+                    }
+                    if(ValidStr.contains('Province__c') && Market == Label.JP)
+                    {
+                      AddressObjtable.Province__c = response.Addresses[i].Province;
+                        system.debug(' *$*$*$* Res AddressObjtemp.Province__c   ' + AddressObjtable.Province__c);
+                    }
+                             
+                }
+                mapAddressResponse.add(new addressSelectionWrapper(AddressObjtable));
+             } 
+             Autofill = false;  
+        }
+        else if(response != null && response.ValidationStatus == 'OK'){
              for(Integer i=0;i<response.Addresses.size();i++){                
                 Address__c AddressObjtemp = new Address__c(); 
                 Address_Validated_Flag = true;
@@ -1007,7 +1075,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     public String ValidateAddressCode(Address__c Address)
     {
         crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType response = new crmasiaDaimlerApacComValidateaddress.AddressValidationResponseMessageType();
-        response =  UtilWebservice.validateAddressByZipCode(Address);
+        response =  UtilWebservice.validateAddressByZipCode(Address,false);
         if(response != null && response.ValidationStatus == 'OK')
         {  
             if(AddressObj.ZipCode__c == response.Addresses[0].ZipCode  && 
@@ -1046,6 +1114,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Province__c = cWrapper.add.Province__c;
                 AddressObj.City__c = cWrapper.add.City__c;
                 AddressObj.District__c = cWrapper.add.District__c;
+        AddressObj.Block__c= cWrapper.add.Block__c;
                 AddressObj.ZipCode__c= cWrapper.add.ZipCode__c; 
                 AddressObj.Address_Line_1__c= cWrapper.add.Address_Line_1__c;  
                 AddressObj.Address_Line_2__c= cWrapper.add.Address_Line_2__c;  

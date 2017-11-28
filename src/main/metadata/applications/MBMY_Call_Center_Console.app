@@ -121,7 +121,7 @@
             <keyCommand>M</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
-    <label>MBMY - Call Center</label>
+    <label>MBMY Customer Contact Center</label>
     <listPlacement>
         <location>full</location>
     </listPlacement>
@@ -1319,18 +1319,20 @@
         </pushNotification>
     </pushNotifications>
     <saveUserSessions>true</saveUserSessions>
-    <tab>standard-Case</tab>
+    <tab>standard-home</tab>
     <tab>standard-Account</tab>
-    <tab>standard-Campaign</tab>
+    <tab>standard-Case</tab>
     <tab>standard-Lead</tab>
+    <tab>standard-Campaign</tab>
+    <tab>standard-report</tab>
     <tab>DM_Material__c</tab>
     <tab>DM_Request__c</tab>
+    <tab>Tasks</tab>
     <tab>Lead__c</tab>
     <tab>Vehicle_Relationship__c</tab>
     <tab>Vehicle__c</tab>
     <tab>standard-Knowledge</tab>
     <tab>standard-KnowledgePublishing</tab>
-    <tab>ListOfFeatures</tab>
     <workspaceMappings>
         <mapping>
             <tab>DM_Material__c</tab>
@@ -1342,7 +1344,7 @@
             <tab>Lead__c</tab>
         </mapping>
         <mapping>
-            <tab>ListOfFeatures</tab>
+            <tab>Tasks</tab>
         </mapping>
         <mapping>
             <tab>Vehicle_Relationship__c</tab>
@@ -1367,6 +1369,12 @@
         </mapping>
         <mapping>
             <tab>standard-Lead</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-home</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

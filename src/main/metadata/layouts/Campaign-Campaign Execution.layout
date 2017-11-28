@@ -22,11 +22,11 @@
                 <field>ParentId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Execution_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Segmentation_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -92,7 +92,7 @@
                 <field>Response_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Segmentation_Base__c</field>
             </layoutItems>
             <layoutItems>
@@ -102,6 +102,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Share_Campaign_Participation_Flag__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Add_Preferred_Dealer__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

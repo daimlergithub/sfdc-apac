@@ -43,6 +43,9 @@
             </containers>
         </primaryTabComponents>
     </customConsoleComponents>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -213,11 +216,23 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>CDM_UCID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Customer_Lifecycle_Phase__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Special_Mark_on_Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ID_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ID_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -317,7 +332,7 @@
                 <behavior>Edit</behavior>
                 <field>Loyalty_Card_No__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Loyalty_Credit_Card_Member__c</field>
             </layoutItems>
@@ -862,9 +877,9 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <fields>Competitor_Brand__c</fields>
-        <fields>Competitor_Model__c</fields>
-        <fields>BodyType__c</fields>
+        <fields>Brand__c</fields>
+        <fields>Model_Description__c</fields>
+        <fields>Range__c</fields>
         <fields>ModelYear__c</fields>
         <fields>NextInspectionDate__c</fields>
         <fields>Related_From__c</fields>
@@ -910,6 +925,7 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>AddCampaign</excludeButtons>
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.START_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
@@ -924,7 +940,7 @@
         <customButtons>Convert_To_Task</customButtons>
         <fields>Campaign_ID__c</fields>
         <fields>Retail_Campaign_Id__c</fields>
-        <fields>Campaign_Member_ID__c</fields>
+        <fields>NAME</fields>
         <fields>Status__c</fields>
         <fields>RespondedDate__c</fields>
         <fields>Preferred_Dealer__c</fields>
@@ -978,7 +994,7 @@
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Loyalty_Card_Number__c</fields>
         <fields>Loyalty_Card_End_Date__c</fields>
@@ -988,6 +1004,17 @@
         <fields>Interest__c</fields>
         <fields>Job__c</fields>
         <relatedList>Loyalty_Card__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Booking_Date__c</fields>
+        <fields>Booking_ID__c</fields>
+        <fields>Booking_Time__c</fields>
+        <fields>BookingDateTimeFrom__c</fields>
+        <fields>BookingDateTimeTo__c</fields>
+        <fields>Booking_Type__c</fields>
+        <fields>Cancellation_Reason__c</fields>
+        <relatedList>Booking__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>

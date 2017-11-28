@@ -38,6 +38,7 @@ global with sharing class VehicleExtension {
         // ***For Thailand*** End
         
         vehicle = (Vehicle__C)stdController.getRecord();
+        vehicle.market__c=[Select market__c From User Where Id = :UserInfo.getUserId()][0].market__c;
         string returnId = ApexPages.currentPage().getParameters().get('accId');
         
         if(returnId!=null)
