@@ -167,7 +167,7 @@
         <unique>false</unique>
     </fields>
 	<fields>
-        <fullName>Test Deployment Field</fullName>
+        <fullName>Test_Field__c</fullName>
         <externalId>false</externalId>
         <label>Test Field</label>
         <length>200</length>
