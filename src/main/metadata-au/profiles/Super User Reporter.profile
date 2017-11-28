@@ -9495,11 +9495,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Material__c.Remark__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Material__c.SentTotal__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9560,17 +9555,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Request__c.Assigned_Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Request__c.Attention__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9581,11 +9566,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Car_Model__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Car_Series__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9635,16 +9615,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Request__c.Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Delivery_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Request__c.Delivery_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9671,11 +9641,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Gender__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Home_Phone__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
