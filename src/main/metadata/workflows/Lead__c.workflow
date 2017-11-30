@@ -198,7 +198,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/Lead_owner_is_updated_Dealer</template>
-    </alerts>
+    </alerts>	
     <alerts>
         <fullName>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</fullName>
         <description>Send email if the after sales or sales lead is not closed in 3 weeks or 3 months</description>
@@ -464,7 +464,7 @@ Lost_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+     <fieldUpdates>
         <fullName>MBTH_Update_Order_Placed_Date_Time</fullName>
         <field>Order_Placed_Date_Time__c</field>
         <formula>IF(ISBLANK(Order_Placed_Date_Time__c),NOW(),Order_Placed_Date_Time__c)</formula>
@@ -1804,17 +1804,18 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <operation>equals</operation>
             <value>Order Placed</value>
         </criteriaItems>
+		
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
-            <value>MY</value>
+            <value>MY</value>			
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Order Placed</value>
         </criteriaItems>
-        <description>When the Dealer lead status is set to "Order Placed" then the Order Placeddate time field need to be updated with current time</description>
+        <description>When the Dealer lead status is set to &quot;Order Placed&quot; then the Order Placeddate time field need to be updated with current time</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -1824,7 +1825,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+		<booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
