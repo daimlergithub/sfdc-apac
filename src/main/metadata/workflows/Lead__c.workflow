@@ -198,7 +198,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/Lead_owner_is_updated_Dealer</template>
-    </alerts>	
+    </alerts>
     <alerts>
         <fullName>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</fullName>
         <description>Send email if the after sales or sales lead is not closed in 3 weeks or 3 months</description>
@@ -464,7 +464,7 @@ Lost_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-     <fieldUpdates>
+    <fieldUpdates>
         <fullName>MBTH_Update_Order_Placed_Date_Time</fullName>
         <field>Order_Placed_Date_Time__c</field>
         <formula>IF(ISBLANK(Order_Placed_Date_Time__c),NOW(),Order_Placed_Date_Time__c)</formula>
@@ -1804,18 +1804,17 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <operation>equals</operation>
             <value>Order Placed</value>
         </criteriaItems>
-		
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
-            <value>MY</value>			
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
             <value>Order Placed</value>
         </criteriaItems>
-        <description>When the Dealer lead status is set to &quot;Order Placed&quot; then the Order Placeddate time field need to be updated with current time</description>
+        <description>When the Dealer lead status is set to "Order Placed" then the Order Placeddate time field need to be updated with current time</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -1825,7 +1824,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-		<booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
@@ -2172,7 +2171,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>TH_Email_notification_when_interested_vehicle_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(MD__c = 'TH',  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), OR( ISCHANGED(Lead_Desired_Service__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c), ISCHANGED(Interested_Vehicle__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -2182,7 +2181,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>MBTH_Email_notification_when_purchase_time_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(IF(ISNEW()&amp;&amp; NOT(ISPICKVAL(Purchase_Time__c,'')),TRUE,IF(ISCHANGED(Purchase_Time__c),TRUE,FALSE)),OR ( RecordType.DeveloperName  = 'Aftersales_Leads',RecordType.DeveloperName = 'Sales_Leads',RecordType.DeveloperName = 'Retail_Sales_Leads'),MD__c = 'TH')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
