@@ -1,4 +1,4 @@
-Public With Sharing class DealerSearch{
+Public Without Sharing class DealerSearch{
 public String size { get; set; }
 
 //This is Our collection of the class/wrapper objects AddingParticipatingDealer 
