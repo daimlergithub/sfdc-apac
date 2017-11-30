@@ -542,7 +542,6 @@
                </table>    
              </apex:pageBlock> 
             <apex:pageBlock id="myTableTH" rendered="{!If(ParAcc.MD__c='TH',true,false)}">
-            
                 <table style="width:100%" border="1">               
                    <tr>        
                        <td></td> 
