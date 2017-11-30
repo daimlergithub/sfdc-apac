@@ -629,8 +629,7 @@
                            </apex:selectList>-->
                            <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>
                        </td>   
-                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />
-                                               
+                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />                        
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
                    </tr>
