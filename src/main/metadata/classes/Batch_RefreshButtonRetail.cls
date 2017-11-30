@@ -81,24 +81,32 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
             membertoupdate.put(mem.id,mem);
         
         }
-        
-        List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: vehicleid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c order by LastModifiedDate desc LIMIT 1];
+        Map<Id,Account_Link__c> mapAccLinks = New Map<Id,Account_Link__c>(); 
+        List<Account_Link__c> acclink = [select Id, Name,Vehicle__c, NextInspectionDate__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: vehicleid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c order by LastModifiedDate desc];
+        for(Account_Link__c accMainlink : acclink){
+            
+            mapAccLinks.put(accMainlink.Vehicle__c,accMainlink);
+        }
         if(!acclink.isempty() && acclink.size()>0){
         for(Campaign_Member__c camp : scope){
-            camp.NextInspectionDate__c = acclink[0].NextInspectionDate__c;
-            camp.NextServiceDate__c = acclink[0].NextServiceDate__c;
-            camp.LastInspectionDate__c = acclink[0].LastInspectionDate__c;
-            camp.LastServiceDate__c = acclink[0].LastServiceDate__c;
-            camp.LastWorkDate__c = acclink[0].LastWorkDate__c;
-            camp.Service_Advisor__c = acclink[0].Service_Advisor__c;
+            camp.NextInspectionDate__c = mapAccLinks.get(camp.Vehicle__c).NextInspectionDate__c;
+            camp.NextServiceDate__c = mapAccLinks.get(camp.Vehicle__c).NextServiceDate__c;
+            camp.LastInspectionDate__c = mapAccLinks.get(camp.Vehicle__c).LastInspectionDate__c;
+            camp.LastServiceDate__c = mapAccLinks.get(camp.Vehicle__c).LastServiceDate__c;
+            camp.LastWorkDate__c = mapAccLinks.get(camp.Vehicle__c).LastWorkDate__c;
+            camp.Service_Advisor__c = mapAccLinks.get(camp.Vehicle__c).Service_Advisor__c;
             membertoupdate.put(camp.id,camp);
         }
         }
-        
-        List<Account_Link__c> Personacclink = [select Id, Name, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc LIMIT 1];
+        Map<Id,Account_Link__c> mapAccSalesLinks = New Map<Id,Account_Link__c>();
+        List<Account_Link__c> Personacclink = [select Id, Name, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc];
         if(!Personacclink.isempty() && Personacclink.size()>0){
+            for(Account_Link__c acc :Personacclink){
+                mapAccSalesLinks.put(acc.toRole__c,acc);
+                
+            }
         for(Campaign_Member__c retcamp : scope){
-            retcamp.Sales_Consultant__c = Personacclink[0].Retail_Sales_Consultant__c;
+            retcamp.Sales_Consultant__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c;
             membertoupdate.put(retcamp.id,retcamp);
         }
         }
