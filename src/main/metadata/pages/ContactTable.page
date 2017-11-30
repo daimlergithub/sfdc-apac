@@ -634,6 +634,16 @@
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
                    </tr>
+					<tr>        
+						<th style="text-align: Right;">{!$ObjectType.Account.fields.Primary_Phone__c.label}</th>        
+						<td>
+							<apex:inputField value="{!ParAcc.Primary_Phone__c}"  rendered="{!editMode}" required="{!IF(ParAcc.MD__c='TH',true,false)}"/>
+							<apex:outputField value="{!ParAcc.Primary_Phone__c}"  rendered="{!!editMode}"/>
+						</td>                           
+						<td></td>   
+						<td></td>      
+						<td></td>        
+					</tr>
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Business_Email}</th>        
                        <td><apex:inputField value="{!ParAcc.Email__c}"  rendered="{!editMode}"/>
