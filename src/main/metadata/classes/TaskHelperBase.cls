@@ -1,5 +1,5 @@
 /**
-* Utility for Trigger on Task for MY(Malaysia)
+* Utility for Trigger on Task 
 * Author: Sushma
 * Created Date : 2017-11-09
 */
@@ -49,7 +49,7 @@ public with sharing class TaskHelperBase{
                         }
                         if (accs!=null && !accs.IsEmpty())
                         {
-                            update accs;
+                            DMLManagerService.updateAsSystem(accs);
                         } 
                     
                 }

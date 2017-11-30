@@ -53,7 +53,7 @@ public without sharing class  LeadHelperBase{
             }
         }
         if(updatelist.size()>0 && !flag ){
-            update updatelist;      
+            DMLManagerService.updateAsSystem(updatelist);      
         }
     }
 
