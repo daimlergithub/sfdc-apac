@@ -9463,7 +9463,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <fullName>First_Consent_User__c</fullName>
         <externalId>false</externalId>
         <label>First Consent User</label>
-        <length>15</length>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -18796,7 +18796,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <fullName>Updated_Consent_User__c</fullName>
         <externalId>false</externalId>
         <label>Updated Consent User</label>
-        <length>15</length>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
