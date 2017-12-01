@@ -23733,7 +23733,7 @@ window.open("/apex/Consolidation_List?Id={!Campaign.Id}");
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }
 else
 {
@@ -23742,13 +23742,13 @@ else
 		javascript:sforce.console.getEnclosingPrimaryTabId( 
 		function openPrimaryTab(result) 
 		{ 	
-		sforce.console.openPrimaryTab(result.id,'/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		sforce.console.openPrimaryTab(result.id,'/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
 		}
 		)
 	}
 	else
 	{	
-	window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 	}
 }</url>
     </webLinks>
@@ -23803,7 +23803,7 @@ alert('something has gone wrong please contact your Administrator');
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }
 else
 {
@@ -23812,13 +23812,13 @@ else
 		javascript:sforce.console.getEnclosingPrimaryTabId( 
 		function openPrimaryTab(result) 
 		{
-		sforce.console.openPrimaryTab(result.id,'/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		sforce.console.openPrimaryTab(result.id,'/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
 		}
 		)
 	}
 	else
 	{
-	window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 	}
 }</url>
     </webLinks>
