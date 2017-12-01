@@ -1015,7 +1015,7 @@
                 <tr class="lookup" style="font-weight: bold;">
                      <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th><th class="lookup">{!$Label.RegistrationNo}</th>                       
                 </tr>
-                <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.vehIdW)"></input></td><td class="lookup">{{vehicle.brandW}}</td><td class="lookup">{{vehicle.classW}}</td><td class="lookup">{{vehicle.modelW}}</td><td class="lookup">{{vehicle.RegnumW}}</td></tr>             
+                <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.vehIdW)"></input></td><td class="lookup">{{vehicle.brandW}}</td><td class="lookup">{{vehicle.classW}}</td><td class="lookup">{{vehicle.modeldescriW}}</td><td class="lookup">{{vehicle.RegnumW}}</td></tr>             
             </table> 
             <input type="button" ng-click="cancelItem('CurrentVehicle1')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
             <input type="button" ng-click="saveItem('CurrentVehicle1')" class="btn" value="{!$label.Save_Button}"/>
@@ -1068,7 +1068,7 @@
                 <tr class="lookup" style="font-weight: bold;">
                      <td class="lookup"></td ><th class="lookup">{!$label.Brand}</th><th class="lookup">{!$label.Class}</th><th class="lookup">{!$label.Model}</th><th class="lookup">{!$Label.RegistrationNo}</th>                         
                 </tr>
-                <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.vehIdW)"></input></td><td class="lookup">{{vehicle.brandW}}</td><td class="lookup">{{vehicle.classW}}</td><td class="lookup">{{vehicle.modelW}}</td><td class="lookup">{{vehicle.RegnumW}}</td></tr>             
+                <tr class="lookup" ng-repeat="vehicle in vehicleList"><td class="lookup"><input type="radio" ng-click="getSelectedVehicle(vehicle.vehIdW)"></input></td><td class="lookup">{{vehicle.brandW}}</td><td class="lookup">{{vehicle.classW}}</td><td class="lookup">{{vehicle.modeldescriW}}</td><td class="lookup">{{vehicle.RegnumW}}</td></tr>             
             </table> 
             <input type="button" ng-click="cancelItem('CurrentVehicle2')" class="btn" value="{!$label.Cancel_Button}"/>&nbsp;
             <input type="button" ng-click="saveItem('CurrentVehicle2')" class="btn" value="{!$label.Save_Button}"/>
