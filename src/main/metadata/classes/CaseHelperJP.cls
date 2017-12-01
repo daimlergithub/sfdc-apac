@@ -917,7 +917,7 @@ List<Account> accUpdLst = new List<Account>();
                 dealerIds.add(delCas.Case_Dealer__c);
             }
         }
-        for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
+        for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true and Contact.Account.Dealer_Type__c = 'Outlet'])
         {
             dealerIdGateKeeperIds.put(u.AccountId, u.Id);
         }
@@ -962,8 +962,8 @@ List<Account> accUpdLst = new List<Account>();
                 }
             
               map<id, Account> accmap = new map<id, Account>([select id, Dealer_ND_Code__c, Dealer_Type__c from Account where id in: dealerIds and RecordType.Name = 'Dealer' and Dealer_Type__c = 'Company']);
-			  
-               for(case cse: [select id, ownerId, RecordType.Name,Case_Dealer__c from case where id in: dealerCaseList and Case_Dealer__c != null]){
+			  if(!accmap.isEmpty()){
+                for(case cse: [select id, ownerId, RecordType.Name,Case_Dealer__c from case where id in: dealerCaseList and Case_Dealer__c != null]){
                     if(action == 'update'){
                         if(cse.Case_Dealer__c != caseOldMap.get(cse.id).Case_Dealer__c){
                            if(cse.RecordType.Name == 'Inquiry'){
@@ -978,7 +978,7 @@ List<Account> accUpdLst = new List<Account>();
                             }
                         }
                     }
-                     if(action == 'insert'){
+                    if(action == 'insert'){
                             if(cse.RecordType.Name == 'Inquiry'){
                                 cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Inquiry').id; 
                                 casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Inquiry').id);
@@ -987,9 +987,9 @@ List<Account> accUpdLst = new List<Account>();
                                 cse.ownerId = queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'MB Complaints').id; 
                                 casetogrpidmap.put(cse.id,queunametogrpmap.get(accmap.get(cse.Case_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'MB Complaints').id);
                             }
-                        }
-                
+                    }
                 }
+			  }	
                     if(casetogrpidmap.size()>0){
                         updateCaseowner(casetogrpidmap);
                     }

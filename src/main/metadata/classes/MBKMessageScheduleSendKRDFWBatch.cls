@@ -120,7 +120,7 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 		HttpResponse	res		= new HttpResponse();
 		String			errMsg	= '';
 		String dataJson = '{"Data":'+g.getAsString()+'}';
-		String endpointUrl = UtilCustomSettings.getWebserviceUrl('EPUrlSfdcMBKMessage');
+		String endpointUrl = UtilCustomSettings.getMBKMessageServiceUrl('SfdcMBKMessageURL');
 		String ContentType = system.label.MBK_Message_ContentType;
 		String Accept = system.label.MBK_Message_ContentType;
 		req.setEndpoint(endpointUrl);
