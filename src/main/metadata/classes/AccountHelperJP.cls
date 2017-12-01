@@ -555,6 +555,10 @@ public class AccountHelperJP
                     {
                         acc.Primary_Fax_Display__c = acc.Fax2__c;
                     }
+                    else if ((acc.Primary_Fax__c == null) && ((acc.Primary_Fax__c != OldAcc.Primary_Fax__c)))
+                    {
+                        acc.Primary_Fax_Display__c = '';
+                    }
                     if((acc.Primary_Email__c == 'E-mail1') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email__c != OldAcc.Email__c))) 
                     {
                         acc.Primary_Email_Display__c = acc.Email__c;
@@ -566,6 +570,10 @@ public class AccountHelperJP
                     else if((acc.Primary_Email__c == 'E-mail3') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email3__c != OldAcc.Email3__c)))
                     {
                         acc.Primary_Email_Display__c = acc.Email3__c;
+                    }
+                    else if((acc.Primary_Email__c ==null) && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) ))
+                    {
+                        acc.Primary_Email_Display__c ='';
                     }
                     if((acc.Primary_Phone__c =='Mobile') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Mobile__c != OldAcc.Mobile__c)))
                     {
@@ -591,6 +599,10 @@ public class AccountHelperJP
                     else if((acc.Primary_Phone__c =='Other2') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Phone != OldAcc.Phone)))
                     {
                         acc.Primary_Phone_Display__c = acc.Phone;
+                    }
+                    else if((acc.Primary_Phone__c ==null) && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c)))
+                    {
+                        acc.Primary_Phone_Display__c = '';
                     }
                 }
             }

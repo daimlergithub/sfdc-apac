@@ -30,7 +30,7 @@ public without sharing class Util_GetPermissionList {
           }
     
     
-    //Method to be invoked from other classes to check permisson on user , It will return true for Integration or Sys Admin users
+    //Method to be invoked from other classes to check permisson on user , It will return true for Integration users
     public static Boolean checkAccessOnUser(String permissionToCheck )
     {  if(flag)
        { flag=false;
@@ -39,7 +39,7 @@ public without sharing class Util_GetPermissionList {
          
        }
      
-     if((UserPermissionMapFinal!= null && UserPermissionMapFinal.size()>0 &&  UserPermissionMapFinal.get(u.id).contains(permissionToCheck)) || profileName.equals('IntegrationAPI') || profileName.equals('System Administrator')) return true;
+     if((UserPermissionMapFinal!= null && UserPermissionMapFinal.size()>0 &&  UserPermissionMapFinal.get(u.id).contains(permissionToCheck)) || profileName.equals('IntegrationAPI') ) return true;
      return false;
     }
     

@@ -1123,7 +1123,7 @@ Purchased_Date_Time__c
             <name>Campaign_Lead_Assignment_Notification</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(ISCHANGED( OwnerId ),MD__c  = 'JP', OR(NOT(ISBLANK(Source_Campaign__c)),NOT(ISBLANK(Retail_Campaign_Name__c))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
