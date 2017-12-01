@@ -1070,6 +1070,13 @@
         <shortDescription>Call Center Case Information</shortDescription>
         <value>Call Center Case</value>
     </labels>
+	<labels>
+        <fullName>Campaign_Activation_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Activation Error</shortDescription>
+        <value>You can not activate a campaign without any execution</value>
+    </labels>
     <labels>
         <fullName>CampaignType</fullName>
         <categories>Retail Campaign Calendar</categories>

@@ -13710,7 +13710,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Event.Activity_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -215,7 +215,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         lead.Existing_Contract__c=campMemberRec.Contract__c;
         lead.Interested_Vehicle_Model__c = campMemberRec.Interested_Model__c;
         lead.Assigned_Dealer__c=campMemberRec.Preferred_Dealer__c;
-        lead.Finance_Product_Name__c=campMemberRec.Finance_Product__c;
+        lead.Finance_Product_Name__c=campMemberRec.Finance_Product_Name__c;
         lead.Finance_Contract_Term__c=campMemberRec.Term__c;
         lead.Finance_Monthly_Payment__c=campMemberRec.Monthly_Payment__c;
         lead.Finance_Interest_Rate__c=campMemberRec.Interest_Rate__c;
@@ -383,6 +383,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                                                     'Purchase_Timing__c',
                                                     'Lead_Desired_Service__c',
                                                     'UsVIN__c',
+													'Finance_Product_Name__c',
                                                     'Cross_Point_Model__c',
                                                     'Contact_Id__r.personcontactid'
                                                     
