@@ -120,17 +120,17 @@ public void getstatusval() {
    public List<SelectOption> getChangingstatus()
     {
         List<SelectOption> options = new List<SelectOption>();
-        if(oldstatus == Label.OpenMT)
+        if(oldstatus == 'Open')
         {       
             options.add(new SelectOption(Label.CancelledMT,Label.CancelledMT));
              dontshow = true;
         }
-        else if(oldstatus == Label.CancelledMT)
+        else if(oldstatus == 'Cancelled')
         {       
             options.add(new SelectOption(Label.OpenMT,Label.OpenMT));
             dontshow = true;
         }
-        else if(oldstatus == Label.CloseMT)
+        else if(oldstatus == 'Closed')
         { 
             dontshow = false;
             
@@ -149,6 +149,28 @@ public void getstatusval() {
      system.debug('taskselect'+taskselect);
       system.debug('taskselect size'+taskselect.size());
     System.debug('Status-----checked  in method' + statusvalfp);
+    if(UserInfo.getLanguage() == 'ko' && (newstatus !=null || newstatus != ''))
+    {
+    system.debug('I am here');
+     if(newstatus == '전체')
+     {
+      newstatus = 'ALL';
+     }
+     else if(newstatus == '시작됨')
+     {
+     
+      newstatus ='Open';
+     }
+     else if(oldstatus == '종결됨')
+     {
+     newstatus ='Closed';
+     }
+     else if(newstatus == '취소됨')
+     {
+     newstatus = 'Cancelled';
+     }
+     
+    }
     if(statusvalfp != 'trues')
     {
      List<Task> TaskListtoUpdate = new List<Task>();
@@ -177,8 +199,13 @@ public void getstatusval() {
         {
          List<Task> oldTaskList;
          List<Task> TaskListtoUpdate1 = new List<Task>();
+         if(newstatus != null || newstatus != ''){
+         if(newstatus == 'Open'){
          oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and RecordType.Developername != 'OB_Task' AND RecordType.Developername != 'OB_Call'];
          system.debug('oldTaskList---'+oldTaskList);
+          }else{
+         oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR'];
+          }
          for(Task ts1: oldTaskList)
          {
            ts1.status = newstatus;
@@ -190,6 +217,7 @@ public void getstatusval() {
          update TaskListtoUpdate1;
                   }catch(Exception ex){
          ApexPages.addMessages(ex);
+         }
          }
         }
         
