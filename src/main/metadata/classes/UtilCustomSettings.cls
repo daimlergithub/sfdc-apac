@@ -38,5 +38,16 @@ public class UtilCustomSettings {
         }
         
     }
+
+	public static string getMBKMessageServiceUrl(string webServiceName)
+    {
+        if (webServiceName != null && Kakao_Talk_Integration_URL__c.getAll().get(webServiceName) != null) {
+            return String.valueof(Kakao_Talk_Integration_URL__c.getAll().get(webServiceName).WebService_URL_1DR__c);         
+		}
+		else {
+		    return null;
+        }
+        
+    }
     
 }

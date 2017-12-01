@@ -57,25 +57,55 @@ public void getstatusval() {
     public List<SelectOption> getoldstatuses()
     {
         List<SelectOption> options = new List<SelectOption>();
-        options.add(new SelectOption(Label.All,Label.All));
-        options.add(new SelectOption('Open','Open'));        
-        options.add(new SelectOption('Closed','Closed'));
-        options.add(new SelectOption('Cancelled','Cancelled'));
+        options.add(new SelectOption(Label.ALL,Label.ALL));
+        options.add(new SelectOption(Label.OpenMT,Label.OpenMT));        
+        options.add(new SelectOption(Label.CloseMT,Label.CloseMT));
+        options.add(new SelectOption(Label.CancelledMT,Label.CancelledMT));
         return options;
     } 
     
     Public Void dropDown(){
+    system.debug('oldstatus ======'+oldstatus);
+    system.debug(UserInfo.getLanguage());
+    if(UserInfo.getLanguage() == 'ko' && (oldstatus !=null || oldstatus != ''))
+    {
+    system.debug('I am here');
+     if(oldstatus == '전체')
+     {
+      oldstatus = 'ALL';
+     }
+     else if(oldstatus == '시작됨')
+     {
+     
+      oldstatus ='Open';
+     }
+     else if(oldstatus == '종결됨')
+     {
+     oldstatus ='Closed';
+     }
+     else if(oldstatus == '취소됨')
+     {
+     oldstatus = 'Cancelled';
+     }
+     
+    }
     system.debug('oldstatus ======'+oldstatus );
-    system.debug('Query==='+ [Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 10]);
+    system.debug('Query==='+ [Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus and (RecordType.name != 'OB Task' or RecordType.name != 'OB Call') limit 10]);
      if(oldstatus !=null || oldstatus != ''){
+       
        List<Task> tasklsss = new List<Task>();
         taskselect.clear();
-        if(oldstatus != 'ALL'){
+        if(oldstatus == 'Open' || oldstatus == 'Closed'){
         tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 1000];
-        }else
+        }else if(oldstatus == 'Cancelled')
+        {
+       tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus and RecordType.Developername != 'OB_Task' AND RecordType.Developername != 'OB_Call' limit 1000];
+        }
+        else
         {
        tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' limit 1000];
         }
+        system.debug('tasklsss-----'+tasklsss);
         for(Task TaskselRec1 : tasklsss) 
         { 
             taskselect.add(new TaskInfo(TaskselRec1));
@@ -90,17 +120,17 @@ public void getstatusval() {
    public List<SelectOption> getChangingstatus()
     {
         List<SelectOption> options = new List<SelectOption>();
-        if(oldstatus == 'Open')
+        if(oldstatus == Label.OpenMT)
         {       
-            options.add(new SelectOption('Cancelled','Cancelled'));
+            options.add(new SelectOption(Label.CancelledMT,Label.CancelledMT));
              dontshow = true;
         }
-        else if(oldstatus == 'Cancelled')
+        else if(oldstatus == Label.CancelledMT)
         {       
-            options.add(new SelectOption('Open','Open'));
+            options.add(new SelectOption(Label.OpenMT,Label.OpenMT));
             dontshow = true;
         }
-        else if(oldstatus == 'Closed')
+        else if(oldstatus == Label.CloseMT)
         { 
             dontshow = false;
             
@@ -116,6 +146,8 @@ public void getstatusval() {
    
      public PageReference Changestatus() 
     {
+     system.debug('taskselect'+taskselect);
+      system.debug('taskselect size'+taskselect.size());
     System.debug('Status-----checked  in method' + statusvalfp);
     if(statusvalfp != 'trues')
     {
@@ -136,16 +168,16 @@ public void getstatusval() {
         
         try{
         update TaskListtoUpdate;
-        }catch(Exception e)
+        }catch(DMLException e)
         {
-        
+         ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,e.getDMLMessage(0)));
         }
         }
         else
         {
          List<Task> oldTaskList;
          List<Task> TaskListtoUpdate1 = new List<Task>();
-         oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR'];
+         oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and RecordType.Developername != 'OB_Task' AND RecordType.Developername != 'OB_Call'];
          system.debug('oldTaskList---'+oldTaskList);
          for(Task ts1: oldTaskList)
          {
@@ -154,8 +186,11 @@ public void getstatusval() {
            TaskListtoUpdate1.add(ts1);
          }
          try{
+
          update TaskListtoUpdate1;
-         }catch(Exception e){}
+                  }catch(Exception ex){
+         ApexPages.addMessages(ex);
+         }
         }
         
      return null;
