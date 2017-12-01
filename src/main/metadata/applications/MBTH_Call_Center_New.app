@@ -128,6 +128,7 @@
     </listPlacement>
     <listRefreshMethod>none</listRefreshMethod>
     <saveUserSessions>true</saveUserSessions>
+	<tab>standard-home</tab>
     <tab>standard-Account</tab>
     <tab>Account_Link__c</tab>
     <tab>standard-Case</tab>
@@ -181,6 +182,9 @@
         <mapping>
             <fieldName>AccountId</fieldName>
             <tab>standard-Case</tab>
+        </mapping>
+		<mapping>
+            <tab>standard-home</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>
