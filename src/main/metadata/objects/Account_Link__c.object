@@ -1338,7 +1338,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_First_Consent_User__c</fullName>
         <externalId>false</externalId>
         <label>Retail First Consent User</label>
-        <length>15</length>
+        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2911,7 +2911,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Updated_Consent_User__c</fullName>
         <externalId>false</externalId>
         <label>Retail Updated Consent User</label>
-        <length>15</length>
+        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

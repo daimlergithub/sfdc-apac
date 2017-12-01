@@ -2172,7 +2172,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>TH_Email_notification_when_interested_vehicle_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(MD__c = 'TH',  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), OR( ISCHANGED(Lead_Desired_Service__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c), ISCHANGED(Interested_Vehicle__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -2182,7 +2182,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>MBTH_Email_notification_when_purchase_time_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(IF(ISNEW()&amp;&amp; NOT(ISPICKVAL(Purchase_Time__c,'')),TRUE,IF(ISCHANGED(Purchase_Time__c),TRUE,FALSE)),OR ( RecordType.DeveloperName  = 'Aftersales_Leads',RecordType.DeveloperName = 'Sales_Leads',RecordType.DeveloperName = 'Retail_Sales_Leads'),MD__c = 'TH')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>

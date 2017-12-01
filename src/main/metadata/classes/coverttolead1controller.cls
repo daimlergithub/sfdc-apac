@@ -45,7 +45,7 @@ public  with sharing class coverttolead1controller
         if(String.isNotBlank(campaignMemberId)) 
         {
             objectAPIName = (Id.valueOf(campaignMemberId)).getSObjectType().getDescribe().getName();
-            String query = 'SELECT  Id, Name,Contract_Number__c,Contact_Id__r.Name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Campaign_ID__r.Name,Campaign_ID__r.OwnerId,UsVIN__c,Model__c,Vehicle__c,Campaign_ID__c ,Retail_Campaign_Id__c ,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+            String query = 'SELECT  Id, Name,Contract_Number__c,Contact_Id__r.Name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Campaign_ID__r.Name,Campaign_ID__r.OwnerId,UsVIN__c,Model__c,Vehicle__c,Campaign_ID__c ,Retail_Campaign_Id__c ,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Retail_Campaign_Id__r.OwnerId,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Contract__c,Preferred_Dealer__c,Contact_Id__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Finance_Product_Name__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
             query += ' FROM Campaign_Member__c WHERE Status__c = \'Responded\' AND Id =: campaignMemberId  AND Convert_To_Lead_Flag__c = false';
             List<Campaign_Member__c> campaignMemberList = Database.query(query);
             campaignMembers = new List<Campaign_Member__c>();
@@ -195,7 +195,7 @@ public  with sharing class coverttolead1controller
         leadRec.Existing_Contract__c=campaignMember.Contract__c;
         leadRec.Interested_Vehicle_Model__c = campaignMember.Interested_Model__c;
         leadRec.Assigned_Dealer__c=campaignMember.Preferred_Dealer__c;
-        leadRec.Finance_Product_Name__c=campaignMember.Finance_Product__c;
+        leadRec.Finance_Product_Name__c=campaignMember.Finance_Product_Name__c;
         leadRec.Finance_Contract_Term__c=campaignMember.Term__c;
         leadRec.Finance_Monthly_Payment__c=campaignMember.Monthly_Payment__c;
         leadRec.Finance_Interest_Rate__c=campaignMember.Interest_Rate__c;

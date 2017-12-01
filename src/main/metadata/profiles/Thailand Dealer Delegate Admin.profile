@@ -29598,6 +29598,14 @@
         <tab>Custom_Debug_Info__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
+	 <tabVisibilities>
+        <tab>DM_Material__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>DM_Request__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Dealer_Locator__c</tab>
         <visibility>DefaultOff</visibility>
