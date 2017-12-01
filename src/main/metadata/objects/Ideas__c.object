@@ -61,7 +61,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Read</externalSharingModel>
     <fields>
         <fullName>Applicability__c</fullName>
         <externalId>false</externalId>
@@ -162,7 +162,6 @@
     </fields>
     <fields>
         <fullName>Cost_Estimate_Class_A__c</fullName>
-        <description>Cost estimation for an Idea</description>
         <externalId>false</externalId>
         <label>Cost Estimate (Class A)</label>
         <precision>18</precision>
@@ -175,7 +174,6 @@
     </fields>
     <fields>
         <fullName>Description__c</fullName>
-        <description>Brief Description about Idea</description>
         <externalId>false</externalId>
         <label>Description</label>
         <length>32768</length>
@@ -212,7 +210,6 @@
     <fields>
         <fullName>Like_Count__c</fullName>
         <defaultValue>0</defaultValue>
-        <description>Used to count number of votes</description>
         <externalId>false</externalId>
         <label>Like Count</label>
         <precision>18</precision>
@@ -226,10 +223,9 @@
     </fields>
     <fields>
         <fullName>PointsSummary__c</fullName>
-        <description>To display images in the list view based on the points</description>
         <externalId>false</externalId>
-        <formula>IF( Points__c&gt;= 50, IMAGE( $Label.Url_for_Rug_max_static ,"Hot"),
-IF ( Points__c&gt; 20 &amp;&amp; Like_Count__c&lt;50, IMAGE( $Label.Url_for_Rug_Med_static, "Medium"),
+        <formula>IF( Points__c&gt;= 30, IMAGE( $Label.Url_for_Rug_max_static ,"Hot"),
+IF ( Points__c&gt;=20 &amp;&amp; Like_Count__c&lt;10, IMAGE( $Label.Url_for_Rug_Med_static, "Medium"),
 IMAGE($Label.Url_for_Rug_Low_static, "Low")))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>PointsSummary</label>
@@ -241,7 +237,6 @@ IMAGE($Label.Url_for_Rug_Low_static, "Low")))</formula>
     </fields>
     <fields>
         <fullName>Points__c</fullName>
-        <description>Formula to multiply the like count with 10</description>
         <externalId>false</externalId>
         <formula>Like_Count__c *10</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -295,7 +290,7 @@ IMAGE($Label.Url_for_Rug_Low_static, "Low")))</formula>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
-    <label>Idea</label>
+    <label>Ideas</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -362,7 +357,7 @@ IMAGE($Label.Url_for_Rug_Low_static, "Low")))</formula>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Idea</pluralLabel>
+    <pluralLabel>Ideas</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Category__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
@@ -374,18 +369,18 @@ IMAGE($Label.Url_for_Rug_Low_static, "Low")))</formula>
         <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>OWNER.LAST_NAME</lookupPhoneDialogsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Read</sharingModel>
     <validationRules>
         <fullName>Block_Idea_Edit_for_Portal_Users</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND( NOT(ISNEW()),OR($Profile.Name==$Label.Rug_CommunityuserProfile ,$Profile.Name==$Label.Rug_CommunityOwnerProfile),$Setup.IdeaEditing__c.EditingAccess__c==false,
+        <active>false</active>
+        <errorConditionFormula>AND( NOT(ISNEW()),OR($Profile.Name=='Honorary Member',$Profile.Name=='Rug Member'),$Setup.IdeaEditing__c.EditingAccess__c==false,
 OwnerId!= $User.Id )</errorConditionFormula>
         <errorMessage>You don't have the permission to edit the record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Honorary_profile_and_status_check</fullName>
         <active>true</active>
-        <errorConditionFormula>ISPICKVAL(Status__c,'Taken up for product roadmap') &amp;&amp;  $Profile.Name=='Honorary Membership' &amp;&amp;  Not(ISNEW())</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL(Status__c,'Taken up for product roadmap') &amp;&amp;  $Profile.Name=='Honorary Member' &amp;&amp;  Not(ISNEW())</errorConditionFormula>
         <errorMessage>You dont have access to select this picklist value</errorMessage>
     </validationRules>
     <validationRules>
