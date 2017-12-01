@@ -890,11 +890,11 @@ public class AccountLinkHelper
         system.debug('dealerGCCode><><><' + dealerGCCode);
         if(!AccountIds.isEmpty() && AccountIds != null && !FromAccountIds.isEmpty() && FromAccountIds != null)
         {
-            ExistC2CList = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND Retail_Delete_Flag__c = false AND (recordtypeid =: AccountLink_contact2conatctRecordTypeId OR recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
+            ExistC2CList = [Select id,Retail_Duplicate_Flag__c,Retail_Delete_Flag__c,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND Retail_Delete_Flag__c = false AND (recordtypeid =: AccountLink_contact2conatctRecordTypeId OR recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId) AND Retail_Duplicate_Flag__c = False AND Retail_Delete_Flag__c = False ];
         }
         if(!AccountIds.isEmpty() && !FromAccountIds.isEmpty() && FromAccountIds != null)
         {
-            retailcopyList = [Select id,Vehicle__c,Retail_Individual_Home_Phone__c,torole__c,fromRole__c,fromRole__r.Dealer_GC_Code__c,recordtypeid from Account_Link__c where torole__c =:AccountIds AND fromrole__r.Dealer_GC_Code__c =:dealerGCCode AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId) Order BY CreatedDate ASC];
+            retailcopyList = [Select id,Retail_Duplicate_Flag__c,Retail_Delete_Flag__c,Vehicle__c,Retail_Individual_Home_Phone__c,torole__c,fromRole__c,fromRole__r.Dealer_GC_Code__c,recordtypeid from Account_Link__c where torole__c =:AccountIds AND fromrole__r.Dealer_GC_Code__c =:dealerGCCode AND Retail_Duplicate_Flag__c = False AND Retail_Delete_Flag__c = False AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId) Order BY CreatedDate ASC];
         }
         system.debug('retailcopyList><><>' + retailcopyList);
         system.debug('ExistC2CList><><>' + retailcopyList);
