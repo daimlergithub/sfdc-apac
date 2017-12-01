@@ -1032,7 +1032,7 @@ public class AddressDisplayInlineEditController {
                     }
                     //addressobj.Province__c =  province;
                     addressobj.Temp_ZipCode__c = addressobj.ZipCode__C;
-                    addressobj.Temp_Address__c = ((addressobj.Province__c != null) ? addressobj.Province__c : '' ) + ((addressobj.City__c != null) ? addressobj.City__c : '' ) +
+                    addressobj.Temp_Address__c = ((province != null) ? province : '' ) + ((addressobj.City__c != null) ? addressobj.City__c : '' ) +
                         ((addressobj.District__c != null) ? addressobj.District__c : '' ) + ((addressobj.Block__c != null) ? addressobj.Block__c  : '' ) +
                         ((addressobj.Address_Line_1__c != null) ? addressobj.Address_Line_1__c  : '' ) + ((addressobj.Address_Line_2__c != null) ? addressobj.Address_Line_2__c  : '' );
                     /*addressobj.Address_Code__c = '';
