@@ -65,16 +65,6 @@
         <field>Ideas__c.To_Be_Business_Requirements__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	 <fieldPermissions>
-        <editable>false</editable>
-        <field>Ideas__c.PointsSummary__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Ideas__c.Points__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Registered_Users__c.department__c</field>
