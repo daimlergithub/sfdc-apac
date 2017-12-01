@@ -23298,7 +23298,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.Dealer_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -23308,7 +23308,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>User.MBJ_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
