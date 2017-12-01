@@ -835,6 +835,10 @@
         <label>취소</label>
         <name>Cancel_Button</name>
     </customLabels>
+	<customLabels>
+        <label>취소됨</label>
+        <name>CancelledMT</name>
+    </customLabels>
     <customLabels>
         <label>현재 진행 중인 캠페인은 삭제할 수 없습니다</label>
         <name>Cannot_Delete_Central_Campaign</name>
@@ -2464,6 +2468,14 @@
         <label><!-- Online Dedup callout failure --></label>
         <name>Online_Dedup_callout_failure</name>
     </customLabels>
+	<customLabels>
+        <label>시작됨</label>
+        <name>OpenMT</name>
+    </customLabels>
+	<customLabels>
+        <label>종결됨</label>
+        <name>CloseMT</name>
+    </customLabels>
     <customLabels>
         <label><!-- Operation --></label>
         <name>Operation</name>
@@ -3921,7 +3933,7 @@
         <name>Select_Address_Msg</name>
     </customLabels>
     <customLabels>
-        <label>[모두 선택]</label>
+        <label>전체 선택</label>
         <name>Select_All</name>
     </customLabels>
     <customLabels>
