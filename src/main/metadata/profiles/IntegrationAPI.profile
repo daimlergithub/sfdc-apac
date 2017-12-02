@@ -25381,6 +25381,11 @@
         <field>User.Dealer_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.DAW_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Flight_Ticket_Budget__c</field>

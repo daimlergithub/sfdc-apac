@@ -126,7 +126,7 @@ public with Sharing class DealerPickerTHController {
     }
     public void sendEmailNotificationtoDealer(Set<Group> groupnames, Set<String> dealerndcode){
          Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-         String commubaseurl;
+         String commubaseurl='';
          boolean flag1;
          String communityName='Daimler Community Thailand';
          List<Network>  myNetwork = [SELECT Id,Name FROM Network];
@@ -139,7 +139,7 @@ public with Sharing class DealerPickerTHController {
            }
        }
        EmailTemplate temp=(EmailTemplate)[select id,Body,subject from emailtemplate where name=:'TH_Retail Campaign Planning And Design Notification to Dealers' limit 1];
-       message.setTemplateid(temp.id);
+        message.setTemplateid(temp.id);
        message.setTargetObjectId(retcamp.ownerid);
        message.setSaveAsActivity(false);
        string body=temp.Body.replace('{!Retail_Campaign__c.Name}',retcamp.name).replace('{!Retail_Campaign__c.Link} ',commubaseurl);
