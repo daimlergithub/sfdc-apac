@@ -69,7 +69,7 @@ public with sharing class VehicleRelationshipHelperBase{
         for (Vehicle_Relationship__c vr : newVehicleRelRecords){
             if(vr.Contact__c!=Null  && (!setIgnoredAccounts.contains(vr.Contact__c)) && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes))){                 
                 ContactIds.add(vr.Contact__c);
-                if(oldMapVR.get(vr.id).Contact__c!=vr.Contact__c && oldMapVR.get(vr.id).Contact__c!=vr.Contact__c){
+                if(oldMapVR.get(vr.id).Contact__c!=vr.Contact__c && string.isnotblank(oldMapVR.get(vr.id).Contact__c)){
                     ContactIds.add(oldMapVR.get(vr.id).Contact__c);
                 }
             } 
