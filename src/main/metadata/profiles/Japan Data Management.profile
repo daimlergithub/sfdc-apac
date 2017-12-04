@@ -14950,7 +14950,12 @@
         <field>Lead__c.Interested_Vehicle_Interior_Color__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Interested_Vehicle_ModelName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Interested_Vehicle_Model__c</field>
         <readable>false</readable>
@@ -23934,6 +23939,11 @@
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Purchase_Price__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Recall_DM__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
