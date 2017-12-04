@@ -362,7 +362,7 @@ global with sharing class LeadVehiclePickerTHController {
         Set<Id> allVehicleIds = new Set<Id>();
         
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
         }
         else{
             Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c LIMIT 50000];
@@ -388,7 +388,7 @@ global with sharing class LeadVehiclePickerTHController {
                 vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds AND MD__c = :usr.Market__c LIMIT 50000];
             }
             else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
             }                 
         }
         return vehicle;
@@ -405,6 +405,7 @@ global with sharing class LeadVehiclePickerTHController {
         UtilConstant utilConst = new UtilConstant(); 
         Vehicle__c leadVehicle = new Vehicle__c();
         List<Car_Model__c> carModel;    
+        System.debug('----vehicleDetails---'+vehicleDetails);
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
         if(vehicleAttributes.get('Lookup') == 'false'){ 
             leadVehicle.Brand__c = vehicleAttributes.get('Brand');
@@ -413,15 +414,19 @@ global with sharing class LeadVehiclePickerTHController {
             leadVehicle.Trim__c = vehicleAttributes.get('Trim');
             leadVehicle.Model_Description__c = vehicleAttributes.get('Model');
             String mileageVal = vehicleAttributes.get('Mileage');
+            System.debug('--Brand---'+vehicleAttributes.get('Brand')+'---Class--'+vehicleAttributes.get('Class')+'--Model---'+vehicleAttributes.get('Model'));
             carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
             if (!mileageVal.equals('')){
                 leadVehicle.NextMileage__c = Integer.valueof(vehicleAttributes.get('Mileage'));
             }
+            System.debug('------leadVehicle-------'+leadVehicle);
             if(vehicleAttributes.get('Operation').equalsIgnoreCase('New')){
                 Id rec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.VEHICLE_PRODUCT);
                 leadVehicle.RecordTypeId = rec_Id;
-                leadVehicle.Car_Model__c = carModel[0].Id;
+                //if(!carModel.isEmpty())
+                    leadVehicle.Car_Model__c = carModel[0].Id;
                 insert leadVehicle;
+                System.debug('------leadVehicle-------'+leadVehicle);
                 Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
                 if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                      lead.Interested_Vehicle__c = leadVehicle.Id;

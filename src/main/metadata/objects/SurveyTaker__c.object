@@ -460,6 +460,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <fullName>Survey_Taken_Share__c</fullName>
         <label>Survey Taken Share</label>
     </sharingReasons>
+	<validationRules>
+        <fullName>Account_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Changes related to SFDCJP-3175</description>
+        <errorConditionFormula>AND(OR($Profile.Name ='Japan Dealer Company Manager', $Profile.Name ='Japan Dealer Sales Manager', $Profile.Name ='Japan Dealer Sales Representative', $Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),( MD__c = 'JP'), 
+NOT(ISBLANK(PRIORVALUE(Account__c))),NOT(ISNEW()),ISCHANGED(Account__c))</errorConditionFormula>
+        <errorDisplayField>Account__c</errorDisplayField>
+        <errorMessage>Survey Taken By Account Can't be changed</errorMessage>
+    </validationRules>
 	<webLinks>
         <fullName>SubmitSurvey</fullName>
         <availability>online</availability>
