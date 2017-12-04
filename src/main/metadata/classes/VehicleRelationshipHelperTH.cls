@@ -49,7 +49,7 @@ public with sharing class VehicleRelationshipHelperTH
      if(isinsertcontext){
         for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId &&vehicleRellist[i].md__c==System.Label.MarketTH && vehicleRellist[i].Owner_Dealer__c != null&& vehicleRellist[i].Owner_Dealer_ND_Code__c!=null;i++){
             //if user type is power partner then share only with the dealers under particular Account
-            if(vehicleRellist[i].createdby.usertype==system.Label.UserTypePowerPartner){
+            if(vehicleRellist[i].createdby.usertype=='PowerPartner'){
                 vrseditaccesswithdealers.put(vehicleRellist[i].id,vehicleRellist[i].createdby.Dealer_ND_Code__c);
             }
             else{
