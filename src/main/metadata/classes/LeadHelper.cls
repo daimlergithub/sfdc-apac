@@ -52,6 +52,11 @@ public class LeadHelper
 			{
 				lead.Service_Advisor__c = mapsalesConandUsrId.get(lead.Sales_Consultant__c);//lead.Sales_Consultant__c;
 			}
+			//Changes as part of SFDCKR-1429
+			if(UserInfo.getUserType() == 'PowerPartner' && ((lead.recordtypeId == salesRecordTypeId && lead.Dealer_Lead_Status__c != 'Lost (Dealer)' && lead.Dealer_Lead_Status__c != 'Received' && lead.Dealer_Lead_Status__c != 'Invoiced' && lead.Dealer_Lead_Status__c != 'Lost') || (lead.recordtypeId == afterSalesRecordTypeId && lead.Dealer_Lead_Status__c != 'Lost (Dealer)' && lead.Dealer_Lead_Status__c != 'Service Completed' && lead.Dealer_Lead_Status__c != 'Lost')))
+			{
+				lead.Dealer_Assigned_Date_Time__c = system.now();
+			}
             if(lead.Assigned_Dealer__c != null && ((isInsert && UserInfo.getUserType() != 'PowerPartner') || (isUpdate && lead.Assigned_Dealer__c != oldValLead.get(lead.id).Assigned_Dealer__c)))
             {
                 if(!dealerIdGateKeeperIds.isEmpty() && dealerIdGateKeeperIds != null)
