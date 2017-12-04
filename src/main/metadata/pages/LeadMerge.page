@@ -140,8 +140,8 @@
                 </input> 
                </apex:column>
               <apex:column headerClass="Please select" >
-               <apex:outputPanel rendered="{!if(AND(master.Dealer_Lead_Status__c !='Purchased(Only Non BDC)',master.Dealer_Lead_Status__c !='Invoiced',master.Dealer_Lead_Status__c !='Order Placed',master.Existing_Contract__c !=null,slave.Existing_Contract__c !=null),true,false)}"> 
-			   <input type="radio" name="tLetters" value="{!selectedslavelead}"  >{!slave.Name}
+              <apex:outputPanel rendered="{!!SelectmasterHide}"> 
+               <input type="radio" name="tLetters" value="{!selectedslavelead}"  >{!slave.Name}
           <apex:actionSupport event="onclick" action="{!getSelected}"  rerender="detail">
                     <apex:param name="idselected" value="{!selectedslavelead.id}" assignTo="{!isSlaveSelected}"/>   
                     </apex:actionSupport>
@@ -229,6 +229,23 @@
                 </table>
             </apex:outputpanel>
             
+             <apex:pageblock id="Readonly" title="ReadOnly fields details" >
+        
+        <apex:panelGrid columns="2" width="1000px">
+                <apex:pageblocksection columns="1" >
+                   <apex:repeat value="{!$ObjectType.Lead__c.FieldSets.LeadMergeReadonlyFieldsSet}" var="ci"> 
+                       <apex:outputfield value="{!Master[ci]}" /> 
+                   </apex:repeat>
+                    </apex:pageblocksection>
+                    
+                     <apex:pageblocksection columns="1" >
+                    <apex:repeat value="{!$ObjectType.Lead__c.FieldSets.LeadMergeReadonlyFieldsSet}" var="ci"> 
+                       <apex:outputfield value="{!Slave[ci]}" /> 
+                   </apex:repeat>
+                    </apex:pageblocksection>
+                    </apex:panelGrid>
+         
+      </apex:pageblock>
              <apex:pageblock id="Readonly1" title="{!$Label.vehicle_Details}" >
         
         <apex:panelGrid columns="2" width="1000px">
