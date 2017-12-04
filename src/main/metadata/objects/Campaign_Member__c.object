@@ -1547,6 +1547,15 @@ ISPICKVAL( Status__c , "Ready")
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>contact_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Changes related to SFDCJP-3175</description>
+        <errorConditionFormula>AND(OR($Profile.Name ='Japan Dealer Company Manager', $Profile.Name ='Japan Dealer Sales Manager', $Profile.Name ='Japan Dealer Sales Representative', $Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),( MD__c = 'JP'), 
+NOT(ISBLANK(PRIORVALUE(Contact_Id__c))),NOT(ISNEW()),ISCHANGED(Contact_Id__c))</errorConditionFormula>
+        <errorDisplayField>Contact_Id__c</errorDisplayField>
+        <errorMessage>contact Can't be changed</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>campaign_locked</fullName>
         <active>true</active>

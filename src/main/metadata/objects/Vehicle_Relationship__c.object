@@ -7349,6 +7349,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <errorMessage>Recall DM can be set for After Sales Contact record.</errorMessage>
     </validationRules>
 	<validationRules>
+        <fullName>contact_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Changes related to SFDCJP-3175</description>
+        <errorConditionFormula>AND(OR($Profile.Name ='Japan Dealer Company Manager', $Profile.Name ='Japan Dealer Sales Manager', $Profile.Name ='Japan Dealer Sales Representative', $Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),( MD__c = 'JP'), 
+NOT(ISBLANK(PRIORVALUE(Contact__c))),NOT(ISNEW()),ISCHANGED(Contact__c))</errorConditionFormula>
+        <errorDisplayField>Contact__c</errorDisplayField>
+        <errorMessage>contact Can't be changed</errorMessage>
+    </validationRules>
+	<validationRules>
         <fullName>VechRelation_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Vehicle Relationship  should be same as user's market field</description>
