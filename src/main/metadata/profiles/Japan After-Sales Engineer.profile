@@ -5411,6 +5411,16 @@
         <field>Account_Link__c.Active__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.CIAM_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.CIAM_Mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.ContractId__c</field>
@@ -5546,6 +5556,11 @@
         <field>Account_Link__c.Personal_Information_Third_Party_Release__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Portal_Delete_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Portal_Email__c</field>
@@ -5570,6 +5585,21 @@
         <editable>false</editable>
         <field>Account_Link__c.Portal_Source__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Portal_Status_Change_History__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Portal_Status_LastUpdated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Portal_Status__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

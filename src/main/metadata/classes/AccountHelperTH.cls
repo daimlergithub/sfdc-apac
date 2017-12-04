@@ -918,6 +918,16 @@ public class AccountHelperTH{
     
     public Static void UpdateConsentHistory(Map<Id,Account> oldAccountMap, List<Account> newAccountList){
         List<Account_Field_History_Tracker__c> consentHistoryList = new List<Account_Field_History_Tracker__c>();
+        String currentUserOrganization;
+        User currentUser = [Select Id, Name, Contact.Account.Name, Profile.UserLicense.Name from User where Id =: UserInfo.getUserId()];
+        if(currentUser.Profile.UserLicense.Name == 'Partner Community'){
+            if(currentUser.contactId != null){
+                if(currentUser.Contact.AccountId != null)
+                    currentUserOrganization = currentUser.Contact.Account.Name;
+            }
+        }
+        else
+            currentUserOrganization = 'Customer';
         for(Account acc : newAccountList){
             if(!String.isBlank(oldAccountMap.get(acc.Id).Personal_Agreement__c) || oldAccountMap.get(acc.Id).Lastest_Consent_Date__c != null){
                 if(acc.Personal_Agreement__c != oldAccountMap.get(acc.Id).Personal_Agreement__c || acc.Lastest_Consent_Date__c != oldAccountMap.get(acc.Id).Lastest_Consent_Date__c){
@@ -927,7 +937,7 @@ public class AccountHelperTH{
                     consentHistory.System_Data_Source__c = oldAccountMap.get(acc.Id).System_Data_Source__c;
                     consentHistory.Updated_Consent_Date__c = oldAccountMap.get(acc.Id).Updated_Consent_Date__c;
                     consentHistory.Updated_Consent_User__c = oldAccountMap.get(acc.Id).Updated_Consent_User__c;
-                    consentHistory.User_Organization__c = oldAccountMap.get(acc.Id).User_Organization__c;
+                    consentHistory.User_Organization__c = currentUserOrganization;
                     consentHistory.Lastest_Consent_Date__c = oldAccountMap.get(acc.Id).Lastest_Consent_Date__c;
                     consentHistoryList.add(consentHistory);
                 }
