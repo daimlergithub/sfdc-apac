@@ -25338,11 +25338,6 @@
     </fieldPermissions>
 	<fieldPermissions>
 	    <editable>false</editable>
-		<field>Account_Field_History_Tracker__c.User_Organization__c</field>		
-	    <readable>false</readable>		
-    </fieldPermissions>
-	<fieldPermissions>
-	    <editable>false</editable>
 		<field>Account_Link__c.Expiration_Date_for_CC_New__c</field>		
 	    <readable>false</readable>		
     </fieldPermissions>

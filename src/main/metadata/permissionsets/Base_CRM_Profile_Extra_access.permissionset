@@ -24266,6 +24266,11 @@
         <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
+	    <editable>false</editable>
+		<field>Account_Field_History_Tracker__c.User_Organization__c</field>		
+	    <readable>false</readable>		
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Add_Preferred_Dealer__c</field>
         <readable>false</readable>
