@@ -37,6 +37,7 @@ public class LeadMergeController{
     public Boolean MastertoChild {get; set;}  
     public Boolean ChildtoMaster {get; set;}  
     public string radioHidden {get;set;}
+     public Boolean SelectmasterHide{get; set;}  
      /** 
      * @Description : Contructor Calles to get the curect page Id and Slave Id.      
      * @author  Sneha chail
@@ -201,7 +202,19 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
           system.debug('+++++++++ MasterSelectedId'+  Master);
            system.debug('+++++++++ SlaveSelectedId'+ slave);    
              System.debug('&*&*&*&&&**&* ChildtoMaster '+ChildtoMaster);
-             System.debug('&*&*&*&&&**&* MastertoChild'+MastertoChild);            
+             System.debug('&*&*&*&&&**&* MastertoChild'+MastertoChild);  
+             system.debug('+++++++++ MasterSelectedIdExisting_Contract__c '+  Master.Existing_Contract__c );
+           system.debug('+++++++++ SlaveSelectedIdExisting_Contract__c '+ slave.Existing_Contract__c );     
+            system.debug('+++++++++ Dealer_Lead_Status__c '+  Master.Dealer_Lead_Status__c );
+           system.debug('+++++++++ Dealer_Lead_Status__c '+ slave.Dealer_Lead_Status__c );     
+          
+             if( ((master.Dealer_Lead_Status__c =='Purchased(Only Non BDC)') || (master.Dealer_Lead_Status__c =='Invoiced') || (master.Dealer_Lead_Status__c =='Order Placed')) ||((master.Existing_Contract__c !=null && slave.Existing_Contract__c ==null)) )
+             {
+             System.debug('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB');
+             SelectmasterHide=true;
+             }
+           
+             
          }  
          }
         catch(Exception e){
