@@ -20,14 +20,13 @@ public with sharing class  DMRequestHelperBase {
         String province;
          Set<String> province1=new set<String>();
         Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-        if(!test.isrunningtest() && Usr.Profile.Name != 'IntegrationAPI' && usr.Market__c !=null)
+        if(test.isrunningtest() && Usr.Profile.Name != 'IntegrationAPI' && Usr.Market__c !=null)
         {
             UtilAddressTranslation.gettranslatedvalues(Usr.Market__c);
         }
                  //get the accountIds 
                 for(DM_Request__c lstDMR:triggerNew){
                     CustomerId.add(lstDMR.Customer_Name__c);
-                    //province1.add(lstDMR.Customer_Name__r.MD__c);
                 }  
               
               
@@ -37,13 +36,12 @@ public with sharing class  DMRequestHelperBase {
                
                str = s.MD__c;
                }
-               system.debug('+++++++++++ str ++++++++'+str);
                 if(!test.isrunningtest() && Usr.Profile.Name == 'IntegrationAPI' && usr.Market__c ==null && str!=null)
         {
         UtilAddressTranslation.gettranslatedvalues(str);
         }
                 //query for arelated addresses and create a nested map
-                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
+                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Address_Line_3__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
                 {
                     admap.put(addrlst.Address_Type__c, addrlst);
                     addressMap.put(addrlst.Customer__c, admap);
@@ -60,8 +58,7 @@ public with sharing class  DMRequestHelperBase {
                                 if(addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c).Address_Type__c==lstDMR.Sending_Address__c){                                                                       
                                     Address__c address = addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c);
                                     lstDMR.Zip_Code__c=address.ZipCode__c;
-                                    lstDMR.Address__c=address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c;
-                                    lstDMR.Additional_Address__c=address.Address_Line_2__c;
+                                    lstDMR.Address__c=address.Address_Line_1__c+' '+address.Address_Line_2__c+' '+address.Address_Line_3__c+' '+address.city__c+' '+address.District__c+' '+address.Province__c+' '+address.zipcode__c;
                                     lstDMR.Attention__c=address.Company_Name__c;
                                     lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
                                     if(addtrmapUpdate.containsKey(address.Province__c))
@@ -129,13 +126,12 @@ public with sharing class  DMRequestHelperBase {
                
                str = s.MD__c;
                }
-               system.debug('+++++++++++ str ++++++++'+str);
                 if(!test.isrunningtest() && Usr.Profile.Name == 'IntegrationAPI' && usr.Market__c ==null && str!=null)
         {
         UtilAddressTranslation.gettranslatedvalues(str);
         }
                 //query for arelated addresses and create a nested map
-                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
+                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Address_Line_3__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
                 {
                     admap.put(addrlst.Address_Type__c, addrlst);
                     addressMap.put(addrlst.Customer__c, admap);
@@ -151,8 +147,7 @@ public with sharing class  DMRequestHelperBase {
                                 if(addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c).Address_Type__c==lstDMR.Sending_Address__c){                                                                                                           
                                     Address__c address = addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c);
                                     lstDMR.Zip_Code__c=address.ZipCode__c;
-                                    lstDMR.Address__c=address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c;
-                                    lstDMR.Additional_Address__c=address.Address_Line_2__c;
+                                    lstDMR.Address__c=address.Address_Line_1__c+' '+address.Address_Line_2__c+' '+address.Address_Line_3__c+' '+address.city__c+' '+address.District__c+' '+address.Province__c+' '+address.zipcode__c;
                                     lstDMR.Attention__c=address.Company_Name__c;
                                     lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
                                     if(addtrmapInsert.containsKey(address.Province__c))

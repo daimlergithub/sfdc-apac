@@ -1070,6 +1070,13 @@
         <shortDescription>Call Center Case Information</shortDescription>
         <value>Call Center Case</value>
     </labels>
+	<labels>
+        <fullName>Campaign_Activation_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Activation Error</shortDescription>
+        <value>You can not activate a campaign without any execution</value>
+    </labels>
     <labels>
         <fullName>CampaignType</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -1670,6 +1677,13 @@
         <shortDescription>Cancel Button</shortDescription>
         <value>Cancel</value>
     </labels>
+	<labels>
+        <fullName>CancelledMT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CancelledMT</shortDescription>
+        <value>Cancelled</value>
+    </labels>
     <labels>
         <fullName>Cannot_Delete_Central_Campaign</fullName>
         <categories>Campaign</categories>
@@ -1911,6 +1925,13 @@
         <protected>false</protected>
         <shortDescription>Close2</shortDescription>
         <value>Close2</value>
+    </labels>
+	<labels>
+        <fullName>CloseMT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CloseMT</shortDescription>
+        <value>Closed</value>
     </labels>
     <labels>
         <fullName>CloseMym</fullName>
@@ -5515,6 +5536,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Only Company Manager can export</shortDescription>
         <value>Only Company Manager can export</value>
+    </labels>
+	<labels>
+        <fullName>OpenMT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OpenMT</shortDescription>
+        <value>Open</value>
     </labels>
     <labels>
         <fullName>Operation</fullName>

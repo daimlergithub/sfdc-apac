@@ -157,7 +157,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                             lead.Existing_Contract__c=campaignMemberRec.Contract__c;
                             lead.Interested_Vehicle_Model__c = campaignMemberRec.Interested_Model__c;
                             lead.Assigned_Dealer__c=campaignMemberRec.Preferred_Dealer__c;
-                            lead.Finance_Product_Name__c=campaignMemberRec.Finance_Product__c;
+                            lead.Finance_Product_Name__c=campaignMemberRec.Finance_Product_Name__c;
                             lead.Finance_Contract_Term__c=campaignMemberRec.Term__c;
         lead.Finance_Monthly_Payment__c=campaignMemberRec.Monthly_Payment__c;
         lead.Finance_Interest_Rate__c=campaignMemberRec.Interest_Rate__c;
@@ -495,6 +495,7 @@ global class CampaignSchedulerAndNotificationJP implements Database.Batchable<SO
                                                     'Purchase_Timing__c',
                                                     'Lead_Desired_Service__c',
                                                     'UsVIN__c',
+													'Finance_Product_Name__c',
                                                     'Cross_Point_Model__c',
                                                     'Contact_Id__r.personcontactid'
                                                   

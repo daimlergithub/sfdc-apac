@@ -7,7 +7,7 @@
 2. Method to get the count from the ideasvoting object.
 3. method to check whether the logged in user is RUG or Honorary member.
 *************************************************************************************/
-public class IdeasCommunityHelper {
+public without sharing class IdeasCommunityHelper {
     @AuraEnabled
     public static Integer getIdeaCount(Id ideaID) { 
         Integer numberOfVotes;
@@ -26,7 +26,7 @@ public class IdeasCommunityHelper {
         boolean iconValue=false;
         String honoraryPfid =[select Id,name from profile where name=:Label.Rug_CommunityuserProfile].id;
         list<IdeasVoting__c> voteList = [SELECT id,Likeuser__c,IdeaLikeCount__c FROM IdeasVoting__c WHERE Ideas__c = :ideaID AND Likeuser__c = :userinfo.getUserId()];
-		if(honoraryPfid==userinfo.getProfileId() || !(voteList.isEmpty())){            
+        if(honoraryPfid==userinfo.getProfileId() || !(voteList.isEmpty())){            
             iconValue=true;  
         }
         return iconValue;
@@ -45,7 +45,7 @@ public class IdeasCommunityHelper {
             IdeaEditing__c vObj=[select id,EditingAccess__c from IdeaEditing__c LIMIT 1];
             vObj.EditingAccess__c=true;
             update vObj;        
-			ideaList = [SELECT id,Like_Count__c FROM Ideas__c WHERE id = :ideaID];
+            ideaList = [SELECT id,Like_Count__c FROM Ideas__c WHERE id = :ideaID];
             ideaList[0].like_count__c=ideaList[0].like_count__c+1;   
             update ideaList[0];
             vObj.EditingAccess__c=false;

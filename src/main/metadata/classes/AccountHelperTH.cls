@@ -35,14 +35,20 @@ public class AccountHelperTH{
                     //outside for loop
                     //after removing zero's if phone size is less than 8 through error 
                     if(phon.length()<len){
+                        if(fields!='Mobile'){
                         return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDD or it can be in the format of DDDDDDDD';
+                        }
+                        else{
+                        return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
+                        }
                         
                     }
                     else if(fields=='Mobile'&&!Pattern.matches('[0-9]{9}',phon)){
+                        
                         return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
                     }
                     else if(!Pattern.matches('[0-9]{8}',phon)&&fields!='Mobile'){
-                        return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
+                        return fields+' contain only Digits and '+ digits+' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
                     }
                     else{
                        return '+66'+phon;
@@ -129,6 +135,7 @@ public class AccountHelperTH{
                  //if the Work_Phone__c starts with zero then find zero in third position 
                  if(acc.Mobile__c.startsWith('+66')){
                      String restultstring=validate(acc.Mobile__c,3,'Mobile',9,12);
+                     system.debug(restultstring+'****');
                      //will display error messages if any
                      if(restultstring.startswith('Mobile')){
                          acc.addError(restultstring);
