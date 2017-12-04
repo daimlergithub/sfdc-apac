@@ -45,7 +45,7 @@ global class MBKMessageStatusKRDFWBatch implements Database.AllowsCallouts, Data
 			String			errMsg	= '';
 			String dataJson = '{"Data":'+g.getAsString()+'}';
 
-			req.setEndpoint(UtilCustomSettings.getWebserviceUrl('EPUrlSfdcMBKMessage'));
+			req.setEndpoint(UtilCustomSettings.getMBKMessageServiceUrl('SfdcMBKMessageURL'));
 			req.setHeader('Content-Type', system.label.MBK_Message_ContentType);
 			req.setHeader('Accept', system.label.MBK_Message_ContentType);
 			req.setMethod('POST');

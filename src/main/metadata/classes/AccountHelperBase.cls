@@ -53,8 +53,8 @@ public class AccountHelperBase{
      //added by Honey for Marketing Cloud
     public static void updateMarketingFields(list<Account> listNewAccounts){
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
-            for(Account Acc : listNewAccounts){
-                 if(Acc.Email__c!= null){
+            for(Account Acc : listNewAccounts ){
+                 if(Acc.Email__c!= null && acc.recordtypeid==accPerson_RecordTypeId){
                     Acc.PersonEmail = Acc.Email__c;
                 }
             }

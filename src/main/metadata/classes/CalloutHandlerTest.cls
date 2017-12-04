@@ -3,8 +3,27 @@ public class CalloutHandlerTest {
     
     static testMethod void testCallout(){    
         Test.startTest();   
+        Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         Map<string,CallOutHandlerSettingDFW__c> cohMap = CallOutHandlerSettingDFW__c.getAll();   
         user u=[select id, name from user where Email='testUser@testorg.com' and isActive=true limit 1];
+        
+        Account a = new account(Dealer_Default_Flag__c=false,
+                                    Dealer_DMS_SR_Code__c='test code 1',
+                                    Status__c='NoCustomer',
+                                    City__c='Beijin',
+                                    Gender__c = 'Male',
+                                    Phone = '08080101',
+                                    Area_code__c = '0100',
+                                    LastName = 'galaxy1',
+                                    FirstName = 'First Name',
+                                    Salutation = 'Unknown',      
+                                    Province__c = 'Shanghai',
+                                    ZipCode__c='10043',
+                                    Allow_Data_Sharing__c='no',
+                                    Preferred_Language__c = 'English',
+                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',
+                                    Mobile__c ='012345678',Allow_Data_Sharing_Comment__c='Comments',RecordTypeId=accPerson_RecordTypeId);
+        insert a;
         system.runAs(u){
             String method = 'GET';
             String endpoint = 'http://api.salesforce.com/foo/bar'; 
@@ -14,6 +33,10 @@ public class CalloutHandlerTest {
             headerKeyByValue.put('Content-Type', 'application/json');
             headerKeyByValue.put('Accept', 'application/json');  
             String status = null; 
+            continuation con = new continuation(120);
+            //con = Continuation-1;
+            List<Id> acclist = new list<Id>{a.Id};
+            String body = EncodingUtil.URLENCODE(CDMInformatica_Services.generatejson(acclist),'UTF-8');
             // Set mock callout class 
             Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator());
             // Call method to test.
@@ -21,12 +44,17 @@ public class CalloutHandlerTest {
             // from the class that implements HttpCalloutMock. 
             //  HttpResponse res = CalloutHandlerService.sendCallout(method,endpoint,timeout,headerKeyByValue,status);
             HttpResponse res = CalloutHandlerService.sendCallout('GET','http://api.salesforce.com/foo/bar',null,headerKeyByValue,'200');
-            System.assertEquals(res.getBody(), '{"foo":"bar"}');
+            
             res = CalloutHandlerService.sendCallout(method,endpoint,timeout1,headerKeyByValue,status);
-            System.assertEquals(res.getBody(), '{"foo":"bar"}');
+            
+            res = CalloutHandlerService.sendCalloutForPost(method,endpoint,timeout1,headerKeyByValue,status,body);
+            
             String resString = CalloutHandlerService.processCalloutResponse(res, null);            
             res = CalloutHandlerService.sendCallout(method,null, timeout,headerKeyByValue,status);
             System.assertEquals(res.getBody(), '');  
+            String s = CalloutHandlerService.onLineDeduplicationCDMCallout(endpoint,con);
+            String r = CalloutHandlerService.onLineDeduplicationCDMTHCallout(endpoint,con);
+            
             Test.stopTest(); 
             
         }
