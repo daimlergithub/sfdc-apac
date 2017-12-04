@@ -317,13 +317,16 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         }
         //User u = [SELECT Id,Market__c FROM User WHERE Id=:UserInfo.getUserId()] ;
         SendingAddress.ZipCode = address.ZipCode__c;
+        
         SendingAddress.MarketDiscriminator = address.MD__c;
+        if(isAutoFillMode == False){
         SendingAddress.Address_Line_1 = address.Address_Line_1__c;
         SendingAddress.Address_Line_2 = address.Address_Line_2__c;
         SendingAddress.HouseNumber = address.HouseNumber__c;
         SendingAddress.Block = address.Block__c;
         SendingAddress.City = address.City__c;
         SendingAddress.District = address.District__c;
+        }
         SendingAddress.Province = address.Province__c;
         crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType request = new crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType();
         request.Organization = UserInfo.getOrganizationId();

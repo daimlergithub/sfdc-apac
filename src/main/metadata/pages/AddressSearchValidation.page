@@ -962,7 +962,7 @@
         <!--  Page Buttons Information JP & KR - Start -->
                 <apex:pageBlockButtons location="bottom">
                     
-                   <!-- <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>-->
+                    <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>
                     <apex:commandButton action="{!AddressSearchbyZipCode}"  value="{!$Label.Address_Search}" rendered="false"/>
                     <apex:commandButton action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!If(market=='KR',true,false)}"/>
                  <!--Commented sfdckr1464<apex:commandButton action="{!onLineDeduplication}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(market=='KR') ,true,false)}"/>-->
