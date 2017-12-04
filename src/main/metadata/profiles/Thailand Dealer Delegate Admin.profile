@@ -850,6 +850,10 @@
         <apexClass>CommunitiesSelfRegControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	 <classAccesses>
+        <apexClass>ConsentHistoryInlinepage_TH_Ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>CompassCase</apexClass>
         <enabled>false</enabled>
@@ -16025,9 +16029,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.EuroVIN__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -20472,7 +20476,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Budget_Approval__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -20717,7 +20721,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.MBTH_Approval_Status__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -28393,6 +28397,10 @@
         <apexPage>CommunitiesTemplate</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>ConsentHistoryInlinePage_TH</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>ConsolidationDisplayList</apexPage>
         <enabled>false</enabled>
@@ -29281,7 +29289,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>PersonAccount.PersonAccount</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -29302,7 +29310,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>PersonAccount.ThirdParty</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -29620,7 +29628,7 @@
     </tabVisibilities>
 	 <tabVisibilities>
         <tab>DM_Material__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>
         <tab>DM_Request__c</tab>
