@@ -1156,7 +1156,7 @@ EP/Tolerant for Validation.
         response =  UtilWebservice.validateAddressByZipCode(AddressObj,Autofill);
         system.debug('response >> 1:'+response);
         //system.debug('response >> 2:'+response.Addresses.size());
-        if(response != null && response.AutoFillMode && AutoFill){
+        if(response != null && response.AutoFillMode == true && AutoFill){
              for(Integer i=0;i<response.Addresses.size();i++){                
                 Address__c AddressObjtable = new Address__c(); 
                 Address_Validated_Flag = true;
@@ -2629,9 +2629,15 @@ If the user is Saving  same address which matches the fields returned by toleran
     String EndUrl=generateCDMEndPointURL();
     CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
     try{    
-        con = new Continuation(120);            
-        con.continuationMethod='processResponse';
-        this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+		if(label.New_Component=='true'){
+			con = new Continuation(120);     
+			con.continuationMethod='processResponse';
+			this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+		}
+		else{
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
+			errorFlag=false;
+		}
     } catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
