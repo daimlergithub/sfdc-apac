@@ -22,10 +22,11 @@ public  class ConvertToTaskController
             objectAPIName = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
             if(usr.Market__c=='TH'){
             List<Retail_Campaign__c> retcamp =[select id,Parent_Campaign1__r.createdby.usertype from Retail_Campaign__c where id=:campaignId];
-             query = 'SELECT Name,Contact_Id__r.Primary_Phone__c,Contact_Id__r.Individual_Home_Phone__c,Contact_Id__r.Work_Phone__c,Contact_Id__r.Mobile__c,md__c,Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c, Vehicle__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+             
+             query = 'SELECT Name,Contact_Id__r.Primary_Phone__c,Contact_Id__r.Individual_Home_Phone__c,Retail_Campaign_Id__r.Campaign_Code__c,Contact_Id__r.Work_Phone__c,Contact_Id__r.Mobile__c,md__c,Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c, Vehicle__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
              query += ' FROM Campaign_Member__c WHERE Auto_creation_of_tasks__c=false AND ';
              query +=' (Status__c = \'Ready\' OR Status__c = \'Executed\' ) AND md__c=\'TH\' AND ';
-             if(retcamp[0].Parent_Campaign1__r.createdby.usertype=='Standard'){
+             if(retcamp!=null && retcamp.size()>0 && retcamp[0].Parent_Campaign1__r.createdby.usertype=='Standard'){
              query +='Retail_Campaign_Id__r.MBTH_Approval_Status__c=\'Approved\' and ';
              }
               }else{
@@ -132,7 +133,11 @@ public  class ConvertToTaskController
   @TestVisible   private Task setTaskRecordFields(String campaignId, Campaign_Member__c campaignMember) 
      {
         Task taskRec = new Task(RecordTypeId = OB_Call);
+        //contactList=Usr.market__c=='TH'&&campaignMember.Contact_Id__c!=null?[select id,PersonContactId from account where id=:campaignMember.Contact_Id__c]:[select id,PersonContactId from account where id=:campaignMember.Contact_Id__c];
+        if(campaignMember.Contact_Id__c!=null){
         contactList=[select id,PersonContactId from account where id=:campaignMember.Contact_Id__c];
+        }
+        
         taskRec.status= 'New';
         taskRec.Priority='Low';
         taskRec.subject = 'Campaign Executed';
@@ -155,6 +160,7 @@ public  class ConvertToTaskController
         taskRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
         taskRec.whatid = campaignMember.Retail_Campaign_Id__c;
         taskRec.ActivityDate=System.today()+3;
+        taskRec.Campaign_Name__c=campaignMember.Retail_Campaign_Id__r.Campaign_Code__c;  
         if(campaignMember.Contact_Id__r.Primary_Phone__c!=null){
         system.debug('salestel'+campaignMember.Contact_Id__r.Primary_Phone__c+'   '+campaignMember.Contact_Id__r.Individual_Home_Phone__c);
        taskRec.Phone_number__c=campaignMember.Contact_Id__r.Primary_Phone__c=='Home Phone'?campaignMember.Contact_Id__r.Individual_Home_Phone__c:campaignMember.Contact_Id__r.Primary_Phone__c=='Work Phone'?campaignMember.Contact_Id__r.Work_Phone__c:campaignMember.Contact_Id__r.Primary_Phone__c=='Mobile'?campaignMember.Contact_Id__r.Mobile__c:'';

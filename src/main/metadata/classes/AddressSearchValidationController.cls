@@ -1156,7 +1156,7 @@ EP/Tolerant for Validation.
         response =  UtilWebservice.validateAddressByZipCode(AddressObj,Autofill);
         system.debug('response >> 1:'+response);
         //system.debug('response >> 2:'+response.Addresses.size());
-        if(response != null && response.AutoFillMode && AutoFill){
+        if(response != null && response.AutoFillMode == true && AutoFill){
              for(Integer i=0;i<response.Addresses.size();i++){                
                 Address__c AddressObjtable = new Address__c(); 
                 Address_Validated_Flag = true;
@@ -1332,7 +1332,7 @@ EP/Tolerant for Validation.
                     }
                     //AddressObj.Province__c =  province;
                     AddressObj.Temp_ZipCode__c = AddressObj.ZipCode__C;
-                    AddressObj.Temp_Address__c = ((AddressObj.Province__c != null) ? AddressObj.Province__c : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
+                    AddressObj.Temp_Address__c = ((province != null) ? province : '' ) + ((AddressObj.City__c != null) ? AddressObj.City__c : '' ) +
                         ((AddressObj.District__c != null) ? AddressObj.District__c : '' ) + ((AddressObj.Block__c != null) ? AddressObj.Block__c  : '' ) +
                         ((AddressObj.Address_Line_1__c != null) ? AddressObj.Address_Line_1__c  : '' ) + ((AddressObj.Address_Line_2__c != null) ? AddressObj.Address_Line_2__c  : '' );
                     /*AddressObj.Address_Code__c = '';

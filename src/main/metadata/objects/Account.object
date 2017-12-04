@@ -2619,9 +2619,9 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
     <fields>
         <fullName>Agreement_Date_for_Contact_Method__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(NOT(ISPICKVAL(Personal_Agreement__c,'')),NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c ,'')),NOT(ISPICKVAL( Agreement_to_commit_info_processing__c,'')),NOT(ISPICKVAL(Personal_Abroad_Agreement__c,''))),TODAY(),null)</formula>
         <label>Agreement Date for Contact Method</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
