@@ -25326,12 +25326,7 @@
 		<field>Account_Field_History_Tracker__c.System_Data_Source__c</field>		
 	    <readable>false</readable>		
     </fieldPermissions>
-	<fieldPermissions>
-	    <editable>false</editable>
-		<field>Account_Field_History_Tracker__c.Updated_Consent_Date__c</field>		
-	    <readable>false</readable>		
-    </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
 	    <editable>false</editable>
 		<field>Account_Field_History_Tracker__c.Updated_Consent_User__c</field>		
 	    <readable>false</readable>		
