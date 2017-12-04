@@ -976,7 +976,7 @@
                      <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If($Permission.MYGeneric ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>      
                     <!--MT20170909-->
                      </apex:outputPanel>
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric)) ,true,false)}" oncomplete="hideTable();"/> <!--oncomplete="hideTable();-->
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric)) ,true,false)}"/> <!--oncomplete="hideTable();-->
                     <!--<apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>-->
                     
                     <apex:outputPanel rendered="{!firstsave}" >
