@@ -26,11 +26,13 @@ public class TriggerVehicleRelTriggerHandlerTH
        }
        if(trigger.isAfter && (trigger.isInsert))
         {
-          VehicleRelationshipHelperTH.OnAfterInsert(Trigger.new);          
+          VehicleRelationshipHelperTH.OnAfterInsert(Trigger.new);    
+          VehicleRelationshipHelperTH.afterInsertSharerecordsWithDealers(Trigger.new,true);      
         }
         if(trigger.isAfter && Trigger.isUpdate) {
           Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
-          VehicleRelationshipHelperTH.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);         
+          VehicleRelationshipHelperTH.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+          VehicleRelationshipHelperTH.afterInsertSharerecordsWithDealers(Trigger.new,false);          
         } 
        if(trigger.isAfter && Trigger.isDelete) {
           VehicleRelationshipHelperTH.OnAfterDelete(Trigger.old);
@@ -46,10 +48,12 @@ public class TriggerVehicleRelTriggerHandlerTH
              if(trigger.isAfter && (trigger.isInsert))
             {
                 VehicleRelationshipHelperTH.OnAfterInsert(Trigger.new);
+                 VehicleRelationshipHelperTH.afterInsertSharerecordsWithDealers(Trigger.new,true);
             }
         if(trigger.isAfter && Trigger.isUpdate) {
               Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
               VehicleRelationshipHelperTH.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+               VehicleRelationshipHelperTH.afterInsertSharerecordsWithDealers(Trigger.new,false);  
             } 
        if(trigger.isAfter && Trigger.isDelete) {
             VehicleRelationshipHelperTH.OnAfterDelete(Trigger.old);
