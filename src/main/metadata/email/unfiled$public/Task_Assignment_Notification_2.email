@@ -1,0 +1,5 @@
+<messaging:emailTemplate subject="{!relatedto.subject}" relatedToType="Task" recipientType="User" >
+<messaging:htmlEmailBody > 
+    <c:TaskDynamicObjectEmail ></c:TaskDynamicObjectEmail>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>
