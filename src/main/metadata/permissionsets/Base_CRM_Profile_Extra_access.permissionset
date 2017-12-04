@@ -24142,11 +24142,6 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.Account_Record_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
         <field>Account_Field_History_Tracker__c.Changed_By_Id__c</field>
         <readable>false</readable>
     </fieldPermissions>

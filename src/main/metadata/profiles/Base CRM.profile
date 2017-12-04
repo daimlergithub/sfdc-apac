@@ -25323,7 +25323,7 @@
     </fieldPermissions>
 	<fieldPermissions>
 	    <editable>false</editable>
-		<field>Account_Field_History_Tracker__c.System_Data_Source__</field>		
+		<field>Account_Field_History_Tracker__c.System_Data_Source__c</field>		
 	    <readable>false</readable>		
     </fieldPermissions>
 	<fieldPermissions>
