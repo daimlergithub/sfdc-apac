@@ -97,9 +97,9 @@ private class TestCtrlMessageAPIKRDFW {
     }
     
     static testMethod void myUnitTest2() {
-		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
+		Kakao_Talk_Integration_URL__c cs = new Kakao_Talk_Integration_URL__c();
 		cs.Name = 'SfdcMBKMessageURL';
-        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+        cs.WebService_URL_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
      	insert cs;  
 
 		Account personAcc = new Account(Dealer_Default_Flag__c=false,

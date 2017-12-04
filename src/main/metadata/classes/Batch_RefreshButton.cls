@@ -8,7 +8,7 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([select id,Name,Address__r.Name,Finance_Address__c,Preferred_Dealer__c,Preferred_Dealer__r.Dealer_GC_Code__c,Campaign_ID__r.Parent.Driven_Type__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.District__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Contract__r.Contractor_Address1_Native__c , Contract__r.Contractor_Address3_Native__c,Campaign_ID__c,Vehicle_Relationship__r.vehicle_address__r.name,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Contract__r.Contractor_Address1__c,Contract__r.Contractor_Address3__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Vehicle__r.NextInspectionDate__c,Vehicle__r.LastWorkDate__c,Vehicle__r.LastServiceDate__c,Vehicle__r.LastInspectionDate__c,Vehicle__r.NextServiceDate__c,Address__r.District__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c from campaign_Member__c WHERE Campaign_ID__c =: query ] );
+        return Database.getQueryLocator([select id,Name,Vehicle__c ,Address__r.Name,Finance_Address__c,Preferred_Dealer__c,Preferred_Dealer__r.Dealer_GC_Code__c,Campaign_ID__r.Parent.Driven_Type__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.District__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Contract__r.Contractor_Address1_Native__c , Contract__r.Contractor_Address3_Native__c,Campaign_ID__c,Vehicle_Relationship__r.vehicle_address__r.name,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Contract__r.Contractor_Address1__c,Contract__r.Contractor_Address3__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Vehicle__r.NextInspectionDate__c,Vehicle__r.LastWorkDate__c,Vehicle__r.LastServiceDate__c,Vehicle__r.LastInspectionDate__c,Vehicle__r.NextServiceDate__c,Address__r.District__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c from campaign_Member__c WHERE Campaign_ID__c =: query ] );
     }
     
     global void execute(Database.BatchableContext BC, List<Campaign_Member__C> scope){
@@ -24,7 +24,8 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
         Set<String> contactid = new set<String>();
         Set<String> JointPreferedDealer= new set<String>();
         Set<String> ContactPreferedDealer= new set<String>();
-     List<Campaign_Member__c> membertoupdate = new List<Campaign_Member__c>();
+        Map<id,Campaign_Member__c> membertoupdate = new Map<id,Campaign_Member__c>();
+     //List<Campaign_Member__c> membertoupdate = new List<Campaign_Member__c>();
         for(campaign_Member__c mem : scope){
             if(mem.Campaign_ID__r.Parent.Driven_Type__c == 'Joint' && mem.Preferred_Dealer__c != null){
                 JointPreferedDealer.add(mem.Preferred_Dealer__r.Dealer_GC_Code__c);
@@ -38,9 +39,9 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             
         }
          
-        List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: Jointvehicle AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer order by LastModifiedDate desc LIMIT 1];
-        system.debug('acclink $##$Kiran'+acclink );
-        List<Account_Link__c> Personacclink = [select Id, Name, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc LIMIT 1];
+        //List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: Jointvehicle AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer order by LastModifiedDate desc LIMIT 1];
+       // system.debug('acclink $##$Kiran'+acclink );
+       // List<Account_Link__c> Personacclink = [select Id, Name, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc LIMIT 1];
         
         for(campaign_Member__c mem : scope){
         province = addtrmap1.get(mem.Address__r.Province__c);
@@ -97,28 +98,61 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             mem.LastWorkDate__c = mem.Vehicle__r.LastWorkDate__c;
             
         }
+        Map<Id,Account_Link__c> mapAccLinks = New Map<Id,Account_Link__c>(); 
+        List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c,Vehicle__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: Jointvehicle AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer order by LastModifiedDate desc];
+        for(Account_Link__c accMainlink : acclink){
+            
+            mapAccLinks.put(accMainlink.Vehicle__c,accMainlink);
+        }
+        
+        
         if(!acclink.isEmpty() && acclink.size()>0){
-            mem.NextInspectionDate__c = acclink[0].NextInspectionDate__c;
-            mem.NextServiceDate__c = acclink[0].NextServiceDate__c;
-            mem.LastInspectionDate__c = acclink[0].LastInspectionDate__c;
-            mem.LastServiceDate__c = acclink[0].LastServiceDate__c;
-            mem.LastWorkDate__c = acclink[0].LastWorkDate__c;
-            mem.Service_Advisor__c = acclink[0].Service_Advisor__c;
+        for(Campaign_Member__c camp : scope){
+          for(Account_Link__c acc : acclink ){
+          
+          if(camp.Vehicle__c == acc.Vehicle__c && camp.Preferred_Dealer__r.Dealer_GC_Code__c  == acc.fromRole__r.Dealer_GC_Code__c  ){
+            camp.NextInspectionDate__c = acc.NextInspectionDate__c;
+            camp.NextServiceDate__c = acc.NextServiceDate__c;
+            camp.LastInspectionDate__c =acc.LastInspectionDate__c;
+            camp.LastServiceDate__c = acc.LastServiceDate__c;
+            camp.LastWorkDate__c = acc.LastWorkDate__c;
+            camp.Service_Advisor__c = acc.Service_Advisor__c;
+           // membertoupdate.add(camp);
+            membertoupdate.put(camp.id,camp);
+            }
+
+            }
+            }
             
         }
-        
+         Map<Id,Account_Link__c> mapAccSalesLinks = New Map<Id,Account_Link__c>();
+          List<Account_Link__c> Personacclink = [select Id, Name,Vehicle__c , Retail_Sales_Consultant__c,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc];
+       
         if(!Personacclink.isempty()&&Personacclink.size()>0){
-            mem.Sales_Consultant__c = Personacclink[0].Retail_Sales_Consultant__c;
-            
+        for(Account_Link__c acc :Personacclink){
+        
+                mapAccSalesLinks.put(acc.toRole__c,acc);
+                
+            }
+            for(Campaign_Member__c retcamp : scope){
+            for(Account_Link__c acc : Personacclink  ){
+            if(retcamp.Contact_Id__c == acc.toRole__c && retcamp .Preferred_Dealer__r.Dealer_GC_Code__c  == acc.fromRole__r.Dealer_GC_Code__c  ){
+            retcamp.Sales_Consultant__c = acc.Retail_Sales_Consultant__c;
+            //membertoupdate.add(retcamp);
+            membertoupdate.put(retcamp.id,retcamp);
+            }
         }
-        membertoupdate.add(mem);
-        //}
+        }
+        
         }
         
         
-        update membertoupdate;
+        //update membertoupdate;
+        update membertoupdate.values();
+        //upsert membertoupdate.values();
     
         
+    }
     }
     
     global void finish(Database.BatchableContext BC){

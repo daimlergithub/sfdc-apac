@@ -63,17 +63,24 @@ public class MarketCheckOnVehiclePickerConTest{
     }
     usr.Market__c='KR';
     update usr;
-    System.RunAs(usr){
-      ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
-      MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
-      system.assertEquals(usr.Market__c,System.label.marketKR);
-        }     
-        usr.Market__c='TH';
-    update usr;
-    System.RunAs(usr){
-      ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
-      MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
-      system.assertEquals(usr.Market__c,System.label.marketTH);
-        } 
+	System.RunAs(usr){
+		ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
+		MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
+		system.assertEquals(usr.Market__c,System.label.marketKR);
+	}     
+	usr.Market__c='TH';
+	update usr;
+	System.RunAs(usr){
+		ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
+		MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
+		system.assertEquals(usr.Market__c,System.label.marketTH);
+	} 
+	usr.Market__c='MY';
+	update usr;
+	System.RunAs(usr){
+		ApexPages.StandardController sc2 = new ApexPages.StandardController(testLead);
+		MarketCheckOnVehiclePickerCon mvp2 = new MarketCheckOnVehiclePickerCon(sc);
+		system.assertEquals(usr.Market__c,System.label.marketMY);
+	}
   }
 }
