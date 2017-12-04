@@ -1156,7 +1156,7 @@ EP/Tolerant for Validation.
         response =  UtilWebservice.validateAddressByZipCode(AddressObj,Autofill);
         system.debug('response >> 1:'+response);
         //system.debug('response >> 2:'+response.Addresses.size());
-        if(response != null && response.AutoFillMode && AutoFill){
+        if(response != null && response.AutoFillMode == true && AutoFill){
              for(Integer i=0;i<response.Addresses.size();i++){                
                 Address__c AddressObjtable = new Address__c(); 
                 Address_Validated_Flag = true;
