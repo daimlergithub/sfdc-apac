@@ -25498,11 +25498,6 @@
     </fieldPermissions>
 	<fieldPermissions>
 	    <editable>false</editable>
-		<field>CampaignMember.et4ae5__Activity__c</field>		
-	    <readable>false</readable>		
-    </fieldPermissions>
-	<fieldPermissions>
-	    <editable>false</editable>
 		<field>Campaign_Member__c.Class_and_Body__c</field>		
 	    <readable>false</readable>		
     </fieldPermissions>
