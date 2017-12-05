@@ -1031,7 +1031,7 @@
             <apex:column value="{!item.add.Address_Line_1__c}"/> 
             <apex:column value="{!item.add.Address_Line_2__c}"/>           
         </apex:pageBlockTable>
-        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="JpaddressIds" rendered="{!IF((market == 'JP' || DisplayAutoFill == true), true, false)}">    
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="JpaddressIds" rendered="{!IF((market == 'JP' && DisplayAutoFill == true), true, false)}">    
             <apex:column >
                 <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
             </apex:column>        
