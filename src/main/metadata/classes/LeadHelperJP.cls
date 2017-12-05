@@ -794,10 +794,11 @@ public class LeadHelperJP
                     if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
                     {
                         dellead.Assigned_Dealer__c = u.Contact.AccountId;
-            if(dellead.Dealer_Lead_Status__c != null && dellead.Dealer_Lead_Status__c != '')
-            {
-              dellead.Dealer_Assigned_Date_Time__c = system.now();
-            }
+						//Changes as part of SFDCKR-1429
+						if((dellead.recordtypeId == salesRecordTypeId && dellead.Dealer_Lead_Status__c != 'Lost (Dealer)' && dellead.Dealer_Lead_Status__c != 'Received' && dellead.Dealer_Lead_Status__c != 'Invoiced' && dellead.Dealer_Lead_Status__c != 'Lost') || (dellead.recordtypeId == afterSalesRecordTypeId && dellead.Dealer_Lead_Status__c != 'Lost (Dealer)' && dellead.Dealer_Lead_Status__c != 'Service Completed' && dellead.Dealer_Lead_Status__c != 'Lost'))
+						{
+							dellead.Dealer_Assigned_Date_Time__c = system.now();
+						}
                     }
                 }
             }
