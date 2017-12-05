@@ -28,9 +28,6 @@
         <field>Account.ID_Number__c</field>
     </columns>
     <columns>
-        <field>Account.MBTH_Nationality__c</field>
-    </columns>
-    <columns>
         <field>PC_BIRTHDATE</field>
     </columns>
     <columns>
@@ -75,6 +72,14 @@
     <columns>
         <field>Account.Commercial_Reg_No__c</field>
     </columns>
+    <filter>
+        <criteriaItems>
+            <column>Account.MD__c</column>
+            <operator>equals</operator>
+            <value>TH</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Month</dateGranularity>
