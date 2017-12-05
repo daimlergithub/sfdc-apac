@@ -855,7 +855,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CompassCase</apexClass>
+        <apexClass>ConsentHistoryInlinepage_TH_Ctrl_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -13842,16 +13842,11 @@
         <editable>true</editable>
         <field>DM_Request__c.Address_Line_2__c</field>
         <readable>true</readable>
-	</fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Sub_District__c</field>
-        <readable>true</readable>
-	</fieldPermissions>	
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.District__c</field>
-        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Address_TH__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -27871,14 +27866,11 @@
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Vehicle Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Vehicle__c-Vehicle Layout</layout>
+        <layout>Vehicle__c-MBTH Competitor Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Competitor</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Vehicle Layout</layout>
+        <layout>Vehicle__c-MBTH MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <layoutAssignments>

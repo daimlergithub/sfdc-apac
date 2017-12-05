@@ -4797,7 +4797,7 @@
         <field>Account.Last_updated__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	 <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Lastest_Consent_Date__c</field>
         <readable>true</readable>
@@ -5982,7 +5982,7 @@
         <field>Account.UsedLead_Notification_Timing__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	  <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.User_Organization__c</field>
         <readable>true</readable>
@@ -6157,7 +6157,7 @@
         <field>Account.smart_Account_Owner__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account_Field_History_Tracker__c.Account_Record_Id__c</field>
         <readable>true</readable>
@@ -13906,15 +13906,10 @@
         <editable>true</editable>
         <field>DM_Request__c.Address_Line_2__c</field>
         <readable>true</readable>
-	</fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Sub_District__c</field>
-        <readable>true</readable>
-	</fieldPermissions>	
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.District__c</field>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Address_TH__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -27987,7 +27982,7 @@
         <object>Account</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-	   <objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
