@@ -5972,7 +5972,7 @@
         <field>Account.UsedLead_Notification_Timing__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	 <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.User_Organization__c</field>
         <readable>true</readable>
@@ -27972,7 +27972,7 @@
         <object>Account</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-	   <objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
