@@ -555,6 +555,10 @@ public class AccountHelperJP
                     {
                         acc.Primary_Fax_Display__c = acc.Fax2__c;
                     }
+                    else if ((acc.Primary_Fax__c == null) && ((acc.Primary_Fax__c != OldAcc.Primary_Fax__c)))
+                    {
+                        acc.Primary_Fax_Display__c = '';
+                    }
                     if((acc.Primary_Email__c == 'E-mail1') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email__c != OldAcc.Email__c))) 
                     {
                         acc.Primary_Email_Display__c = acc.Email__c;
@@ -566,6 +570,10 @@ public class AccountHelperJP
                     else if((acc.Primary_Email__c == 'E-mail3') && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) || (acc.Email3__c != OldAcc.Email3__c)))
                     {
                         acc.Primary_Email_Display__c = acc.Email3__c;
+                    }
+                    else if((acc.Primary_Email__c ==null) && ((acc.Primary_Email__c != OldAcc.Primary_Email__c) ))
+                    {
+                        acc.Primary_Email_Display__c ='';
                     }
                     if((acc.Primary_Phone__c =='Mobile') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Mobile__c != OldAcc.Mobile__c)))
                     {
@@ -591,6 +599,10 @@ public class AccountHelperJP
                     else if((acc.Primary_Phone__c =='Other2') && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c) || (acc.Phone != OldAcc.Phone)))
                     {
                         acc.Primary_Phone_Display__c = acc.Phone;
+                    }
+                    else if((acc.Primary_Phone__c ==null) && ((acc.Primary_Phone__c != OldAcc.Primary_Phone__c)))
+                    {
+                        acc.Primary_Phone_Display__c = '';
                     }
                 }
             }
@@ -1092,58 +1104,56 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             createUpdateRetailCopy.createUpdateRetailCopyAccountCreation(insrtaccids,corelnId);
         }
     }
-	 
+     
     public static void deletesharingforSoftDeletedRecords(List<Account> softAccountList)
     {
         set<id> deletedAccId = new set<id>();
-		 
+         
         for(Account acct : softAccountList)
         {
             if(acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
             {
                 deletedAccId.add(acct.Id);
-				 
+                 
             }
         } 
-		
-		 if(!deletedAccId.isEmpty() && deletedAccId != null)
+        
+         if(!deletedAccId.isEmpty() && deletedAccId != null)
         {
         List<AccountShare> sharesToDelete = [SELECT Id FROM AccountShare WHERE AccountId=:deletedAccId AND RowCause = 'Manual'];
         if(!sharesToDelete.isEmpty()){
         system.debug('^&^&^&^&^&^&^&^&^&^&^&^&^&^&^&^'+sharesToDelete);
           Database.Delete(sharesToDelete, false);
        }
-	   }
+       }
         
           //  delete [select id from AccountShare where AccountId =:deletedAccId and RowCause = 'Manual']; 
     }
-	
-	/* This method is created as part of changes related to SFDCJP-2276 */
-	  public static void ChangeSoftDeletedRecordsOwner(List<Account> softAccountList)
+    
+    /* This method is created as part of changes related to SFDCJP-2276 */
+      public static void ChangeSoftDeletedRecordsOwner(List<Account> softAccountList)
     {
         set<id> deletedAccId = new set<id>();
          List<Account> UpdateAcc=new List<Account>();
-         User IntegrationUser=new User();
+         List<User> IntegrationUser=new List<User>();
      IntegrationUser=[Select id,firstName,LastName,Profile.Name from User Where profile.Name='IntegrationAPI' and firstName='Integration' and LastName='User' limit 1];
-          
-          
+         system.debug('+++++++++++++'+ IntegrationUser );
+        if(IntegrationUser.size()>0){ 
             for(Account acc : softAccountList)
         {
             if(acc.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acc.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
             {
-                 if(acc.OwnerId !=IntegrationUser.id)
+                 if(acc.OwnerId !=IntegrationUser[0].id)
                     {
-                        acc.OwnerId=IntegrationUser.id;                       
+                        acc.OwnerId=IntegrationUser[0].id;                       
                         
                     }
                   
                  
             }
        
-       }
+       } }
          
          
     }
 }
-
-

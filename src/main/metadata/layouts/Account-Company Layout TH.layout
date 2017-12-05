@@ -72,10 +72,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Primary_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Opt_In_Contact_Reason__c</field>
             </layoutItems>
             <layoutItems>
