@@ -8243,6 +8243,11 @@
         <field>Booking__c.Assigned_Dealer_Outlet__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Booking__c.Assigned_Service_Advisors__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Booking__c.Assigned_Service_Advisor__c</field>
