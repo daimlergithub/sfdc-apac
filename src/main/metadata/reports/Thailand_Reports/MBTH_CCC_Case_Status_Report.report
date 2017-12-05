@@ -4,12 +4,6 @@
         <field>CASE_NUMBER</field>
     </columns>
     <columns>
-        <field>Case.MBTH_Case_Type__c</field>
-    </columns>
-    <columns>
-        <field>Case.MBTH_Case_Subtype__c</field>
-    </columns>
-    <columns>
         <field>SUBJECT</field>
     </columns>
     <columns>
@@ -42,6 +36,14 @@
     <columns>
         <field>LAST_UPDATEONLY</field>
     </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case.MD__c</column>
+            <operator>equals</operator>
+            <value>TH</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Month</dateGranularity>
