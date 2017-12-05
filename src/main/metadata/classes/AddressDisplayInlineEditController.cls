@@ -764,6 +764,7 @@ public class AddressDisplayInlineEditController {
   
   public void AutoFillAddress(){
         AutoFill = true;
+        
         DisplayAutoFill = true;
         ValidateAddressSearch();
         
@@ -776,6 +777,7 @@ public class AddressDisplayInlineEditController {
         **  Date: 2016-1-19
     **/
     public void ValidateAddressSearch(){
+        
         system.debug('addresspicklist 4 :'+addresspicklist);
         system.debug('Market 1 :'+Market);
         if(Market =='KR'){         
@@ -814,6 +816,7 @@ public class AddressDisplayInlineEditController {
             //}           
         }
         if(Market !='KR' && Market !='' ){
+           
             if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c))){
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
@@ -1019,8 +1022,11 @@ public class AddressDisplayInlineEditController {
                         
                     }
                     
+                    if(market != 'JP')
+                    {
                     
                     mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp)); 
+                    }
                 }
                 else if(!response.Addresses[i].Valid){
                     string province;   
