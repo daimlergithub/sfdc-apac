@@ -99,17 +99,20 @@ public with sharing class VehicleRelationshipHelperTH
   
             }//if trigger.old is there and trigger.new is null then revoke vehicle,VR,Account access from dealers
             else if(trigger.oldMap!=null &&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&& ((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
+                 
                  vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
                  if(vehicleRellist[i].Contact__c!=null){
-                    accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
+                    accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Contact__c,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
                  }
                 if(vehicleRellist[i].Vehicle_ID__c!=null){
-                    vehiclerevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
+                    vehiclerevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Vehicle_ID__c,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
                 }
             }
             
         }
     }
+    Map<id,AccountShare> accalredayhaveaccess=new Map<id,AccountShare>([select id, AccountAccessLevel, userOrgroupid from AccountShare  where Accountid IN:accs.keyset() and userOrgroupid IN: accs.values()]);
+    //accalredayhaveaccess=[select id, AccountAccessLevel, userOrgroupid from AccountShare  where Accountid IN:accs.keyset() and userOrgroupid IN: accs.values()];
     if(vrs.size()>0){
         for(Group gp:[select id,name from Group where name IN :vrs.values()]){
             for(ID veh:vrs.keyset()){
@@ -124,8 +127,8 @@ public with sharing class VehicleRelationshipHelperTH
                 }
             }
             for(ID ac:accs.keyset()){
-                if(gp.name==accs.get(ac)){
-                accshare.add(new AccountShare(Accountid=ac,AccountAccessLevel='READ',OpportunityAccessLevel='None',CaseAccessLevel='READ',UserOrGroupId=gp.id,RowCause=Schema.Accountshare.RowCause.Manual));
+                if(gp.name==accs.get(ac)&&!accalredayhaveaccess.containsKey(ac)){
+                accshare.add(new AccountShare(Accountid=ac,AccountAccessLevel='READ',OpportunityAccessLevel='None',CaseAccessLevel='None',UserOrGroupId=gp.id,RowCause=Schema.Accountshare.RowCause.Manual));
             }
             }
             for(ID ve:vehicl.keyset()){
@@ -136,34 +139,35 @@ public with sharing class VehicleRelationshipHelperTH
             
         }
     }
-    Database.insert(vehicleshare);
-    //Database.insert(accshare);
-    //Database.insert(vehiclestoshare);
-    
-    /*if(vehicleshare.size()>0){
+   /* Database.insert(vehicleshare);
+    system.debug(accshare.size()+'dha**************'+accshare);
+    Database.insert(accshare);
+    Database.insert(vehiclestoshare);
+    */
+    if(vehicleshare.size()>0){
         sobj.addall((List<sObject>)(vehicleshare));//vehicle relationships
     }
     if(accshare.size()>0){
-       // sobj.addAll((List<sObject>)(accshare));
+        sobj.addAll((List<sObject>)(accshare));
     }
     if(vehiclestoshare.size()>0){
-        sobj.addall((List<sObject>)(vehiclestoshare));
+        //sobj.addall((List<sObject>)(vehiclestoshare));
     }
     if(sobj.size()>0){
         Database.insert(sobj);
-    }*/
+    }
     gpnamesset.addall(vrsrevokeaccess.values());
     gpnamesset.addall(accsrevokeaccess.values());
-    gpnamesset.addall(vehiclerevokeaccess.values());
+    //gpnamesset.addall(vehiclerevokeaccess.values());
     if(gpnamesset.size()>0){
         List<group> gp=[select id from group where name in:gpnamesset ];
-        //sobjtorevokeaccess.addall((List<Sobject>)([select id from Vehicle_relationship__share where parentid IN :vrsrevokeaccess.keyset() and Userorgroupid IN:gp]));
-        //sobjtorevokeaccess.addall((List<Sobject>)([select id from Accountshare where accountid IN :accsrevokeaccess.keyset() and Userorgroupid IN : gp]));
+        sobjtorevokeaccess.addall((List<Sobject>)([select id from Vehicle_relationship__share where parentid  IN :vrsrevokeaccess.keyset() and Userorgroupid IN :gp]));
+        sobjtorevokeaccess.addall((List<Sobject>)([select id from Accountshare where accountid IN :accsrevokeaccess.keyset() and Userorgroupid IN : gp]));
         //sobjtorevokeaccess.addall((List<Sobject>)([select id from Vehicle__share where parentid IN :vehiclerevokeaccess.keyset() and Userorgroupid IN :gp]));
-        Database.delete([select id from Vehicle_relationship__share where parentid IN :vrsrevokeaccess.keyset() and Userorgroupid IN:gp /*:vrsrevokeaccess.values()*/ ]);
+        //Database.delete([select id from Vehicle_relationship__share where parentid IN :vrsrevokeaccess.keyset() and Userorgroupid IN:gp /*:vrsrevokeaccess.values()*/ ]);
        //Database.delete([select id from Accountshare where accountid IN :accsrevokeaccess.keyset() and Userorgroupid IN : gp/*accsrevokeaccess.values()*/ ]);
         //Database.delete([select id from Vehicle__share where parentid IN :vehiclerevokeaccess.keyset() and Userorgroupid IN :gp/*vehiclerevokeaccess.values()*/ ]);
-       //Database.delete(sobjtorevokeaccess);
+       Database.delete(sobjtorevokeaccess);
     }
     
   }
