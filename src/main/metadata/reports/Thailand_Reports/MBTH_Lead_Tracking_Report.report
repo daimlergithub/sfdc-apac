@@ -78,7 +78,7 @@
     <description>Lead forwarding by product by dealer including reason of closed lead or non-closed lead.</description>
     <filter>
         <criteriaItems>
-            <column>Lead__c$MD__c</column>
+            <column>Lead__c.MD__c</column>
             <operator>equals</operator>
             <value>TH</value>
         </criteriaItems>
