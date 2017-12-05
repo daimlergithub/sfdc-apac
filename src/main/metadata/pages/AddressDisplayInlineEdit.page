@@ -33,7 +33,7 @@
     {
         ShowHideFields(checked);
     }
-	function hideTable(){
+    function hideTable(){
         $("table[id*='addressIds']").hide();
     }
     </script >
@@ -270,10 +270,10 @@
                         </apex:outputField>
                     </apex:column>
                     
-					<apex:column headerValue="Country" rendered="{!IF(($Permission.MYGeneric),true,false)}">
+                    <apex:column headerValue="Country" rendered="{!IF(($Permission.MYGeneric),true,false)}">
                         <apex:outputField value="{!row.Country__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
-                    </apex:column>					
+                    </apex:column>                  
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
                         <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
@@ -563,9 +563,9 @@
                  </apex:actionFunction> 
                 <!--buttons to save and cancel-->
                 <apex:pageBlockButtons location="bottom">
-					<!-- <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>-->
+                    <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
-                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric) ),true,false)}" oncomplete="hideTable();"/>
+                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric) ),true,false)}" /> <!--oncomplete="hideTable();"-->
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF((market='KR' || market='JP'),true,false)}"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market=='TH',true,false)}"/>
                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.MYGeneric,true,false)}"/>
@@ -606,7 +606,7 @@
                     <apex:column value="{!item.add.Province__c}"/>
                     <apex:column value="{!item.add.City__c}"/>
                     <apex:column value="{!item.add.District__c}"/>
-					<apex:column value="{!item.add.Block__c}" rendered="{!IF(DisplayAutoFill == true,true,false)}"/>
+                    <apex:column value="{!item.add.Block__c}" rendered="{!IF(DisplayAutoFill == true,true,false)}"/>
                     <apex:column value="{!item.add.ZipCode__c}"/>
                     <apex:column value="{!item.add.Address_Line_1__c}"/> 
                     <apex:column value="{!item.add.Address_Line_2__c}"/>            
