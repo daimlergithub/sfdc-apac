@@ -42,6 +42,14 @@
     <columns>
         <field>CLOSED_DATEONLY</field>
     </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case.MD__c</column>
+            <operator>equals</operator>
+            <value>TH</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <name>MBTH_FS_Inquiry Report</name>
     <params>

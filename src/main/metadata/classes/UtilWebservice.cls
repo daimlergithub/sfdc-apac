@@ -325,9 +325,10 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         SendingAddress.HouseNumber = address.HouseNumber__c;
         SendingAddress.Block = address.Block__c;
         SendingAddress.City = address.City__c;
-        SendingAddress.District = address.District__c;
+        SendingAddress.District = address.District__c;	
+        SendingAddress.Province = address.Province__c;		
         }
-        SendingAddress.Province = address.Province__c;
+        
         crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType request = new crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType();
         request.Organization = UserInfo.getOrganizationId();
         if(isAutoFillMode == true){
