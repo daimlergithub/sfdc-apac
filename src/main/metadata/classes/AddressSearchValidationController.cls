@@ -2771,6 +2771,7 @@ public pagereference saveAccountTH()
                         if(SaveAccountDetailsTh())
                         {   
                             AddressObj.Customer__c = objAccount.id;
+							AddressObj.Preferred__c=true;
                             AddressObj.Language__c =LanguageSelected;
                             insert AddressObj;
                             PageReference pageRef = new PageReference('/'+objAccount.Id);
