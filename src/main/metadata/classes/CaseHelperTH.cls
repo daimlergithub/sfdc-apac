@@ -57,6 +57,36 @@ public class CaseHelperTH {
         }    
     }
     }
+    public void updateCaseOwnerDependsonPrimaryCaseDealer(List<Case> caselist,boolean isInsertFlag){
+        set<Id> accset=new set<ID>();
+        if(isInsertFlag){
+        for(Case cas:caselist){
+            if(cas.Case_Dealer__c!=null){
+                accset.add(cas.Case_Dealer__c);
+            }
+        }
+
+        }
+        
+        else{
+            for(Case cas:caselist){
+             if(((Case)trigger.newmap.get(cas.id)).owner!=((case)trigger.oldmap.get(cas.id)).owner){
+               //c.ownerid=dealerndcode.get(c.Case_Dealer__c).Dealer_Lead_Gate_Keeper__c;
+            }else if(cas.Case_Dealer__c!=null&&((Case)trigger.newmap.get(cas.id)).case_Dealer__c!=((case)trigger.oldmap.get(cas.id)).Case_Dealer__c){
+                accset.add(cas.Case_Dealer__c);
+            }
+        }
+       
+    }
+           Map<id,Account> dealerndcode=new Map<id,Account>([select id,Dealer_Lead_Gate_Keeper__c from Account where id IN:accset and Dealer_Lead_Gate_Keeper__c!=null]);
+       if(dealerndcode.size()>0){
+       for(Case c:caselist){
+           if(c.Case_Dealer__c!=null){
+               c.ownerid=dealerndcode.get(c.Case_Dealer__c).Dealer_Lead_Gate_Keeper__c;
+           }
+       }
+    }
+    }
     public void updatedeadine(case Caserec,Integer hours){
     Integer daystoadd=0;
     DateTime dt=System.now();
@@ -65,20 +95,16 @@ public class CaseHelperTH {
     Integer hourscount=0;
     While(hourscount<hours){
     string dayOfWeek = dt.format('E');
-    system.debug('day of the week'+dayofweek);
     
         if(dayOfWeek =='Sat'||dayOfWeek =='Sun'){
             //hourscount=hourscount+24;
-            system.debug('****hrsif'+hourscount+'   '+dayofweek);
         }
         else{
         
         hourscount=hourscount+24;
-        system.debug('****hrselse'+hourscount+'   '+dayofweek);
         }
         dt=dt+1;
     daystoadd=daystoadd+1;
-    system.debug('******   '+dt+'  '+daystoadd+'  '+dayofweek+'    '+hourscount);
     }
     
     if(caserec.deadline__c==null){
@@ -187,7 +213,6 @@ public class CaseHelperTH {
      set<id> casesharingtorevoke=new set<id>();
      set<String> sharingrevokefromgroups=new set<String>();
      List<Case> caselisttoiterat=[select id,createdby.usertype,createdby.Dealer_nd_code__c,Case_Dealer__c,Case_Dealer__r.Dealer_nd_code__c from Case where id IN : caselist];
-     System.debug('***caselisttoiterat'+caselisttoiterat[0].Case_Dealer__r+'---'+caselisttoiterat[0].createdby.usertype);
      //below if part will work at the time of insert
      for(Case casesrec:caselisttoiterat){
          if(!flag){
@@ -195,55 +220,44 @@ public class CaseHelperTH {
              if(casesrec.createdby.usertype=='PowerPartner'&& casesrec.createdby.Dealer_nd_code__c!=null){
                     dealerndcodeset.add(casesrec.createdby.Dealer_nd_code__c);
                     lstcase.add(casesrec);
-                    system.debug('Enter 1');
              }
              else if(casesrec.Case_Dealer__c!=null && casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
                 dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
                  lstcase.add(casesrec);
-                 system.debug('Enter 2');
             }
         }
         else{
-            System.debug('***case values'+((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c+'--'+((Case)trigger.oldMap.get(casesrec.id)).Case_Dealer__c+'---'+casesrec.Case_Dealer__r);
          //if trigger new map value is filled and  oldmap assigned dealer is null then share records with new assigned value
          if(((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=null  && ((Case)trigger.oldMap.get(casesrec.id)).Case_Dealer__c==null&&casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
              dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
              lstcase.add(casesrec);
-             system.debug('Enter 3');
          }
          //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
          else if(((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=null  && ((Case)trigger.oldMap.get(casesrec.id)).Case_Dealer__c!=null&&((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__c&&casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
             dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
             lstcase.add(casesrec);
-            system.debug('Enter 4:'+lstcase);
           //will revoke record access depends on dealer nd code  if we change the assigned dealer
              if (((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c!=null){
-                system.debug('Enter 4.1');
                 sharingrevokefromgroups.add(((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
                 casesharingtorevoke.add(((Case)trigger.oldmap.get(casesrec.id)).id);
-                system.debug('Enter 4.2:'+casesharingtorevoke);
             }
          }
          //if trigger old value is filled and new value did not filled then revoke access from old Dealer
          else if(((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__c!=null && ((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c==null){
              sharingrevokefromgroups.add(((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
              casesharingtorevoke.add(((Case)trigger.oldmap.get(casesrec.id)).id);
-             system.debug('Enter 5');
          }
          
      }
      }
      for(Group gp:[select id,name from Group where name IN :dealerndcodeset]){
         for(Case caseid:lstcase){
-        system.debug('Enter 6:'+caseid.Case_Dealer__r.Dealer_nd_code__c);
             //this if part will applicable for Salesforce users
             if(gp.name==caseid.Case_Dealer__r.Dealer_nd_code__c){
             caseshare.add(new caseShare(CaseId=caseid.id,UserOrGroupId=gp.id,RowCause=Schema.caseShare.Rowcause.manual,CaseAccessLevel='EDIT'));
-            system.debug('Enter 6.1:'+caseshare);
             }//this else part will applicable for Dealer users
             else if(gp.name==caseid.createdby.Dealer_nd_code__c&&caseid.createdby.Usertype=='PowerPartner'){
                 caseshare.add(new caseShare(CaseId=caseid.id,UserOrGroupId=gp.id,RowCause=Schema.caseShare.Rowcause.manual,CaseAccessLevel='EDIT'));
-                system.debug('Enter 6.2:'+caseshare);
             }
          }
      }
@@ -254,7 +268,6 @@ public class CaseHelperTH {
          List<caseShare> caseshareList=new List<caseShare>();
          caseshareList.addall(caseshare);
          Database.insert(caseshareList);
-         system.debug('Enter 7:'+caseshareList);
          if(casesharingtorevoke.size()>0){
              database.delete([select id from caseShare where Id IN :casesharingtorevoke and UserOrGroupId IN :sharingrevokefromgroups]);
          }
