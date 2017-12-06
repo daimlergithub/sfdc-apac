@@ -336,20 +336,28 @@ public with sharing class CtrlMessageServiceKRDFW {
 		    		insertObject.MBKMessageTemplate__c = setTemplate.Id;
 					insertObject.templateCode__c = setTemplate.Template_ID__c;	    		
 				}
-				if(Mtype == 'KaKao') insertObject.channel__c = system.label.MBK_Message_Channel_KaKao;
-				else if(Mtype == 'SMS/MMS'){
-					if(messagebyte <> null && integer.valueOf(messagebyte) > 80){
-						insertObject.channel__c = system.label.MBK_Message_Channel_MMS;
-					}else{
-						insertObject.channel__c = system.label.MBK_Message_Channel_SMS;
-					}
-				}
 				
 				insertObject.custGubun__c  = system.label.MBK_Message_custGubun;
 				//MMS파일 처리(Attachment)				
 				if(mmsFile1.Name <> null || mmsFile2.Name <> null || mmsFile3.Name <> null){
 					insertObject.AttachmentImages__c = true;
 				}					 
+
+				if(Mtype == 'KaKao') insertObject.channel__c = system.label.MBK_Message_Channel_KaKao;
+				else if(Mtype == 'SMS/MMS'){
+					List<Integer> chars = insertObject.message__c.getChars();
+					Integer smsByte = 0;
+					for(Integer i : chars) {
+    					if(i > 128) smsByte += 2;
+    					else smsByte++;
+					}
+					if(smsByte > 80 || insertObject.AttachmentImages__c){
+						insertObject.channel__c = system.label.MBK_Message_Channel_MMS;
+					}else{
+						insertObject.channel__c = system.label.MBK_Message_Channel_SMS;
+					}
+				}
+
 				insertObject.senderKey__c = system.label.MBK_Message_SenderKey;
 				insertObject.Status__c = 'Reserved';
 				if(insertObject.Set_Sending_Time__c == null) insertObject.Set_Sending_Time__c = Datetime.now();

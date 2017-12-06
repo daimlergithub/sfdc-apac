@@ -106,7 +106,15 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>SLICK_CTI_CONTACT</label>
-    </fieldSets>
+    </fieldSets>	
+    <fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
 	    <fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
@@ -2699,6 +2707,14 @@ Adds an active member/membership status/update activity generated sales leads--t
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+	<validationRules>
+        <fullName>Contact_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Contact should be same as user&apos;s Market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;, NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>RestrictCheckComplaintAndLeadGateKeeper</fullName>
         <active>true</active>

@@ -123,7 +123,7 @@ public class AddressSearchValidationController
     Public boolean wAreaBoolean{get;set;}
     Public boolean fAreaBoolean{get;set;}
     /*SN20171709 - end*/
-        // COnstructor
+        // Constructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
         
@@ -1318,7 +1318,10 @@ EP/Tolerant for Validation.
                       AddressObj.Address_Line_2_Native__c= response.Addresses[0].Address_Line_2_Native;
                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObj.Address_Line_2_Native__c);
                     }
+                      if(market != 'JP')
+                    {
                    mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));  
+                   }
                 }
                 else if(!response.Addresses[i].Valid){
                 
@@ -2629,15 +2632,15 @@ If the user is Saving  same address which matches the fields returned by toleran
     String EndUrl=generateCDMEndPointURL();
     CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
     try{    
-		if(label.New_Component=='true'){
-			con = new Continuation(120);     
-			con.continuationMethod='processResponse';
-			this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
-		}
-		else{
-			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
-			errorFlag=false;
-		}
+        if(label.New_Component=='true'){
+            con = new Continuation(120);     
+            con.continuationMethod='processResponse';
+            this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+        }
+        else{
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
+            errorFlag=false;
+        }
     } catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
@@ -2768,6 +2771,7 @@ public pagereference saveAccountTH()
                         if(SaveAccountDetailsTh())
                         {   
                             AddressObj.Customer__c = objAccount.id;
+							AddressObj.Preferred__c=true;
                             AddressObj.Language__c =LanguageSelected;
                             insert AddressObj;
                             PageReference pageRef = new PageReference('/'+objAccount.Id);
@@ -2957,7 +2961,7 @@ public pagereference saveAccountTH()
                       {             
                              objAccount.fax='';
                       }
-                      if(objAccount.Email__c!=null)
+                      if(objAccount.Email__c!=null && recordType == 'Person Account')
                           objAccount.PersonEmail=objAccount.Email__c;
                           
                   //System.debug('****Type'+AddressObj.Address_Type__c+'Address_Line_1__c'+AddressObj.Address_Line_1__c+'Address_Line_2__c'+AddressObj.Address_Line_2__c+'province'+province+'district'+district+'subdistrict'+subdistrict+'zip'+zip);
@@ -2979,22 +2983,7 @@ public pagereference saveAccountTH()
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Type is mandatory in order to insert an address'));
                     }
                     //PR20170926-(End) Address Type Null check if other Address fields are populated
-                    else if(objAccount.Primary_Phone__c == null)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sales TEL is mandatory'));
-                    }
-                    else if(objAccount.Primary_Phone__c == 'Home Phone' && objAccount.Individual_Home_Phone__c == '')
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Home Phone value if Sales TEL is Home Phone'));
-                    }
-                    else if(objAccount.Primary_Phone__c == 'Mobile' && objAccount.Mobile__c == '')
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Mobile value if Sales TEL is Mobile'));
-                    }
-                    else if(objAccount.Primary_Phone__c == 'Work Phone' && objAccount.Work_Phone__c == '')
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Work Phone value if Sales TEL is Work Phone'));
-                    }                       
+
                     else
                     {
                         refreshPage = true;
@@ -3377,4 +3366,3 @@ public pagereference saveAccountTH()
            
     }
 }
-

@@ -7251,6 +7251,11 @@
         <field>Booking__c.Assigned_Dealer_Outlet__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Booking__c.Assigned_Service_Advisors__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Booking__c.Assigned_Service_Advisor__c</field>
@@ -14474,6 +14479,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Appointment_DateTime__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Actual_Payment_Mode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

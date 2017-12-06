@@ -70,7 +70,7 @@
         <fullName>Additional_Request__c</fullName>
         <externalId>false</externalId>
         <label>Additional Request</label>
-        <length>50</length>
+        <length>200</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -83,6 +83,17 @@
         <label>Assigned Dealer Outlet</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Bookings (Assigned Dealer Outlet)</relationshipLabel>
+        <relationshipName>Bookings</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Assigned_Service_Advisors__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned Service Advisor</label>
+        <referenceTo>User</referenceTo>
         <relationshipName>Bookings</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>

@@ -66,7 +66,7 @@ private class TestCtrlMessageServiceKRDFW {
         integer test3 = cmsk.TemplatePageNumber;
         
         Test.setMock(HttpCalloutMock.class, new Mock());
-        
+        cmsk.viewObject.message__c = 'viewObjectviewObjectviewObjectviewObject';
   		cmsk.mmsFile1.Body = Blob.valueOf('2lj2j3l23j4l3j24lk23j4l2k3j4l2kj34lkj');
   		cmsk.mmsFile1.Name = String.valueOf('test1.jpg');        
         

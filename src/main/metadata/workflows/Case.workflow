@@ -272,7 +272,7 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Case_Deadline_Notification_TH</template>
+        <template>unfiled$public/Case_Deadline_Notification_TH_2</template>
     </alerts>
     <alerts>
         <fullName>Email_to_Dealer_Gatekeeper_Case</fullName>
@@ -315,6 +315,16 @@
         <template>unfiled$public/Change_Complaint_Assignment_To_Dealer_GateKeeper_Notification</template>
     </alerts>
     <alerts>
+        <fullName>Send_Email_to_Gate_Keeper_2_TH</fullName>
+        <description>Send Email to Gate Keeper_2_TH</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Change_Complaint_Assignment_To_Dealer_GateKeeper_Notification2</template>
+    </alerts>
+    <alerts>
         <fullName>Send_Email_to_Gate_Keeper_For_Support_Dealer1</fullName>
         <description>Send Email to Gate Keeper For Support Dealer1</description>
         <protected>false</protected>
@@ -355,7 +365,7 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Change_Complaint_Assignment_To_Dealer_GateKeeper_Notification</template>
+        <template>unfiled$public/Change_Complaint_Assignment_To_Dealer_GateKeeper_Notification2</template>
     </alerts>
     <alerts>
         <fullName>ase_Deadline_Dealer_Manager_Notification_KR_after_240_Hours</fullName>
@@ -1505,7 +1515,8 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification TH</fullName>
-        <active>false</active>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -1519,6 +1530,16 @@
             <field>Case.Status</field>
             <operation>notEqual</operation>
             <value>Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
         </criteriaItems>
         <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -2511,24 +2532,17 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
-        <criteriaItems>
-            <field>Case.SendEmailToGateKeeper__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Inquiry</value>
-        </criteriaItems>
         <description>This WF is created for Sending email to gate keeper for Thailand users</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <formula>AND( 
+     OR( ISNEW() , ISCHANGED( OwnerId ) ), 
+     SendEmailToGateKeeper__c = True, 
+     MD__c = &apos;TH&apos;, 
+    OR( 
+       RecordType.Name=&apos;Inquiry&apos;, 
+       RecordType.Name=&apos;MB_Complaint&apos; 
+      ) 
+)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Set Case to Overdue</fullName>
