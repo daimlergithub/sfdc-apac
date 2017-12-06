@@ -13603,6 +13603,11 @@
         <field>Contact.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.MobilePhone</field>
@@ -15788,7 +15793,12 @@
         <field>Lead__c.Appointment_DateTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Actual_Payment_Mode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Assigned_Date_Time__c</field>
         <readable>true</readable>
