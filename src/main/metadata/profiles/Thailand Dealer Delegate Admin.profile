@@ -15641,36 +15641,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Field_History_Tracker__c.Changed_By_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Field_History_Tracker__c.Field_to_track__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Field_History_Tracker__c.Object_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Field_History_Tracker__c.Record_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Field_History_Tracker__c.Value_Changed_From__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Field_History_Tracker__c.Value_Changed_To__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Functionality_Access_Master__c.Description__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -28318,9 +28288,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>FeedItem-Feed Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Field_History_Tracker__c-Field History Tracker Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Functionality_Access_Master__c-Functionality Access Master Layout</layout>
