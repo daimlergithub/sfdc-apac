@@ -4765,6 +4765,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Vehicle_Phone1__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Mobile'),Contact__r.Mobile__c,IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Work Mobile'),Contact__r.Mobile2__c,IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Home Phone'),Contact__r.Individual_Home_Phone__c,IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Work Phone'),Contact__r.Work_Phone__c,IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Home Phone 2'),Contact__r.Home_Phone_2__c,'')))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle tel display</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Vehicle_Phone__c</fullName>
         <externalId>false</externalId>
@@ -4793,17 +4805,32 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Work Phone</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Work Mobile</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Home Phone 2</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Other Phone</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
@@ -4831,6 +4858,30 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <formula>TEXT( Vehicle_ID__r.VehicleStatus__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Vehicle Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Vehicle_fax_display__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(vehicle_fax_picklist__c,'FAX'),Contact__r.Fax,(IF(ISPICKVAL(vehicle_fax_picklist__c,'Work FAX'),Contact__r.Fax2__c,'')))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle fax display</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_mail_display__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(vehicle_mail_picklist__c,'Email Home'),Contact__r.Email__c,IF( ISPICKVAL(vehicle_mail_picklist__c,'Email Work'),Contact__r.Email2__c,IF( ISPICKVAL(vehicle_mail_picklist__c,'MyMercedes Email'),Contact__r.Email3__c,'')))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle mail display</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -5830,12 +5881,24 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Home Phone</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Home Phone 2</fullName>
+			<values>
+                <fullName>Mobile</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Work Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Work Mobile</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Home Phone 2</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
