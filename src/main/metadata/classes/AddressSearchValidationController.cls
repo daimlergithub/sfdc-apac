@@ -123,7 +123,7 @@ public class AddressSearchValidationController
     Public boolean wAreaBoolean{get;set;}
     Public boolean fAreaBoolean{get;set;}
     /*SN20171709 - end*/
-        // COnstructor
+        // Constructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
         
@@ -2960,7 +2960,7 @@ public pagereference saveAccountTH()
                       {             
                              objAccount.fax='';
                       }
-                      if(objAccount.Email__c!=null)
+                      if(objAccount.Email__c!=null && recordType == 'Person Account')
                           objAccount.PersonEmail=objAccount.Email__c;
                           
                   //System.debug('****Type'+AddressObj.Address_Type__c+'Address_Line_1__c'+AddressObj.Address_Line_1__c+'Address_Line_2__c'+AddressObj.Address_Line_2__c+'province'+province+'district'+district+'subdistrict'+subdistrict+'zip'+zip);
