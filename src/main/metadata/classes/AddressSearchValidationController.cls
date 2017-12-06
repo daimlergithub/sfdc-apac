@@ -2982,22 +2982,7 @@ public pagereference saveAccountTH()
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Type is mandatory in order to insert an address'));
                     }
                     //PR20170926-(End) Address Type Null check if other Address fields are populated
-                    else if(objAccount.Primary_Phone__c == null)
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sales TEL is mandatory'));
-                    }
-                    else if(objAccount.Primary_Phone__c == 'Home Phone' && objAccount.Individual_Home_Phone__c == '')
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Home Phone value if Sales TEL is Home Phone'));
-                    }
-                    else if(objAccount.Primary_Phone__c == 'Mobile' && objAccount.Mobile__c == '')
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Mobile value if Sales TEL is Mobile'));
-                    }
-                    else if(objAccount.Primary_Phone__c == 'Work Phone' && objAccount.Work_Phone__c == '')
-                    {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Enter Work Phone value if Sales TEL is Work Phone'));
-                    }                       
+
                     else
                     {
                         refreshPage = true;
