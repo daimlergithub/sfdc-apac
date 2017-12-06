@@ -70,6 +70,38 @@ private class TestMBKMessageSchduleSendKRDFW {
 		temp2.custMsgSn__c = 'benz_20171018090700';
 		insert temp2;
 
+		MBK_Messages__c temp3 = new MBK_Messages__c();
+		temp3.Set_Sending_Time__c = system.now().addMinutes(-29);
+		temp3.processed__c = false;
+		temp3.Status__c = 'Reserved';
+		temp3.sn__c = '123123123123';
+		temp3.channel__c = 'S';
+		temp3.Set_Sending_Time__c = Datetime.now().addYears(-1);
+		temp3.custGubun__c = 'test';
+		temp3.subject__c = 'test';
+		temp3.senderKey__c = 'test';
+		temp3.templateCode__c = system.label.MBK_Message_Survey;
+		temp3.phoneNum__c = 'test';
+		temp3.message__c = 'test';
+		temp3.custMsgSn__c = 'benz_20171018090700';
+		insert temp3;
+
+		MBK_Messages__c temp4 = new MBK_Messages__c();
+		temp4.Set_Sending_Time__c = system.now().addMinutes(-29);
+		temp4.processed__c = false;
+		temp4.Status__c = 'Reserved';
+		temp4.sn__c = '123123123123';
+		temp4.channel__c = 'A';
+		temp4.Set_Sending_Time__c = Datetime.now().addYears(-1);
+		temp4.custGubun__c = 'test';
+		temp4.subject__c = 'test';
+		temp4.senderKey__c = 'test';
+		temp4.templateCode__c = system.label.MBK_Message_Survey;
+		temp4.phoneNum__c = 'test';
+		temp4.message__c = 'test';
+		temp4.custMsgSn__c = 'benz_20171018090700';
+		insert temp4;
+
 		Test.setMock(HttpCalloutMock.class, new Mock());
         test.starttest();
         MBKMessagScheduleSendKaKaoKRDFWSchedule myClass1 = new MBKMessagScheduleSendKaKaoKRDFWSchedule();   
@@ -112,14 +144,52 @@ private class TestMBKMessageSchduleSendKRDFW {
 		temp2.message__c = 'test';
 		temp2.custMsgSn__c = 'benz_20171018090700';
 		insert temp2;
+
+		MBK_Messages__c temp3 = new MBK_Messages__c();
+		temp3.Set_Sending_Time__c = system.now().addMinutes(-29);
+		temp3.processed__c = false;
+		temp3.Status__c = 'Reserved';
+		temp3.sn__c = '123123123123';
+		temp3.channel__c = 'S';
+		temp3.Set_Sending_Time__c = Datetime.now().addYears(-1);
+		temp3.custGubun__c = 'test';
+		temp3.subject__c = 'test';
+		temp3.senderKey__c = 'test';
+		temp3.templateCode__c = system.label.MBK_Message_Survey;
+		temp3.phoneNum__c = 'test';
+		temp3.message__c = 'test';
+		temp3.custMsgSn__c = 'benz_20171018090700';
+		insert temp3;
+
+		MBK_Messages__c temp4 = new MBK_Messages__c();
+		temp4.Set_Sending_Time__c = system.now().addMinutes(-29);
+		temp4.processed__c = false;
+		temp4.Status__c = 'Reserved';
+		temp4.sn__c = '123123123123';
+		temp4.channel__c = 'A';
+		temp4.Set_Sending_Time__c = Datetime.now().addYears(-1);
+		temp4.custGubun__c = 'test';
+		temp4.subject__c = 'test';
+		temp4.senderKey__c = 'test';
+		temp4.templateCode__c = system.label.MBK_Message_Survey;
+		temp4.phoneNum__c = 'test';
+		temp4.message__c = 'test';
+		temp4.custMsgSn__c = 'benz_20171018090700';
+		insert temp4;
 		
 		Test.setMock(HttpCalloutMock.class, new MockFail());
 		test.starttest();
-
 		MBKMessageScheduleSendKRDFWBatch batch = new MBKMessageScheduleSendKRDFWBatch();
 		batch.channel = 'M';
 		Database.executeBatch(batch);
 
-		test.stopTest();
+		MBKMessageScheduleSendKRDFWBatch batch1 = new MBKMessageScheduleSendKRDFWBatch();
+		batch1.channel = 'S';
+		Database.executeBatch(batch1);
+
+		MBKMessageScheduleSendKRDFWBatch batch2 = new MBKMessageScheduleSendKRDFWBatch();
+		batch2.channel = 'A';
+		Database.executeBatch(batch2);
+		test.stopTest();				
 	}
 }
