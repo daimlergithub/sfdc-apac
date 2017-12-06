@@ -156,11 +156,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MY_Console</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>Private_APP_Exchange</application>
         <default>false</default>
         <visible>false</visible>
