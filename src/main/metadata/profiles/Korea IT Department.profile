@@ -14481,6 +14481,11 @@
         <field>Lead__c.Appointment_DateTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Actual_Payment_Mode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Assigned_Date_Time__c</field>
