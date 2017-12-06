@@ -26538,6 +26538,11 @@
         <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Vehicle_Phone1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Vehicle_Phone__c</field>
@@ -26557,6 +26562,16 @@
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Vehicle_Status__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Vehicle_fax_display__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Vehicle_mail_display__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
