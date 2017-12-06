@@ -113,5 +113,81 @@ public Class CDMInformatica_Services extends CDMServices{
         
      
      }
+	 
+	  @future(callout=true)
+     public static void  createAccountLink (Set<Id> AccountlinkID, string Market,string context)
+	{
+         List<ID> RetailpersonID=new List<ID>();
+         List<ID> RetailCompanyID=new List<ID>();
+         HttpResponse res=new HttpResponse();
+         String Endpoint=null;
+         String serializedAccountlinkobj=null;
+         map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
+         
+         
+         String RetailpersonRtype = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordtypeID();
+         String RetailCompanyRtype = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordtypeID();
+         List<Account_Link__c> accountlinksstosend=[Select id,recordtypeid from Account_Link__c where id IN :AccountlinkID];
+         for(Account_Link__c link:accountlinksstosend){
+             if(link.recordtypeid==RetailpersonRtype){
+                 RetailpersonID.add(link.id);
+             }
+             else if(link.recordtypeid==RetailCompanyRtype){
+                 RetailCompanyID.add(link.id);
+             }
+         }        
+         if(RetailpersonID.size()>0)
+         {
+            for( string str : mapURLs.keyset()){
+             if(mapURLs.get(str).type__c==context && mapURLs.get(str).country__c==Market && MapUrls.get(str).Context__c=='Retail Person')
+                Endpoint = mapURLs.get(str).Informatica_URL__c; 
+            }
+            System.debug('Endpoint888'+ Endpoint);
+			 if(string.isnotblank(Endpoint))
+			 {
+             serializedAccountlinkobj=generateJson(RetailpersonID);
+             serializedAccountlinkobj= EncodingUtil.URLENCODE(serializedAccountlinkobj,'UTF-8');
+             string body='[';
+			 for(integer i=0 ;i<RetailpersonID.size();i++){
+                   if(body.length()==1)
+                       body=body+'{"attributes":{"type":"Account_Link__c","url":"/services/data/v41.0/sobjects/Account_link__c/'+RetailpersonID[i]+'"},"Id":"'+RetailpersonID[i]+'","RecordTypeId":"'+ RetailpersonRtype +'"}';
+                   else
+                       body=body+',{"attributes":{"type":"Account_link__c","url":"/services/data/v41.0/sobjects/Account_link__c/'+RetailpersonID[i]+'"},"Id":"'+RetailpersonID[i]+'","RecordTypeId":"'+ RetailpersonRtype +'"}';
+                }
+             body=body+']';
+              Map<string,string> headerCDM= new Map<string,string>();
+              headerCDM.put('Content-Type','application/json');
+              System.debug('***@#' + Endpoint +' '+headerCDM+' '+body);
+              res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,60000,headerCDM,null,body);
+              System.debug('res888' + res);
+			  }
+         }
+         if(RetailCompanyID.size()>0){
+         serializedAccountlinkobj=generateJson(RetailCompanyID);
+         serializedAccountlinkobj= EncodingUtil.URLENCODE(serializedAccountlinkobj,'UTF-8');
+         for( string str : mapURLs.keyset()){
+             if(mapURLs.get(str).type__c==context && mapURLs.get(str).country__c==Market && MapUrls.get(str).Context__c=='Retail Company')
+                Endpoint = mapURLs.get(str).Informatica_URL__c; 
+         }
+		 if(string.isnotblank(Endpoint))
+		 {
+			Map<string,string> headerCDM= new Map<string,string>();
+            headerCDM.put('Content-Type','application/json');    
+
+            string body='[';
+           for(integer i=0 ;i<RetailCompanyID.size();i++){
+               if(body.length()==1)
+                   body=body+'{"attributes":{"type":"Account_link__c","url":"/services/data/v41.0/sobjects/Account_link__c/'+RetailCompanyID[i]+'"},"Id":"'+RetailCompanyID[i]+'","RecordTypeId":"'+ RetailCompanyRtype +'"}';
+               else
+                   body=body+',{"attributes":{"type":"Account_link__c","url":"/services/data/v41.0/sobjects/Account_link__c/'+RetailCompanyID[i]+'"},"Id":"'+RetailCompanyID[i]+'","RecordTypeId":"'+ RetailCompanyRtype +'"}';
+           }
+            body=body+']';
+            System.debug('***#' + Endpoint +' '+headerCDM+' '+body);
+             res=CalloutHandlerService.sendCalloutForPost('POST',Endpoint,60000,headerCDM,null,body);
+             System.debug('res878' + res);
+         
+         }}
+            
+     }
      
 }
