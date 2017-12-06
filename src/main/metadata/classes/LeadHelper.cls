@@ -36,7 +36,7 @@ public class LeadHelper
        List<Lead__c> leadForUpdate = new List<Lead__c>();        
        Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>(); 
 	   map<id, id> mapsalesConandUsrId = new map<id, id>();	   
-       for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
+       for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true and Contact.Account.Dealer_Type__c = 'Outlet'])
        {
            dealerIdGateKeeperIds.put(u.AccountId, u.Id);
        }
@@ -51,6 +51,11 @@ public class LeadHelper
 			if(lead.RecordTypeId == salesRecordTypeId && (lead.Sales_Consultant__c != null && lead.Sales_Consultant__c != oldValLead.get(lead.id).Sales_Consultant__c))
 			{
 				lead.Service_Advisor__c = mapsalesConandUsrId.get(lead.Sales_Consultant__c);//lead.Sales_Consultant__c;
+			}
+			//Changes as part of SFDCKR-1429
+			if(UserInfo.getUserType() == 'PowerPartner' && ((lead.recordtypeId == salesRecordTypeId && lead.Dealer_Lead_Status__c != 'Lost (Dealer)' && lead.Dealer_Lead_Status__c != 'Received' && lead.Dealer_Lead_Status__c != 'Invoiced' && lead.Dealer_Lead_Status__c != 'Lost') || (lead.recordtypeId == afterSalesRecordTypeId && lead.Dealer_Lead_Status__c != 'Lost (Dealer)' && lead.Dealer_Lead_Status__c != 'Service Completed' && lead.Dealer_Lead_Status__c != 'Lost')))
+			{
+				lead.Dealer_Assigned_Date_Time__c = system.now();
 			}
             if(lead.Assigned_Dealer__c != null && ((isInsert && UserInfo.getUserType() != 'PowerPartner') || (isUpdate && lead.Assigned_Dealer__c != oldValLead.get(lead.id).Assigned_Dealer__c)))
             {
@@ -681,7 +686,8 @@ public class LeadHelper
             }
           
             map<id, Account> accmap = new map<id, Account>([select id, Dealer_ND_Code__c, Dealer_Type__c from Account where id in: dealerIds and RecordType.Name = 'Dealer' and Dealer_Type__c = 'Company']);
-            for(Lead__c lea: [select id, ownerId, RecordType.Name,Assigned_Dealer__c from Lead__c where id in: leadslst and Assigned_Dealer__c != null]){
+			if(!accmap.isEmpty()){
+              for(Lead__c lea: [select id, ownerId, RecordType.Name,Assigned_Dealer__c from Lead__c where id in: leadslst and Assigned_Dealer__c != null]){
                 if(action == 'update'){
                     if(lea.Assigned_Dealer__c != oldValLead.get(lea.id).Assigned_Dealer__c){
                        if(lea.RecordType.Name == 'Aftersales Leads'){
@@ -704,8 +710,8 @@ public class LeadHelper
                         leadtogrpidmap.put(lea.id,queunametogrpmap.get(accmap.get(lea.Assigned_Dealer__c).Dealer_ND_Code__c.replaceAll('(\\s+)', '')+' - '+'Sales Lead').id);
                     }
                 }
-                
-            }
+              }
+			}
             if(leadtogrpidmap.size()>0){
                 TriggerLeadTriggerHandlerKR.preventRecurssionafter = true;
                 updateLeadowner(leadtogrpidmap);

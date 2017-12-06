@@ -123,7 +123,7 @@ public class AddressSearchValidationController
     Public boolean wAreaBoolean{get;set;}
     Public boolean fAreaBoolean{get;set;}
     /*SN20171709 - end*/
-        // COnstructor
+        // Constructor
         public boolean firstsave{get;set;}      
         public boolean secondsave{get;set;}
         
@@ -1156,7 +1156,7 @@ EP/Tolerant for Validation.
         response =  UtilWebservice.validateAddressByZipCode(AddressObj,Autofill);
         system.debug('response >> 1:'+response);
         //system.debug('response >> 2:'+response.Addresses.size());
-        if(response != null && response.AutoFillMode && AutoFill){
+        if(response != null && response.AutoFillMode == true && AutoFill){
              for(Integer i=0;i<response.Addresses.size();i++){                
                 Address__c AddressObjtable = new Address__c(); 
                 Address_Validated_Flag = true;
@@ -1318,7 +1318,10 @@ EP/Tolerant for Validation.
                       AddressObj.Address_Line_2_Native__c= response.Addresses[0].Address_Line_2_Native;
                        system.debug(' *$*$*$* Res AddressObjtemp.Address_Line_2_Native__c' + AddressObj.Address_Line_2_Native__c);
                     }
+                      if(market != 'JP')
+                    {
                    mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp));  
+                   }
                 }
                 else if(!response.Addresses[i].Valid){
                 
@@ -2629,9 +2632,15 @@ If the user is Saving  same address which matches the fields returned by toleran
     String EndUrl=generateCDMEndPointURL();
     CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
     try{    
-        con = new Continuation(120);            
-        con.continuationMethod='processResponse';
-        this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+        if(label.New_Component=='true'){
+            con = new Continuation(120);     
+            con.continuationMethod='processResponse';
+            this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+        }
+        else{
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
+            errorFlag=false;
+        }
     } catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
@@ -2951,7 +2960,7 @@ public pagereference saveAccountTH()
                       {             
                              objAccount.fax='';
                       }
-                      if(objAccount.Email__c!=null)
+                      if(objAccount.Email__c!=null && recordType == 'Person Account')
                           objAccount.PersonEmail=objAccount.Email__c;
                           
                   //System.debug('****Type'+AddressObj.Address_Type__c+'Address_Line_1__c'+AddressObj.Address_Line_1__c+'Address_Line_2__c'+AddressObj.Address_Line_2__c+'province'+province+'district'+district+'subdistrict'+subdistrict+'zip'+zip);

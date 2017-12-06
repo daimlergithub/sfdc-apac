@@ -1,0 +1,7 @@
+The case has been assigned to you. Please click on the link below to view the record.
+<br><br>
+Case No.: {!Case.CaseNumber}<br>
+Contact: {!Contact.Name}<br>
+Subject : {!Case.Subject}<br><br>
+For more details click on the following link:<br>
+ <a href="{!Case.Link}">Click here</a><br>

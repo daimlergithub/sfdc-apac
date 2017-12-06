@@ -37,10 +37,11 @@ private class TestCtrlMessageServiceKRDFW {
         }
     }
     static testMethod void myUnitTest() {
-		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
-		cs.Name = 'EPUrlSfdcMBKMessage';
-        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
-     	insert cs;     	
+		Kakao_Talk_Integration_URL__c cs = new Kakao_Talk_Integration_URL__c();
+		cs.Name = 'SfdcMBKMessageURL';
+        cs.WebService_URL_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs; 
+     		
         // TO DO: implement unit test
 		Account acc = new Account(Dealer_Default_Flag__c=false,
                                 Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
@@ -65,7 +66,7 @@ private class TestCtrlMessageServiceKRDFW {
         integer test3 = cmsk.TemplatePageNumber;
         
         Test.setMock(HttpCalloutMock.class, new Mock());
-        
+        cmsk.viewObject.message__c = 'viewObjectviewObjectviewObjectviewObject';
   		cmsk.mmsFile1.Body = Blob.valueOf('2lj2j3l23j4l3j24lk23j4l2k3j4l2kj34lkj');
   		cmsk.mmsFile1.Name = String.valueOf('test1.jpg');        
         
@@ -80,10 +81,11 @@ private class TestCtrlMessageServiceKRDFW {
     }
     
     static testMethod void myUnitTest1() {
-		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
-		cs.Name = 'EPUrlSfdcMBKMessage';
-        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
-     	insert cs;     	
+		Kakao_Talk_Integration_URL__c cs = new Kakao_Talk_Integration_URL__c();
+		cs.Name = 'SfdcMBKMessageURL';
+        cs.WebService_URL_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs; 
+     	
         // TO DO: implement unit test
 		Account acc = new Account(Dealer_Default_Flag__c=false,
                                 Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
@@ -123,10 +125,11 @@ private class TestCtrlMessageServiceKRDFW {
         
     }    
     static testMethod void myUnitTest2() {
-		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
-		cs.Name = 'EPUrlSfdcMBKMessage';
-        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
-     	insert cs;        	
+		Kakao_Talk_Integration_URL__c cs = new Kakao_Talk_Integration_URL__c();
+		cs.Name = 'SfdcMBKMessageURL';
+        cs.WebService_URL_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs; 
+     	   	
         // TO DO: implement unit test
        Campaign camp = new Campaign(Name='test par', EndDate=System.Today()+10, StartDate=System.Today(), Segmentation_Date__c=system.today(),
             						RecordtypeID=parentCampaign_RecordTypeID, Status='Responded');
@@ -166,10 +169,11 @@ private class TestCtrlMessageServiceKRDFW {
     }       
     
     static testMethod void myTestOrder(){
-		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
-		cs.Name = 'EPUrlSfdcMBKMessage';
-        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
-     	insert cs;        	
+		Kakao_Talk_Integration_URL__c cs = new Kakao_Talk_Integration_URL__c();
+		cs.Name = 'SfdcMBKMessageURL';
+        cs.WebService_URL_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs; 
+     	    	
 		//Page Bulk
 		List<Account> acclist = new List<Account>();
 		Account acc1 = new Account(Dealer_Default_Flag__c=false,
@@ -221,10 +225,11 @@ private class TestCtrlMessageServiceKRDFW {
     }
 
     static testMethod void myTestOrder2(){
-		EP_Integration_URLS__c cs = new EP_Integration_URLS__c();
-		cs.Name = 'EPUrlSfdcMBKMessage';
-        cs.EP_WebService_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
-     	insert cs;        	
+		Kakao_Talk_Integration_URL__c cs = new Kakao_Talk_Integration_URL__c();
+		cs.Name = 'SfdcMBKMessageURL';
+        cs.WebService_URL_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs; 
+     	     	
         // TO DO: implement unit test
 		Account acc1 = new Account(Dealer_Default_Flag__c=false,
                                 Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',

@@ -37,6 +37,7 @@ public class LeadMergeController{
     public Boolean MastertoChild {get; set;}  
     public Boolean ChildtoMaster {get; set;}  
     public string radioHidden {get;set;}
+     public Boolean SelectmasterHide{get; set;}  
      /** 
      * @Description : Contructor Calles to get the curect page Id and Slave Id.      
      * @author  Sneha chail
@@ -201,7 +202,19 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
           system.debug('+++++++++ MasterSelectedId'+  Master);
            system.debug('+++++++++ SlaveSelectedId'+ slave);    
              System.debug('&*&*&*&&&**&* ChildtoMaster '+ChildtoMaster);
-             System.debug('&*&*&*&&&**&* MastertoChild'+MastertoChild);            
+             System.debug('&*&*&*&&&**&* MastertoChild'+MastertoChild);  
+             system.debug('+++++++++ MasterSelectedIdExisting_Contract__c '+  Master.Existing_Contract__c );
+           system.debug('+++++++++ SlaveSelectedIdExisting_Contract__c '+ slave.Existing_Contract__c );     
+            system.debug('+++++++++ Dealer_Lead_Status__c '+  Master.Dealer_Lead_Status__c );
+           system.debug('+++++++++ Dealer_Lead_Status__c '+ slave.Dealer_Lead_Status__c );     
+          
+             if( ((master.Dealer_Lead_Status__c =='Purchased(Only Non BDC)') || (master.Dealer_Lead_Status__c =='Invoiced') || (master.Dealer_Lead_Status__c =='Order Placed')) ||((master.Existing_Contract__c !=null && slave.Existing_Contract__c ==null)) )
+             {
+             System.debug('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB');
+             SelectmasterHide=true;
+             }
+           
+             
          }  
          }
         catch(Exception e){
@@ -350,7 +363,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         soql+='Id';
         System.debug('%^%^%^%^%^%^%^%^%^%^%^% soql query'+soql);
         return Database.query(soql + 
-            ',Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
+            ',Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Dealer_Lead_Status__c,Lead_Possibility__c,Lead_Possibility_text__c,Quotation_Number_History__c,Order_Confirmation_Date__c,Purchased_VIN__c,LastModifiedBy.UserName,Network_Registration_Date__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 

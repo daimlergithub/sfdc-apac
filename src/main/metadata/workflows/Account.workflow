@@ -12,6 +12,15 @@
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Agreement_date_Update</fullName>
+        <field>Agreement_Date_for_Contact_Method__c</field>
+        <formula>Today()</formula>
+        <name>Agreement date Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Allow_Data_Sharing_to_NO_for_KR</fullName>
         <field>Allow_Data_Sharing2__c</field>
         <literalValue>No</literalValue>
@@ -67,7 +76,7 @@
     <fieldUpdates>
         <fullName>MBTH_UpdatedConsentUser</fullName>
         <field>Updated_Consent_User__c</field>
-        <formula>$User.Username</formula>
+        <formula>$User.FirstName + &apos; &apos; + $User.LastName</formula>
         <name>MBTH_UpdatedConsentUser</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -76,39 +85,10 @@
     <fieldUpdates>
         <fullName>MBTH_Updated_Consent_Date</fullName>
         <field>Updated_Consent_Date__c</field>
-        <formula>today()</formula>
+        <formula>TODAY()</formula>
         <name>MBTH_Updated Consent Date</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-	<fieldUpdates>
-        <fullName>Sales_Tel_Display_field_auto_populate</fullName>
-        <field>Primary_Phone_Display__c</field>
-        <formula>Mobile__c</formula>
-        <name>&apos;Sales Tel Display&apos; field auto populate</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-	<fieldUpdates>
-        <fullName>Sales_Tel_Display_field_auto_populate_Co</fullName>
-        <field>Primary_Phone_Display__c</field>
-        <formula>IF(Mobile__c!=NULL,Mobile__c,IF(Individual_Home_Phone__c!=NULL,Individual_Home_Phone__c,Work_Phone__c))</formula>
-        <name>&apos;Sales Tel Display&apos; field auto populate</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-	<fieldUpdates>
-        <fullName>Sales_Tel_field_auto_populate</fullName>
-        <field>Primary_Phone__c</field>
-        <literalValue>Home Phone</literalValue>
-        <name>&apos;Sales Tel &apos; field auto populate</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -120,7 +100,7 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Mobile_phone_checkbox_update</fullName>
         <field>Mobile_Phone_Checkbox__c</field>
         <literalValue>1</literalValue>
@@ -129,7 +109,45 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Tel_Display_field_auto_populate</fullName>
+        <field>Primary_Phone_Display__c</field>
+        <formula>Mobile__c</formula>
+        <name>&apos;Sales Tel Display&apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Tel_Display_field_auto_populate_Co</fullName>
+        <field>Primary_Phone_Display__c</field>
+        <formula>IF(Mobile__c!=NULL,Mobile__c,IF(Individual_Home_Phone__c!=NULL,Individual_Home_Phone__c,Work_Phone__c))</formula>
+        <name>&apos;Sales Tel Display&apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Tel_field_auto_populate</fullName>
+        <field>Primary_Phone__c</field>
+        <literalValue>Home Phone</literalValue>
+        <name>&apos;Sales Tel &apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Tel_field_auto_populate_Mobile</fullName>
+        <field>Primary_Phone__c</field>
+        <literalValue>Mobile</literalValue>
+        <name>&apos;Sales Tel&apos; field auto populate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Sales_Tel_field_personaccount</fullName>
         <field>Primary_Phone__c</field>
         <literalValue>Mobile</literalValue>
@@ -203,15 +221,6 @@
         <name>Update Consent User</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-	<fieldUpdates>
-        <fullName>field_auto_populate_for_comany_account</fullName>
-        <field>home_Phone_Checkbox__c</field>
-        <literalValue>1</literalValue>
-        <name>field auto populate for comany account</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -298,15 +307,6 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>UpdatedConsentDate</fullName>
-        <field>Updated_Consent_Date__c</field>
-        <formula>today()</formula>
-        <name>UpdatedConsentDate</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>UpdatedConsentUser</fullName>
         <field>Updated_Consent_User__c</field>
         <formula>$User.Username</formula>
@@ -324,16 +324,16 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
-        <fullName>Sales_Tel_field_auto_populate_Mobile</fullName>
-        <field>Primary_Phone__c</field>
-        <literalValue>Mobile</literalValue>
-        <name>&apos;Sales Tel&apos; field auto populate</name>
+    <fieldUpdates>
+        <fullName>field_auto_populate_for_comany_account</fullName>
+        <field>home_Phone_Checkbox__c</field>
+        <literalValue>1</literalValue>
+        <name>field auto populate for comany account</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	 <fieldUpdates>
+    <fieldUpdates>
         <fullName>sales_Tel_picklist_value</fullName>
         <field>Primary_Phone__c</field>
         <literalValue>Work Phone</literalValue>
@@ -342,7 +342,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>workphone_checkbox_to_true</fullName>
         <field>Work_Phone_Checkbox__c</field>
         <literalValue>1</literalValue>
@@ -351,8 +351,8 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<rules>
-         <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number</fullName>
+    <rules>
+        <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number</fullName>
         <actions>
             <name>Sales_Tel_Display_field_auto_populate_Co</name>
             <type>FieldUpdate</type>
@@ -404,6 +404,16 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Agreement date field update</fullName>
+        <actions>
+            <name>Agreement_date_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(NOT(ISPICKVAL(Personal_Agreement__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c ,&apos;&apos;)),NOT(ISPICKVAL( Agreement_to_commit_info_processing__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Abroad_Agreement__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Contact_Method__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
             <name>Change_Preferred_Phone</name>
@@ -414,7 +424,7 @@
         <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>Home Phone Checkbox autopopulate</fullName>
         <actions>
             <name>Sales_Tel_field_auto_populate</name>
@@ -495,6 +505,14 @@
             <name>System_Data_Source</name>
             <type>FieldUpdate</type>
         </actions>
+        <actions>
+            <name>Update_Consent_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Consent_User</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>true</active>
         <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;No&quot;</description>
         <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;), MD__c = &apos;TH&apos; )</formula>
@@ -551,7 +569,7 @@
         <description>If personal agreement value change to ‘Withdrawn’ by dealer then will update the updated consent date and updated consent user field and also source field.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>Mobile Phone Checkbox autopopulate</fullName>
         <actions>
             <name>Mobile_phone_checkbox_update</name>
@@ -711,7 +729,7 @@ Modify Reason:
         <formula>ISPICKVAL($User.Market__c,&apos;TH&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>Work Phone Checkbox autopopulate</fullName>
         <actions>
             <name>sales_Tel_picklist_value</name>
