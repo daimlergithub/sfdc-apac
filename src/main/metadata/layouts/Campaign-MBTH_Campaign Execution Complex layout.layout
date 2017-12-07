@@ -262,7 +262,13 @@
                 <field>Batch_Interval_Days__c</field>
             </layoutItems>
         </layoutColumns>
-        <style>OneColumn</style>
+		<layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>

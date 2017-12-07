@@ -8766,6 +8766,11 @@
         <field>Campaign.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Max_Car_Age__c</field>
