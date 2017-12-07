@@ -329,6 +329,10 @@
                 <behavior>Edit</behavior>
                 <field>vehicle_mail__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Recall_DM__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
