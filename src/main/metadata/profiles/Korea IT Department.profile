@@ -7252,7 +7252,7 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Booking__c.Assigned_Service_Advisors__c</field>
         <readable>true</readable>
     </fieldPermissions>

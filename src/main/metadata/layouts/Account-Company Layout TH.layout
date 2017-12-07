@@ -51,13 +51,25 @@
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing2__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mobile__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Language__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Individual_Home_Phone__c</field>
+            </layoutItems>            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Primary_Address_Reference__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -553,3 +565,4 @@
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
+
