@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Lead__c.Customer_Name__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>FK_PC_LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>Lead__c.R_Hot_Lead__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.R_Received_Leads__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.R_Accepted_Leads__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.R_Unaccepted_Leads__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Lead Report 1</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Lead__c@Lead__c.Assigned_Dealer__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c.Proxy_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

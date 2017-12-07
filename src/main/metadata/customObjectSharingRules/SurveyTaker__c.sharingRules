@@ -56,7 +56,7 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
-        <accessLevel>Read</accessLevel>
+        <accessLevel>Edit</accessLevel>
         <name>TH Survey taken sharing to other Th users</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>
