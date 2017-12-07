@@ -90,7 +90,7 @@ public void getstatusval() {
      
     }
     system.debug('oldstatus ======'+oldstatus );
-    system.debug('Query==='+ [Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus and (RecordType.name != 'OB Task' or RecordType.name != 'OB Call') limit 10]);
+    system.debug('Query==='+ [Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 10]);
      if(oldstatus !=null || oldstatus != ''){
        
        List<Task> tasklsss = new List<Task>();
