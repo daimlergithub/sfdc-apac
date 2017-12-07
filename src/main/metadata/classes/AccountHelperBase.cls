@@ -680,9 +680,13 @@ public class AccountHelperBase{
         try{
             set<ID> accids=new set<ID>();
             for(Account accrec : accountlist){
-                accids.add(accrec.id);
+				if(accrec.RecordTypeID == accPerson_RecordTypeId || accrec.RecordTypeID == accCompany_RecordTypeId){
+					accids.add(accrec.id);
+					}
             }
-            CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+			if(accids.size()>0){
+				CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+			}
         }Catch(exception e){
             CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
         }
