@@ -12293,6 +12293,11 @@
         <field>Lead__c.Interested_Vehicle_Interior_Color__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Interested_Vehicle_ModelName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Interested_Vehicle_Model__c</field>
