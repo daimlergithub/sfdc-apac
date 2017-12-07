@@ -21,7 +21,13 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
      crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
     
       String OrganizationId = UserInfo.getOrganizationId();
-      String MarketDiscriminator= Usr.Market__c;          
+      String MarketDiscriminator= Usr.Market__c;
+		if(usr.profile.name=='IntegrationAPI'){
+            List<Account> dealracc=new List<Account>();
+            dealracc=[select id,md__c from Account where id=:DealerID];
+            if(!dealracc.isEmpty())
+                MarketDiscriminator=dealracc[0].md__c;
+        }
       sendport.SARILeadNotification(OrganizationId ,MarketDiscriminator,Usecase,LeadId,DealerId,alk.CorrelationID__c);      
       System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId); 
       System.debug('%^%%^%^%^% response'+response); 
@@ -46,6 +52,12 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     
       String OrganizationId = UserInfo.getOrganizationId();
          String MarketDiscriminator= Usr.Market__c;
+		 if(usr.profile.name=='IntegrationAPI'){
+            List<Account> dealracc=new List<Account>();
+            dealracc=[select id,md__c from Account where id=:DealerID];
+            if(!dealracc.isEmpty())
+                MarketDiscriminator=dealracc[0].md__c;
+        }
           String src;
           try
           {
