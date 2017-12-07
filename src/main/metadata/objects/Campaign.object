@@ -415,41 +415,51 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>CAC Campaign Type</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Auto Show</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Loyalty Program</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Competitions and Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interview</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Recall</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Product Issue</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Car Launch</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ad-hoc</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ongoing</fullName>
@@ -458,6 +468,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
