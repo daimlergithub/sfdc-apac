@@ -9,13 +9,16 @@ public class TriggerCampaignTriggerHandlerKR implements TriggerHandlerIf
         {
             CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate); 
             CampaignHelper.shareCampaignPlainingAndDesignRecordsWithDealers(Trigger.new);  
-            CampaignHelper.afterInsertSharefromSCtoMan(Trigger.new);   			
+            CampaignHelper.afterInsertSharefromSCtoMan(Trigger.new);            
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
             CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
         }
-	}
+        if(trigger.isBefore && trigger.isUpdate){
+          CampaignHelperBase.updatemarket(Trigger.New);
+        }
+    }
         
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
