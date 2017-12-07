@@ -29864,6 +29864,10 @@
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>TransferAnyCase</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>

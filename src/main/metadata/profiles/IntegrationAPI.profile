@@ -10286,6 +10286,11 @@
         <field>Car_Model__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Material_Portal_Code__c</field>
@@ -16804,6 +16809,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

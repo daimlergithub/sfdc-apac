@@ -3,7 +3,7 @@
     <applicationVisibilities>
         <application>Access_Management</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Central_CRM</application>
@@ -10438,6 +10438,11 @@
         <field>Car_Model__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Material_Portal_Code__c</field>
@@ -16956,6 +16961,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -31181,7 +31191,19 @@
         <tab>standard-UserProvisioningRequest</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userLicense>Salesforce</userLicense>
+	<tabVisibilities>						 
+        <tab>Market__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>						 
+        <tab>Persona__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>						 
+        <tab>Functionality_Access_Master__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateContract</name>

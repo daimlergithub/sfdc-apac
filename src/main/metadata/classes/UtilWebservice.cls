@@ -14,14 +14,20 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     System.debug('%^%^%^%^% AccountLinkId'+AccountLinkId);
     alk=[select id,CorrelationID__c from Account_Link__c where id=:AccountLinkId limit 1];
     }
-    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+    User  Usr = [SELECT Market__c, Id, profile.name FROM User WHERE Id = : UserInfo.getUserId()]; 
     String Usecase; 
     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
     crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType  request=new crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType ();
      crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
     
       String OrganizationId = UserInfo.getOrganizationId();
-      String MarketDiscriminator= Usr.Market__c;          
+      String MarketDiscriminator= Usr.Market__c;
+		if(usr.profile.name=='IntegrationAPI'){
+            List<Account> dealracc=new List<Account>();
+            dealracc=[select id,md__c from Account where id=:DealerID];
+            if(!dealracc.isEmpty())
+                MarketDiscriminator=dealracc[0].md__c;
+        }
       sendport.SARILeadNotification(OrganizationId ,MarketDiscriminator,Usecase,LeadId,DealerId,alk.CorrelationID__c);      
       System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId); 
       System.debug('%^%%^%^%^% response'+response); 
@@ -38,7 +44,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     webservice static string AccountLinkIfnoSendToAL(String RTCustomerId,String DealerID,String CorrelationId)
     {  
     System.debug('%^%%^%^%^% RTCustomerId'+RTCustomerId+'DealerID'+DealerID+'CorrelationId'+CorrelationId); 
-    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+    User  Usr = [SELECT Market__c, Id,profile.name FROM User WHERE Id = : UserInfo.getUserId()]; 
         String Usecase; 
     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
     crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType();
@@ -46,6 +52,12 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     
       String OrganizationId = UserInfo.getOrganizationId();
          String MarketDiscriminator= Usr.Market__c;
+		 if(usr.profile.name=='IntegrationAPI'){
+            List<Account> dealracc=new List<Account>();
+            dealracc=[select id,md__c from Account where id=:DealerID];
+            if(!dealracc.isEmpty())
+                MarketDiscriminator=dealracc[0].md__c;
+        }
           String src;
           try
           {
