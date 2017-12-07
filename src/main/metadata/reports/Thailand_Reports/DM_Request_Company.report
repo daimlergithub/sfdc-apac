@@ -15,6 +15,12 @@
     <columns>
         <field>DM_Request__c.Address_Line_2__c</field>
     </columns>
+	<columns>
+        <field>DM_Request__c.attention__c</field>
+    </columns>
+	<columns>
+        <field>DM_Request__c.Description__c</field>
+    </columns>
     <columns>
         <field>DM_Request__c.Sub_District__c</field>
     </columns>

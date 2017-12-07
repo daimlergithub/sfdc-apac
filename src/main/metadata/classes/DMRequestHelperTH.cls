@@ -5,127 +5,71 @@
 */
 public with sharing class  DMRequestHelperTH {
     
-     
-    
-    public static void UpdateDMRequest(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,boolean isUpdate){
-        set<id> CustomerId = new set<id>();  
-        Map<id,map<string,Address__c>> addressMap =new Map<id,map<string,Address__c>>();
-        map<string,Address__c> admap =new map<string,Address__c>();
-        map<string,Address__c> promap = new map<string,Address__c>();
-        string regexForNullValue ='null';
-        string nullValue ='';
-        String province;
-        Map<String, String> addtrmapUpdate = UtilAddressTranslation.addtrmap;
-        UtilAddressTranslation.gettranslatedvalues('TH');
-                 //get the accountIds 
-                for(DM_Request__c lstDMR:triggerNew){
-                    CustomerId.add(lstDMR.Customer_Name__c);
-                }  
-              
-                //query for arelated addresses and create a nested map
-                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
-                {
-                    admap.put(addrlst.Address_Type__c, addrlst);
-                    addressMap.put(addrlst.Customer__c, admap);
-                } 
-            
-            for(DM_Request__c lstDMR:triggerNew){          
-               
-               if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
-               {
-                   if(lstDMR.Sending_Address__c!=oldMap.get(lstDMR.id).Sending_Address__c)
-                   {
-                        if((addressMap.containsKey(lstDMR.Customer_Name__c))&&(addressMap.get(lstDMR.Customer_Name__c).containsKey(lstDMR.Sending_Address__c)))
-                        {
-                                if(addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c).Address_Type__c==lstDMR.Sending_Address__c){                                                                       
-                                    Address__c address = addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c);
-                                    lstDMR.Zip_Code__c=address.ZipCode__c;
-                                    lstDMR.Address__c=address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c;
-                                    lstDMR.Additional_Address__c=address.Address_Line_2__c;
-                                    lstDMR.Attention__c=address.Company_Name__c;
-                                    lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
-                                    if(addtrmapUpdate.containsKey(address.Province__c))
-                                    {
-                                       province = addtrmapUpdate.get(address.Province__c);
-                                    }
-                                    lstDMR.Province__c = province;
-                                }
-                                else{
-                                    lstDMR.adderror(Label.DMRequest_validation_error);
-                                }
-                                lstDMR.Address__c=lstDMR.Address__c.replaceAll(regexForNullValue,nullValue);
-                        }
-                        else{
-                                lstDMR.adderror(Label.DMRequest_validation_error);
-                            }
-                    
-                  }
-               }
-                
-            }  
-        
-    }
-    
-    
-    public static void InsertDMRequest(List<DM_Request__c> triggerNew,boolean isInsert)
+    //common method for updating address fields in DM request.
+    public static void updateAddressInDMRequest(List<DM_Request__c> triggerNew)
     {
         set<id> CustomerId = new set<id>();  
         Map<id,map<string,Address__c>> addressMap =new Map<id,map<string,Address__c>>();
-        map<string,Address__c> admap =new map<string,Address__c>();
-        map<string,Address__c> promap = new map<string,Address__c>();
-        string regexForNullValue ='null';
-        string nullValue ='';
-        String province;
-        Map<String, String> addtrmapInsert = UtilAddressTranslation.addtrmap;
-        UtilAddressTranslation.gettranslatedvalues('JP');
-                 //get the accountIds 
-                for(DM_Request__c lstDMR:triggerNew){
-                    CustomerId.add(lstDMR.Customer_Name__c);
-                }  
-              
-                //query for arelated addresses and create a nested map
-                for(Address__c addrlst:[select Customer__c,Address_Type__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
-                {
-                    admap.put(addrlst.Address_Type__c, addrlst);
-                    addressMap.put(addrlst.Customer__c, admap);
-                } 
-            
-            for(DM_Request__c lstDMR:triggerNew){          
-                
-               if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
-               {                   
-                   if((addressMap.containsKey(lstDMR.Customer_Name__c))&&(addressMap.get(lstDMR.Customer_Name__c).containsKey(lstDMR.Sending_Address__c)))
-                        {
-                                if(addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c).Address_Type__c==lstDMR.Sending_Address__c){                                                                                                           
-                                    Address__c address = addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c);
-                                    lstDMR.Zip_Code__c=address.ZipCode__c;
-                                    lstDMR.Address__c=address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c;
-                                    lstDMR.Additional_Address__c=address.Address_Line_2__c;
-                                    lstDMR.Attention__c=address.Company_Name__c;
-                                    lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
-                                    if(addtrmapInsert.containsKey(address.Province__c))
-                                    {
-                                       province = addtrmapInsert.get(address.Province__c);
-                                    }
-                                    lstDMR.Province__c = province;
-                                }
-                                else{
-                                    lstDMR.adderror(Label.DMRequest_validation_error);
-                                }
-                                lstDMR.Address__c=lstDMR.Address__c.replaceAll(regexForNullValue,nullValue);
-                        }
-                        else{
-                                lstDMR.adderror(Label.DMRequest_validation_error);
-                            }                    
-                  
-               }
-                
-            }  
-        
-    }
+        Map<string,Address__c> admap =new Map<string,Address__c>();
   
-     
+        //get the accountIds 
+        for(DM_Request__c lstDMR:triggerNew){
+            CustomerId.add(lstDMR.Customer_Name__c);
+        }  
+        //query for a related addresses and create a nested map
+        for(Address__c addrlst:[select Customer__c,Address_Type__c,Sub_District__c,ZipCode__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Company_Name__c,TitleOfHonor__c from Address__c where Customer__c IN:CustomerId])
+        {
+            admap.put(addrlst.Address_Type__c, addrlst);
+            addressMap.put(addrlst.Customer__c, admap);
+         } 
+         for(DM_Request__c lstDMR:triggerNew)
+         {
+             if((lstDMR.Sending_Address__c!=null)&&(lstDMR.Sending_Address__c!='Temporary'))
+             {                   
+                 if((addressMap.containsKey(lstDMR.Customer_Name__c))&&(addressMap.get(lstDMR.Customer_Name__c).containsKey(lstDMR.Sending_Address__c)))
+                 {
+                     if(addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c).Address_Type__c==lstDMR.Sending_Address__c){                                                                                                           
+                         Address__c address = addressMap.get(lstDMR.Customer_Name__c).get(lstDMR.Sending_Address__c);
+                         lstDMR.Zip_Code__c=address.ZipCode__c;
+                         lstDMR.Address_Line_1__c=address.Address_Line_1__c;
+                         lstDMR.Address_Line_2__c=address.Address_Line_2__c;
+                         lstDMR.Sub_District__c=address.Sub_District__c;
+                         lstDMR.District__c=address.District__c;
+                         lstDMR.Attention__c=address.Company_Name__c;
+                         lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
+                         lstDMR.Province__c = address.Province__c;
+                     }
+                     else{
+                         lstDMR.adderror(Label.DMRequest_validation_error);
+                     }
+                 }
+                 else{
+                     lstDMR.adderror(Label.DMRequest_validation_error);
+                 }                    
+             }
+         }  
+    }
+    
+    //if there is a change in sending address field, then only update the address fields in DM request.
+    public static void UpdateDMRequest(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,boolean isUpdate){
         
+            for(DM_Request__c lstDMR:triggerNew)
+            {          
+               if(lstDMR.Sending_Address__c!=oldMap.get(lstDMR.id).Sending_Address__c)
+               {
+                   updateAddressInDMRequest(triggerNew);
+               }
+            }  
+    }
+    
+    public static void InsertDMRequest(List<DM_Request__c> triggerNew,boolean isInsert)
+    {
+        for(DM_Request__c lstDMR:triggerNew)
+        {          
+            updateAddressInDMRequest(triggerNew);
+        }  
+    }
+     
     public static void updateStatus(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,boolean isInsert,boolean isUpdate)
     {
             set<id> CustomerId = new set<id>(); 
