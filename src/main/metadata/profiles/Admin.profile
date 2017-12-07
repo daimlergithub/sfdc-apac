@@ -4022,6 +4022,11 @@
         <readable>true</readable>
 	</fieldPermissions>
 	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Portal_Delete_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
 			<editable>true</editable>
 			<field>Account_Link__c.Personal_Abroad_Agreement__c</field>
 			<readable>true</readable>
@@ -4226,6 +4231,26 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Mobile2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile3_Last_Modified_By__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile3_Last_Modified_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile3_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5349,6 +5374,16 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.CIAM_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.CIAM_Mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Expiration_Date_for_CC_New__c</field>
         <readable>true</readable>
@@ -5526,6 +5561,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Portal_Source__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Portal_Status_Change_History__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Portal_Status_LastUpdated__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Portal_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
