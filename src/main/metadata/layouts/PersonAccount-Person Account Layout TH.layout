@@ -53,13 +53,25 @@
                 <behavior>Readonly</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mobile__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_DMS__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Individual_Home_Phone__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PC_Status__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
