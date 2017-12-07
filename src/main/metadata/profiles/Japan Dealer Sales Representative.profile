@@ -23957,7 +23957,7 @@
         <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Vehicle_Relationship__c.Recall_DM__c</field>
         <readable>true</readable>
     </fieldPermissions>
