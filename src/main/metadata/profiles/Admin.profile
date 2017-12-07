@@ -31191,14 +31191,14 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>						 
-        <tab>Functionality_Access_Master__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>						 
         <tab>Persona__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userLicense>Salesforce</userLicense>
+	<tabVisibilities>						 
+        <tab>Functionality_Access_Master__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateContract</name>
