@@ -9201,6 +9201,11 @@
         <field>CampaignMember.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Member_Latest_Update_Time__c</field>
