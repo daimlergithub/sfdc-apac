@@ -2983,7 +2983,10 @@ public pagereference saveAccountTH()
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Type is mandatory in order to insert an address'));
                     }
                     //PR20170926-(End) Address Type Null check if other Address fields are populated
-
+                    else if(objAccount.Primary_Phone__c == null)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sales TEL is mandatory'));
+                    }
                     else
                     {
                         refreshPage = true;
