@@ -54,7 +54,9 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
         {
             usr = [select id, Name,userRole.Name from user  where userRole.Name =: CallCenterSupervisor limit 1];
         }
-        usr_th = [select id, Name,userRole.Name from user where Username like'%siripan.chantanawilas@daimler.com%'];
+        //usr_th = [select id, Name,userRole.Name from user where Username like'%siripan.chantanawilas@daimler.com%'];
+        GroupMember gpMemObj=[Select userOrGroupId from groupMember where GroupId IN (Select Id from Group where DeveloperName='Thailand_Supervisor')];
+        usr_th=[select Id,Name,userRole.Name from user where Id=:gpMemObj.userOrGroupId];
         loggedinUser=[select id,Market__c from user where Id= :userinfo.getUserId()];
         //usr = [Select Id, Name,Alias from user where Alias =:alias limit 1]; 
         CCCQueue = [Select Id from Group where Name = 'CCC Manager KR' and Type = 'Queue'];

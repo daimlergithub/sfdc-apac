@@ -6,6 +6,12 @@
 */
 public without sharing class AddressHelperBase {
 
+	public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
+    public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+    public static Id dealer_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Dealer');
+    public static Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
+    public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
+	
     // @Description: Updates Primary Address related details on account once Preferred__c is checked.
     public static void updateAddressOnAccount(list<Address__c> listNewAddress){           
         Set<Id> AccIdSet = new Set<Id>();
@@ -142,9 +148,13 @@ public without sharing class AddressHelperBase {
             try{
                 set<ID> accids=new set<ID>();
                 for(Account accrec:accountlist){
-                    accids.add(accrec.id);
-                }
-                CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+					if(accrec.RecordTypeID==accPerson_RecordTypeId || accrec.RecordTypeID==accCompany_RecordTypeId){
+						accids.add(accrec.id);
+					}
+                } 
+				if (accids.size()>0){				
+					CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+				}
             }Catch(exception e){
                 CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
             }

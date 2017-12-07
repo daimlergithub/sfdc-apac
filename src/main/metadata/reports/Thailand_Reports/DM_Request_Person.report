@@ -15,6 +15,9 @@
     <columns>
         <field>DM_Request__c.Sending_Address__c</field>
     </columns>
+	<columns>
+        <field>DM_Request__c.Description__c</field>
+    </columns>
     <columns>
         <field>DM_Request__c.Address_Line_1__c</field>
     </columns>

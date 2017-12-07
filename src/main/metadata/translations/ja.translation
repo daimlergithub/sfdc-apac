@@ -2915,6 +2915,14 @@
         <label>ご購入予定</label>
         <name>Planned_Purchase_Time</name>
     </customLabels>
+	<customLabels>
+        <label>成約予定日を入力してください</label>
+        <name>Please_Input_Closed</name>
+    </customLabels>
+    <customLabels>
+        <label>登録予定日を入力してください</label>
+        <name>Please_Input_Registration</name>
+    </customLabels>
     <customLabels>
         <label><!-- Please Select A Dealer To Add As Participating Dealer --></label>
         <name>Please_Select_A_Dealer_To_Add_As_Participating_Dealer</name>

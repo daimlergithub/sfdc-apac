@@ -7252,7 +7252,7 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Booking__c.Assigned_Service_Advisors__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14479,6 +14479,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Appointment_DateTime__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Actual_Payment_Mode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
