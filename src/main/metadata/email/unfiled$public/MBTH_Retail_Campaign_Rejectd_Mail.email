@@ -1,12 +1,16 @@
-Dear 
+Dear Dealer, 
 
-The Campaign {!Retail_Campaign__c.Name} Rejected by the Approver 
+{!Retail_Campaign__c.Approver__c} has Rejected  your Campaign member Adding request for the Campaign .please look into the comments section.
 
-Please find the Record Link: 
+Dealer’s Link: 
+{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
 
-{!Retail_Campaign__c.Link}
+MBTH’s Link: 
+{!Retail_Campaign__c.Link} 
 
-For Dealer User Click on Below Link : 
 
-{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/MBThailand/{!Retail_Campaign__c.Id} 
-Thanks!
+Best Regards, 
+{!Retail_Campaign__c.Approver__c} 
+Mercedes-Benz Retail 
+
+If you are not the addressee, please inform us immediately that you have received this e-mail by mistake, and delete it. We thank you for your support.
