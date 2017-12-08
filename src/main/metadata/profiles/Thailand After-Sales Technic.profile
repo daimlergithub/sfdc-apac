@@ -29951,6 +29951,10 @@
         <enabled>true</enabled>
         <name>NewReportBuilder</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>TransferAnyCase</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>RunFlow</name>
