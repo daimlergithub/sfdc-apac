@@ -129,6 +129,10 @@
                 <behavior>Edit</behavior>
                 <field>Segmentation_Report_ID__c</field>
             </layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Market__c</field>
+			</layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

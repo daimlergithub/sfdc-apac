@@ -122,6 +122,32 @@ public without sharing class  LeadHelperTH{
     }
 
     }
+	
+	//Call informatica web service
+    public void CdmLeadcreate(List < Lead__c > leadlist,map < id, Lead__c > leadOldMap)
+    {
+        Set< Id > LeadIdinsert = new Set< Id >();
+        Set< Id > LeadIdupdate = new Set< Id >();
+        for (Lead__c le: leadlist) {
+            if (le.Assigned_Dealer__c != null && le.Assigned_Dealer__c == leadOldMap.get(le.id).Assigned_Dealer__c && le.MD__c == 'TH' && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c && le.CAC_Lead_Status__c =='Accepted') {
+                
+                LeadIdinsert.add(le.Id);
+            }
+            if(le.Assigned_Dealer__c != null && le.Assigned_Dealer__c == leadOldMap.get(le.id).Assigned_Dealer__c && le.MD__c == 'TH' && le.Dealer_Lead_Status__c != leadOldMap.get(le.id).Dealer_Lead_Status__c && le.Dealer_Lead_Status__c =='Lost')
+            {
+                
+                LeadIdupdate.add(le.Id);
+                
+            }
+        }
+        if(LeadIdinsert.size() >0)
+            //call informatica service
+            CDMInformatica_Services.createLead(LeadIdinsert,'TH','insert');
+        if(LeadIdupdate.size() >0)
+            //call inf update service
+            CDMInformatica_Services.createLead(LeadIdupdate,'TH','update');
+    }
+	
     //it will handle all SARI validations of lead module
   public  void leadValidation(List<lead__c> leadlist){
     Id profileId=userinfo.getProfileId();

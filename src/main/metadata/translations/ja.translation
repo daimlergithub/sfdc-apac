@@ -2453,7 +2453,7 @@
         <name>Master_Account</name>
     </customLabels>
     <customLabels>
-        <label>マージ先レコード</label>
+        <label>マスターレコード</label>
         <name>Master_Record</name>
     </customLabels>
 	<customLabels>
@@ -2914,6 +2914,14 @@
     <customLabels>
         <label>ご購入予定</label>
         <name>Planned_Purchase_Time</name>
+    </customLabels>
+	<customLabels>
+        <label>成約予定日を入力してください</label>
+        <name>Please_Input_Closed</name>
+    </customLabels>
+    <customLabels>
+        <label>登録予定日を入力してください</label>
+        <name>Please_Input_Registration</name>
     </customLabels>
     <customLabels>
         <label><!-- Please Select A Dealer To Add As Participating Dealer --></label>

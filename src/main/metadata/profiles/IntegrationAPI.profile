@@ -8766,6 +8766,11 @@
         <field>Campaign.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Max_Car_Age__c</field>
@@ -9194,6 +9199,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10274,6 +10284,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16794,6 +16809,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

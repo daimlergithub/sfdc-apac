@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CAMPAIGN_NAME</field>
+    </columns>
+    <columns>
+        <field>START_DATE</field>
+    </columns>
+    <columns>
+        <field>END_DATE</field>
+    </columns>
+    <columns>
+        <field>Campaign.CAC_Campaign_Type__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.Campaign_Channels__c</field>
+    </columns>
+    <columns>
+        <field>CampaignMember.Campaign_Execution_Type__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Campaign Report 1</name>
+    <params>
+        <name>scopeid</name>
+        <value></value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CampaignContact</reportType>
+    <scope>org</scope>
+    <showDetails>true</showDetails>
+</Report>

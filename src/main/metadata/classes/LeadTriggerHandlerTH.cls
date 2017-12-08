@@ -12,6 +12,7 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf
         LeadHelperTH leadRS= new LeadHelperTH();
                 
         if(Trigger.isbefore && Trigger.isUpdate){
+        LeadHelperBase.updatemarket(Trigger.New);
         leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);
             leadRS.leadValidation(Trigger.new);
             
@@ -22,15 +23,19 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf
             leadRS.leadValidation(trigger.new);
             leadRS.updateOwnerwithDealer(Trigger.new);   
         }
-        if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)&& usr.Profile.Name != 'IntegrationAPI'){
-     
-     if(LeadHelperTH.booleanCampaignUpdate){
-        LeadHelperTH.booleanCampaignUpdate=false;
-        leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);  
-		LeadHelperTH.ShareRecordswithDealers(Trigger.new,Trigger.isupdate);
-		leadRS.CreateRetailCopy(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
-     
-     }
+       if (Trigger.isafter && (Trigger.isinsert || Trigger.isUpdate) && usr.Profile.Name != 'IntegrationAPI') {
+
+            if (LeadHelperTH.booleanCampaignUpdate) {
+                LeadHelperTH.booleanCampaignUpdate = false;
+                leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new, trigger.isupdate);
+                LeadHelperTH.ShareRecordswithDealers(Trigger.new, Trigger.isupdate);
+                leadRS.CreateRetailCopy(trigger.new, (Map < Id, Lead__C > ) Trigger.OldMap, isInsert, isUpdate);
+                if (Trigger.isUpdate) 
+                {
+                    leadRS.CdmLeadcreate(trigger.new, (Map < Id, Lead__C > ) Trigger.OldMap);
+                    
+                }
+            }
         }
   
     }

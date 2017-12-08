@@ -13,6 +13,7 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
         if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                 
             if(Trigger.isbefore && Trigger.isUpdate){
+                LeadHelperBase.updatemarket(Trigger.New);
                 leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);
                 leadRS.leadValidation(Trigger.new);
                 

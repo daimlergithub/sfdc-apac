@@ -18,7 +18,10 @@ public class TriggerCampaignTriggerHandlerMY implements TriggerHandlerIf
 
         if(trigger.isUpdate)
         {
-            if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+           if(trigger.isBefore){
+              CampaignHelperBase.updatemarket(Trigger.New);
+           }
+           if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                 chb.beforeUpdateEvents(Trigger.new,oldmap,market,parentCampaign);
            }
         }
