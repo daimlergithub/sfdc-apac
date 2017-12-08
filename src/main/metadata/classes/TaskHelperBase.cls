@@ -5,8 +5,8 @@
 */
 
 public with sharing class TaskHelperBase{
-  private static String OBCAllTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task',Label.OB_Call);
-  private static String eDMTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task',Label.eDM);
+  //private static String OBCAllTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task',Label.OB_Call);
+  //private static String eDMTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task',Label.eDM);
    
   /*public static string closedString='closed'; 
   public static string validString='valid';
