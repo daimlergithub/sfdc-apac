@@ -1,5 +1,6 @@
 @RestResource(urlMapping='/ValidateNewCustomer/*')
 global without sharing class customerVehiceStatus {
+    public static final Id personRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     @HttpPost
     global static Map<String,String> findUCID(){
         Map<String,String> response=new Map<String,String>();
@@ -36,13 +37,13 @@ global without sharing class customerVehiceStatus {
         List<Account> acc2= new List<Account>();
         List<Vehicle__c> vehicle=new List<Vehicle__c>();
         if((mobile==null || mobile=='' || String.isBlank(mobile)) && Email !=null && Email !='' && !String.isBlank(Email) && name!=''){
-            acc2=[select id,Ucid__c,email__c,firstname,lastname from Account where Email__c=:Email and Recordtype.name='Person Account' and Md__c='KR' Order By LastModifiedDate DESC ];
+            acc2=[select id,Ucid__c,email__c,firstname,lastname from Account where Email__c=:Email and RecordtypeId=:personRecordTypeId and Md__c='KR' Order By LastModifiedDate DESC ];
         }
         else if(mobile !=null && mobile !='' && !String.isBlank(mobile) && name!=''){
-            acc2=[select id,Ucid__c,email__c,firstname,lastname from Account where Mobile__c=:Mobile and Recordtype.name='Person Account' and Md__c='KR' Order By LastModifiedDate DESC ];
+            acc2=[select id,Ucid__c,email__c,firstname,lastname from Account where Mobile__c=:Mobile and RecordtypeId=:personRecordTypeId and Md__c='KR' Order By LastModifiedDate DESC ];
         }
         for(Account a:acc2){
-            if(a.firstname!=null?a.firstname.containsIgnoreCase(name):false || a.lastname!=null?a.lastname.containsIgnoreCase(name):false){
+            if((a.firstname!=null && a.firstname.containsIgnoreCase(name)) || (a.lastname!=null && a.lastname.containsIgnoreCase(name))){
                 acc.add(a);
                 break;
             }
