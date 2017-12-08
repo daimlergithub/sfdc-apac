@@ -2539,7 +2539,7 @@
      MD__c = &apos;TH&apos;, 
     OR( 
        RecordType.Name=&apos;Inquiry&apos;, 
-       RecordType.Name=&apos;MB_Complaint&apos; 
+       RecordType.Name=&apos;MB Complaint&apos; 
       ) 
 )</formula>
         <triggerType>onAllChanges</triggerType>
