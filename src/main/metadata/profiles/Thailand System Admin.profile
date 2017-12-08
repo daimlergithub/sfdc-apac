@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
         <application>Access_Management</application>
@@ -27472,6 +27472,9 @@
     <layoutAssignments>
         <layout>Idea-Idea Layout</layout>
         <recordType>Idea.Record_type_for_community_09ai0000000TOLlAAO_entity_Idea</recordType>
+    </layoutAssignments>	
+    <layoutAssignments>
+        <layout>Ideas__c-Ideas Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Information__kav-Information Layout</layout>
