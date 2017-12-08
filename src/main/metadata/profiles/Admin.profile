@@ -161,11 +161,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>RUG_Portal</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>Retail_CRM</application>
         <default>false</default>
         <visible>true</visible>
@@ -211,21 +206,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__Insights</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>true</visible>
@@ -251,6 +231,38 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+		<apexClass>CustomSelfRegController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IdeaCommunityHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IdeasCommunityHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RegisteredUsersTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RegisteredUsersTriggerHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Rug_util</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UploadFileComponentHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>uploadFileComponentHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>											  
         <apexClass>AccountHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -535,10 +547,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>Batch_AutoTaskANDLeadTHTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>Batch_BounceStatus</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -584,10 +592,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_RefreshButtonRetail</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Batch_VRSharingJP</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -699,19 +703,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CampaignMemberCustomHelperTHTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CampaignMemberDisribution</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberDisributionTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CampaignMemberHelperBase</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -891,14 +887,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ConsentHistoryInlinepage_TH_Ctrl</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ConsentHistoryInlinepage_TH_Ctrl_Test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ConsolidationContorller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -959,35 +947,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CtrlMessageAPIKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CtrlMessageLogViewListKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CtrlMessageSearchKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CtrlMessageServiceKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CustomLogUtil</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CustomLogUtilTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CustomSelfRegController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CustomSelfRegControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1015,10 +979,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DMMaterialHelperKR</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>DMRequestHelperBase</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1031,15 +991,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DMRequestHelperKR</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>DMRequestHelperMY</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DMRequestHelperMYTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1075,23 +1027,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DealerPickerTHControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DealerSearch</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>DealerSearchController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DealerSearchControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DealerSearchTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1116,14 +1056,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>EmailNotificationAfter24HoursTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>EmailNotificationSchedulerClass</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>EmailNotificationfor5days10days15days</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1207,14 +1139,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>IdeaCommunityHelperTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>IdeasCommunityHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>IllegalArgumentException</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1268,10 +1192,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadHelperMY</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LeadHelperMYTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1347,10 +1267,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadVehiclePickerMYControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadVehiclePickerTHController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1364,30 +1280,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadcustomClone_Test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningForgotPasswordController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningForgotPasswordControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningLoginFormController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningLoginFormControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningSelfRegisterController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningSelfRegisterControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1408,42 +1300,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MBJ_FS_Case_Intermediate_ControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKBulkMessageCreateKRDFWBatch</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendKaKaoKRDFWSchedule</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendMMSKRDFWSchedule</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendSMSKRDFWSchedule</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagStatusKRDFWSchedule</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessageDeleteKRDFWBatch</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessageDeleteKRDFWSchedule</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessageScheduleSendKRDFWBatch</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessageStatusKRDFWBatch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1472,14 +1328,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MRC_UpdateAccessOnUserExt</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ManageTasks</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ManageTasksTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1631,18 +1479,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>RegisteredUsersTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RegisteredUsersTriggerHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RegisteredUsersTriggerHelperTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>RelatedDealerLease</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1775,10 +1611,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>Rug_util</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>RuishiWebService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1835,10 +1667,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SegmentationCriteriaController_TH_Test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SelectAddressController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1884,14 +1712,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ServiceRetailTaskTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ShareALLRecordsToNewUserBatchTH</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ShareALLRecordsToNewUserBatchTHTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1955,10 +1775,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>StarRatingController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SubmitSurveyController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -2007,19 +1823,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskDynamicObjectEmailController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TaskHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TaskHelperBase</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TaskHelperBaseTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2099,39 +1903,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TestCtrlMessageAPIKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestCtrlMessageLogViewListKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestCtrlMessageSearchKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestCtrlMessageServiceKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TestFunctionalityAccessExtDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestMBKBulkMessageCreateKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestMBKMessageDeleteKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestMBKMessageSchduleSendKRDFW</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestMBKMessageStatusKRDFW</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2387,27 +2159,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerDMMaterialTriggerHandlerKR</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerDMMaterialTriggerHandlerKRTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerDMRequestTriggerHandlerJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerDMRequestTriggerHandlerKR</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerDMRequestTriggerHandlerKRTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2504,14 +2260,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerSurveyTriggerHandlerJP</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerTaskHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerTaskHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2655,19 +2403,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>UploadFileComponentHelperTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>UserHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UserHelperTH</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UserHelperTHTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2696,10 +2432,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UserTriggerHandlerMY</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UserTriggerHandlerTH</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -3111,10 +2843,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>accountLinkKoreaShareBatch</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>accountLinkShareBatch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3259,19 +2987,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>revokesharingToRetailCopies</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>revokesharingToRetailCopiesTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>segmentationredirect</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>segmentationredirectTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -3303,14 +3019,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>taskRecordViewOnCampaignController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>taskRecordViewOnCampaignControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>testusernotification</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3323,21 +3031,171 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>uploadFileComponentHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>usernotificationsetting</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>ManageTasks</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
-        <apexClass>utilDealerLevelRecordShare</apexClass>
+        <apexClass>DealerSearch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
+	<fieldPermissions>
+		<editable>true</editable>
+        <field>IdeasVoting__c.IdeaLikeCount__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>IdeasVoting__c.Ideas__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>IdeasVoting__c.Likeuser__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.Applicability__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.As_Is_Business_Requirements__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.Business_Benefits__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.Cost_Estimate_Class_A__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.High_Level_Solution__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.Idea_Reference_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.Like_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>						 
+        <editable>false</editable>
+		<field>Ideas__c.PointsSummary__c</field>										
+		<readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>						 
+		<field>Ideas__c.Points__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Ideas__c.To_Be_Business_Requirements__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registered_Users__c.department__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registered_Users__c.emailId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registered_Users__c.first_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registered_Users__c.last_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registered_Users__c.profile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registered_Users__c.region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registered_Users__c.request_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registered_Users__c.userName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>						 
+        <field>Task.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.ASLead_Notification_Timing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Courtesy_Greeting__c</field>
+        <readable>true</readable>
+</fieldPermissions>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Work_Phone_Checkbox__c</field>
+        <readable>true</readable>
+     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.home_Phone_Checkbox__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile_Phone_Checkbox__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5126,11 +4984,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Lastest_Consent_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Latest_Sales_Dealer__c</field>
         <readable>true</readable>
@@ -5271,11 +5124,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Message__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Minimum_per_Dealer__c</field>
         <readable>true</readable>
@@ -5285,7 +5133,7 @@
         <field>Account.Mobile2__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Mobile3_Last_Modified_By__c</field>
         <readable>true</readable>
@@ -5303,11 +5151,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Mobile_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Mobile_Phone_Checkbox__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6341,11 +6184,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.User_Organization__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.VAN_No_Brand_Purchases__c</field>
         <readable>true</readable>
@@ -6467,11 +6305,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Work_Phone_Checkbox__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Work_Phone_Last_Modified_By2__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6512,11 +6345,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.home_Phone_Checkbox__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6524,46 +6352,6 @@
         <editable>true</editable>
         <field>Account.smart_Account_Owner__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.Account_Record_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.Changed_By_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.Lastest_Consent_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.Personal_Agreement__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.System_Data_Source__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.Updated_Consent_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.Updated_Consent_User__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Field_History_Tracker__c.User_Organization__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6585,7 +6373,7 @@
         <field>Account_Link__c.Agreement_Date_on_Contact_Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.CIAM_Email__c</field>
         <readable>true</readable>
@@ -6780,7 +6568,7 @@
         <field>Account_Link__c.Personal_Information_Third_Party_Release__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Portal_Delete_Reason__c</field>
         <readable>true</readable>
@@ -6810,7 +6598,7 @@
         <field>Account_Link__c.Portal_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Portal_Status_Change_History__c</field>
         <readable>true</readable>
@@ -8455,14 +8243,14 @@
         <field>Booking__c.Assigned_Dealer_Outlet__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
-        <field>Booking__c.Assigned_Service_Advisor__c</field>
+        <field>Booking__c.Assigned_Service_Advisors__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Booking__c.Assigned_Service_Advisors__c</field>
+        <field>Booking__c.Assigned_Service_Advisor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8862,11 +8650,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Campaign.Courtesy_Greeting__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Campaign.Create_Task__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9140,6 +8923,11 @@
         <field>Campaign.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Max_Car_Age__c</field>
@@ -9150,7 +8938,7 @@
         <field>Campaign.Media_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Message__c</field>
         <readable>true</readable>
@@ -9482,11 +9270,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Campaign.isTestRunning__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Campaign.parentcampaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9570,6 +9353,11 @@
         <field>CampaignMember.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Member_Latest_Update_Time__c</field>
@@ -9632,11 +9420,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>CampaignMember.Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>CampaignMember.Task_Generated__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9653,11 +9436,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.formula_num__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>CampaignMember.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10180,6 +9958,11 @@
         <field>Campaign_Member__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Mileage__c</field>
@@ -10462,11 +10245,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Campaign_Member__c.isTestRunning__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Campaign_Offering__c.Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10660,6 +10438,11 @@
         <field>Car_Model__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Material_Portal_Code__c</field>
@@ -10758,11 +10541,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Vehicle_SubSubGroup__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Car_Model__c.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12090,7 +11868,7 @@
         <field>Case.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Case.Message__c</field>
         <readable>true</readable>
@@ -13845,6 +13623,11 @@
         <field>Contact.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.MobilePhone</field>
@@ -13923,26 +13706,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.isTestRunning__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>ContentVersion.AFSC__Replaced_Content_Document_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>ContentVersion.AFSC__SHA1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>ContentVersion.AFSC__Warning_MAC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14357,16 +14120,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Request__c.Address_Line_1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Address_Line_2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Request__c.Address_TH__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14454,11 +14207,6 @@
         <editable>true</editable>
         <field>DM_Request__c.Description__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.District__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -14594,11 +14342,6 @@
         <editable>true</editable>
         <field>DM_Request__c.Status__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Sub_District__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -15217,6 +14960,36 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event.AES_CNTR__CallReference__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.AES_CNTR__Called__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.AES_CNTR__Caller__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.AES_CNTR__Queue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.AES_CNTR__UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.AES_CNTR__UUI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Event.AES_SFConnector__AgentType__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15476,11 +15249,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Message__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Event.Next_Steps__c</field>
         <readable>true</readable>
@@ -15682,11 +15450,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.icrt__AeGuide_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>FAQ__kav.Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15718,86 +15481,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Idea.Status</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>IdeasVoting__c.IdeaLikeCount__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>IdeasVoting__c.Ideas__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>IdeasVoting__c.Likeuser__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>IdeasVoting__c.Rating__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.Applicability__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.As_Is_Business_Requirements__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.Business_Benefits__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.Cost_Estimate_Class_A__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.Description__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.High_Level_Solution__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.Idea_Reference_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.Like_Count__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Ideas__c.PointsSummary__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Ideas__c.Points__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Ideas__c.To_Be_Business_Requirements__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16092,11 +15775,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.Actual_Payment_Mode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead__c.Additional_Services__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16135,7 +15813,12 @@
         <field>Lead__c.Appointment_DateTime__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Actual_Payment_Mode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Assigned_Date_Time__c</field>
         <readable>true</readable>
@@ -16880,12 +16563,12 @@
         <field>Lead__c.Interested_Vehicle_Interior_Color__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Interested_Vehicle_ModelName__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Interested_Vehicle_Model__c</field>
         <readable>true</readable>
@@ -17280,12 +16963,17 @@
         <field>Lead__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Marketing_Opt_Out__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Message__c</field>
         <readable>true</readable>
@@ -17665,7 +17353,7 @@
         <field>Lead__c.Quotation_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Quotation_Model_History__c</field>
         <readable>true</readable>
@@ -18457,11 +18145,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead__c.isTestRunning__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Loyalty_Card__c.Card_Renew_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -18608,281 +18291,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Loyalty_Card__c.owner_relation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.Message__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.PageSearchCount__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.PageSearchIDs__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.PageSearch__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.Processed__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.Set_Sending_Time__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.Source_Object_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.Source_Object__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.Subject__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.Template_Code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.Template_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Bulk_Message__c.channel__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Message_Template__c.Active__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Message_Template__c.Contents__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Message_Template__c.Subject__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Message_Template__c.Template_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Message_Template__c.Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Account_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Account__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Agreement_to_commit_info_processing__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.AttachmentImages__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Campaign_Member__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Campaign__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Case__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Doc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Email__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>MBK_Messages__c.IsModify__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.KaKaoTalk_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Leads__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.MBKMessageTemplate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Opt_In_SMS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Personal_Abroad_Agreement__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Personal_Agreement__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Personal_Information_Third_Party_Release__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.SendTemplate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Set_Sending_Time__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.UCID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.altCode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.altMsg__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.channel__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.custGubun__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.custMsgSn__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.message__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.phoneNum__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.processed__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.rcptDtm__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.reqDtm__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.senderKey__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.smsMsg__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.sn__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.sndDtm__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.subject__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>MBK_Messages__c.templateCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -21128,46 +20536,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>RegionMasterInfo__c.ZipCode__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registered_Users__c.department__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registered_Users__c.emailId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registered_Users__c.first_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registered_Users__c.last_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registered_Users__c.profile__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registered_Users__c.region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registered_Users__c.request_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registered_Users__c.userName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -25342,6 +24710,36 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Task.AES_CNTR__CallReference__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.AES_CNTR__Called__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.AES_CNTR__Caller__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.AES_CNTR__Queue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.AES_CNTR__UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.AES_CNTR__UUI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Task.AES_SFConnector__AgentType__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -25596,11 +24994,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Message__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Task.Next_Steps__c</field>
         <readable>true</readable>
@@ -25798,11 +25191,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.eDM_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.icrt__AeGuide_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -26197,11 +25585,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>User.DAW_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>User.DMS_UserID__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -26238,6 +25621,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Dealer_Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.DAW_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -26930,7 +26318,7 @@
         <field>Vehicle_Relationship__c.Purchase_Price__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Recall_DM__c</field>
         <readable>true</readable>
@@ -27185,7 +26573,7 @@
         <field>Vehicle_Relationship__c.Vehicle_Model__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Vehicle_Phone1__c</field>
         <readable>true</readable>
@@ -27210,7 +26598,7 @@
         <field>Vehicle_Relationship__c.Vehicle_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Vehicle_fax_display__c</field>
         <readable>true</readable>
@@ -27835,8 +27223,306 @@
         <field>Vehicle__c.last_updated__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Account_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Agreement_to_commit_info_processing__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.AttachmentImages__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Campaign_Member__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Case__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Doc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>MBK_Messages__c.IsModify__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.KaKaoTalk_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Leads__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.MBKMessageTemplate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Opt_In_SMS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Personal_Abroad_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Personal_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Personal_Information_Third_Party_Release__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.SendTemplate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Set_Sending_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.UCID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.altCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.altMsg__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.channel__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.custGubun__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.custMsgSn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.phoneNum__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.processed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.rcptDtm__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.reqDtm__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.senderKey__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.smsMsg__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.sn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.sndDtm__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.subject__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Messages__c.templateCode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Message_Template__c.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Message_Template__c.Contents__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Message_Template__c.Subject__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Message_Template__c.Template_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Message_Template__c.Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.PageSearchCount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.PageSearchIDs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.PageSearch__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.Processed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.Set_Sending_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.Source_Object_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.Source_Object__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.Subject__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.Template_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.Template_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MBK_Bulk_Message__c.channel__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<layoutAssignments>
+        <layout>IdeasVoting__c-IdeasVoting Layout</layout>
+    </layoutAssignments>
+	 <layoutAssignments>
+        <layout>Ideas__c-Ideas Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Registered_Users__c-Registered Users Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>MBK_Message_Template__c-MBK Message Template layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>MBK_Messages__c-MBK Messages Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>Template__c-Template Layout</layout>
+        <recordType>Template__c.KakaoTalk</recordType>
+    </layoutAssignments>
+   <layoutAssignments>
+        <layout>Task-SMS with History Response</layout>
+        <recordType>Task.KakaoTalk</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
@@ -27865,9 +27551,6 @@
     <layoutAssignments>
         <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Field_History_Tracker__c-Account Field History Tracker Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Company Customer External Link</layout>
@@ -27979,12 +27662,12 @@
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Execution Simple layout</layout>
-        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Campaign-Campaign Execution Simple layout-Activate%2FSuspend SMS Batch</layout>
         <recordType>Campaign.Campaign_Execution</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Execution Simple layout</layout>
+        <recordType>Campaign.Campaign_Execution_MBK_Wholesale_to_Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Read Only Layout</layout>
@@ -28282,12 +27965,6 @@
         <recordType>Idea.Record_type_for_community_09ai0000000TOLlAAO_entity_Idea</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>IdeasVoting__c-IdeasVoting Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Ideas__c-Ideas Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Information__kav-Information Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -28332,15 +28009,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Loyalty_Card__c-Loyalty Card Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>MBK_Bulk_Message__c-MBK Bulk Message Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>MBK_Message_Template__c-MBK Message Template Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>MBK_Messages__c-MBK Messages Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>MD_Dependency__mdt-MD Dependency Layout</layout>
@@ -28473,9 +28141,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>RegionMasterInfo__c-RegionMasterInfo Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Registered_Users__c-Registered Users Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Rejected_Duplicate_Log__c-Rejected Duplicate Log Layout</layout>
@@ -28675,14 +28340,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-SMS with History Response</layout>
-        <recordType>Task.KaKao</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-SMS with History Response</layout>
-        <recordType>Task.KakaoTalk</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-SMS with History Response</layout>
         <recordType>Task.SMS</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -28731,14 +28388,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-Template Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template__c-Template Layout</layout>
-        <recordType>Template__c.KaKao</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template__c-Template Layout</layout>
-        <recordType>Template__c.KakaoTalk</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-eDM Template</layout>
@@ -28817,14 +28466,59 @@
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
-    <objectPermissions>
+	<objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Account</object>
+        <object>MBK_Messages__c</object>
         <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>MBK_Message_Template__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>MBK_Bulk_Message__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>IdeasVoting__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Ideas__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Registered_Users__c</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -28832,7 +28526,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Account_Field_History_Tracker__c</object>
+        <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -29264,24 +28958,6 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>IdeasVoting__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Ideas__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
         <object>Information__kav</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -29328,33 +29004,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Loyalty_Card__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>MBK_Bulk_Message__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>MBK_Message_Template__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>MBK_Messages__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -29562,15 +29211,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>RegionMasterInfo__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Registered_Users__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -29871,6 +29511,10 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
+		<apexPage>CommunityUserRequestForm</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>											 
         <apexPage>ALKDeleteConformationpage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -30007,14 +29651,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>CommunityUserRequestForm</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>ConsentHistoryInlinePage_TH</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>ConsolidationDisplayList</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -30068,10 +29704,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>DealerSearch</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>DealerSearchPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -30247,10 +29879,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>ManageTasks</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MarketCheckOnVehiclePicker</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -30286,11 +29914,11 @@
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
+	<pageAccesses>
         <apexPage>PageMessageLogViewListKRDFW</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
+	<pageAccesses>
         <apexPage>PageMessagePopupKRDFW</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -30567,11 +30195,15 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>taskRecordViewOnCampaign</apexPage>
+        <apexPage>usernotificationsetting</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>ManageTasks</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>usernotificationsetting</apexPage>
+        <apexPage>DealerSearchPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
@@ -31128,16 +30760,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Task.KaKao</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Task.KakaoTalk</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Task.MBDA_Survey</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -31186,6 +30808,17 @@
         <recordType>Template__c.Callscript</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Template__c.KakaoTalk</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.KakaoTalk</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.ChildrenMMSTemplate</recordType>
@@ -31195,16 +30828,6 @@
         <default>false</default>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Template__c.KaKao</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Template__c.KakaoTalk</recordType>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -31277,6 +30900,18 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
+		<tab>IdeasVoting__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Ideas__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Registered_Users__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>						 
         <tab>Account_Link__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -31298,10 +30933,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Campaign_Lead__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Campaign_Member__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -31345,10 +30976,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Duplicate_Merge_Info__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>EP_Export_Notification__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -31357,30 +30984,18 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Functionality_Access_Master__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Getting_Started</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>IdeasVoting__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Ideas__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Lead__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <tabVisibilities>
-        <tab>Loyalty_Card__c</tab>
+	<tabVisibilities>
+        <tab>MBK_Messages__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <tabVisibilities>
+	<tabVisibilities>
         <tab>MBK_Customer_Search</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -31389,19 +31004,11 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>MBK_Messages__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Market__c</tab>
+        <tab>Loyalty_Card__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Participating_Dealer__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Persona__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -31411,10 +31018,6 @@
     <tabVisibilities>
         <tab>Recall__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Registered_Users__c</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Rejected_Duplicate_Log__c</tab>
@@ -31588,7 +31191,19 @@
         <tab>standard-UserProvisioningRequest</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userLicense>Salesforce</userLicense>
+	<tabVisibilities>						 
+        <tab>Market__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>						 
+        <tab>Persona__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>						 
+        <tab>Functionality_Access_Master__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateContract</name>
@@ -31692,10 +31307,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>CreateCustomizeFilters</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateCustomizeReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -32168,10 +31779,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewPlatformEvents</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
