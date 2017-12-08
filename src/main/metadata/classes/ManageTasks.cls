@@ -99,7 +99,7 @@ public void getstatusval() {
         tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 1000];
         }else if(oldstatus == 'Cancelled')
         {
-       tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus and RecordType.Developername != 'OB_Task' AND RecordType.Developername != 'OB_Call' limit 1000];
+       tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 1000];
         }
         else
         {
@@ -201,7 +201,7 @@ public void getstatusval() {
          List<Task> TaskListtoUpdate1 = new List<Task>();
          if(newstatus != null || newstatus != ''){
          if(newstatus == 'Open'){
-         oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and RecordType.Developername != 'OB_Task' AND RecordType.Developername != 'OB_Call'];
+         oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR'];
          system.debug('oldTaskList---'+oldTaskList);
           }else{
          oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR'];

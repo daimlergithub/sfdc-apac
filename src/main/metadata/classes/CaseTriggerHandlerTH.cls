@@ -24,7 +24,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 CaseHelperTH.booleanCampaignUpdate=false;
                 system.debug('*****************case2');
                 CaseHelperBase.updatemarket(Trigger.New);
-                caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
+             // caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false);
            }
         }
