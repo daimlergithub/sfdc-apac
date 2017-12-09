@@ -26270,9 +26270,6 @@
         <layout>Survey__c-Survey Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Survey__c-Survey Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>TSP_Subscription__c-TSP Subscription Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
