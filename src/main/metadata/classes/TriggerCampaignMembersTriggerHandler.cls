@@ -18,10 +18,10 @@ public class TriggerCampaignMembersTriggerHandler
         {
             campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(trigger.new);
         }
-         if(isBefore && isInsert)
+         /*if(isBefore && isInsert)
         {
             campaignMemberHelperKR.updatecustomstatus(trigger.new);
-        }
+        }*/
         if(trigger.isBefore && trigger.isUpdate){
            CampaignMemberHelperBase.updateCampaignMembermarket(Trigger.New);
         }

@@ -1168,6 +1168,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>update_Escalate_Date_to_CO_field</fullName>
+        <field>Escalate_Date_to_CO__c</field>
+        <formula>TODAY()</formula>
+        <name>update Escalate Date to CO field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>update_owner_manager</fullName>
         <field>Case_Owner_manager__c</field>
@@ -2637,5 +2646,15 @@
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Escalate Date to CO field</fullName>
+        <actions>
+            <name>update_Escalate_Date_to_CO_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos; &amp;&amp; Owner:User.Profile.Name!=&apos;Korea Call Center&apos; &amp;&amp; (CONTAINS( Owner:User.Profile.Name,&apos;Korea&apos;)||Owner:User.Profile.Name==&apos;MBK Support Profile&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
