@@ -26267,7 +26267,7 @@
         <layout>Survey_Question__c-Survey Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Survey__c-Survey Layout KR</layout>
+        <layout>Survey__c-Survey Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Survey__c-Survey Layout</layout>
