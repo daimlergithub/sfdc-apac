@@ -7,7 +7,32 @@
 <apex:page showHeader="true"  tabStyle="Retail_Campaigns__tab" controller="RetailCampaignSegmentationController" id="page">    
     <apex:includeScript value="{!$Resource.jquery142}"/>
     <apex:stylesheet value="{!URLFOR($Resource.RetailCampaignSegmentation)}"/> 
-    
+    <style type="text/css">
+        .custPopup{
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            width: 200px;
+            margin-left: -250px;
+            top:200px;
+        }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+
+    </style>
     <script>
 
 
@@ -553,7 +578,7 @@
     
     <apex:form id="form"> 
         <apex:inputHidden id="jsonFilter" value="{!jsonFilter}"/>
-        <input type="hidden" id="que" value="{!saveQuery}"/>
+        <input type="hidden" id="que" value="{!Query}"/>
         <div id="responseErrors"></div>
         <apex:pageMessages />
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
@@ -850,8 +875,8 @@
                                     <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
                                     <option value="End_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}</option>    
                                     <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->
-                                    <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>                                                                 
-                                </select>
+                                  <!--  <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>    -->                                                             
+                               </select>
                             </td>
                             <td><span class="notDate">
                                 <select style="display:block;">
@@ -866,7 +891,7 @@
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
                                   <apex:inputField value="{!vehicleRel.New_Used__c}" styleClass="New_Used__c" style="display:block;"/> 
-                                  <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>
+                                <!--  <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/> -->
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/> 
                             </td>
@@ -1122,11 +1147,19 @@
                 </div>
             </div>
             <hr/>
+            <apex:outputPanel id="tstpopup">
+            <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+            <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                Enter Name : <apex:inputText value="{!SegementationName }" />
+                <apex:commandButton value="Next" action="{!saveCriteriaButton}" rerender="out" status="status" oncomplete="window.close();"/> 
+            </apex:outputPanel>
+        </apex:outputPanel>
             
             <apex:outputPanel layout="block" id="searchingResult">
                 <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign,saveCriteria" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
-					
+                    
+                    
                   <apex:commandButton value="{!$Label.Select_All_Records}" action="{!selectall}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="selectall"/>               
                 <apex:commandButton value="{!$Label.Add_to_Campaign}" action="{!addToCampaign}" style="margin-left:20px; margin-right:30px;" disabled="{!wrapperList.size = 0 || wrapperList = null}" id="addToCampaign"/>
                 <apex:actionStatus id="loadingStatus">
@@ -1135,9 +1168,9 @@
                     </apex:facet>      
                 </apex:actionStatus>
                 
-                <!--<apex:outputPanel id="saveCriteria" >
-                    <apex:commandButton value="Save Criteria"  onclick="queryName()" disabled="{!wrapperList.size = 0 || wrapperList = null}" reRender="none" />
-                </apex:outputPanel>-->
+                <apex:outputPanel id="saveCriteria" >
+                    <apex:commandButton value="Save Criteria"  action="{!showPopup}" disabled="{!wrapperList.size = 0 || wrapperList = null}" reRender="tstpopup" />
+                </apex:outputPanel>
                 <apex:outputPanel rendered="{!wrapperList.size == 0}" id="noMatches">
                  <apex:outputText style="color:red"><h1>   Records found : {!noOfRecords} &nbsp;&nbsp;  No Matches Found, Please try with other filters.</h1></apex:outputtext>
                 </apex:outputPanel>
@@ -1157,6 +1190,7 @@
                          (con.pageNumber * size))} of {!noOfRecords}
                         </apex:outputText>
                     </apex:outputPanel> 
+                    
                         
                 <apex:outputPanel id="accounts">
                     <apex:pagemessages ></apex:pagemessages>
