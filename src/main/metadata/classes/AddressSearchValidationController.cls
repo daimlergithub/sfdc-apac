@@ -2774,6 +2774,10 @@ public pagereference saveAccountTH()
 							AddressObj.Preferred__c=true;
                             AddressObj.Language__c =LanguageSelected;
                             insert AddressObj;
+                            Account acc=new Account(Id=objAccount.Id);
+                            acc.Primary_Address_Reference__c=AddressObj.Id;
+                            DMLManagerService.updateAsSystem(acc);
+                            
                             PageReference pageRef = new PageReference('/'+objAccount.Id);
                             return PageRef;
                         }
