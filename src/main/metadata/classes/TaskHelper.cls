@@ -112,7 +112,22 @@ public class TaskHelper {
        
      
         if(isInsert)
-            UtilTask.updateCampaignMemberStatus(tasks);
+         {
+		    List<Task> lstTaskInsert = new List<Task>();
+             for (Task newTask : tasks)
+             {
+                String whatd=newTask.WhatId;
+                
+                if (!whatd.startsWithIgnoreCase('701'))
+                {
+                    lstTaskInsert.add(newTask);
+                }
+             }
+             if(lstTaskInsert.size()>0 && lstTaskInsert!=null)
+             {
+             UtilTask.updateCampaignMemberStatus(lstTaskInsert);
+             }
+		 }
         if(isUpdate)
         {
              List<Task> lstTaskUpdate = new List<Task>();

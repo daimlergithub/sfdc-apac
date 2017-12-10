@@ -1,12 +1,14 @@
-Hi,
-The Campaign {!Retail_Campaign__c.Name} 
-  reached execution date.Kindly Start the Execution.
+Dear Dealer, 
 
+The Campaign {!Retail_Campaign__c.Name}  reached execution date.
+Please Kindly Start the Execution.
+Dealer’s Link:
+{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
+MBTH’s Link:
 {!Retail_Campaign__c.Link}
-https://asiadevth4-daimlerasia.cs72.force.com/MBThailand/{!Retail_Campaign__c.Id}
 
-For Dealer User Click on Below Link :
+Best Regards,
+Marketing Team 
+Mercedes-Benz Thailand
 
-{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/MBThailand/{!Retail_Campaign__c.Id}
-
-Thanks
+If you are not the addressee, please inform us immediately that you have received this e-mail by mistake, and delete it. We thank you for your support.
