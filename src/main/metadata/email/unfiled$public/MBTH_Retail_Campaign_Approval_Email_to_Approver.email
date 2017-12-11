@@ -1,14 +1,15 @@
-Hi, 
-Hi {!Campaign.Approver__c}, 
+Dear  {!Retail_Campaign__c.Approver__c},
 
-Campaign {!Retail_Campaign__c.Name} is Sent for Approval Kindly Accept/Reject
+Retail Campaign {!Retail_Campaign__c.Name} is Sent for Budget Approval  Kindly Accept/Reject by clicking below link
 
-Please find the Record Link: 
-{!Retail_Campaign__c.Link}
+Dealer’s Link:
+{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
 
+MBTH’s Link:
+{!Retail_Campaign__c.Link} 
 
-For Dealer User Click on Below Link : 
+Best Regards,
+ {!Retail_Campaign__c.OwnerFullName}
+Mercedes-Benz Thailand
 
-{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/MBThailand/{!Retail_Campaign__c.Id} 
-
-Thanks!
+If you are not the addressee, please inform us immediately that you have received this e-mail by mistake, and delete it. We thank you for your support.
