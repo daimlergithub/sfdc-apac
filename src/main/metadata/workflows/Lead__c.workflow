@@ -415,6 +415,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Dealer_Lead_Status_should_be_updated_to</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>Order Confirmed</literalValue>
+        <name>Dealer Lead Status should be updated to</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Dealer_Lead_Status_update</fullName>
         <field>Dealer_Lead_Status__c</field>
@@ -1125,6 +1134,31 @@ Purchased_Date_Time__c
         </actions>
         <active>false</active>
         <formula>AND(ISCHANGED( OwnerId ),MD__c  = 'JP', OR(NOT(ISBLANK(Source_Campaign__c)),NOT(ISBLANK(Retail_Campaign_Name__c))))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	 <rules>
+        <fullName>Dealer Lead Status should be updated to %E2%80%98Order Confirmed%E2%80%99</fullName>
+        <actions>
+            <name>Dealer_Lead_Status_should_be_updated_to</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Lead_Latest_Phase__c</field>
+            <operation>equals</operation>
+            <value>Confirmation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <description>If Lead Latest Phase is update to ‘Confirmation’ (automatic updated via SARI from DMS), Dealer Lead Status should be updated to ‘Order Confirmed’</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

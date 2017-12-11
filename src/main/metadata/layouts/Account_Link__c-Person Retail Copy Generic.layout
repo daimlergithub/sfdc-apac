@@ -15,12 +15,24 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Full_Name__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_ID_Type__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_ID_Number__c</field>
+            </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_FirstName__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_LastName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -237,7 +249,7 @@
         <label>Profile Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_PersonBirthdate__c</field>
             </layoutItems>
             <layoutItems>
@@ -255,6 +267,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Special_Needs_Class__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Agreement__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Race__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -276,10 +296,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Special_Care__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contract_Count__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

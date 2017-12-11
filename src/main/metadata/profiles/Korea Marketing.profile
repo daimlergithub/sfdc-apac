@@ -27069,13 +27069,13 @@
         <layout>SurveyQuestionResponse__c-Survey Question Answer Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>SurveyTaker__c-SurveyTaker Layout</layout>
+        <layout>SurveyTaker__c-Survey Taken Layout_KR</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Survey_Question__c-Survey Question Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Survey__c-Survey Layout</layout>
+        <layout>Survey__c-Survey Layout_KR</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>TSP_Subscription__c-TSP Subscription Layout</layout>
