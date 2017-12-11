@@ -133,19 +133,19 @@ public without sharing class  LeadHelperTH{
                 
                 LeadIdinsert.add(le.Id);
             }
-            if(le.Assigned_Dealer__c != null && le.Assigned_Dealer__c == leadOldMap.get(le.id).Assigned_Dealer__c && le.MD__c == 'TH' && le.Dealer_Lead_Status__c != leadOldMap.get(le.id).Dealer_Lead_Status__c && le.Dealer_Lead_Status__c =='Lost')
+            /*if(le.Assigned_Dealer__c != null && le.Assigned_Dealer__c == leadOldMap.get(le.id).Assigned_Dealer__c && le.MD__c == 'TH' && le.Dealer_Lead_Status__c != leadOldMap.get(le.id).Dealer_Lead_Status__c && le.Dealer_Lead_Status__c =='Lost')
             {
                 
                 LeadIdupdate.add(le.Id);
                 
-            }
+            }*/
         }
         if(LeadIdinsert.size() >0)
             //call informatica service
             CDMInformatica_Services.createLead(LeadIdinsert,'TH','insert');
-        if(LeadIdupdate.size() >0)
+        //if(LeadIdupdate.size() >0)
             //call inf update service
-            CDMInformatica_Services.createLead(LeadIdupdate,'TH','update');
+            //CDMInformatica_Services.createLead(LeadIdupdate,'TH','update');
     }
 	
     //it will handle all SARI validations of lead module
