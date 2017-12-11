@@ -2134,11 +2134,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>KakaoTalk</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lead</fullName>
@@ -11384,6 +11386,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
           </picklistValues>
@@ -23095,6 +23101,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

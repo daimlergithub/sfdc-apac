@@ -22,7 +22,7 @@ public class SurveyTakerHelperKR
     public static void shareSurverTakertoDealer(List<SurveyTaker__c> surveyTkrList)
     {
     	Id dealerAccntRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-    	User currentUser = [select Id, Contact.Account.Dealer_Type__c, Contact.Account.Dealer_GC_Code__c from User where Id =: UserInfo.getUserId()];
+    	User currentUser = [select Id, Contact.Account.Dealer_Type__c, Contact.Account.Dealer_GC_Code__c, Contact.Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
     	set<string> dealerNdCodes = new set<string>();
 		List<group> dealergrps = new List<group>();
 	    List<SurveyTaker__Share> shreSurTkerList = new List<SurveyTaker__Share>();
