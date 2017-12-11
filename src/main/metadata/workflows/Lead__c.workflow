@@ -1127,6 +1127,31 @@ Purchased_Date_Time__c
         <formula>AND(ISCHANGED( OwnerId ),MD__c  = 'JP', OR(NOT(ISBLANK(Source_Campaign__c)),NOT(ISBLANK(Retail_Campaign_Name__c))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+	 <rules>
+        <fullName>Dealer Lead Status should be updated to %E2%80%98Order Confirmed%E2%80%99</fullName>
+        <actions>
+            <name>Dealer_Lead_Status_should_be_updated_to</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Lead_Latest_Phase__c</field>
+            <operation>equals</operation>
+            <value>Confirmation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <description>If Lead Latest Phase is update to ‘Confirmation’ (automatic updated via SARI from DMS), Dealer Lead Status should be updated to ‘Order Confirmed’</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
