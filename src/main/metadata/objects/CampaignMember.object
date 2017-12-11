@@ -372,10 +372,24 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Email</fullName>
     </fields>
     <fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Fax</fullName>
     </fields>
     <fields>
         <fullName>FirstName</fullName>
+    </fields>
+    <fields>
+        <fullName>FirstRegistrationDate__c</fullName>
+        <externalId>false</externalId>
+        <label>FirstRegistrationDate</label>
+        <required>false</required>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>FirstRespondedDate</fullName>
@@ -403,6 +417,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     </fields>
     <fields>
         <fullName>LastName</fullName>
+    </fields>
+    <fields>
+        <fullName>Last_Service_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Service Date</label>
+        <required>false</required>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Latest_Status_History__c</fullName>
@@ -595,6 +616,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Mileage_End__c</fullName>
+        <externalId>false</externalId>
+        <label>Mileage(End)</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MobilePhone</fullName>
     </fields>
     <fields>
@@ -658,6 +688,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     </fields>
     <fields>
         <fullName>PostalCode</fullName>
+    </fields>
+    <fields>
+        <fullName>Purchase_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Purchase Date</label>
+        <required>false</required>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Registration_Date__c</fullName>
@@ -992,6 +1029,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Vehicle/Case ID</label>
         <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Relationship_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Relationship ID</label>
+        <length>20</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
