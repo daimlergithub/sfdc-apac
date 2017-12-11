@@ -23627,6 +23627,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Survey_Taken__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Survey__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Task.Task_RecordType_Name__c</field>
         <readable>false</readable>
@@ -26927,6 +26937,10 @@
         <recordType>Task.Social_Media</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Task-Survey</layout>
+        <recordType>Task.Survey</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -28660,6 +28674,11 @@
         <default>false</default>
         <recordType>Task.Social_Media</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.Survey</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

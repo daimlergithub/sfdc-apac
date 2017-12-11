@@ -160,6 +160,14 @@
                 <behavior>Edit</behavior>
                 <field>Previous_Campaign_Execution__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>StartDate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>EndDate</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
