@@ -415,6 +415,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Dealer_Lead_Status_should_be_updated_to</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>Order Confirmed</literalValue>
+        <name>Dealer Lead Status should be updated to</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Dealer_Lead_Status_update</fullName>
         <field>Dealer_Lead_Status__c</field>
