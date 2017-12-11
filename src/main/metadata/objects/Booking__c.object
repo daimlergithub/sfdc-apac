@@ -414,6 +414,51 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
+	<listViews>
+        <fullName>Service_Booking_KR</fullName>
+        <columns>NAME</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>Assigned_Service_Advisors__c</columns>
+        <columns>Booking_Status__c</columns>
+        <columns>Booking_Time__c</columns>
+        <columns>Booking_Date__c</columns>
+        <columns>WIP_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Booking__c.Service_Booking</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>Service Booking KR</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Test_Drive_KR</fullName>
+        <columns>NAME</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>Account__c</columns>
+        <columns>Booking_Status__c</columns>
+        <columns>BookingDateTimeFrom__c</columns>
+        <columns>BookingDateTimeTo__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Booking__c.Test_Drive</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>Test Drive KR</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>B-{0000000000}</displayFormat>
         <label>Booking Record No</label>
