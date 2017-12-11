@@ -111,6 +111,16 @@ public class CaseHelperTH {
     caserec.deadline__c=System.now()+daystoadd;
     }
     }
+	
+	//Update Case Creator field with the CreatedBy value
+    public void updateCaseCreator(List<Case> lst_Cases){
+        If(!lst_Cases.isEmpty() && lst_Cases != Null){
+            for(Case newCase: lst_Cases){
+                newCase.Case_Creator__c = UserInfo.getUserId();
+            }
+        }
+    }
+	
     //Calculate total number of repeated MB complaints per account
     public void calculateComplaintAmount(List<Case> cases){
       
