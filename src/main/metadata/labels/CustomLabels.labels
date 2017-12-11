@@ -864,6 +864,20 @@
         <shortDescription>Business Email2</shortDescription>
         <value>Business Email2</value>
     </labels>
+	<labels>
+        <fullName>eDM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>eDM</shortDescription>
+        <value>eDM</value>
+    </labels>
+	<labels>
+        <fullName>OB_Call</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task record type of OB Call</shortDescription>
+        <value>OB Call</value>
+    </labels>
     <labels>
         <fullName>Button_Approve</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>

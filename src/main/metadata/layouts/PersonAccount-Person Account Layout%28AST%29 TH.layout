@@ -3,9 +3,6 @@
     <customButtons>Merge</customButtons>
     <customButtons>Create_Retail_Copy</customButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
@@ -103,10 +100,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Monthly_Income__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>MBTH_Nationality__c</field>
             </layoutItems>
         </layoutColumns>
@@ -125,7 +118,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CDM_UCID__c</field>
+                <field>Mobile__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Individual_Home_Phone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -178,6 +179,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Number_of_Children__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Monthly_Income__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -289,9 +294,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Loyalty_Card_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

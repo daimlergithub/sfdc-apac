@@ -10908,6 +10908,11 @@
         <field>Case.Case_Situation__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Case_Creator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Case_Source__c</field>
@@ -11721,6 +11726,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Invoice_amount_of_adjustment_charge__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Is_Logged_in_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
