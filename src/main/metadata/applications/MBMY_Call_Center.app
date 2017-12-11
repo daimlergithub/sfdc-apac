@@ -12,5 +12,4 @@
     <tab>Vehicle__c</tab>
     <tab>Claim__c</tab>
     <tab>Retail_Task__c</tab>
-    <tab>ListOfFeatures</tab>
 </CustomApplication>
