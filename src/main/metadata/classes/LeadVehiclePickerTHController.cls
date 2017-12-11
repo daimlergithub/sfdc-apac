@@ -49,7 +49,7 @@ global with sharing class LeadVehiclePickerTHController {
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
         if(p.Name.contains('Dealer')){
-            disableButtons = false;
+            //disableButtons = false;
         }
         currentRecordId  = controller.getId();
        
