@@ -333,9 +333,9 @@
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
-        <fullName>MBK_Reporting_Partner_Roles__c</fullName>
+        <fullName>MBK_Partner_Roles__c</fullName>
         <externalId>false</externalId>
-        <label>MBK Reporting Partner Roles</label>
+        <label>MBK Partner Roles</label>
         <picklist>
             <picklistValues>
                 <fullName>Sales Manager</fullName>

@@ -93,6 +93,28 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
 	</fields>
+	<fields>
+        <fullName>CIAM_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>CIAM Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CIAM_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <label>CIAM Mobile</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>ContractId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -370,6 +392,17 @@
         <externalId>false</externalId>
         <label>Dealer ND Code</label>
         <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>RetailDealer_ND_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>fromRole__r.Dealer_ND_Code__c</formula>
+        <label>RetailDealer ND Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -667,6 +700,15 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>istestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>istestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Personal_Agreement__c</fullName>
         <defaultValue>false</defaultValue>
@@ -684,6 +726,17 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Portal_Delete_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal Delete Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Portal_Email__c</fullName>
@@ -735,6 +788,66 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Portal_Status_Change_History__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal Status Change History</label>
+        <length>3000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Portal_Status_LastUpdated__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal Status LastUpdated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Portal_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>PreAdded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Preconfigured</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Validated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Authenticated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Deleted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MyMercedesUser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1312,6 +1425,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <unique>false</unique>
     </fields>
 	<fields>
+        <fullName>RetailID_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>toRole__r.ID_Number__c</formula>
+        <label>RetailID Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
 		<fullName>Retail_ID_Type__c</fullName>
         <externalId>false</externalId>
         <label>Retail ID Type</label>
@@ -1347,6 +1471,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>RetailID_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(toRole__r.ID_Type__c)</formula>
+        <label>RetailID Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Individual_Home_Phone__c</fullName>
@@ -2920,6 +3055,37 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Portal_Status__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Authenticated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deleted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyMercedesUser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PreAdded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preconfigured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validated</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
