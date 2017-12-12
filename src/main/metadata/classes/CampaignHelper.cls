@@ -1350,14 +1350,14 @@ system.debug('i am here');
                 CampaignShare shareRec = new CampaignShare();
                 shareRec.CampaignId = cams.Id;
                 shareRec.UserOrGroupId  = u.MBK_Reporting_Partner_User__c;
-                shareRec.CampaignAccessLevel  = 'Read';
+                shareRec.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec);
             }
             if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null || u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!='') {
                 CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = cams.Id;
                 shareRec1.UserOrGroupId  = u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c;
-                shareRec1.CampaignAccessLevel  = 'Read';
+                shareRec1.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec1);  
             }  
            
@@ -1366,7 +1366,7 @@ system.debug('i am here');
                CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = cams.Id;
                 shareRec1.UserOrGroupId  = NDgroup;
-                shareRec1.CampaignAccessLevel  = 'Read';
+                shareRec1.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec1); 
              
              }
@@ -1379,7 +1379,7 @@ system.debug('i am here');
                CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = cams.Id;
                 shareRec1.UserOrGroupId  = NDgroup;
-                shareRec1.CampaignAccessLevel  = 'Read';
+                shareRec1.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec1); 
              
              }
@@ -1399,7 +1399,7 @@ system.debug('i am here');
                 CampaignShare tlshareRec = new CampaignShare();
                 tlshareRec.CampaignId = camstl.Id;
                 tlshareRec.UserOrGroupId  = tlu.MBK_Reporting_Partner_User__c;
-                tlshareRec.CampaignAccessLevel = 'Read';
+                tlshareRec.CampaignAccessLevel = 'Edit';
                 campshare.add(tlshareRec);  
              }
             for(id NDgroup:assgroupMap.values())
@@ -1407,7 +1407,7 @@ system.debug('i am here');
                CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = camstl.Id;
                 shareRec1.UserOrGroupId  = NDgroup;
-                shareRec1.CampaignAccessLevel  = 'Read';
+                shareRec1.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec1); 
              }
          
@@ -1419,7 +1419,7 @@ system.debug('i am here');
                CampaignShare topshareRec = new CampaignShare();
                 topshareRec.CampaignId = camstl.Id;
                 topshareRec.UserOrGroupId  = topdown.id;
-                topshareRec.CampaignAccessLevel = 'Read';
+                topshareRec.CampaignAccessLevel = 'Edit';
                 campshare.add(topshareRec);
             }
             }
@@ -1438,7 +1438,7 @@ system.debug('i am here');
                  CampaignShare topDqshareRec = new CampaignShare();
                  topDqshareRec.CampaignId = camsdq.Id;
                  topDqshareRec.UserOrGroupId  = topdownhq.id;
-                 topDqshareRec.CampaignAccessLevel = 'Read';
+                 topDqshareRec.CampaignAccessLevel = 'Edit';
                  campshare.add(topDqshareRec);
                }
 			    
@@ -1450,7 +1450,7 @@ system.debug('i am here');
                CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = camsdq.Id;
                 shareRec1.UserOrGroupId  = NDgroup;
-                shareRec1.CampaignAccessLevel  = 'Read';
+                shareRec1.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec1); 
                }
                }  			

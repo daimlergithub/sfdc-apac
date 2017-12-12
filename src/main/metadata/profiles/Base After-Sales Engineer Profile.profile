@@ -26130,6 +26130,9 @@
     <layoutAssignments>
         <layout>Idea-Idea Layout</layout>
         <recordType>Idea.Record_type_for_community_09ai0000000TOLlAAO_entity_Idea</recordType>
+    </layoutAssignments>	
+    <layoutAssignments>
+        <layout>Ideas__c-Ideas Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Information__kav-Information Layout</layout>
