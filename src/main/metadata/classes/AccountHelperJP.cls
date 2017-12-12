@@ -99,6 +99,13 @@ public class AccountHelperJP
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
+                
+                if(Acc.Mobile_3__c!= Null && Acc.Mobile_3__c!= '')
+                {
+                    Acc.Mobile3_Last_Modified_By__c= UserInfo.getName();
+                    Acc.Mobile3_Last_Modified_Date__c= System.now();
+                }
+                
                 if(Acc.Fax != Null && Acc.Fax != '')
                 {                    
                     Acc.Fax_Last_Modified_By__c = UserInfo.getName();
@@ -243,6 +250,12 @@ public class AccountHelperJP
                 {
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
+                }
+                
+                if(Acc.Mobile_3__c!= OldAcc.Mobile_3__c)
+                {
+                    Acc.Mobile3_Last_Modified_By__c= UserInfo.getName();
+                    Acc.Mobile3_Last_Modified_Date__c= System.now();
                 }
                 
                 if(Acc.Fax != OldAcc.Fax  )
