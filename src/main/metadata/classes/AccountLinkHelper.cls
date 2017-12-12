@@ -165,6 +165,7 @@ public class AccountLinkHelper
             }
             
             if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId){
+                
                 if(accountLink.fromRole__c != null && accountLink.toRole__c != null){
                     set_ToAccountId.add(accountLink.fromRole__c);
                     if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
@@ -182,6 +183,7 @@ public class AccountLinkHelper
             }
              
             if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId){
+               
                 if(accountLink.fromRole__c != null && accountLink.toRole__c != null){
                     set_ToAccountId.add(accountLink.fromRole__c);
                     if(!map_AccountIdAndListAccountLinkId.containsKey(accountLink.toRole__c)){
@@ -193,7 +195,7 @@ public class AccountLinkHelper
             
             //Share Account Link with VR's
             if(accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId ){ 
-                                   
+                                
                 if(accountLink.fromRole__c != null && accountLink.toRole__c!=null){
                     set_ToAccountId.add(accountLink.fromRole__c);
                     dealerAccIdSetFromRetailPerson.add(accountLink.fromRole__c);
@@ -228,7 +230,8 @@ public class AccountLinkHelper
             
             //If AccountLink record type person or company or Vehicle external link share records to Dealer User.
             if(accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId ){
-                if(accountLink.fromRole__c !=null && accountLink.toRole__c!=null)
+              
+               if(accountLink.fromRole__c !=null && accountLink.toRole__c!=null)
                 {
                     
                 if(!CompanyPersonVehicleLinkALK.containsKey(accountLink.toRole__c)){
@@ -259,9 +262,11 @@ public class AccountLinkHelper
         // START: Adding Similar GC Code related Account To Map which is sharing already.
         Set<Id> dealerAccIdSet = new Set<Id>();
         for(Id dealerAccId : map_PersonCompanyAccountIdAndListAccountLinkId.keySet()) {
+           
             dealerAccIdSet.add(dealerAccId);
         }
         for(Id dealerAccId : map_AccountIdAndListAccountLinkId.keySet()) {
+            
             dealerAccIdSet.add(dealerAccId);
         }
         
@@ -270,6 +275,7 @@ public class AccountLinkHelper
         //system.assert(false, map_AccountIdAndListAccountLinkId);
         
         for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
+          
             if(map_PersonCompanyAccountIdAndListAccountLinkId.containsKey(dealerId)) {
                 List<Id> accountLinkIdList = map_PersonCompanyAccountIdAndListAccountLinkId.get(dealerId);
                 for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
@@ -278,15 +284,19 @@ public class AccountLinkHelper
             }
             
             if(map_AccountIdAndListAccountLinkId.containsKey(dealerId)) {
+               
                 List<Id> accountLinkIdList = map_AccountIdAndListAccountLinkId.get(dealerId);
                 for(Id similarGCCodeDealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId)) {
                     if(contactSetorDealerIdSet.contains(dealerId)) {
+                        
                         map_AccountIdAndListAccountLinkId.put(similarGCCodeDealerId, accountLinkIdList);
                     } else {
+                        
                         map_DealerAccountIdAndListAccountLinkId.put(similarGCCodeDealerId, accountLinkIdList);
                     }
                 }
                 if(!contactSetorDealerIdSet.contains(dealerId)) {
+               
                     map_DealerAccountIdAndListAccountLinkId.put(dealerId, accountLinkIdList);
                     map_AccountIdAndListAccountLinkId.remove(dealerId);
                 }
@@ -302,6 +312,7 @@ public class AccountLinkHelper
             ShareehicleALK(VehicleExtaccountId,VehiclealkId);
         }
         if(map_AccountIdAndListAccountLinkId.size() > 0){
+            
              createSharingRecord(map_AccountIdAndListAccountLinkId);
         }
         
@@ -319,10 +330,12 @@ public class AccountLinkHelper
         }
         
         if(map_DealerAccountIdAndListAccountLinkId.size() > 0){
+       
             createDealerSharingRecord(map_DealerAccountIdAndListAccountLinkId);
         }
         
         if(map_PersonCompanyAccountIdAndListAccountLinkId.size() > 0){
+       
             createPCSharingRecord(map_PersonCompanyAccountIdAndListAccountLinkId);
         }
         
@@ -348,7 +361,7 @@ public class AccountLinkHelper
                 accIdSet.add(accRec.Id);
             }
         }
-        system.debug('gcCodeToDealerAccIdMap \n\n' + gcCodeToDealerAccIdMap + '\n\n' + gcCodeToDealerAccIdMap.keySet());
+       
         Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = new Map<Id, Set<Id>>();
         if(dealerAccList.size() > 0) {
             List<Account> similarGCCodeDealerAccountList = [select Id, Dealer_GC_Code__c from Account where Dealer_GC_Code__c IN: gcCodeToDealerAccIdMap.keySet()
@@ -362,6 +375,7 @@ public class AccountLinkHelper
                 }
             }                                                       
         }
+        
         return dealerIdToSimilarGCCodeDealerAccountIdsMap;
     }
     
@@ -373,7 +387,7 @@ public class AccountLinkHelper
             accIdSet.add(accLinkRec.toRole__c);
             
         }
-        system.debug('++++++++++++++++++'+accIdSet);
+       
         
         List<Account> accList = [select Id, (select Id, fromRole__c, RecordTypeId, RecordType.DeveloperName from Account_Links__r) from Account where Id IN: accIdSet ];
         
@@ -436,7 +450,7 @@ public class AccountLinkHelper
                 }
                   if(Integrationusr.Profile.name == 'IntegrationApi' && accountLink.toRole__c != map_AccountLinkIdAndRecord.get(accountLink.id).toRole__c && accountLink.RecordTypeId == AccountLink_RetailPersonRecordTypeId || accountLink.RecordTypeId == AccountLink_RetailCompanyRecordTypeId)
                 { 
-                        System.debug('insertingg>>>>');              
+              
                         if(accountLink.fromRole__c != null && accountLink.toRole__c!=null){
                             set_accountId.add(accountLink.fromRole__c);
                             dealerAccIdSetFromRetailPerson.add(accountLink.fromRole__c);
@@ -444,7 +458,7 @@ public class AccountLinkHelper
                                 SharingVrsFromAlk.put(accountLink.toRole__c, new List<Id>());
                             }
                             SharingVrsFromAlk.get(accountLink.toRole__c).add(accountLink.Id);
-                            System.debug('insertingg1>>>>');
+                           
                         }
                 }
                 
@@ -542,13 +556,12 @@ public class AccountLinkHelper
            
           Map<Id, Set<Id>> dealerIdToSimilarGCCodeDealerAccountIdsMap = getAllDealerAccountWithSameGCCode(dealerAccIdSetFromRetailPerson);
             for(Id dealerId : dealerIdToSimilarGCCodeDealerAccountIdsMap.keySet()) {
-                 System.debug('gcsize>>>>>'+dealerIdToSimilarGCCodeDealerAccountIdsMap.size());
+                
                 if(dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId).size() > 0) {
                     dealerAccIdSetFromRetailPerson.addAll(dealerIdToSimilarGCCodeDealerAccountIdsMap.get(dealerId));
                 }
             }
-            system.debug('svfsize'+SharingVrsFromAlk.size());
-            system.debug('svf'+SharingVrsFromAlk);
+            
             //system.assert(false, dealerAccIdSetFromRetailPerson + '\n\n' + set_ToAccountId);
             System.debug('daissize'+dealerAccIdSetFromRetailPerson.size());
              System.debug('daissize'+dealerAccIdSetFromRetailPerson);
@@ -564,7 +577,7 @@ public class AccountLinkHelper
             {
                 dealerAccNameSet.add(dealerRec.Name);
             }
-            system.debug('dealerAccNameSet>>>' + dealerAccNameSet);
+         
             List<Group> groupList = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];
             
             List<Account_Link__Share> list_SharingDele = new List<Account_Link__Share>([SELECT Id FROM Account_Link__Share 
@@ -573,8 +586,7 @@ public class AccountLinkHelper
             List<AccountShare> oldAccShareList = new List<AccountShare>();
             oldAccShareList = [select Id from AccountShare Where AccountId =:oldAccId AND UserOrGroupId IN :groupList];
             
-            system.debug('groupList>>>' + groupList);
-            system.debug('oldAccShareList>>>' + oldAccShareList);
+            
             //system.assert(false, list_SharingDele);
             if(list_SharingDele.size() > 0)
             {
@@ -663,9 +675,10 @@ public class AccountLinkHelper
         }
         
         
-        system.debug('set_SharingRecord@@@@'+set_SharingRecord);
+      
         if(set_SharingRecord.size() > 0){
             List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
+            
             Database.insert(list_SharingRecord, false);
         }
     }
@@ -697,6 +710,7 @@ public class AccountLinkHelper
         system.debug('set_SharingRecord@@@@'+set_SharingRecord);
         if(set_SharingRecord.size() > 0){
             List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
+            
             Database.insert(list_SharingRecord, false);
         }
     }
@@ -709,15 +723,18 @@ public class AccountLinkHelper
        
         // Changing Sharing from User to Public Group
         List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+         System.debug('mapdelers??????'+map_AccountIdAndListAccountLinkId.keySet());
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
         for(Account dealerRec : dealerAccList) {
+            System.debug('similaraccounts'+dealerRec.name);
             dealerAccNameSet.add(dealerRec.Name);
             accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
         }
         
         set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
         for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+             System.debug('groupRecname>>>>>'+groupRec.name);
             if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
@@ -731,6 +748,7 @@ public class AccountLinkHelper
         }
         if(set_SharingRecord.size() > 0){
             List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
+             
             Database.insert(list_SharingRecord, false);
         }
         }
@@ -764,6 +782,7 @@ public class AccountLinkHelper
         }
         if(set_SharingRecord.size() > 0){
             List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
+            System.debug('listsharing2>>>>>>>>>'+list_SharingRecord);
             Database.insert(list_SharingRecord, false);
         }
         }
@@ -776,6 +795,7 @@ public class AccountLinkHelper
         
         // Changing Sharing from User to Public Group
         List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
         Set<String> dealerAccNameSet = new Set<String>();
         set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
@@ -793,12 +813,13 @@ public class AccountLinkHelper
                     accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    set_SharingRecord.add(accountLinkShare);
+                    list_SharingRecord.add(accountLinkShare);
                 }
             }
         }
-        if(set_SharingRecord.size() > 0){
-            List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
+        if(list_SharingRecord.size() > 0){
+           // List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
+           
             Database.insert(list_SharingRecord, false);
         }
     }
@@ -871,7 +892,7 @@ public class AccountLinkHelper
                 FromAccountIds.add(aclnk.fromRole__c);
             }
         }
-        system.debug('AccountIds<><><' + AccountIds);
+       
         system.debug('FromAccountIds<><><' + FromAccountIds);
         if(!FromAccountIds.isEmpty() && FromAccountIds != null)
         {
@@ -1302,6 +1323,7 @@ public class AccountLinkHelper
                 if(accLink.RecordtypeId == AccountLink_RetailPersonRecordTypeId && accLink.Retail_Related_Company__c != NULL && accLink.MD__c == label.MarketJp){
                     comId.add(accLInk.Retail_Related_Company__c);
                     perAccIdSet.add(accLink.toRole__c);
+                    System.debug('apostion<><><'+accLink.Position__c);
                     updateMap.put(accLink.Retail_Related_Company__c,accLink);
                 }
             }
@@ -1613,3 +1635,6 @@ public class AccountLinkHelper
               }       
     }
 }
+
+
+
