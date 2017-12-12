@@ -2261,6 +2261,16 @@
         <field>Account.Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_From_Slave__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_To_Master__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Complaint_Amount__c</field>
