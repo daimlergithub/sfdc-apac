@@ -5,10 +5,14 @@ public class AccountRecallUpdate {
     Usage:Update Recall field value of account once its related Vehicle Recall field value gets updated.
     */
     @InvocableMethod
-    public static void updateRecall(List<Vehicle__c> lstVehicleIds)
+    public static void updateRecall(List<Vehicle__c> lstVehicle)
     {
-        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Contact__c from Vehicle_Relationship__c where Vehicle_ID__c IN:lstVehicleIds];
-        System.debug('***lstVehicleRelationship'+lstVehicleRelationship);
+        List<Id> lstVehicleId=new List<Id>();
+        for(Vehicle__c vehObj:lstVehicle)
+        {
+            lstVehicleId.add(vehObj.Id);
+        }
+        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Contact__c from Vehicle_Relationship__c where Vehicle_ID__c IN:lstVehicleId];
         List<Account> acclst=new List<Account>();
         if(lstVehicleRelationship!=null && lstVehicleRelationship.size()>0)
         {
