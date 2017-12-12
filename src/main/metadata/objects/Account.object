@@ -7705,21 +7705,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <fullName>Not Yet</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Done</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>In_Progress</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>none</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>

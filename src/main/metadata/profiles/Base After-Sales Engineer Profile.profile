@@ -28303,20 +28303,23 @@
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Account_Link__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Address__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
-    <tabVisibilities>
+	<tabVisibilities>
+        <tab>Batch_Job__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
         <tab>Campaign_Lead__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>Car_Model__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Custom_Debug_Info__c</tab>
@@ -28348,11 +28351,11 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Campaign__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Task__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>SurveyQuestionResponse__c</tab>
@@ -28368,7 +28371,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Survey__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Vehicle_Relationship__c</tab>
@@ -28378,7 +28381,47 @@
         <tab>Vehicle__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <tabVisibilities>
+	<tabVisibilities>
+        <tab>Campaign_Partner__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Attribute__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>SMSReplyHistory__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Car_Model_Attribute__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>SR_History__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>SSI__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>DM_Stock_Flow__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>DM_Stock_Flow__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>DM_Stock_Flow__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Lead</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -28392,7 +28435,123 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Contact</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Lead</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-AppLauncher</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<!--<tabVisibilities>
+        <tab>standard-ArticleManagement</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>-->
+	<tabVisibilities>
+        <tab>standard-Macro</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<!--<tabVisibilities>
+        <tab>standard-Articles</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities> -->
+	<tabVisibilities>
+        <tab>standard-Opportunity</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Asset</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Order</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<!--<tabVisibilities>
+        <tab>standard-People</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities> -->
+	<tabVisibilities>
+        <tab>standard-PriceBook2</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Chatter</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Product2</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Console</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<!--<tabVisibilities>
+        <tab>standard-Profile</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Content</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>-->
+	<tabVisibilities>
+        <tab>standard-Contract</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Dashboard</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Questions</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Report</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-File</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Document</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-ServiceContract</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Entitlement</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Solution</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-StreamingChannel</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Forecasting3</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+	<!--<tabVisibilities>
+        <tab>standard-Subscription</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>-->
+	<tabVisibilities>
+        <tab>standard-Idea</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-UserProvisioningRequest</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
      <userPermissions>
