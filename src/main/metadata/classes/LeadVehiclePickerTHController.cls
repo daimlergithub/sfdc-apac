@@ -49,7 +49,7 @@ global with sharing class LeadVehiclePickerTHController {
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
         if(p.Name.contains('Dealer')){
-            //disableButtons = false;
+            disableButtons = false;
         }
         currentRecordId  = controller.getId();
        
@@ -175,6 +175,7 @@ global with sharing class LeadVehiclePickerTHController {
      /***************** CAR MODEL WRAPPER CLASS LOGIC : START ****************************/
             List<Car_Model__c> carModels;
             Map<String, Set<String>> brandClassMap = new Map<String, Set<String>>();
+            Map<String, Set<String>> sortedBrandClassMap = new Map<String, Set<String>>();
             Map<String, Set<String>> classModelMap =  new Map<String, Set<String>>();
              map<string, set<string>> classColorfinMap = new map<string, set<String>>();
              map<string, List<string>> modelColourMap = new map<string,List<string>>();
@@ -190,9 +191,9 @@ global with sharing class LeadVehiclePickerTHController {
             UtilConstant utilConst = new UtilConstant();
             /*Query Car Model Records filter by status*/
             if(status_type.equalsIgnoreCase('None')){
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c LIMIT 50000];
+                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where MD__c = :usr.Market__c order By Name ASC LIMIT 50000];
             }else{
-                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c LIMIT 50000];
+                carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c order By Name ASC LIMIT 50000];
             }
             for(Car_Model__c cm : carModels){
                 
@@ -201,8 +202,13 @@ global with sharing class LeadVehiclePickerTHController {
                     brandClassMap.put(cm.Brand__c, new Set<String>{cm.Series__c});
                 }else{
                     tempSet.add(cm.Series__c);
+                    List<String> seriesLst=new List<String>();
+                    seriesLst.addAll(tempSet);
+                    seriesLst.sort();
+                    tempSet.clear();
+                    tempSet.addAll(seriesLst);
                 } 
-                
+               
                 tempSet = classModelMap.get(cm.Series__c+cm.Brand__c);
                 if(tempSet == null){
                     classModelMap.put(cm.Series__c+cm.Brand__c, new Set<String>{cm.Name});
@@ -225,6 +231,30 @@ global with sharing class LeadVehiclePickerTHController {
                       }
                   }    
             } 
+            //sort the map
+            if(brandClassMap!=null && brandClassMap.size()>0)
+            {
+                
+                Set<String> brandSet=brandClassMap.keySet();
+                Map<String,String> brandMap=new Map<String,String>();
+                for(String brand:brandSet)
+                {
+                    brandMap.put(brand.toLowerCase(), brand);
+                }
+                    
+                List<String> brandLst=new List<String>();
+                for(String brand:brandSet)
+                {
+                    brandLst.add(brand.toLowerCase());
+                }
+                brandLst.sort();
+                for(String brand:brandLst)
+                {
+                    sortedBrandClassMap.put(brandMap.get(brand), brandClassMap.get(brandMap.get(brand)));
+                }
+                    
+                
+            }
             if(modelColourMap.size()>0){ 
                 for(string str: modelColourMap.keySet()){
                       List<string> modelColourLst = modelColourMap.get(str);
@@ -239,8 +269,8 @@ global with sharing class LeadVehiclePickerTHController {
                         modelColourFinMap.get(str).addAll(SetColors);
                  }
             }     
-            brand_class_model.add(brandClassMap);
-            brandClassMapping = JSON.serialize(brandClassMap);
+            brand_class_model.add(sortedBrandClassMap);
+            brandClassMapping = JSON.serialize(sortedBrandClassMap);
             brand_class_model.add(classModelMap);
             brand_class_model.add(classColorfinMap);
             brand_class_model.add(modelColourFinMap);
@@ -250,14 +280,14 @@ global with sharing class LeadVehiclePickerTHController {
             }
             
             Integer dynamicID = 0;
-            Set<String> brandKeySets = brandClassMap.keySet();  
+            Set<String> brandKeySets = sortedBrandClassMap.keySet();  
             for (String brands : brandKeySets){
                 vBC = new VehicleBrandsAndClasses();
                 vBC.name = new Map<String, String>();
                 vBC.name.put('Id',String.valueof(++dynamicID));
                 vBC.name.put('name', brands);
-                if (brandClassMap.get(brands) != null){
-                    Set<String> b_Classes = brandClassMap.get(brands);
+                if (sortedBrandClassMap.get(brands) != null){
+                    Set<String> b_Classes = sortedBrandClassMap.get(brands);
                     vBC.brandClass = new List<Map<String,String>>();
                     for (String cls : b_Classes){
                         BrandClasses b_Cls = new BrandClasses();                    
@@ -405,7 +435,7 @@ global with sharing class LeadVehiclePickerTHController {
         UtilConstant utilConst = new UtilConstant(); 
         Vehicle__c leadVehicle = new Vehicle__c();
         List<Car_Model__c> carModel;    
-        System.debug('----vehicleDetails---'+vehicleDetails);
+															 
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
         if(vehicleAttributes.get('Lookup') == 'false'){ 
             leadVehicle.Brand__c = vehicleAttributes.get('Brand');
@@ -414,19 +444,19 @@ global with sharing class LeadVehiclePickerTHController {
             leadVehicle.Trim__c = vehicleAttributes.get('Trim');
             leadVehicle.Model_Description__c = vehicleAttributes.get('Model');
             String mileageVal = vehicleAttributes.get('Mileage');
-            System.debug('--Brand---'+vehicleAttributes.get('Brand')+'---Class--'+vehicleAttributes.get('Class')+'--Model---'+vehicleAttributes.get('Model'));
+																																							  
             carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
             if (!mileageVal.equals('')){
                 leadVehicle.NextMileage__c = Integer.valueof(vehicleAttributes.get('Mileage'));
             }
-            System.debug('------leadVehicle-------'+leadVehicle);
+																 
             if(vehicleAttributes.get('Operation').equalsIgnoreCase('New')){
                 Id rec_Id = UtilRecordType.getRecordTypeIdByName('Vehicle__c',utilConst.VEHICLE_PRODUCT);
                 leadVehicle.RecordTypeId = rec_Id;
-                //if(!carModel.isEmpty())
-                    leadVehicle.Car_Model__c = carModel[0].Id;
+										 
+                leadVehicle.Car_Model__c = carModel[0].Id;
                 insert leadVehicle;
-                System.debug('------leadVehicle-------'+leadVehicle);
+																	 
                 Lead__c lead = [Select Id from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
                 if (vehicleAttributes.get('LeadVehicleType').equalsIgnoreCase(utilConst.INTERESTED_VEHICLE)){
                      lead.Interested_Vehicle__c = leadVehicle.Id;
