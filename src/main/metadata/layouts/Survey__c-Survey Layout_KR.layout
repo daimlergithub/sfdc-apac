@@ -265,18 +265,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Question__c</fields>
-        <fields>OrderNumber__c</fields>
-        <relatedList>Survey_Question__c.Survey__c</relatedList>
-    </relatedLists>
-    <relatedLists>
+   <relatedLists>
         <fields>NAME</fields>
         <fields>Campaign__c</fields>
         <fields>Account__c</fields>
         <fields>Survey_Taking_Status__c</fields>
-        <fields>Survey_Taken_Date__c</fields>
+        <fields>Survey_Taken_Date_Time__c</fields>
         <relatedList>SurveyTaker__c.Survey__c</relatedList>
     </relatedLists>
     <relatedLists>
