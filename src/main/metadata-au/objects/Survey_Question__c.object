@@ -135,6 +135,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Survey_Answer_Id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Survey Answer Id</label>
+        <referenceTo>SurveyQuestionResponse__c</referenceTo>
+        <relationshipLabel>Survey Questions</relationshipLabel>
+        <relationshipName>Survey_Questions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Survey__c</fullName>
         <externalId>false</externalId>

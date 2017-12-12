@@ -8688,6 +8688,27 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <trackHistory>false</trackHistory>
         <type>Phone</type>
     </fields>
+	<fields>
+        <fullName>Mobile3_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile3 Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Mobile_Status__c</fullName>
         <description>value will be delivered in general by external sources, but can be maintained manually as well</description>
