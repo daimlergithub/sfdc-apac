@@ -751,8 +751,10 @@ public class CaseHelperKR
         list<id> ownerids = new list<id>();
         list<id> caseids= new list<id>();
         for(case c:LstnewCase) {
-           ownerids.add(c.OwnerId);
-           system.debug('*****Caseownerlist' +ownerids);
+           if(c.MD__c=='KR') {
+              ownerids.add(c.OwnerId);
+              system.debug('*****Caseownerlist' +ownerids);
+		   }	  
         }
         
         if(!Test.isRunningTest()){
@@ -765,7 +767,7 @@ public class CaseHelperKR
         }
         }
         
-        Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c  from User where id in: ownerids]);
+        Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c  from User where id in: ownerids and Market__c = 'KR' and IsActive=true]);
         system.debug('Reporting Users' +usermap);
        
         List<CaseShare> caseShar = new List<CaseShare>();

@@ -237,21 +237,34 @@ global with sharing class LeadVehiclePickerTHController {
                 
                 Set<String> brandSet=brandClassMap.keySet();
                 Map<String,String> brandMap=new Map<String,String>();
-                for(String brand:brandSet)
+                if(brandSet!=null && brandSet.size()>0)
                 {
-                    brandMap.put(brand.toLowerCase(), brand);
+                    for(String brand:brandSet)
+                    {
+                        if(brand!=null)
+                        	brandMap.put(brand.toLowerCase(), brand);
+                    }
                 }
-                    
+             
                 List<String> brandLst=new List<String>();
-                for(String brand:brandSet)
+                if(brandSet!=null && brandSet.size()>0)
                 {
-                    brandLst.add(brand.toLowerCase());
+                    for(String brand:brandSet)
+                    {
+                        if(brand!=null)
+                        	brandLst.add(brand.toLowerCase());
+                    }
                 }
-                brandLst.sort();
-                for(String brand:brandLst)
+                if(brandLst!=null && brandLst.size()>0)
+                	brandLst.sort();
+                if(brandLst!=null && brandLst.size()>0)
                 {
-                    sortedBrandClassMap.put(brandMap.get(brand), brandClassMap.get(brandMap.get(brand)));
+                    for(String brand:brandLst)
+                    {
+                        sortedBrandClassMap.put(brandMap.get(brand), brandClassMap.get(brandMap.get(brand)));
+                    }
                 }
+                
                     
                 
             }
