@@ -2800,7 +2800,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
