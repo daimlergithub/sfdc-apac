@@ -145,4 +145,5 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
     global void execute(SchedulableContext ctx) {
         Database.executeBatch(new EmailnotificationLeadsnotupdated());
     }
+	
 }
