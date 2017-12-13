@@ -317,14 +317,10 @@ public void getstatusval() {
             string emailBody = '안녕하세요, </BR>';
             emailBody =  emailBody + '새로운 Task가 인입되었습니다.</BR>';
             emailBody =  emailBody + '캠페인 이름: ' + campList[0].Name + '</BR>';
-            //for(Campaign camp : campList)
-           // {
-                if(taskList[0].WhatId == campList[0].Id)
-                {
-                    emailBody =  emailBody + '캠페인 코드: ' + campList[0].Campaign_Code__c + '</BR>';
-                }
-                
-           // }
+			if(taskList[0].WhatId == campList[0].Id)
+			{
+				emailBody =  emailBody + '캠페인 코드: ' + campList[0].Campaign_Code__c + '</BR>';
+			}
             emailBody =  emailBody + '작업 레코드 유형: ' + taskList[0].RecordType.name + '</BR>';
             emailBody =  emailBody + '인입된 Task 개수: ' + taskList.size() + '</BR>';
             emailBody =  emailBody + '기한: ' + taskList[0].ActivityDate + '</BR>';
