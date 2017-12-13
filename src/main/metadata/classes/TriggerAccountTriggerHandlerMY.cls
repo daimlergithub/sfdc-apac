@@ -110,7 +110,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == label.MY)
         {
             if(isBefore && isInsert){
-                AccountHelperMY.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+                //AccountHelperMY.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
             }
         
         if(isBefore && isUpdate){
