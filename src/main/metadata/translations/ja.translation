@@ -2298,19 +2298,19 @@
         <name>Purchased_Vehicle_Details</name>
     </customLabels> 
 	<customLabels>
-        <label>興味車両：</label>
+        <label>興味車両：削除</label>
         <name>Ch_Interested_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>競合他社車両：</label>
+        <label>競合他社車両：削除</label>
         <name>ch_Interested_competitor_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>現在保有車両１：</label>
+        <label>現在保有車両１：削除</label>
         <name>ch_Current_Vehicle_Details</name>
     </customLabels> 
 	<customLabels>
-        <label>購入済車両：</label>
+        <label>購入済車両：削除</label>
         <name>ch_Purchased_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
@@ -2453,7 +2453,7 @@
         <name>Master_Account</name>
     </customLabels>
     <customLabels>
-        <label>マージ先レコード</label>
+        <label>マスターレコード</label>
         <name>Master_Record</name>
     </customLabels>
 	<customLabels>

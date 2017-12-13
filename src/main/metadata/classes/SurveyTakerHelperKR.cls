@@ -1,100 +1,84 @@
+/*********************************************************************************
+    Class Name  : SurveyTakerHelperKR
+    Created By   : 
+    Created Date : 16th November 2017
+    Project      : Daimler APAC
+    Usages       : This a KR market DM Material realted helperclass class.
+                   1. Share the Survey Taken records with the dealer HQ / Dealer Call Center
+    
+ ***********************************************************************************/
 public class SurveyTakerHelperKR 
 {
-	Public static Id retailCompanyRectypeId = Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Company').getRecordTypeId();
-    Public static Id retailPersonRectypeId = Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
-    
+    /*************************************************************************************************************************
+     Method Name  : shareSurverTakertoDealer
+     Created By   : 
+     Created Date : 8th December 2017
+     Project      : Daimler APAC
+     Usages       : This method would share the Survey Taken records to dealers based on below 2 conditions.
+                    1. Records created by MBK. Dealer HQ and Dealer Call Center users will get to view the records. 
+                    2. Records created by Dealer HQ / Dealer Call Center users will be shared with everyone within Dealer HQ / Dealer Call Center and MBK. 
+        
+    ***************************************************************************************************************************/
     public static void shareSurverTakertoDealer(List<SurveyTaker__c> surveyTkrList)
     {
-        set<id> surAccId = new set<id>();
-        set<id> surTakerId = new set<id>();
-        List<SurveyTaker__c> surTakerList = new List<SurveyTaker__c>();
-        List<Account_Link__c> accLnkList = new List<Account_Link__c>();
-        set<id> dealerIds = new set<id>();
-        List<Account> dealerAccountList = new List<Account>();
-		set<string> dealerNdCodes = new set<string>();
+    	Id dealerAccntRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    	User currentUser = [select Id, Contact.Account.Dealer_Type__c, Contact.Account.Dealer_GC_Code__c, Contact.Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
+    	set<string> dealerNdCodes = new set<string>();
 		List<group> dealergrps = new List<group>();
-        List<SurveyTaker__Share> shreSurTkerList = new List<SurveyTaker__Share>();
-        
-        for(SurveyTaker__c surtk : surveyTkrList)
-        {
-            if(surtk.Account__c != null || surtk.Lead__c != null)
-            {
-                surTakerId.add(surtk.Id);
-            }
-        }
-        
-        if(!surTakerId.isEmpty() && surTakerId != null)
-        {
-            surTakerList = [select id, Account__c ,Lead__c, Lead__r.Contact__c from SurveyTaker__c where id =:surTakerId];
-        }
-        if(!surTakerList.isEmpty() && surTakerList != null)
-        {
-            for(SurveyTaker__c surtker : surTakerList)
-            {
-                if(surtker.Account__c != null)
-                {
-                    surAccId.add(surtker.Account__c);
-                }
-                if(surtker.Lead__c != null)
-                {
-                    surAccId.add(surtker.Lead__r.Contact__c);
-                }
-            }
-        }
-        system.debug('surAccId>>>>' + surAccId);
-        if(!surAccId.isEmpty() && surAccId != null)
-        {
-            accLnkList = [select id,fromrole__c,torole__c from Account_Link__c where torole__c =:surAccId AND (RecordTypeId =:retailPersonRectypeId OR RecordTypeId =:retailCompanyRectypeId)];
-        }
-        system.debug('accLnkList>>>>>' + accLnkList);
-        if(!accLnkList.isEmpty() && accLnkList != null && accLnkList.size() >0)
-        {
-            For(Account_Link__c aclnk : accLnkList)
-            {
-                if(aclnk.fromRole__c != null)
-                {
-                    dealerIds.add(aclnk.fromRole__c);
-                }
-            }
-            system.debug('dealerIds>>>>>' + dealerIds);
-            if(!dealerIds.isEmpty() && dealerIds != null)
-            {
-                dealerAccountList = [select id ,Dealer_ND_Code__c from Account where id =:dealerIds];
-            }
-            system.debug('dealerAccountList>>>>>' + dealerAccountList);
-            if(!dealerAccountList.isEmpty() && dealerAccountList != null)
-            {
-                for(Account acc : dealerAccountList)
-                {
-                    if(acc.Dealer_ND_Code__c != '' && acc.Dealer_ND_Code__c != null)
-                    {
-                        dealerNdCodes.add(acc.Dealer_ND_Code__c);
-                    }
-                }
-            }
-            system.debug('dealerNdCodes>>>>>' + dealerNdCodes);
-            if(!dealerNdCodes.isEmpty() && dealerNdCodes != null)
-            {
-                dealergrps = [select id ,Name ,Type from Group where  Name =:dealerNdCodes];
-            }
-            system.debug('dealergrps>>>>>' + dealergrps);
-            for(SurveyTaker__c shrSt : surveyTkrList)
-            {
-                if(shrSt.Account__c != null || shrSt.Lead__c != null)
-                {
-                    for(group g : dealergrps)
-                    {
-                 		SurveyTaker__Share shreSt = new SurveyTaker__Share();
-                        shreSt.ParentId = shrSt.Id;
-                        shreSt.AccessLevel = 'Edit';
-                        shreSt.UserOrGroupId = g.Id;
-                        shreSurTkerList.add(shreSt);
-                    }
-                }
-            }
-        }
-        system.debug('shreSurTkerList>>>>' + shreSurTkerList);
-        if(!shreSurTkerList.isEmpty() && shreSurTkerList != null)
+	    List<SurveyTaker__Share> shreSurTkerList = new List<SurveyTaker__Share>();
+	    List<Account> dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccntRecTypId and MD__c = 'KR' and Dealer_Type__c = 'Company'];
+    	
+    	if(userinfo.getUserType()!= 'PowerPartner')
+    	{
+	        if(dealerAccountList != null && !dealerAccountList.isEmpty())
+	        {
+	        	for(Account dlrAcnt : dealerAccountList)
+		        {
+		            if(dlrAcnt.Dealer_ND_Code__c != null)
+		            {
+		                dealerNdCodes.add(dlrAcnt.Dealer_ND_Code__c);
+		            }
+		        }
+	        }
+	        if(dealerNdCodes != null && !dealerNdCodes.isEmpty())
+	    	{
+	    		dealergrps = [select Id, Name from Group where Name in : dealerNdCodes];
+	    	}
+			if(surveyTkrList != null && !surveyTkrList.isEMpty() && dealergrps != null && !dealergrps.isEmpty())
+			{
+				for(SurveyTaker__c suvTkr : surveyTkrList)
+				{
+					for(Group dlrGrp : dealergrps)
+					{
+						SurveyTaker__Share shreSuvTkr = new SurveyTaker__Share();
+		                shreSuvTkr.ParentId = suvTkr.Id;
+		                shreSuvTkr.AccessLevel = 'Edit';
+		                shreSuvTkr.UserOrGroupId = dlrGrp.Id;
+		                shreSurTkerList.add(shreSuvTkr);
+					}
+				}
+			}
+    	}
+    	else if(userinfo.getUserType()== 'PowerPartner' && currentUser.Contact.Account.Dealer_Type__c == 'Company')
+    	{
+    		dealergrps = [select Id, Name from Group where Name =: currentUser.Contact.Account.Dealer_ND_Code__c];
+    		if(surveyTkrList != null && !surveyTkrList.isEMpty() && dealergrps != null && !dealergrps.isEmpty())
+			{
+				for(SurveyTaker__c suvTkr : surveyTkrList)
+				{
+					for(Group dlrGrp : dealergrps)
+					{
+						SurveyTaker__Share shreSuvTkr = new SurveyTaker__Share();
+		                shreSuvTkr.ParentId = suvTkr.Id;
+		                shreSuvTkr.AccessLevel = 'Edit';
+		                shreSuvTkr.UserOrGroupId = dlrGrp.Id;
+		                shreSurTkerList.add(shreSuvTkr);
+					}
+				}
+			}
+    	}
+    	system.debug('shreSurTkerList>>>>' + shreSurTkerList);
+        if(shreSurTkerList != null && !shreSurTkerList.isEmpty())
         {
             insert shreSurTkerList;
         }

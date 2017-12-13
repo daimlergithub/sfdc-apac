@@ -192,6 +192,51 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
+	<fields>
+        <fullName>Survey_Question_11__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Question 11</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_12__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Question 12</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_13__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Question 13</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_14__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Question 14</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_15__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Question 15</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>Survey_Question_1__c</fullName>
         <externalId>false</externalId>
@@ -274,94 +319,176 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_10__c</fullName>
+        <fullName>Survey_Response_Options_10__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 10</label>
+        <label>Survey Response Options 10</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Survey_Response_Options_11__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response Options 11</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_1__c</fullName>
+        <fullName>Survey_Response_Options_12__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 1</label>
+        <label>Survey Response Options 12</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_2__c</fullName>
+        <fullName>Survey_Response_Options_13__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 2</label>
+        <label>Survey Response Options 13</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_3__c</fullName>
+        <fullName>Survey_Response_Options_14__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 3</label>
+        <label>Survey Response Options 14</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_4__c</fullName>
+        <fullName>Survey_Response_Options_15__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 4</label>
+        <label>Survey Response Options 15</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_5__c</fullName>
+        <fullName>Survey_Response_Options_1__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 5</label>
+        <label>Survey Response Options 1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_6__c</fullName>
+        <fullName>Survey_Response_Options_2__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 6</label>
+        <label>Survey Response Options 2</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_7__c</fullName>
+        <fullName>Survey_Response_Options_3__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 7</label>
+        <label>Survey Response Options 3</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_8__c</fullName>
+        <fullName>Survey_Response_Options_4__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 8</label>
+        <label>Survey Response Options 4</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Response_9__c</fullName>
+        <fullName>Survey_Response_Options_5__c</fullName>
         <externalId>false</externalId>
-        <label>Survey Response 9</label>
+        <label>Survey Response Options 5</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_Options_6__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response Options 6</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_Options_7__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response Options 7</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_Options_8__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response Options 8</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_Options_9__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response Options 9</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+	<fields>
+        <fullName>Survey_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Valid</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Survey_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>OB Call</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Thank_You_Text__c</fullName>
@@ -474,6 +601,35 @@ if (records.length&gt;0) {
 window.open("/apex/SubmitSurvey?surveyID={!Survey__c.Id}&amp;type=preview","newwindow","height=300,width=500,top=200,left=750,scrollbars=yes");
 } else {
 alert("{!$Label.Btn_Preview_No_Questions}");
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Record_Share</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Record Share</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var market = '{!Survey__c.MD__c}'; 
+
+
+if(market == 'KR') 
+{ 
+if('{!User.ContactId}' !='') 
+{ 
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/DealerSearchPage?Id={!Survey__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+} 
+else if('{!User.ContactId}' =='') 
+{ 
+var myWindow = window.open("/apex/DealerSearchPage?Id={!Survey__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+} 
+}
+else 
+{ 
+alert('This button is for Korea'); 
 }</url>
     </webLinks>
 </CustomObject>

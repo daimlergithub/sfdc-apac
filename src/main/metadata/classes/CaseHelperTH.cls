@@ -70,7 +70,7 @@ public class CaseHelperTH {
         
         else{
             for(Case cas:caselist){
-             if(((Case)trigger.newmap.get(cas.id)).owner!=((case)trigger.oldmap.get(cas.id)).owner){
+             if(((Case)trigger.newmap.get(cas.id)).ownerId!=((case)trigger.oldmap.get(cas.id)).ownerId){
                //c.ownerid=dealerndcode.get(c.Case_Dealer__c).Dealer_Lead_Gate_Keeper__c;
             }else if(cas.Case_Dealer__c!=null&&((Case)trigger.newmap.get(cas.id)).case_Dealer__c!=((case)trigger.oldmap.get(cas.id)).Case_Dealer__c){
                 accset.add(cas.Case_Dealer__c);
@@ -111,6 +111,16 @@ public class CaseHelperTH {
     caserec.deadline__c=System.now()+daystoadd;
     }
     }
+	
+	//Update Case Creator field with the CreatedBy value
+    public void updateCaseCreator(List<Case> lst_Cases){
+        If(!lst_Cases.isEmpty() && lst_Cases != Null){
+            for(Case newCase: lst_Cases){
+                newCase.Case_Creator__c = UserInfo.getUserId();
+            }
+        }
+    }
+	
     //Calculate total number of repeated MB complaints per account
     public void calculateComplaintAmount(List<Case> cases){
       
@@ -212,10 +222,16 @@ public class CaseHelperTH {
      set<caseShare> caseshare=new set<caseShare>();
      set<id> casesharingtorevoke=new set<id>();
      set<String> sharingrevokefromgroups=new set<String>();
-     List<Case> caselisttoiterat=[select id,createdby.usertype,createdby.Dealer_nd_code__c,Case_Dealer__c,Case_Dealer__r.Dealer_nd_code__c from Case where id IN : caselist];
-     //below if part will work at the time of insert
+     List<Case> caselisttoiterat=[select id,createdby.usertype,createdby.Dealer_nd_code__c,Case_Dealer__c,Case_Dealer__r.Dealer_nd_code__c,ownerId from Case where id IN : caselist];
+        Set<id> idset=new Set<id>();
+        for(Case c:caselisttoiterat){
+            idset.add(c.ownerid);
+        }
+        Map<id,User> usr=new map<id,User>([select id,name,Dealer_nd_code__c,usertype from user where id  IN :idset]);
+        //below if part will work at the time of insert
      for(Case casesrec:caselisttoiterat){
          if(!flag){
+             
              //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
              if(casesrec.createdby.usertype=='PowerPartner'&& casesrec.createdby.Dealer_nd_code__c!=null){
                     dealerndcodeset.add(casesrec.createdby.Dealer_nd_code__c);
@@ -227,7 +243,10 @@ public class CaseHelperTH {
             }
         }
         else{
+             
          //if trigger new map value is filled and  oldmap assigned dealer is null then share records with new assigned value
+            //system.debug(((Case)trigger.oldmap.get(casesrec.id)).owner!=((Case)trigger.newmap.get(casesrec.id)).owner);
+            system.debug(((Case)trigger.oldmap.get(casesrec.id)).ownerId+'  '+((Case)trigger.newmap.get(casesrec.id)).ownerId);
          if(((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=null  && ((Case)trigger.oldMap.get(casesrec.id)).Case_Dealer__c==null&&casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
              dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
              lstcase.add(casesrec);
@@ -247,7 +266,10 @@ public class CaseHelperTH {
              sharingrevokefromgroups.add(((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
              casesharingtorevoke.add(((Case)trigger.oldmap.get(casesrec.id)).id);
          }
-         
+         else if(((Case)trigger.oldmap.get(casesrec.id)).ownerId!=((Case)trigger.newmap.get(casesrec.id)).ownerId){
+             dealerndcodeset.add(usr.get(casesrec.ownerid).dealer_nd_code__c);
+              lstcase.add(casesrec);
+         }
      }
      }
      for(Group gp:[select id,name from Group where name IN :dealerndcodeset]){

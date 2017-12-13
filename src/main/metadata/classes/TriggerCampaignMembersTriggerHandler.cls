@@ -16,15 +16,18 @@ public class TriggerCampaignMembersTriggerHandler
     {
         if(isInsert && isAfter)
         {
-        	campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(trigger.new);
+            campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(trigger.new);
         }
-		 if(isBefore && isInsert)
+         /*if(isBefore && isInsert)
         {
             campaignMemberHelperKR.updatecustomstatus(trigger.new);
+        }*/
+        if(trigger.isBefore && trigger.isUpdate){
+           CampaignMemberHelperBase.updateCampaignMembermarket(Trigger.New);
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-    	// Implementation to addedd as required in market
+        // Implementation to addedd as required in market
     }
 }

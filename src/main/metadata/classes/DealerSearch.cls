@@ -1,5 +1,4 @@
 Public WithOut Sharing class DealerSearch{
-
 public String size { get; set; }
 
 //This is Our collection of the class/wrapper objects AddingParticipatingDealer 
@@ -26,7 +25,7 @@ public String soql {get;set;}
 Set<String> getDealerNDCode= new Set<String>();
 map<string,id> assgroupMap = new map<string,id>();
 List<DM_Material__share> cpnShares = new List<DM_Material__share>();
-List<DM_Request__Share> cpnShares1 = new List<DM_Request__Share>();
+List<Survey__Share> cpnShares1 = new List<Survey__Share>();
 // private String soql {get;set;}
 
 public DealerSearch(){ 
@@ -179,9 +178,9 @@ public void  ShareRecordd(){
             share.UserOrGroupId = m;
             cpnShares.add(share);
             }
-            else if(objectAPIName == 'DM_Request__c')
+            else if(objectAPIName == 'Survey__c')
             {
-             DM_Request__Share share1=new DM_Request__Share();
+             Survey__Share share1=new Survey__Share();
              share1.AccessLevel = 'Read';
              share1.ParentID = obId;
              share1.UserOrGroupId = m;
@@ -196,7 +195,7 @@ public void  ShareRecordd(){
             {
                 insert cpnShares;
             }
-            else if(objectAPIName == 'DM_Request__c')
+            else if(objectAPIName == 'Survey__c')
             {
               insert cpnShares1;
             }

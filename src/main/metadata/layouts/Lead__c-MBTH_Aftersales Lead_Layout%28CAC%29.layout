@@ -598,6 +598,10 @@
                 <behavior>Edit</behavior>
                 <field>Person_Assign_Notificaton_Done__c</field>
             </layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Market__c</field>
+			</layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

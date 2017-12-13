@@ -140,4 +140,16 @@ public without sharing class  LeadHelperBase{
             } 
         }
     }
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Lead__c> leadList){       
+        
+               for(Lead__c leadRec : leadList){
+                    if(Test.isRunningTest()){
+                        leadRec.isTestRunning__c=true;
+                    }
+                   if(leadRec.Market__c =='' || leadRec.Market__c==NULL){
+                      leadRec.Market__c=leadRec.MD__c;
+                  }  
+              }       
+    }    
 }

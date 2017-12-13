@@ -15,7 +15,9 @@ public class TriggerCampaignMembersCustomHandlerTH  implements TriggerHandlerIf
        if(isBefore && isInsert){
        campaignMemberHelperTH.beforeInsertevents(trigger.new);
        }
-           
+      if(Trigger.isBefore && Trigger.isUpdate){
+          CampaignMemberHelperBase.updateCampaignMemberCustommarket(Trigger.New);
+       }  
        
     }
     

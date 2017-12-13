@@ -47,13 +47,14 @@ public class TriggerLeadTriggerHandler
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
+            LeadHelperBase.updatemarket(Trigger.New);
             UtilLead.beforeInsert_updateEvents(trigger.new,oldMap,trigger.isinsert,trigger.isUpdate);
             LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldMap,trigger.isinsert,trigger.isUpdate);
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-    	// Implementation to addedd as required in market
+        // Implementation to addedd as required in market
     }
 
 }

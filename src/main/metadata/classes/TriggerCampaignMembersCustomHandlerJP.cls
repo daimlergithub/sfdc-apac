@@ -26,7 +26,9 @@ public class TriggerCampaignMembersCustomHandlerJP
        if(Trigger.isBefore && Trigger.isDelete) {
             CampaignMembersCustomHelperJP.beforeDeleteOperation((List<Campaign_Member__c>)trigger.old);
        }
-       
+       if(Trigger.isBefore && Trigger.isUpdate){
+          CampaignMemberHelperBase.updateCampaignMemberCustommarket(Trigger.New);
+       }
        
     }
     
