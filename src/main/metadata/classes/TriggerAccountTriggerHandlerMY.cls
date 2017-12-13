@@ -110,11 +110,12 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == label.MY)
         {
             if(isBefore && isInsert){
-                AccountHelperMY.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+                //AccountHelperMY.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+				AccountHelperMY.updateAccountFieldsBeforeInsertInt(Trigger.new,trigger.isInsert);
             }
         
         if(isBefore && isUpdate){
-            AccountHelperMY.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
+            AccountHelperMY.updateAccountFieldsBeforeIntUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperMY.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             AccountHelperMY.updateOnDoNotCall(Trigger.new);
             AccountHelperMY.updateOnPostalOptout(Trigger.new);
