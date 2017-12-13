@@ -7507,9 +7507,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign.Campaign_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8122,9 +8122,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.Type</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -20197,21 +20197,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.EOC_Call_Task_1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.EOC_Call_Task_2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.EOC_Call_Task_3__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.EOC_Call__c</field>
         <readable>true</readable>
@@ -20614,11 +20599,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.MBF_Comments__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.MBF_base_interest_rate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -27957,7 +27937,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>

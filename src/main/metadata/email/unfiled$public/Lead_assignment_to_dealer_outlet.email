@@ -15,14 +15,19 @@
      
      <p> {!$Label.Email_LeadDealerAssign22}<br></br>{!$Label.Email_LeadDealerAssign9}</p>
      
+     <p> {!$Label.Email_LeadDealerAssign31} </p>
      <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
      {!$Label.Dealer_login_Url}/{!relatedTo.Id}
     </a>
      <!--<apex:outputLink value="/{!relatedTo.Id}" id="theLink"> Direct link URL to the Lead detail page</apex:outputLink>-->
      
      <!--<a href="/{!relatedTo.id}">Lead detail page</a>-->
+
+     <p> <br></br></p>
      
-      <p> {!$Label.Email_LeadDealerAssign10}</p>
+     <p> {!$Label.Email_LeadDealerAssign32}<br></br><a href="https://daimlerasia.force.com/MBJapan/00O/o">https://daimlerasia.force.com/MBJapan/00O/o</a><br></br>{!$Label.Email_LeadDealerAssign34}<br></br>{!$Label.Email_LeadDealerAssign35}</p>
+          
+     <p> {!$Label.Email_LeadDealerAssign10}</p>
       
           
      <p> {!$Label.Email_LeadDealerAssign12} </p>
@@ -39,4 +44,3 @@
      
 </messaging:htmlEmailBody>
 </messaging:emailTemplate>
-
