@@ -12,7 +12,7 @@ public class AccountRecallUpdate {
         {
             lstVehicleId.add(vehObj.Id);
         }
-        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Contact__c from Vehicle_Relationship__c where Vehicle_ID__c IN:lstVehicleId];
+        List<Vehicle_Relationship__c> lstVehicleRelationship=[select Contact__c from Vehicle_Relationship__c where Vehicle_ID__c IN:lstVehicleId and Market__c='TH'];
         Set<Account> accSet=new Set<Account>();
         List<Account> accLst=new List<Account>();
         

@@ -1,15 +1,15 @@
 Dear {!Case.OwnerFullName},<br>
-Since no action is taken by you and case is still open therefore this case will get escalated to your manager. Below are the details : 
+There’s a case assigned to you. To avoid the escalation, please take action immediately before the deadline.
 
 <p>
-Case no. : {!Case.CaseNumber} <br>
-Customer : {!Case.Contact} <br>
-Chassis no. / Registration Plate no. : {!Case.Registration_Number__c} <br>
-Date : {!Case.CreatedDate} <br>
-Message : {!Case.MPC_Internal_Notes__c} <br>
-For more details click on the following link:
- <a href="{!Case.Link}">Click here</a><br>
+Customer: {!Contact.Name}<br>
+Case.: {!Case.CaseNumber}<br>
+Subject : {!Case.Subject}<br>
+Please click on the link below to view the record:<br>
+<a href="{!Case.Link}">Click here</a><br>
 </p>
 
-Best regards, <br>
-Customer Contact Center, Mercedes-Benz MBTH
+
+<br>
+Best regards, <br><br>
+This automatic e-mail was sent via Salesforce.

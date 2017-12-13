@@ -4711,7 +4711,7 @@ please contact the number below.</value>
         <language>ko</language>
         <protected>false</protected>
         <shortDescription>MBK_Message_ContentType</shortDescription>
-        <value>application/json</value>
+        <value>application/json;charset=utf-8</value>
     </labels>
     <labels>
         <fullName>MBK_Message_SenderKey</fullName>
