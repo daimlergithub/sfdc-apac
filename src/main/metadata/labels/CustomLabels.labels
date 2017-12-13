@@ -864,6 +864,20 @@
         <shortDescription>Business Email2</shortDescription>
         <value>Business Email2</value>
     </labels>
+	<labels>
+        <fullName>eDM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>eDM</shortDescription>
+        <value>eDM</value>
+    </labels>
+	<labels>
+        <fullName>OB_Call</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task record type of OB Call</shortDescription>
+        <value>OB Call</value>
+    </labels>
     <labels>
         <fullName>Button_Approve</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
@@ -2930,6 +2944,38 @@ please contact the number below.</value>
         <value>Manager, Representative</value>
     </labels>
     <labels>
+        <fullName>Email_LeadDealerAssign31</fullName>
+        <categories>Dealer, Lead, Email</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign31</shortDescription>
+        <value>Details of the Lead</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign32</fullName>
+        <categories>Email, Lead, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign32</shortDescription>
+        <value>How to check Leads in the report</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign34</fullName>
+        <categories>Dealer, Lead, Email</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign34</shortDescription>
+        <value>Folder for non-Yanase</value>
+    </labels>
+    <labels>
+        <fullName>Email_LeadDealerAssign35</fullName>
+        <categories>Dealer, Email, Lead</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_LeadDealerAssign35</shortDescription>
+        <value>Folder for Yanase</value>
+    </labels>
+    <labels>
         <fullName>Email_LeadDealerAssign4</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4665,7 +4711,7 @@ please contact the number below.</value>
         <language>ko</language>
         <protected>false</protected>
         <shortDescription>MBK_Message_ContentType</shortDescription>
-        <value>application/json</value>
+        <value>application/json;charset=utf-8</value>
     </labels>
     <labels>
         <fullName>MBK_Message_SenderKey</fullName>

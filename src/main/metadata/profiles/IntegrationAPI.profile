@@ -3386,6 +3386,16 @@
         <field>Account.Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_From_Slave__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_To_Master__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Complaint_Amount__c</field>
@@ -6822,9 +6832,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Retail_Race__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9168,7 +9178,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CampaignMember.End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.FirstRegistrationDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CampaignMember.Interval_Days__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Last_Service_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9213,6 +9238,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CampaignMember.Mileage_End__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CampaignMember.Newly_Added__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9239,6 +9269,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Participating_Dealer_Package__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Purchase_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9279,6 +9314,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Vehicle_Case_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.Vehicle_Relationship_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -21953,21 +21993,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Task__c.EOC_Call__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -22369,11 +22394,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.MBF_Comments__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.MBF_base_interest_rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -25203,6 +25223,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Task.Survey_Taken__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Survey__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Task.Task_RecordType_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -26952,6 +26982,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.ISP_Expiration_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Info_Source__c</field>
         <readable>true</readable>
@@ -28468,6 +28503,9 @@
         <layout>Idea-Idea Layout</layout>
         <recordType>Idea.Record_type_for_community_09ai0000000TOLlAAO_entity_Idea</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Ideas__c-Ideas Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Information__kav-Information Layout</layout>
     </layoutAssignments>
@@ -28859,6 +28897,10 @@
     <layoutAssignments>
         <layout>Task-Social Media</layout>
         <recordType>Task.Social_Media</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Survey</layout>
+        <recordType>Task.Survey</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
@@ -30394,6 +30436,10 @@
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>
+        <apexPage>OwnerLookup</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
         <apexPage>PageMessageLogViewListKRDFW</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -31271,6 +31317,11 @@
         <default>false</default>
         <recordType>Task.Social_Media</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.Survey</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

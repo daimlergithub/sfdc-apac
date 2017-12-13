@@ -1,5 +1,4 @@
 <apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Vehicle__c" extensions="VehicleExtension">
-    
     <apex:includeScript value="{!$Resource.jQuery}" />
     <apex:includeScript value="{!$Resource.Angular}"/>
     <apex:includeScript value="{!$Resource.jQueryCSV}" />
@@ -72,7 +71,7 @@
         
     }
     
-    
+    var marketch ='{!marketcheck}';
     var app = angular.module('VehiclePickerApp', []);      
     app.controller('VehiclePickerController', function ($scope) {
         
@@ -84,11 +83,16 @@
         $scope.selectedRange = "";
         $scope.modelRange_map ="";
         $scope.vehicle_brand_classes = []; 
-      
-        
-       $scope.availableOptions = ['--Select--','MB','Competitor','Self Registered'];
+       if(marketch != 'JP'){
+           $scope.availableOptions = ['--Select--','MB','Competitor','Self Registered'];
+       }
+       else 
+       {
+           $scope.availableOptions = ['--Select--','MB','Self Registered'];
+       }
+   
        $scope.selectedRecordType=$scope.availableOptions[0];
-          
+         
            
         
         /*Set the initial Brand value for the vehicle which is already selected   */              

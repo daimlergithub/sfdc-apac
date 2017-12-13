@@ -12,9 +12,14 @@ public with sharing class UserTriggerHandlerKR
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        if ((trigger.isAfter  && isInsert)){  
-                UserHelper.grpCreationandUsergrpAlign((List<User>)trigger.new);
-            }
+        if((trigger.isAfter  && isInsert)){  
+           UserHelper.grpCreationandUsergrpAlign((List<User>)trigger.new);
+        }
+		
+        if(trigger.isAfter && isUpdate) {
+           UserHelper.caseownerchange();
+           UserHelper.leadownerchange();
+        }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
