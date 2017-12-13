@@ -32,19 +32,19 @@ public with sharing class CtrlMessageSearchKRDFW {
 			try{
 				searchStr = searchStr.replace('-','\\-');
 				String searchquery = 'FIND {'+ searchStr +'*} IN ALL FIELDS RETURNING ' 
-							+ ' Account(Id, Name, UCID__c, PersonMobilePhone, Opt_In_SMS__c, KaKao_Talk_ID__c,'
+							+ ' Account(Id, Name, UCID__c, Mobile__c, Opt_In_SMS__c, KaKao_Talk_ID__c,'
 							+ '  Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c,'
 							+ '  Agreement_to_commit_info_processing__c),'
-							+ ' Lead__c(Id, Name, Contact__c, Contact__r.UCID__c, Contact__r.PersonMobilePhone,'
+							+ ' Lead__c(Id, Name, Contact__c, Contact__r.UCID__c, Contact__r.Mobile__c,'
 							+ '  Contact__r.Name, Contact__r.Opt_In_SMS__c, Contact__r.KaKao_Talk_ID__c, '
 							+ '  Contact__r.Personal_Agreement__c, Contact__r.Personal_Information_Third_Party_Release__c, '
 							+ '  Contact__r.Personal_Abroad_Agreement__c, Contact__r.Agreement_to_commit_info_processing__c), '
 							+ ' Campaign(Id), '
-							+ ' Case(Id, Subject, CaseNumber,Contact.Account.Id, Contact.Account.UCID__c, Contact.Account.PersonMobilePhone, '
+							+ ' Case(Id, Subject, CaseNumber,Contact.Account.Id, Contact.Account.UCID__c, Contact.Account.Mobile__c, '
 							+ '  Contact.Account.Name, Contact.Account.Opt_In_SMS__c, Contact.Account.KaKao_Talk_ID__c, '
 							+ '  Contact.Account.Personal_Agreement__c, Contact.Account.Personal_Information_Third_Party_Release__c,'
 							+ '  Contact.Account.Personal_Abroad_Agreement__c, Contact.Account.Agreement_to_commit_info_processing__c), '
-							+ ' Task(Id, Account_Name__c, Email_Address__c, UCID__c, PersonMobilePhone__c, Phone__c, Subject, What.Id, Who.Id,  What.Name, Who.Name)'
+							+ ' Task(Id, Account_Name__c, Email_Address__c, UCID__c, Phone__c, Subject, What.Id, Who.Id,  What.Name, Who.Name)'
 							+ ' limit 1000';
 				List<List<SObject>>searchList = search.query(searchquery);
 				List<Account> accountList = searchList[0];
@@ -72,7 +72,7 @@ public with sharing class CtrlMessageSearchKRDFW {
 						views.recordId = temp.Id;
 						views.AccountName = temp.Name;
 						views.UCID = temp.UCID__c;
-						views.Mobile = temp.PersonMobilePhone;
+						views.Mobile = temp.Mobile__c;
 						views.KaKao = temp.KaKao_Talk_ID__c;
 						views.Doc = doc;
 						views.Related = '(Account) '+temp.Name;
@@ -101,7 +101,7 @@ public with sharing class CtrlMessageSearchKRDFW {
 						views.recordId = acc.Id;
 						views.AccountName = acc.Name;
 						views.UCID = acc.UCID__c;
-						views.Mobile = acc.PersonMobilePhone;
+						views.Mobile = acc.Mobile__c;
 						views.KaKao = acc.KaKao_Talk_ID__c;
 						views.Doc = doc;
 						views.Related = 'Lead : ' + temp.Name;
@@ -113,7 +113,7 @@ public with sharing class CtrlMessageSearchKRDFW {
 				for(Campaign temp:CampaignList){
 					CampaignIds.add(temp.Id);
 				}
-				List<CampaignMember> camMemList = [SELECT Id, Contact.AccountId, Contact.Account.UCID__c, Contact.Account.PersonMobilePhone,
+				List<CampaignMember> camMemList = [SELECT Id, Contact.AccountId, Contact.Account.UCID__c, Contact.Account.Mobile__c,
 														Contact.Account.Name, Contact.Account.Opt_In_SMS__c, Contact.Account.KaKao_Talk_ID__c, 
 														Campaign.Name, Campaign.Campaign_Code__c, Contact.Account.Personal_Agreement__c, 
 														Contact.Account.Personal_Information_Third_Party_Release__c,
@@ -139,7 +139,7 @@ public with sharing class CtrlMessageSearchKRDFW {
 						views.recordId = acc.Id;
 						views.AccountName = acc.Name;
 						views.UCID = acc.UCID__c;
-						views.Mobile = acc.PersonMobilePhone;
+						views.Mobile = acc.Mobile__c;
 						views.KaKao = acc.KaKao_Talk_ID__c;
 						views.Doc = true;
 						views.Related = '(Campaign:'+temp.Campaign.Campaign_Code__c+') '+temp.Campaign.Name;
@@ -167,7 +167,7 @@ public with sharing class CtrlMessageSearchKRDFW {
 						views.recordId = acc.Id;
 						views.AccountName = acc.Name;
 						views.UCID = acc.UCID__c;
-						views.Mobile = acc.PersonMobilePhone;
+						views.Mobile = acc.Mobile__c;
 						views.KaKao = acc.KaKao_Talk_ID__c;
 						views.Doc = true;
 						views.Related = '(Case:'+temp.CaseNumber+') '+temp.Subject;
@@ -188,7 +188,7 @@ public with sharing class CtrlMessageSearchKRDFW {
 						views.recordId = temp.Id;
 						views.AccountName = temp.Account_Name__c;
 						views.UCID = temp.UCID__c;
-						views.Mobile = temp.PersonMobilePhone__c == null ? temp.Phone__c : temp.PersonMobilePhone__c;
+						views.Mobile = temp.Phone__c;
 						views.KaKao = null;
 						views.Doc = true;
 						views.Related = '(Task) '+temp.Subject;
