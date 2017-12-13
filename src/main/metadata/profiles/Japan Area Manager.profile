@@ -20009,21 +20009,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Task__c.EOC_Call_Task_1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.EOC_Call_Task_2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.EOC_Call_Task_3__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Retail_Task__c.EOC_Call__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -20425,11 +20410,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.MBF_Comments__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Task__c.MBF_base_interest_rate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -1198,33 +1198,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>EOC_Call_Task_1__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 1</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>EOC_Call_Task_2__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 2</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>EOC_Call_Task_3__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 3</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>EOC_Call__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -2574,18 +2547,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>MBF_base_interest_rate__c</fullName>
-        <externalId>false</externalId>
-        <label>Compensation usually interest rates</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>MD__c</fullName>
