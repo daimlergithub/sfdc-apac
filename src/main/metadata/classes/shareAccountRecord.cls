@@ -1,7 +1,7 @@
 public class shareAccountRecord
 {
     public static Id dealerRecordTypeId = Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
-    @future
+    //@future
     public static void shareAccountRecordNow(List<Id> caseIds)
     {
         List<User> gateKeeperList = new List<User>();
