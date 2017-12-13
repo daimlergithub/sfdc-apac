@@ -105,7 +105,99 @@ public class AccountHelperBase{
             }
         }
     }
-
+	
+	public static void updateAccountFieldsBeforeInsertInt(list<Account> listNewAccounts,boolean isInsert){
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
+            for(Account Acc : listNewAccounts){
+                if(Acc.Mobile__c != Null && Acc.Mobile__c != ''){
+                    Acc.SMS_Last_Modified_By__c = string.isnotblank(Acc.SMS_Last_Modified_By__c)?Acc.SMS_Last_Modified_By__c:UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date__c =Acc.SMS_Last_Modified_Date__c!=null?Acc.SMS_Last_Modified_Date__c:System.now();
+                }   
+                if(Acc.Mobile2__c!= Null && Acc.Mobile2__c != ''){
+                    Acc.SMS_Last_Modified_By2__c = string.isnotblank(Acc.SMS_Last_Modified_By2__c)?Acc.SMS_Last_Modified_By2__c:UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date2__c = Acc.SMS_Last_Modified_Date2__c!=null?Acc.SMS_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Individual_Home_Phone__c!= Null && Acc.Individual_Home_Phone__c != ''){
+                    Acc.Home_Phone_Last_Modified_By__c = string.isnotblank(Acc.Home_Phone_Last_Modified_By__c)?Acc.Home_Phone_Last_Modified_By__c:UserInfo.getName();
+                    Acc.Home_Phone_Last_Modified_Date__c = Acc.Home_Phone_Last_Modified_Date__c!=null?Acc.Home_Phone_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Home_Phone_2__c != Null && Acc.Home_Phone_2__c != ''){
+                    Acc.Home_Phone_Last_Modified_By2__c = string.isnotblank(Acc.Home_Phone_Last_Modified_By2__c)?Acc.Home_Phone_Last_Modified_By2__c:UserInfo.getName();
+                    Acc.Home_Phone_Last_Modified_Date2__c = Acc.Home_Phone_Last_Modified_Date2__c!=null?Acc.Home_Phone_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Work_Phone__c!= Null && Acc.Work_Phone__c != ''){
+                    Acc.Work_Phone_Last_Modified_By__c = string.isnotblank(Acc.Work_Phone_Last_Modified_By__c)?Acc.Work_Phone_Last_Modified_By__c:UserInfo.getName();
+                    Acc.Work_Phone_Last_Modified_Date__c = Acc.Work_Phone_Last_Modified_Date__c!=null?Acc.Work_Phone_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Phone!= Null && Acc.Phone != ''){
+                    Acc.Work_Phone_Last_Modified_By2__c = string.isnotblank(Acc.Work_Phone_Last_Modified_By2__c)?Acc.Work_Phone_Last_Modified_By2__c:UserInfo.getName();
+                   Acc.Work_Phone_Last_Modified_Date2__c = Acc.Work_Phone_Last_Modified_Date2__c!=null?Acc.Work_Phone_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Email__c!= Null && Acc.Email__c != ''){
+                    Acc.Email_Last_Modified_By__c = string.isnotblank(Acc.Email_Last_Modified_By__c)?Acc.Email_Last_Modified_By__c:UserInfo.getName();
+                   Acc.Email_Last_Modified_Date__c = Acc.Email_Last_Modified_Date__c!=null?Acc.Email_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Email2__c!= Null && Acc.Email2__c != ''){
+                    Acc.Email_Last_Modified_By2__c = string.isnotblank(Acc.Email_Last_Modified_By2__c)?Acc.Email_Last_Modified_By2__c:UserInfo.getName();
+                    Acc.Email_Last_Modified_Date2__c = Acc.Email_Last_Modified_Date2__c!=null?Acc.Email_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Email3__c!= Null && Acc.Email3__c != ''){
+                    Acc.Email_Last_Modified_By3__c = string.isnotblank(Acc.Email_Last_Modified_By3__c)?Acc.Email_Last_Modified_By3__c:UserInfo.getName();
+                    Acc.Email_Last_Modified_Date3__c = Acc.Email_Last_Modified_Date3__c!=null?Acc.Email_Last_Modified_Date3__c:System.now();
+                }
+               
+              
+            }
+        }
+    }
+	 public static void updateAccountFieldsBeforeIntUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
+            for(Account Acc : listNewAccounts){
+                Account OldAcc = accountOldMap.get(Acc.id);
+                if(Acc.Individual_Home_Phone__c!= OldAcc.Individual_Home_Phone__c){
+                    Acc.Home_Phone_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Home_Phone_Last_Modified_Date__c = Acc.Home_Phone_Last_Modified_Date__c!=null?Acc.Home_Phone_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Home_Phone_2__c != OldAcc.Home_Phone_2__c){
+                    Acc.Home_Phone_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.Home_Phone_Last_Modified_Date2__c = Acc.Home_Phone_Last_Modified_Date2__c!=null?Acc.Home_Phone_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Work_Phone__c!= OldAcc.Work_Phone__c){
+                    Acc.Work_Phone_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Work_Phone_Last_Modified_Date__c =Acc.Work_Phone_Last_Modified_Date__c!=null?Acc.Work_Phone_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Phone!= OldAcc.Phone){
+                    Acc.Work_Phone_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.Work_Phone_Last_Modified_Date2__c = Acc.Work_Phone_Last_Modified_Date2__c!=null?Acc.Work_Phone_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Email__c!= OldAcc.Email__c){
+                    
+                    Acc.Email_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Email_Last_Modified_Date__c = Acc.Email_Last_Modified_Date__c!=null?Acc.Email_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Email2__c!= OldAcc.Email2__c){
+                    Acc.Email_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.Email_Last_Modified_Date2__c = Acc.Email_Last_Modified_Date2__c!=null?Acc.Email_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Email3__c!= OldAcc.Email3__c){
+                    Acc.Email_Last_Modified_By3__c = UserInfo.getName();
+                    Acc.Email_Last_Modified_Date3__c = Acc.Email_Last_Modified_Date3__c!=null?Acc.Email_Last_Modified_Date3__c:System.now();
+                }
+                if(Acc.Mobile__c != OldAcc.Mobile__c){
+                    Acc.SMS_Last_Modified_By__c = UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date__c = Acc.SMS_Last_Modified_Date__c!=null?Acc.SMS_Last_Modified_Date__c:System.now();
+                }   
+                if(Acc.Mobile2__c!= OldAcc.Mobile2__c ){
+                    Acc.SMS_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date2__c = Acc.SMS_Last_Modified_Date2__c!=null?Acc.SMS_Last_Modified_Date2__c:System.now();
+                }
+            }
+        }
+    }
+	
+	
+	
+	
     //Added by dhanamjaya to validate the National Id before Update
     public static void ValidateNationalid(List<account> ListAccount){
         for(Account acc:ListAccount){
