@@ -48,6 +48,11 @@
         <field>IdeasVoting__c.Likeuser__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>IdeasVoting__c.Rating__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Ideas__c.Applicability__c</field>
