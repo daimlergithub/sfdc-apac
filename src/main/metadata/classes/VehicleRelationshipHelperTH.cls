@@ -184,9 +184,9 @@ public with sharing class VehicleRelationshipHelperTH
             {              
                 ContactIds.add(vr.Contact__c);                          
             } 
-           if((vr.Car_Relation__c=='Sales Contact Target' || vr.Car_Relation__c=='Aftersales Contact Target 1'|| vr.Car_Relation__c=='Aftersales Contact Target 2') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+           if((string.isnotblank(vr.Car_Relation__c) ? vr.Car_Relation__c.containsIgnoreCase('Aftersales Contact Target 1') : False) || (string.isnotblank(vr.Car_Relation__c) ? vr.Car_Relation__c.containsIgnoreCase('Sales Contact Target') : False) || (string.isnotblank(vr.Car_Relation__c) ? vr.Car_Relation__c.containsIgnoreCase('Aftersales Contact Target 2') : False) && (!setIgnoredAccounts.contains(vr.Contact__c))){
                    
-              if(vr.Owner_Relation__c!=null&&(!vr.Owner_Relation__c.equals('Same')) && (!vr.Owner_Relation__c.equals('Unknown')) && (!vr.Owner_Relation__c.equals('Others'))){  
+              if((!vr.Owner_Relation__c.equalsIgnoreCase('Same')) && (!vr.Owner_Relation__c.equalsIgnoreCase('Unknown')) && (!vr.Owner_Relation__c.equalsIgnoreCase('Others'))){  
                     VehicleIds.add(vr.Vehicle_ID__c);
                     VehicleRelationshipIds.add(vr.Id);
                     contactIdofVehicleRelationship.add(vr.Contact__c);
@@ -212,14 +212,14 @@ public with sharing class VehicleRelationshipHelperTH
             if(vr.Contact__c!=Null  && (!setIgnoredAccounts.contains(vr.Contact__c)) && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes)))
             {                 
                 ContactIds.add(vr.Contact__c);
-                if(oldMapVR.get(vr.id).Contact__c!=vr.Contact__c){
+                if (oldMapVR.get(vr.id).Contact__c != vr.Contact__c && oldMapVR.get(vr.id).Contact__c != null) {
                     ContactIds.add(oldMapVR.get(vr.id).Contact__c);
                 }
             } 
                   
-           if((vr.Car_Relation__c=='Sales Contact Target' || vr.Car_Relation__c=='Aftersales Contact Target 1'|| vr.Car_Relation__c=='Aftersales Contact Target 2') && (!setIgnoredAccounts.contains(vr.Contact__c))){
+           if((string.isnotblank(vr.Car_Relation__c) ? vr.Car_Relation__c.containsIgnoreCase('Aftersales Contact Target 1') : False) || (string.isnotblank(vr.Car_Relation__c) ? vr.Car_Relation__c.containsIgnoreCase('Sales Contact Target') : False) || (string.isnotblank(vr.Car_Relation__c) ? vr.Car_Relation__c.containsIgnoreCase('Aftersales Contact Target 2') : False) && (!setIgnoredAccounts.contains(vr.Contact__c))){
                     if(oldMapVR.get(vr.id).Owner_Relation__c!=vr.Owner_Relation__c){
-                        if((!vr.Owner_Relation__c.equals('Same')) && (!vr.Owner_Relation__c.equals('Unknown')) && (!vr.Owner_Relation__c.equals('Others'))){  
+                        if((!vr.Owner_Relation__c.equalsIgnoreCase('Same')) && (!vr.Owner_Relation__c.equalsIgnoreCase('Unknown')) && (!vr.Owner_Relation__c.equalsIgnoreCase('Others'))){  
                            VehicleIds.add(vr.Vehicle_ID__c);
                             VehicleRelationshipIds.add(vr.Id);
                             contactIdofVehicleRelationship.add(vr.Contact__c);
@@ -243,6 +243,7 @@ public with sharing class VehicleRelationshipHelperTH
             if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes) && (!setIgnoredAccounts.contains(vr.Contact__c)))
             {              
                 ContactIds.add(vr.Contact__c);
+                if (vr.Vehicle_ID__c != null)
                 VehicleIds.add(vr.Vehicle_ID__c);
             }  
         }                 
@@ -265,7 +266,7 @@ public with sharing class VehicleRelationshipHelperTH
     Public static void updateVehicleAmount(Set<Id> ContactIds){                   
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
         IgnoredAccounts();     
-        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=:Null AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000])
+        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c= Null AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000])
         {
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  

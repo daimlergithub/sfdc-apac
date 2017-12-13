@@ -2152,6 +2152,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>Lead</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>My Mercedes</fullName>
