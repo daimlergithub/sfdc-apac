@@ -161,14 +161,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Retail_Company_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Company_Other_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Retail_Fax__c</field>
             </layoutItems>
             <layoutItems>
