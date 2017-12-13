@@ -57,12 +57,29 @@ public class CaseHelperTH {
         }    
     }
     }
+    public static String getCommunityURL(){
+        String communityName='Daimler Community Thailand';
+         String commubaseurl='';
+         boolean flag1;
+    List<Network>  myNetwork = [SELECT Id,Name FROM Network];
+       for(Network net:myNetwork){
+           if(net.name==communityName){
+           flag1=true;
+           commubaseurl=Network.getLoginUrl(net.id);
+           break;
+           }
+       }
+       return commubaseurl.replace('login','');
+    }
+
     public void updateCaseOwnerDependsonPrimaryCaseDealer(List<Case> caselist,boolean isInsertFlag){
         set<Id> accset=new set<ID>();
+        String commURLTH=getCommunityURL();
         if(isInsertFlag){
         for(Case cas:caselist){
             if(cas.Case_Dealer__c!=null){
                 accset.add(cas.Case_Dealer__c);
+                cas.Others__c = commURLTH;
             }
         }
 
@@ -70,6 +87,7 @@ public class CaseHelperTH {
         
         else{
             for(Case cas:caselist){
+                cas.Others__c = commURLTH;
              if(((Case)trigger.newmap.get(cas.id)).ownerId!=((case)trigger.oldmap.get(cas.id)).ownerId){
                //c.ownerid=dealerndcode.get(c.Case_Dealer__c).Dealer_Lead_Gate_Keeper__c;
             }else if(cas.Case_Dealer__c!=null&&((Case)trigger.newmap.get(cas.id)).case_Dealer__c!=((case)trigger.oldmap.get(cas.id)).Case_Dealer__c){
