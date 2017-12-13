@@ -13,6 +13,7 @@ public Boolean dontshow {get;set;}
 public Boolean dontshow11 {get;set;}
 public Boolean showuser{get;set;}
 public list<Task> tsk{get;set;}
+List<Contact> MonkContacts = new List<Contact>();
 public List<User> UserList{get;set;}
 public String userinput{get;set;}
 
@@ -245,6 +246,11 @@ public void getstatusval() {
         
         try{
         update TaskListtoUpdate;
+		notifyTaskOwner(TaskListtoUpdate);
+		if(!MonkContacts.isEmpty() && MonkContacts != null)
+		{
+			delete MonkContacts;
+		}
         }catch(DMLException e)
         {
          ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,e.getDMLMessage(0)));
@@ -277,6 +283,11 @@ public void getstatusval() {
          try{
 
          update TaskListtoUpdate1;
+		 notifyTaskOwner(TaskListtoUpdate1);
+		 if(!MonkContacts.isEmpty() && MonkContacts != null)
+		 {
+			delete MonkContacts;
+		 }
                   }catch(Exception ex){
          ApexPages.addMessages(ex);
          }
@@ -285,5 +296,69 @@ public void getstatusval() {
         
      return null;
     }   
-
+	public void notifyTaskOwner(list<Task> taskList)
+	{
+		List<Messaging.SingleEmailMessage> sendEmailList = new List<Messaging.SingleEmailMessage>();
+		list<Campaign> campList = [select Id,Campaign_Code__c from Campaign where Id =: campaignId];
+		for(Task tsk : taskList)
+		{
+			Contact MonkContact = MonkCotact(tsk.Owner.Email);
+        	MonkContacts.add(MonkContact);
+        	Messaging.SingleEmailMessage sendMail = new Messaging.SingleEmailMessage();
+        	sendMail.setSubject(tsk.WhatId + ' 관련 작업이 할당되었습니다');
+        	string emailBody = '안녕하세요, </BR>';
+        	emailBody =  emailBody + '새로운 Task가 인입되었습니다.</BR>';
+        	emailBody =  emailBody + '캠페인 이름: ' + tsk.WhatId + '</BR>';
+        	for(Campaign camp : campList)
+        	{
+        		if(tsk.WhatId == camp.Id)
+        		{
+        			emailBody =  emailBody + '캠페인 코드: ' + camp.Campaign_Code__c + '</BR>';
+        		}
+        		
+        	}
+        	emailBody =  emailBody + '작업 레코드 유형: ' + tsk.RecordType.name + '</BR>';
+        	emailBody =  emailBody + '인입된 Task 개수: ' + taskList.size() + '</BR>';
+        	emailBody =  emailBody + '기한: ' + tsk.ActivityDate + '</BR>';
+        	emailBody =  emailBody + '다음 링크를 통해 해당 Task의 자세한 정보를 확인하실 수 있습니다.</BR>';
+        	emailBody =  emailBody + 'MBK 사용자: <a href=' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + tsk.WhatId + '>' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + tsk.WhatId + '</a></BR>';
+        	emailBody =  emailBody + '- MBK 고객 센터 -';
+        	sendMail.setHtmlBody(emailBody);
+        	sendMail.setTargetObjectId(MonkContact.Id); 
+        	sendMail.setSaveAsActivity(false);
+        	sendEmailList.add(sendMail);
+		}
+		try
+        {   
+        	if(!sendEmailList.isEmpty() && sendEmailList != null)
+        	{
+        		Messaging.SendEmailResult[] results = Messaging.sendEmail(sendEmailList);
+	            if (results[0].success) 
+	            {                
+	                System.debug('The Task email notification was sent successfully.');
+	            } 
+        	}               
+        }		
+        catch(Exception e)
+        {
+            system.debug('Task Email Notification Failure Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
+        }
+	}
+	@TestVisible
+    private static Contact MonkCotact(String mailAdd)
+    {   
+        String monkLastName = 'Contact' + Math.round(Math.random() * (1000 - 1)) + 1;
+        while(true)
+        {
+            list<Contact> contactList = [select id from Contact where lastName=:monkLastName];
+            if (contactList.size()<1) 
+            {
+                Contact monkc = new Contact(lastName=monkLastName,Email=mailAdd);
+                insert monkc;
+                return monkc;
+            }
+            monkLastName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;
+        }       
+        return null;
+    }
 }
