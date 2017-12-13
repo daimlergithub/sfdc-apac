@@ -233,7 +233,7 @@
     </relatedLists>
     <relatedLists>
         <fields>MEMBER_TYPE</fields>
-        <fields>STATUS</fields>
+        <fields>Status__c</fields>
         <fields>FULL_NAME</fields>
         <fields>Vehicle_Relationship_ID__c</fields>
         <fields>Purchase_Date__c</fields>

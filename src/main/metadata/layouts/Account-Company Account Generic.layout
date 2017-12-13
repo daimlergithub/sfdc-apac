@@ -118,14 +118,14 @@
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>250</height>
                 <page>ContactTable</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
-                <height>200</height>
+                <height>350</height>
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>

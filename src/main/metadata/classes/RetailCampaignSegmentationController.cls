@@ -49,11 +49,11 @@
         public Integer accountLenght;
         
         // For soql
-        public String accountSoql;
-        public String leadSoql;
-        public String vehicleRelSoql;
-        public String vehicleSoql;
-        public String AccountLinkSoql;
+        public Transient String accountSoql;
+        public Transient String leadSoql;
+        public Transient String vehicleRelSoql;
+        public Transient String vehicleSoql;
+        public Transient  String AccountLinkSoql;
         public String campaignMemSoql;
         public String RetailTaskSoql;
         public String AddressSoql;
@@ -144,7 +144,7 @@
         public RetailCampaignSegmentationController()
         {
             size = 100;
-            system.debug('++++++++++'+con);
+            system.debug('++++In Constructor++++++');
             retailCampaignId = ApexPages.currentPage().getParameters().get('id');
             personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
             retailTaskLeaseRecType = Schema.SobjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
@@ -425,7 +425,7 @@
             contentMap = (Map<String, Object>)(filterMap.get('content'));
             system.debug('I am content map'+contentMap);
             System.debug('Sample Map Check'+contentMap.get('Customer'));
-            
+            System.debug('Filter Analysis'+filterMap.get('field'));
             setSoql();
             
             if(vehicleRelSoql.endsWith('AND  ') || vehicleRelSoql.endsWith('AND ')){
@@ -435,7 +435,7 @@
             if(leadSoql.length()>leadLength){
                 //saveQuery += 'AND Id IN('+leadSoql+')';
                 system.debug('FinalLeadSoql'+leadSoql);
-                List<Lead__C> leadList = Database.query(leadSoql+ 'limit 10000');
+                List<Lead__C> leadList = Database.query(leadSoql+ 'limit 2000');
                 for(Lead__C vr : leadList){
                     accountIdSet.add(vr.Contact__c);
                     leadSet.add(vr.Contact__c);
@@ -459,7 +459,7 @@
                 AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
                 //saveQuery += 'AND Id IN('+AccountLinkSoql+')';
                 system.debug('FianlAccountLinkSoql '+AccountLinkSoql);
-                List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
+                List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 2000');
                 for(Account_Link__C vr : accLinkList){
                     accountIdSet.add(vr.toRole__c);
                     toRoleAndAccLinkMap.put(vr.toRole__c,vr);
@@ -483,7 +483,7 @@
             if(AddressSoql.length()>addressLength){
                 //saveQuery += 'AND Id IN('+AddressSoql+')';
                 system.debug('FinalAddressSoql '+AddressSoql);
-                List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
+                List<Address__c> addList = Database.query(AddressSoql+ 'limit 2000');
                 for(Address__c vr : addList ){
                     accountIdSet.add(vr.Customer__c);
                     AddressSet.add(vr.Customer__c);
@@ -506,7 +506,7 @@
             if(campaignMemSoql.length()>campLength){
                 //saveQuery += 'AND Id IN('+campaignMemSoql+')';
                 system.debug('FinalcampaignMemSoql'+campaignMemSoql);
-                List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
+                List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 2000');
                 for(Campaign_Member__c vr : camMemList ){
                     accountIdSet.add(vr.Contact_Id__c);
                     CampaignMemebrset.add(vr.Contact_Id__c);
@@ -530,7 +530,7 @@
             if(recallSoql.length()>recallLength){
                 System.debug('recallSoqlFinal>>>>'+recallSoql);
                // saveQuery += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
-                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 8000');
+                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 2000');
                 for(recall__c rc : recallList){
                     vehIdSet.add(rc.Vehicle_Id__c);
                     vehIdRecallRecMap.put(rc.Vehicle_Id__C,rc);
@@ -545,7 +545,7 @@
                 VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Service_Advisor__c', 'Service_Advisor__r.Name').replace('Service_Dealer__c', 'Service_Dealer__r.name');
                 system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
                 //saveQuery += 'AND Vehicle_Id__c IN ('+VehRetCopySoql+') ';
-                List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 10000');
+                List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 2000');
                 
                 for(Account_Link__c ac : vehRetialList){
                     vehIdSet1.add(ac.Vehicle__c);
@@ -574,7 +574,7 @@
             if(vehicleRelSoql.length()>vehRelLength && segmentationBase != 'Vehicle'){
                 vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
                 system.debug('vehiclerelSoqlAtCommon>>>>'+vehicleRelSoql);
-                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
+                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 2000');
                 For(Vehicle_relationship__C vr : vehRelList){
                     if(segmentationBase == 'Customer'){
                     accountIdSet.add(vr.Contact__c);
@@ -598,7 +598,7 @@
             
             if(accountSoql.length()>accountLenght && segmentationBase != 'Customer'){
                 system.debug('AccountSoqlatCommon ' + accountSoql);
-                List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
+                List<account> accList = Database.Query(accountSoql+' LIMIT 2000');
                 for(Account acc : accList){
                     accountIdSet.add(acc.Id);
                     vechicleCustomer.add(acc.Id);
@@ -610,7 +610,7 @@
             
             if(RetailTaskSoql.length()>retailaskLength && segmentationBase != 'Contract'){
                  system.debug('FinalRetaiTaskSoqlatCommmon>>>>>>>>'+RetailTaskSoql);
-                 List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000'); 
+                 List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 2000'); 
                  for(Retail_Task__c rt : retTaskList){
                      accountIdSet.add(rt.account__c);
                      retailtaskset.add(rt.account__c);
@@ -641,7 +641,7 @@
                 saveQuery = saveQuery.replace('AND ','');
                 }
                 system.debug('++++++++++++'+saveQuery );
-                List<account> accList = Database.Query(saveQuery+' LIMIT 10000');
+                List<account> accList = Database.Query(saveQuery+' LIMIT 2000');
                 Map<Id,Account> accIdAccountMap = new Map<Id,Account>();
                 for(Account acc : accList){
                     accIdToGetRetailPerson.add(acc.Id);
@@ -683,14 +683,14 @@
             } else if(segmentationBase == 'Vehicle'){
                 if(vechicleCustomer.size()>0){
                     if(vehicleRelSoql.endsWith('AND ')){    
-                        vehicleRelSoql+='Vehicle_ID__r.Related_contact__c IN : accountIdSet';
+                        //vehicleRelSoql+='Vehicle_ID__r.Related_contact__c IN : accountIdSet';
                         saveQuery +='Contact__c IN : vechicleCustomer';
                     } else {
-                        vehicleRelSoql+=' AND Vehicle_ID__r.Related_contact__c IN : accountIdSet';
+                        //vehicleRelSoql+=' AND Vehicle_ID__r.Related_contact__c IN : accountIdSet';
                         saveQuery +=' AND Contact__c IN : vechicleCustomer';
                     }
-                }
-                system.debug('finalvehiclerelSoql>>>>'+vehicleRelSoql);
+                }   
+                
                 system.debug('+++++vehicle+++++++'+saveQuery );
                 
                 saveQuery = saveQuery.replace('AND  AND','AND');
@@ -701,7 +701,7 @@
                 }
                  system.debug('++++++++++++'+saveQuery );
                 //List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
-                List<Vehicle_relationship__C> vehRelList = Database.query(saveQuery + ' limit 3000');
+                List<Vehicle_relationship__C> vehRelList = Database.query(saveQuery + ' limit 1750');
                 for(Vehicle_Relationship__c vr : vehRelList){
                     vehIdToGetVehExtLink.add(vr.Vehicle_ID__c);
                 }
@@ -743,7 +743,7 @@
                 system.debug('finalRetailTaskSoql>>>>'+RetailTaskSoql);
                 system.debug('+++++++++++'+saveQuery );
                 //List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ ' limit 10000'); 
-                List<Retail_Task__c> retTaskList = Database.query(saveQuery+ ' limit 10000');
+                List<Retail_Task__c> retTaskList = Database.query(saveQuery+ ' limit 2000');
                 con = new ApexPages.StandardSetController(retTaskList);
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
@@ -831,6 +831,9 @@
            system.debug('Entered into filterItems'+filterItems);
            system.debug('Entered into cluster'+cluster);
            
+                   
+                   
+               
            
            
                 Integer bracketCount = 0;
@@ -1019,6 +1022,8 @@
                     }
                     
                     wrapperList.add(wrapAcc);  
+                    system.debug('+++++++VehicleONE+++++++++++'+wrapperList);
+                system.debug('+++++++VehicleONE+++++++++++'+wrapperList.size());
                     
                 }
                 

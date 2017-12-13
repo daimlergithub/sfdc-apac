@@ -840,8 +840,10 @@ public class LeadHelperKR
        list<id> leadids= new list<id>();
        
        for(lead__c l:Lstnewlead) {
-          ownerids.add(l.OwnerId);
-          system.debug('*****leadownerlist' +ownerids);
+          if(l.MD__c=='KR') {
+             ownerids.add(l.OwnerId);
+             system.debug('*****leadownerlist' +ownerids);
+		  }	 
        }
        if(!Test.isRunningTest()){
        //before insert new casesharings need to delete old Leadsharings***...
@@ -853,7 +855,7 @@ public class LeadHelperKR
        }
        }
         
-       Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c  from User where id in: ownerids]);
+       Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c  from User where id in: ownerids and Market__c = 'KR' and IsActive=true]);
        system.debug('Reporting Users' +usermap);
        
        List<Lead__Share> leadShar = new List<Lead__Share>();

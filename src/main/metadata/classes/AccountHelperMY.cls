@@ -15,6 +15,11 @@ public class AccountHelperMY{
         AccountHelperBase.updateMarketingFields(listNewAccounts);
     }
     
+	public static void updateAccountFieldsBeforeInsertInt(list<Account> listNewAccounts,boolean isInsert){
+        AccountHelperBase.updateAccountFieldsBeforeInsertInt(listNewAccounts,isInsert);
+        AccountHelperBase.updateMarketingFields(listNewAccounts);
+    }
+	
     public static void ValidateNationalid(List<account> ListAccount){
         AccountHelperBase.ValidateNationalid(ListAccount);
     }
@@ -23,7 +28,12 @@ public class AccountHelperMY{
         AccountHelperBase.updateAccountFieldsBeforeUpdate(listNewAccounts,accountOldMap,isUpdate);
         AccountHelperBase.updateMarketingFields(listNewAccounts);
     }
-    
+	
+    public static void updateAccountFieldsBeforeIntUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
+        AccountHelperBase.updateAccountFieldsBeforeIntUpdate(listNewAccounts,accountOldMap,isUpdate);
+        AccountHelperBase.updateMarketingFields(listNewAccounts);
+    }
+	
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate){
         AccountHelperBase.updatePrimaryAddressdisplay(listNewAccounts,isUpdate);
     } 
