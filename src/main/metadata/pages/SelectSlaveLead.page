@@ -44,11 +44,14 @@
                 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.CAC_Lead_Status__c.Label}">
                 <apex:outputField value="{!leads.CAC_Lead_Status__c}" style="width:9%; white-space:nowrap;"/>
                 </apex:Column>
-				 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Dealer_Lead_Status__c.Label}">
+                 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Dealer_Lead_Status__c.Label}">
                 <apex:outputField value="{!leads.Dealer_Lead_Status__c}" style="width:9%; white-space:nowrap;"/>
                 </apex:Column>
                 <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Lead_Latest_Phase__c.Label}">
                 <apex:outputField value="{!leads.Lead_Latest_Phase__c}" style="width:9%; white-space:nowrap;"/>
+                </apex:Column>
+                <apex:Column headervalue="{!$ObjectType.Lead__c.fields.Interested_Vehicle_ModelName__c.Label}">
+                <apex:outputField value="{!leads.Interested_Vehicle_ModelName__c}" style="width:9%; white-space:nowrap;"/>
                 </apex:Column>
         </apex:pageBlockTable> 
       <!--  <table>
@@ -82,7 +85,7 @@
             </apex:pageblockTable> 
              <apex:inputHidden value="{!selectedValue}" id="RadioButtonValue" />                        
              <apex:commandButton value="{!$Label.Merge}" action="{!mergeDup}" rerender="out" rendered="{!!hasMessage}"/> 
-			  <apex:commandButton value="{!$Label.Cancel}" action="{!Cancel}" rerender="out"  /> 
+              <apex:commandButton value="{!$Label.Cancel}" action="{!Cancel}" rerender="out"  /> 
         </apex:pageBlock>
          <apex:outputText value="{!selectedValue}" id="out"/> 
     </apex:form>
@@ -92,3 +95,4 @@
         }
     </script>
 </apex:page>
+                                        
