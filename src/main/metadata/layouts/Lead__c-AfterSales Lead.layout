@@ -80,9 +80,6 @@
                 <field>Lost_Situation__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Priority__c</field>
             </layoutItems>

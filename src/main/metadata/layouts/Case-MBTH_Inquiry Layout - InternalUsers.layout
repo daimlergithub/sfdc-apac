@@ -547,8 +547,8 @@
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-     <relatedLists>
-        <customButtons>New_DM_Request_TH_Account</customButtons>
+    <relatedLists>
+        <customButtons>New_DM_Request</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>

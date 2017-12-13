@@ -2349,38 +2349,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     /* DH2017/09/27 Common method to Form Endpoint URL*/
     public String generateCDMEndPointURL(){
         String endUrl='';
-            map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
-            For(string str: mapURLs.keyset()){
-                if(mapURLs.get(str).Country__c == Market && mapURLs.get(str).Type__c==RecordType){
-                    endUrl+=mapURLs.get(str).Informatica_URL__c;
-                }
-            }
-            if(recordType == 'Person Account')
-            {
-                endUrl+='ip_Firstname='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
-                endUrl+='&ip_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
-                endUrl+='&ip_MobileTelephone='+((string.isnotblank(objAccount.Mobile__c))?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
-                endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
-                endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-                endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-                endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
-                endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
-            }
-            else if(recordType == 'Company'){
-                 endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
-                 endUrl+='&ip_MobileTelephone='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
-                 endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
-                 endUrl+='&ip_BusinessEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-                 endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-            }
-       
-        return endUrl;
-    }
-    
-    /* created by ashish to send separate set of parameters to CDM for TH*/
-    public String generateCDMEndPointURLTH(){
-        String endUrl='';
-        String Birthdate='';
+		String Birthdate='';
         if(objAccount.PersonBirthdate!= null)
         {   
             Birthdate = String.valueOf(objAccount.PersonBirthdate);
@@ -2391,7 +2360,6 @@ If the user is Saving  same address which matches the fields returned by toleran
                     endUrl+=mapURLs.get(str).Informatica_URL__c;
                 }
             }
-            //System.debug('Birthdate'+Birthdate);
             if(recordType == 'Person Account')
             {
                 endUrl+='ip_Firstname='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
@@ -2402,7 +2370,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                 endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
                 endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
                 endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
-                endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
+				if(Market == 'TH')
+                    endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
             }
             else if(recordType == 'Company'){
                  endUrl+='ip_Orgname='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
@@ -2410,21 +2379,22 @@ If the user is Saving  same address which matches the fields returned by toleran
                  endUrl+='&ip_HomeTelephone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
                  endUrl+='&ip_BusinessEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
                  endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-                 endUrl+='&ip_AddressUsageValue='+(string.isnotblank(AddressObj.Address_Type__c)?EncodingUtil.URLENCODE(AddressObj.Address_Type__c,'UTF-8'):'');
-                 endUrl+='&ip_AddressLineOne='+(string.isnotblank(AddressObj.Address_Line_1__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_1__c,'UTF-8'):'');
-                 endUrl+='&ip_AddressLineTwo='+(string.isnotblank(AddressObj.Address_Line_2__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_2__c,'UTF-8'):'');
-                 endUrl+='&ip_ProvinceStateValue='+(string.isnotblank(Province)?EncodingUtil.URLENCODE(Province,'UTF-8'):'');
-                 endUrl+='&ip_XDistrictValue='+(string.isnotblank(district)?EncodingUtil.URLENCODE(district,'UTF-8'):'');
-                 endUrl+='&ip_XSubcityValue='+(string.isnotblank(SubDIstrict)?EncodingUtil.URLENCODE(SubDIstrict,'UTF-8'):'');
-                 endUrl+='&ip_ZipPostalCode='+(string.isnotblank(zip)?EncodingUtil.URLENCODE(zip,'UTF-8'):'');
-                 endUrl+='&ip_CommercialRegisterId='+(String.isnotblank(objAccount.Commercial_Reg_No__c)?EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c,'UTF-8'):'');
-           }
-            
-            System.debug('endUrl '+endUrl);
+				  if(Market == 'TH')
+                 {
+                     endUrl+='&ip_AddressUsageValue='+(string.isnotblank(AddressObj.Address_Type__c)?EncodingUtil.URLENCODE(AddressObj.Address_Type__c,'UTF-8'):'');
+                     endUrl+='&ip_AddressLineOne='+(string.isnotblank(AddressObj.Address_Line_1__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_1__c,'UTF-8'):'');
+                     endUrl+='&ip_AddressLineTwo='+(string.isnotblank(AddressObj.Address_Line_2__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_2__c,'UTF-8'):'');
+                     endUrl+='&ip_ProvinceStateValue='+(string.isnotblank(Province)?EncodingUtil.URLENCODE(Province,'UTF-8'):'');
+                     endUrl+='&ip_XDistrictValue='+(string.isnotblank(district)?EncodingUtil.URLENCODE(district,'UTF-8'):'');
+                     endUrl+='&ip_XSubcityValue='+(string.isnotblank(SubDIstrict)?EncodingUtil.URLENCODE(SubDIstrict,'UTF-8'):'');
+                     endUrl+='&ip_ZipPostalCode='+(string.isnotblank(zip)?EncodingUtil.URLENCODE(zip,'UTF-8'):'');
+                     endUrl+='&ip_CommercialRegisterId='+(String.isnotblank(objAccount.Commercial_Reg_No__c)?EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c,'UTF-8'):'');
+                 }
+            }
         return endUrl;
     }
-    
-    /* *PR20170918- CustomerSearch in CDM* */
+	
+	/* *PR20170918- CustomerSearch in CDM* */
     public Object onLineDeduplicationCDMTH() {
         
         Map<String, String> addtrmapUpdate1 = UtilAddressTranslation.addtrmap;
@@ -2505,7 +2475,7 @@ If the user is Saving  same address which matches the fields returned by toleran
 
             }         
             
-           String endUrl=generateCDMEndPointURLTH();
+           String endUrl=generateCDMEndPointURL();
             con = new Continuation(120);            
             con.continuationMethod='processResponse';
             this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(endUrl,con);
@@ -2774,6 +2744,10 @@ public pagereference saveAccountTH()
 							AddressObj.Preferred__c=true;
                             AddressObj.Language__c =LanguageSelected;
                             insert AddressObj;
+                            Account acc=new Account(Id=objAccount.Id);
+                            acc.Primary_Address_Reference__c=AddressObj.Id;
+                            DMLManagerService.updateAsSystem(acc);
+                            
                             PageReference pageRef = new PageReference('/'+objAccount.Id);
                             return PageRef;
                         }

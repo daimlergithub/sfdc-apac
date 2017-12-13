@@ -220,13 +220,13 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields>
+    </fields>	
     <fields>
         <fullName>PointsSummary__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Points__c&gt;= 30, IMAGE( $Label.Url_for_Rug_max_static ,"Hot"),
-IF ( Points__c&gt;=20 &amp;&amp; Like_Count__c&lt;10, IMAGE( $Label.Url_for_Rug_Med_static, "Medium"),
-IMAGE($Label.Url_for_Rug_Low_static, "Low")))</formula>
+        <formula>IF( Like_Count__c&gt;= 30, IMAGE( '/rugcollaboration/resource/Rug_max' ,"Hot"), 
+IF ( Like_Count__c&gt;=20 &amp;&amp; Like_Count__c&lt;10, IMAGE( '/rugcollaboration/resource/Rug_med', "Medium"), 
+IMAGE('/rugcollaboration/resource/Rug_low', "Low")))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>PointsSummary</label>
         <required>false</required>

@@ -15,9 +15,6 @@
     <columns>
         <field>DM_Request__c.Address_Line_2__c</field>
     </columns>
-	<columns>
-        <field>DM_Request__c.Description__c</field>
-    </columns>
     <columns>
         <field>DM_Request__c.Sub_District__c</field>
     </columns>
@@ -32,6 +29,9 @@
     </columns>
     <columns>
         <field>DM_Request__c.Status__c</field>
+    </columns>
+	<columns>
+        <field>DM_Request__c.Description__c</field>
     </columns>
     <description>This report contains DM request for company accounts.</description>
     <filter>

@@ -1025,7 +1025,7 @@
         <name>Close</name>
     </customLabels>
 	    <customLabels>
-        <label>成約済</label>
+        <label>購入済</label>
         <name>Close2</name>
     </customLabels>
     <customLabels>
@@ -1535,8 +1535,60 @@
         <name>Email_LeadDealerAssign21</name>
     </customLabels>
     <customLabels>
+        <label>関心や興味を持たれているお客様のデータです。</label>
+        <name>Email_LeadDealerAssign22</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム　サポートデスクまでお問い合わせください。</label>
+        <name>Email_LeadDealerAssign23</name>
+    </customLabels>
+    <customLabels>
+        <label>メルセデス・ベンツ日本</label>
+        <name>Email_LeadDealerAssign24</name>
+    </customLabels>
+    <customLabels>
+        <label>統合顧客管理システム事務局</label>
+        <name>Email_LeadDealerAssign25</name>
+    </customLabels>
+    <customLabels>
+        <label>重要:このメールはシステムより自動配信されています。本メールへは返信しないようにお願いいたします。</label>
+        <name>Email_LeadDealerAssign26</name>
+    </customLabels>
+    <customLabels>
+        <label>システムトラブル時のサポート、ユーザーID申請に関する質問</label>
+        <name>Email_LeadDealerAssign27</name>
+    </customLabels>
+    <customLabels>
+        <label>マニュアル、FAQでは解決しない使い方、活用方法に関する質問</label>
+        <name>Email_LeadDealerAssign28</name>
+    </customLabels>
+    <customLabels>
+        <label>※音声ガイダンスに従って「1」を押してください。</label>
+        <name>Email_LeadDealerAssign29</name>
+    </customLabels>
+    <customLabels>
         <label>管理者様</label>
         <name>Email_LeadDealerAssign3</name>
+    </customLabels>
+    <customLabels>
+        <label>管理者様、ご担当者様</label>
+        <name>Email_LeadDealerAssign30</name>
+    </customLabels>
+    <customLabels>
+        <label>＜当該リード詳細＞</label>
+        <name>Email_LeadDealerAssign31</name>
+    </customLabels>
+    <customLabels>
+        <label>＜レポートでのリード一覧確認方法＞（レポートタブへのリンク）</label>
+        <name>Email_LeadDealerAssign32</name>
+    </customLabels>
+    <customLabels>
+        <label>シュテルン/特約店：「MBJ提供レポート」フォルダ　→　「セールスリード一覧 (新車・中古車)／(未開始/進行中/受注）」もしくは「アフターセールスリード一覧」</label>
+        <name>Email_LeadDealerAssign34</name>
+    </customLabels>
+    <customLabels>
+        <label>ヤナセ店：「○○営業本部」フォルダ　→　「セールスリード一覧 (新車・中古車)／(未開始/進行中/受注）」もしくは「アフターセールスリード一覧」</label>
+        <name>Email_LeadDealerAssign35</name>
     </customLabels>
     <customLabels>
         <label>いつもお世話になっております。</label>
@@ -2298,19 +2350,19 @@
         <name>Purchased_Vehicle_Details</name>
     </customLabels> 
 	<customLabels>
-        <label>興味車両：</label>
+        <label>興味車両：削除</label>
         <name>Ch_Interested_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>競合他社車両：</label>
+        <label>競合他社車両：削除</label>
         <name>ch_Interested_competitor_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
-        <label>現在保有車両１：</label>
+        <label>現在保有車両１：削除</label>
         <name>ch_Current_Vehicle_Details</name>
     </customLabels> 
 	<customLabels>
-        <label>購入済車両：</label>
+        <label>購入済車両：削除</label>
         <name>ch_Purchased_Vehicle_Details</name>
     </customLabels>
 	<customLabels>
@@ -5453,44 +5505,8 @@
         <name>Email_LeadUnassignedSubject</name>
     </customLabels>
     <customLabels>
-        <label>関心や興味を持たれているお客様のデータです。</label>
-        <name>Email_LeadDealerAssign22</name>
-    </customLabels>
-    <customLabels>
-        <label>統合顧客管理システム　サポートデスクまでお問い合わせください。</label>
-        <name>Email_LeadDealerAssign23</name>
-    </customLabels>
-    <customLabels>
-        <label>メルセデス・ベンツ日本</label>
-        <name>Email_LeadDealerAssign24</name>
-    </customLabels>
-    <customLabels>
-        <label>統合顧客管理システム事務局</label>
-        <name>Email_LeadDealerAssign25</name>
-    </customLabels>
-    <customLabels>
-        <label>重要:このメールはシステムより自動配信されています。本メールへは返信しないようにお願いいたします。</label>
-        <name>Email_LeadDealerAssign26</name>
-    </customLabels>
-    <customLabels>
-        <label>システムトラブル時のサポート、ユーザーID申請に関する質問</label>
-        <name>Email_LeadDealerAssign27</name>
-    </customLabels>
-    <customLabels>
-        <label>マニュアル、FAQでは解決しない使い方、活用方法に関する質問</label>
-        <name>Email_LeadDealerAssign28</name>
-    </customLabels>
-    <customLabels>
-        <label>※音声ガイダンスに従って「1」を押してください。</label>
-        <name>Email_LeadDealerAssign29</name>
-    </customLabels>
-    <customLabels>
         <label>統合顧客管理システム　リード担当者割当てのお知らせ</label>
         <name>Email_LeadPersonAssignSubject</name>
-    </customLabels>
-    <customLabels>
-        <label>管理者様、ご担当者様</label>
-        <name>Email_LeadDealerAssign30</name>
     </customLabels>
     <customPageWebLinks>
         <label><!-- Custom Link Notification --></label>

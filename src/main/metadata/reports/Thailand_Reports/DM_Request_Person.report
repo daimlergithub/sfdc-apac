@@ -15,9 +15,6 @@
     <columns>
         <field>DM_Request__c.Sending_Address__c</field>
     </columns>
-	<columns>
-        <field>DM_Request__c.Description__c</field>
-    </columns>
     <columns>
         <field>DM_Request__c.Address_Line_1__c</field>
     </columns>
@@ -38,6 +35,9 @@
     </columns>
     <columns>
         <field>DM_Request__c.Status__c</field>
+    </columns>
+	<columns>
+        <field>DM_Request__c.Description__c</field>
     </columns>
     <description>This report contains DM Requests for person accounts.</description>
     <filter>

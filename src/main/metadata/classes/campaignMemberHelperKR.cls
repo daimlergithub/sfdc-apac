@@ -54,7 +54,7 @@ public with sharing class campaignMemberHelperKR
 	}
 	
 	
-	 public static void updatecustomstatus (list<CampaignMember> campMemList)
+	 /*public static void updatecustomstatus (list<CampaignMember> campMemList)
     {
        if(!campMemList.isEmpty() && campMemList != null)
         {
@@ -63,5 +63,5 @@ public with sharing class campaignMemberHelperKR
                 camMem.Status__c = camMem.Status;
             }           
         }
-    }
+    }*/
 }
