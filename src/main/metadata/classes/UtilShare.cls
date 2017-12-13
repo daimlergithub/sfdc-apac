@@ -1,5 +1,5 @@
 public without sharing class UtilShare{
-    @future
+    //@future
     public static void groupmembersadd(set<id> rtlst,Set<id> dealerAccountIds){
         
         List<Lead__c> listLead = [select id,Name,Assigned_Dealer__c,Contact__c,RecordTypeId,RecordType.Name,VehicleRel_No__c,AfterSales_Vehicle__c

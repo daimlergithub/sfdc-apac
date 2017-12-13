@@ -243,7 +243,7 @@ public with sharing class VehicleRelationshipHelperTH
             if(vr.Contact__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes) && (!setIgnoredAccounts.contains(vr.Contact__c)))
             {              
                 ContactIds.add(vr.Contact__c);
-				if (vr.Vehicle_ID__c != null)
+                if (vr.Vehicle_ID__c != null)
                 VehicleIds.add(vr.Vehicle_ID__c);
             }  
         }                 

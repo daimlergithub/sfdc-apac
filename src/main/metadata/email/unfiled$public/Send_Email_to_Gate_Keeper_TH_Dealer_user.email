@@ -1,15 +1,15 @@
 Dear {!Case.OwnerFullName},<br>
-There’s a case assigned to you. To avoid the escalation, please take action immediately before the deadline.
+A case has been assigned to you. Please take action immediately.
 
 <p>
 Customer: {!Contact.Name}<br>
 Case.: {!Case.CaseNumber}<br>
 Subject : {!Case.Subject}<br>
 Please click on the link below to view the record:<br>
-<a href="{!Case.Link}">Click here</a><br>
+ <a href="{!Case.Others__c}{!Case.Id}">Click here</a><br>
 </p>
 
 
 <br>
-Best regards, <br><br>
+Best Regards,<br><br>
 This automatic e-mail was sent via Salesforce.
