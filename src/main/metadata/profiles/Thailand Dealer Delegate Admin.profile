@@ -5566,7 +5566,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Recall__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -26764,7 +26764,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle__c.Recall__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -29679,6 +29679,10 @@
     </tabVisibilities>
 	<tabVisibilities>
         <tab>DM_Request__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>DM_Stock_Flow__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
