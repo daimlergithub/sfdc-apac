@@ -113,7 +113,7 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Nationality__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Recall__c</field>
             </layoutItems>
@@ -144,15 +144,15 @@
                 <field>Allow_Data_Sharing__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Mobile__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Individual_Home_Phone__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
@@ -594,7 +594,7 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_DM_Request_TH_Account</customButtons>
+        <customButtons>New_DM_Request</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Delivery_Type__c</fields>
