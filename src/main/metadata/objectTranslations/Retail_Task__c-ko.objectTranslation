@@ -450,18 +450,6 @@
         <name>Duration__c</name>
     </fields>
     <fields>
-        <label><!-- EOC Call Task 1 --></label>
-        <name>EOC_Call_Task_1__c</name>
-    </fields>
-    <fields>
-        <label><!-- EOC Call Task 2 --></label>
-        <name>EOC_Call_Task_2__c</name>
-    </fields>
-    <fields>
-        <label><!-- EOC Call Task 3 --></label>
-        <name>EOC_Call_Task_3__c</name>
-    </fields>
-    <fields>
         <label><!-- EOC Call --></label>
         <name>EOC_Call__c</name>
     </fields>
@@ -1256,10 +1244,6 @@
     <fields>
         <label><!-- MBF Comments --></label>
         <name>MBF_Comments__c</name>
-    </fields>
-    <fields>
-        <label><!-- Compensation usually interest rates --></label>
-        <name>MBF_base_interest_rate__c</name>
     </fields>
     <fields>
         <label><!-- MD --></label>
