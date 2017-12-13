@@ -29969,7 +29969,7 @@
         <enabled>true</enabled>
         <name>ScheduleJob</name>
     </userPermissions>
-	<userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>TransferAnyCase</name>
     </userPermissions>
