@@ -1665,14 +1665,17 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
 			<picklistValues>
                 <fullName>Daimler Company Car SPM</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MBJ Online Sales</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
 			<picklistValues>
                 <fullName>Daimler Company Car</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
