@@ -62813,9 +62813,9 @@ if(market == 'JP')
 if(typeof(srcUp) == 'function') 
 { 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
+srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
 } else { 
-window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
 } 
 } 
 
@@ -62902,9 +62902,9 @@ if(market == 'JP')
 if(typeof(srcUp) == 'function') 
 { 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
+srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
 } else { 
-window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
 } 
 } 
 else 

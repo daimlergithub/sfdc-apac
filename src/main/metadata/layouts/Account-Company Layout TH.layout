@@ -138,6 +138,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Newspaper__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Recall__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
