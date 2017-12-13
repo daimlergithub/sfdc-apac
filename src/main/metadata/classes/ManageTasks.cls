@@ -230,11 +230,11 @@ public void getstatusval() {
         {
             if(taskRec.isSelected)
             {
-             if(newstatus != null || newstatus != '' || newstatus != 'None'){
+             if((newstatus != null && newstatus != '') || newstatus != 'None'){
               taskRec.taskselects.Status = newstatus;
               taskRec.taskselects.Status__c = newstatus;
               }
-              if(usrid!=null)
+              if(usrid!=null && usrid!='')
               {
               taskRec.taskselects.Ownerid=usrid;
               }
@@ -269,11 +269,11 @@ public void getstatusval() {
           }
          for(Task ts1: oldTaskList)
          { 
-           if(newstatus != null || newstatus != '' || newstatus != 'None'){
+           if((newstatus != null && newstatus != '') || newstatus != 'None'){
            ts1.status = newstatus;
            ts1.Status__c = newstatus;
            }
-           if(usrid!=null)
+           if(usrid!=null && usrid!='')
               {
               ts1.Ownerid=usrid;
              
