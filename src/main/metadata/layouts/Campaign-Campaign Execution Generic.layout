@@ -248,6 +248,7 @@
         <customButtons>Task.Mass_Assign</customButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>ACTIVITY.TASK</fields>
+		<fields>TASK.WHO_NAME</fields>
         <fields>TASK.DUE_DATE</fields>
         <fields>TASK.STATUS</fields>
         <fields>TASK.PRIORITY</fields>
