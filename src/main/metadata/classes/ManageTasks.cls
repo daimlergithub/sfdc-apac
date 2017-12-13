@@ -273,8 +273,10 @@ public void getstatusval() {
            ts1.status = newstatus;
            ts1.Status__c = newstatus;
            }
+           system.debug('*$**$*$*$  usrid   ' + usrid);
            if(usrid!=null && usrid!='')
               {
+              	system.debug('*$**$*entered If   ' + usrid);
               ts1.Ownerid=usrid;
              
               }
@@ -299,33 +301,35 @@ public void getstatusval() {
     public void notifyTaskOwner(list<Task> taskList)
     {
         List<Messaging.SingleEmailMessage> sendEmailList = new List<Messaging.SingleEmailMessage>();
-        list<Campaign> campList = [select Id,Campaign_Code__c from Campaign where Id =: campaignId];
-        Messaging.SingleEmailMessage sendMail = new Messaging.SingleEmailMessage();
-        
-        for(Task tsk : taskList)
+        list<Campaign> campList = [select Id,Campaign_Code__c, Name from Campaign where Id =: campaignId];
+        User usr = new User();
+        if(usrid != null && usrid != '')
         {
-            Contact MonkContact = MonkCotact(tsk.Owner.Email);
-            MonkContacts.add(MonkContact);            
-            sendMail.setSubject(tsk.WhatId + ' 관련 작업이 할당되었습니다');
+        	usr = [select Id,Email from User where Id =: usrid];
+        }
+        if(usr != null)
+        {
+        	system.debug('***$$$***   ' + usr.Email);
+            Contact MonkContact = MonkCotact(usr.Email);
+            MonkContacts.add(MonkContact);   
+            Messaging.SingleEmailMessage sendMail = new Messaging.SingleEmailMessage();         
+            sendMail.setSubject(campList[0].Name + ' 관련 작업이 할당되었습니다');
             string emailBody = '안녕하세요, </BR>';
             emailBody =  emailBody + '새로운 Task가 인입되었습니다.</BR>';
-            emailBody =  emailBody + '캠페인 이름: ' + tsk.WhatId + '</BR>';
-            for(Campaign camp : campList)
-            {
-                if(tsk.WhatId == camp.Id)
-                {
-                    emailBody =  emailBody + '캠페인 코드: ' + camp.Campaign_Code__c + '</BR>';
-                }
-                
-            }
-            emailBody =  emailBody + '작업 레코드 유형: ' + tsk.RecordType.name + '</BR>';
+            emailBody =  emailBody + '캠페인 이름: ' + campList[0].Name + '</BR>';
+			if(taskList[0].WhatId == campList[0].Id)
+			{
+				emailBody =  emailBody + '캠페인 코드: ' + campList[0].Campaign_Code__c + '</BR>';
+			}
+            emailBody =  emailBody + '작업 레코드 유형: ' + taskList[0].RecordType.name + '</BR>';
             emailBody =  emailBody + '인입된 Task 개수: ' + taskList.size() + '</BR>';
-            emailBody =  emailBody + '기한: ' + tsk.ActivityDate + '</BR>';
+            emailBody =  emailBody + '기한: ' + taskList[0].ActivityDate + '</BR>';
             emailBody =  emailBody + '다음 링크를 통해 해당 Task의 자세한 정보를 확인하실 수 있습니다.</BR>';
-            emailBody =  emailBody + 'MBK 사용자: <a href=' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + tsk.WhatId + '>' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + tsk.WhatId + '</a></BR>';
+            emailBody =  emailBody + 'MBK 사용자: <a href=' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + taskList[0].WhatId + '>' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + taskList[0].WhatId + '</a></BR>';
             emailBody =  emailBody + '- MBK 고객 센터 -';
             sendMail.setHtmlBody(emailBody);
             sendMail.setTargetObjectId(MonkContact.Id); 
+            sendMail.setCharset('UTF-8');
             sendMail.setSaveAsActivity(false);
             sendEmailList.add(sendMail);
         }
