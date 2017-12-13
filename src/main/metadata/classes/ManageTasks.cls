@@ -7,16 +7,22 @@ public List<TaskInfo> taskselect {get; set;}
 public string statusvalfp{get;set;}
 public String oldstatus {get;set;}
 public String newstatus{get;set;}
+public String usrname{get;set;}
+public String usrid{get;set;}
 public Boolean dontshow {get;set;}
 public Boolean dontshow11 {get;set;}
+public Boolean showuser{get;set;}
 public list<Task> tsk{get;set;}
 List<Contact> MonkContacts = new List<Contact>();
+public List<User> UserList{get;set;}
+public String userinput{get;set;}
 
 public ManageTasks(ApexPages.StandardController controller) {
 //getObject = (Id.valueOf(campaignId)).getSObjectType().getDescribe().getName();
 system.debug('campaignId'+campaignId);
 dontshow = true;
 dontshow11 = false;
+showuser=false;
 //statusvalfp = 'Open';
 if(campaignId != '')
 {
@@ -28,11 +34,14 @@ if(campaignId != '')
      system.debug('Query'+query);
      
       List<Task> TaskList = Database.query(query);
+        
         taskselect = new List<TaskInfo>();
         system.debug('TaskList'+TaskList);
         for(Task TaskselRec : TaskList) 
-        {
+        {   
+            
             taskselect.add(new TaskInfo(TaskselRec));
+            
         }
       system.debug('taskselectnn'+taskselect);
       system.debug('taskselectnnsize'+taskselect.size());
@@ -44,6 +53,31 @@ if(campaignId != '')
 public void getstatusval() {
    System.debug('Status-----checked' + statusvalfp);
    }
+   /* Method to Search the User database to fetch the query results */
+    public List<User> Usersearch()
+    {
+        showuser=true;
+         UserList = new List<User>();
+        if(String.isNotBlank(userinput))
+         {
+        for(User c : [select Id,Name,Profile.Name,UserRole.Name from User where Market__c='KR' and IsActive = true AND Name like :'%'+userinput+'%'])
+        {
+            UserList.add(c);
+        }
+        }else
+        {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Input String is Empty'));
+        }
+     return null;
+
+    }
+    /* End of method */
+    
+    public List<User> getUsers()
+    {
+        showuser=false;
+        return [select ID,Name,Profile.Name,UserRole.Name from User where IsActive = true AND Market__c='KR' ORDER By Name limit 1000];
+    }
    
  public class TaskInfo
    {
@@ -74,19 +108,23 @@ public void getstatusval() {
      if(oldstatus == '전체')
      {
       oldstatus = 'ALL';
+      dontshow11=false;
      }
      else if(oldstatus == '시작됨')
      {
      
       oldstatus ='Open';
+      dontshow11=true;
      }
      else if(oldstatus == '종결됨')
      {
      oldstatus ='Closed';
+     dontshow11=false;
      }
      else if(oldstatus == '취소됨')
      {
      oldstatus = 'Cancelled';
+     dontshow11=true;
      }
      
     }
@@ -97,6 +135,7 @@ public void getstatusval() {
        List<Task> tasklsss = new List<Task>();
         taskselect.clear();
         if(oldstatus == 'Open' || oldstatus == 'Closed'){
+        
         tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 1000];
         }else if(oldstatus == 'Cancelled')
         {
@@ -122,23 +161,29 @@ public void getstatusval() {
     {
         List<SelectOption> options = new List<SelectOption>();
         if(oldstatus == 'Open')
-        {       
+        {    
+            options.add(new SelectOption('None','None'));   
             options.add(new SelectOption(Label.CancelledMT,Label.CancelledMT));
+            
              dontshow = true;
+             dontshow11=false;
         }
         else if(oldstatus == 'Cancelled')
-        {       
+        {   
+            options.add(new SelectOption('None','None'));    
             options.add(new SelectOption(Label.OpenMT,Label.OpenMT));
             dontshow = true;
+            dontshow11=false;
         }
         else if(oldstatus == 'Closed')
         { 
             dontshow = false;
-            
+            dontshow11=true;
             
         }else
         { 
           dontshow = false;
+          dontshow11=true;
           //options.add(new SelectOption('Cancelled','Cancelled'));
           //options.add(new SelectOption('Closed','Closed'));
         }    
@@ -148,6 +193,10 @@ public void getstatusval() {
      public PageReference Changestatus() 
     {
      system.debug('taskselect'+taskselect);
+     if(usrid!=null)
+     {
+     system.debug('usrid'+usrid);
+     }
       system.debug('taskselect size'+taskselect.size());
     System.debug('Status-----checked  in method' + statusvalfp);
     if(UserInfo.getLanguage() == 'ko' && (newstatus !=null || newstatus != ''))
@@ -176,17 +225,23 @@ public void getstatusval() {
     {
      List<Task> TaskListtoUpdate = new List<Task>();
     
-    if(newstatus != null || newstatus != ''){
+    
     for(TaskInfo taskRec : taskselect) 
         {
             if(taskRec.isSelected)
             {
+             if(newstatus != null || newstatus != '' || newstatus != 'None'){
               taskRec.taskselects.Status = newstatus;
               taskRec.taskselects.Status__c = newstatus;
+              }
+              if(usrid!=null)
+              {
+              taskRec.taskselects.Ownerid=usrid;
+              }
               TaskListtoUpdate.add(taskRec.taskselects);
             }
              
-        } 
+         
         } 
         
         try{
@@ -205,7 +260,7 @@ public void getstatusval() {
         {
          List<Task> oldTaskList;
          List<Task> TaskListtoUpdate1 = new List<Task>();
-         if(newstatus != null || newstatus != ''){
+         
          if(newstatus == 'Open'){
          oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR'];
          system.debug('oldTaskList---'+oldTaskList);
@@ -213,9 +268,16 @@ public void getstatusval() {
          oldTaskList=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status FROM Task Where WhatId =: campaignId and MD__c= 'KR'];
           }
          for(Task ts1: oldTaskList)
-         {
+         { 
+           if(newstatus != null || newstatus != '' || newstatus != 'None'){
            ts1.status = newstatus;
            ts1.Status__c = newstatus;
+           }
+           if(usrid!=null)
+              {
+              ts1.Ownerid=usrid;
+             
+              }
            TaskListtoUpdate1.add(ts1);
          }
          try{
@@ -229,7 +291,7 @@ public void getstatusval() {
                   }catch(Exception ex){
          ApexPages.addMessages(ex);
          }
-         }
+         
         }
         
      return null;

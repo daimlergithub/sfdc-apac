@@ -202,13 +202,31 @@ global with sharing class LeadVehiclePickerTHController {
                     brandClassMap.put(cm.Brand__c, new Set<String>{cm.Series__c});
                 }else{
                     tempSet.add(cm.Series__c);
+                } 
+                //sort the set
+                if(tempSet!=null && tempSet.size()>0)
+                {
                     List<String> seriesLst=new List<String>();
-                    seriesLst.addAll(tempSet);
+                    Map<String,String> lowerCaseSeriesActSeriesMap=new Map<String,String>();
+                    for(String series:tempSet)
+                    {
+                        if(series!=null)
+                        {
+                            lowerCaseSeriesActSeriesMap.put(series.toLowerCase(), series);
+                            seriesLst.add(series.toLowerCase());
+                        }
+                        
+                    }
+ 
                     seriesLst.sort();
                     tempSet.clear();
-                    tempSet.addAll(seriesLst);
-                } 
-               
+                    for(String series:seriesLst)
+                    {
+                		tempSet.add(lowerCaseSeriesActSeriesMap.get(series));            
+                    }
+                    
+                    
+                }
                 tempSet = classModelMap.get(cm.Series__c+cm.Brand__c);
                 if(tempSet == null){
                     classModelMap.put(cm.Series__c+cm.Brand__c, new Set<String>{cm.Name});
@@ -457,8 +475,7 @@ global with sharing class LeadVehiclePickerTHController {
             leadVehicle.Trim__c = vehicleAttributes.get('Trim');
             leadVehicle.Model_Description__c = vehicleAttributes.get('Model');
             String mileageVal = vehicleAttributes.get('Mileage');
-																																							  
-            carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
+		    carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
             if (!mileageVal.equals('')){
                 leadVehicle.NextMileage__c = Integer.valueof(vehicleAttributes.get('Mileage'));
             }
