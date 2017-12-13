@@ -40,6 +40,21 @@ public class AccountHelperBaseTest {
             AccountHelperBase.activeContracts(List2);
             
             AccountHelperBase.updatePrimaryAddressdisplay(List3,true);
+            AccountHelperBase.updateMarketingFields(list2);
+            AccountHelperBase.updateAccountFieldsBeforeInsertInt(list2,True);
+            AccountHelperBase.updatemarket(list2);
+            AccountHelperBase.createUpdateCDMUCID('abcd', 'MY',list2 );
+            AccountHelperBase.entityNotifyUpdate('abcd','MY','MY','abcd');
+           AccountHelperBase.validate('12345678', 1234, 'abcd', 9, 4);
+            
+            Map<Id, Account> m=new Map<id, Account>();
+            Account a=list2[0];
+            m.put(a.id,a);
+            AccountHelperBase.UpdateConsentHistory(m,list2);
+            //AccountHelperBase.updateAccountFieldsBeforeIntUpdate();
+            AccountHelperBase.updateAccountFieldsBeforeUpdate(list2, m, true);
+            AccountHelperBase.updateAccountFieldsBeforeIntUpdate(list2,m,true);
+            //AccountHelperBase.updateAccountFieldsBeforeInsert(listNewAccounts, isInsert)
             
            /* system.assertequals(AccountHelperBase.calculateAgeRange(18),'17-25');
             system.assertequals(AccountHelperBase.calculateAgeRange(27),'26-35');

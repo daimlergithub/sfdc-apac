@@ -224,8 +224,8 @@
     <fields>
         <fullName>PointsSummary__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Like_Count__c&gt;= 30, IMAGE( '/rugcollaboration/resource/Rug_max' ,"Hot"), 
-IF ( Like_Count__c&gt;=20 &amp;&amp; Like_Count__c&lt;10, IMAGE( '/rugcollaboration/resource/Rug_med', "Medium"), 
+        <formula>IF( Like_Count__c&gt;= 20, IMAGE( '/rugcollaboration/resource/Rug_max' ,"Hot"), 
+IF ( Like_Count__c&lt;20 &amp;&amp; Like_Count__c&gt;10, IMAGE( '/rugcollaboration/resource/Rug_med', "Medium"), 
 IMAGE('/rugcollaboration/resource/Rug_low', "Low")))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>PointsSummary</label>

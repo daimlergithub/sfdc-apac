@@ -258,7 +258,6 @@
         <fields>Retail_Email_OptOut__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
