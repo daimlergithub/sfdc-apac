@@ -1,6 +1,6 @@
 /************************************************************************************
 * Created By:Sarath M
-* Created Date:8-oct-17
+* Created Date:11-Dec-17
 * Company:Infosys Ltd
 * Description: Testclass for starRatingControllerTest
 * ***********************************************************************************/
@@ -12,7 +12,8 @@ public class StarRatingControllerTest {
         Decimal rating=0;
         rating =4;
         test.startTest();
-        StarRatingController.createRatingDB(rating,ideaTest.id);         
+        StarRatingController.createRatingDB(rating,ideaTest.id);
+        system.assertNotEquals(null, ideaTest.id);
         test.stopTest();
     }
     static testMethod void test_getRatingOnLoad(){
