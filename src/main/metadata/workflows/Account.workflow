@@ -467,7 +467,7 @@
             <name>WorkPhone_Update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>This workflow is the prefix +66 to all phone numbers</description>
         <formula>OR(CreatedBy.Profile.Name = &apos;IntegrationAPI&apos;, LastModifiedBy.Profile.Name = &apos;IntegrationAPI&apos;) &amp;&amp; OR(ISNEW(), OR(ISCHANGED(Mobile__c),ISCHANGED(Work_Phone__c),ISCHANGED(Individual_Home_Phone__c))) &amp;&amp; MD__c = &apos;TH&apos;</formula>
         <triggerType>onAllChanges</triggerType>
