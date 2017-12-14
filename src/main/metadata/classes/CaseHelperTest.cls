@@ -468,6 +468,7 @@ public With Sharing class CaseHelperTest {
         oldMap.put(listCampaign.id, listCampaign);
 		
 		CaseHelperKR.updateCaseDeadLine(listcases,oldmap,isInsert);
+		UserHelper.caseownerchange();
     } 
     
     static testmethod void casesharehierarchytest1() {
