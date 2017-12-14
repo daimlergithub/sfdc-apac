@@ -275,6 +275,16 @@
         <template>unfiled$public/Case_Deadline_Notification_TH_2</template>
     </alerts>
     <alerts>
+        <fullName>Deadline_Notification_to_Owner_before_1_hour_TH</fullName>
+        <description>Deadline Notification to Owner before 1 hour TH</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification_TH_3</template>
+    </alerts>
+    <alerts>
         <fullName>Email_to_Dealer_Gatekeeper_Case</fullName>
         <description>Email to Dealer Gatekeeper Case</description>
         <protected>false</protected>
@@ -366,6 +376,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Change_Complaint_Assignment_To_Dealer_GateKeeper_Notification2</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_to_Gate_Keeper_TH_Dealer</fullName>
+        <description>Send Email to Gate Keeper_TH_Dealer</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Send_Email_to_Gate_Keeper_TH_Dealer_user</template>
     </alerts>
     <alerts>
         <fullName>ase_Deadline_Dealer_Manager_Notification_KR_after_240_Hours</fullName>
@@ -998,6 +1018,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Send_email_to_GateKeeper</fullName>
+        <field>SendEmailToGateKeeper__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Send email to GateKeeper</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Support_Dealer1_Email_FlgToFalse</fullName>
         <field>Send_Email_Support_Dealer1_Keeper__c</field>
         <literalValue>0</literalValue>
@@ -1168,7 +1197,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>update_Escalate_Date_to_CO_field</fullName>
         <field>Escalate_Date_to_CO__c</field>
         <formula>TODAY()</formula>
@@ -1525,36 +1554,46 @@
     <rules>
         <fullName>Case Deadline Notification TH</fullName>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
-        <criteriaItems>
-            <field>Case.DeadLine__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Status</field>
-            <operation>notEqual</operation>
-            <value>Closed</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Inquiry</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>MB Complaint</value>
-        </criteriaItems>
         <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
+        <formula>AND( 
+     MD__c = &apos;TH&apos;,
+     ISPICKVAL( Owner:User.UserType,&apos;Standard&apos;),
+     NOT( ISNULL(DeadLine__c  ) ),
+     NOT( ISPICKVAL( Status , &apos;Closed&apos;) ) ,
+    OR(
+       RecordType.Name=&apos;Inquiry&apos;,         
+       RecordType.Name=&apos;MB Complaint&apos;
+      ) 
+ )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
                 <name>Deadline_Notification_to_Owner_before_1_hourTH</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case Deadline Notification TH 2 - Dealer</fullName>
+        <active>true</active>
+        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
+        <formula>AND( 
+     MD__c = &apos;TH&apos;,
+     ISPICKVAL( Owner:User.UserType,&apos;PowerPartner&apos;),
+     NOT( ISNULL(DeadLine__c  ) ),
+     NOT( ISPICKVAL( Status , &apos;Closed&apos;) ) ,
+    OR(
+       RecordType.Name=&apos;Inquiry&apos;,         
+       RecordType.Name=&apos;MB Complaint&apos;
+      ) 
+ )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Deadline_Notification_to_Owner_before_1_hour_TH</name>
                 <type>Alert</type>
             </actions>
             <offsetFromField>Case.DeadLine__c</offsetFromField>
@@ -2541,15 +2580,50 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <description>This WF is created for Sending email to gate keeper for Thailand users</description>
+        <description>This WF is created for Sending email to gate keeper for Thailand wholesale users</description>
         <formula>AND( 
-     OR( ISNEW() , ISCHANGED( OwnerId ) ), 
-     SendEmailToGateKeeper__c = True, 
-     MD__c = &apos;TH&apos;, 
-    OR( 
-       RecordType.Name=&apos;Inquiry&apos;, 
-       RecordType.Name=&apos;MB Complaint&apos; 
-      ) 
+  MD__c = &apos;TH&apos;,
+  ISPICKVAL( Owner:User.UserType,&apos;Standard&apos;),
+OR(
+  AND(
+      ISNEW(),
+      NOT(ISBLANK(Case_Dealer__c ))
+     ),  
+  AND(
+      ISCHANGED(Case_Dealer__c ),
+      NOT(ISBLANK(Case_Dealer__c ))
+     )
+   ), 
+ OR(RecordType.Name=&apos;Inquiry&apos;,         
+    RecordType.Name=&apos;MB Complaint&apos;
+   ) 
+ )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Email to Gate Keeper_TH_2</fullName>
+        <actions>
+            <name>Send_Email_to_Gate_Keeper_TH_Dealer</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>This WF is created for Sending email to gate keeper for Thailand dealer users.</description>
+        <formula>AND( 
+MD__c = &apos;TH&apos;, 
+ISPICKVAL( Owner:User.UserType,&apos;PowerPartner&apos;), 
+OR( 
+AND( 
+ISNEW(), 
+NOT(ISBLANK(Case_Dealer__c )) 
+), 
+AND( 
+ISCHANGED(Case_Dealer__c ), 
+NOT(ISBLANK(Case_Dealer__c )) 
+) 
+), 
+OR(RecordType.Name=&apos;Inquiry&apos;, 
+RecordType.Name=&apos;MB Complaint&apos; 
+) 
 )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -2647,7 +2721,7 @@
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>Update Escalate Date to CO field</fullName>
         <actions>
             <name>update_Escalate_Date_to_CO_field</name>

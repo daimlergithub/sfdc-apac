@@ -6,7 +6,7 @@ Customer: {!Contact.Name}<br>
 Case.: {!Case.CaseNumber}<br>
 Subject : {!Case.Subject}<br>
 Please click on the link below to view the record:<br>
-<a href="{!Case.Link}">Click here</a><br>
+<a href="{!Case.Others__c}{!Case.Id}">Click here</a><br>
 </p>
 
 

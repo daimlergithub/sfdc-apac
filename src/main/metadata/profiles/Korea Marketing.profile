@@ -27963,6 +27963,10 @@
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>
+        <apexPage>OwnerLookup</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
         <apexPage>PageMessageLogViewListKRDFW</apexPage>
         <enabled>true</enabled>
     </pageAccesses>

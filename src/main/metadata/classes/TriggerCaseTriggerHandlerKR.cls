@@ -51,6 +51,7 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
                     caseHelperJP.assignCasestoqueues(Trigger.New,(Map<Id,Case>)trigger.oldMap, 'update');
                 }
 				caseHelperKR.casesharehierarchy(trigger.new);
+				caseHelperKR.sendEmailToQueue(trigger.new,'isUpdate');
             }
             if (trigger.isDelete)
             {               

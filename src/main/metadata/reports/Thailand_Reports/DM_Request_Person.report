@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
+        <field>CUST_ID</field>
+    </columns>
+    <columns>
         <field>CUST_NAME</field>
     </columns>
     <columns>
@@ -36,7 +39,7 @@
     <columns>
         <field>DM_Request__c.Status__c</field>
     </columns>
-	<columns>
+    <columns>
         <field>DM_Request__c.Description__c</field>
     </columns>
     <description>This report contains DM Requests for person accounts.</description>

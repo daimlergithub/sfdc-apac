@@ -905,4 +905,50 @@ public class LeadHelperKR
           insert leadShar;
        }
     }
+	 public static void sendEmailToQueue(List<Lead__c> LstnewLead,string action) {
+             list<Id> queueid = new list<Id>();
+             list<GroupMember> ownerids = new list<GroupMember>();
+             list<Id> userids= new list<Id>();
+             list<Group> queueids = new list<Group>();
+             list<String> queueName = new list<String>();
+             boolean marketcheck=false;
+             System.debug('*****Case List**' +LstnewLead);  
+             for(Lead__c c:LstnewLead) {
+               System.debug('c.owner.type---'+c.owner.type);
+               if(c.MD__c=='KR' && String.valueof(c.ownerId).startsWith('00G')) {
+              marketcheck=true;
+              queueid .add(c.ownerId);
+              system.debug('*****Queue Name**' +queueid );  
+            }
+            }
+            queueids =[Select Id,Name,type from Group where type='Queue' and Id IN: queueid ];
+            system.debug('*****Queue Name***' +queueids);         
+           if(queueids.size()>0){
+           for(Group gp:queueids){
+              queueName.add(gp.Name);}}
+            ownerids =[select UserOrGroupId,Group.Name from GroupMember where Group.Name IN: queueName];
+              for(GroupMember gp:ownerids ){
+              userids.add(gp.UserOrGroupId);      
+        }
+        system.debug('*****Queue Name' +queueids );  
+           system.debug('*****Caseownerlist' +ownerids);
+           system.debug('*****userids' +userids);
+            system.debug('*****action Name***' +action);   
+        Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+        EmailTemplate e =[select id,name,Subject from EmailTemplate WHERE name = 'Case owner is updated' limit 1];
+           message.setTemplateId(e.id);
+          
+           message.setSaveAsActivity(false);
+            if(userids.size()>0){
+                     message.setToAddresses(userids);
+                      message.setTargetObjectId(userids[0]);
+                 } 
+          
+              if(marketcheck){
+                 Messaging.SendEmailResult[] m1=Messaging.SendEmail(new Messaging.SingleEmailMessage[]{message});
+                 }
+          
+         system.debug('*****Message Sent');  
+       
+          }
 }

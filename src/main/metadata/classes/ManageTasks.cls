@@ -119,7 +119,7 @@ public void getstatusval() {
      else if(oldstatus == '종결됨')
      {
      oldstatus ='Closed';
-     dontshow11=false;
+     dontshow11=true;
      }
      else if(oldstatus == '취소됨')
      {
@@ -135,14 +135,16 @@ public void getstatusval() {
        List<Task> tasklsss = new List<Task>();
         taskselect.clear();
         if(oldstatus == 'Open' || oldstatus == 'Closed'){
-        
+        dontshow11=true;
         tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status,Owner.Email FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 1000];
         }else if(oldstatus == 'Cancelled')
         {
+		dontshow11=true;
        tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,Owner.name,OwnerId,Status,Owner.Email FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 1000];
         }
         else
         {
+		dontshow11=false;
        tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.name,Owner.name,OwnerId,Status,Owner.Email FROM Task Where WhatId =: campaignId and MD__c= 'KR' limit 1000];
         }
         system.debug('tasklsss-----'+tasklsss);
@@ -166,14 +168,14 @@ public void getstatusval() {
             options.add(new SelectOption(Label.CancelledMT,Label.CancelledMT));
             
              dontshow = true;
-             dontshow11=false;
+             dontshow11=true;
         }
         else if(oldstatus == 'Cancelled')
         {   
             options.add(new SelectOption('None','None'));    
             options.add(new SelectOption(Label.OpenMT,Label.OpenMT));
             dontshow = true;
-            dontshow11=false;
+            dontshow11=true;
         }
         else if(oldstatus == 'Closed')
         { 
@@ -183,7 +185,7 @@ public void getstatusval() {
         }else
         { 
           dontshow = false;
-          dontshow11=true;
+          dontshow11=false;
           //options.add(new SelectOption('Cancelled','Cancelled'));
           //options.add(new SelectOption('Closed','Closed'));
         }    
