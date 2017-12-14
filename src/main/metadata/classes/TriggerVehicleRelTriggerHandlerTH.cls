@@ -38,29 +38,31 @@ implements TriggerHandlerIf {
     }
     public void handleIntegrationTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
         List < Vehicle_Relationship__c > vehicleNewList2 = Trigger.new;
-        List < Vehicle_Relationship__c > vehicleNewList;
-        for (Vehicle_Relationship__c vrTH: vehicleNewList2) {
-            if (vrTH.MD__c == 'TH') {
-                vehicleNewList.add(vrTH);
+        List < Vehicle_Relationship__c > vehicleNewList=new List<Vehicle_Relationship__c>();
+        if(vehicleNewList2!=null && vehicleNewList2.size()>0)
+        {
+            for (Vehicle_Relationship__c vrTH: vehicleNewList2) {
+                if (vrTH.Market__c == 'TH') {
+                    vehicleNewList.add(vrTH);
+                }
             }
         }
 
-        if (!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0) {
-            {
-                if (trigger.isAfter && (trigger.isInsert)) {
-                    VehicleRelationshipHelperTH.OnAfterInsert(vehicleNewList);
-                    VehicleRelationshipHelperTH.afterInsertSharerecordsWithDealers(vehicleNewList, true);
-                }
-                if (trigger.isAfter && Trigger.isUpdate) {
-                    Map < Id, Vehicle_Relationship__c > oldmapVehicleRelship = (Map < Id, Vehicle_Relationship__c > ) Trigger.oldmap;
-                    VehicleRelationshipHelperTH.OnAfterUpdate(vehicleNewList, oldmapVehicleRelship);
-                    VehicleRelationshipHelperTH.afterInsertSharerecordsWithDealers(vehicleNewList, false);
-                }
-                if (trigger.isAfter && Trigger.isDelete) {
-                    VehicleRelationshipHelperTH.OnAfterDelete(Trigger.old);
-                }
+        if (!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0) 
+        {
+            if (trigger.isAfter && (trigger.isInsert)) {
+                VehicleRelationshipHelperTH.OnAfterInsert(vehicleNewList);
+                VehicleRelationshipHelperTH.afterInsertSharerecordsWithDealers(vehicleNewList, true);
             }
-
+            if (trigger.isAfter && Trigger.isUpdate) {
+                Map < Id, Vehicle_Relationship__c > oldmapVehicleRelship = (Map < Id, Vehicle_Relationship__c > ) Trigger.oldmap;
+                VehicleRelationshipHelperTH.OnAfterUpdate(vehicleNewList, oldmapVehicleRelship);
+                VehicleRelationshipHelperTH.afterInsertSharerecordsWithDealers(vehicleNewList, false);
+            }
         }
+        if (trigger.isAfter && Trigger.isDelete) {
+            VehicleRelationshipHelperTH.OnAfterDelete(Trigger.old);
+        }
+           
     }
 }
