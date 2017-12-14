@@ -33,7 +33,7 @@ public class CampaignBouncebackStatusBatchTHTest {
         rcobj1.Auto_Segmentation__c = true;
         rcobj1.Segmentation_Criteria__c = scb.id;
         rcobj1.IsAutoSegmentationExecuted__c = false;
-        
+        rcobj1.md__c='TH';
         insert rcobj1;
         
         Campaign_Member__c cmr=new Campaign_Member__c();
