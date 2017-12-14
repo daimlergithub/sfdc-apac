@@ -3,6 +3,7 @@ public class TriggerVehicleRelTriggerHandlerTHTest{
  private static Account personAcc;
  private static User user1;
  private static Vehicle__c vehicle;
+ private static User usr;
  private static Vehicle_Relationship__c vehicleRel;
  private static List<Vehicle_Relationship__c> vehicleRelList = new List<Vehicle_Relationship__c>();
  
@@ -64,10 +65,14 @@ public class TriggerVehicleRelTriggerHandlerTHTest{
   Trigger__c TriggerAccountTH = new Trigger__c(Name='TriggerVehicleRelationshipTH',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelTriggerHandlerTH',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='TH');
   insert TriggerAccountTH;
   
-  Profile p = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
-    User usr = new User(Alias = 'standt', Email='test@mbj.com',EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',LocaleSidKey='en_US', ProfileId = p.Id, 
-                       TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com');
-  // Prepare test data for Account
+  Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
+    usr = new User(Alias = 'standt', Email='test@mbj.com',EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',LocaleSidKey='en_US', ProfileId = p.Id, 
+                       TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com',market__c='TH');
+    
+	insert usr;
+     System.runAs(usr)
+     {
+         // Prepare test data for Account
   personAcc = new Account(
                             Dealer_Default_Flag__c=false,
                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '02-202-2456',Home_Phone_2__c = '02-202-2457',Work_Phone__c = '023482322525',
@@ -92,25 +97,28 @@ public class TriggerVehicleRelTriggerHandlerTHTest{
                                Ownerid=usr.id,
                                PersonHasOptedOutOfEmail=True,
                                Opt_In_Email__c=true,
-                             //  Owner=usr,
+                              // Owner=usr,
                                PersonBirthdate=date.today(),
-                               
+                              market__c='TH',
                                RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
-       
+    insert personAcc;
    // Prepare test data for Vehicle
-    vehicle = new Vehicle__c(Brand__c = 'BMW',md__c='TH',
+    vehicle = new Vehicle__c(Brand__c = 'BMW',md__c='TH',market__c='TH',
                              RecordTypeId=Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId()
                             );
      
-     
+    insert vehicle;
    // Prepare test data for VehicleRelationship
     vehicleRel = new Vehicle_Relationship__c(Car_Relation__c = 'Purchaser',
                                             Contact__c = personAcc.Id,
                                             Vehicle_ID__c = vehicle.Id,
-                                            md__c='TH'
+                                            md__c='TH',
+                                            market__c='TH'
                                             );
 
-    vehicleRelList.add(vehicleRel);                                           
+    vehicleRelList.add(vehicleRel);
+     }
+                                                
                                                                                       
  } 
  
@@ -138,31 +146,67 @@ public class TriggerVehicleRelTriggerHandlerTHTest{
  
  
  public static testMethod void testHandlerInsert2(){
+     Test.startTest();
      List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
       insert updatecustomsettings;
      prepareTestData2();
-     TriggerVehicleRelTriggerHandlerTH th = new TriggerVehicleRelTriggerHandlerTH();
-     insert vehicleRelList;
+     System.runAs(usr)
+     {
+         TriggerVehicleRelTriggerHandlerTH th = new TriggerVehicleRelTriggerHandlerTH();
+         insert vehicleRelList;
+     }
+     Test.stopTest();
      
  }
  
  public static testMethod void testHandlerUpdate2(){
+     Test.startTest();
      List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
       insert updatecustomsettings;
      prepareTestData2();
-     insert vehicleRelList;
-     update vehicleRelList;
+     System.runAs(usr)
+     {
+         
+         insert vehicleRelList;
+         update vehicleRelList;
+     }
+     Test.stopTest();
      
  } 
  
  public static testMethod void testHandlerDelete2(){
+     Test.startTest();
      List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
      insert updatecustomsettings;
      prepareTestData2();
-     insert vehicleRel;
-     List<Vehicle_Relationship__c> vrList = [SELECT Id,Name FROM Vehicle_Relationship__c WHERE Id =:vehicleRel.Id];
-     delete vrList;
+     System.runAs(usr)
+     {
+         insert vehicleRel;
+         List<Vehicle_Relationship__c> vrList = [SELECT Id,Name FROM Vehicle_Relationship__c WHERE Id =:vehicleRel.Id];
+         delete vrList;
+     }
+     Test.stopTest();
+     
      
  } 
+    public static testMethod void testAccountRecallUpdate()
+    {
+        Test.startTest();
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
+        insert updatecustomsettings;
+        prepareTestData2();
+        System.runAs(usr)
+        {
+         
+            insert vehicleRelList;
+            List<Vehicle__c> vehLst=new List<Vehicle__c>();
+            vehLst.add(vehicle);
+            AccountRecallUpdate.updateRecall(vehLst);
+            Account updatedAcc=[Select Recall__c from Account where Id=:personAcc.Id];
+            System.assert(updatedAcc.Recall__c);
+        }
+        
+        Test.stopTest();
+    }
  
 }
