@@ -245,12 +245,15 @@ public void getstatusval() {
         } 
         
         try{
-        update TaskListtoUpdate;
-        notifyTaskOwner(TaskListtoUpdate);
-        if(!MonkContacts.isEmpty() && MonkContacts != null)
-        {
-            delete MonkContacts;
-        }
+			update TaskListtoUpdate;
+			if(TaskListtoUpdate != null && !TaskListtoUpdate.isEMpty())
+			{
+				notifyTaskOwner(TaskListtoUpdate);
+				if(!MonkContacts.isEmpty() && MonkContacts != null)
+				{
+					delete MonkContacts;
+				}
+			}        
         }catch(DMLException e)
         {
          ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,e.getDMLMessage(0)));
@@ -283,14 +286,17 @@ public void getstatusval() {
            TaskListtoUpdate1.add(ts1);
          }
          try{
-
-         update TaskListtoUpdate1;
-         notifyTaskOwner(TaskListtoUpdate1);
-         if(!MonkContacts.isEmpty() && MonkContacts != null)
-         {
-            delete MonkContacts;
+			 update TaskListtoUpdate1;
+			 if(TaskListtoUpdate1 != null && !TaskListtoUpdate1.isEmpty())
+			 {
+				notifyTaskOwner(TaskListtoUpdate1);
+				if(!MonkContacts.isEmpty() && MonkContacts != null)
+				{
+					delete MonkContacts;
+				}
+			 }
          }
-                  }catch(Exception ex){
+		 catch(Exception ex){
          ApexPages.addMessages(ex);
          }
          
