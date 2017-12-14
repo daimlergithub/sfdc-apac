@@ -9,7 +9,7 @@
 
    }
    function LookupView(name,id) {  
-        url="/apex/OwnerLookup?namefield=" + name +"&idfield=" + id ;
+        url="{!$Site.BaseUrl}/apex/OwnerLookup?namefield=" + name +"&idfield=" + id ;
         newWin=window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
         if (window.focus) 
         {
