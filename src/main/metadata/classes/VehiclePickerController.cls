@@ -207,7 +207,7 @@ global with sharing class VehiclePickerController {
             }
             else{
                 if(!Test.isRunningTest()){
-                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c];
+                    carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c AND Brand__c!= null AND Series__c!=null ];
                 }else{
                     carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type];
                 }

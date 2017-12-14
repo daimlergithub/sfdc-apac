@@ -57,7 +57,7 @@ public class TriggerLeadTriggerHandlerKR
             LeadSharingforDealerJP.LeadSharing_Dealer(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadUtil.isCreated = false;
             LeadHelperKR.leadsharehierarchy(trigger.new);
-			LeadHelperKR.sendEmailToQueue(trigger.new,'isInsert');
+			//LeadHelperKR.sendEmailToQueue(trigger.new,'isInsert');
         }
         if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated)
         {
@@ -76,7 +76,7 @@ public class TriggerLeadTriggerHandlerKR
             LeadHelperKR.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadUtil.isCreated = false;
             LeadHelperKR.leadsharehierarchy(trigger.new);
-			LeadHelperKR.sendEmailToQueue(trigger.new,'isUpdate');
+			//LeadHelperKR.sendEmailToQueue(trigger.new,'isUpdate');
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
