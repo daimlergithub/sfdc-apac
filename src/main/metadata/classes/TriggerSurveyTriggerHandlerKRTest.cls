@@ -1,15 +1,23 @@
+/*********************************************************************************
+Name         : TriggerSurveyTriggerHandlerKRTest
+Created By   : NTT Data
+Modified BY  : 
+Company Name : NTT Data
+Project      : Daimler APAC  
+Created Date : 13th December 2017
+Modified Date:
+Requirement  : SFDCKR - 1557
+Usages       : Test class for code coverage related to TriggerSurvey trigger flow classes.
+*********************************************************************************/
 @isTest
-public class SurveyTakerHelperKRTest 
+private class TriggerSurveyTriggerHandlerKRTest 
 {
-    Public static Id retailPersonRectypeId = Schema.SObjectType.Account_Link__c.getRecordtypeInfosByName().get('Retail Person').getRecordTypeId();
     Public static Id personrectypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-    Public static SurveyTaker__c surveytkr;
-    Public static SurveyTaker__c surveytkrHq;
+    Public static Survey__c survy;
+    Public static Survey__c survyHq;
     Public static Account acc;
     Public static Account acchq;
     public static Account dlrAcc;
-    Public static Lead__c lead;
-    Public static Account_Link__c retailcopy;
     public static Group accGrp;
     public static User usrMBKSup;
     public static User usrSup;
@@ -23,8 +31,8 @@ public class SurveyTakerHelperKRTest
     
 	static void createTestData()
     {
-        Trigger__c TriggerSurveyTakerKR=new Trigger__c(Name='TriggerSurveyTakerKR',Trigger_Name__c='TriggerSurveyTaker',Trigger_Handler__c='TriggerSurveyTakerTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
-        insert TriggerSurveyTakerKR;
+        Trigger__c TriggerSurveyKR = new Trigger__c(Name='TriggerSurveyKR',Trigger_Name__c='TriggerSurvey',Trigger_Handler__c='TriggerSurveyTriggerHandlerKR',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='KR');
+        insert TriggerSurveyKR;
         
        User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId()];
        System.runAs(thisUser)
@@ -32,7 +40,7 @@ public class SurveyTakerHelperKRTest
     	   Profile supportProfile = [select Id from Profile where Name =:'System Administrator'];
 	       UserRole usrRole = [SELECT Id, Name FROM UserRole where Name = 'MBK Management'];
 	       usrMBKSup = new User();
-	       usrMBKSup.UserName = 'TestUser.MBKSupport' + Math.rint(Math.random() * 1200000) + '@daimler.com.supportUser';        
+	       usrMBKSup.UserName = 'TestUser.MBKSupport' + Math.rint(Math.random() * 1300000) + '@daimler.com.supportUser';        
 	       if(supportProfile != Null)
 	       {
 		       usrMBKSup.ProfileId = supportProfile.Id;
@@ -66,7 +74,7 @@ public class SurveyTakerHelperKRTest
         {
         	Profile mbkCCCRetailSupervisor = [select Id from Profile where Name ='MBK CCC Retail - Manager'];
 	        usrSup = new User();
-	        usrSup.UserName = 'test.dealer.callcenter' + Math.rint(Math.random() * 11000000) + '@daimler.com.testuser';        
+	        usrSup.UserName = 'test.dealer.callcenter' + Math.rint(Math.random() * 14000000) + '@daimler.com.testuser';        
 	        if(mbkCCCRetailSupervisor != Null)
 	        {
 		       usrSup.ProfileId = mbkCCCRetailSupervisor.Id;
@@ -88,7 +96,7 @@ public class SurveyTakerHelperKRTest
         accGrp.Name = dlrAcc.Dealer_ND_Code__c;
         insert accGrp;
         
-        acc = new Account(Dealer_Default_Flag__c=false,
+        /*acc = new Account(Dealer_Default_Flag__c=false,
 	       Dealer_DMS_SR_Code__c='test code 2',
 	       Status__c='NoCustomer',Email__c = 'testemail@test.com',
 	       City__c='Beijing',
@@ -106,15 +114,17 @@ public class SurveyTakerHelperKRTest
 	       Industry = 'Other',
 	  	   ownerId = userinfo.getUserId(),
 	       RecordTypeId = personrectypeId);
-        insert acc;
+        insert acc;*/
         
-        surveytkr = new SurveyTaker__c();
-        surveytkr.Account__c = acc.id;
-        insert surveytkr;
+        survy = new Survey__c();
+        survy.Name = 'MBK Survey';
+	    survy.Survey_Type__c = 'OB Call';
+	    survy.MD__c = 'KR';
+        insert survy;
         
         system.runAs(usrSup)
         {
-           acchq = new Account(Dealer_Default_Flag__c=false,
+           /*acchq = new Account(Dealer_Default_Flag__c=false,
 	       Dealer_DMS_SR_Code__c='test code 2',
 	       Status__c='NoCustomer',Email__c = 'testemail@test.com',
 	       City__c='Beijing',
@@ -132,12 +142,13 @@ public class SurveyTakerHelperKRTest
 	       Industry = 'Other',
 	  	   ownerId = userinfo.getUserId(),
 	       RecordTypeId = personrectypeId);
-           insert acchq;
+           insert acchq;*/
         
-           surveytkrHq = new SurveyTaker__c();
-	       surveytkrHq.Account__c = acchq.id;
-	       insert surveytkrHq;
+           survyHq = new Survey__c();
+	       survyHq.Name = 'Dealer HQ Survey';
+	       survyHq.Survey_Type__c = 'OB Call';
+	       survyHq.MD__c = 'KR';
+	       insert survyHq;
         }
-        
-    }
+    }    
 }
