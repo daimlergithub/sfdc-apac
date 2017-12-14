@@ -239,6 +239,10 @@
                 <behavior>Edit</behavior>
                 <field>InsuranceExpiryDate__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ISP_Expiration_Date__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
