@@ -20,7 +20,7 @@ public class shareAccountRecord
         Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>(); 
         List<case> caseUpdLst = new List<case>();
         List<Group> companyGroupList = new List<Group>();
-        List<case> lstCase = new List<case>([select id,Case_Dealer__c, AccountId,Ownerid,Case_Dealer__r.Dealer_ND_Code__c,Case_Dealer__r.Dealer_Type__c,
+        List<case> lstCase = new List<case>([select id,MD__c,Case_Dealer__c, AccountId,Ownerid,Case_Dealer__r.Dealer_ND_Code__c,Case_Dealer__r.Dealer_Type__c,
                                              Case_Dealer__r.Dealer_GC_Code__c,Case_Dealer__r.ParentId from case where id in: caseIds]);
 
 		for(case cs1: lstCase)
