@@ -120,7 +120,7 @@ private class TriggerSurveyTriggerHandlerKRTest
         survy.Name = 'MBK Survey';
 	    survy.Survey_Type__c = 'OB Call';
 	    survy.MD__c = 'KR';
-        insert survy;
+      //  insert survy;
         
         system.runAs(usrSup)
         {
