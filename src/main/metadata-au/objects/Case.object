@@ -18919,14 +18919,15 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',	
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -18952,6 +18953,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+			            <picklistValues>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NA</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>false</restrictedPicklist>
