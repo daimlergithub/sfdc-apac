@@ -6142,7 +6142,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',	
-IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
