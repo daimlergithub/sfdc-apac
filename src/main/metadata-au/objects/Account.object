@@ -6134,6 +6134,44 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	    <fields>
+        <fullName>Race__c</fullName>
+        <externalId>false</externalId>
+        <label>Race</label>
+        <picklist>
+            <controllingField>Market__c</controllingField>
+            <picklistValues>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indian</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malay</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Finance_Contract_Status__c</fullName>
         <description>DFE</description>
