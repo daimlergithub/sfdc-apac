@@ -41,6 +41,7 @@ public class ContactTriggerHandler
             ContactHelper.ValidateManager(Trigger.new);
         }
         if (trigger.isBefore && trigger.isUpdate) {
+            ContactHelper.updatemarket(Trigger.New);
             // Validate Gate Keeper
             ContactHelper.ValidateGateKeeper(Trigger.new);
             // Validate complaint manager and presales
@@ -49,6 +50,6 @@ public class ContactTriggerHandler
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-    	// Implementation to addedd as required in market
+        // Implementation to addedd as required in market
     }
 }

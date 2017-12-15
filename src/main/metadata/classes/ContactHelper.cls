@@ -392,4 +392,16 @@ public class ContactHelper {
             }
         }
     }
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Contact> conList){        
+        
+               for(Contact con : conList){
+                    if(Test.isRunningTest()){
+                        con.isTestRunning__c=true;
+                    }
+                   if(con.Market__c =='' || con.Market__c==NULL){
+                      con.Market__c=con.MD__c;
+                  }  
+              }       
+    }
 }

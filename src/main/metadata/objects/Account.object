@@ -4076,6 +4076,32 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Merging_To_Master__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Merging To Master</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts (Merging To Master)</relationshipLabel>
+        <relationshipName>MergingToMaster</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Merging_From_Slave__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Merging From Slave</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts (Merging From Slave)</relationshipLabel>
+        <relationshipName>MergingFromSlave</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Complaint_Amount__c</fullName>
         <defaultValue>0</defaultValue>
@@ -7679,21 +7705,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <fullName>Not Yet</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Done</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>In_Progress</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>none</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10373,7 +10403,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DIY</fullName>
@@ -62784,9 +62813,9 @@ if(market == 'JP')
 if(typeof(srcUp) == 'function') 
 { 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
+srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
 } else { 
-window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
 } 
 } 
 
@@ -62873,9 +62902,9 @@ if(market == 'JP')
 if(typeof(srcUp) == 'function') 
 { 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
+srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
 } else { 
-window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
 } 
 } 
 else 

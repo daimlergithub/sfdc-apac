@@ -927,7 +927,7 @@ public class AccountHelperTH{
             }
         }
         else
-            currentUserOrganization = 'Customer';
+            currentUserOrganization = 'MBTH';
         for(Account acc : newAccountList){
             if(!String.isBlank(oldAccountMap.get(acc.Id).Personal_Agreement__c) || oldAccountMap.get(acc.Id).Lastest_Consent_Date__c != null){
                 if(acc.Personal_Agreement__c != oldAccountMap.get(acc.Id).Personal_Agreement__c || acc.Lastest_Consent_Date__c != oldAccountMap.get(acc.Id).Lastest_Consent_Date__c){

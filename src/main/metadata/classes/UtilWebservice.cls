@@ -14,14 +14,21 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     System.debug('%^%^%^%^% AccountLinkId'+AccountLinkId);
     alk=[select id,CorrelationID__c from Account_Link__c where id=:AccountLinkId limit 1];
     }
-    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+    User  Usr = [SELECT Market__c, Id,profile.name,Alias FROM User WHERE Id = : UserInfo.getUserId()]; 
     String Usecase; 
     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
     crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType  request=new crmasiaDaimlerApacComSfdcnotificatio.SARILeadNotificationRequestMessageType ();
      crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
     
       String OrganizationId = UserInfo.getOrganizationId();
-      String MarketDiscriminator= Usr.Market__c;          
+      String MarketDiscriminator= Usr.Market__c;
+		List<lead__c> lead=[select id,StouchLeadID__c from Lead__c where id=:LeadId and StouchLeadID__c!=null];
+        system.debug('MarketDiscriminator'+MarketDiscriminator);
+        if(usr.profile.name=='IntegrationAPI' && usr.Alias=='iinf' &&lead.size()>0 ){
+            List<Account> dealracc=[select id,md__c from Account where id=:DealerID];
+            if(!dealracc.isEmpty())
+                MarketDiscriminator=dealracc[0].md__c;
+        }
       sendport.SARILeadNotification(OrganizationId ,MarketDiscriminator,Usecase,LeadId,DealerId,alk.CorrelationID__c);      
       System.debug('$%$%$%$%$%$%$%$ TransactionId'+response.TransactionId); 
       System.debug('%^%%^%^%^% response'+response); 
@@ -38,7 +45,7 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     webservice static string AccountLinkIfnoSendToAL(String RTCustomerId,String DealerID,String CorrelationId)
     {  
     System.debug('%^%%^%^%^% RTCustomerId'+RTCustomerId+'DealerID'+DealerID+'CorrelationId'+CorrelationId); 
-    User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
+    User  Usr = [SELECT Market__c, Id,profile.name,Alias FROM User WHERE Id = : UserInfo.getUserId()];
         String Usecase; 
     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
     crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType request=new crmasiaDaimlerApacComSfdcnotificatio.SARICustomerNotificationRequestMessageType();
@@ -46,6 +53,12 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
     
       String OrganizationId = UserInfo.getOrganizationId();
          String MarketDiscriminator= Usr.Market__c;
+		List<Account_link__c> acl=[select id,toRole__r.StouchUniqueId__c from Account_link__c where id=:RTCustomerId and toRole__r.StouchUniqueId__c!=null];
+        if(usr.profile.name=='IntegrationAPI' && usr.Alias=='iinf' && acl.size()>0 ){
+            List<Account> dealracc=[select id,md__c from Account where id=:DealerID];
+            if(!dealracc.isEmpty())
+                MarketDiscriminator=dealracc[0].md__c;
+        }
           String src;
           try
           {
@@ -325,9 +338,10 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
         SendingAddress.HouseNumber = address.HouseNumber__c;
         SendingAddress.Block = address.Block__c;
         SendingAddress.City = address.City__c;
-        SendingAddress.District = address.District__c;
+        SendingAddress.District = address.District__c;	
+        SendingAddress.Province = address.Province__c;		
         }
-        SendingAddress.Province = address.Province__c;
+        
         crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType request = new crmasiaDaimlerApacComValidateaddress.AddressValidationRequestMessageType();
         request.Organization = UserInfo.getOrganizationId();
         if(isAutoFillMode == true){

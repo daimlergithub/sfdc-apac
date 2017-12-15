@@ -693,6 +693,12 @@
                 <behavior>Edit</behavior>
                 <field>Related_Leads__c</field>
             </layoutItems>
+		</layoutColumns>
+		<layoutColumns>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Market__c</field>
+			</layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

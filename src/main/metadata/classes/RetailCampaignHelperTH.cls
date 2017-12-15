@@ -40,12 +40,30 @@ public class RetailCampaignHelperTH{
         }
     }
     }
+    public static String getCommunityURL(){
+        String communityName='Daimler Community Thailand';
+         String commubaseurl='';
+         boolean flag1;
+    List<Network>  myNetwork = [SELECT Id,Name FROM Network];
+       for(Network net:myNetwork){
+           if(net.name==communityName){
+           flag1=true;
+           commubaseurl=Network.getLoginUrl(net.id);
+           break;
+           }
+       }
+       return commubaseurl.replace('login','');
+    }
     //Will Updates the dealer email.This Email is going to be used in Email notifications
     public static void UpdateDealerEmail(List<Retail_Campaign__c> dmr){
+         String commURLTH=getCommunityURL();
         LIST<ID> acclist=new List<ID>();
         List<Retail_Campaign__c> filterlst=new List<Retail_Campaign__c>();
         Map<id,String> accwithndcode=new Map<id,String>();
         MAp<String,String> idwithemail=new Map<string,string>();
+        for(Retail_Campaign__c retcamp:dmr){
+            retcamp.CommunityURL__c=commURLTH;
+        }
         for(Retail_Campaign__c dm:dmr){
             if(dm.Dealer_Name__c!=null){
                 filterlst.add(dm);

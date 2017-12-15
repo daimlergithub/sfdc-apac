@@ -3,6 +3,7 @@ public class AddressHelperMYTest{
     
     private static Account account;
     private static Address__c address,address2;
+    private static List<Address__c> addressList=new List<Address__c>();
     
     public static testMethod void testUpdatePrimaryAddressOnAccount(){
        //create test data
@@ -11,7 +12,7 @@ public class AddressHelperMYTest{
        insert user1;
        System.runAs (user1) {  
    
-        Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+        Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
         upsert TriggerAddress;
         
         CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
@@ -52,8 +53,9 @@ public class AddressHelperMYTest{
         address.Preferred__c = true;
         address.country__c = 'Malaysia';
         address.ZipCode__c = '12345';
-        
-        insert address;
+        addressList.add(address);
+        DMLManagerService.insertAsSystem(addressList);
+        //insert address;
         
         address2=new Address__c();
         address2.Address_Type__c='Home';
@@ -68,24 +70,33 @@ public class AddressHelperMYTest{
         address2.Preferred__c = true;
         address2.country__c = 'Malaysia';
         address2.ZipCode__c = '12345';
-        
+        string MarketDiscriminator='MY'; 
+        string updateType='';
         try{
             insert address2;
         }catch(Exception e){}
         
         account.Primary_Address_Reference__c=address.id;
         update account;
-       
+        map<id,Address__c> addressOldMap=new map<id,Address__c>();
+        addressOldMap.put(address.id,address);
         test.startTest();
         TriggerRecursiveCheck.run = true;
-        address.Address_Type__c='Business';
+        
         try{
-         update address;
+        // update address;
+         AddressHelperMY.updateAddressOnAccount(addressList);
+         AddressHelperBase.updatemarket(addressList); 
+         AddressHelperMY.updatePrimaryAddressOnAccount(addressOldMap);
+         AddressHelperMY.validateSameAddressType(addressList,addressOldMap,true,true);
+         addressList[0].Address_Type__c='Business';
+         DMLManagerService.updateAsSystem(addressList);
+         AddressHelperMY.updateAccountonDeletion(addressList);
+         AddressHelperMY.updateAddressCDM(addressList,MarketDiscriminator,updateType);
          delete address;
         }catch(Exception e){}
         test.stopTest();
         account = [select Primary_Address_Display__c from Account where id =:address.Customer__c ];
-       // system.assertEquals(account.Primary_Address_Display__c, address.Province__c+address.City__c+address.District__c+address.Block__c+address.Address_Line_1__c+address.Address_Line_2__c);
        }
        }
     }

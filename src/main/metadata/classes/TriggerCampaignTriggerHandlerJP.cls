@@ -25,6 +25,7 @@ public class TriggerCampaignTriggerHandlerJP
         }
         if(Trigger.isBefore && Trigger.isUpdate)
         {
+           CampaignHelperBase.updatemarket(Trigger.New);
            CampaignHelper.validationParentCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
            CampaignHelper.validationChildCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);
            CampaignHelper.useSegmentationCampaign(Trigger.New,(Map<Id,Campaign>)Trigger.OldMap, isInsert, isUpdate);

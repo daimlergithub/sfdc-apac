@@ -59,59 +59,64 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 			MBK.Status__c = 'Send';
 			String myDate = '';
 			g.writeStartObject();
-			g.writeStringField('custMsgSn', MBK.Id);					//메시지 일련번호/ 키값  
-			g.writeStringField('channel', MBK.channel__c);				//채널[A:알림톡, C:친구톡]
-			g.writeStringField('custGubun', MBK.custGubun__c);			//고객사구분값
-			g.writeStringField('subject', MBK.subject__c);
-			g.writeStringField('senderKey', MBK.senderKey__c);			//발신프로필키
-			g.writeStringField('templateCode', MBK.templateCode__c);	//발신 템플릿코드
-			g.writeStringField('phoneNum', MBK.phoneNum__c);			//수신자휴대폰번호
-			g.writeStringField('smsMessage', MBK.message__c);			//발송메시지
-			g.writeStringField('message', MBK.message__c);				//발송메시지				
-			g.writeStringField('smsSndNum', system.label.MBK_Message_Sender_Phone);	//발송번호
-			g.writeStringField('smsKind', 'L');	//전환발송 구분
-			if(MBK.Set_Sending_Time__c <> null){
-				myDate = MBK.Set_Sending_Time__c.format('YYYYMMddHHmmss');
-			}
-			g.writeStringField('reqDtm', myDate);						//메시지 발송 요청시간
-			//첨부파일 처리
-			if(channel == 'M')
-			{
+						
+			//MBK.channel 분리
+			if(MBK.channel__c == 'S'){
+				g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호
+				g.writeStringField('smsMessage', notNull(MBK.message__c));							//발송메시지
+			}else if(MBK.channel__c == 'A'){
+				//알림톡
+				g.writeStringField('templateCode', notNull(MBK.templateCode__c));					//발신 템플릿코드
+				g.writeStringField('subject', notNull(MBK.subject__c));				
+				g.writeStringField('smsMessage', notNull(MBK.message__c));							//발송메시지
+				g.writeStringField('message', notNull(MBK.message__c));								//발송메시지				
+				g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호
+				g.writeStringField('smsKind', 'L');												//전환발송 구분
+								
+				if(MBK.templateCode__c == system.label.MBK_Message_Survey){
+					JSONGenerator buttong = JSON.createGenerator(true);
+					buttong.writeStartArray();
+					buttong.writeStartObject();
+					buttong.writeStringField('name', system.label.MBK_Message_Button_Name);	
+					buttong.writeStringField('type', 'WL');
+					buttong.writeStringField('url_mobile', system.label.MBK_Message_SurveyURL);
+					buttong.writeEndObject();					
+					
+					buttong.writeEndArray();
+					String dataButtonJson = buttong.getAsString();
+					g.writeStringField('button', dataButtonJson);	
+				}					
+			}else if(MBK.channel__c == 'M'){
+				g.writeStringField('message', notNull(MBK.message__c));								//발송메시지
+				g.writeStringField('subject', notNull(MBK.subject__c));
+				g.writeStringField('smsSndNum', notNull(system.label.MBK_Message_Sender_Phone));	//발송번호
+				//첨부파일 처리(MMS)
 				List<Attachment> MBKAtts = messageImages.get(MBK.Id);
 				Integer i = 1; 
 				if(MBKAtts <> null && MBKAtts.size() > 0)
 				{ 
-					JSONGenerator subg = JSON.createGenerator(true);
-					subg.writeStartArray();
-					for(Attachment att:MBKAtts)
-					{					
-						subg.writeStartObject();
-						subg.writeStringField('seq', String.valueOf(i));	
-						subg.writeStringField('file', EncodingUtil.base64Encode(att.Body));
-						subg.writeStringField('ext', att.Name.right(3));
-						subg.writeEndObject();
+					List<files> jsonfiles = new List<files>();  
+					for(Attachment att:MBKAtts){
+						files subf = new files();
+						subf.seq = String.valueOf(i);
+						subf.file = EncodingUtil.base64Encode(att.Body);
+						subf.ext = 	att.Name.right(3);
+						jsonfiles.add(subf); 			
 						i++;
 					} 
-					subg.writeEndArray();
-					String dataSubJson = subg.getAsString();
-					g.writeStringField('files', dataSubJson);	
+					g.writeObjectField('files',jsonfiles);	
 				}
 			}
-			String buttonTemp = system.label.MBK_Message_Survey;
-			if(MBK.templateCode__c == buttonTemp)
-			{
-				JSONGenerator buttong = JSON.createGenerator(true);
-				buttong.writeStartArray();
-				buttong.writeStartObject();
-				buttong.writeStringField('name', system.label.MBK_Message_Button_Name);	
-				buttong.writeStringField('type', 'WL');
-				buttong.writeStringField('url_mobile', system.label.MBK_Message_SurveyURL);
-				buttong.writeEndObject();					
-				
-				buttong.writeEndArray();
-				String dataButtonJson = buttong.getAsString();
-				g.writeStringField('button', dataButtonJson);	
-			}				
+			
+			//데이터 공통부
+			myDate = MBK.Set_Sending_Time__c == null ? myDate : MBK.Set_Sending_Time__c.format('YYYYMMddHHmmss');
+			g.writeStringField('senderKey', notNull(MBK.senderKey__c));							//발신프로필키
+			g.writeStringField('phoneNum', notNull(MBK.phoneNum__c));							//수신자휴대폰번호
+			g.writeStringField('custGubun', notNull(MBK.custGubun__c));							//고객사구분값
+			g.writeStringField('channel', notNull(MBK.channel__c));								//채널[A:알림톡, C:친구톡]
+			g.writeStringField('custMsgSn', notNull(MBK.custGubun__c)+'_'+notNull(MBK.Id));		//메시지 일련번호/ 키값
+			g.writeStringField('reqDtm', myDate);	
+					
 			g.writeEndObject(); 
 		}
 		g.writeEndArray();
@@ -188,6 +193,15 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 	}
 	
 	global void finish(Database.BatchableContext BC) {
-	} 
-	
+	}
+	 
+	private static String notNull(String str){
+		if(str == null) return '';
+		else return str; 		
+	}
+	public class files{
+		public String seq{get;set;}
+		public String file{get;set;}
+		public String ext{get;set;} 
+	}	
 }

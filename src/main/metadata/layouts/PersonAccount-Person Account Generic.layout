@@ -140,14 +140,14 @@
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>250</height>
                 <page>ContactTable</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
             <layoutItems>
-                <height>200</height>
+                <height>350</height>
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
@@ -342,6 +342,7 @@
         <fields>Retail_Email_OptOut__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
+		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -366,6 +367,7 @@
         <fields>Registration_Number__c</fields>
         <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
+		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
@@ -404,6 +406,7 @@
         <fields>ApplicationDate__c</fields>
         <fields>ContractNumber__c</fields>
         <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
+		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>

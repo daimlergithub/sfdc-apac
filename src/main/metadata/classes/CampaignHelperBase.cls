@@ -166,6 +166,17 @@ public class CampaignHelperBase {
             }
         }
     }
-    
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Campaign> campList){        
+        
+               for(Campaign camp : campList){
+                    if(Test.isRunningTest()){
+                        camp.isTestRunning__c=true;
+                    }
+                   if(camp.Market__c =='' || camp.Market__c==NULL){
+                     camp.Market__c=camp.MD__c;
+                  }  
+              }       
+    }
   
 }

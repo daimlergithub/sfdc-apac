@@ -64,11 +64,16 @@ Public class UtilTestData {
 
     public final static Integer BATCH_SIZE = 101;
     
+    public static User personSysUser2;
+	public static Market__c market_Obj;
+	public static Functionality_Access_Master__c functionality_access_master_Obj ;
+	public static Persona__c persona_Obj;
+    
     // Initiate recordTypeMap
     private static Map<String, Id> getRecordTypeMapInstance() {
         if (recordTypeMap == null) {
             recordTypeMap = new Map<String, Id>();
-            for (RecordType rt : [SELECT Id, Name, SobjectType FROM RecordType LIMIT 1000]) {
+            for (RecordType rt : [SELECT Id, Name, SobjectType FROM RecordType ]) {
                 recordTypeMap.put(rt.Name + rt.SobjectType, rt.Id);
             }
         }
@@ -80,7 +85,7 @@ Public class UtilTestData {
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {
             roleMap = new Map<String, Id>();
-            for (UserRole role : [SELECT Id, Name FROM UserRole LIMIT 1000]) {
+            for (UserRole role : [SELECT Id, Name FROM UserRole]) {
                 roleMap.put(role.Name, role.Id);
             }
         }
@@ -92,7 +97,7 @@ Public class UtilTestData {
     private static Map<String, Id> getProfileMapInstance() {
         if (profileMap == null) {
             profileMap = new Map<String, Id>();
-            for (Profile prof : [SELECT Id, Name FROM Profile LIMIT 1000]) {
+            for (Profile prof : [SELECT Id, Name FROM Profile]) {
                 profileMap.put(prof.Name, prof.Id);
             }
         }
@@ -127,6 +132,19 @@ Public class UtilTestData {
         insert usr;
         return usr;
     }
+    
+    //Create Persona User
+    public static User createPersornaUser(PermissionSet ps, Profile prof){
+        	market_Obj = new Market__c(Market_Code__c = 'MY', Market__c = 'Malaysia');
+			Insert market_Obj; 
+			functionality_access_master_Obj = new Functionality_Access_Master__c(Description__c = '12', Module_Name__c = 'Modul230', PermissionSet_Ids__c = ps.id, Permission_Sets__c = ps.name);
+			Insert functionality_access_master_Obj; 
+			persona_Obj = new Persona__c(Market_Access__c = market_Obj.id, Functionality_Access__c = functionality_access_master_Obj.id, Active__c = true, PersonaName__c = 'IntegrationPerso111', ProfileId__c = prof.id , Profiles__c = prof.name);
+			Insert persona_Obj;
+			
+			personSysUser2 = new User(Username = testString + Math.rint(Math.random() * 100000) + '@daimler.com', LastName = 'LastName527', Email = 'Email22@test.com',  Alias = 'Alias474', CommunityNickname = 'null', IsActive = true, TimeZoneSidKey = 'Pacific/Kiritimati', LocaleSidKey = 'sq_AL', ReceivesInfoEmails = false, ReceivesAdminInfoEmails = false, EmailEncodingKey = 'UTF-8', ProfileId = prof.ID, LanguageLocaleKey = 'en_US', UserPermissionsMarketingUser = false, UserPermissionsOfflineUser = false, UserPermissionsAvantgoUser = false, UserPermissionsCallCenterAutoLogin = false, UserPermissionsMobileUser = false, UserPermissionsSFContentUser = false, UserPermissionsKnowledgeUser = false, UserPermissionsInteractionUser = false, UserPermissionsSupportUser = false, UserPermissionsChatterAnswersUser = false, ForecastEnabled = false, UserPreferencesActivityRemindersPopup = false, UserPreferencesEventRemindersCheckboxDefault = false, UserPreferencesTaskRemindersCheckboxDefault = false, UserPreferencesReminderSoundOff = false, UserPreferencesDisableAllFeedsEmail = false, UserPreferencesDisableFollowersEmail = false, UserPreferencesDisableProfilePostEmail = false, UserPreferencesDisableChangeCommentEmail = false, UserPreferencesDisableLaterCommentEmail = false, UserPreferencesDisProfPostCommentEmail = false, UserPreferencesContentNoEmail = false, UserPreferencesContentEmailAsAndWhen = false, UserPreferencesApexPagesDeveloperMode = false, UserPreferencesHideCSNGetChatterMobileTask = false, UserPreferencesDisableMentionsPostEmail = false, UserPreferencesDisMentionsCommentEmail = false, UserPreferencesHideCSNDesktopTask = false, UserPreferencesHideChatterOnboardingSplash = false, UserPreferencesHideSecondChatterOnboardingSplash = false, UserPreferencesDisCommentAfterLikeEmail = false, UserPreferencesDisableLikeEmail = false, UserPreferencesSortFeedByComment = false, UserPreferencesDisableMessageEmail = false, UserPreferencesDisableBookmarkEmail = false, UserPreferencesDisableSharePostEmail = false, UserPreferencesEnableAutoSubForFeeds = false, UserPreferencesDisableFileShareNotificationsForApi = false, UserPreferencesShowTitleToExternalUsers = false, UserPreferencesShowManagerToExternalUsers = false, UserPreferencesShowEmailToExternalUsers = false, UserPreferencesShowWorkPhoneToExternalUsers = false, UserPreferencesShowMobilePhoneToExternalUsers = false, UserPreferencesShowFaxToExternalUsers = false, UserPreferencesShowStreetAddressToExternalUsers = false, UserPreferencesShowCityToExternalUsers = false, UserPreferencesShowStateToExternalUsers = false, UserPreferencesShowPostalCodeToExternalUsers = false, UserPreferencesShowCountryToExternalUsers = false, UserPreferencesShowProfilePicToGuestUsers = false, UserPreferencesShowTitleToGuestUsers = false, UserPreferencesShowCityToGuestUsers = false, UserPreferencesShowStateToGuestUsers = false, UserPreferencesShowPostalCodeToGuestUsers = false, UserPreferencesShowCountryToGuestUsers = false, UserPreferencesHideS1BrowserUI = false, UserPreferencesDisableEndorsementEmail = false, UserPreferencesPathAssistantCollapsed = false, UserPreferencesCacheDiagnostics = false, UserPreferencesShowEmailToGuestUsers = false, UserPreferencesShowManagerToGuestUsers = false, UserPreferencesShowWorkPhoneToGuestUsers = false, UserPreferencesShowMobilePhoneToGuestUsers = false, UserPreferencesShowFaxToGuestUsers = false, UserPreferencesShowStreetAddressToGuestUsers = false, UserPreferencesLightningExperiencePreferred = false, UserPreferencesPreviewLightning = false, UserPreferencesHideEndUserOnboardingAssistantModal = false, UserPreferencesHideLightningMigrationModal = false, UserPreferencesHideSfxWelcomeMat = false, UserPreferencesHideBiggerPhotoCallout = false, UserPreferencesGlobalNavBarWTShown = false, UserPreferencesGlobalNavGridMenuWTShown = false, UserPreferencesCreateLEXAppsWTShown = false, UserPreferencesFavoritesWTShown = false, IsPortalSelfRegistered = false, DigestFrequency = 'D', DefaultGroupNotificationFrequency = 'P', Active_Permission_Set__c = false, Active__c = false, Notification_Account_Finance_Update__c = false, Notification_Retail_Copy_Created__c = false, ChangesMadeInAssignedPersona__c = true, Persona_Assigned__c = 'IntegrationPerso111');
+        	return personSysUser2;
+	}
        // Create Test portal User
     private static User createPortalUser(Id userRoleId, Id profileId) {   
        User thisUser = [ select Id,UserRoleId from User where Id = :UserInfo.getUserId() ];        
@@ -236,23 +254,23 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
     
     private static Sobject initiateSobject(Sobject so, String recordTypeName) {
         if (so instanceof Account) {
-			Account acc=(Account)so;
+            Account acc=(Account)so;
             if (recordTypeName == ACCOUNT_RT_PERSON_ACCOUNT ) {
                 if(acc.MD__c=='JP'){
                     initiatePersonAccount1(so);
             }
-			else 
-			{
-			    initiatePersonAccount(so);
+            else 
+            {
+                initiatePersonAccount(so);
             }}
             else if (recordTypeName == ACCOUNT_RT_DEALER) {
-				if(acc.MD__C=='TH'){
-					initiateDealer1(so);
+                if(acc.MD__C=='TH'){
+                    initiateDealer1(so);
                 }
                 else{
-					initiateDealer(so);
-				}
-			}
+                    initiateDealer(so);
+                }
+            }
         }
         else if (so instanceof Contact) {
             initiateContact(so);
@@ -357,7 +375,7 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
             'North1' : acc.Dealer_MB_Sub_Region__c;
     }
     
-	//campaignhelperth
+    //campaignhelperth
     private static void initiateDealer1(Sobject so) {
         Account acc = (Account)so;
         acc.RecordTypeId = 
@@ -370,12 +388,12 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         acc.Dealer_MB_Sub_Region__c = acc.Dealer_MB_Sub_Region__c == null ?
             'North1' : acc.Dealer_MB_Sub_Region__c;
     
-		//acc.Mobile__c='123456789012';
-		// acc.Work_Phone__c='123456789012';
-		acc.Individual_Home_Phone__c='+66-12-123-789';
-		// acc.Email__c='abc@gmail.com';
+        //acc.Mobile__c='123456789012';
+        // acc.Work_Phone__c='123456789012';
+        acc.Individual_Home_Phone__c='+66-12-123-789';
+        // acc.Email__c='abc@gmail.com';
     }
-	
+    
     // Create Unsaved Person Account
     // N.B. Name is read only for Person Account
     private static void initiatePersonAccount(Sobject so) {
@@ -393,8 +411,8 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         acc.Mobile__c = '000-0000-9643';
         acc.Status__c = acc.Status__c == null ? '0=Customer' : acc.Status__c;
     }
-	
-	private static void initiatePersonAccount1(Sobject so) {
+    
+    private static void initiatePersonAccount1(Sobject so) {
         Account acc = (Account)so;
 
         acc.RecordTypeId = 

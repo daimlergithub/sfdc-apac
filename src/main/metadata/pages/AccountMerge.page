@@ -187,7 +187,7 @@
             
                 <table cellspacing="0" cellpadding="0" width="80%" align="center" class="rollup" style="margin-left:20px">
                     <tbody>
-                        <tr class="headerRow">
+                       <tr class="headerRow">
                             <apex:actionFunction name="selectAll" action="{!selectAll}" reRender="message">
                                 <apex:param assignTo="{!selectAllParam}" name="selectAllParam" value=""/>
                             </apex:actionFunction>
@@ -195,13 +195,13 @@
                             <td style="width:40%">
                                 <apex:outputLink target="_blank" value="/{!master.Id}">{!master.Name}
                                 </apex:outputLink> 
-                                <a href="javascript:setEntityValues('master'); selectAll('master');">{!$Label.Select_All}</a>
+                              <!--  <a href="javascript:setEntityValues('master'); selectAll('master');">{!$Label.Select_All}</a>-->
                             </td>
                             
                             <td style="width:40%">
                                 <apex:outputLink target="_blank" value="/{!slave.Id}">{!slave.Name}
                                 </apex:outputLink>  
-                                <a href="javascript:setEntityValues('slave'); selectAll('slave');">{!$Label.Select_All}</a>
+                              <!--  <a href="javascript:setEntityValues('slave'); selectAll('slave');">{!$Label.Select_All}</a>-->
                             </td>
                         </tr>
                         

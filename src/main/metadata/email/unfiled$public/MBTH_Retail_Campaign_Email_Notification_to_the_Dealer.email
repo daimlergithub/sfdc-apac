@@ -1,10 +1,16 @@
-Hi  {!Retail_Campaign__c.Dealer_Name__c},
+Dear Dealer,
 
-The  Retail Campaign {!Retail_Campaign__c.Campaign_Name__c} is  created for you kindly follow up with this record
+The Planning and Design Campaign  {!Retail_Campaign__c.Name} is assigned to you.
+Please kindly check and start the Execution.
 
-For Record find the below URL:
-{!Retail_Campaign__c.Link}
+Dealer’s Link:
+{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
 
-For Dealer User Click on Below Link : 
+MBTH’s Link:
+{!Retail_Campaign__c.Link} 
 
-{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/MBThailand/{!Retail_Campaign__c.Id}
+Best Regards,
+Marketing Team 
+Mercedes-Benz Thailand
+
+If you are not the addressee, please inform us immediately that you have received this e-mail by mistake, and delete it. We thank you for your support.

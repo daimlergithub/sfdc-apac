@@ -76,6 +76,14 @@
         <field>Lead__c$Finance_Approved__c</field>
     </columns>
     <description>Lead forwarding by product by dealer including reason of closed lead or non-closed lead.</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c$Market__c</column>
+            <operator>equals</operator>
+            <value>TH</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Week</dateGranularity>

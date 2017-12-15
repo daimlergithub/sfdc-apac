@@ -52,7 +52,7 @@
     }
     
     function hideTable(){
-        $("table[id*='addressIds']").hide();
+        $("table[id*='JpaddressIds']").hide();
     }
     </script>     
     <apex:form id="form">
@@ -976,7 +976,7 @@
                      <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If($Permission.MYGeneric ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>      
                     <!--MT20170909-->
                      </apex:outputPanel>
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric)) ,true,false)}"/> <!--oncomplete="hideTable();-->
+                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,JpaddressIds,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric)) ,true,false)}" oncomplete="hideTable();"/> <!--oncomplete="hideTable();-->
                     <!--<apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>-->
                     
                     <apex:outputPanel rendered="{!firstsave}" >
@@ -1019,7 +1019,19 @@
         
         <br/>
         <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="form"/>    
-        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF((market == 'KR' || DisplayAutoFill == true), true, false)}">    
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR', true, false)}">    
+            <apex:column >
+                <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
+            </apex:column>        
+            <apex:column value="{!item.add.Province__c}"/>
+            <apex:column value="{!item.add.City__c}"/>
+            <apex:column value="{!item.add.District__c}"/>
+            <apex:column value="{!item.add.Block__c}" rendered="{!IF(DisplayAutoFill == true,true,false)}"/>
+            <apex:column value="{!item.add.ZipCode__c}"/>
+            <apex:column value="{!item.add.Address_Line_1__c}"/> 
+            <apex:column value="{!item.add.Address_Line_2__c}"/>           
+        </apex:pageBlockTable>
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="JpaddressIds" rendered="{!IF((market == 'JP' && DisplayAutoFill == true), true, false)}">    
             <apex:column >
                 <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
             </apex:column>        
@@ -1126,7 +1138,7 @@
             <!--PR20170918--Start-- Introduced for Thailand. Shows Customer Search Result from CDM via Informatica-->
             <!--    <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">-->
                     <apex:pageBlock title="Match Found" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
-					<apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
+                    <apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
                         <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="Th">   
                             <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!($User.ContactId !=null && recordType == 'Person Account')}">  
                                 <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.LastName}</apex:outputLink>    

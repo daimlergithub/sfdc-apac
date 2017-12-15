@@ -52,8 +52,8 @@ public class RegisteredUsersTriggerHelper{
             rugUser.FirstName=userReq.First_Name__c;
             rugUser.LastName=userReq.Last_Name__c;
             rugUser.communityNickname = string.valueof(userReq.Last_Name__c +Math.random()).substring(0,12);
-            rugUser.alias = string.valueof(userReq.First_Name__c.substring(0,2) + 
-                                           userReq.Last_Name__c.substring(0,2) + Math.random()).substring(0,5);
+            rugUser.alias = string.valueof(userReq.First_Name__c.substring(0,1) + 
+                                           userReq.Last_Name__c.substring(0,1) + Math.random()).substring(0,5);
             rugUser.emailencodingkey='UTF-8';
             rugUser.languagelocalekey='en_US';
             rugUser.localesidkey='en_US'; 

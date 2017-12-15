@@ -12,15 +12,6 @@
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
     <fieldUpdates>
-        <fullName>Agreement_date_Update</fullName>
-        <field>Agreement_Date_for_Contact_Method__c</field>
-        <formula>Today()</formula>
-        <name>Agreement date Update</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Allow_Data_Sharing_to_NO_for_KR</fullName>
         <field>Allow_Data_Sharing2__c</field>
         <literalValue>No</literalValue>
@@ -404,16 +395,6 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Agreement date field update</fullName>
-        <actions>
-            <name>Agreement_date_Update</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(Personal_Agreement__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c ,&apos;&apos;)),NOT(ISPICKVAL( Agreement_to_commit_info_processing__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Abroad_Agreement__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Contact_Method__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
             <name>Change_Preferred_Phone</name>
@@ -486,7 +467,7 @@
             <name>WorkPhone_Update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>This workflow is the prefix +66 to all phone numbers</description>
         <formula>OR(CreatedBy.Profile.Name = &apos;IntegrationAPI&apos;, LastModifiedBy.Profile.Name = &apos;IntegrationAPI&apos;) &amp;&amp; OR(ISNEW(), OR(ISCHANGED(Mobile__c),ISCHANGED(Work_Phone__c),ISCHANGED(Individual_Home_Phone__c))) &amp;&amp; MD__c = &apos;TH&apos;</formula>
         <triggerType>onAllChanges</triggerType>
@@ -711,7 +692,7 @@ Modify Reason:
         </actions>
         <active>true</active>
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for MY</description>
-        <formula>ISPICKVAL($User.Market__c,&apos;MY&apos;)</formula>
+        <formula>(AND($Profile.Name != 'IntegrationAPI',ISPICKVAL($User.Market__c,&apos;MY&apos;)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

@@ -15,34 +15,35 @@ public class TriggerLeadTriggerHandlerKR
         {
             
             set<id> dealerIds = new set<id>();
-			set<Id> saleConIds = new set<Id>();
+            set<Id> saleConIds = new set<Id>();
             for(Lead__C leds : (List<Lead__c>)trigger.new)
             {
                 dealerIds.add(Leds.Assigned_Dealer__c);
-				//SFDCKR-1060
-				saleConIds.add(Leds.Sales_Consultant__c);
+                //SFDCKR-1060
+                saleConIds.add(Leds.Sales_Consultant__c);
             } 
-			   //SFDCKR-1060
-			   LeadHelperJP.updateAssignedDealer(trigger.new, saleConIds);
+               //SFDCKR-1060
+               LeadHelperJP.updateAssignedDealer(trigger.new, saleConIds);
                LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
-			   
+               
         }        
         if(isBefore && isUpdate)
         {
+            LeadHelperBase.updatemarket(Trigger.New);
             set<id> dealerIds = new set<id>();
-			set<Id> saleConIds = new set<Id>();
+            set<Id> saleConIds = new set<Id>();
             for(Lead__C leds : (List<Lead__c>)trigger.new)
             {
                 dealerIds.add(Leds.Assigned_Dealer__c);
-				//SFDCKR-1060
-				saleConIds.add(Leds.Sales_Consultant__c);
+                //SFDCKR-1060
+                saleConIds.add(Leds.Sales_Consultant__c);
             }            
              LeadHelper.UpdateLeadOwnerFromDealerLeadGateKeeper(dealerIds,Trigger.new,(Map<Id,Lead__c>)trigger.oldMap,isInsert, isUpdate, saleConIds);
-			//LeadHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Lead__c>)trigger.oldMap,isUpdate,isDelete); 
+            //LeadHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Lead__c>)trigger.oldMap,isUpdate,isDelete); 
         } 
-          		
+                
         if(isAfter && isInsert && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated)
-		{
+        {
              if(preventRecurssionafter == false){
                 set<id> dealerIds = new set<id>();
                 
@@ -55,7 +56,8 @@ public class TriggerLeadTriggerHandlerKR
             LeadHelperKR.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadSharingforDealerJP.LeadSharing_Dealer(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadUtil.isCreated = false;
-			LeadHelperKR.leadsharehierarchy(trigger.new);
+            LeadHelperKR.leadsharehierarchy(trigger.new);
+			//LeadHelperKR.sendEmailToQueue(trigger.new,'isInsert');
         }
         if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated)
         {
@@ -73,7 +75,8 @@ public class TriggerLeadTriggerHandlerKR
             LeadSharingforDealerJP.LeadSharing_Dealer(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadHelperKR.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadUtil.isCreated = false;
-			LeadHelperKR.leadsharehierarchy(trigger.new);
+            LeadHelperKR.leadsharehierarchy(trigger.new);
+			//LeadHelperKR.sendEmailToQueue(trigger.new,'isUpdate');
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

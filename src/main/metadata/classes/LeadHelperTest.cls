@@ -428,6 +428,7 @@ public with sharing class LeadHelperTest {
 		system.debug('********************oldLeads'+listCampaign);
      
 		LeadHelperKR.handleAfterInsertOrUpdate(listleads,oldMap);
+		UserHelper.leadownerchange();
     } 
     
     static testmethod void Leadsharehierarchytest1() {

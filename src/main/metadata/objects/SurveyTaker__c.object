@@ -219,6 +219,306 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Survey_Question_10__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_10__c</formula>
+        <label>Survey Question 10</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_11__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_11__c</formula>
+        <label>Survey Question 11</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_12__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_12__c</formula>
+        <label>Survey Question 12</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_13__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_13__c</formula>
+        <label>Survey Question 13</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_14__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_14__c</formula>
+        <label>Survey Question 14</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_15__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_15__c</formula>
+        <label>Survey Question 15</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_1__c</formula>
+        <label>Survey Question 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_2__c</formula>
+        <label>Survey Question 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_3__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_3__c</formula>
+        <label>Survey Question 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_4__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_4__c</formula>
+        <label>Survey Question 4</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_5__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_5__c</formula>
+        <label>Survey Question 5</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_6__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_6__c</formula>
+        <label>Survey Question 6</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_7__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_7__c</formula>
+        <label>Survey Question 7</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_8__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_8__c</formula>
+        <label>Survey Question 8</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Question_9__c</fullName>
+        <externalId>false</externalId>
+        <formula>Survey__r.Survey_Question_9__c</formula>
+        <label>Survey Question 9</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_10__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 10</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_11__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 11</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_12__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 12</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_13__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 13</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_14__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 14</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_15__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 15</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_4__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 4</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_5__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 5</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_6__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 6</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_7__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 7</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_8__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 8</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_9__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 9</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Survey_Taken_Date__c</fullName>
 		<defaultValue>NOW()</defaultValue>
         <externalId>false</externalId>
@@ -227,6 +527,16 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>Survey_Taken_Date_Time__c</fullName>
+		<defaultValue>NOW()</defaultValue>
+        <externalId>false</externalId>
+        <label>Survey Taken Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Survey_Taking_Status__c</fullName>

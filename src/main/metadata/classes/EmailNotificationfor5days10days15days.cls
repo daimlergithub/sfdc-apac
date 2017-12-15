@@ -83,12 +83,14 @@ global class EmailNotificationfor5days10days15days implements Database.Batchable
 	        notification15DaysDate = check15DayEmailTriggerDate;
 	        
         	system.debug(notification5DaysDate + '   ***$$$***   '+notification10DaysDate + '    *$*$*$* notification15DaysDate  ' + notification15DaysDate);
-        	//get monk contact
-            Contact MonkContact = MonkCotact(lead.Owner.Email);
-            system.debug('*$*$*$* MonkContact ' + MonkContact);
-            MonkContacts.add(MonkContact);
+        	
         	if(notification5DaysDate == system.today())
-        	{	system.debug( '   5 days difference Condition *$*$*  ' + emailNotificationTemplates[2].Id);
+        	{	
+        		//get monk contact
+            	Contact MonkContact = MonkCotact(lead.Owner.Email);
+            	system.debug('*$*$*$* MonkContact ' + MonkContact);
+            	MonkContacts.add(MonkContact);
+        		system.debug( '   5 days difference Condition *$*$*  ' + emailNotificationTemplates[2].Id);
 				Messaging.SingleEmailMessage sendEmail = new Messaging.SingleEmailMessage();
 				sendEmail.setSaveAsActivity(false);
 				sendEmail.setTargetObjectId(MonkContact.Id);
@@ -98,7 +100,12 @@ global class EmailNotificationfor5days10days15days implements Database.Batchable
 				sendEmailList.add(sendEmail);
         	}
         	else if(notification10DaysDate == system.today())
-        	{	system.debug( '   10 days difference Condition *$*$*  ' + emailNotificationTemplates[0].Id);
+        	{	
+        		//get monk contact
+            	Contact MonkContact = MonkCotact(lead.Owner.Email);
+            	system.debug('*$*$*$* MonkContact ' + MonkContact);
+            	MonkContacts.add(MonkContact);
+        		system.debug( '   10 days difference Condition *$*$*  ' + emailNotificationTemplates[0].Id);
         		Messaging.SingleEmailMessage sendEmail = new Messaging.SingleEmailMessage();
 				sendEmail.setSaveAsActivity(false);
 				sendEmail.setTargetObjectId(MonkContact.Id);
@@ -108,7 +115,12 @@ global class EmailNotificationfor5days10days15days implements Database.Batchable
 				sendEmailList.add(sendEmail);
         	}
         	else if(notification15DaysDate == system.today())
-        	{	system.debug( '   15 days difference Condition *$*$*  ' + emailNotificationTemplates[1].Id);
+        	{	
+        		//get monk contact
+            	Contact MonkContact = MonkCotact(lead.Owner.Email);
+            	system.debug('*$*$*$* MonkContact ' + MonkContact);
+            	MonkContacts.add(MonkContact);
+        		system.debug( '   15 days difference Condition *$*$*  ' + emailNotificationTemplates[1].Id);
         		Messaging.SingleEmailMessage sendEmail = new Messaging.SingleEmailMessage();
 				sendEmail.setSaveAsActivity(false);
 				sendEmail.setTargetObjectId(MonkContact.Id);

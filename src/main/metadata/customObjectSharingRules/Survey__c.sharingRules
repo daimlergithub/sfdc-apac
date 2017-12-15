@@ -44,7 +44,7 @@
     <criteriaBasedRules>
         <fullName>MBK_Survey_Sharing_Rule</fullName>
         <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>

@@ -34,13 +34,23 @@
         ShowHideFields(checked);
     }
     function hideTable(){
-        $("table[id*='addressIds']").hide();
+        $("table[id*='JPaddressIds']").hide();
+    }
+    function refreshPrimaryTab()
+    {
+        if(sforce.console.isInConsole())
+        {
+            sforce.console.getFocusedPrimaryTabId(showTabId1);
+        }
+    }
+    function showTabId1(result) {
+        sforce.console.refreshPrimaryTabById(result.id, true);
     }
     </script >
     <!--form starts here-->
     <apex:form id="addfrm" >
         <!--OutPutPanel starts here-->
-        <apex:outputPanel layout="block" style="overflow:auto;">
+        <apex:outputPanel layout="block" style="overflow:auto;" id="addressPageBlockId">
             
             <!--PageBlock starts here-->
             <apex:pageBlock title="{!$Label.Address}" id="pageBlock">
@@ -301,14 +311,14 @@
                 
                 <!--buttons to add, save edit  and edit cancel-->
                 
-                <apex:commandButton id="addbutton" value="{!$Label.Add_Button}" action="{!addEditOptions}"/>
+                <apex:commandButton id="addbutton" value="{!$Label.Add_Button}" action="{!addEditOptions}" reRender="addressPageBlockId"/>
                 <apex:commandButton id="editModeCancel" value="{!$Label.Cancel_Button}" reRender="pageBlock" style="display:none" immediate="true"/>
                 
                 
                 
             </apex:pageBlock>
             <apex:pageBlock id="hiddenBlock" rendered="false"></apex:pageBlock>
-            <apex:pageBlock rendered="{!ShowpageBlockFlag}">                 
+            <apex:pageBlock rendered="{!ShowpageBlockFlag}" id="AddressBlockId">                 
                 <apex:pageBlockSection title="Address Information" columns="3" id="pbsjpkr" rendered="{!IF((market=='JP' || market=='KR') ,true,false)}">
                     <!--input fields for new address 
                     <apex:inputField value="{!addressobj.Address_Type__c}"/>-->
@@ -565,9 +575,9 @@
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
-                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric) ),true,false)}" /> <!--oncomplete="hideTable();"-->
+                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric) ),true,false)}"/> <!--oncomplete="hideTable();"-->
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF((market='KR' || market='JP'),true,false)}"/>
-                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}"  reRender="redirectPanel,pgmsg"   rendered="{!IF(market=='TH',true,false)}"/>
+                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}" onComplete="refreshPrimaryTab();" reRender="addressPageBlockId,redirectPanel,pgmsg" rendered="{!IF(market=='TH',true,false)}"/>
                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.MYGeneric,true,false)}"/>
                     
                     <apex:outputPanel id="redirectPanel">                   
@@ -595,11 +605,22 @@
                         </apex:outputText> 
                     </apex:outputPanel>                  
                     
-                    <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}"/>
+                    <apex:commandButton action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}" reRender="addressPageBlockId"/>
                     
                 </apex:pageBlockButtons> 
                 <apex:ActionFunction name="callControllerMethod" action="{!SelectedAddress}" reRender="addfrm"/>                               
-                <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF((market == 'KR' || DisplayAutoFill == true), true, false)}">           
+                <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="addressIds" rendered="{!IF(market == 'KR', true, false)}">           
+                    <apex:column >
+                        <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
+                    </apex:column>
+                    <apex:column value="{!item.add.Province__c}"/>
+                    <apex:column value="{!item.add.City__c}"/>
+                    <apex:column value="{!item.add.District__c}"/>                    
+                    <apex:column value="{!item.add.ZipCode__c}"/>
+                    <apex:column value="{!item.add.Address_Line_1__c}"/> 
+                    <apex:column value="{!item.add.Address_Line_2__c}"/>            
+                </apex:pageBlockTable> 
+                <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="JPaddressIds" rendered="{!IF((market == 'JP' && DisplayAutoFill == true), true, false)}">           
                     <apex:column >
                         <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
                     </apex:column>
@@ -611,7 +632,7 @@
                     <apex:column value="{!item.add.Address_Line_1__c}"/> 
                     <apex:column value="{!item.add.Address_Line_2__c}"/>            
                 </apex:pageBlockTable>                
-            </apex:pageBlock>            
+            </apex:pageBlock> 
         </apex:outputPanel>                   
     </apex:form>
 </apex:page>

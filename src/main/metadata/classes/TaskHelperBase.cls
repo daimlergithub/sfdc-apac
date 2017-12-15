@@ -5,9 +5,9 @@
 */
 
 public with sharing class TaskHelperBase{
-  private static String OBCAllTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-  private static String eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
-   
+  
+  private static String OBCAllTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task',Label.OB_Call);
+  private static String eDMTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task',Label.eDM); 
   public static string closedString='closed'; 
   public static string validString='valid';
   public static string leadTabId = System.Label.LeadId;
