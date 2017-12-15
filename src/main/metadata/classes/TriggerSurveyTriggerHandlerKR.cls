@@ -7,7 +7,7 @@
 				   Helper class to perform the required functionality for Survey. 
 	
  ***********************************************************************************/
-public with sharing class TriggerSurveyTriggerHandlerKR 
+public with sharing class TriggerSurveyTriggerHandlerKR implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {

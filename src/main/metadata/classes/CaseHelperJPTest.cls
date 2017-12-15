@@ -3,7 +3,7 @@ public class CaseHelperJPTest{
     public List<Case> casesToUpdate = new List<Case>();
     public static Id caseInquiryRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
     public static Account testAccount1;
-    public static Account testAccount2;                                                                      
+    public static Account testAccount2;   
     public static User marketUser;
     public static List<case> cas;
     public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -26,6 +26,7 @@ public class CaseHelperJPTest{
        System.runAs(testUser){
            //Create Account
            testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+        
            testAccount1.Complaint_Amount__c=100;
            testAccount1.md__c='JP';
            testAccount1.market__c='JP';
@@ -41,6 +42,7 @@ public class CaseHelperJPTest{
            testAccount2.lastname='롱';
            update testAccount2;
            
+            
            system.debug('Account 1' +testAccount1);
            system.debug('Account 2' +testAccount2);
            
@@ -155,6 +157,7 @@ public class CaseHelperJPTest{
         
         List<Case> insertedCases = [Select DeadLine__c from Case Where DeadLine__c != null AND Id =: testCase1.Id];
         CaseHelperJP ch=new CaseHelperJP();
+         
         ch.updateCaseDeadline(insertedCases);
         system.debug('Inserted Cases..' +insertedCases);
         for(Case c : insertedCases){
@@ -252,6 +255,7 @@ system.assertEquals('Magazine','Magazine');
      Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
      insert dealer;
         Contact contact = new Contact(
+        
             AccountId = dealer.Id, 
             LastName = 'b', 
             Phone = '01212313', 
@@ -259,7 +263,7 @@ system.assertEquals('Magazine','Magazine');
         );
         insert contact;
         
-        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+        Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'KR',Narrative_of_Type__c='Marketing Opt Out');
         
         insert testCase1;
         
@@ -267,7 +271,7 @@ system.assertEquals('Magazine','Magazine');
         
       
         
-       Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
+       Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others', RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'KR',Narrative_of_Type__c='Marketing Opt Out');
 
 
         insert testCase2;
@@ -283,8 +287,8 @@ system.assertEquals('Magazine','Magazine');
         string isInsert;
         isInsert ='isUpdate';
 
-         CaseHelperJP ch=new CaseHelperJP();    
-         ch.updateGateKeaperforApprovedProcess(listcampaigns,oldMap,isInsert);
+      //   CaseHelperJP ch=new CaseHelperJP();    
+       //  ch.updateGateKeaperforApprovedProcess(listcampaigns,oldMap,isInsert);
         
         
         Test.StopTest();
@@ -348,7 +352,9 @@ system.assertEquals('Magazine','Magazine');
      Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
      insert dealer1;
      testAccount1 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
-      testAccount2 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+     testAccount2 = (Account)UtilTestData.createSobject(new Account(), UtilConstant.person_Account);
+
+
         Contact contact = new Contact(
             AccountId = dealer.Id, 
             LastName = 'b', 
@@ -360,17 +366,13 @@ system.assertEquals('Magazine','Magazine');
         Case testCase1 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others',RecordTypeId = caseInquiryRec_Id, Case_Dealer__c= dealer.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
         
         insert testCase1;
-        
-        
-        
-      
-        
        Case testCase2 = new Case(Case_Class__c = 'Complaint', Overdue_Reason__c ='Others',RecordTypeId = caseInquiryRec_Id, Accountid= testAccount1.Id, MD__c = 'JP',Narrative_of_Type__c='Marketing Opt Out');
 
-
         insert testCase2;
+       
         listcampaigns.add(testCase2);
-        Case listCampaign =[select Case_Class__c ,RecordTypeId,AccountId,Status,Priority,Case_Dealer__c from Case where id IN:listcampaigns ];
+
+         Case listCampaign =[select Case_Class__c ,RecordTypeId,AccountId,Status,Priority,Case_Dealer__c from Case where id IN:listcampaigns ];
          list<Case> oldList = new  list<Case>();
          oldList.add(listCampaign);
         map<id,Case> oldMap = new map<id,Case>();

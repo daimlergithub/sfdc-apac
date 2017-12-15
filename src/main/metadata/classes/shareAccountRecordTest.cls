@@ -15,10 +15,10 @@ public class shareAccountRecordTest {
                                     Dealer_DMS_CRM_Code__c='test code',
                                     Status__c='xCustomer',
                                     City__c='Beijing',
-                                    Phone = '080801010',
+                                    Phone = '000-0000-9642',
                                     Name = 'test dealer1',       
                                     Area_code__c = '010',                                    
-                                    ZipCode__c='1234567',Allow_Data_Sharing_Comment__c='comments',Mobile__c='0000000000',
+                                    ZipCode__c='1234567',Allow_Data_Sharing_Comment__c='comments',Mobile__c='000-0000-9642',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
        //insert Dealer;
       accList.add(Dealer);
@@ -28,7 +28,7 @@ public class shareAccountRecordTest {
                                     Status__c='NoCustomer',
                                     City__c='Beijing',
                                     Gender__c = 'Male',
-                                    Phone = '080180101',
+                                    Phone = '000-0000-9642',
                                     Area_code__c = '0101',
                                     LastName = 'galaxy1',
                                     FirstName = 'First Name',
@@ -40,7 +40,8 @@ public class shareAccountRecordTest {
                                     Dealer_Lead_System__c = 'Salesforce',
                                     Email__c='test011@test.com',
                                     Email2__c='test012@test.com',
-                                    Home_Phone_2__c='0000000000',Mobile__c='0000000000',Allow_Data_Sharing_Comment__c='comments',
+									MBK_Data_Source__c='Campaign',
+                                    Home_Phone_2__c='000-0000-9642',Mobile__c='000-0000-9642',Allow_Data_Sharing_Comment__c='comments',
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
       //  insert personAcc;
          accList.add(personAcc);
