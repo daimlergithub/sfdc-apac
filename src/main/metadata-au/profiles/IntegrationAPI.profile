@@ -3579,6 +3579,11 @@
         <field>Account.Mobile2__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Mobile3_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Mobile_Status__c</field>
@@ -4894,6 +4899,11 @@
         <field>Account_Link__c.OwnerId__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Portal_Delete_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Personal_Abroad_Agreement__c</field>
@@ -6144,6 +6154,11 @@
         <field>Campaign.Lead_Creation_flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Max_Car_Age__c</field>
@@ -6444,6 +6459,11 @@
         <field>CampaignMember.Lodgement_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>CampaignMember.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Member_Latest_Update_Time__c</field>
@@ -6627,6 +6647,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Lead__c.Participate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Lead__c.Retail_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6832,6 +6857,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Contractor_Individual_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Convert_To_Lead_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7134,6 +7164,7 @@
         <field>Campaign_Member__c.Retail_Campaign_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Retail_Task__c</field>
@@ -7427,6 +7458,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Life_Cycle_Cluster__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Car_Model__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9839,6 +9875,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Complaint_Tracking__c.User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13154,6 +13195,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Nurtured__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.New_Contract_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17256,11 +17302,6 @@
         <field>Retail_Task__c.MBF_Comments__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.MBF_base_interest_rate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.MD__c</field>
@@ -17299,21 +17340,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.MOT_User_Phone__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
@@ -19086,6 +19112,11 @@
         <field>SurveyTaker__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Retail_Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SurveyTaker__c.SurveyTakenByVehicle__c</field>
@@ -19154,6 +19185,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Single_FreeText_Next_Question_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Survey_Answer_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
