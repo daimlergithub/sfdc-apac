@@ -69,7 +69,7 @@ public with sharing class VehicleRelationshipHelperBase{
         for (Vehicle_Relationship__c vr : newVehicleRelRecords){
             if(vr.Contact__c!=Null  && (!setIgnoredAccounts.contains(vr.Contact__c)) && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes))){                 
                 ContactIds.add(vr.Contact__c);
-                if(oldMapVR.get(vr.id).Contact__c!=vr.Contact__c){
+                if(oldMapVR.get(vr.id).Contact__c!=vr.Contact__c && string.isnotblank(oldMapVR.get(vr.id).Contact__c)){
                     ContactIds.add(oldMapVR.get(vr.id).Contact__c);
                 }
             } 
@@ -132,7 +132,7 @@ public with sharing class VehicleRelationshipHelperBase{
     Public static void updateVehicleAmount(Set<Id> ContactIds){                   
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
         IgnoredAccounts();     
-        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=:Null AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
+        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=Null AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  
                 setVehicleIds.add(vr.Vehicle_ID__c);              

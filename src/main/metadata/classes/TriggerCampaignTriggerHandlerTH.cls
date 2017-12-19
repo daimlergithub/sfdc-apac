@@ -17,7 +17,10 @@ public class TriggerCampaignTriggerHandlerTH implements TriggerHandlerIf
         } */
         if(trigger.isUpdate)
         {
-       CampaignHelperTH.beforeUpdateEvents(Trigger.new,oldmap);
+          if(trigger.isBefore){
+              CampaignHelperBase.updatemarket(Trigger.New);
+           }
+          CampaignHelperTH.beforeUpdateEvents(Trigger.new,oldmap);
         }
         if(trigger.isAfter && trigger.isInsert)
         {

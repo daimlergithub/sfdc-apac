@@ -28,59 +28,58 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
 
         if(isBefore && isInsert){
-			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
-				AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
-				AccountHelperBase.updatemarket(Trigger.New);
-			}
+            if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+                AccountHelperMy.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+                AccountHelperBase.updatemarket(Trigger.New);
+            }
         }
             
         if(isBefore && isUpdate){
             /* Data Update MD Fix - Santosh Mohanty*/
             AccountHelperBase.updatemarket(Trigger.New);
-			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
-				//AccountHelperTH.ValidateNationalid(Trigger.new);
-				AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-				AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
-				
-				AccounthelperTH.updateOnDoNotCall(Trigger.new);
-				AccountHelperTH.updateOnPostalOptout(Trigger.new);
+            if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+                AccountHelperMy.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
+                AccountHelperMy.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+                
+                AccounthelperMy.updateOnDoNotCall(Trigger.new);
+                AccountHelperMy.updateOnPostalOptout(Trigger.new);
 
-				AccountHelperTH.updateOnEmailOptout(Trigger.new);
-				AccountHelperTH.updateAgeRange(Trigger.new);
-				AccountHelperTH.activeContracts(Trigger.new);        
-			}			
+                AccountHelperMY.updateOnEmailOptout(Trigger.new);
+                AccountHelperMY.updateAgeRange(Trigger.new);
+                AccountHelperMY.activeContracts(Trigger.new);        
+            }           
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
         {   
-			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
-				if(TriggerRecursiveCheck.run){
-					TriggerRecursiveCheck.runOnce();
-					AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
-					AccountHelperTH.createUpdateCDMUCID(label.InsertContext,Label.MY,Trigger.new);
-				}  
-			}			
+            if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+                if(TriggerRecursiveCheck.run){
+                    TriggerRecursiveCheck.runOnce();
+                    AccountHelperMY.createUCID(Trigger.new,trigger.isInsert);
+                    AccountHelperMY.createUpdateCDMUCID(label.InsertContext,Label.MY,Trigger.new);
+                }  
+            }           
         }                                                                      
          if(isAfter && isInsert )
         {
            //Harshit added to check for User permission-Access Management
             if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
-                AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+                AccountHelperMY.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
                 }                                                                               
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
-				if(TriggerRecursiveCheck.run){
-						TriggerRecursiveCheck.runOnce();
-						AccountHelperTH.createUpdateCDMUCID(Label.UpdateContext,Label.MY,Trigger.new);
-						firstRun=false;
-					}
-			}
+            if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+                if(TriggerRecursiveCheck.run){
+                        TriggerRecursiveCheck.runOnce();
+                        AccountHelperMY.createUpdateCDMUCID(Label.UpdateContext,Label.MY,Trigger.new);
+                        firstRun=false;
+                    }
+            }
             //Harshit added to check for User permission-Access Management
             if(Util_GetPermissionList.checkAccessOnUser(Label.updateRetailCopy))
             {                                                                
-                AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
+                AccountHelperMY.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
            
             }
             
@@ -100,7 +99,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         # Author : Mohammed Touseef Ahmed
         */
         if(isAfter && isUpdate && Usr.Profile.Name != Label.IntProfileName){
-            AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
+            AccountHelperMY.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
         }
     }
     
@@ -111,17 +110,18 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == label.MY)
         {
             if(isBefore && isInsert){
-                AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+                //AccountHelperMY.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+				AccountHelperMY.updateAccountFieldsBeforeInsertInt(Trigger.new,trigger.isInsert);
             }
         
         if(isBefore && isUpdate){
-            AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-            AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
-            AccounthelperTH.updateOnDoNotCall(Trigger.new);
-            AccountHelperTH.updateOnPostalOptout(Trigger.new);
-            AccountHelperTH.updateOnEmailOptout(Trigger.new);
-            AccountHelperTH.updateAgeRange(Trigger.new);
-            AccountHelperTH.activeContracts(Trigger.new);
+            AccountHelperMY.updateAccountFieldsBeforeIntUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
+            AccountHelperMY.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+            AccountHelperMY.updateOnDoNotCall(Trigger.new);
+            AccountHelperMY.updateOnPostalOptout(Trigger.new);
+            AccountHelperMY.updateOnEmailOptout(Trigger.new);
+            AccountHelperMY.updateAgeRange(Trigger.new);
+            AccountHelperMY.activeContracts(Trigger.new);
             }
         }
     }

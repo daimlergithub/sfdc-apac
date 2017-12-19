@@ -3,21 +3,52 @@ public with sharing class LeadHelperMYTest {
 
 private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
 private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
+public static User user1;
+public static User user2;
+public static Market__c market_Obj;
+public static Functionality_Access_Master__c functionality_access_master_Obj ;
+public static Persona__c persona_Obj; 
 
 static testMethod void testAccAssignment() {
-    Trigger__c leadtrigger=new Trigger__c(name='TriggerLeadMY',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='MY',Trigger_Handler__c='LeadTriggerHandlerMY',Trigger_Name__c='TriggerLead',update__c=true);
-insert leadtrigger;
-    Profile p1 = [select id from profile where Name='System Administrator' limit 1];
-    User user1 = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
-    insert user1;
-    
-    User user2 = new User(LastName='GEORGE',country='Australia',ProfileId=p1.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
-    insert user2;
-   
+    Profile p1 = [select id, name from profile where Name='System Administrator' limit 1];
+    user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+			  EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+			  LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
+			  TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+	
     System.runAs (user1) {
-   
+        PermissionSet ps = new PermissionSet();
+			ps.Name = 'Test';
+			ps.Label = 'Test';
+			insert ps;
+    
+        CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
 
-        test.starttest();
+        SetupEntityAccess sea = new SetupEntityAccess();
+        sea.ParentId = ps.Id;
+        sea.SetupEntityId = cps.id;
+        insert sea;
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+		cs.DEFAULT_CALLOUT_TIME__c='1000';
+		cs.MAX_CALLOUT_TIME__c='5000';
+		cs.Name='CalloutValues';
+		insert cs;
+		
+        SystemSettingsDFW__c sysSet = new SystemSettingsDFW__c();
+		sysSet.Debug__c =true;
+		sysSet.Error__c = true;
+		sysSet.Info__c= true;
+		sysSet.Warning__c = true;
+		sysSet.Log_Purge__c =10;
+		sysSet.Name=p1.Name;
+		DMLManagerService.insertAsSystem(sysSet);
+        
+        user2 = UtilTestData.createPersornaUser(ps, p1);
+    }
+        System.runAs (user2) {
+		Trigger__c leadtrigger=new Trigger__c(name='TriggerLeadMY',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='MY',Trigger_Handler__c='LeadTriggerHandlerMY',Trigger_Name__c='TriggerLead',update__c=true);
+		insert leadtrigger;
+		test.starttest();
         set<id> accid=new set<id>();
         Account dealer = new Account();
         dealer.Dealer_Alternate_Name__c = 'Test Alternate';
@@ -41,10 +72,10 @@ insert leadtrigger;
         dealer.Status__c = '0=contac1';
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'EAST';
-       insert dealer;
-       system.assertEquals(dealer.id,[select id from account where id=:dealer.id limit 1].id);
+        insert dealer;
+        system.assertEquals(dealer.id,[select id from account where id=:dealer.id limit 1].id);
        
-       Account dealer1 = new Account();
+        Account dealer1 = new Account();
         dealer1.Dealer_Alternate_Name__c = 'Test Alternate';
         dealer1.Phone = '12332121';
         dealer1.Dealer_GC_Code__c = 'gc code';
@@ -66,8 +97,8 @@ insert leadtrigger;
         dealer1.Status__c = '0=contac1';
         dealer1.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer1.Dealer_Region__c = 'EAST';
-       insert dealer1;
-       system.assertNotEquals([select id from account where id=:dealer1.id limit 1].id,[select id from account where id=:dealer.id limit 1].id);
+        insert dealer1;
+        system.assertNotEquals([select id from account where id=:dealer1.id limit 1].id,[select id from account where id=:dealer.id limit 1].id);
        
         
         Account perAcc= new Account();

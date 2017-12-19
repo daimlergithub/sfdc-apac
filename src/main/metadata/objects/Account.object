@@ -4076,6 +4076,32 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Merging_To_Master__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Merging To Master</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts (Merging To Master)</relationshipLabel>
+        <relationshipName>MergingToMaster</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Merging_From_Slave__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Merging From Slave</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts (Merging From Slave)</relationshipLabel>
+        <relationshipName>MergingFromSlave</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Complaint_Amount__c</fullName>
         <defaultValue>0</defaultValue>
@@ -7679,21 +7705,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <fullName>Not Yet</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Done</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>In_Progress</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>none</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10373,7 +10403,6 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DIY</fullName>
@@ -13828,6 +13857,56 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <trackHistory>true</trackHistory>
         <type>Phone</type>
     </fields>
+	<fields>
+        <fullName>Mobile3_Last_Modified_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile3 Last Modified By</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mobile3_Last_Modified_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile3 Last Modified Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Mobile3_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile3 Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Mobile_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile 3</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
     <fields>
         <fullName>Mobile_Status__c</fullName>
         <description>value will be delivered in general by external sources, but can be maintained manually as well</description>
@@ -15585,6 +15664,11 @@ Modify Reason:
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>To be Deleted</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -16874,7 +16958,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -24429,6 +24513,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Mobile3_Status__c</picklist>
+            <values>
+                <fullName>Invalid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62718,9 +62813,9 @@ if(market == 'JP')
 if(typeof(srcUp) == 'function') 
 { 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
+srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
 } else { 
-window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
+window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
 } 
 } 
 
@@ -62807,9 +62902,9 @@ if(market == 'JP')
 if(typeof(srcUp) == 'function') 
 { 
 if (sforce.console.isInConsole()) { 
-srcUp('/apex/SendToJPOS?id={!Account.Id}&amp;isdtp=vw'); 
+srcUp('/apex/SendAccountInfoToSPO?id={!Account.Id}&amp;isdtp=vw'); 
 } else { 
-window.open('/apex/SendToJPOS?id={!Account.Id}','_blank'); 
+window.open('/apex/SendAccountInfoToSPO?id={!Account.Id}','_blank'); 
 } 
 } 
 else 

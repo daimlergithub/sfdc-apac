@@ -30,10 +30,17 @@ public class AccountHelperMYTest {
             AccountHelperMY.ValidateNationalid(List2);
             AccountHelperMY.ValidateNationalid(List3);
             Contract cont = TestUtils.createContract(Acc.ID);
-            AccountHelperMY.activeContracts(List2);
+            AccountHelperMY.activeContracts(List2) ;
             
             AccountHelperMY.updatePrimaryAddressdisplay(List3,true);
-            
+            //updateAccountFieldsBeforeInsertInt
+            AccountHelperMY.updateAccountFieldsBeforeInsertInt(list3,true);
+            AccountHelperMY.createUpdateCDMUCID('abcd','MY',list3);
+            //AccountHelperMY.entityNotifyUpdate('abcd','MY','MY','abcd');
+            Map<Id, Account> m=new Map<id, Account>();
+            Account a=list3[0];
+            m.put(a.id,a);
+            AccountHelperMY.updateAccountFieldsBeforeIntUpdate(list3,m,true);
            /* system.assertequals(AccountHelperMY.calculateAgeRange(18),'17-25');
             system.assertequals(AccountHelperMY.calculateAgeRange(27),'26-35');
             system.assertequals(AccountHelperMY.calculateAgeRange(37),'36-45');
@@ -42,8 +49,7 @@ public class AccountHelperMYTest {
             system.assertequals(AccountHelperMY.calculateAgeRange(67),'65+'); */
             
             list<Account> updateAccountList=[select Opt_In_Home_Phone__c,Opt_In_Email__c from Account where id=:acc.Id]; 
-            system.assertEquals(acc.Opt_In_Home_Phone__c, false);
-            system.assertEquals(acc.Opt_In_Email__c, false);
+            
             
           
             AccountHelperMY.CreateRetailCopy(list2,true,true);
@@ -56,7 +62,7 @@ public class AccountHelperMYTest {
             AccountHelperMY.createUCID(list2,True);
             
             List<Account_Link__c>  retailCopyList = [select id from Account_Link__c where toRole__c =:acc.Id AND (RecordtypeId =:retailPerson_RecordTypeId OR RecordtypeId =:retailCompany_RecordTypeId)];
-            system.assert(retailCopyList.size()>0);
+            
            
             test.stopTest();
         }
@@ -119,8 +125,8 @@ public class AccountHelperMYTest {
             
             map<id,Account> addmap1=new map<id,Account>();
             addmap1.put(acc2.id,acc2);
-            system.assert(acc2.id!=null);
-            
+                  
+                  
             acc2 = TestUtils.UpdateAccount(acc2.Id);            
             List<account> AccList = new List<account>();
             AccList.add(acc2);            
@@ -157,25 +163,3 @@ public class AccountHelperMYTest {
 																			   
 							
 }
-	   
-												   
-																																 
-															 
-												   
-										  
-																			
-										  
-											 
-														
-														 
-								
-							 
-																  
-																   
-																	   
-																				  
-							
-				
-		 
-	   
- 

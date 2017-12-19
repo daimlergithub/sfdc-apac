@@ -20,23 +20,9 @@
         <name>JP_MarketSurvey Taken_Readable_to_MBJ_IT_Dept</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>MBK_MarketSurvey_Taken_Readable_to_MBK_Users</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Director</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <accessLevel>Edit</accessLevel>
-        <description>View all records of all Survey Taken object with MD__c = &apos;KR&apos; for all Roles used in Korea</description>
-        <name>MBK MarketSurvey Taken Readable to MBK Users</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
         <fullName>MBK_Survey_Taken_Sharing_Rule</fullName>
         <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>
@@ -56,7 +42,7 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
-        <accessLevel>Read</accessLevel>
+        <accessLevel>Edit</accessLevel>
         <name>TH Survey taken sharing to other Th users</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

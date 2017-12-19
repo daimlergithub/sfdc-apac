@@ -237,7 +237,7 @@
                 <behavior>Edit</behavior>
                 <field>Visit_Dealer__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Contacted__c</field>
             </layoutItems>
@@ -270,7 +270,7 @@
                 <behavior>Edit</behavior>
                 <field>Fax__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Message__c</field>
             </layoutItems>
@@ -513,6 +513,10 @@
                 <behavior>Edit</behavior>
                 <field>Appointment_DateTime__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Actual_Payment_Mode__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -610,7 +614,7 @@
         <editHeading>true</editHeading>
         <label>Description Information</label>
         <layoutColumns>
-		    <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CCC_Comment__c</field>
             </layoutItems>
@@ -653,6 +657,10 @@
                 <behavior>Edit</behavior>
                 <field>Updated_By_EP_Transactions__c</field>
             </layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Market__c</field>
+			</layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -675,7 +683,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	<relatedLists>
+    <relatedLists>
         <customButtons>New_Campaign_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
@@ -695,7 +703,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-	    <excludeButtons>LogCall</excludeButtons>
+        <excludeButtons>LogCall</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>

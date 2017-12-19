@@ -1199,6 +1199,80 @@ public with sharing class UserHelper {
            MRC_PermissionHandler mrcp=new MRC_PermissionHandler();
            mrcp.assignMarketBasedPermisionSetsToUsers((List<User>)usersList);
     }
-       
+    
+	//---------------------------- Case/Lead Owner Update - SFDCKR-964 ----------------------------
+    // Added By - Sreenivasareddy 
+     
+    // Cases Owner Updating
+    
+    @future
+    public static void caseownerchange() {       
+    
+        Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where IsActive=false and Market__c='KR' and MBK_Reporting_Partner_User__c != null]);
+        
+        system.debug('$$$$$$$$ Case Reporting Users $$$$$$$$' +usermap);
+        
+        List<Case> caselist = new List<case>([Select id,ownerid from Case where ownerid in:usermap.keySet()]);
+        
+        system.debug('$$$$$$$$ Caselist $$$$$$$$' +caselist);
+        
+        List<Case> csli = new LIst<Case>();
+        
+        for(Case cs:caselist){
+            system.debug('$$$$$$$$********* Caselist *********$$$$$$' +cs);
+            User u = new User();
+            u = usermap.get(cs.ownerid);
+            
+            system.debug('$$$$$$$$ Case Userlist $$$$$$' +u);
+            
+            if(u.MBK_Partner_Roles__c == 'Sales Consultant'){
+				cs.ownerid = u.MBK_Reporting_Partner_User__c;
+				system.debug('$$$$$$$$ Update Case owner Sales Consultant $$$$$$' +cs.ownerid);
+            }
+            if(u.MBK_Partner_Roles__c == 'Team Leader'){
+				cs.ownerid = u.MBK_Reporting_Partner_User__c;
+				system.debug('$$$$$$$$ Update Case Owner Team Leader $$$$$$' +cs.ownerid);
+            }
+			csli.add(cs);
+			system.debug('$$$$$$$$ Update Case Owner $$$$$$' +csli);
+        }
+        update csli;
+    }
+
+    // Leads Owner Updating
+    
+    @future
+    public static void leadownerchange() {       
+    
+        Map<ID, User> usermap = new Map<ID, User>([Select Id,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c from User where IsActive=false and Market__c='KR' and MBK_Reporting_Partner_User__c != null]);
+        
+        system.debug('$$$$$$$$ Lead Reporting Users $$$$$$$$' +usermap);
+        
+        List<Lead__c> leadlist = new List<Lead__c>([Select id,ownerid from Lead__c where ownerid in:usermap.keySet()]);
+        
+        system.debug('$$$$$$$$ Leadlist $$$$$$$$' +leadlist);
+        
+        List<Lead__c> ldli = new LIst<Lead__c>();
+        
+        for(Lead__c ld:leadlist){
+            system.debug('$$$$$$$$********* Leadlist ******$$$$$$' +ld);
+            User u = new User();
+            u = usermap.get(ld.ownerid);
+            
+            system.debug('$$$$$$$$ Lead Userlist $$$$$$' +u);
+            
+            if(u.MBK_Partner_Roles__c == 'Sales Consultant'){
+				ld.ownerid = u.MBK_Reporting_Partner_User__c;
+				system.debug('$$$$$$$$ Update Lead Owner Sales Consultant $$$$$$' +ld.ownerid);
+            }
+            if(u.MBK_Partner_Roles__c == 'Team Leader'){
+				ld.ownerid = u.MBK_Reporting_Partner_User__c;
+				system.debug('$$$$$$$$ Update Lead Owner Team Leader $$$$$$' +ld.ownerid);
+            }
+			ldli.add(ld);
+			system.debug('$$$$$$$$ Update Lead Owner $$$$$$' +ldli);
+        }
+        update ldli;
+    }
 
 }

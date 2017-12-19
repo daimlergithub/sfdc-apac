@@ -9,12 +9,7 @@
 public class CampaignHelperBase {
     
     private static String pending ='Pending';
-    //public static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();    // Campaign Record Type MAP
-    //public static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
-    //public static string parentCampaign ='Planning & Design Campaign';
-    
-  
-    
+          
     public static void afterInsertUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap, boolean isUpdate, string market,string parentCampaign)
     {
 
@@ -83,7 +78,7 @@ public class CampaignHelperBase {
                     DMLManagerService.updateAsSystem(childCmpList);
                     //update childCmpList;
                 }catch(DmlException ex){
-                    cp.addError('You can not activate a campaign without any execution.');
+                    cp.addError(Label.Campaign_Activation_Error);
                 }
 
             }
@@ -101,7 +96,6 @@ public class CampaignHelperBase {
 
         if(!cpExeList.IsEmpty()) 
         DMLManagerService.updateAsSystem(cpExeList);
-        //update cpExeList;
         /* END Campaign Excution create task update */
         
         
@@ -112,7 +106,6 @@ public class CampaignHelperBase {
         
             if(accJob!=Null){
              DMLManagerService.insertAsSystem(accJob);
-            //insert accJob;
             }
         }
         
@@ -121,20 +114,17 @@ public class CampaignHelperBase {
             leadJob.Campaign_Set__c = cpLeadIds;
             if(leadJob!=Null){
             DMLManagerService.insertAsSystem(leadJob);
-             //insert leadJob;       
             }  
         }
         if(!cpVehicleList.isEmpty()) {          
             //database.executeBatch(new UtilCampaignTaskGenerationByVehicle(cpVehicleList), 200); 
             vehJob.Campaign_Set__c = cpVehicleIds;
             DMLManagerService.insertAsSystem(vehJob);
-            //insert vehJob; 
         }
         if(!cpCaseList.isEmpty()) {          
             //database.executeBatch(new UtilCampaignTaskGenerationByCase(cpCaseList), 200); 
             caseJob.Campaign_Set__c = cpCaseIds;
             DMLManagerService.insertAsSystem(caseJob);
-            //insert caseJob; 
         }
         /* END Batch Execution */
     
@@ -145,8 +135,6 @@ public class CampaignHelperBase {
     public static void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap,string market, string parentCampaign)
     {
       
-        //Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId();
-        //Id cmpExeReTpIdC =RecordTypeAccessService.getRecordTypeId('Campaign',Label.Campaign Execution - Simple); 
         Id cmpExeReTpIdS =RecordTypeAccessService.getRecordTypeId('Campaign',Label.Campaign_Execution_Simple);
         Set<Id> campaignIds = new Set<Id>();
         for(Campaign cp : campaignNew) {
@@ -173,11 +161,22 @@ public class CampaignHelperBase {
             if ((cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == RecordTypeAccessService.getRecordTypeId('Campaign',parentCampaign)) && (CampaignCMPExes.get(cp.Id) < 1 ))
             {
                 
-                    cp.addError('You can not activate a campaign without any execution.');
+                    cp.addError(Label.Campaign_Activation_Error);
                                 
             }
         }
     }
-    
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Campaign> campList){        
+        
+               for(Campaign camp : campList){
+                    if(Test.isRunningTest()){
+                        camp.isTestRunning__c=true;
+                    }
+                   if(camp.Market__c =='' || camp.Market__c==NULL){
+                     camp.Market__c=camp.MD__c;
+                  }  
+              }       
+    }
   
 }

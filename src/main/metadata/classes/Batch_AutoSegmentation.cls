@@ -15,7 +15,7 @@ global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Data
         
         Date today = Date.Today();
         //String query = 'Select Id,Name, OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: today AND IsAutoSegmentationExecuted__c = false';
-        String query = 'Select Id,Name, OwnerId, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: today AND IsAutoSegmentationExecuted__c = false';
+        String query = 'Select Id,Name, OwnerId,Segmentation_Base__c,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: today AND IsAutoSegmentationExecuted__c = false';
          system.debug('+++++++ Query'+query);
         return Database.getQueryLocator(query);
          
@@ -25,15 +25,28 @@ global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Data
     global void execute(Database.BatchableContext bc, List<Retail_Campaign__c> scope) {
        String sid;
         String accQuery;
+        Id RetailOwnerId ;
+        String SegmentationBase;
         List<Retail_Campaign__c> campList = new List<Retail_Campaign__c>();
         List<Retail_Campaign__c> campError = new List<Retail_Campaign__c>();
         List<Campaign_Member__c> campMemList = new List<Campaign_Member__c>();
-
+        Set<Id> ShareRecords = New Set<Id>();
+        List<String>GroupName = New List<String>();
+        List<String>GroupList = New List<String>();
+        List<Id> AccMainList = New List<Id>();
         for(Retail_Campaign__c camp : scope){
-             //sid=camp.Segmentation_Criteria__r.Criteria__c;
+             sid=camp.Segmentation_Criteria__r.Criteria__c;
+             SegmentationBase= camp.Segmentation_Base__c;
+             RetailOwnerId = camp.OwnerId;
         } 
-        system.debug('+++++++++sid'+sid);    
+        system.debug('+++++++++sid'+sid);
+        List<User> UseList = [Select id,Contact.AccountId, Dealer_GC_Code__c From User Where Id =:RetailOwnerId LIMIT 1];
+        system.debug('+++++++++sid'+UseList); 
+        System.debug('+++++++++++'+UseList[0].Contact.AccountId);   
         accQuery = sid;
+        //accQuery += 'UserRecordAccess.HasReadAccess 
+       // accQuery +='LIMIT 2000';
+        if(SegmentationBase == 'customer'){
         List<Account> accList = new List<Account>();
         try{    
         accList = Database.query(accQuery);
@@ -44,18 +57,57 @@ global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Data
         
         system.debug('+++++++++++accList'+accList);
         if(accList.size()>0 && !accList.isEmpty()){
+        
+        for(Account acc : accList){
+           
+                 ShareRecords.add(acc.Id);
+           
+           }
+           system.debug('+++++ShareRecords+++++++++'+ShareRecords);
+           system.debug('+++++ShareRecords+++++++++'+ShareRecords.size());
+           
+           For(Account accountDealer :[Select id , Name,Dealer_GC_Code__c From Account Where Dealer_GC_Code__c=:UseList[0].Dealer_GC_Code__c ]){
+           
+                   GroupName.add(accountDealer.Name);
+           
+           
+           }
+           
+           system.debug('+++++GroupName+++++++++'+GroupName);
+           
+           For(Group grp :[select id ,Name ,Type from Group where Name =: GroupName]){
+           
+          
+                 GroupList.add(grp.id);
+           
+           
+           }
+           system.debug('+++++GroupList+++++++++'+GroupList);
+           
+           List<AccountShare> AcList =[Select id,Accountid From AccountShare Where UserOrGroupId =:GroupList LIMIT 10000 ];
+           System.debug('++++++++++++++++'+AcList.size());
+           
+           For(AccountShare acMain :AcList){
+               if(ShareRecords.contains(acMain.Accountid)){
+              
+               AccMainList.add(acMain.AccountId);
+               }
+           
+           }
             
             for(Retail_Campaign__c reCamp : scope){
                 
                  retNotiList.add(reCamp); 
             
             
-            for(Account acc : accList){
+            for(Id acid :AccMainList){
                 
                 Campaign_Member__c camMem = New Campaign_Member__c ();
                 //camMem.Name = acc.Name;
-                camMem.Contact_Id__c = acc.Id;
+                camMem.Contact_Id__c = acId;
                 camMem.Retail_Campaign_Id__c = reCamp.Id;
+                camMem.Preferred_Dealer__c = UseList[0].contact.AccountId;
+                camMem.OwnerId = reCamp.OwnerId;
                 campMemList.add(camMem);
                 
                 
@@ -73,6 +125,98 @@ global class Batch_AutoSegmentation implements Database.Batchable<SObject>, Data
         } 
         
             
+        }
+        } else if(SegmentationBase == 'Vehicle'){
+        
+        List<Vehicle_Relationship__c> accList = new List<Vehicle_Relationship__c>();
+        try{    
+        accList = Database.query(accQuery);
+        
+        
+           
+           
+        
+        system.debug('+++++++++++accList'+accList);
+        if(accList.size()>0 && !accList.isEmpty()){
+            
+           for(Vehicle_Relationship__c acc : accList){
+           
+                 ShareRecords.add(acc.Contact__c);
+           
+           }
+           system.debug('+++++ShareRecords+++++++++'+ShareRecords);
+           system.debug('+++++ShareRecords+++++++++'+ShareRecords.size());
+           
+           For(Account accountDealer :[Select id , Name,Dealer_GC_Code__c From Account Where Dealer_GC_Code__c=:UseList[0].Dealer_GC_Code__c ]){
+           
+                   GroupName.add(accountDealer.Name);
+           
+           
+           }
+           
+           system.debug('+++++GroupName+++++++++'+GroupName);
+           
+           For(Group grp :[select id ,Name ,Type from Group where Name =: GroupName]){
+           
+          
+                 GroupList.add(grp.id);
+           
+           
+           }
+           system.debug('+++++GroupList+++++++++'+GroupList);
+           
+           List<AccountShare> AcList =[Select id,Accountid From AccountShare Where UserOrGroupId =:GroupList LIMIT 10000 ];
+           System.debug('++++++++++++++++'+AcList.size());
+           
+           For(AccountShare acMain :AcList){
+               if(ShareRecords.contains(acMain.Accountid)){
+              
+               AccMainList.add(acMain.AccountId);
+               }
+           
+           }
+           
+            for(Retail_Campaign__c reCamp : scope){
+                
+                 retNotiList.add(reCamp); 
+            
+            
+           // for(Vehicle_Relationship__c acc : accList){
+               
+               for(Id acid :AccMainList){ 
+                for(Vehicle_Relationship__c acc : accList){
+               
+               if(acc.contact__c == acid){
+                Campaign_Member__c camMem = New Campaign_Member__c ();
+                //camMem.Name = acc.Name;
+               // camMem.Contact_Id__c = acc.Contact__c;
+               camMem.Contact_Id__c = acid;
+                camMem.Retail_Campaign_Id__c = reCamp.Id;
+                camMem.Preferred_Dealer__c = UseList[0].contact.AccountId;
+                camMem.OwnerId = reCamp.OwnerId;
+               camMem.Vehicle__c = acc.Vehicle_ID__c;
+                camMem.Vehicle_Relationship__c =acc.id;  
+                campMemList.add(camMem);
+                }
+                }
+                }
+                
+               reCamp.IsAutoSegmentationExecuted__c = true;
+                campList.add(reCamp);
+                
+            }
+            }}catch( QueryException e ) {
+           System.debug( e.getMessage() );
+           for(Retail_Campaign__c caError : scope){
+             caError.hasError__c = true;
+             campError.add(caError);
+        } 
+        
+            
+        }
+        
+        
+        
         }
             
         Database.Update(campError,false);

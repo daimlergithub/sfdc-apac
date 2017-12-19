@@ -29,8 +29,7 @@ public with sharing class CtrlMessageServiceKRDFW {
     public Integer NoOfRecords {get;set;} 
     public Integer TemplateSize {get;set;}
     public String SendTemplateId{get;set;}
-    //public List<MBK_Message_Template__c> MessageTemplates{get;set;}
-    //private map<Id, MBK_Message_Template__c> retTemplates{get;set;}
+    public String dealerId{get;set;}
     
     //Template 변경
     public List<Template__c> MessageTemplatesOrg{get;set;}
@@ -40,6 +39,7 @@ public with sharing class CtrlMessageServiceKRDFW {
     private MBK_Bulk_Message__c BulkMessage{get;set;}
     
     public CtrlMessageServiceKRDFW(){
+    	dealerId = '';
     	IsSend = false;
     	isBulk = false;
     	doc = true;
@@ -51,7 +51,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 		mmsFile1 = new Attachment ();
 		mmsFile2 = new Attachment ();
 		mmsFile3 = new Attachment ();
-		//MessageTemplates = new List<MBK_Message_Template__c>();
+
 		MessageTemplatesOrg = new List<Template__c>();
 		viewObject = new MBK_Messages__c();
 		fileSize1 = 0;
@@ -83,12 +83,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 	}
 	
 	/* get Message Templates, param:Mtype */    
-	public void TypeOfTemplates() {
-        /*
-        retTemplates =  new map<Id, MBK_Message_Template__c>([SELECT Id, Subject__c, Contents__c, Template_ID__c, Type__c 
-		        												FROM MBK_Message_Template__c
-		                										WHERE Type__c =: Mtype AND Active__c = true]);
-		*/		                										
+	public void TypeOfTemplates() {		                										
 		String query = ' SELECT Id, Subject__c, Message_Detail__c, Template_ID__c, RecordType.Name '
 					+ 'FROM Template__c WHERE Active__c = true ';			
 					if(Mtype == 'KaKao') query += 'AND RecordType.Name = \'KakaoTalk\' ';
@@ -101,7 +96,6 @@ public with sharing class CtrlMessageServiceKRDFW {
 		}
 		            										
     	TemplateSize = 5;
-    	//MessageStcon = new ApexPages.StandardSetController(retTemplates.values());
     	MessageStcon = new ApexPages.StandardSetController(retTemplatesOrg.values());
     	MessageStcon.setPageSize(TemplateSize);
     	if(NoOfRecords == null) NoOfRecords = 0;
@@ -184,7 +178,7 @@ public with sharing class CtrlMessageServiceKRDFW {
     // MBK_Message_Template pagging
         
     private void getTargetLead(){
-    	Lead__c target = [SELECT Id, Name, Contact__c, Contact__r.UCID__c, Contact__r.PersonMobilePhone, Contact__r.PersonEmail, 
+    	Lead__c target = [SELECT Id, Name, Contact__c, Contact__r.UCID__c, Contact__r.Mobile__c, Contact__r.PersonEmail, Assigned_Dealer__c,
     							Contact__r.Name, Contact__r.Email2__c, Contact__r.Opt_In_SMS__c, Contact__r.KaKao_Talk_ID__c, 
     							Contact__r.Personal_Agreement__c, Contact__r.Personal_Information_Third_Party_Release__c, 
     							Contact__r.Personal_Abroad_Agreement__c, Contact__r.Agreement_to_commit_info_processing__c
@@ -204,11 +198,13 @@ public with sharing class CtrlMessageServiceKRDFW {
     	viewObject.Agreement_to_commit_info_processing__c = target.Contact__r.Agreement_to_commit_info_processing__c;
     	viewObject.KaKaoTalk_ID__c = target.Contact__r.KaKao_Talk_ID__c; 
     	viewObject.UCID__c = target.Contact__r.UCID__c; 
-    	viewObject.phoneNum__c = target.Contact__r.PersonMobilePhone;		
+    	viewObject.phoneNum__c = target.Contact__r.Mobile__c;
+    	
+    	dealerId = target.Assigned_Dealer__c; 		
     }
     
     private void getTargetAccount(){
-    	Account target = [SELECT Id, Name, UCID__c, PersonMobilePhone, PersonEmail, Opt_In_SMS__c, KaKao_Talk_ID__c,
+    	Account target = [SELECT Id, Name, UCID__c, Mobile__c, PersonEmail, Opt_In_SMS__c, KaKao_Talk_ID__c,
     							 Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c,
     							 Agreement_to_commit_info_processing__c 
     						FROM Account WHERE Id =: TargetID];
@@ -227,24 +223,24 @@ public with sharing class CtrlMessageServiceKRDFW {
     	viewObject.Agreement_to_commit_info_processing__c = target.Agreement_to_commit_info_processing__c;
     	viewObject.KaKaoTalk_ID__c = target.KaKao_Talk_ID__c; 
     	viewObject.UCID__c = target.UCID__c; 
-    	viewObject.phoneNum__c = target.PersonMobilePhone;
+    	viewObject.phoneNum__c = target.Mobile__c;
     }
     
     private void getTargetTask(){
-    	Task target = [SELECT Id, Account_Name__c, CustomerName__c, PersonMobilePhone__c, UCID__c, Email_Address__c, Phone__c 
+    	Task target = [SELECT Id, Account_Name__c, CustomerName__c, UCID__c, Email_Address__c, Phone__c 
     					FROM Task WHERE Id =: TargetID];
 
     	viewObject.Account_Name__c = target.Account_Name__c;
     	doc = true; //확인	
     	viewObject.UCID__c = target.UCID__c; 
-    	viewObject.phoneNum__c = target.PersonMobilePhone__c == null ? target.Phone__c : target.PersonMobilePhone__c;		
+    	viewObject.phoneNum__c = target.Phone__c;		
     }
     
     private void getTargetCase(){
-    	Case target = [SELECT Id, Contact.Account.Id, Contact.Account.UCID__c, Contact.Account.PersonMobilePhone, Contact.Account.PersonEmail, 
+    	Case target = [SELECT Id, Contact.Account.Id, Contact.Account.UCID__c, Contact.Account.Mobile__c, Contact.Account.PersonEmail, 
     							Contact.Account.Name, Contact.Account.Email2__c, Contact.Account.Opt_In_SMS__c, Contact.Account.KaKao_Talk_ID__c, 
     							Contact.Account.Personal_Agreement__c, Contact.Account.Personal_Information_Third_Party_Release__c,
-    							Contact.Account.Personal_Abroad_Agreement__c, Contact.Account.Agreement_to_commit_info_processing__c
+    							Contact.Account.Personal_Abroad_Agreement__c, Contact.Account.Agreement_to_commit_info_processing__c, Case_Dealer__c
     						FROM Case WHERE Id =: TargetID];
     	viewObject.Case__c = target.Id;
     	viewObject.Account_Name__c = target.Contact.Account.Name;
@@ -261,7 +257,9 @@ public with sharing class CtrlMessageServiceKRDFW {
     	viewObject.Agreement_to_commit_info_processing__c = target.Contact.Account.Agreement_to_commit_info_processing__c;
     	viewObject.KaKaoTalk_ID__c = target.Contact.Account.KaKao_Talk_ID__c; 
     	viewObject.UCID__c = target.Contact.Account.UCID__c; 
-    	viewObject.phoneNum__c = target.Contact.Account.PersonMobilePhone;										 
+    	viewObject.phoneNum__c = target.Contact.Account.Mobile__c;
+    	
+    	dealerId = target.Case_Dealer__c;										 
     }
     
     private void getTargetCampaign(){
@@ -311,6 +309,9 @@ public with sharing class CtrlMessageServiceKRDFW {
 			if(Attachments.size() == 3)	mmsFile3 = Attachments[2];
 		}
 		if(viewObject.channel__c == 'A') Mtype = 'KaKao';
+		
+		if(viewObject.Leads__c <> null) dealerId = viewObject.Leads__c;
+		else if(viewObject.Case__c <> null) dealerId = viewObject.Case__c;
     }
     
 	/**
@@ -344,7 +345,8 @@ public with sharing class CtrlMessageServiceKRDFW {
 						insertObject.channel__c = system.label.MBK_Message_Channel_SMS;
 					}
 				}
-				
+
+				insertObject.message__c = setChangeStr(insertObject, dealerId);
 				insertObject.custGubun__c  = system.label.MBK_Message_custGubun;
 				//MMS파일 처리(Attachment)				
 				if(mmsFile1.Name <> null || mmsFile2.Name <> null || mmsFile3.Name <> null){
@@ -523,7 +525,8 @@ public with sharing class CtrlMessageServiceKRDFW {
 						viewObject.channel__c = system.label.MBK_Message_Channel_SMS;
 					}
 				}
-				
+
+				viewObject.message__c = setChangeStr(viewObject, dealerId);
 				viewObject.custGubun__c  = system.label.MBK_Message_custGubun;
 				//MMS파일 처리(Attachment)				
 				if(mmsFile1.Name <> null || mmsFile2.Name <> null || mmsFile3.Name <> null){
@@ -590,5 +593,22 @@ public with sharing class CtrlMessageServiceKRDFW {
 			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'System Error : '+e));
 		}
    		return null;
+    }
+    
+    private String setChangeStr(MBK_Messages__c MBKmessage, String ids){
+		String message = MBKmessage.message__c;	
+		if(MBKmessage <> null && MBKmessage.message__c <> null){
+			if(MBKmessage.Account_Name__c <> null || MBKmessage.Account_Name__c <> '') message = message.replaceAll('#\\{고객명\\}',MBKmessage.Account_Name__c);	//고객명
+			if(ids <> '' || ids <> null){
+				List<Account> accs = [SELECT Id, Name, Dealer_Address_CN__c, Dealer_Alternate_Name__c FROM Account WHERE Id =: ids];
+				if(accs.size() > 0){
+					Account acc = accs[0];
+					if(acc.Dealer_Alternate_Name__c <> null || acc.Dealer_Alternate_Name__c <> '') message = message.replaceAll('#\\{회사명\\}', acc.Dealer_Alternate_Name__c);	//딜러사명
+					if(acc.Dealer_Address_CN__c <> null || acc.Dealer_Address_CN__c <> '') message = message.replaceAll('#\\{센터주소\\}', acc.Dealer_Address_CN__c);	//센터주소
+					if(acc.Name <> null || acc.Name <> '') message = message.replaceAll('#\\{센터명\\}', acc.Name);	//센터명
+				}
+			}
+		}    	
+	   	return message;
     }
 }

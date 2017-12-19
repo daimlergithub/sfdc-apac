@@ -1,13 +1,18 @@
-Hi, 
+Dear Dealer,
 
-The Approver has approved your request for Retail Campaign {!Retail_Campaign__c.Name} 
+The Retail  Campaign {!Retail_Campaign__c.Name}  Acknowledgement is Rejected by the Approver  {!Retail_Campaign__c.Approver__c}  .
+
+Kindly look into the comment section
 
 
-{!Retail_Campaign__c.Link}
+Dealer’s Link:
+{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
 
+MBTH’s Link:
+{!Retail_Campaign__c.Link} 
 
-For Dealer User Click on Below Link : 
+Best Regards,
+{!Retail_Campaign__c.Approver__c}  
+Mercedes-Benz Thailand
 
-{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/MBThailand/{!Retail_Campaign__c.Id} 
-
-Thanks!
+If you are not the addressee, please inform us immediately that you have received this e-mail by mistake, and delete it. We thank you for your support.

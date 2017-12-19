@@ -1,13 +1,13 @@
 /**
-* Utility for Trigger on Task for MY(Malaysia)
+* Utility for Trigger on Task 
 * Author: Sushma
 * Created Date : 2017-11-09
 */
 
 public with sharing class TaskHelperBase{
-  private static String OBCAllTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-  private static String eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
-   
+  
+  private static String OBCAllTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task',Label.OB_Call);
+  private static String eDMTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task',Label.eDM); 
   public static string closedString='closed'; 
   public static string validString='valid';
   public static string leadTabId = System.Label.LeadId;
@@ -49,7 +49,7 @@ public with sharing class TaskHelperBase{
                         }
                         if (accs!=null && !accs.IsEmpty())
                         {
-                            update accs;
+                            DMLManagerService.updateAsSystem(accs);
                         } 
                     
                 }

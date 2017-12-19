@@ -2679,6 +2679,21 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>ISP_Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+AND(Month(FirstRegistrationDate__c)=2,Day(FirstRegistrationDate__c)=29),
+DATE(YEAR(FirstRegistrationDate__c) + 3, Month(FirstRegistrationDate__c),Day(FirstRegistrationDate__c)-1),
+DATE(YEAR(FirstRegistrationDate__c) + 3, Month(FirstRegistrationDate__c),Day(FirstRegistrationDate__c))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ISP Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Info_Source__c</fullName>
         <externalId>false</externalId>
         <label>Info Source</label>

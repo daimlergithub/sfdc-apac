@@ -97,6 +97,10 @@
                 <behavior>Edit</behavior>
                 <field>Courtesy_Greeting__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Message__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -160,6 +164,14 @@
                 <behavior>Edit</behavior>
                 <field>Previous_Campaign_Execution__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>StartDate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>EndDate</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -170,6 +182,10 @@
                 <behavior>Edit</behavior>
                 <field>Interval_Before_Execution_Hours__c</field>
             </layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Market__c</field>
+			</layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

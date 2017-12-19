@@ -19,6 +19,7 @@ global with sharing class VehicleExtension {
     public String VG{get;set;}
     public String steering{get;set;}
     public String compModel{get;set;}
+    public String marketcheck{get;set;}
     public PageReference nextPage;
     private ApexPages.StandardController stdController;
     
@@ -39,6 +40,7 @@ global with sharing class VehicleExtension {
         
         vehicle = (Vehicle__C)stdController.getRecord();
         vehicle.market__c=[Select market__c From User Where Id = :UserInfo.getUserId()][0].market__c;
+        marketcheck = vehicle.market__c;
         string returnId = ApexPages.currentPage().getParameters().get('accId');
         
         if(returnId!=null)

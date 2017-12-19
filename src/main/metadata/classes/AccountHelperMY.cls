@@ -12,39 +12,51 @@ public class AccountHelperMY{
 
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert){
         AccountHelperBase.updateAccountFieldsBeforeInsert(listNewAccounts,isInsert);
+        AccountHelperBase.updateMarketingFields(listNewAccounts);
     }
     
+	public static void updateAccountFieldsBeforeInsertInt(list<Account> listNewAccounts,boolean isInsert){
+        AccountHelperBase.updateAccountFieldsBeforeInsertInt(listNewAccounts,isInsert);
+        AccountHelperBase.updateMarketingFields(listNewAccounts);
+    }
+	
     public static void ValidateNationalid(List<account> ListAccount){
         AccountHelperBase.ValidateNationalid(ListAccount);
     }
     
     public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
         AccountHelperBase.updateAccountFieldsBeforeUpdate(listNewAccounts,accountOldMap,isUpdate);
+        AccountHelperBase.updateMarketingFields(listNewAccounts);
     }
-    
+	
+    public static void updateAccountFieldsBeforeIntUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
+        AccountHelperBase.updateAccountFieldsBeforeIntUpdate(listNewAccounts,accountOldMap,isUpdate);
+        AccountHelperBase.updateMarketingFields(listNewAccounts);
+    }
+	
     public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate){
-        AccountHelperBase.updatePrimaryAddressdisplay(listNewAccounts,isUpdate,System.Label.MarketMY);
+        AccountHelperBase.updatePrimaryAddressdisplay(listNewAccounts,isUpdate);
     } 
     
     public static void updateOnDoNotCall(list<Account> listNewAccounts){
-        AccountHelperBase.updateOnDoNotCall(listNewAccounts,System.Label.MarketMY);
+        AccountHelperBase.updateOnDoNotCall(listNewAccounts);
     }
     
     public static void updateOnPostalOptout(list<Account> listNewAccounts){
-        AccountHelperBase.updateOnPostalOptout(listNewAccounts,System.Label.MarketMY);
+        AccountHelperBase.updateOnPostalOptout(listNewAccounts);
     }
     
     public static void updateOnEmailOptout(list<Account> listNewAccounts){
-        AccountHelperBase.updateOnEmailOptout(listNewAccounts,System.Label.MarketMY);
+        AccountHelperBase.updateOnEmailOptout(listNewAccounts);
     }
     
     public static void updateAgeRange(list<Account> listNewAccounts){
-        AccountHelperBase.updateAgeRange(listNewAccounts,System.Label.MarketMY);
-		for(account acc : listNewAccounts ){
-			if(string.isnotblank(acc.Age_Range__c)?acc.Age_Range__c=='Unknown':False)
-			acc.Age_Range__c = '0-17';
-		
-		}
+        AccountHelperBase.updateAgeRange(listNewAccounts);
+        for(account acc : listNewAccounts ){
+            if(string.isnotblank(acc.Age_Range__c)?acc.Age_Range__c=='Unknown':False)
+            acc.Age_Range__c = '0-17';
+        
+        }
     }
     
     public static void activeContracts(list<Account> listNewAccounts){
@@ -52,7 +64,7 @@ public class AccountHelperMY{
     }
     
     public static void createUCID(list<Account> TriggerNew,boolean isInsert){
-        AccountHelperBase.createUCID(TriggerNew,isInsert,System.Label.MarketMY);    
+        AccountHelperBase.createUCID(TriggerNew,isInsert);    
     }
     
     public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist){
@@ -60,23 +72,23 @@ public class AccountHelperMY{
     }
     
     public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
-        AccountHelperBase.CreateRetailCopy(accLst,isInsert,isUpdate,System.Label.MarketMY);    
+        AccountHelperBase.CreateRetailCopy(accLst,isInsert,isUpdate);    
     }
     
     public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst){
-        AccountHelperBase.updateRetailCopy(isUpdate,isinsert,isafter,accLst,System.Label.MarketMY);    
+        AccountHelperBase.updateRetailCopy(isUpdate,isinsert,isafter,accLst);    
     } 
     
-    @Future(callout=true)   
+     @future(callout=true)
     public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject){
         AccountHelperBase.entityNotifyUpdate(updateType,sfdcId,MarketDiscriminator,serlializedObject);    
     }
-	
-		 /**
-	 *SN20171411-  SM1-177
+    
+         /**
+     *SN20171411-  SM1-177
     * Calculate “Age Range” based on birthdate.
-	* Change from the previous method is if the birthdate is less than 18 years then it will have 0-16
+    * Change from the previous method is if the birthdate is less than 18 years then it will have 0-16
     */
-	
-	
+    
+    
 }

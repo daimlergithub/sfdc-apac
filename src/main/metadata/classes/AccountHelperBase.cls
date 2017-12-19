@@ -10,14 +10,56 @@ Modified by Honey on 17th Oct
 
 public class AccountHelperBase{
 
-/** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields,when any contact information field(s) are inserted.
-**  Created By: Mohammed Touseef Ahmed
-**  Date: 2017-20-02
-**/
+    /** Update "Last Modified By" and "Last Modified Date" fields associated with each contact information fields
+        when any contact information field(s) are inserted.
+    **  Created By: Mohammed Touseef Ahmed
+    **  Date: 2017-20-02
+    **/
     public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+    public static Id dealer_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Dealer');
     public static Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
     public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
+    public static boolean consentHistoryCodeCalled = true;
+    
+    public static  String validate(string phonestring,integer num,String fields,integer len,integer digits){
+        integer i;
+        string phon='';
+        for(i=num;i<phonestring.length();i++){
+            if(phonestring.substring(i,i+1)=='0'){
+                continue;
+            }else{
+                phon=phonestring.substring(i);
+                break;
+            }
+        }
+        //outside for loop
+        //after removing zero's if phone size is less than 8 through error 
+        if(phon.length()<len){
+            return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDD or it can be in the format of DDDDDDDD';
+        }
+        else if(fields=='Mobile'&&!Pattern.matches('[0-9]{9}',phon)){
+            return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
+        }
+        else if(!Pattern.matches('[0-9]{8}',phon)&&fields!='Mobile'){
+            return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
+        }
+        else{
+            return '+66'+phon;
+        }
+
+    }
+    
+     //added by Honey for Marketing Cloud
+    public static void updateMarketingFields(list<Account> listNewAccounts){
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
+            for(Account Acc : listNewAccounts ){
+                 if(Acc.Email__c!= null && acc.recordtypeid==accPerson_RecordTypeId){
+                    Acc.PersonEmail = Acc.Email__c;
+                }
+            }
+        }
+    }
 
     public static void updateAccountFieldsBeforeInsert(list<Account> listNewAccounts,boolean isInsert){
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
@@ -58,11 +100,105 @@ public class AccountHelperBase{
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
+               
+              
             }
         }
     }
-
-    
+	
+	public static void updateAccountFieldsBeforeInsertInt(list<Account> listNewAccounts,boolean isInsert){
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
+            for(Account Acc : listNewAccounts){
+                if(Acc.Mobile__c != Null && Acc.Mobile__c != ''){
+                    Acc.SMS_Last_Modified_By__c = string.isnotblank(Acc.SMS_Last_Modified_By__c)?Acc.SMS_Last_Modified_By__c:UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date__c =Acc.SMS_Last_Modified_Date__c!=null?Acc.SMS_Last_Modified_Date__c:System.now();
+                }   
+                if(Acc.Mobile2__c!= Null && Acc.Mobile2__c != ''){
+                    Acc.SMS_Last_Modified_By2__c = string.isnotblank(Acc.SMS_Last_Modified_By2__c)?Acc.SMS_Last_Modified_By2__c:UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date2__c = Acc.SMS_Last_Modified_Date2__c!=null?Acc.SMS_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Individual_Home_Phone__c!= Null && Acc.Individual_Home_Phone__c != ''){
+                    Acc.Home_Phone_Last_Modified_By__c = string.isnotblank(Acc.Home_Phone_Last_Modified_By__c)?Acc.Home_Phone_Last_Modified_By__c:UserInfo.getName();
+                    Acc.Home_Phone_Last_Modified_Date__c = Acc.Home_Phone_Last_Modified_Date__c!=null?Acc.Home_Phone_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Home_Phone_2__c != Null && Acc.Home_Phone_2__c != ''){
+                    Acc.Home_Phone_Last_Modified_By2__c = string.isnotblank(Acc.Home_Phone_Last_Modified_By2__c)?Acc.Home_Phone_Last_Modified_By2__c:UserInfo.getName();
+                    Acc.Home_Phone_Last_Modified_Date2__c = Acc.Home_Phone_Last_Modified_Date2__c!=null?Acc.Home_Phone_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Work_Phone__c!= Null && Acc.Work_Phone__c != ''){
+                    Acc.Work_Phone_Last_Modified_By__c = string.isnotblank(Acc.Work_Phone_Last_Modified_By__c)?Acc.Work_Phone_Last_Modified_By__c:UserInfo.getName();
+                    Acc.Work_Phone_Last_Modified_Date__c = Acc.Work_Phone_Last_Modified_Date__c!=null?Acc.Work_Phone_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Phone!= Null && Acc.Phone != ''){
+                    Acc.Work_Phone_Last_Modified_By2__c = string.isnotblank(Acc.Work_Phone_Last_Modified_By2__c)?Acc.Work_Phone_Last_Modified_By2__c:UserInfo.getName();
+                   Acc.Work_Phone_Last_Modified_Date2__c = Acc.Work_Phone_Last_Modified_Date2__c!=null?Acc.Work_Phone_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Email__c!= Null && Acc.Email__c != ''){
+                    Acc.Email_Last_Modified_By__c = string.isnotblank(Acc.Email_Last_Modified_By__c)?Acc.Email_Last_Modified_By__c:UserInfo.getName();
+                   Acc.Email_Last_Modified_Date__c = Acc.Email_Last_Modified_Date__c!=null?Acc.Email_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Email2__c!= Null && Acc.Email2__c != ''){
+                    Acc.Email_Last_Modified_By2__c = string.isnotblank(Acc.Email_Last_Modified_By2__c)?Acc.Email_Last_Modified_By2__c:UserInfo.getName();
+                    Acc.Email_Last_Modified_Date2__c = Acc.Email_Last_Modified_Date2__c!=null?Acc.Email_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Email3__c!= Null && Acc.Email3__c != ''){
+                    Acc.Email_Last_Modified_By3__c = string.isnotblank(Acc.Email_Last_Modified_By3__c)?Acc.Email_Last_Modified_By3__c:UserInfo.getName();
+                    Acc.Email_Last_Modified_Date3__c = Acc.Email_Last_Modified_Date3__c!=null?Acc.Email_Last_Modified_Date3__c:System.now();
+                }
+               
+              
+            }
+        }
+    }
+	 public static void updateAccountFieldsBeforeIntUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
+            for(Account Acc : listNewAccounts){
+                Account OldAcc = accountOldMap.get(Acc.id);
+                if(Acc.Individual_Home_Phone__c!= OldAcc.Individual_Home_Phone__c){
+                    Acc.Home_Phone_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Home_Phone_Last_Modified_Date__c = Acc.Home_Phone_Last_Modified_Date__c!=null?Acc.Home_Phone_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Home_Phone_2__c != OldAcc.Home_Phone_2__c){
+                    Acc.Home_Phone_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.Home_Phone_Last_Modified_Date2__c = Acc.Home_Phone_Last_Modified_Date2__c!=null?Acc.Home_Phone_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Work_Phone__c!= OldAcc.Work_Phone__c){
+                    Acc.Work_Phone_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Work_Phone_Last_Modified_Date__c =Acc.Work_Phone_Last_Modified_Date__c!=null?Acc.Work_Phone_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Phone!= OldAcc.Phone){
+                    Acc.Work_Phone_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.Work_Phone_Last_Modified_Date2__c = Acc.Work_Phone_Last_Modified_Date2__c!=null?Acc.Work_Phone_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Email__c!= OldAcc.Email__c){
+                    
+                    Acc.Email_Last_Modified_By__c = UserInfo.getName();
+                    Acc.Email_Last_Modified_Date__c = Acc.Email_Last_Modified_Date__c!=null?Acc.Email_Last_Modified_Date__c:System.now();
+                }
+                if(Acc.Email2__c!= OldAcc.Email2__c){
+                    Acc.Email_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.Email_Last_Modified_Date2__c = Acc.Email_Last_Modified_Date2__c!=null?Acc.Email_Last_Modified_Date2__c:System.now();
+                }
+                if(Acc.Email3__c!= OldAcc.Email3__c){
+                    Acc.Email_Last_Modified_By3__c = UserInfo.getName();
+                    Acc.Email_Last_Modified_Date3__c = Acc.Email_Last_Modified_Date3__c!=null?Acc.Email_Last_Modified_Date3__c:System.now();
+                }
+                if(Acc.Mobile__c != OldAcc.Mobile__c){
+                    Acc.SMS_Last_Modified_By__c = UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date__c = Acc.SMS_Last_Modified_Date__c!=null?Acc.SMS_Last_Modified_Date__c:System.now();
+                }   
+                if(Acc.Mobile2__c!= OldAcc.Mobile2__c ){
+                    Acc.SMS_Last_Modified_By2__c = UserInfo.getName();
+                    Acc.SMS_Last_Modified_Date2__c = Acc.SMS_Last_Modified_Date2__c!=null?Acc.SMS_Last_Modified_Date2__c:System.now();
+                }
+            }
+        }
+    }
+	
+	
+	
+	
+    //Added by dhanamjaya to validate the National Id before Update
     public static void ValidateNationalid(List<account> ListAccount){
         for(Account acc:ListAccount){
             if(acc.ID_Type__c=='National ID'){
@@ -73,7 +209,7 @@ public class AccountHelperBase{
                     Pattern p = Pattern.compile('[0-9]{13}');
                     Matcher m = p.matcher(acc.ID_Number__c);
                     if(!m.matches()){
-                        acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
+                        acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');  
                     }
                     else{
                         integer sum=0;
@@ -95,30 +231,17 @@ public class AccountHelperBase{
     * Implement Do Not Call(PersonDoNotCall) to automate opt-out for all channels which means that selecting this flag opts out the customer from 
     * being contacted via all Phone numbers (Ex: Home Phone, Mobile, Work Phone).   
     */
-    public static void updateOnDoNotCall(list<Account> listNewAccounts,string Market){        
+    public static void updateOnDoNotCall(list<Account> listNewAccounts){        
         for(Account acc : listNewAccounts){
-           
-                if(acc.PersonDoNotCall){
-                    if(acc.Opt_In_Home_Phone__c){ 
-                        acc.Opt_In_Home_Phone__c = FALSE;
-                    }
-                    if(acc.Opt_In_Home_Phone2__c){ 
-                        acc.Opt_In_Home_Phone2__c = FALSE;
-                    }
-                    if(acc.Opt_In_Work_Phone__c ){ 
-                        acc.Opt_In_Work_Phone__c = FALSE;
-                    }
-                    if(acc.Opt_In_Work_Phone2__c){ 
-                        acc.Opt_In_Work_Phone2__c = FALSE;
-                    }
-                    if(acc.Preferred_Mobile_1__c){ 
-                        acc.Preferred_Mobile_1__c = FALSE;
-                    }
-                    if(acc.Preferred_Mobile_2__c){ 
-                        acc.Preferred_Mobile_2__c = FALSE;
-                    }
-                }
-             
+        //MT20170913- Added market Descrminator MY      
+            if(acc.PersonDoNotCall){
+                if(acc.Opt_In_Home_Phone__c){ acc.Opt_In_Home_Phone__c = FALSE;}
+                if(acc.Opt_In_Home_Phone2__c){ acc.Opt_In_Home_Phone2__c = FALSE;}
+                if(acc.Opt_In_Work_Phone__c ){ acc.Opt_In_Work_Phone__c = FALSE;}
+                if(acc.Opt_In_Work_Phone2__c){ acc.Opt_In_Work_Phone2__c = FALSE;}
+                if(acc.Preferred_Mobile_1__c){ acc.Preferred_Mobile_1__c = FALSE;}
+                if(acc.Preferred_Mobile_2__c){ acc.Preferred_Mobile_2__c = FALSE;}              
+            }
         }
     }
 
@@ -126,7 +249,7 @@ public class AccountHelperBase{
     * Implement Postal_Opt_Out__c to automate opt-out for all addresses which means that selecting this flag opts out the customer from being contacted 
     * via Addresses (Ex: Home Address, Office Address, etc.).
     */
-    public static void updateOnPostalOptout(list<Account> listNewAccounts,string Market){
+    public static void updateOnPostalOptout(list<Account> listNewAccounts){
         List<Address__c> addressupdatelst = new list<Address__c>();
         List<Address__c> addressList = new list<Address__c>();
         Set<Id> Accid=new Set<Id>();
@@ -134,52 +257,45 @@ public class AccountHelperBase{
         for(Account acc: listNewAccounts){
             Accid.add(acc.id);
             Addd.add(acc.Primary_Address_Reference__c);
+            // NEED INPUTS FOR IMPLEMENTATION
         }
         addressList =[select id,Opt_In_Hardcopy__c from Address__c where id=:Addd];
         for(Account acc: listNewAccounts){
-           
-            for(Address__c add: addressList)    
-               if(acc.Postal_Opt_Out__c){
-                        if(add.Opt_In_Hardcopy__c== true){ 
-                            add.Opt_In_Hardcopy__c = false;
-                            addressupdatelst.add(add);
-                        }
-                    } 
+            //MT20170913- Added market Descrminator MY
+            for(Address__c add: addressList)
+                if(acc.Postal_Opt_Out__c){
+                    if(add.Opt_In_Hardcopy__c== true){ 
+                        add.Opt_In_Hardcopy__c = false;
+                        addressupdatelst.add(add);
+                    }
+                } 
             }
             DMLManagerService.updateAsSystem(addressupdatelst);
-
     }
 
     /**
     * Use Email Opt Out (PersonHasOptedOutOfEmail) to automate opt-out from email options.
     */
-    public static void updateOnEmailOptout(list<Account> listNewAccounts,string Market){        
+    public static void updateOnEmailOptout(list<Account> listNewAccounts){        
         for(Account acc: listNewAccounts){
-            
-                if(acc.PersonHasOptedOutOfEmail){
-                    if(acc.Opt_In_Email__c){ 
-                        acc.Opt_In_Email__c = FALSE;
-                    }
-                    if(acc.Opt_In_Email2__c){ 
-                        acc.Opt_In_Email2__c = FALSE;
-                    }
-                    if(acc.Opt_In_Email3__c){ 
-                        acc.Opt_In_Email3__c = FALSE;
-                    }
-                }
+            //MT20170913- Added market Descrminator MY
+            if(acc.PersonHasOptedOutOfEmail){
+                if(acc.Opt_In_Email__c){ acc.Opt_In_Email__c = FALSE;}
+                if(acc.Opt_In_Email2__c){ acc.Opt_In_Email2__c = FALSE;}
+                if(acc.Opt_In_Email3__c){ acc.Opt_In_Email3__c = FALSE;}
+            }
         }
     }
 
     /**
     * Calculate “Age Range” based on birthdate.
     */
-    public static void updateAgeRange(list<Account> listNewAccounts,string Market){
+    public static void updateAgeRange(list<Account> listNewAccounts){
         for(Account acc:  listNewAccounts){
             if(acc.PersonBirthdate != NULL){
-              
-                    Integer ageInt = (Integer.valueOf(System.today().year())-Integer.valueof(acc.PersonBirthdate.year()) );
-                    acc.Age_Range__c = AccountHelperBase.calculateAgeRange(ageInt); 
-                }
+                Integer ageInt = (Integer.valueOf(System.today().year())-Integer.valueof(acc.PersonBirthdate.year()) );
+                acc.Age_Range__c = AccountHelperBase.calculateAgeRange(ageInt); 
+            }
         }
     }
 
@@ -207,10 +323,11 @@ public class AccountHelperBase{
     public static void activeContracts(list<Account> listNewAccounts){
         integer actContract=0;
         Set<Id> AccIdSet = new Set<Id>();
-        for(Account acc : listNewAccounts){                                  
+        for(Account acc : listNewAccounts){       
             AccIdSet.add(acc.id);          
         }
-        List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id from contract where Account.id in : AccIdSet];      
+        List<contract> lstCntrct=[select id,StartDate,EndDate,ContractTerm,Account.id 
+                                    from contract where Account.id in : AccIdSet];      
         for(Account acc : listNewAccounts){                                  
             for(contract cntrct: lstCntrct){
                 if(cntrct.EndDate.daysBetween(cntrct.StartDate)<cntrct.ContractTerm){
@@ -246,9 +363,12 @@ public class AccountHelperBase{
                     Acc.Work_Phone_Last_Modified_Date2__c = System.now();
                 }
                 if(Acc.Email__c!= OldAcc.Email__c){
+                    //Acc.PersonEmail = Acc.Email__c;
                     Acc.Email_Last_Modified_By__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date__c = System.now();
                 }
+                //if(Acc.Email__c != OldAcc.Email__c && Acc.Email__c == null)
+                    //Acc.PersonEmail = Null;
                 if(Acc.Email2__c!= OldAcc.Email2__c){
                     Acc.Email_Last_Modified_By2__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date2__c = System.now();
@@ -272,34 +392,32 @@ public class AccountHelperBase{
     ** Created By: Mohammed touseef Ahmed
     ** Date: 2017-20-02
     **/
-    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate,string Market){
-    Map<Id,Address__c> addr;
+    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate){
+        Map<Id,Address__c> addr;
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
             string regexForNullValue ='null';
             string nullValue ='';
             set<id> addressid = new set<id>();                  
             String province;
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
-            For(Account a:listNewAccounts){                        
-                   if(string.isnotblank(a.Primary_Address_Reference__c)) addressid.add(a.Primary_Address_Reference__c);
+            For(Account a:listNewAccounts){    
+                addressid.add(a.Primary_Address_Reference__c);
             }
             If(!addressid.isEmpty()){   
-                addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where id In : addressid]);            
+                addr = new map<id,Address__c>([select Customer__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,Sub_District__c,ZipCode__c from Address__c where id In : addressid]);            
             }
-            For(Account acc:listNewAccounts){     
-               
-                    If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null){              
-                        Address__c add = addr.get(acc.Primary_Address_Reference__c);
-                        if(addtrmap1.containsKey(add.Province__c)){
-                            province = addtrmap1.get(add.Province__c);
-                        }
-                        acc.Primary_Address_Display__c = province+ add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;
-                        acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);                        
+            For(Account acc:listNewAccounts){      //MT20170913- Added market Descrminator MY
+                If(acc.Primary_Address_Reference__c !=Null  && addr!=Null && addr.get(acc.Primary_Address_Reference__c) != Null){              
+                    Address__c add = addr.get(acc.Primary_Address_Reference__c);
+                    if(addtrmap1.containsKey(add.Province__c)){
+                        province = addtrmap1.get(add.Province__c);
                     }
-                    else if(acc.Primary_Address_Reference__c ==Null){
-                        acc.Primary_Address_Display__c ='';
-                    }
-               
+                    acc.Primary_Address_Display__c = add.Address_Line_1__c + ' ' + add.Address_Line_2__c+' ' +add.Sub_District__c+' '+add.District__c+' '+add.Province__c+' '+add.ZipCode__c;  // SFDCTH-277
+                    acc.Primary_Address_Display__c=acc.Primary_Address_Display__c.replaceAll(regexForNullValue,nullValue);                        
+                }
+                else if(acc.Primary_Address_Reference__c ==Null){
+                    acc.Primary_Address_Display__c ='';
+                }
             }     
         }    
     } 
@@ -307,7 +425,7 @@ public class AccountHelperBase{
     //Creates a retail copy of account on as account link
     //Mohammed Touseef
     //02/20/2017
-    public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate,String Market){
+    public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
         User usr = [select id,Name,ContactId,contact.AccountId,Profile.UserLicense.Name,Contact.Account.Dealer_ND_Code__c from user where Id =: UserInfo.getUserId()];
         if(usr.Profile.UserLicense.Name == 'Partner Community'){
             List<group> dealergrpList = new List<group>();
@@ -319,12 +437,9 @@ public class AccountHelperBase{
             map<string,id> dealerGroupMap = new map<string,id>();
             Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
             string regexForNullValue ='null';
-            string nullValue ='';
-            UtilAddressTranslation.gettranslatedvalues(Market);
+            string nullValue ='';           
             for(Account acc : accLst){
-                if(acc.MD__c == Market){
-                    accid.add(acc.Id);
-                }
+                accid.add(acc.Id);
             }
             if(!accid.isEmpty() && accid != null){
                 addressList = [select id,Address_Type__c,City__c,District__c,Address_Line_1__c,Address_Line_2__c,Customer__c,Preferred__c,
@@ -438,7 +553,7 @@ public class AccountHelperBase{
                 }
             }
             if(!insertAcclnkList.isEmpty() && insertAcclnkList != null){
-                DMLManagerService.insertAsSystem(insertAcclnkList);    
+                DMLManagerService.InsertAsSystem(insertAcclnkList);
             }
             if(usr != null){
                 dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:usr.Contact.Account.Dealer_ND_Code__c];
@@ -460,7 +575,7 @@ public class AccountHelperBase{
                 }
             }
             if(!insertAccshList.isEmpty() && insertAccshList != null){
-                DMLManagerService.insertAsSystem(insertAccshList);  
+                DMLManagerService.InsertAsSystem(insertAccshList);
             }
         }
     }
@@ -470,13 +585,11 @@ public class AccountHelperBase{
     # Date: 02/20/2017
     # Author : Mohammed Touseef Ahmed
     */
-    public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst,string Market){        
+    public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isafter,List<Account> accLst){        
         Set<String> AccountIds = new set<String>();//Set initialization to add account Id's
         List<Account_Link__c> AccountlnkUpdate = new List<Account_Link__c>();//Account Link Initialization
         for(Account acc : accLst){
-            if(isUpdate){ //Checking Market for updated account
-                AccountIds.add(acc.id); //Adding accountId's to set        
-            }
+            AccountIds.add(acc.id); //Adding accountId's to set        
         }
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
@@ -489,20 +602,21 @@ public class AccountHelperBase{
         toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
         toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, 
         toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,
-        toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,toRole__r.MBTH_Mercede__c,
+        toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,/*toRole__r.MBTH_Mercede__c,*/
         toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c
         from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
-                acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;    
-                acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;    
-                acclnk.Retail_UCID__c=acclnk.toRole__r.CDM_UCID__c;    
-                acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;    
-                acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;    
+                acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;       
+                acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;     
+                acclnk.Retail_UCID__c=acclnk.toRole__r.CDM_UCID__c;     
+                acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;        
+                acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;       
                 acclnk.Retail_Agreement_Info_Processing__c=acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
+                //acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
                 acclnk.Retail_Full_Name__c = ((acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(25); 
                 acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + (acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(140);
                 acclnk.Retail_LastName_Native__c = acclnk.toRole__r.LastName_Native_1__c;
@@ -518,7 +632,8 @@ public class AccountHelperBase{
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
                 acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;                
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
-                acclnk.Retail_List_of_Events__c= acclnk.toRole__r.MBTH_Mercede__c;
+                //acclnk.Position__c= acclnk.toRole__r.Position__c;
+                //acclnk.Retail_List_of_Events__c= acclnk.toRole__r.MBTH_Mercede__c;
                 acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
                 acclnk.Retail_Agreement__c= acclnk.toRole__r.Personal_Agreement__c;
@@ -553,9 +668,9 @@ public class AccountHelperBase{
                 acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
             }//End if for Sales Address
             AccountlnkUpdate.add(acclnk); //Adding Account link to Lsit  
-        }//End of for loop  
+        }//End of for loop
         if(!AccountlnkUpdate.isEmpty())
-            DMLManagerService.updateAsSystem(AccountlnkUpdate); 
+            DMLManagerService.updateAsSystem(AccountlnkUpdate);
     }//End of Method  
 
     /** To generate UCID value based on Record type.
@@ -563,7 +678,7 @@ public class AccountHelperBase{
     ** Created By: Mohammed Touseef Ahmed
     ** Date: 12th Feb 2017 
     **/
-    public static void createUCID(list<Account> TriggerNew,boolean isInsert,string Market){
+    public static void createUCID(list<Account> TriggerNew,boolean isInsert){
         try{
             CustomLogUtil.CustomLoggingEntry(' Account Helper Class createUCID method '+'TriggerNew= ' + TriggerNew.size());
             boolean accountflag;
@@ -578,18 +693,12 @@ public class AccountHelperBase{
             set<id> AccIds = new set<id>();
             Id accountinkIndividualCustomerExternalLinkId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Individual Customer External Link');
             for(Account acc : TriggerNew){
-                AccIds.add(acc.id);              
+                AccIds.add(acc.id);
             }    
             if(!AccIds.isEmpty() && AccIds != Null){
-                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c from account where id in :AccIds];
+                accountlist = [select id,RecordTypeId,UCID__c,UCID_Sequence__c,MD__c,market__c from account where id in :AccIds];
                 if(!accountlist.isEmpty() && accountlist != Null){
                     for(Account acc : accountlist){                        
-                        if(acc.RecordTypeId == accPerson_RecordTypeId && acc.MD__c == Market){
-                            ucidsequence = 'MYP' + acc.UCID_Sequence__c;                
-                        }
-                        else if(acc.RecordTypeId == accCompany_RecordTypeId && acc.MD__c == Market){
-                            ucidsequence = 'MYC' + acc.UCID_Sequence__c;                
-                        }
                         if(ucidsequence != null && ucidsequence.length() > 0){
                             for (i=0; i < 14; i++){ 
                                 integer cp = ucidsequence.codePointAt(i); 
@@ -600,7 +709,7 @@ public class AccountHelperBase{
                             acclist.add(acc);
                         }
                     }
-                    DMLManagerService.updateAsSystem(acclist); 
+                    DMLManagerService.updateAsSystem(acclist);
                     map<id,Account> accountmap = new map<id,Account>([select Id,UCID__c,Name from Account where id In : AccIds]);
                     for(Account acc : accountlist){
                         Account account = accountmap.get(acc.Id);
@@ -613,7 +722,7 @@ public class AccountHelperBase{
                         acclink.Name = account.UCID__c;                        
                         acclinklist.add(acclink);
                     }
-                    DMLManagerService.insertAsSystem(acclinklist); 
+                    DMLManagerService.InsertAsSystem(acclinklist);
                 }
             }
         }
@@ -621,8 +730,30 @@ public class AccountHelperBase{
             CustomLogUtil.DebugException(ex);
         }
         CustomLogUtil.DebugLogInsert();
-
     } 
+
+    /**Implemented as part of the ticket SFDCTH-509 by Suresh Panduga**/
+    public Static void UpdateConsentHistory(Map<Id,Account> oldAccountMap, List<Account> newAccountList){
+        List<Account_Field_History_Tracker__c> consentHistoryList = new List<Account_Field_History_Tracker__c>();
+        for(Account acc : newAccountList){
+            if(!String.isBlank(oldAccountMap.get(acc.Id).Personal_Agreement__c) || oldAccountMap.get(acc.Id).Lastest_Consent_Date__c != null){
+                if(acc.Personal_Agreement__c != oldAccountMap.get(acc.Id).Personal_Agreement__c || acc.Lastest_Consent_Date__c != oldAccountMap.get(acc.Id).Lastest_Consent_Date__c){
+                    Account_Field_History_Tracker__c consentHistory = new Account_Field_History_Tracker__c();
+                    consentHistory.Account_Record_Id__c = acc.Id;
+                    consentHistory.Personal_Agreement__c = oldAccountMap.get(acc.Id).Personal_Agreement__c;
+                    consentHistory.System_Data_Source__c = oldAccountMap.get(acc.Id).System_Data_Source__c;
+                    consentHistory.Updated_Consent_Date__c = oldAccountMap.get(acc.Id).Updated_Consent_Date__c;
+                    consentHistory.Updated_Consent_User__c = oldAccountMap.get(acc.Id).Updated_Consent_User__c;
+                    consentHistory.User_Organization__c = oldAccountMap.get(acc.Id).User_Organization__c;
+                    consentHistory.Lastest_Consent_Date__c = oldAccountMap.get(acc.Id).Lastest_Consent_Date__c;
+                    consentHistoryList.add(consentHistory);
+                }
+            }
+        }
+        if(!consentHistoryList.isEmpty()){
+            DMLManagerService.InsertAsSystem(consentHistoryList);
+        }
+    }
 
     //implemented "MD__c" field as a parameter as well so that the same will be picked and sent dynamically to EP as part of webservice 21/09/2016 Sekhar
     @Future(callout=true)   
@@ -633,33 +764,35 @@ public class AccountHelperBase{
         if(!test.isrunningtest())            
             UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,sfdcMarketDiscriminator,updateType,serlializedObject);
     }
-
+    
     /*
-    Added code for create and update of data for ucid.
+    SN20170929- Added code for create and update of data for ucid.
     */
-
     public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list <account> accountlist){
         try{
             set<ID> accids=new set<ID>();
-            for(Account accrec:accountlist){
-            accids.add(accrec.id);
+            for(Account accrec : accountlist){
+				if(accrec.RecordTypeID == accPerson_RecordTypeId || accrec.RecordTypeID == accCompany_RecordTypeId){
+					accids.add(accrec.id);
+					}
             }
-            CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+			if(accids.size()>0){
+				CDMInformatica_Services.createCustomerCDM(accids,MarketDiscriminator,updateType);
+			}
         }Catch(exception e){
             CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
         }
     }
-	
-	 /* Data Migration Explicit Fix - Santosh Mohanty */
-    public static void updatemarket(List<Account> addList){        
-            
-                   for(Account addr : addList){
-						if(Test.isRunningTest()){
-							addr.isTestRunning__c=true;
-						}
-                       if(string.isnotblank(addr.market__c)){
-                         addr.Market__c=addr.MD__c;
-                      }  
-                  }       
+
+    /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Account> accList){        
+        for(Account acc : accList){
+            if(Test.isRunningTest()){
+                acc.isTestRunning__c=true;
+            }
+            if(acc.Market__c =='' || acc.Market__c==NULL){
+                acc.Market__c=acc.MD__c;
+            }  
+        }       
     }
 }

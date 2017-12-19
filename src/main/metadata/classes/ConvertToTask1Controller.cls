@@ -16,7 +16,7 @@ public class ConvertToTask1Controller
              if(usr.Market__c=='TH'){
              /*List<Retail_Campaign__c> retcamp =[select id,createdby.usertype from Retail_Campaign__c where id=:campaignId];
              system.debug(retcamp[0].createdby.usertype+'dhanamjayausertype');*/
-               query = 'SELECT Id,Contact_Id__r.Work_Phone__c,Contact_Id__r.Mobile__c,Contact_Id__r.Primary_Phone__c,Contact_Id__r.Individual_Home_Phone__c,Name,md__c,Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c, Vehicle__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
+               query = 'SELECT Id,Retail_Campaign_Id__r.Campaign_Code__c,Contact_Id__r.Work_Phone__c,Contact_Id__r.Mobile__c,Contact_Id__r.Primary_Phone__c,Contact_Id__r.Individual_Home_Phone__c,Name,md__c,Campaign_ID__r.OwnerId, Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c, Vehicle__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c';
                query += ' FROM Campaign_Member__c WHERE Auto_creation_of_tasks__c=false AND Id =: campaignId and ';
                query +='(Status__c = \'Ready\' OR Status__c = \'Executed\' ) AND (Retail_Campaign_Id__r.MBTH_Approval_Status__c!=\'Submitted\' AND Retail_Campaign_Id__r.MBTH_Approval_Status__c!=\'Rejected\')';
       system.debug('Query'+query);
@@ -77,7 +77,13 @@ public class ConvertToTask1Controller
         System.debug('camid<<<'+campaignMember.Contract_Phone2_2__c);
         System.debug('camid<<<'+campaignMember.Contact_Id__c);
         Task taskRec = new Task(RecordTypeId = OB_Call);
+        //Adding Null check 
+        if(campaignMember.Contact_Id__c!=null){
         contactList=[select id,PersonContactId from account where id=:campaignMember.Contact_Id__c];
+        }
+        
+        //contactList=[select id,PersonContactId from account where id=:campaignMember.Contact_Id__c];
+        
         taskRec.status= 'New';
         taskRec.Priority='Low';
         taskRec.subject = 'Campaign Executed';
@@ -94,6 +100,7 @@ public class ConvertToTask1Controller
          taskRec.Phone_number__c=campaignMember.Contact_Id__r.Primary_Phone__c=='Home Phone'?campaignMember.Contact_Id__r.Individual_Home_Phone__c:campaignMember.Contact_Id__r.Primary_Phone__c=='Work Phone'?campaignMember.Contact_Id__r.Work_Phone__c:campaignMember.Contact_Id__r.Primary_Phone__c=='Mobile'?campaignMember.Contact_Id__r.Mobile__c:'';
         campmembertoupdate.add(campaignMember);
         taskRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
+        taskRec.Campaign_Name__c=campaignMember.Retail_Campaign_Id__r.Campaign_Code__c;
         taskRec.whatid=campaignMember.id;
         }
 

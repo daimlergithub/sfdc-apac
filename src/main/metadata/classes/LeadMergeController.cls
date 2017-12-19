@@ -37,6 +37,7 @@ public class LeadMergeController{
     public Boolean MastertoChild {get; set;}  
     public Boolean ChildtoMaster {get; set;}  
     public string radioHidden {get;set;}
+     public Boolean SelectmasterHide{get; set;}  
      /** 
      * @Description : Contructor Calles to get the curect page Id and Slave Id.      
      * @author  Sneha chail
@@ -49,10 +50,10 @@ public class LeadMergeController{
      surtake= new List<SurveyTaker__c>();
       master=new Lead__c();
           slave=new lead__c();
-        leads = [Select Id,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Lead_Latest_Phase__c,Existing_Contract__c ,AfterSales_VIN__c ,Dealer_Lead_Status__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+        leads = [Select Id,Contact_Timing__c,name,Contact__c,Contact__r.Name,Service_Advisor__c ,Lead_Latest_Phase__c,Existing_Contract__c ,AfterSales_VIN__c ,Dealer_Lead_Status__c ,Service_Advisor__r.Name,RecordtypeId,RecordType.Name,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
                 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
                 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-                    Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
+                    Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c, Interested_Vehicle_ModelName__c from Lead__c where Id=:Apexpages.currentPage().getParameters().get('id')];  
           MasterRecordTypeName = leads.Recordtype.Name;
           
           
@@ -65,10 +66,10 @@ public class LeadMergeController{
          if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c !=null  )
         { 
             
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+        for(Lead__c a: [select Id,Contact__c ,name,Contact_Timing__c,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                 And ((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
             slaves.add(new LeadWrapperclass(a));
              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -77,10 +78,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c!=null && leads.Existing_Contract__c ==null)
         { 
         
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Contact_Timing__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                 And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
             slaves.add(new LeadWrapperclass(a));
              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -91,10 +92,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         { 
         System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
          
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Contact_Timing__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                 and((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
             slaves.add(new LeadWrapperclass(a));
              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -103,10 +104,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
             if(leads.Service_Advisor__c != NULL && leads.AfterSales_VIN__c ==null && leads.Existing_Contract__c ==null )
         { 
           System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
-        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Contact_Timing__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                and (Dealer_Lead_Status__c !='Lost') and ( (Dealer_Lead_Status__c !='Purchased(Only Non BDC)') and (Dealer_Lead_Status__c !='Invoiced') and (Dealer_Lead_Status__c !='Order Placed'))]){
            System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
             slaves.add(new LeadWrapperclass(a));
@@ -118,10 +119,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
                  {
                              if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c !=null )
                         {
-                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Contact_Timing__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                             And ((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') ]){
                             slaves.add(new LeadWrapperclass(a));
                              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -129,10 +130,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
                         }
                      if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c!=null && leads.AfterSales_VIN__c ==null )
                             {
-                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+                        for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Contact_Timing__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                             And ((Existing_Contract__c=:leads.Existing_Contract__c) OR (Existing_Contract__c=null)) and (Dealer_Lead_Status__c !='Lost') ]){
                             slaves.add(new LeadWrapperclass(a));
                              System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -140,10 +141,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
                             }
                         if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c ==null && leads.AfterSales_VIN__c !=null )
                              {
-                                for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+                                for(Lead__c a: [select Id,Contact__c ,name,Contact_Timing__c,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                                     And ((AfterSales_VIN__c=:leads.AfterSales_VIN__c) OR (AfterSales_VIN__c=null)) and (Dealer_Lead_Status__c !='Lost') ]){
                                     slaves.add(new LeadWrapperclass(a));
                                      System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -151,10 +152,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
                              }
                      if(leads.Service_Advisor__c != NULL && leads.Existing_Contract__c ==null && leads.AfterSales_VIN__c ==null )
                              {
-                                for(Lead__c a: [select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+                                for(Lead__c a: [select Id,Contact__c ,name,Contact_Timing__c,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c  from Lead__c Where Contact__c=:leads.Contact__c AND Service_Advisor__c=:leads.Service_Advisor__c AND Id!=:leads.Id AND RecordtypeId=:leads.recordtypeId
                                     and (Dealer_Lead_Status__c !='Lost') ]){
                                     slaves.add(new LeadWrapperclass(a));
                                      System.debug('^&^&^&^&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
@@ -181,10 +182,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
                 System.debug('Leadslaveids ^^^^^^^^^^^^^'+Leadslaveids);
               if(Leadslaveids!=null)
               {
-              selectedslavelead=[select Id,Contact__c ,name,Service_Advisor__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
+              selectedslavelead=[select Id,Contact__c ,name,Service_Advisor__c,Contact_Timing__c,Lead_Latest_Phase__c,Existing_Contract__c,Dealer_Lead_Status__c,AfterSales_VIN__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,
 Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,
 Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,
-Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c from Lead__c where Id=:Leadslaveids];
+Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,CAC_Lead_Status__c,Interested_Vehicle_ModelName__c from Lead__c where Id=:Leadslaveids];
                  System.debug('Leadslaveids ^^^^^^^^^^^^^'+selectedslavelead);
               }      
             
@@ -201,7 +202,19 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
           system.debug('+++++++++ MasterSelectedId'+  Master);
            system.debug('+++++++++ SlaveSelectedId'+ slave);    
              System.debug('&*&*&*&&&**&* ChildtoMaster '+ChildtoMaster);
-             System.debug('&*&*&*&&&**&* MastertoChild'+MastertoChild);            
+             System.debug('&*&*&*&&&**&* MastertoChild'+MastertoChild);  
+             system.debug('+++++++++ MasterSelectedIdExisting_Contract__c '+  Master.Existing_Contract__c );
+           system.debug('+++++++++ SlaveSelectedIdExisting_Contract__c '+ slave.Existing_Contract__c );     
+            system.debug('+++++++++ Dealer_Lead_Status__c '+  Master.Dealer_Lead_Status__c );
+           system.debug('+++++++++ Dealer_Lead_Status__c '+ slave.Dealer_Lead_Status__c );     
+          
+             if( ((master.Dealer_Lead_Status__c =='Purchased(Only Non BDC)') || (master.Dealer_Lead_Status__c =='Invoiced') || (master.Dealer_Lead_Status__c =='Order Placed')) ||((master.Existing_Contract__c !=null && slave.Existing_Contract__c ==null)) )
+             {
+             System.debug('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB');
+             SelectmasterHide=true;
+             }
+           
+             
          }  
          }
         catch(Exception e){
@@ -350,7 +363,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         soql+='Id';
         System.debug('%^%^%^%^%^%^%^%^%^%^%^% soql query'+soql);
         return Database.query(soql + 
-            ',Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
+            ',Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Dealer_Lead_Status__c,Lead_Possibility__c,Lead_Possibility_text__c,Quotation_Number_History__c,Order_Confirmation_Date__c,Purchased_VIN__c,LastModifiedBy.UserName,Network_Registration_Date__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 

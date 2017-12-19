@@ -415,6 +415,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Dealer_Lead_Status_should_be_updated_to</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>Order Confirmed</literalValue>
+        <name>Dealer Lead Status should be updated to</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Dealer_Lead_Status_update</fullName>
         <field>Dealer_Lead_Status__c</field>
@@ -1125,6 +1134,31 @@ Purchased_Date_Time__c
         </actions>
         <active>false</active>
         <formula>AND(ISCHANGED( OwnerId ),MD__c  = 'JP', OR(NOT(ISBLANK(Source_Campaign__c)),NOT(ISBLANK(Retail_Campaign_Name__c))))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	 <rules>
+        <fullName>Dealer Lead Status should be updated to %E2%80%98Order Confirmed%E2%80%99</fullName>
+        <actions>
+            <name>Dealer_Lead_Status_should_be_updated_to</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Lead_Latest_Phase__c</field>
+            <operation>equals</operation>
+            <value>Confirmation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <description>If Lead Latest Phase is update to ‘Confirmation’ (automatic updated via SARI from DMS), Dealer Lead Status should be updated to ‘Order Confirmed’</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -2172,7 +2206,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>TH_Email_notification_when_interested_vehicle_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(MD__c = 'TH',  OR (RecordType.Name = 'Sales Leads',RecordType.Name = 'Retail Sales Leads',RecordType.Name = 'Aftersales Leads'), OR( ISCHANGED(Lead_Desired_Service__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c), ISCHANGED(Interested_Vehicle__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -2182,7 +2216,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <name>MBTH_Email_notification_when_purchase_time_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(IF(ISNEW()&amp;&amp; NOT(ISPICKVAL(Purchase_Time__c,'')),TRUE,IF(ISCHANGED(Purchase_Time__c),TRUE,FALSE)),OR ( RecordType.DeveloperName  = 'Aftersales_Leads',RecordType.DeveloperName = 'Sales_Leads',RecordType.DeveloperName = 'Retail_Sales_Leads'),MD__c = 'TH')</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>

@@ -38,6 +38,13 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <type>Checkbox</type>
+    </fields>
 	    <fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
@@ -173,113 +180,168 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Touch Point</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Dealer Outlet</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach call</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz School of Excelence</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>English Customer Desk</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz phone</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Model-Year Reference desk</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealers</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Recall desk</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Campaign</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Letter</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Response Sheet</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Email</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Magazine Survey</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DSC</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MB Connection</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Me Haneda</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Outbound call</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>M-Care</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -310,10 +372,24 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Email</fullName>
     </fields>
     <fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Fax</fullName>
     </fields>
     <fields>
         <fullName>FirstName</fullName>
+    </fields>
+    <fields>
+        <fullName>FirstRegistrationDate__c</fullName>
+        <externalId>false</externalId>
+        <label>FirstRegistrationDate</label>
+        <required>false</required>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>FirstRespondedDate</fullName>
@@ -341,6 +417,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     </fields>
     <fields>
         <fullName>LastName</fullName>
+    </fields>
+    <fields>
+        <fullName>Last_Service_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Service Date</label>
+        <required>false</required>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Latest_Status_History__c</fullName>
@@ -533,6 +616,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Mileage_End__c</fullName>
+        <externalId>false</externalId>
+        <label>Mileage(End)</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MobilePhone</fullName>
     </fields>
     <fields>
@@ -596,6 +688,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     </fields>
     <fields>
         <fullName>PostalCode</fullName>
+    </fields>
+    <fields>
+        <fullName>Purchase_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Purchase Date</label>
+        <required>false</required>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Registration_Date__c</fullName>
@@ -935,6 +1034,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Vehicle_Relationship_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Relationship ID</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>formula_num__c</fullName>
         <externalId>false</externalId>
         <formula>IF( ISPICKVAL( Status , "Sent") , 1, 0)</formula>
@@ -945,6 +1053,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	<validationRules>
+        <fullName>Campaign_Member_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Campaign Member should be same as user&apos;s Market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;, NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>De_Dup</fullName>
         <availability>online</availability>

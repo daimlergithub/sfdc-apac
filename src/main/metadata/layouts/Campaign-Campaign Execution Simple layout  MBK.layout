@@ -164,6 +164,14 @@
                 <behavior>Edit</behavior>
                 <field>Previous_Campaign_Execution__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>StartDate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>EndDate</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -174,6 +182,10 @@
                 <behavior>Edit</behavior>
                 <field>Interval_Before_Execution_Hours__c</field>
             </layoutItems>
+			<layoutItems>
+				<behavior>Edit</behavior>
+				<field>Market__c</field>
+			</layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -222,14 +234,14 @@
     <relatedLists>
         <fields>MEMBER_TYPE</fields>
         <fields>Status__c</fields>
-        <fields>FIRST_NAME</fields>
-        <fields>LAST_NAME</fields>
-        <fields>Participating_Dealer_Name__c</fields>
-        <fields>Package_Name__c</fields>
-        <fields>Registration_Notes__c</fields>
-        <fields>Source_Campaign_Partner__c</fields>
+        <fields>FULL_NAME</fields>
+        <fields>Vehicle_Relationship_ID__c</fields>
+        <fields>Purchase_Date__c</fields>
+        <fields>FirstRegistrationDate__c</fields>
         <fields>Registration_Date__c</fields>
-        <fields>Task_Generated__c</fields>
+        <fields>Last_Service_Date__c</fields>
+        <fields>End_Date__c</fields>
+        <fields>Mileage_End__c</fields>
         <relatedList>RelatedCampaignMemberList</relatedList>
     </relatedLists>
     <relatedLists>

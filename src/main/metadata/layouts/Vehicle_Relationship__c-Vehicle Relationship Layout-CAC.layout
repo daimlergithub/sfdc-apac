@@ -318,16 +318,20 @@
                 <field>Vehicle_Address_Display__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Phone__c</field>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_Phone1__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>vehicle_fax__c</field>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_fax_display__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Vehicle_mail_display__c</field>
+            </layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>vehicle_mail__c</field>
+                <field>Recall_DM__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

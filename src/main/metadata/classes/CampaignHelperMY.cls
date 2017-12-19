@@ -7,9 +7,8 @@
 //SB2017
 public class CampaignHelperMY {
 
-   // CampaignHelperBase chb= new CampaignHelperBase();
     string market = System.Label.MarketMY; 
-    string parentCampaign ='Planning & Design Campaign';    
+    string parentCampaign =System.Label.Planning_Design_Campaign;    
     
     public void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap, string market, string parentCampaign){
             CampaignHelperBase.beforeUpdateEvents(campaignNew,campaignOldMap,market,parentCampaign);    

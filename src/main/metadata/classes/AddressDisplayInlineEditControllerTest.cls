@@ -625,8 +625,8 @@ public class AddressDisplayInlineEditControllerTest
       test.startTest();
        //system.RunAs(sysAdminUser1){
          Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
-        objAddressDisplayInlineEditController.ValidateAddressSearch(); 
-        objAddressDisplayInlineEditController.mapAddressResponse[0].isselected=true;
+        objAddressDisplayInlineEditController.ValidateAddressSearch();
+        //objAddressDisplayInlineEditController.mapAddressResponse[0].isselected=true;
         objAddressDisplayInlineEditController.SelectedAddress();
         system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
        // }

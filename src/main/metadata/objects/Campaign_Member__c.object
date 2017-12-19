@@ -54,6 +54,14 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
 	    <fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
@@ -1534,6 +1542,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>Private</sharingModel>
+	<validationRules>
+        <fullName>Campaign_Member_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Campaign_Member(Custom) should be same as user&apos;s Market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;, NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>StatusChangingFromExecuted</fullName>
         <active>true</active>
@@ -1546,6 +1562,15 @@ ISPICKVAL( Status__c , "Ready")
 ) 
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>contact_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Changes related to SFDCJP-3175</description>
+        <errorConditionFormula>AND(OR($Profile.Name ='Japan Dealer Company Manager', $Profile.Name ='Japan Dealer Sales Manager', $Profile.Name ='Japan Dealer Sales Representative', $Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),( MD__c = 'JP'), 
+NOT(ISBLANK(PRIORVALUE(Contact_Id__c))),NOT(ISNEW()),ISCHANGED(Contact_Id__c))</errorConditionFormula>
+        <errorDisplayField>Contact_Id__c</errorDisplayField>
+        <errorMessage>contact Can't be changed</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>campaign_locked</fullName>

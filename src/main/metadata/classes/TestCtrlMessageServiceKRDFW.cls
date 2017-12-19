@@ -247,11 +247,10 @@ private class TestCtrlMessageServiceKRDFW {
 		temp.Set_Sending_Time__c = system.now().addHours(1);
 		temp.channel__c = 'S'; 
 		temp.custGubun__c = 'benzkr'; 
-		temp.message__c = 'test';
+		temp.Message__c = 'MBK Test Sandbox Message';
 		temp.phoneNum__c = '01055104746';
 		temp.senderKey__c = 'c76dcff9ce0106edc23968bb52bb7728ecc36d25';
 		temp.subject__c = 'test';
-		temp.templateCode__c = 'test';
         insert temp;
 
     	Apexpages.currentPage().getParameters().put('id', temp.Id);

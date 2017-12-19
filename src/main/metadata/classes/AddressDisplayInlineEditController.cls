@@ -485,15 +485,16 @@ public class AddressDisplayInlineEditController {
                 addressobj.Address_Type__c = addresspicklist;   
             string accountid=ApexPages.currentPage().getParameters().get('id');
             List<address__c> objAddresses=[select id,preferred__c from address__c where Customer__c=:accountid and preferred__c=true LIMIT 100];
-             
-            for(address__c add:objAddresses)
+            
+			//commented by Tej on 12-6-2017 to implement new preferred logic
+            /*for(address__c add:objAddresses)
             {               
                 if(add.id!=addressobj.id && addressobj.preferred__c==true) 
                 {                
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'There must be only one Preferred address.')); 
                     Validation = true;  
                 }               
-            }
+            }*/
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.')); 
@@ -546,7 +547,9 @@ public class AddressDisplayInlineEditController {
             }
             if(Validation == False){        
                 refreshPage = true; 
-                Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+                List<Address__c> addressLst=new List<Address__c>();
+                Account acc =[select id,name,Primary_Address_Reference__c from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+                Account acc1 =new Account(Id=acc.Id);
                 if (editaddressId ==null)
                 {           
                     
@@ -563,6 +566,31 @@ public class AddressDisplayInlineEditController {
                     addressobj.Language__c =LanguageSelected;
                     DMLManagerService.updateAsSystem(addressobj);
                    
+                }
+                //if one of the preferred check box is checked, then uncheck other preferred check box
+                if(adds!=null && adds.size()>0)
+                {
+                    if(addressobj.Preferred__c)
+                    {
+                        for(Address__c addressObj1:adds)
+                        {
+                            if(addressObj1.Id!=addressobj.Id)
+                            {
+                                addressObj1.Preferred__c=false;
+                            	addressLst.add(addressObj1);
+                            }
+                            
+                        }
+                        
+                    }
+                    if(addressLst!=null && addressLst.size()>0)
+                       DMLManagerService.updateAsSystem(addressLst);
+                }
+                //update sales address field in account if preferred checkbox is checked
+                if(addressobj.Preferred__c)
+                {
+                    acc1.Primary_Address_Reference__c=addressobj.Id;
+                    DMLManagerService.updateAsSystem(acc1);
                 }
             }
         }
@@ -764,6 +792,7 @@ public class AddressDisplayInlineEditController {
   
   public void AutoFillAddress(){
         AutoFill = true;
+        
         DisplayAutoFill = true;
         ValidateAddressSearch();
         
@@ -776,6 +805,7 @@ public class AddressDisplayInlineEditController {
         **  Date: 2016-1-19
     **/
     public void ValidateAddressSearch(){
+        
         system.debug('addresspicklist 4 :'+addresspicklist);
         system.debug('Market 1 :'+Market);
         if(Market =='KR'){         
@@ -814,6 +844,7 @@ public class AddressDisplayInlineEditController {
             //}           
         }
         if(Market !='KR' && Market !='' ){
+           
             if(addressobj.ZipCode__c == null  || (!Pattern.matches('^[0-9]{7}$',addressobj.ZipCode__c))){
                 addressobj.Address_Code__c = '';
                 addressobj.Address_Line_1__c = '';
@@ -1019,8 +1050,11 @@ public class AddressDisplayInlineEditController {
                         
                     }
                     
+                    if(market != 'JP')
+                    {
                     
                     mapAddressResponse.add(new addressSelectionWrapper(AddressObjtemp)); 
+                    }
                 }
                 else if(!response.Addresses[i].Valid){
                     string province;   

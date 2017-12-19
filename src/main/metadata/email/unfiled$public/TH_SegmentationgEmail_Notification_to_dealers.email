@@ -1,28 +1,17 @@
 Mercedes Benz Shop
 
-Dear admin, owner,
+Dear {!Retail_Campaign__c.OwnerFullName},
 
-The following campaign implementation day came.
+The following campaign implementation day came Please Start Adding campaign Members.
 
-Please contact the customer.
+Dealer’s Link:
+{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
 
+MBTH’s Link:
 {!Retail_Campaign__c.Link} 
-https://asiadevth4-daimlerasia.cs72.force.com/MBThailand/{!Retail_Campaign__c.Id} 
 
-For Dealer User Click on Below Link : 
+Best Regards,
+Marketing Team 
+Mercedes-Benz Thailand
 
-{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/MBThailand/{!Retail_Campaign__c.Id} 
-
-
-※ To check the list you will need to log in to sales force.
-
--------------------------------------------
-For operations with Salesforce, system maintenance, please contact the number below.
-
-<>Salesforce support desk
-
-Phone：XXX（Operation hours: everyday 10:00-12:00, 13:00-18:00）
-
-*Please do not reply directly to this e-mail.
-
------------------------------------------------
+If you are not the addressee, please inform us immediately that you have received this e-mail by mistake, and delete it. We thank you for your support.

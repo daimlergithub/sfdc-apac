@@ -16,6 +16,8 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 CaseHelperTH.booleanCampaignUpdate=false;
                 caseHelperTHd.countRepeatComplaintCase(trigger.new,true);
                 caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
+                caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true);
+				caseHelperTHd.updateCaseCreator(trigger.new);
             }
         }
         else if(trigger.isupdate &&trigger.isbefore){
@@ -23,7 +25,8 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 CaseHelperTH.booleanCampaignUpdate=false;
                 system.debug('*****************case2');
                 CaseHelperBase.updatemarket(Trigger.New);
-                caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
+             // caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
+                caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false);
            }
         }
           

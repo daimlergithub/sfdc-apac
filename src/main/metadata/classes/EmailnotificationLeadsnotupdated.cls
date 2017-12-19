@@ -28,13 +28,13 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
         
         return Database.getQueryLocator([SELECT Id,Name,Assigned_Dealer__c,CAC_Lead_Status__c,Lead_Assignment_Notification_Done__c,
                                          Service_Advisor__c, Assigned_Dealer__r.Dealer_GC_Code__c, Assigned_Dealer__r.Name FROM Lead__c 
-                                         where (MD__c = 'JP' AND 
+                                         where (MD__c = 'JP' AND CREATEDDATE >= 2017-12-20T00:00:00Z AND
                                                 Assigned_Dealer__c != null AND Assigned_Dealer__r.Lead_No_Update_Notification_Disable__c != true 
                                                 AND LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Sales Leads') 
                                                 AND (Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' AND Dealer_Lead_Status__c !='Lost') 
                                                 AND (Lead_Latest_Phase__c != 'Vehicle Registration' AND Lead_Latest_Phase__c != 'Invoiced') 
                                                 AND (CAC_Lead_Status__c = 'Allocated')) 
-                                         OR (MD__c = 'JP' AND 
+                                         OR (MD__c = 'JP' AND CREATEDDATE >= 2017-12-20T00:00:00Z AND
                                              Assigned_Dealer__c != null AND Assigned_Dealer__r.Lead_No_Update_Notification_Disable__c != true 
                                              AND LastModifiedDate <=:pastdatdate AND RecordType.Name IN('Aftersales Leads') AND Appointment_DateTime__c !=null 
                                              AND Dealer_Lead_Status__c != 'Purchased(Only Non BDC)' AND Dealer_Lead_Status__c !='Lost')]);          
@@ -145,4 +145,5 @@ global class EmailnotificationLeadsnotupdated implements Database.Batchable<sObj
     global void execute(SchedulableContext ctx) {
         Database.executeBatch(new EmailnotificationLeadsnotupdated());
     }
+    
 }

@@ -318,8 +318,11 @@
          
          /*Set the initial Brand value for the vehicle which is already selected*/                  
          $scope.setSelectedValue = function (brand){
+            //alert(brand);
             $scope.relatedClasses = $scope.brandsClasses[brand];
+            //alert($scope.relatedClasses);
             $scope.sortedClass = orderBy( $scope.relatedClasses, '-' , false);
+            //alert($scope.sortedClass);
             $scope.models = [];
          };
       
@@ -509,13 +512,16 @@
           
           /*Save the Vehicle Details on New or Edit*/
           $scope.saveDetail = function (vehicleType, operation) {
-              $scope.brands.sort();
-              $scope.relatedClasses.sort();
-              $scope.models.sort();
+
+              //$scope.brands.sort();
+              //$scope.relatedClasses.sort();
+              //$scope.models.sort();
               
               $scope.vehicleDetail = false;
               $scope.leadVehicletype = vehicleType; 
-              $scope.recordId = '{!currentRecordId}';             
+              $scope.recordId = '{!currentRecordId}';    
+              var brnd = document.getElementById("brandItems").value;
+              //alert(brnd);         
               $scope.brandVal = document.getElementById("brandItems").value;
               $scope.classVal = document.getElementById("classItems").value;
               $scope.colourVal = document.getElementById("colourValue").value;
@@ -529,6 +535,8 @@
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
                                          ];
+              //alert($scope.brands[parseInt($scope.brandVal)]);
+              //alert($scope.relatedClasses[parseInt($scope.classVal)]);
               /*Remoting method here*/
               Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.LeadVehiclePickerTHController.updateVehicleDetails}',JSON.stringify($scope.vehicleAttributes[0]),
@@ -878,7 +886,7 @@
             <table>
                 <tr>
                     <td>{!$label.Brand}</td>
-                    <td><select id="brandItems" ng-model="selectedCompetitorBrand" ng-change="setSelectedValue(selectedCompetitorBrand)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
+                    <td><select id="brandItems" ng-model="selectedCompetitorBrand" ng-change="setSelectedValue(selectedCompetitorBrand);setSelectedColour(selectedColour)" ng-options="brand for brand in brands | orderBy:'toString()'"></select></td>
                     <td>{!$label.Class}</td>                  
                     <td><select id="classItems" ng-model="selectedCompetitorClasses" ng-blur="setModelValue(selectedCompetitorClasses+selectedCompetitorBrand)" ng-change="setModelValue(selectedCompetitorClasses+selectedCompetitorBrand)" ng-options="classes for classes in relatedClasses | orderBy:'toString()'"></select></td>                
                 </tr>

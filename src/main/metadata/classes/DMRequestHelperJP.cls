@@ -492,7 +492,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
                String licensename=[Select Id,Name,UserLicense.Name from Profile where Id=:profileId].UserLicense.Name;
                system.debug('ProfileName::'+licensename);
         System.debug('---------newList.size()---------'+newList.size());
-        if(licensename.equals('Salesforce'))
+        if(licensename.equals('Salesforce') || licensename.equals('PowerPartner'))
         {
          if(newList!=null && newList.size()>0){
            

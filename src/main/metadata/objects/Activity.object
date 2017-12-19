@@ -1846,6 +1846,28 @@ noted by Lio on 10.28.2013</description>
         <type>Picklist</type>
     </fields> 
     <fields>
+        <fullName>Survey_Taken__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Survey Taken</label>
+        <referenceTo>SurveyTaker__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Survey__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Survey</label>
+        <referenceTo>Survey__c</referenceTo>
+        <relationshipLabel>Activities</relationshipLabel>
+        <relationshipName>Activities</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Task_RecordType_Name__c</fullName>
         <externalId>false</externalId>
         <formula>RecordType.Name</formula>
