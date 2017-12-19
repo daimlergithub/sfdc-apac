@@ -106,6 +106,118 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	    <fields>
+        <fullName>Retail_Race__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Race</label>
+        <picklist>
+            <controllingField>Market__c</controllingField>
+            <picklistValues>
+                <fullName>Thai</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>American</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>British</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>French</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>German</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indian</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laotian</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malay</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bumi</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Bumi</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>CorrelationID__c</fullName>
         <description>To Store the Correlation ID received from Auto-line through UI integration. Hidden field not to be displayed to the user.</description>
@@ -371,6 +483,58 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',	
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ','NA')))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+			            <picklistValues>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>MD__c</fullName>
