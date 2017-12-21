@@ -123,7 +123,7 @@ public with sharing class VehicleRelationshipHelperTH
             //give edit access to the internal users
             for(Id idsh:vrseditaccesswithdealers.keyset()){
                 if(gp.name==vrseditaccesswithdealers.get(idsh)){
-                    vehicleshare.add(new Vehicle_Relationship__Share(parentid=idsh,userorgroupid=gp.id,AccessLevel='EDIT',RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual));
+                    vehicleshare.add(new Vehicle_Relationship__Share(parentid=idsh,userorgroupid=gp.id,AccessLevel='READ',RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual));
                 }
             }
             for(ID ac:accs.keyset()){
