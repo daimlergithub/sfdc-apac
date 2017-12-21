@@ -23986,6 +23986,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBFSK</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>MBK_Occupation__c</picklist>
@@ -30189,10 +30193,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBFSK</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
