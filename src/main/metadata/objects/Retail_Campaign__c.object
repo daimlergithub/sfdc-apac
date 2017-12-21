@@ -11304,6 +11304,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <fullName>Sales and After Sales</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>CRM/CSR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Marketing Event</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
