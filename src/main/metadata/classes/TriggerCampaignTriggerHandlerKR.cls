@@ -14,6 +14,7 @@ public class TriggerCampaignTriggerHandlerKR implements TriggerHandlerIf
         if(trigger.isAfter && trigger.isUpdate)
         {
             CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
+			CampaignHelper.updateDueDateOnCampaignTask(Trigger.new,oldmap);
         }
         if(trigger.isBefore && trigger.isUpdate){
           CampaignHelperBase.updatemarket(Trigger.New);
