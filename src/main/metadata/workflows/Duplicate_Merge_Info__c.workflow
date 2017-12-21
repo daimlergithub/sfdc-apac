@@ -3,7 +3,7 @@
     <fieldUpdates>
         <fullName>Update_Master_Ucid</fullName> 
         <field>Master_UCID__c</field>
-        <formula>if(PRIORVALUE( Master_Customer__c ) != Master_Customer__c , Master_Customer__r.UCID__c ,PRIORVALUE( Master_UCID__c ))</formula>
+        <formula>if( ISNEW() ,Master_Customer__r.UCID__c,if(PRIORVALUE( Master_Customer__c ) != Master_Customer__c , Master_Customer__r.UCID__c ,PRIORVALUE( Master_UCID__c )))</formula>
         <name>Update Master Ucid</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -12,7 +12,7 @@
 	<fieldUpdates>
         <fullName>Update_Child_UCID</fullName>
         <field>Duplicate_UCID__c</field>
-        <formula>if(PRIORVALUE( Duplicate_Customer__c ) != Duplicate_Customer__c , Duplicate_Customer__r.UCID__c ,PRIORVALUE( Duplicate_UCID__c ))</formula>
+        <formula>if( ISNEW() ,Duplicate_Customer__r.UCID__c,if(PRIORVALUE( Duplicate_Customer__c) != Duplicate_Customer__c, Duplicate_Customer__r.UCID__c ,PRIORVALUE( Duplicate_UCID__c )))</formula>
         <name>Update Child Ucid</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
