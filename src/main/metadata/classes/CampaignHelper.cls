@@ -808,7 +808,7 @@ Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
 		{
 			update updateTaskList;
 		}		
-	}}
+	}
     
     
      /**
