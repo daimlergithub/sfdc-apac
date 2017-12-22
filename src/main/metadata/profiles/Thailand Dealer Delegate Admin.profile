@@ -29858,7 +29858,6 @@
         <enabled>true</enabled>
         <name>EnableNotifications</name>
     </userPermissions>
-	</userPermissions>
 	    <userPermissions>
         <enabled>true</enabled>
         <name>ImportCustomObjects</name>
