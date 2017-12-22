@@ -28562,7 +28562,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadAssignmentPage</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadButtonContainerASLeads</apexPage>
@@ -28878,7 +28878,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskMassAssignChangeOwnerJP</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskMassChangeOwner</apexPage>
