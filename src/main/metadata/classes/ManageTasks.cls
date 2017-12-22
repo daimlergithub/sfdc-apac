@@ -140,7 +140,7 @@ public void getstatusval() {
         }else if(oldstatus == 'Cancelled')
         {
 		dontshow11=true;
-       tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,Owner.name,OwnerId,Status,Owner.Email FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 1000];
+       tasklsss=[Select Id,WhoId,Type,Who.name,WhatId,Subject,ActivityDate,RecordType.Developername,RecordType.name,Owner.name,OwnerId,Status,Owner.Email FROM Task Where WhatId =: campaignId and MD__c= 'KR' and status=: oldstatus limit 1000];
         }
         else
         {
