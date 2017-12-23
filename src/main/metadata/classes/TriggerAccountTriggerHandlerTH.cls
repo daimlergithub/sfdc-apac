@@ -75,6 +75,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                 //firstRun=false;
                 }
             }
+            AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
@@ -95,11 +96,10 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             CDMInformatica_Services.createCustomerCDM(accids,'TH','update');
             //firstRun=false;
             }
-            AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
-        
-        
             }
         }
+           
+    
         
         if(isAfter && isDelete && !System.isFuture())
         {
@@ -133,9 +133,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
-
-       
-        List<Account> accountNewList2 = Trigger.new ; 
+     List<Account> accountNewList2 = Trigger.new ; 
         List<Account> accountNewList = new List<Account>(); 
         if(accountNewList2!= null && accountNewList2.size() >0)
         {
@@ -168,5 +166,6 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                 AccountHelperTH.DealerCommAccountlinkcreatecdm(accountNewList,(Map<Id,Account>)Trigger.OldMap);
             }
         }
+
     }
 }
