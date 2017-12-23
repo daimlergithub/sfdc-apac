@@ -140,8 +140,7 @@ public class LeadHelperAccountLinkCreateJP {
                         acclnk.Retail_WebSite__c = led.Contact__r.Website;
                         acclnk.Retail_Company_Name_Native1__c = led.Contact__r.Company_Name_Native_1__c;
                         acclnk.Retail_Commercial_Reg_No__c = led.Contact__r.Commercial_Reg_No__c;
-                        acclnk.Retail_Company_Phone__c = led.Contact__r.Individual_Home_Phone__c;
-                        acclnk.Retail_Company_Other_Phone__c = led.Contact__r.Work_Phone__c;
+                        
                         acclnk.Retail_Agreement__c = led.Contact__r.Personal_Agreement__c;
                         acclnk.Retail_Information_Third_Party_Release__c = led.Contact__r.Personal_Information_Third_Party_Release__c;
                         acclnk.Retail_Abroad_Agreement__c = led.Contact__r.Personal_Abroad_Agreement__c;
@@ -163,7 +162,10 @@ public class LeadHelperAccountLinkCreateJP {
                         }
                         acclnk.Retail_UCID__c = led.Contact__r.UCID__c;
                         acclnk.Retail_DMS_Customer_ID__c = led.Contact__r.DMS_Customer_ID__c;
-                        acclnk.Retail_Company_Name__c = led.Contact__r.Company_Name__c;
+                        acclnk.Retail_Company_Name__c = led.Contact__r.name;
+                        acclnk.Retail_Company_Phone__c = led.Contact__r.Individual_Home_Phone__c;
+                        acclnk.Retail_Company_Other_Phone__c = led.Contact__r.Work_Phone__c;
+                        acclnk.Retail_Mobile__c = led.Contact__r.Mobile__c;
                         acclnk.Retail_Email_OptOut__c = led.Contact__r.PersonHasOptedOutOfEmail;
                         acclnk.Retail_Fax_OptOut__c = led.Contact__r.PersonHasOptedOutOfFax;
                         acclnk.Retail_Primary_Phone__c = led.Contact__r.Primary_Phone_Display__c;
