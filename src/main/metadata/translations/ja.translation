@@ -553,7 +553,7 @@
         <name>CL_VehicleRel_No</name>
     </customLabels>
     <customLabels>
-        <label>本当にマージしますか？</label>
+        <label>本当に統合しますか？</label>
         <name>CP_Merge_Account_Confirm</name>
     </customLabels>
     <customLabels>
