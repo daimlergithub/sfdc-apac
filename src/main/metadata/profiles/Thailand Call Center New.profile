@@ -138,7 +138,7 @@
     <applicationVisibilities>
         <application>MBTH_Data_Management</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBTH_File_Management</application>
@@ -3079,11 +3079,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Agreement_Date_for_Contact_Method__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Agreement_Date_for_Marketing_Consent__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4305,11 +4300,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Expiration_Date_for_CC_Old__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Expiration_Date_for_Contact_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6200,11 +6190,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Agreement_Date_for_Marketing_Consent__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Agreement_Date_on_Contact_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -553,7 +553,7 @@
         <name>CL_VehicleRel_No</name>
     </customLabels>
     <customLabels>
-        <label>本当にマージしますか？</label>
+        <label>本当に統合しますか？</label>
         <name>CP_Merge_Account_Confirm</name>
     </customLabels>
     <customLabels>
@@ -2369,17 +2369,10 @@
         <label>購入済車両：削除</label>
         <name>ch_Purchased_Vehicle_Details</name>
     </customLabels>
-	<customLabels>
-        <label>"表示されている16項目（興味車両メーカー～購入済車両車台番号）については統合先レコードの値が反映されます。
-左側のリードIDがマスターリードとなります。 
-両リードに値が入っている場合は、どちらを残すか選択してください。
-ただし、興味車両等（画面下部）はマスターリードの値のみが残りますので、
-興味車両等をご確認の上、リードIDにチェックを入れてマスターリードを選択してください。
-なお、以下のリードは、自動的にマスターリードとなり、変更できません。
-リードステータスが、受注・購入済・請求もしくは満了リード・クロスポイントリード"
-</label>
+    <customLabels>
+        <label>&quot;左側のリードIDがマスターリードとなります。 両リードに値が入っている場合は、どちらを残すか選択してください。 ただし、興味車両等（画面下部）はマスターリードの値のみが残りますので、 興味車両等をご確認の上、リードIDにチェックを入れてマスターリードを選択してください。 なお、リードステータスが、受注・購入済・請求もしくは満了リード・クロスポイントリードは、自動的にマスターリードとなり、変更できません。&quot;</label>
         <name>Leadmergeupdated</name>
-    </customLabels> 
+    </customLabels>
     <customLabels>
         <label>商談プロセスシート</label>
         <name>Lead_Process_Sheet</name>

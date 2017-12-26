@@ -3075,11 +3075,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Agreement_Date_for_Contact_Method__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Agreement_Date_for_Marketing_Consent__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4301,11 +4296,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Expiration_Date_for_CC_Old__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Expiration_Date_for_Contact_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6191,11 +6181,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Agreement_Date_for_Marketing_Consent__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Agreement_Date_on_Contact_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -27213,7 +27198,7 @@
         <recordType>Case.Touring_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-MBTH Complaint Layout-InternalUsers</layout>
+        <layout>Case-MBTH Complaint Layout - Dealer</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -28562,7 +28547,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadAssignmentPage</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadButtonContainerASLeads</apexPage>
@@ -28878,7 +28863,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskMassAssignChangeOwnerJP</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskMassChangeOwner</apexPage>
@@ -29857,6 +29842,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EnableNotifications</name>
+    </userPermissions>
+	    <userPermissions>
+        <enabled>true</enabled>
+        <name>ImportCustomObjects</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
