@@ -28,4 +28,5 @@ public class LeadUtil {
     public static boolean Share2contactInsert=true;
     public static boolean Share2contactUpdate=true;
 	public static boolean convert2leads=true;
+	public static boolean recurssionchecksendmaillead = true;
 }

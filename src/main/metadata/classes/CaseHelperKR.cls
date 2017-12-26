@@ -823,51 +823,64 @@ public class CaseHelperKR
     }
 	//---------------------------- Case Owner Mail Send - SFDCKR-830 ----------------------------
     // Added By - Monalisa
-  
-    public static void sendEmailToQueue(List<Case> LstnewCase,string action) {
-             list<Id> queueid = new list<Id>();
-             list<GroupMember> ownerids = new list<GroupMember>();
-             list<Id> userids= new list<Id>();
-             list<Group> queueids = new list<Group>();
-             list<String> queueName = new list<String>();
-             boolean marketcheck=false;
-             System.debug('*****Case List**' +LstnewCase);  
-             for(case c:LstnewCase) {
-               System.debug('c.owner.type---'+c.owner.type);
-               if(c.MD__c=='KR' && String.valueof(c.ownerId).startsWith('00G')) {
-              marketcheck=true;
-              queueid .add(c.ownerId);
-              system.debug('*****Queue Name**' +queueid );  
-            }
-            }
-            queueids =[Select Id,Name,type from Group where type='Queue' and Id IN: queueid ];
-            system.debug('*****Queue Name***' +queueids);         
-           if(queueids.size()>0){
-           for(Group gp:queueids){
-              queueName.add(gp.Name);}}
-            ownerids =[select UserOrGroupId,Group.Name from GroupMember where Group.Name IN: queueName];
-              for(GroupMember gp:ownerids ){
-              userids.add(gp.UserOrGroupId);      
-        }
-        system.debug('*****Queue Name' +queueids );  
-           system.debug('*****Caseownerlist' +ownerids);
-           system.debug('*****userids' +userids);
-            system.debug('*****action Name***' +action);   
-        Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-        EmailTemplate e =[select id,name,Subject from EmailTemplate WHERE name = 'Case owner is updated' limit 1];
-           message.setTemplateId(e.id);
-          
-           message.setSaveAsActivity(false);
-            if(userids.size()>0){
-                     message.setToAddresses(userids);
-                      message.setTargetObjectId(userids[0]);
-                 } 
-          
-              if(marketcheck){
-                 Messaging.SendEmailResult[] m1=Messaging.SendEmail(new Messaging.SingleEmailMessage[]{message});
-                 }
-          
-         system.debug('*****Message Sent');  
-       
+   @future
+    public static void sendEmailToQueue(map<string,string> LstnewCase) {
+              system.debug('Entered Email Notification Method'+LstnewCase.keySet());
+     
+         
+          set<Id> groupId = new set<Id>();
+          list<GroupMember> ownerids = new list<GroupMember>();
+          if(LstnewCase!= null && !LstnewCase.isEmpty() && TriggerCaseTriggerHandlerKR.recurssioncheckaftersendmail!= true)
+          {
+            // sendEmailToQueue.sendcaseMail(LstnewCase);
+              for(string ownrled : LstnewCase.keySet())
+              {
+                  groupId.add(LstnewCase.get(ownrled));
+                  system.debug('*&*&*&*& groupId  ' + groupId);
+              }
+          if(groupId != null && !groupId.isEmpty())
+          {
+              ownerids =[select Id,UserOrGroupId,Group.Id from GroupMember where Group.Id in: groupId];
+              system.debug('*&*&*&*& ownerids ' + ownerids);
           }
+          
+          EmailTemplate templateId  =[select id,name,Subject from EmailTemplate WHERE name = 'Case owner is updated to Queue'];
+          Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+          List<Id> ccDeatils=new List<Id>();
+          for(string caseOwnrId: LstnewCase.keySet())
+          {   
+              for(GroupMember grmMbr: ownerids)
+              {
+                  system.debug(grmMbr.Group.Id + '   **$$***$$***$$**   ' + grmMbr.UserOrGroupId + '   *&*&* Entered For Loop for email *&*&*&   ' + LstnewCase.get(caseOwnrId));                
+                  if(grmMbr.Group.Id == LstnewCase.get(caseOwnrId))
+                  {
+                      message.setTargetObjectId(grmMbr.UserOrGroupId);
+                      ccDeatils.add(grmMbr.UserOrGroupId);
+                  }              
+                  System.debug('ccDeatils----'+ccDeatils);
+                  message.setToAddresses(ccDeatils);
+                  message.setWhatId(caseOwnrId);
+                  message.setTemplateId(templateId.id);
+                  message.setSaveAsActivity(false);
+              }
+          }
+          try
+            {   
+              if(!ownerids.isEmpty() && ownerids!= null)
+              { 
+                  
+                 Messaging.SendEmailResult[] results =Messaging.SendEmail(new Messaging.SingleEmailMessage[]{message});
+                  if (results[0].success) 
+                  {                
+                      System.debug('The Case Queue email was sent successfully.');
+                  } 
+              }               
+            }    
+            catch(Exception e)
+            {
+                system.debug('Lead Queue Email Notification Failure Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
+            } 
+          }
+          TriggerCaseTriggerHandlerKR.recurssioncheckaftersendmail=true;                  
+       }
 }

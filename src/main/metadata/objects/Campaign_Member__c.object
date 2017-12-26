@@ -1621,15 +1621,36 @@ openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enab
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
 
 var aid="{!Account.Id}"; 
-if(aid != '') 
+if(aid != '') { 
+if(typeof(srcUp) == 'function') { 
+
+if (sforce.console.isInConsole()) 
+{ 
+srcUp('/apex/ConvertToDMRequest?Id={!Account.Id}&amp;isdtp=vw'); 
+} 
+else 
 { 
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!Account.Id}") 
+} 
+} 
+} 
+
+
+
+ if(typeof(srcUp) == 'function') { 
+
+if (sforce.console.isInConsole()) 
+{ 
+srcUp('/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}'); 
 } 
 else 
 { 
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}") 
+}
 }</url>
     </webLinks>
     <webLinks>
@@ -1667,20 +1688,33 @@ else
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+
 var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
 if(marketusr){ 
-window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}")
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}") 
 }else{ 
 
- var aid="{!Account.Id}";
-if(aid != '')
-{
-  window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!Account.Id}")
-}
-else
-{
-window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}")
-}
+var aid="{!Account.Id}"; 
+if(aid != '') 
+{ 
+if(typeof(srcUp) == 'function') 
+{ 
+
+if (sforce.console.isInConsole()) 
+{ 
+srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}&amp;isdtp=vw'); 
+} 
+else 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!Account.Id}") 
+} 
+} 
+} 
+else 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}") 
+} 
 }</url>
     </webLinks>
     <webLinks>
@@ -1739,21 +1773,33 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 
-var marketusr={!ISPICKVAL($User.Market__c , "TH")};
-if(marketusr){
- window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}");
-}else{
- var aid = "{!Account.Id}";
-if(aid != '')
-{
-  window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!Account.Id}");
-}
-else
-{
-window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}");
-}
+
+var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+if(marketusr){ 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
+}else{ 
+var aid = "{!Account.Id}"; 
+if(aid != '') 
+{ 
+if (sforce.console.isInConsole()) 
+{ 
+if(typeof(srcUp) == 'function') 
+{ 
+srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}&amp;isdtp=vw'); 
+} 
+else 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!Account.Id}"); 
+} 
+} 
+} 
+else 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}"); 
+} 
 }</url>
     </webLinks>
     <webLinks>
@@ -1806,7 +1852,7 @@ window.open("{!URLFOR($Site.Prefix)}/CAMPAIGN_MEMBER_REPORT_ID?pv0="+campaignNam
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}"; 
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) { 
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?CF00N2800000IkqXw={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqXw_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Campaign.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID={!Campaign.Name}&amp;OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_LKID={!Campaign.Id}&amp;retURL={!Campaign.Id}"); 
 }else 
 { 
 alert('You cannot create campaign members for this campaign status'); 
@@ -1825,7 +1871,7 @@ alert('You cannot create campaign members for this campaign status');
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -1933,3 +1979,6 @@ alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
 </CustomObject>
+
+
+
