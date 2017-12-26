@@ -1133,6 +1133,11 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Campaign_Member__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Member']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='ExportCampaign']/url/text()</xpath>
 		<token tokenonly="true">CAMPAIGN_MEMBER_REPORT_ID</token>
 	</changetext>
@@ -1150,6 +1155,11 @@
 		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_LKID</token>
 	</changetext>
 	<changetext>
 		<filename>caseSharingRules\Case.sharingRules</filename>
@@ -1354,6 +1364,11 @@
 		<filename>objects\Retail_Campaign__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_Child_Retail_Campaign']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Child_Retail_Campaign']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_LKID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Car_Enquiry__c.object</filename>
