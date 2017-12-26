@@ -36,14 +36,16 @@
                 if(inputElem[i].checked == true)
                 {
                  inputElem[i].disabled = true;
+				 document.getElementById('page1:form1:hdn').value='trues';
                 }else
                 {
                 inputElem[i].disabled = false;
+				document.getElementById('page1:form1:hdn').value='tr';
                 }
             }
         };
         
-        document.getElementById('page1:form1:hdn').value='trues';
+        
       }
         function javascc(index) {
         
