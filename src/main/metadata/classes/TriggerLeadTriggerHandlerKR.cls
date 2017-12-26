@@ -9,7 +9,8 @@ public class TriggerLeadTriggerHandlerKR
     public static boolean preventRecurssionafter = false;
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
+        map<string,string> leadOwnerIds = new map<string,String>();
+		user usr = [select id,profileId,profile.Name from User WHERE Id =: userInfo.getUserId()];
         System.debug('Handletrigger----->1');
         if(isBefore && isInsert)
         {
@@ -57,7 +58,6 @@ public class TriggerLeadTriggerHandlerKR
             LeadSharingforDealerJP.LeadSharing_Dealer(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, isInsert, isUpdate);
             LeadUtil.isCreated = false;
             LeadHelperKR.leadsharehierarchy(trigger.new);
-			//LeadHelperKR.sendEmailToQueue(trigger.new,'isInsert');
         }
         if(isAfter && isUpdate && usr.Profile.Name != 'IntegrationAPI' && LeadUtil.isCreated)
         {
@@ -76,7 +76,14 @@ public class TriggerLeadTriggerHandlerKR
             LeadHelperKR.handleAfterInsertOrUpdate(Trigger.new,(Map<Id,Lead__C>)Trigger.oldMap);
             LeadUtil.isCreated = false;
             LeadHelperKR.leadsharehierarchy(trigger.new);
-			//LeadHelperKR.sendEmailToQueue(trigger.new,'isUpdate');
+			for(Lead__C leds : (List<Lead__c>)trigger.new)
+            {
+                for(Lead__C ledsold: (List<Lead__C>)trigger.old){
+                if(leds.OwnerId!=ledsold.OwnerId)
+                leadOwnerIds.put(Leds.Id,Leds.OwnerId);
+				}
+            }     
+            LeadHelperKR.sendEmailToQueue(leadOwnerIds);
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

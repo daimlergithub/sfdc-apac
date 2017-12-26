@@ -13209,7 +13209,7 @@ ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR')),AND($Profile.Nam
 	<validationRules>
         <fullName>Cannot_Edit_OB_Call_Task_with_Cancel_AS</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(ISPICKVAL((Status),'Cancelled'), MD__c = 'KR', OR(RecordType.Name = 'OB Call',RecordType.Name = 'OB Task'),NOT( ISCHANGED(Status)))</errorConditionFormula>
+        <errorConditionFormula>AND(ISPICKVAL((Status),'Cancelled'), MD__c = 'KR', OR(RecordType.Name = 'OB Call',RecordType.Name = 'OB Task'),NOT( ISCHANGED(Status)),NOT( ISCHANGED(OwnerId)))</errorConditionFormula>
         <errorMessage>These record cannot be edited as Status is Cancelled</errorMessage>
     </validationRules>
     <validationRules>
