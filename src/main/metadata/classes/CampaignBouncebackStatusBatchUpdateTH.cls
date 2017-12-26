@@ -7,7 +7,7 @@ Id campExecutionrecid= RecordTypeAccessService.getRecordTypeId('Retail_Campaign_
     if(test.isRunningTest()){
         return DataBase.getQueryLocator([select id,name,(select id,Status__c,Contact_Id__r.Email_Status__c,Contact_Id__c from Campaign_Members__r where Status__c='Executed') from Retail_Campaign__C where recordtypeid=:campExecutionrecid and md__c='TH' and Close_Date__c=:nextday]);
     }
-return DataBase.getQueryLocator([select id,name,(select id,Status__c,Contact_Id__r.Email_Status__c,Contact_Id__c from Campaign_Members__r where Status__c='Executed') from Retail_Campaign__C where recordtypeid=:campExecutionrecid and md__c='TH' and Close_Date__c=:to_day]);
+return DataBase.getQueryLocator([select id,name,(select id,Status__c,Contact_Id__r.Email_Status__c,Contact_Id__c from Campaign_Members__r where Status__c='Executed') from Retail_Campaign__C where recordtypeid=:campExecutionrecid and md__c='TH' and Close_Date__c<=:to_day]);
 }
 global void Execute(Database.BatchableContext bc,List<Retail_Campaign__c> retailCampaign){
     List<Campaign_Member__c> campmembertoupdate=new List<Campaign_Member__c>();
