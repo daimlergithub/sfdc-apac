@@ -1630,7 +1630,7 @@ if(typeof(srcUp) == 'function') {
 
 if (sforce.console.isInConsole()) 
 { 
-srcUp('/apex/ConvertToDMRequest?Id={!Account.Id}&isdtp=vw'); 
+srcUp('/apex/ConvertToDMRequest?Id={!Account.Id}&amp;isdtp=vw'); 
 } 
 else 
 { 
@@ -1703,7 +1703,7 @@ if(typeof(srcUp) == 'function')
 
 if (sforce.console.isInConsole()) 
 { 
-srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}&isdtp=vw'); 
+srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}&amp;isdtp=vw'); 
 } 
 else 
 { 
@@ -1788,7 +1788,7 @@ if (sforce.console.isInConsole())
 { 
 if(typeof(srcUp) == 'function') 
 { 
-srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}&isdtp=vw'); 
+srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}&amp;isdtp=vw'); 
 } 
 else 
 { 
