@@ -9214,7 +9214,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Car_Model__c.Colour__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9224,7 +9224,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Car_Model__c.Description__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9314,7 +9314,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Car_Model__c.Trim__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
