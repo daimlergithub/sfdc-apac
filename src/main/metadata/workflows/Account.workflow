@@ -27,6 +27,16 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>	
+    <fieldUpdates>
+        <fullName>Data_Source_field_update</fullName>
+        <description>Added DataSource as Dealer Outlet</description>
+        <field>Data_Source__c</field>
+        <literalValue>Dealer Outlet</literalValue>
+        <name>Data Source field update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>First_Consent_Date</fullName>
@@ -154,6 +164,15 @@
         <name>System Data Source</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>	
+    <fieldUpdates>
+        <fullName>UpdateData_Source_to_Others</fullName>
+        <field>Data_Source__c</field>
+        <literalValue>Other</literalValue>
+        <name>UpdateData Source to Others</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -651,7 +670,14 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISCHANGED( RecordTypeId) || ISCHANGED(Gender__c) || ISCHANGED( FirstName ) || ISCHANGED( LastName ) ||  ISCHANGED( FirstName_Native_1__c ) || ISCHANGED( LastName_Native_1__c ) || ISCHANGED( Company_Name__c ) ||  ISCHANGED( Company_Name_Native_1__c ) || ISCHANGED( Company_Legal_Form__c ) || ISCHANGED( Company_Legal_Form_text__c ) ||  ISCHANGED( Legal_Form_Position__c ) || ISCHANGED( PersonBirthdate ) || ISCHANGED( Foundation_Date__c ) ||  ISCHANGED( Mobile__c ) || ISCHANGED( Individual_Home_Phone__c ) || ISCHANGED( Mobile2__c ) || ISCHANGED( Work_Phone__c ) || ISCHANGED( Home_Phone_2__c ) || ISCHANGED( Phone ) || ISCHANGED( Fax ) || ISCHANGED( Fax2__c ) || ISCHANGED( Email3__c ) || ISCHANGED( Primary_Phone__c ) || ISCHANGED( Primary_Fax__c ) ||(ISCHANGED(Primary_Address_Reference__c)) || (ISCHANGED(Main_Dealer__c))</formula>
+        <formula>OR(
+ISCHANGED( RecordTypeId),ISCHANGED(Gender__c),ISCHANGED( FirstName ),ISCHANGED( LastName ),ISCHANGED( FirstName_Native_1__c ),
+ISCHANGED( LastName_Native_1__c ),ISCHANGED( Company_Name__c ),ISCHANGED( Company_Name_Native_1__c ), ISCHANGED( Company_Legal_Form__c ),
+ISCHANGED( Company_Legal_Form_text__c ),ISCHANGED( Legal_Form_Position__c ),ISCHANGED( PersonBirthdate ), ISCHANGED( Foundation_Date__c ),
+ISCHANGED( Mobile__c ), ISCHANGED( Individual_Home_Phone__c ), ISCHANGED( Mobile2__c ), ISCHANGED( Work_Phone__c ), ISCHANGED( Home_Phone_2__c ),
+ISCHANGED( Phone ), ISCHANGED( Fax ), ISCHANGED( Fax2__c ), ISCHANGED( Email3__c ),ISCHANGED( Primary_Phone__c ), ISCHANGED( Primary_Fax__c ), ISCHANGED(Primary_Address_Reference__c),
+ISCHANGED(Main_Dealer__c)
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -749,6 +775,28 @@ Modify Reason:
             <operation>equals</operation>
             <value>Person Account</value>
         </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>UpdateData Source for Dealers For CompanyAccount</fullName>
+        <actions>
+            <name>UpdateData_Source_to_Others</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>AND(Contains($Profile.Name, &apos;Japan Dealer&apos; ), MD__c = &apos;JP&apos;,
+NOT(ISBLANK(Text(Data_Source__c))),RecordType.DeveloperName = &apos;Company&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>UpdateData Source for Dealers For Person Account</fullName>
+        <actions>
+            <name>Data_Source_field_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(Contains($Profile.Name, &apos;Japan Dealer&apos; ), MD__c = &apos;JP&apos;, 
+NOT(ISBLANK(Text(Data_Source__c))),RecordType.DeveloperName = &apos;PersonAccount&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>
