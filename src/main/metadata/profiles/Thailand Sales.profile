@@ -3079,11 +3079,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Agreement_Date_for_Contact_Method__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Agreement_Date_for_Marketing_Consent__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4315,11 +4310,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Expiration_Date_for_CC_Old__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Expiration_Date_for_Contact_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6210,11 +6200,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Agreement_Date_for_Marketing_Consent__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Agreement_Date_on_Contact_Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11582,6 +11567,16 @@
         <field>Case.MBK_Data_Source__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_1st_Reminder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_2nd_Reminder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.MBTH_Case_Class__c</field>
@@ -11602,10 +11597,20 @@
         <field>Case.MBTH_Case_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_Escalated_to_MBTH__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.MBTH_Legal_Involved__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_Priority__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

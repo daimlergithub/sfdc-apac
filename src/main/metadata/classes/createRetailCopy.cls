@@ -175,7 +175,7 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_Address_Reference__c = addId;
                         newAlk.fromRole__c = DealeAccId;
                         newAlk.RecordTypeId = alkPerson_RecordTypeId;
-						if (accList.MD__c == 'TH') {
+                        if (accList.MD__c == 'TH') {
                             if (SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
@@ -212,10 +212,9 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Gender__c = accList.Gender__c;
                             newAlk.Retail_Industry__c = accList.industry;
                             newAlk.Retail_WebSite__c = accList.Website;
-                            newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                            //newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                             newAlk.Retail_Commercial_Reg_No__c = accList.Commercial_Reg_No__c;
-                            newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
-                            newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
+                            
                             newAlk.Retail_Agreement__c = accList.Personal_Agreement__c;
                             newAlk.Retail_Information_Third_Party_Release__c = accList.Personal_Information_Third_Party_Release__c;
                             newAlk.Retail_Abroad_Agreement__c = accList.Personal_Abroad_Agreement__c;
@@ -233,7 +232,7 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_Address_Reference__c = addId;
                         newAlk.fromRole__c = DealeAccId;
                         newAlk.RecordTypeId = alkCompany_RecordTypeId;
-						if (accList.MD__c == 'TH') {
+                        if (accList.MD__c == 'TH') {
                             if (SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
@@ -245,7 +244,10 @@ public without sharing class createRetailCopy {
                             }
                             newAlk.Retail_UCID__c = accList.UCID__c;
                             newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                            newAlk.Retail_Company_Name__c = accList.Company_Name__c;
+                            newAlk.Retail_Company_Name__c = accList.name;
+                            newAlk.Retail_Mobile__c = accList.Mobile__c;
+                            newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
+                            newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
                             newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
                             newAlk.Retail_Fax_OptOut__c = accList.PersonHasOptedOutOfFax;
                             newAlk.Retail_Primary_Phone__c = accList.Primary_Phone_Display__c;
@@ -304,7 +306,7 @@ public without sharing class createRetailCopy {
                     newAlk.Retail_Address_Reference__c = addId;
                     newAlk.fromRole__c = account.Main_Dealer__c;
                     newAlk.RecordTypeId = alkPerson_RecordTypeId;
-					if (accList.MD__c == 'TH') {
+          if (accList.MD__c == 'TH') {
                         if (SelectedAdd[0] != null) {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
@@ -341,10 +343,9 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_Gender__c = accList.Gender__c;
                         newAlk.Retail_Industry__c = accList.industry;
                         newAlk.Retail_WebSite__c = accList.Website;
-                        newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                        //newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                         newAlk.Retail_Commercial_Reg_No__c = accList.Commercial_Reg_No__c;
-                        newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
-                        newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
+                        
                         newAlk.Retail_Agreement__c = accList.Personal_Agreement__c;
                         newAlk.Retail_Information_Third_Party_Release__c = accList.Personal_Information_Third_Party_Release__c;
                         newAlk.Retail_Abroad_Agreement__c = accList.Personal_Abroad_Agreement__c;
@@ -363,7 +364,7 @@ public without sharing class createRetailCopy {
                     newAlk.Retail_Address_Reference__c = addId;
                     newAlk.fromRole__c = account.Main_Dealer__c;
                     newAlk.RecordTypeId = alkCompany_RecordTypeId;
-					if (accList.MD__c == 'TH') {
+                    if (accList.MD__c == 'TH') {
                         if (SelectedAdd[0] != null) {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
@@ -375,7 +376,10 @@ public without sharing class createRetailCopy {
                         }
                         newAlk.Retail_UCID__c = accList.UCID__c;
                         newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                        newAlk.Retail_Company_Name__c = accList.Company_Name__c;
+                        newAlk.Retail_Company_Name__c = accList.name;
+                        newAlk.Retail_Mobile__c = accList.Mobile__c;
+                        newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
+                        newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
                         newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
                         newAlk.Retail_Fax_OptOut__c = accList.PersonHasOptedOutOfFax;
                         newAlk.Retail_Primary_Phone__c = accList.Primary_Phone_Display__c;
