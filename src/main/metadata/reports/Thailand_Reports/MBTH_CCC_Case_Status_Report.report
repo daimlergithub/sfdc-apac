@@ -16,9 +16,6 @@
         <field>ACCOUNT_ID</field>
     </columns>
     <columns>
-        <field>Case.Perferred_Contact_Number__c</field>
-    </columns>
-    <columns>
         <field>Case.Case_Dealer__c</field>
     </columns>
     <columns>
@@ -26,6 +23,9 @@
     </columns>
     <columns>
         <field>CREATED</field>
+    </columns>
+    <columns>
+        <field>OWNER</field>
     </columns>
     <columns>
         <field>Case.Data_Source__c</field>
@@ -36,6 +36,7 @@
     <columns>
         <field>LAST_UPDATEONLY</field>
     </columns>
+    <description>Added: Case Owner</description>
     <filter>
         <criteriaItems>
             <column>Case.MD__c</column>
