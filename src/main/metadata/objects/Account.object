@@ -14324,7 +14324,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -14384,7 +14383,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -16069,7 +16067,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -16084,7 +16081,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -16122,21 +16118,18 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Tamil</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+               <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cantonese</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mandarin Chinese</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
