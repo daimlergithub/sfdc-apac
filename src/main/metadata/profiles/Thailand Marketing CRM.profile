@@ -8513,7 +8513,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign.ExpectedResponse</field>
         <readable>true</readable>
     </fieldPermissions>
