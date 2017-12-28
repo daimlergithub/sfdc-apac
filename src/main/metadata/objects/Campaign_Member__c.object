@@ -1852,7 +1852,7 @@ window.open("{!URLFOR($Site.Prefix)}/CAMPAIGN_MEMBER_REPORT_ID?pv0="+campaignNam
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}"; 
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) { 
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?CF00N2800000IkqXw={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqXw_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Campaign.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID={!Campaign.Name}&amp;OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_LKID={!Campaign.Id}&amp;retURL={!Campaign.Id}"); 
 }else 
 { 
 alert('You cannot create campaign members for this campaign status'); 
@@ -1871,7 +1871,7 @@ alert('You cannot create campaign members for this campaign status');
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_LKID={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
 }else
 {
 alert('You cannot create campaign members for this campaign status');

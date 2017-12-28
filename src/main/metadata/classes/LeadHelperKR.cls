@@ -905,50 +905,73 @@ public class LeadHelperKR
           insert leadShar;
        }
     }
-	 public static void sendEmailToQueue(List<Lead__c> LstnewLead,string action) {
-             list<Id> queueid = new list<Id>();
-             list<GroupMember> ownerids = new list<GroupMember>();
-             list<Id> userids= new list<Id>();
-             list<Group> queueids = new list<Group>();
-             list<String> queueName = new list<String>();
-             boolean marketcheck=false;
-             System.debug('*****Case List**' +LstnewLead);  
-             for(Lead__c c:LstnewLead) {
-               System.debug('c.owner.type---'+c.owner.type);
-               if(c.MD__c=='KR' && String.valueof(c.ownerId).startsWith('00G')) {
-              marketcheck=true;
-              queueid .add(c.ownerId);
-              system.debug('*****Queue Name**' +queueid );  
-            }
-            }
-            queueids =[Select Id,Name,type from Group where type='Queue' and Id IN: queueid ];
-            system.debug('*****Queue Name***' +queueids);         
-           if(queueids.size()>0){
-           for(Group gp:queueids){
-              queueName.add(gp.Name);}}
-            ownerids =[select UserOrGroupId,Group.Name from GroupMember where Group.Name IN: queueName];
-              for(GroupMember gp:ownerids ){
-              userids.add(gp.UserOrGroupId);      
-        }
-        system.debug('*****Queue Name' +queueids );  
-           system.debug('*****Caseownerlist' +ownerids);
-           system.debug('*****userids' +userids);
-            system.debug('*****action Name***' +action);   
-        Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-        EmailTemplate e =[select id,name,Subject from EmailTemplate WHERE name = 'Case owner is updated' limit 1];
-           message.setTemplateId(e.id);
-          
-           message.setSaveAsActivity(false);
-            if(userids.size()>0){
-                     message.setToAddresses(userids);
-                      message.setTargetObjectId(userids[0]);
-                 } 
-          
-              if(marketcheck){
-                 Messaging.SendEmailResult[] m1=Messaging.SendEmail(new Messaging.SingleEmailMessage[]{message});
-                 }
-          
-         system.debug('*****Message Sent');  
-       
+	 @future
+     public static void sendEmailToQueue(map<string,string> leadOwnerIds) 
+     {
+     system.debug('Entered Email Notification Method'+leadOwnerIds.keySet());
+    if(LeadUtil.recurssionchecksendmaillead== true){
+    System.debug('Already Processed');
+     
+          List<Messaging.Email> sendEmailList = new List<Messaging.Email>();
+          set<Id> groupId = new set<Id>();
+          set<Id> oldgroupId = new set<Id>();
+          list<GroupMember> ownerids = new list<GroupMember>();
+          if(leadOwnerIds != null && !leadOwnerIds.isEmpty())
+          {
+              for(string ownrled : leadOwnerIds.keySet())
+              {
+                  groupId.add(leadOwnerIds.get(ownrled));
+                  
+                  system.debug('*&*&*&*& groupId  ' + groupId);
+                  // system.debug('*&*&*&*& oldgroupId  ' + oldgroupId);
+              }
+          if(groupId != null && !groupId.isEmpty())
+          {
+              ownerids =[select Id,UserOrGroupId,Group.Id from GroupMember where Group.Id in: groupId];
+              system.debug('*&*&*&*& ownerids ' + ownerids);
           }
+          
+          EmailTemplate templateId  =[select id,name,Subject from EmailTemplate WHERE name = 'Lead owner is updated to Queue'];
+          Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+           List<Id> ccDeatils=new List<Id>();
+           for(string leadOwnrId: leadOwnerIds.keySet())
+          {   
+              for(GroupMember grmMbr: ownerids)
+              {
+                  system.debug(grmMbr.Group.Id + '   **$$***$$***$$**   ' + grmMbr.UserOrGroupId + '   *&*&* Entered For Loop for email *&*&*&   ' + leadOwnerIds.get(leadOwnrId));
+                  
+                  //message.setToAddresses(leadOwnerIds);
+                  if(grmMbr.Group.Id == leadOwnerIds.get(leadOwnrId))
+                  {
+                      message.setTargetObjectId(grmMbr.UserOrGroupId);
+                      ccDeatils.add(grmMbr.UserOrGroupId);
+                  }              
+                  message.setToAddresses(ccDeatils);
+                  message.setWhatId(leadOwnrId);
+                  message.setTemplateId(templateId.id);
+                  message.setSaveAsActivity(false);
+                  //sendEmailList.add(message);
+                  
+              }
+          }
+          try
+            {   
+              if(!ownerids.isEmpty() && ownerids!= null)
+              {
+                
+                Messaging.SendEmailResult[] results = Messaging.sendEmail(new Messaging.SingleEmailMessage[]{message});
+                  if (results[0].success) 
+                  {                
+                      System.debug('The Lead Queue email was sent successfully.');
+                  } 
+              }               
+            }    
+            catch(Exception e)
+            {
+                system.debug('Lead Queue Email Notification Failure Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
+            } 
+          }
+        }
+        LeadUtil.recurssionchecksendmaillead = false;
+        }
 }
