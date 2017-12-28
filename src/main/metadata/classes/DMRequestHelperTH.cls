@@ -35,7 +35,7 @@ public with sharing class  DMRequestHelperTH {
                          lstDMR.Address_Line_2__c=address.Address_Line_2__c;
                          lstDMR.Sub_District__c=address.Sub_District__c;
                          lstDMR.District__c=address.District__c;
-                         lstDMR.Attention__c=address.Company_Name__c;
+                         //lstDMR.Attention__c=address.Company_Name__c;
                          lstDMR.TitleOfHonor__c=address.TitleOfHonor__c;
                          lstDMR.Province__c = address.Province__c;
                      }
