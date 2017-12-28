@@ -3164,6 +3164,16 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_From_Slave_txt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_To_Master_txt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Message__c</field>
         <readable>true</readable>
@@ -8666,6 +8676,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Create_Unique_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Created_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16141,6 +16156,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Created_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
