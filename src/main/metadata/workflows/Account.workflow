@@ -169,7 +169,7 @@
     <fieldUpdates>
         <fullName>UpdateData_Source_to_Others</fullName>
         <field>Data_Source__c</field>
-        <literalValue>Other</literalValue>
+        <literalValue>Others</literalValue>
         <name>UpdateData Source to Others</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
@@ -785,7 +785,7 @@ ISCHANGED(Main_Dealer__c)
         </actions>
         <active>false</active>
         <formula>AND(Contains($Profile.Name, &apos;Japan Dealer&apos; ), MD__c = &apos;JP&apos;,
-NOT(ISBLANK(Text(Data_Source__c))),RecordType.DeveloperName = &apos;Company&apos;)</formula>
+ISBLANK(Text(Data_Source__c)),RecordType.DeveloperName = &apos;Company&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
@@ -796,7 +796,7 @@ NOT(ISBLANK(Text(Data_Source__c))),RecordType.DeveloperName = &apos;Company&apos
         </actions>
         <active>true</active>
         <formula>AND(Contains($Profile.Name, &apos;Japan Dealer&apos; ), MD__c = &apos;JP&apos;, 
-NOT(ISBLANK(Text(Data_Source__c))),RecordType.DeveloperName = &apos;PersonAccount&apos;)</formula>
+ISBLANK(Text(Data_Source__c)),RecordType.DeveloperName = &apos;PersonAccount&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

@@ -7379,6 +7379,12 @@ RecordType.DeveloperName = 'Contact2Contact'</errorConditionFormula>
         <errorConditionFormula>AND(!ISNEW(),OR($Profile.Name ='Japan Dealer Company Manager',$Profile.Name ='Japan Dealer Sales Manager',$Profile.Name ='Japan Dealer Sales Representative',$Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),MD__c='JP',OR(RecordType.DeveloperName='Retail_Person',RecordType.DeveloperName='Retail_Company'),OR(ISCHANGED(fromRole__c),ISCHANGED(toRole__c)))</errorConditionFormula>
         <errorMessage>Dealer User Cant Change the from Role and To role</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Name_field_cannot_be_changed</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED(Name),OR($Profile.Name = 'Japan Dealer Company Manager', $Profile.Name = 'Japan Dealer Sales Manager', $Profile.Name = 'Japan Dealer Sales Representative', $Profile.Name = 'Japan Dealer Service Advisor', $Profile.Name = 'Japan Dealer Service Manager'),OR(RecordType.DeveloperName = 'IndividualExternalLink',RecordType.DeveloperName = 'Vehicle_External_Link'),MD__c = 'JP')</errorConditionFormula>
+        <errorMessage>Name field cannot be changed</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Retail_Company_Name_Native_Kana</fullName>
         <active>false</active>
