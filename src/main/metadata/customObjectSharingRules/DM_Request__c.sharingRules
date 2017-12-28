@@ -33,19 +33,6 @@
         <name>MBK DM Request Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>TH_DM_Request_Sharing_Rule</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <accessLevel>Read</accessLevel>
-        <name>TH_DM Request Sharing Rule</name>
-    </criteriaBasedRules>
-	<criteriaBasedRules>
         <fullName>MY_DM_Request_Sharing_Rule</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
@@ -57,5 +44,18 @@
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <name>MY_DM Request Sharing Rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TH_DM_Request_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>TH_DM Request Sharing Rule</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

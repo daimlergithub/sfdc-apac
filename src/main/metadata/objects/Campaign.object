@@ -1676,6 +1676,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Created_User__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(CreatedById=$User.Id,'True','False')</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created User</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>DM_Comments__c</fullName>
         <externalId>false</externalId>
@@ -4786,6 +4796,27 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <language>en_US</language>
         <sharedTo>
             <role>Central</role>
+        </sharedTo>
+    </listViews>
+	<listViews>
+        <fullName>My_Created_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Created_User__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filters>
+        <label>My Campaigns</label>
+        <language>en_US</language>
+		<sharedTo>
+            <roleAndSubordinates>MBTH</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
