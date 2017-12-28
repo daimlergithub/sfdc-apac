@@ -3164,6 +3164,16 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_From_Slave_txt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_To_Master_txt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Message__c</field>
         <readable>true</readable>
