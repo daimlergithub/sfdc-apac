@@ -64,22 +64,6 @@
                 <behavior>Readonly</behavior>
                 <field>ClosedDate</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_Priority__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_1st_Reminder__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_2nd_Reminder__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_Escalated_to_MBTH__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -95,8 +79,12 @@
                 <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
+                <behavior>Edit</behavior>
+                <field>status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Priority__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -129,6 +117,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Market__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_1st_Reminder__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_2nd_Reminder__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Escalated_to_MBTH__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -287,6 +287,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>On_Site_Manager_Confirmed__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
