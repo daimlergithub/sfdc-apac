@@ -18,7 +18,7 @@ global class Batch_MassUpdateAccountLinkJP implements Database.Batchable<sObject
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([SELECT Id, Contact__c FROM Account_Link__c WHERE Id IN: AccountLinkIdList ]);
+        return Database.getQueryLocator([SELECT Id, fromrole__c,torole__c FROM Account_Link__c WHERE Id IN: AccountLinkIdList ]);
         
     }
     
@@ -31,7 +31,7 @@ global class Batch_MassUpdateAccountLinkJP implements Database.Batchable<sObject
 				a.Retail_Sales_Consultant__c=usr.id;
 				AccountLinkListToUpdate.add(a);
 			}
-			elseif(VehMap.containsKey(a.id))
+			else if(VehMap.containsKey(a.id))
 			{
 				a.Service_Advisor__c=usr.id;
 				AccountLinkListToUpdate.add(a);
