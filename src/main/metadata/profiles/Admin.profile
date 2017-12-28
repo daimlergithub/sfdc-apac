@@ -4033,6 +4033,16 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Account.Merging_From_Slave_txt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Merging_To_Master_txt__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Account.Number_of_Children__c</field>
         <readable>true</readable>
     </fieldPermissions>
