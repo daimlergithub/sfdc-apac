@@ -427,7 +427,7 @@
             System.debug('Sample Map Check'+contentMap.get('Customer'));
             System.debug('Filter Analysis'+filterMap.get('field'));
             setSoql();
-            
+            try {
             if(vehicleRelSoql.endsWith('AND  ') || vehicleRelSoql.endsWith('AND ')){
                 vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ').removeEnd('AND ');
             }
@@ -749,6 +749,11 @@
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
             } 
+			}
+			   catch(Exception ex){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, label.Matched_records_are_too_much_please_add_more_criteria));
+                
+            }
             system.debug('saveQueryfinal'+saveQuery);
             accountIdSet.clear();
             return null;

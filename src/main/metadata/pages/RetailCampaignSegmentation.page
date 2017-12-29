@@ -1156,6 +1156,7 @@
         </apex:outputPanel>
             
             <apex:outputPanel layout="block" id="searchingResult">
+			<apex:pageMessages />
                 <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign,saveCriteria" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
                     

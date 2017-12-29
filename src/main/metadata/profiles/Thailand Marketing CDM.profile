@@ -8437,6 +8437,11 @@
         <field>Campaign.Create_Unique_Code__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Created_User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.DM_Comments__c</field>
@@ -15860,6 +15865,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Created_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
