@@ -23,9 +23,9 @@ function closeWin() {
      <apex:panelGrid columns="2" border="0" styleClass="tableStyle" width="100%" columnClasses="colStyle1,colStyle2" rowClasses="rowstyle">
      
      
-    <apex:pageBlockTable value="{!alc}" var="link">
+    <apex:pageBlockTable value="{!acc}" var="link">
      
-     <apex:column value="{!link.Name}"  headerValue="{!$Label.UCID}"  />
+     <apex:column value="{!link.UCID__c}"  headerValue="{!$Label.UCID}"  />
      
      
     </apex:pageBlockTable> 

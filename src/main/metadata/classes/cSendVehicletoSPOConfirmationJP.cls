@@ -33,11 +33,11 @@ public Static Id accId {get; set;}
                                      WHERE Vehicle_ID__c =:VehId AND Car_Relation__c = 'Purchaser' AND End_Date__c = null  ];
                system.debug('++++++++++++++'+VehRel); 
           if(accId != null){     
-          acc = [SELECT Id,Name From Account Where id =:accId ]; 
+          acc = [SELECT Id,Name,UCID__c From Account Where id =:accId ]; 
           alc = [select id,Name From Account_Link__c where system__c ='UCID' AND Primary__c = true And toRole__c =:accId AND RecordType.Name IN('Individual Customer External Link') ]; 
           } else {
           
-          acc = [SELECT Id,Name From Account where id =:VehRel.Contact__r.Id];
+          acc = [SELECT Id,Name,UCID__c From Account where id =:VehRel.Contact__r.Id];
           alc = [select id,Name From Account_Link__c where system__c ='UCID' AND Primary__c = true And toRole__c =:VehRel.Contact__r.Id AND RecordType.Name IN('Individual Customer External Link') ];
           
           
