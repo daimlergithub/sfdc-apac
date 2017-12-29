@@ -1,13 +1,13 @@
-/***************Working Code **************9.0*************************************
+/***************Working Code **************10.0*************************************
         Page Controller
         ---------------------------------------------------------------
         History:
           
         1. Justin Yu Created on 2014-05-14
         2. Last modified date : 2017-May-08
-               modified by : Lokesh M
-           Desc : retail campign segmentation
-           JIRA : SFDCJP-1023,JP-1052,JP-1050,JP-1076,JP-1054
+               modified by : Abhishekh Dasepalle
+           Desc : Code Rewritten With Different Object AND logic and Same Object OR logic
+           
     ******************************************************************/
     global with sharing class RetailCampaignSegmentationController {
 
@@ -427,13 +427,38 @@
             System.debug('Sample Map Check'+contentMap.get('Customer'));
             System.debug('Filter Analysis'+filterMap.get('field'));
             setSoql();
-            try {
+            try{
             if(vehicleRelSoql.endsWith('AND  ') || vehicleRelSoql.endsWith('AND ')){
                 vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ').removeEnd('AND ');
             }
             
             if(leadSoql.length()>leadLength){
                 //saveQuery += 'AND Id IN('+leadSoql+')';
+                if(leadSoql.endsWith(' OR ')){
+                leadSoql = leadSoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + leadSoql);
+                
+                system.debug('AccountSoqlatCommon ' + leadSoql.countMatches('( '));
+                
+                for(integer i=0;i< leadSoql.countMatches('( ') ;i++){
+                
+                      leadSoql += ')';
+                
+                }
+                }
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                }
+                
+                system.debug('AccountSoqlatCommon After OR Logic Implementation ' + leadSoql);
                 system.debug('FinalLeadSoql'+leadSoql);
                 List<Lead__C> leadList = Database.query(leadSoql+ 'limit 2000');
                 for(Lead__C vr : leadList){
@@ -458,6 +483,32 @@
             if(AccountLinkSoql.length()>accLinkLength){
                 AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
                 //saveQuery += 'AND Id IN('+AccountLinkSoql+')';
+                
+                if(AccountLinkSoql.endsWith(' OR ')){
+                AccountLinkSoql = AccountLinkSoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + AccountLinkSoql);
+                
+                system.debug('AccountSoqlatCommon ' + AccountLinkSoql.countMatches('( '));
+                
+                for(integer i=0;i< AccountLinkSoql.countMatches('( ') ;i++){
+                
+                      AccountLinkSoql += ')';
+                }
+                }
+                
+                system.debug('AccountSoqlatCommon After OR Logic Implementation ' + AccountLinkSoql);
+                
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                }
                 system.debug('FianlAccountLinkSoql '+AccountLinkSoql);
                 List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 2000');
                 for(Account_Link__C vr : accLinkList){
@@ -482,6 +533,29 @@
     
             if(AddressSoql.length()>addressLength){
                 //saveQuery += 'AND Id IN('+AddressSoql+')';
+                if(AddressSoql.endsWith(' OR ')){
+                AddressSoql = AddressSoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + AddressSoql);
+                
+                system.debug('AccountSoqlatCommon ' + AddressSoql.countMatches('( '));
+                
+                for(integer i=0;i< AddressSoql.countMatches('( ') ;i++){
+                
+                      AddressSoql += ')';
+                }
+                }
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                }
+                system.debug(' After OR Logic Implementation ' + AddressSoql );
                 system.debug('FinalAddressSoql '+AddressSoql);
                 List<Address__c> addList = Database.query(AddressSoql+ 'limit 2000');
                 for(Address__c vr : addList ){
@@ -505,6 +579,29 @@
         
             if(campaignMemSoql.length()>campLength){
                 //saveQuery += 'AND Id IN('+campaignMemSoql+')';
+                if(campaignMemSoql.endsWith(' OR ')){
+                campaignMemSoql = campaignMemSoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + campaignMemSoql);
+                
+                system.debug('AccountSoqlatCommon ' + campaignMemSoql.countMatches('( '));
+                
+                for(integer i=0;i< campaignMemSoql.countMatches('( ') ;i++){
+                
+                      campaignMemSoql += ')';
+                }
+                }
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                }
+                system.debug(' After OR Logic Implementation ' + campaignMemSoql );
                 system.debug('FinalcampaignMemSoql'+campaignMemSoql);
                 List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 2000');
                 for(Campaign_Member__c vr : camMemList ){
@@ -530,6 +627,29 @@
             if(recallSoql.length()>recallLength){
                 System.debug('recallSoqlFinal>>>>'+recallSoql);
                // saveQuery += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
+               if(recallSoql.endsWith(' OR ')){
+                recallSoql = recallSoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + recallSoql);
+                
+                system.debug('AccountSoqlatCommon ' + recallSoql.countMatches('( '));
+                
+                for(integer i=0;i< recallSoql.countMatches('( ') ;i++){
+                
+                      recallSoql += ')';
+                }
+                }
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                }
+                system.debug(' After OR Logic Implementation ' + recallSoql );
                 List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 2000');
                 for(recall__c rc : recallList){
                     vehIdSet.add(rc.Vehicle_Id__c);
@@ -545,6 +665,29 @@
                 VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Service_Advisor__c', 'Service_Advisor__r.Name').replace('Service_Dealer__c', 'Service_Dealer__r.name');
                 system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
                 //saveQuery += 'AND Vehicle_Id__c IN ('+VehRetCopySoql+') ';
+                if(VehRetCopySoql.endsWith(' OR ')){
+                VehRetCopySoql = VehRetCopySoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + VehRetCopySoql);
+                
+                system.debug('AccountSoqlatCommon ' + VehRetCopySoql.countMatches('( '));
+                
+                for(integer i=0;i< VehRetCopySoql.countMatches('( ') ;i++){
+                
+                      VehRetCopySoql += ')';
+                }
+                }
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                }
+                system.debug(' After OR Logic Implementation ' + VehRetCopySoql );
                 List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 2000');
                 
                 for(Account_Link__c ac : vehRetialList){
@@ -573,6 +716,29 @@
             
             if(vehicleRelSoql.length()>vehRelLength && segmentationBase != 'Vehicle'){
                 vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
+                if(vehicleRelSoql.endsWith(' OR ')){
+                vehicleRelSoql = vehicleRelSoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + vehicleRelSoql);
+                
+                system.debug('AccountSoqlatCommon ' + vehicleRelSoql.countMatches('( '));
+                
+                for(integer i=0;i< vehicleRelSoql.countMatches('( ') ;i++){
+                
+                      vehicleRelSoql += ')';
+                }
+                }
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                }
+                system.debug(' After OR Logic Implementation ' + vehicleRelSoql );
                 system.debug('vehiclerelSoqlAtCommon>>>>'+vehicleRelSoql);
                 List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 2000');
                 For(Vehicle_relationship__C vr : vehRelList){
@@ -597,7 +763,21 @@
             }
             
             if(accountSoql.length()>accountLenght && segmentationBase != 'Customer'){
-                system.debug('AccountSoqlatCommon ' + accountSoql);
+                
+                
+                if(accountSoql.endsWith(' OR ')){
+                accountSoql = accountSoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + accountSoql);
+                
+                system.debug('AccountSoqlatCommon ' + accountSoql.countMatches('( '));
+                
+                for(integer i=0;i< accountSoql.countMatches('( ') ;i++){
+                
+                      accountSoql += ')';
+                }
+                }
+                
+                system.debug('AccountSoqlatCommon After OR Logic Implementation ' + accountSoql);
                 List<account> accList = Database.Query(accountSoql+' LIMIT 2000');
                 for(Account acc : accList){
                     accountIdSet.add(acc.Id);
@@ -610,6 +790,19 @@
             
             if(RetailTaskSoql.length()>retailaskLength && segmentationBase != 'Contract'){
                  system.debug('FinalRetaiTaskSoqlatCommmon>>>>>>>>'+RetailTaskSoql);
+                 if(RetailTaskSoql.endsWith(' OR ')){
+                RetailTaskSoql = accountSoql.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + RetailTaskSoql);
+                
+                system.debug('AccountSoqlatCommon ' + RetailTaskSoql.countMatches('( '));
+                
+                for(integer i=0;i< RetailTaskSoql.countMatches('( ') ;i++){
+                
+                      RetailTaskSoql += ')';
+                }
+                }
+                
+                system.debug('AccountSoqlatCommon After OR Logic Implementation ' + RetailTaskSoql);
                  List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 2000'); 
                  for(Retail_Task__c rt : retTaskList){
                      accountIdSet.add(rt.account__c);
@@ -628,6 +821,19 @@
                 }
                 else{
                     accountSoql += ' AND ID IN :accountIdSet ';
+                }
+                
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                
+                }
                 }
                 system.debug('FinalAccountSoql>>>>>>>>'+accountSoql);
                 system.debug('FinalAccountSoql>>>>>>>>'+accountIdSet.size());
@@ -689,7 +895,19 @@
                         //vehicleRelSoql+=' AND Vehicle_ID__r.Related_contact__c IN : accountIdSet';
                         saveQuery +=' AND Contact__c IN : vechicleCustomer';
                     }
-                }   
+                }  
+                
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                } 
                 
                 system.debug('+++++vehicle+++++++'+saveQuery );
                 
@@ -732,6 +950,18 @@
                         RetailTaskSoql += ' AND Related_Vehicle__c IN : vehIdSetForContract';
                     } 
                 } */
+                
+                if(saveQuery.endsWith(' OR ')){
+                saveQuery = saveQuery.removeEnd(' OR ');
+                system.debug('AccountSoqlatCommon End Loop ' + saveQuery);
+                
+                system.debug('AccountSoqlatCommon ' + saveQuery.countMatches('( '));
+                
+                for(integer i=0;i< saveQuery.countMatches('( ') ;i++){
+                
+                      saveQuery += ')';
+                }
+                }
                 saveQuery = saveQuery.replace('AND  AND','AND');
                system.debug('++++++++++++'+saveQuery );
                saveQuery = saveQuery.replace('AND AND','AND');
@@ -749,8 +979,8 @@
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
             } 
-			}
-			   catch(Exception ex){
+            }
+               catch(Exception ex){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, label.Matched_records_are_too_much_please_add_more_criteria));
                 
             }
@@ -837,28 +1067,82 @@
            system.debug('Entered into cluster'+cluster);
            
                    
-                   
-               
-           
+                 Map<Map<String, Object>, Object> OrLogic = New Map<Map<String, Object>, Object>(); 
+                 
+                 Map<String, String> SampleLogic = New  Map<String, String>(); 
+                 List<String> CheckingString = New List<String>();
+                 
+                
+               if(filterItems != null){
+                for(Object filterItemCheck : filterItems){
+                Map<String, Object> filterMap = (Map<String, Object>)filterItemCheck ;
+                
+                 String field = (String)filterMap.get('field');
+                 String criteria = (String)filterMap.get('criteria');
+                 OrLogic.put(filterMap ,filterMap.get('field'));
+                 
+                 SampleLogic.put(criteria ,field  );
+                 
+                 
+                 
+                 
+                 CheckingString.add(criteria);
+                
+                }
+                }
+                
+                System.debug('++++++OrLogic++++++++++'+OrLogic);
+                
            
                 Integer bracketCount = 0;
+                
                 
                 if(filterItems != null){
                     for(Object filterItem : filterItems){
                         Map<String, Object> filterItemMap = (Map<String, Object>)filterItem;
                         System.debug('Filter Item Map'+filterItemMap);
                         System.debug('Filter Field'+FilterItemMap.get('field'));
-                            
-                       
+                        System.debug('FilterItem'+filterItem);
+                         
+                         
+                         Integer logicChecker =0;
+                         
+                         
+                         for(Object kalava : OrLogic.values()){
+                         
+                          
+                           if(FilterItemMap.get('field') == kalava){
+                               
+                               logicChecker = logicChecker+1;
+                           
+                           }
+                         
+                        
+                         }
+                         
+                       system.debug('OR Logic Logic Checker'+logicChecker);
                          
                          
                         String field = (String)filterItemMap.get('field');
                         String operation = getOperation((String)filterItemMap.get('operation'),field,(String)filterItemMap.get('criteria'));
                         String criteria = getCriteria(field, (String)filterItemMap.get('criteria'));
+                        
                         String logic = (String)filterItemMap.get('logic');
+                        
                         Boolean bracket = (Boolean)filterItemMap.get('bracket');
                         String subSoql = '';
                         System.debug('++++subSoql++++++++'+subSoql );
+                        System.debug('++++field++++++++'+field  );
+                        System.debug('++++operation ++++++++'+operation);
+                        System.debug('++before++logic ++++++++'+logic  );
+                        System.debug('++++criteria  ++++++++'+criteria);
+                        if(logicChecker >= 2){
+                        
+                        logic = 'OR';
+                        }
+                        
+                        System.debug('++after++logic ++++++++'+logic  );
+                        
                         //To Find Vehicle fileter is added or not
                         if(vehicleRelFind && vehicleFind && logic == '' && cluster == 'vehicle'){
                             logic = ' AND ';
@@ -907,6 +1191,12 @@
                         }
                         else{
                             subSoql += logic + ' ';
+                        }
+                        
+                        if(subSoql.contains(' OR ')){
+                        
+                        subSoql = '( ' +subSoql ;
+                        
                         }
                         System.debug('finalsubsoql'+subSoql);
                         if(cluster == 'account'){
@@ -971,6 +1261,8 @@
                     }
                 }
                 system.debug('saveQueryfinal'+saveQuery);
+                
+                
         }  
  
        
