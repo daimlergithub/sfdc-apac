@@ -418,6 +418,7 @@ global with sharing class LeadVehiclePickerTHController {
         String vehicle_type = searchAttributes.get(utilConst.VEHICLE_TYPE);
         List<Vehicle__c> vehicle;
         List<Vehicle_Relationship__c> leadVehicleRelationships;
+        Id MBVehicleRecordTypeId = UtilRecordType.getRecordTypeIdByName('Vehicle__c','MB');
         List<Vehicle__c> selfRegisteredVehicles;
         Set<Id> defaultVehicleIds = new Set<Id>();
         Set<Id> allVehicleIds = new Set<Id>();
@@ -427,7 +428,7 @@ global with sharing class LeadVehiclePickerTHController {
         }
         else{
             Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c LIMIT 50000];
-            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c ORDER BY CreatedDate ASC LIMIT 50000];
+            leadVehicleRelationships = [SELECT Vehicle_ID__c FROM Vehicle_Relationship__c WHERE Contact__c =:leadAcc.Contact__c and Vehicle_Id__r.recordtypeId=:MBVehicleRecordTypeId ORDER BY CreatedDate ASC LIMIT 50000];
             
             if (!leadVehicleRelationships.isEmpty()){
                 defaultVehicleIds.add(leadVehicleRelationships[0].Vehicle_ID__c);        
@@ -445,8 +446,10 @@ global with sharing class LeadVehiclePickerTHController {
                     allVehicleIds.add(v.Id);
                 }
             }
+            System.debug('allVehicleIds---'+allVehicleIds);
+            System.debug('defaultVehicleIds---'+defaultVehicleIds);
             if (vin_number.equalsIgnoreCase('')){
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds AND MD__c = :usr.Market__c LIMIT 50000];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c LIMIT 50000];
             }
             else{
                 vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];

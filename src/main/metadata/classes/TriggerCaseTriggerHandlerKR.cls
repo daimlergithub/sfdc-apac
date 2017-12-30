@@ -4,7 +4,9 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
 	public static boolean recurssionCheckbefore = false;
     public static boolean recurssionCheckafter = false;
 	public static boolean recurssioncheckafterownerupdate = false;
-    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
+    public static boolean recurssioncheckaftersendmail = false;
+    public static integer countchecksendmail=0;
+	public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         CaseHelperJP caseHelperJPinit = new CaseHelperJP();
         if(trigger.isBefore && trigger.isInsert)
@@ -29,7 +31,8 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
         //caseHelperKR.roleRestrictionForCCC(Trigger.New,(Map<Id,Case>)trigger.oldMap,isUpdate,isDelete);
         if(trigger.isAfter)
         {
-            if (trigger.isInsert)
+            map<string,string> caseOwnerIds = new map<string,String>();
+			if (trigger.isInsert)
             {
                 CaseHelper.caseafterInsertUpdateEvents(Trigger.new,isInsert,isUpdate,(Map<Id,Case>)trigger.oldMap);
                 if(recurssionCheckafter != true){
@@ -41,7 +44,6 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
                 caseHelperJPinit.updateGateKeaperforApprovedProcess(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
                 caseHelperKR.updateCaseDeadLine(trigger.new,(Map<Id,Case>)trigger.oldMap,'isInsert');
 				caseHelperKR.casesharehierarchy(trigger.new);
-				//caseHelperKR.sendEmailToQueue(trigger.new,'isInsert');
             }
             if (trigger.isUpdate)
             {
@@ -51,8 +53,19 @@ public without sharing class TriggerCaseTriggerHandlerKR implements TriggerHandl
 				if(recurssioncheckafterownerupdate != true){
                     caseHelperJP.assignCasestoqueues(Trigger.New,(Map<Id,Case>)trigger.oldMap, 'update');
                 }
-				caseHelperKR.casesharehierarchy(trigger.new);
-				//caseHelperKR.sendEmailToQueue(trigger.new,'isUpdate');
+				for(Case cas: (List<Case>)trigger.new)
+                {
+					for(Case casold: (List<Case>)trigger.old){
+					if(cas.OwnerId!=casold.OwnerId)
+					caseOwnerIds.put(cas.Id,cas.OwnerId);
+					countchecksendmail++;
+					}     
+                } 
+                if(!System.isFuture() && recurssioncheckaftersendmail!=true && countchecksendmail==1){
+                  system.debug('*$*Call EMail Notification method3 *$*'+caseOwnerIds);
+                  caseHelperKR.sendEmailToQueue(caseOwnerIds);                                 
+                 }
+				 caseHelperKR.casesharehierarchy(trigger.new);	
             }
             if (trigger.isDelete)
             {               
