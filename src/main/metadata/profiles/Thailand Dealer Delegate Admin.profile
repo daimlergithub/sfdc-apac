@@ -26952,7 +26952,7 @@
         <recordType>Account.Dealer1</recordType>
     </layoutAssignments>
 	<layoutAssignments>
-        <layout>Account-Company Layout TH</layout>
+        <layout>Account-Company Layout TH Community</layout>
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -27529,7 +27529,7 @@
         <layout>PartnerMarketingBudget-Partner Marketing Budget Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-Person Account Layout TH</layout>
+        <layout>PersonAccount-PA Layout-Dealer Portal - TH</layout>
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
