@@ -21,7 +21,7 @@
         <visible>false</visible>
     </applicationVisibilities>
 	<applicationVisibilities>
-        <application>MBMY_Call_Center_Console</application>
+        <application>Call_Center_Console_Generic</application>
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
