@@ -29,10 +29,6 @@
                 <field>fromRole__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Primary_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Dealer_Company__c</field>
             </layoutItems>
@@ -97,11 +93,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_Company_Phone__c</field>
+                <field>Retail_Primary_Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_Individual_Home_Phone__c</field>
+                <field>Retail_Company_Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -123,31 +119,11 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Vat_No__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Updated_Consent_User__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Updated_Consent_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Agreement__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Preferred_Contact_Method__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Company_Other_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -164,14 +140,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_WebSite__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_First_Consent_User__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_First_Consent_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -247,10 +215,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_Country__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Retail_Address_CreatedDate__c</field>
             </layoutItems>
         </layoutColumns>
@@ -262,10 +226,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Address_Line_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Sub_District__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
