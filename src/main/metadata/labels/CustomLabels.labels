@@ -2016,7 +2016,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>used in MY Address Search Validation Controller</shortDescription>
-        <value>One of Contact Number has to be entered</value>
+        <value>For Company Search Name and one of Contact Number has to be entered</value>
     </labels>
     <labels>
         <fullName>Company_Account_Information</fullName>

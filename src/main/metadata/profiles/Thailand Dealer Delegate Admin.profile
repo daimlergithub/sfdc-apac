@@ -101,7 +101,7 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBMY_Call_Center_Console</application>
+        <application>Call_Center_Console_Generic</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
