@@ -121,7 +121,7 @@
             <keyCommand>M</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
-    <label>MBMY Customer Contact Center</label>
+    <label>Customer Contact Center</label>
     <listPlacement>
         <location>full</location>
     </listPlacement>
