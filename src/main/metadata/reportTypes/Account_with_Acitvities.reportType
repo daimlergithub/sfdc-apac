@@ -3000,11 +3000,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>EmailMessage</field>
-            <table>Account.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>IsVisibleInSelfService</field>
             <table>Account.Activities</table>
         </columns>
