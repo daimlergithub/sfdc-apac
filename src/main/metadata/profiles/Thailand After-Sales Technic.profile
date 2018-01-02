@@ -101,7 +101,7 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBMY_Call_Center_Console</application>
+        <application>Call_Center_Console_Generic</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
@@ -8441,6 +8441,11 @@
         <field>Campaign.Create_Unique_Code__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Created_User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.DM_Comments__c</field>
@@ -11556,6 +11561,16 @@
         <field>Case.MBK_Data_Source__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_1st_Reminder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_2nd_Reminder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.MBTH_Case_Class__c</field>
@@ -11576,9 +11591,19 @@
         <field>Case.MBTH_Case_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_Escalated_to_MBTH__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.MBTH_Legal_Involved__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.MBTH_Priority__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12890,6 +12915,11 @@
         <editable>false</editable>
         <field>Case.pkbgeolocalization__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.status__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15864,6 +15894,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Created_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
