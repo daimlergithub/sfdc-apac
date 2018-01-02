@@ -970,10 +970,6 @@
         <name>MD__c</name>
     </fields>
     <fields>
-        <label><!-- Next Steps --></label>
-        <name>Next_Steps__c</name>
-    </fields>
-    <fields>
         <label><!-- Notification Email Flag --></label>
         <name>Notification_Email_Flag__c</name>
     </fields>
