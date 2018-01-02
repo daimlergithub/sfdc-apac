@@ -27,7 +27,6 @@
     <columns>
         <field>Campaign.Car_Model__c</field>
     </columns>
-    <description>Details of active Campaigns</description>
     <filter>
         <criteriaItems>
             <column>Campaign.MD__c</column>

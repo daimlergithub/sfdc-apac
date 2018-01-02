@@ -1,0 +1,21 @@
+<messaging:emailTemplate subject="[{!relatedTo.CaseNumber} 새로운 고객 {!relatedTo.RecordType.Name} 인입 알림]" recipientType="User" relatedToType="Case" >
+<messaging:plainTextEmailBody >
+안녕하세요, 
+
+새로운 케이스가 인입되었습니다. 
+
+해당 케이스를 신속히 처리해주시기 바랍니다.
+
+고객명：{!relatedTo.Account.Name}    
+문의 및 불만 관련 딜러: {!relatedTo.Case_Dealer__r.Name}     
+케이스 번호：{!relatedTo.CaseNumber}
+제목：{!relatedTo.Subject}    
+내용：{!relatedTo.Description}    
+
+아래 링크를 통해 해당 케이스의 자세한 정보를 확인 하실 수 있습니다.
+
+{!$Label.DealerKoreaLoginURL}/{!relatedTo.Id}
+
+- MBK 고객센터 - 
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

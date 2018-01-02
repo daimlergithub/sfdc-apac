@@ -1608,7 +1608,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
 				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Daimler Employee Rental Car</fullName>
+                <fullName>Dealer Car Rental</fullName>
                 <default>false</default>
 				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
@@ -5414,10 +5414,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Alternative Car</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Company Car</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Daimler Company Car</fullName>
                 <default>false</default>
@@ -5435,7 +5431,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Daimler Employee Rental Car</fullName>
+                <fullName>Dealer Car Rental</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6803,10 +6799,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Alternative Car</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Company Car</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Daimler Company Car</fullName>
                 <default>false</default>
@@ -6824,7 +6816,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Daimler Employee Rental Car</fullName>
+                <fullName>Dealer Car Rental</fullName>
                 <default>false</default>
             </values>
             <values>
