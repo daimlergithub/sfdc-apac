@@ -429,7 +429,8 @@
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
