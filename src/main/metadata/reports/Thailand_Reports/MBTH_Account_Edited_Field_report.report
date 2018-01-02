@@ -28,13 +28,10 @@
         <field>PC_BIRTHDATE</field>
     </columns>
     <columns>
-        <field>PHONE1</field>
-    </columns>
-    <columns>
         <field>Account.Work_Phone__c</field>
     </columns>
     <columns>
-        <field>Account.Mobile2__c</field>
+        <field>Account.Mobile__c</field>
     </columns>
     <columns>
         <field>Account.Individual_Home_Phone__c</field>
@@ -98,6 +95,8 @@
     <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
         <dateColumn>ACCOUNT_CREATED_DATE</dateColumn>
+        <endDate>2017-12-13</endDate>
         <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-12-04</startDate>
     </timeFrameFilter>
 </Report>

@@ -21,7 +21,7 @@
         <visible>false</visible>
     </applicationVisibilities>
 	<applicationVisibilities>
-        <application>MBMY_Call_Center_Console</application>
+        <application>Call_Center_Console_Generic</application>
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
@@ -25651,7 +25651,7 @@
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Account Link Layout</layout>
+        <layout>Account_Link__c-Vehicle External Link</layout>
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -26041,7 +26041,7 @@
         <layout>DM_Material__c-MBTH_DM Material Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>DM_Request__c-MBTH_DM Request Layout</layout>
+        <layout>DM_Request__c-DM Request Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DM_Stock_Flow__c-DM Stock Flow Layout</layout>
@@ -26683,10 +26683,10 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>false</allowRead>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DM_Request__c</object>
         <viewAllRecords>false</viewAllRecords>
@@ -28153,7 +28153,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.OB_Task</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28467,7 +28467,7 @@
     </tabVisibilities>
 	<tabVisibilities>
         <tab>standard-Dashboard</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>
         <tab>standard-Questions</tab>
@@ -28475,7 +28475,7 @@
     </tabVisibilities>
 	<tabVisibilities>
         <tab>standard-Report</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>
         <tab>standard-File</tab>
@@ -28566,6 +28566,10 @@
         <enabled>true</enabled>
         <name>CreateCustomizeReports</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>CreateReportFolders</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>CreateTopics</name>
@@ -28606,6 +28610,7 @@
         <enabled>true</enabled>
         <name>ImportCustomObjects</name>
     </userPermissions>
+	
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageKnowledge</name>
