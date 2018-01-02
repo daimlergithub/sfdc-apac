@@ -23461,7 +23461,6 @@
         <field>Task.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Task.Message__c</field>
