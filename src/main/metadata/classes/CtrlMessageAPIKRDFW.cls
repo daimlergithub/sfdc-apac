@@ -101,17 +101,19 @@ global class CtrlMessageAPIKRDFW {
 				g.writeEndObject(); 
 			}
 		g.writeEndArray();
-		dataJson = '{"Data":'+g.getAsString()+'}';	
+		dataJson = '{"Data":'+g.getAsString()+'}';			
 		req.setEndpoint(UtilCustomSettings.getMBKMessageServiceUrl('SfdcMBKMessageURL'));
 		req.setHeader('Content-Type', system.label.MBK_Message_ContentType);
 		req.setHeader('Accept', system.label.MBK_Message_ContentType);
 		req.setMethod('POST');
 		req.setBody(dataJson);		
 		req.setTimeout(60000);
+	
 		//Status Send로 업데이트
 		GlobalUtilityDFW gu = GlobalUtilityDFW.getInstance();
+		gu.debug('[dataJson]'+dataJson);		
 		try {			
-			res = http.send(req);
+			res = http.send(req);		
 			update MBKMessages;
 			Integer statusCode = res.getStatusCode();
 			map<String, object> resData;
@@ -125,6 +127,7 @@ global class CtrlMessageAPIKRDFW {
 					temp.Status__c = 'Fail';
 				}
 			}else{				
+			gu.debug('[getBody]'+res.getBody());						
 				if(res.getBody().length() > 0){
 					resData = (map<String, object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
 				}

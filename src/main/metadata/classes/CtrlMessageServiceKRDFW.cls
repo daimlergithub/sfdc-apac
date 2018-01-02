@@ -337,9 +337,12 @@ public with sharing class CtrlMessageServiceKRDFW {
 		    		insertObject.MBKMessageTemplate__c = setTemplate.Id;
 					insertObject.templateCode__c = setTemplate.Template_ID__c;	    		
 				}
+				if(mmsFile1.Name <> null || mmsFile2.Name <> null || mmsFile3.Name <> null){
+					insertObject.AttachmentImages__c = true;
+				}
 				if(Mtype == 'KaKao') insertObject.channel__c = system.label.MBK_Message_Channel_KaKao;
 				else if(Mtype == 'SMS/MMS'){
-					if(messagebyte <> null && integer.valueOf(messagebyte) > 80){
+					if((messagebyte <> null && integer.valueOf(messagebyte) > 80) || insertObject.AttachmentImages__c){
 						insertObject.channel__c = system.label.MBK_Message_Channel_MMS;
 					}else{
 						insertObject.channel__c = system.label.MBK_Message_Channel_SMS;
@@ -349,9 +352,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 				insertObject.message__c = setChangeStr(insertObject, dealerId);
 				insertObject.custGubun__c  = system.label.MBK_Message_custGubun;
 				//MMS파일 처리(Attachment)				
-				if(mmsFile1.Name <> null || mmsFile2.Name <> null || mmsFile3.Name <> null){
-					insertObject.AttachmentImages__c = true;
-				}					 
+					 
 				insertObject.senderKey__c = system.label.MBK_Message_SenderKey;
 				insertObject.Status__c = 'Reserved';
 				if(insertObject.Set_Sending_Time__c == null) insertObject.Set_Sending_Time__c = Datetime.now();
@@ -394,8 +395,9 @@ public with sharing class CtrlMessageServiceKRDFW {
 						CtrlMessageAPIKRDFW.MBKMessageLogging(messageIds);
 					}
 				}
-							
+				gu.debug('[insertObject]'+insertObject);				
 			}
+			
 			gu.debug('['+Mtype+'] transfer has been requested.');
 			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Info, '['+Mtype+'] transfer has been requested.'));
 			IsSend = true;
