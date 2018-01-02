@@ -33,17 +33,13 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter){
 
         if(isBefore && isInsert){
-		   AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
+           AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
            AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
         }
         
-         if(isAfter && isInsert )
-        {
-            AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
-        }
         
         if(isBefore && isUpdate){
-			AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
+            AccountHelperTH.ValidatePhoneNumberonBeforeEvents(Trigger.new);
             /* Data Update MD Fix - Santosh Mohanty*/
             AccountHelperTH.updatemarket(Trigger.New);
             AccountHelperTH.ValidateNationalid(Trigger.new);
@@ -79,6 +75,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                 //firstRun=false;
                 }
             }
+            AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
@@ -101,6 +98,8 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             }
             }
         }
+           
+    
         
         if(isAfter && isDelete && !System.isFuture())
         {
@@ -134,16 +133,26 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
-
-       
-        List<Account> accountNewList = Trigger.new;
-        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'TH')
+     List<Account> accountNewList2 = Trigger.new ; 
+        List<Account> accountNewList = new List<Account>(); 
+        if(accountNewList2!= null && accountNewList2.size() >0)
+        {
+            for(Account aTH : accountNewList2)
+            {
+                if(aTH.MD__c == 'TH')  
+                {
+                    accountNewList.add(aTH);
+                }
+            }
+        }
+        //List<Account> accountNewList = Trigger.new;
+        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0)
         {
             if(isBefore && isInsert){
-               AccountHelperTH.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
+               AccountHelperTH.updateAccountFieldsBeforeInsert(accountNewList,trigger.isInsert);
             }
         
-        if(isBefore && isUpdate){
+            if(isBefore && isUpdate){
                 AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
                 AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
                 AccounthelperTH.updateOnDoNotCall(Trigger.new);
@@ -152,6 +161,11 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                 AccountHelperTH.updateAgeRange(Trigger.new);
                 AccountHelperTH.activeContracts(Trigger.new);
             }
+            if(isAfter && isupdate && !accountNewList.isEmpty() && accountNewList.size() > 0)
+            {
+                AccountHelperTH.DealerCommAccountlinkcreatecdm(accountNewList,(Map<Id,Account>)Trigger.OldMap);
+            }
         }
+
     }
 }

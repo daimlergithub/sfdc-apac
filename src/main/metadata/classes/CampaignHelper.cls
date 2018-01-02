@@ -776,6 +776,39 @@ Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
         /* END Batch Execution */
     
     }
+	
+	public static void updateDueDateOnCampaignTask(list<Campaign> campaignList, map<Id, Campaign> campaignOldMap)
+	{
+		list<Task> taskList = new list<Task>();
+		list<Task> updateTaskList = new list<Task>();
+		Id obCallTaskId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+    	Id obTaskId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
+		if(campaignOldMap != null && !campaignOldMap.isEMpty())
+		{
+			taskList = [select Id,ActivityDate, Status, RecordtypeId from Task where WhatId in : campaignOldMap.keySet()];
+		}
+		if(campaignList != null && !campaignList.isEmpty() && taskList != null && !taskList.isEmpty())
+		{
+			for(Campaign campgn: campaignList)
+			{
+				if(campgn.EndDate != campaignOldMap.get(campgn.Id).EndDate)
+				{
+					for(Task tsk : taskList)
+					{
+						if((tsk.RecordtypeId != obCallTaskId || tsk.RecordtypeId != obTaskId) && tsk.Status != 'Cancelled')
+						{
+							tsk.ActivityDate = campgn.EndDate;
+							updateTaskList.add(tsk);
+						}
+					}
+				}				
+			}
+		}
+		if(updateTaskList != null && !updateTaskList.isEmpty())
+		{
+			update updateTaskList;
+		}		
+	}
     
     
      /**
@@ -1346,14 +1379,14 @@ system.debug('i am here');
            {
           if(u.MBK_Partner_Roles__c == 'Sales Consultant') {
         system.debug('Team Leader' +u.MBK_Reporting_Partner_User__c);
-            if(u.MBK_Reporting_Partner_User__c!=null && u.MBK_Reporting_Partner_User__c!='') {
+            if(u.MBK_Reporting_Partner_User__c!=null) {
                 CampaignShare shareRec = new CampaignShare();
                 shareRec.CampaignId = cams.Id;
                 shareRec.UserOrGroupId  = u.MBK_Reporting_Partner_User__c;
                 shareRec.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec);
             }
-            if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null && u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!='') {
+            if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null) {
                 CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = cams.Id;
                 shareRec1.UserOrGroupId  = u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c;

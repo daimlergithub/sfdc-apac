@@ -13,75 +13,88 @@ global ShareALLRecordsToNewUserBatchTH (ID userID, set<id> lstofuser, String sob
         }
         existUserIDs = userIDs.left(userIDs.length()-1);
         
-		
+    
 }
 
 global Database.QueryLocator start(Database.BatchableContext BC){
-String query = 'SELECT {0} FROM {1} WHERE {2}';
+    String query = 'SELECT {0} FROM {1} WHERE {2} and {3}';
         List<String> condition = new List<String>();
         if ('Account'.equalsIgnoreCase(sobjectName)){
             condition.add('ID');
             condition.add('Account');
             condition.add('ID IN (SELECT accountid FROM accountshare WHERE UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         } 
         else if ('Lead'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('lead__c');
             condition.add('id in (select ParentId from Lead__Share where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         }
         else if ('Vehicle'.equalsIgnoreCase(sobjectName)){
             condition.add('Id');
             condition.add('Vehicle__c');
             condition.add('ID IN (SELECT parentid FROM vehicle__share WHERE UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         } else if ('VehicleRelation'.equalsIgnoreCase(sobjectName)){
             condition.add('Id');
             condition.add('Vehicle_Relationship__c');
             condition.add('ID in (SELECT ParentId from vehicle_relationship__share where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         } 
         else if ('Case'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('case');
             condition.add('ownerid in ('+existUserIDs+')');
+            condition.add('md__c=\'TH\'');
         } 
         else if ('RetailCampaign'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('Retail_Campaign__c');
             condition.add('id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         }
         else if ('CampaignMemberCustom'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('Campaign_member__c');
             condition.add('id in (select ParentId from Campaign_member__share where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         }
         else if ('Campaign'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('Campaign');
             condition.add('id in (select CampaignID from Campaignshare where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         }
         else if ('Accountlink'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('Account_link__c');
             condition.add('id in (select ParentId from Account_Link__share where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         } 
         else if ('User'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('User');
             condition.add('id in (select UserId from Usershare where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('market__c=\'TH\'');
         } 
         else if ('CarModel'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('Car_model__c');
             condition.add('id in (select ParentId from Car_model__share where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         } 
         else if ('SurveyTaken'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('SurveyTaker__c');
             condition.add('id in (select ParentId from SurveyTaker__share where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         } 
         else if ('Survey'.equalsIgnoreCase(sobjectName)){
             condition.add('id');
             condition.add('Survey__c');
             condition.add('id in (select ParentId from Survey__Share where UserOrGroupId in ('+existUserIDs+'))');
+            condition.add('md__c=\'TH\'');
         } 
  return Database.getQueryLocator(String.format(query,condition));
 
