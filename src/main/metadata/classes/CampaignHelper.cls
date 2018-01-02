@@ -1379,14 +1379,14 @@ system.debug('i am here');
            {
           if(u.MBK_Partner_Roles__c == 'Sales Consultant') {
         system.debug('Team Leader' +u.MBK_Reporting_Partner_User__c);
-            if(u.MBK_Reporting_Partner_User__c!=null && u.MBK_Reporting_Partner_User__c!='') {
+            if(u.MBK_Reporting_Partner_User__c!=null) {
                 CampaignShare shareRec = new CampaignShare();
                 shareRec.CampaignId = cams.Id;
                 shareRec.UserOrGroupId  = u.MBK_Reporting_Partner_User__c;
                 shareRec.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec);
             }
-            if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null && u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!='') {
+            if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null) {
                 CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = cams.Id;
                 shareRec1.UserOrGroupId  = u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c;
