@@ -23447,7 +23447,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Task.Next_Steps__c</field>
         <readable>false</readable>
