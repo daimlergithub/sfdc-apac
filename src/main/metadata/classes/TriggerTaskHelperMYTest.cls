@@ -79,7 +79,7 @@ static testMethod void testTriggerTaskHelperMY1() {
         insert taskList;
         Map<Id, Task> taskOldMap=new Map<Id, Task>();
         taskOldMap.put(taskList[0].id,taskList[0]);
-        TriggerTaskHelper.updateCampaignMemberStatus(taskList,taskOldMap,true,true);
+        TriggerTaskHelperMY.updateCampaignMemberStatus(taskList,taskOldMap,true,true);
         test.stoptest();
           
         }     

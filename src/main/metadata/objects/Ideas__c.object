@@ -238,7 +238,7 @@ IMAGE('/rugcollaboration/resource/Rug_low', "Low")))</formula>
     <fields>
         <fullName>Points__c</fullName>
         <externalId>false</externalId>
-        <formula>Like_Count__c *10</formula>
+        <formula>Like_Count__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Points</label>
         <precision>18</precision>
@@ -326,7 +326,7 @@ IMAGE('/rugcollaboration/resource/Rug_low', "Low")))</formula>
         <fullName>My_Ideas</fullName>
         <columns>NAME</columns>
         <columns>Status__c</columns>
-        <columns>Like_Count__c</columns>
+        <columns>Points__c</columns>
         <columns>PointsSummary__c</columns>
         <columns>CREATED_DATE</columns>
         <columns>LAST_UPDATE</columns>
