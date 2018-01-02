@@ -624,4 +624,64 @@ insert campMemShareList;
             }
         }
     }
+    
+   public static void SegmentationSharingForDealer(List<Segmentation_Criteria__c> newList)
+    {
+        Set<Id> recordIds = New Set<id>();
+        Map<Id,String> UserMap = New Map<Id,String>();
+        Set<String> dealerCode = New Set<String>();
+        Set<String> accountName = New Set<String>();
+        List<Segmentation_Criteria__Share> RetailCampaignShare = New List<Segmentation_Criteria__Share>();
+        List<User> UserList;
+        
+                for(Segmentation_Criteria__c RetMem : newList)
+                {
+                    If( RetMem.Ownerid != null)
+                    {                     
+                     recordIds.add(RetMem.OwnerId);
+                    }           
+                }
+        
+                 if(recordIds != null)
+                 {
+                    UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =:recordIds ];
+                 }
+                    
+                    
+                for(User u : UserList){
+                    
+                    If(u.ContactId != null){    
+                        UserMap.put(u.id,u.Dealer_GC_Code__c);  
+                        dealerCode.add(u.Dealer_GC_Code__c);
+                    }   
+                }
+                List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
+                for(Account acc :dealerAccList){
+                    accountName.add(acc.Name);
+                }
+        
+                    List<Group>groupList = [select Id, Name, Type from Group where Name =: accountName];
+                    if(recordIds.size()>0 && accountName != null){
+                        
+                       For(Segmentation_Criteria__c RetMem : newList){
+                      
+                       for(Group groupRec : groupList){
+                        Segmentation_Criteria__Share RetShare = new Segmentation_Criteria__Share();
+                                        RetShare.AccessLevel = 'Edit';
+                                        RetShare.UserOrGroupId = groupRec.Id;
+                                        RetShare.ParentId = RetMem.Id;
+                                        RetShare.RowCause = Schema.Segmentation_Criteria__Share.RowCause.Manual;
+                                        RetailCampaignShare.add(RetShare);
+                                    }               
+                       }
+                    }
+        
+        
+        
+                            If(RetailCampaignShare.size()>0)
+                            {
+                            insert RetailCampaignShare;
+                            }
+    } 
+    
 }
