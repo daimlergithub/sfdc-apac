@@ -1358,6 +1358,9 @@
             <tab>Lead__c</tab>
         </mapping>
 		<mapping>
+            <tab>Template__c</tab>
+        </mapping>
+		<mapping>
             <tab>MBK_Customer_Search</tab>
         </mapping>
         <mapping>
