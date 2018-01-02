@@ -67,8 +67,8 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Call_Center</application>
-        <default>false</default>
-        <visible>false</visible>
+        <default>true</default>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Catalogue_Operation</application>
