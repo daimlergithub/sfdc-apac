@@ -37,4 +37,9 @@ public class IdeaCommunityHelperTest {
         IdeasCommunityHelper.getRecent5IdeaCount();
         IdeasCommunityHelper.getTop5IdeaCount();    
     }
+	static testMethod void test_getReputationPoints(){
+        string name='RUG';
+        integer recordCount=5;
+        IdeasCommunityHelper.getReputationPoints(name,recordCount);
+    }
 }

@@ -60,5 +60,18 @@ public without sharing class IdeasCommunityHelper {
     @AuraEnabled
     public static List<ideas__C> getTop5IdeaCount (){        
         return [SELECT id,Like_Count__c,Name,Status__c FROM Ideas__c WHERE Status__c = 'Open' AND Like_Count__c != null order by Like_Count__c desc limit 5];
+    }	
+	@AuraEnabled
+    public static list<networkmember> getReputationPoints (string communityName,integer recordCount){
+        list<networkmember> reputationlist=new list<networkmember>();
+        String name1= '%' + communityName + '%';        
+        integer noOfRecords=integer.valueOf(recordCount);
+        reputationlist=[select network.name, ReputationPoints,member.name 
+                        from networkmember 
+                        where network.name 
+                        like :name1
+                        order by reputationpoints desc 
+                        limit :noOfRecords];
+        return reputationlist;
     }
 }
