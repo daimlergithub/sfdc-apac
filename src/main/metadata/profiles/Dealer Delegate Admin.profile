@@ -13513,11 +13513,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Next_Steps__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.Notification_Email_Flag__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -22439,11 +22434,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.MD__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Next_Steps__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
