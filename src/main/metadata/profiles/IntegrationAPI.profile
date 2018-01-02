@@ -15158,11 +15158,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.MTH_Penetration__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.Next_Steps__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -25099,11 +25094,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.MD__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.MTH_Penetration__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
