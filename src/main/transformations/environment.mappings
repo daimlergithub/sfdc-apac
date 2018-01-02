@@ -66,8 +66,8 @@ dev_sb_asia_dev16=avishek.roy@daimler.com.apac.asiadev16
 dev_sb_asia_buildtest=deployment.user@mbj.daimler-apac.com.buildtest
 dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
 # Asia Dev Sandboxes
-dev_sb_asia_uat=arun.iyer.ntt@asia.daimler-apac.com.uat
-dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
+dev_sb_asia_uat=deployment.user@mbj.daimler-apac.com.uat
+#dev_sb_asia_uatkorea=arun.iyer.ntt@mbj.daimler-apac.com.uatkorea
 
 # Asia Korea Dev Sandboxes
 dev_sb_asia_dev11=
