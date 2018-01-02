@@ -3040,11 +3040,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Next_Steps__c</field>
-            <table>Lead__c.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Notification_Email_Flag__c</field>
             <table>Lead__c.Activities</table>
         </columns>
