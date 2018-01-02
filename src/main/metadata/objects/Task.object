@@ -13732,4 +13732,33 @@ if('{!Task.What}'.indexOf('a1b') == 0) {
  }
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>SubmitSurvey</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>SubmitSurvey</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var market = '{!Task.MD__c}'; 
+if(market == 'KR'){ 
+
+if(typeof(srcUp) == 'function'){ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/SubmitSurveyKR'); 
+}else{ 
+window.open('/apex/SubmitSurveyKR?tskid={!Task.Id}'); 
+} 
+} else { 
+window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?tskid={!Task.Id}"); 
+} 
+} 
+else 
+{ 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
+}</url>
+    </webLinks>
 </CustomObject>
