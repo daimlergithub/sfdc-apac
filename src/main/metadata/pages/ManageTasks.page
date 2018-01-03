@@ -81,7 +81,7 @@
 <apex:selectList size="1" value="{!newstatus}" id="a" label="{!$Label.New_Status} ">
 <apex:selectOptions value="{!Changingstatus}" />
 </apex:selectList>&nbsp;&nbsp;
-<apex:outputLabel rendered="{!dontshow11}"><b>Task Owner:</b></apex:outputLabel><apex:inputText value="{!usrname}" id="targetName" rendered="{!dontshow11}"/><apex:outputLabel rendered="{!dontshow11}"><a href="" id="tsk1_lkwgt" onclick="LookupView('{!$Component.targetName}','{!$Component.targetId}'); return false" secid="tsk1_mlbtn" tabindex="4" title="Assigned To Lookup (New Window)"><img src="/img/s.gif" alt="Assigned To Lookup (New Window)" class="lookupIcon" onblur="this.className = 'lookupIcon';" onfocus="this.className = 'lookupIconOn';" onmouseout="this.className = 'lookupIcon';this.className = 'lookupIcon';" onmouseover="this.className = 'lookupIconOn';this.className = 'lookupIconOn';" title="Assigned To Lookup (New Window)"/></a></apex:outputLabel>
+<apex:outputLabel rendered="{!dontshow11}"><b>Task&nbsp;Owner:</b></apex:outputLabel><apex:inputText value="{!usrname}" id="targetName" rendered="{!dontshow11}"/><apex:outputLabel rendered="{!dontshow11}"><a href="" id="tsk1_lkwgt" onclick="LookupView('{!$Component.targetName}','{!$Component.targetId}'); return false" secid="tsk1_mlbtn" tabindex="4" title="Assigned To Lookup (New Window)"><img src="/img/s.gif" alt="Assigned To Lookup (New Window)" class="lookupIcon" onblur="this.className = 'lookupIcon';" onfocus="this.className = 'lookupIconOn';" onmouseout="this.className = 'lookupIcon';this.className = 'lookupIcon';" onmouseover="this.className = 'lookupIconOn';this.className = 'lookupIconOn';" title="Assigned To Lookup (New Window)"/></a></apex:outputLabel>
 </apex:pageBlockSection>
 
 <apex:outputPanel >
