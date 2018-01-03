@@ -1,4 +1,6 @@
-<apex:page standardController="Task" extensions="ManageTasks" sidebar="false" showHeader="false">
+<apex:page Controller="ManageTasks"  sidebar="false" showHeader="false">
+
+<!-- <apex:page standardController="Task" extensions="ManageTasks" sidebar="false" showHeader="false"> -->
 
 <script language="javascript">
  function fillIn(name,id)
@@ -11,7 +13,7 @@
          winMain=window.parent.opener;
       }
       
-      var namef=winMain.document.getElementById('{!$CurrentPage.parameters.namefield}');
+     var namef=winMain.document.getElementById('{!$CurrentPage.parameters.namefield}');
       
       namef.value=name;
      
@@ -37,39 +39,39 @@
  <apex:form >
  <apex:pageMessages />
     <apex:pageBlock id="pb" title="UserSearch">
-    <apex:pageblockSection title="Search User"  collapsible="false" columns="4" >
+    <apex:pageblockSection title="Search User"  collapsible="false" columns="4">
       <apex:outputLabel style="font-weight:bold;" value="Search User" />
-      <apex:inputText value="{!userinput}" /> 
+      <apex:inputText value="{!userinput}" style="outline:0;" /> 
 
       <apex:commandButton value="Search" action="{!Usersearch}" reRender="pb,search1"/>
      </apex:pageblockSection>
      
-     <apex:pageBlockSection id="search1"  title="Display User" rendered="{!showuser}">
-      <apex:pageBlockTable value="{!UserList}" var="usr" width="100">
+     <apex:pageBlockSection id="search1"  title="Display User" rendered="{!showuser}" columns="1">
+      <apex:pageBlockTable value="{!UserList}" var="usr" width="100%">
         <apex:column headerValue="Name">
-          <apex:outputLink value="#" onclick="fillIn('{!usr.Name}','{!usr.id}')"><b><font style="font-family:Cambria;">{!usr.Name}</font></b> </apex:outputLink>
+          <apex:outputLink value="#" onclick="fillIn('{!usr.Name}','{!usr.id}')"><font style="font-family:San Serif;">{!usr.Name}</font> </apex:outputLink>
         </apex:column>
-        <apex:column headerValue="Role"  rendered="{!if($User.ContactId ==null,TRUE,FALSE)}">
+        <apex:column headerValue="Role" rendered="{!if($User.ContactId ==null,TRUE,FALSE)}">
           <apex:outputField value="{!usr.UserRole.Name}"/>
-        </apex:column>
+        </apex:column> 
         <apex:column headerValue="Profile"  rendered="{!if($User.ContactId ==null,TRUE,FALSE)}">
-          <apex:outputField value="{!usr.Profile.Name}"/>
-        </apex:column>
+          <apex:outputField value="{!usr.Profile.Name}" />
+        </apex:column>   
        </apex:pageBlockTable>
      </apex:pageBlockSection>
      
-     <apex:pageBlockSection title="Display User" id="displayUser" collapsible="false" rendered="{!!showuser}">
+     <apex:pageBlockSection title="Display User" id="displayUser" collapsible="false" rendered="{!!showuser}" columns="1">
         
-       <apex:pageBlockTable value="{!Users}" var="user" width="100">
+       <apex:pageBlockTable value="{!Users}" var="user" width="100%">
         <apex:column headerValue="Name">
-          <apex:outputLink value="#" onclick="fillIn('{!user.Name}','{!user.id}')"><b><font style="font-family:Cambria;">{!user.Name}</font></b> </apex:outputLink>
+          <apex:outputLink value="#" onclick="fillIn('{!user.Name}','{!user.id}')"><font style="font-family:San Serif;">{!user.Name}</font></apex:outputLink>
         </apex:column>
-        <apex:column headerValue="Role"  rendered="{!if($User.ContactId ==null,TRUE,FALSE)}">
+        <apex:column headerValue="Role" rendered="{!if($User.ContactId ==null,TRUE,FALSE)}">
           <apex:outputField value="{!user.UserRole.Name}"/>
-        </apex:column>
-        <apex:column headerValue="Profile"  rendered="{!if($User.ContactId ==null,TRUE,FALSE)}">
+        </apex:column> 
+         <apex:column headerValue="Profile" rendered="{!if($User.ContactId ==null,TRUE,FALSE)}">
           <apex:outputField value="{!user.Profile.Name}"/>
-        </apex:column>
+        </apex:column> 
        </apex:pageBlockTable>
     </apex:pageBlockSection>
     </apex:pageBlock>
