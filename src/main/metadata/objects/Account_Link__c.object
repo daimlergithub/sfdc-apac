@@ -429,7 +429,8 @@
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -3674,6 +3675,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>UCID2__c</fullName>
+        <externalId>false</externalId>
+        <formula>toRole__r.UCID__c</formula>
+        <label>UCID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
 	<fields>
         <fullName>Unique_Identification_Info_Mandatory__c</fullName>
