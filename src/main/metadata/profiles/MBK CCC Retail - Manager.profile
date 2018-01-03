@@ -2413,6 +2413,14 @@
         <apexClass>DealerSearch</apexClass>
         <enabled>true</enabled>
 </classAccesses>
+<classAccesses>
+        <apexClass>CtrlMessageSearchKRDFW</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
+<classAccesses>
+        <apexClass>CtrlMessageLogViewListKRDFW</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>True</editable>
@@ -27376,10 +27384,18 @@
         <apexPage>ManageTasks</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-<pageAccesses>
+	<pageAccesses>
         <apexPage>DealerSearchPage</apexPage>
         <enabled>true</enabled>
-</pageAccesses>
+	</pageAccesses>
+	<pageAccesses>
+        <apexPage>PageMessageLogViewListKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>PageMessageSearchKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <personAccountDefault>true</personAccountDefault>

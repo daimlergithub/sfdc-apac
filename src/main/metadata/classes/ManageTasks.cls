@@ -1,5 +1,7 @@
 public without sharing class ManageTasks{
+public ManageTasks() {
 
+    }
 private final String campaignId = ApexPages.currentPage().getParameters().get('campid');
 private final Id taskId;
 private string getObject;

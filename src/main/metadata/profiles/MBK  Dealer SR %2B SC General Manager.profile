@@ -217,6 +217,14 @@
         <apexClass>DealerSearch</apexClass>
         <enabled>true</enabled>
 </classAccesses>
+<classAccesses>
+        <apexClass>CtrlMessageSearchKRDFW</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
+<classAccesses>
+        <apexClass>CtrlMessageLogViewListKRDFW</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
     <classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>false</enabled>
@@ -26772,6 +26780,14 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>PageMessageLogViewListKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>PageMessageSearchKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
         <apexPage>AddToCampaign</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
