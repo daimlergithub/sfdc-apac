@@ -12067,14 +12067,12 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Owner</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Self-employed</fullName>
@@ -12095,7 +12093,6 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Upper Management</fullName>
@@ -12137,7 +12134,6 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
                 <fullName>Homemaker</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -17810,7 +17806,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17818,7 +17813,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17826,7 +17820,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17834,7 +17827,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17842,7 +17834,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17850,7 +17841,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17867,7 +17857,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>Authority</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17879,7 +17868,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>Army</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17891,13 +17879,11 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>Hotel</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Rental Company</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -17915,7 +17901,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>MPC</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
