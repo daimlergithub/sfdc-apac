@@ -1098,14 +1098,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>EOC_Call_Task_1__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 1</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>EOC_Call_Task_1_del__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1114,26 +1106,10 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>EOC_Call_Task_2__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 2</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>EOC_Call_Task_2_del__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>EOC Call Task 2</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>EOC_Call_Task_3__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 3</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
