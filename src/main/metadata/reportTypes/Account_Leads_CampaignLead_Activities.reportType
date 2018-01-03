@@ -6184,11 +6184,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Market__c</field>
-            <table>Account.Leads__r.Campaign_Leads__r.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Activity_Purpose__c</field>
             <table>Account.Leads__r.Campaign_Leads__r.Activities</table>
         </columns>
