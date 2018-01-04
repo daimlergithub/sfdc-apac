@@ -123,6 +123,10 @@
     <customLabels>
         <label><!-- A6 Query via website --></label>
         <name>A6_Query_via_website</name>
+    </customLabels>	
+	<customLabels>
+        <label>失注</label>
+        <name>Lost</name>
     </customLabels>
     <customLabels>
         <label><!-- A6 Request for a test drive via website --></label>

@@ -1336,6 +1336,7 @@
 	<!--<tab>Campaign_Member__c</tab>-->
     <tab>MBK_Message_Logs</tab>
     <tab>MBK_Customer_Search</tab>
+	<tab>Template__c</tab>
     <workspaceMappings>
         <mapping>
             <fieldName>fromRole__c</fieldName>
@@ -1355,6 +1356,9 @@
         <mapping>
             <fieldName>Contact__c</fieldName>
             <tab>Lead__c</tab>
+        </mapping>
+		<mapping>
+            <tab>Template__c</tab>
         </mapping>
 		<mapping>
             <tab>MBK_Customer_Search</tab>
