@@ -138,6 +138,20 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <formula>If(Account__c &lt;&gt; null, 'Contact', 
+If(Campaign__c &lt;&gt; null, 'Campaign',
+If(Leads__c &lt;&gt; null, 'Lead',
+If(Case__c &lt;&gt; null, 'Case', 'N/A'))))</formula>
+        <label>Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Doc__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -189,7 +203,7 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>MBKMessageTemplate__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -266,7 +280,7 @@
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
-        <fields>
+    <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>

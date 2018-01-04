@@ -1,10 +1,10 @@
-<messaging:emailTemplate subject="【ご確認ください】　販売店キャンペーン対象顧客抽出のお知らせ" recipientType="User" relatedToType="Retail_Campaign__c" language="{!recipient.LanguageLocaleKey}">
+<messaging:emailTemplate subject=" 【ご確認ください】　キャンペーン対象顧客抽出のお知らせ" recipientType="User" relatedToType="Retail_Campaign__c" language="{!recipient.LanguageLocaleKey}">
 <messaging:htmlEmailBody >
 <html>
    <style type="text/css">
    </style>
    <body>
-   <p>{!relatedTo.Owner.Name} {!$Label.Email_LeadDealerAssign2}</p>
+   <p>{!relatedTo.Dealer_name__r.Name} {!$Label.Email_LeadDealerAssign2}</p>
    
    <p> {!$Label.Campaign_Notification1}</p>
    

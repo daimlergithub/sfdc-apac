@@ -312,7 +312,7 @@ public class LeadHelperJP
                     {
                         leadsId.add(les.id);
                     }
-					if(isUpdate && les.Source_Campaign__c!=null && les.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && les.Assigned_Dealer__c != null )
+                    if(isUpdate && les.Source_Campaign__c!=null && les.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && les.Assigned_Dealer__c != null )
                     {
                     System.debug('venky here..........');
                      leadsId.add(les.id);
@@ -348,7 +348,7 @@ public class LeadHelperJP
                 {
                     lds.OwnerId = lds.Service_Advisor__c;
                 }
-				 if(isUpdate && lds.Source_Campaign__c!=null && lds.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && lds.Assigned_Dealer__c != null )
+                 if(isUpdate && lds.Source_Campaign__c!=null && lds.CAC_Lead_Status__c == 'Approved' && userinfo.getUserType() != 'PowerPartner' && lds.Assigned_Dealer__c != null )
                     {
                     System.debug('venky here..........');
                     lds.CAC_Lead_Status__c = 'Allocated';
@@ -360,7 +360,7 @@ public class LeadHelperJP
         system.debug('updateLeadList<><><>' + updateLeadList);
         if(!updateLeadList.isEmpty() && updateLeadList != null)
         {
-		 
+         
             update updateLeadList; 
         }
     }
@@ -573,7 +573,7 @@ public class LeadHelperJP
             for(Lead__c dels : listNewLeads)
             {
                 if(dels.Assigned_Dealer__c != null && dels.CAC_Lead_Status__c == 'Allocated'  && (isInsert || (isUpdate && dels.CAC_Lead_Status__c != leadOldMap.get(dels.id).CAC_Lead_Status__c
-                                                                                                              || dels.Service_Advisor__c != leadOldMap.get(dels.id).Service_Advisor__c)))
+                                                                                                              ))) //|| dels.Service_Advisor__c != leadOldMap.get(dels.id).Service_Advisor__c
                 {
                     dealerleadIds.add(dels.Id);
                 }
@@ -723,7 +723,8 @@ public class LeadHelperJP
                         emaLeds.Lead_Assignment_Notification_Done__c = True;
                     }
                 }
-                if(emaLeds.Service_Advisor__c != null && emaLeds.Service_Advisor__c != Userinfo.getUserId() && emaLeds.Person_Assign_Notificaton_Done__c == false)
+                // Commented below and achived this through workflow rulw
+                /*if(emaLeds.Service_Advisor__c != null && emaLeds.Service_Advisor__c != Userinfo.getUserId() && emaLeds.Person_Assign_Notificaton_Done__c == false)
                 {
                     Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage(); 
                     mail.setWhatId(emaLeds.id); 
@@ -739,7 +740,7 @@ public class LeadHelperJP
                     {
                         emaLeds.Person_Assign_Notificaton_Done__c = True;
                     }
-                }
+                }*/
                 updateLeadLists.add(emaLeds);
             }
         }
@@ -794,11 +795,11 @@ public class LeadHelperJP
                     if(u.Market__c == 'KR' && u.Profile.UserLicense.Name == 'Partner Community')
                     {
                         dellead.Assigned_Dealer__c = u.Contact.AccountId;
-						//Changes as part of SFDCKR-1429
-						if((dellead.recordtypeId == salesRecordTypeId && dellead.Dealer_Lead_Status__c != 'Lost (Dealer)' && dellead.Dealer_Lead_Status__c != 'Received' && dellead.Dealer_Lead_Status__c != 'Invoiced' && dellead.Dealer_Lead_Status__c != 'Lost') || (dellead.recordtypeId == afterSalesRecordTypeId && dellead.Dealer_Lead_Status__c != 'Lost (Dealer)' && dellead.Dealer_Lead_Status__c != 'Service Completed' && dellead.Dealer_Lead_Status__c != 'Lost'))
-						{
-							dellead.Dealer_Assigned_Date_Time__c = system.now();
-						}
+                        //Changes as part of SFDCKR-1429
+                        if((dellead.recordtypeId == salesRecordTypeId && dellead.Dealer_Lead_Status__c != 'Lost (Dealer)' && dellead.Dealer_Lead_Status__c != 'Received' && dellead.Dealer_Lead_Status__c != 'Invoiced' && dellead.Dealer_Lead_Status__c != 'Lost') || (dellead.recordtypeId == afterSalesRecordTypeId && dellead.Dealer_Lead_Status__c != 'Lost (Dealer)' && dellead.Dealer_Lead_Status__c != 'Service Completed' && dellead.Dealer_Lead_Status__c != 'Lost'))
+                        {
+                            dellead.Dealer_Assigned_Date_Time__c = system.now();
+                        }
                     }
                 }
             }
