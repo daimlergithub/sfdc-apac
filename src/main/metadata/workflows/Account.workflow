@@ -783,7 +783,7 @@ ISCHANGED(Main_Dealer__c)
             <name>UpdateData_Source_to_Others</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <formula>AND(Contains($Profile.Name, &apos;Japan Dealer&apos; ), MD__c = &apos;JP&apos;,
 ISBLANK(Text(Data_Source__c)),RecordType.DeveloperName = &apos;Company&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
