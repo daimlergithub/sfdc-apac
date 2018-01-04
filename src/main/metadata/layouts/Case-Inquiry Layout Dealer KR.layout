@@ -2,7 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>New_Lead</customButtons>
     <customButtons>New_AfterSales_Lead</customButtons>
-	<customButtons>Accept_Case</customButtons>
+    <customButtons>Accept_Case</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
@@ -51,6 +51,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Escalate_Date_to_CO__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Message__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -301,7 +305,7 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Market__c</field>
             </layoutItems>
