@@ -54,12 +54,12 @@
         <value>Interested competitor Vehicle Details</value>
     </labels>
 			<labels>
-        <fullName>Matched_records_are_too_much_please_add_more_criteria</fullName>
+        <fullName>Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition</fullName>
         <categories>Retailcampaignsegmentation</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Retailcampaignsegmentation screen</shortDescription>
-        <value>Matched records are too much, please add more criteria</value>
+        <value>Cannot extract records with this filter condition Please change filter condition</value>
     </labels>
 	<labels>
         <fullName>Current_Vehicle_Details</fullName>
