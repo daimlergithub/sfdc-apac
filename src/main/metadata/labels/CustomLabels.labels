@@ -24,6 +24,13 @@
         <value>vehicle Details</value>
     </labels> 
 	<labels>
+        <fullName>Lost</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lost</shortDescription>
+        <value>Lost</value>
+    </labels>
+	<labels>
         <fullName>MBK_ONLINE_DEDUP_CHECKUP</fullName>
         <language>en_US</language>
         <protected>false</protected>
