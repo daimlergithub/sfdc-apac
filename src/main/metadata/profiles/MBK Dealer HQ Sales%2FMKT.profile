@@ -67,7 +67,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Call_Center</application>
-        <default>true</default>
+        <default>fasle</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -77,7 +77,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Data_Management</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -26747,6 +26747,15 @@
         <object>Manual__kav</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+	<objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MBK_Messages__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
         <enabled>true</enabled>
@@ -28196,6 +28205,18 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Solution</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Template__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Message_Logs</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Customer_Search</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Partner Community</userLicense>
