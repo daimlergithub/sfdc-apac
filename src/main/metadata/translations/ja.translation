@@ -791,19 +791,11 @@
     <customLabels>
         <label><!-- Campaign Notification3 --></label>
         <name>Campaign_Notification3</name>
-    </customLabels>
-    <customLabels>
-        <label><!-- Campaign Notification4 --></label>
-        <name>Campaign_Notification4</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label>※リスト確認にはセールスフォースへのログインが必要となります。</label>
         <name>Campaign_Notification5</name>
-    </customLabels>
-    <customLabels>
-        <label><!-- Campaign Notification6 --></label>
-        <name>Campaign_Notification6</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label><!-- Campaign Notification7 --></label>
         <name>Campaign_Notification7</name>
@@ -875,11 +867,7 @@
     <customLabels>
         <label>本日以下のキャンペーンの対象顧客を抽出しました。</label>
         <name>Campaign_Segmentation1</name>
-    </customLabels>
-    <customLabels>
-        <label><!-- Campaign_Segmentation2 --></label>
-        <name>Campaign_Segmentation2</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label><!-- Retail Campaign Type --></label>
         <name>Campaign_Type</name>
