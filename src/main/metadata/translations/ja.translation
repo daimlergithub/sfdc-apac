@@ -2337,6 +2337,10 @@
         <label>エラーが発生しました。検索条件を追加・変更して再度実行してください</label>
         <name>Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition</name>
     </customLabels> 
+				<customLabels>
+        <label>検索結果が多すぎます。検索条件を追加してください。</label>
+        <name>Matched_records_are_too_much_please_add_more_criteria</name>
+    </customLabels> 
 	<customLabels>
         <label>興味車両等（マスタの値が反映され、右側は削除されます）</label>
         <name>vehicle_Details</name>
