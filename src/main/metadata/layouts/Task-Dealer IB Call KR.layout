@@ -84,6 +84,10 @@
                 <behavior>Edit</behavior>
                 <field>Activity_Status__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Message__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
