@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>Delete</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -13,7 +16,7 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -68,11 +71,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Successful_Call_Number__c</field>
+                <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>OwnerId</field>
+                <field>Successful_Call_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -118,10 +121,6 @@
                 <behavior>Edit</behavior>
                 <field>Trade_In_Vehicle__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Market__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -162,6 +161,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Assigned_Date_Time__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Consultant__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -362,15 +365,15 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Created_By_EP_Transaction__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
