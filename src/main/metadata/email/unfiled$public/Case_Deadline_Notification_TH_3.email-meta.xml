@@ -2,7 +2,7 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <description>To send email to Dealer for case deadline notification.</description>
-    <encodingKey>ISO-8859-1</encodingKey>
+    <encodingKey>UTF-8</encodingKey>
     <name>Case Deadline Notification TH 3</name>
     <style>none</style>
     <subject>Case Deadline Notification. Case No. {!Case.CaseNumber}, Subject: {!Case.Subject} assigned to you.</subject>

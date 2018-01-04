@@ -1739,6 +1739,11 @@
         <expression>{!$Label.S5_Your_Nationaliy_is}</expression>
     </formulas>
     <formulas>
+        <name>LabelS5_Your_passport_number_is</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.S5_Your_passport_number_is}</expression>
+    </formulas>
+    <formulas>
         <name>LabelSurveyCompleted</name>
         <dataType>String</dataType>
         <expression>{!$Label.SurveyCompleted}</expression>
@@ -2059,7 +2064,7 @@
         <inputAssignments>
             <field>Response__c</field>
             <value>
-                <elementReference>Q2_3_E_Nationality</elementReference>
+                <elementReference>Q2_3_E_Nationality_1</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3293,6 +3298,13 @@
 ** เพิ่มเติมในส่วนของบริษัท จะต้องทวนเลข จดทะเบียนการค้า (Company Reg. No.)หรือ เลขประจำตัวผู้เสียภาษีมูลค่าเพิ่ม (VAT Reg. no.) กรณีลูกค้าจำไม่ได้ ให้นัดหมายเพิ่อสอบถามไปยังแผนกหรือบุคคลที่สามารถตรวจสอบในส่วนนี้ได้**</helpText>
             <isRequired>false</isRequired>
         </fields>
+        <fields>
+            <name>Q2_3_E_Nationality_1</name>
+            <dataType>String</dataType>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!LabelS5_Your_Nationaliy_is}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
     </screens>
     <screens>
         <name>Q2_1_Person</name>
@@ -3315,13 +3327,15 @@
         <fields>
             <name>Q2_1_E_Desc_1</name>
             <fieldText>{!LabelS5_Q2_1_E_P1} {!Salutation} {!AccName}
+
 {!LabelS5_Q2_1_E_P3}
+
 {!LabelS5_Q2_2_E_P1} {!DOB}</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
             <name>psprt</name>
-            <fieldText>{!LabelS5_Q2_3_E_P1}</fieldText>
+            <fieldText>{!LabelS5_Your_passport_number_is}</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -3330,11 +3344,9 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>Q2_3_E_Nationality</name>
-            <dataType>String</dataType>
-            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!LabelS5_Your_Nationaliy_is}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
+            <name>nationality_disp</name>
+            <fieldText>{!LabelS5_Your_Nationaliy_is} {!nation}</fieldText>
+            <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
             <name>Q2_1_Correct_1</name>
@@ -3386,11 +3398,9 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <name>Q2_3_E_Nationality_0</name>
-            <dataType>String</dataType>
-            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!LabelS5_Your_Nationaliy_is}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
+            <name>nation_dis</name>
+            <fieldText>{!LabelS5_Your_Nationaliy_is} {!nation}</fieldText>
+            <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
             <name>Q2_1_Correct_1_0</name>
@@ -4294,6 +4304,13 @@
     </variables>
     <variables>
         <name>Monthly_Repayment</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>nation</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

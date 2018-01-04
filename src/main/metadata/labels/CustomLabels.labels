@@ -7581,7 +7581,7 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q2.1 E P1</shortDescription>
-        <value>Your name is</value>
+        <value>Your First name is สมหญิง พุ่มทอง</value>
     </labels>
     <labels>
         <fullName>S5_Q2_1_E_P2</fullName>
@@ -7595,7 +7595,8 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q2.1 E P3</shortDescription>
-        <value>Please confirm about the title</value>
+        <value>** Please also confirm about “Title”
+** For company customer, please also confirm about spelling of company’s name including type of company registration.</value>
     </labels>
     <labels>
         <fullName>S5_Q2_1_E_P4</fullName>
@@ -8267,7 +8268,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Your Nationaliy is</shortDescription>
-        <value>Your Nationaliy is /  สัญชาติของคุณคือ</value>
+        <value>Your Nationality is /  สัญชาติของคุณคือ</value>
+    </labels>
+    <labels>
+        <fullName>S5_Your_passport_number_is</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>S5 Your passport number is</shortDescription>
+        <value>Your passport number is/หมายเลขหนังสือเดินทางของคุณคือ</value>
     </labels>
     <labels>
         <fullName>S5_company_s_registration_type</fullName>

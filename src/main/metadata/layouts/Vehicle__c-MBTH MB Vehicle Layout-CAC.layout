@@ -29,10 +29,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>UsVIN__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>RegistrationNo__c</field>
             </layoutItems>
             <layoutItems>
@@ -55,7 +51,7 @@
                 <behavior>Edit</behavior>
                 <field>FirstRegistrationDate__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Recall__c</field>
             </layoutItems>
