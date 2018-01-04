@@ -991,7 +991,8 @@
             else{
             
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, label.Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition));
-            
+			e.getMessage();
+            System.debug('The following exception has occurred: ' + e.getMessage()); 
             }
             }
             system.debug('saveQueryfinal'+saveQuery);
