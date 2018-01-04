@@ -785,7 +785,7 @@
         <name>Campaign_Notification11</name>
     </customLabels>
     <customLabels>
-        <label>以下のキャンペーンの実施日がきました。</label>
+        <label>以下のキャンペーンの実施日となりましたので、お客様へのコンタクトを開始してください。</label>
         <name>Campaign_Notification2</name>
     </customLabels>
     <customLabels>
@@ -793,7 +793,7 @@
         <name>Campaign_Notification3</name>
     </customLabels>
     <customLabels>
-        <label>お客様へのコンタクトを開始してください。</label>
+        <label><!-- Campaign Notification4 --></label>
         <name>Campaign_Notification4</name>
     </customLabels>
     <customLabels>
@@ -801,7 +801,7 @@
         <name>Campaign_Notification5</name>
     </customLabels>
     <customLabels>
-        <label>よろしくお願いいたします。</label>
+        <label><!-- Campaign Notification6 --></label>
         <name>Campaign_Notification6</name>
     </customLabels>
     <customLabels>
@@ -873,11 +873,11 @@
         <name>Campaign_Planning_Page_Subtitle</name>
     </customLabels>
     <customLabels>
-        <label>本日以下の販売店キャンペーンの対象顧客を抽出します。</label>
+        <label>本日以下のキャンペーンの対象顧客を抽出しました。</label>
         <name>Campaign_Segmentation1</name>
     </customLabels>
     <customLabels>
-        <label>対象顧客を精査の上、キャンペーンのスケジュールに従って、実施してください。</label>
+        <label><!-- Campaign_Segmentation2 --></label>
         <name>Campaign_Segmentation2</name>
     </customLabels>
     <customLabels>
@@ -2410,7 +2410,7 @@
         <name>LimitQueries</name>
     </customLabels>
     <customLabels>
-        <label>【ご確認ください】　リスト確認実施のご依頼</label>
+        <label> 【ご確認ください】　対象顧客リスト　メンテナンス実施のご依頼</label>
         <name>List_Ready_Maintenance</name>
     </customLabels>
     <customLabels>
