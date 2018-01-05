@@ -67,7 +67,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Call_Center</application>
-        <default>false</default>
+        <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -77,7 +77,7 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBK_Data_Management</application>
-        <default>true</default>
+        <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -2426,11 +2426,11 @@
 <classAccesses>
         <apexClass>CtrlMessageSearchKRDFW</apexClass>
         <enabled>true</enabled>
-	</classAccesses>
-	<classAccesses>
+</classAccesses>
+<classAccesses>
         <apexClass>CtrlMessageLogViewListKRDFW</apexClass>
         <enabled>true</enabled>
-	</classAccesses>
+</classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>True</editable>
@@ -27952,12 +27952,12 @@
 	<pageAccesses>
         <apexPage>ManageTasks</apexPage>
         <enabled>true</enabled>
-</pageAccesses>
-<pageAccesses>
+	</pageAccesses>
+	<pageAccesses>
         <apexPage>DealerSearchPage</apexPage>
         <enabled>true</enabled>
-</pageAccesses>
-<pageAccesses>
+	</pageAccesses>
+	<pageAccesses>
         <apexPage>PageMessageLogViewListKRDFW</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -28724,6 +28724,18 @@
         <tab>Vehicle__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+        <tab>Template__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Message_Logs</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Customer_Search</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
@@ -28795,18 +28807,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-StreamingChannel</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>Template__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>MBK_Message_Logs</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>MBK_Customer_Search</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
@@ -29099,5 +29099,3 @@
         <name>ViewSetup</name>
     </userPermissions>
 </Profile>
-
-
