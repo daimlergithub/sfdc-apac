@@ -2416,11 +2416,11 @@
 <classAccesses>
         <apexClass>CtrlMessageSearchKRDFW</apexClass>
         <enabled>true</enabled>
-	</classAccesses>
-	<classAccesses>
+</classAccesses>
+<classAccesses>
         <apexClass>CtrlMessageLogViewListKRDFW</apexClass>
         <enabled>true</enabled>
-	</classAccesses>
+</classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
         <editable>True</editable>
@@ -26566,6 +26566,15 @@
         <object>Lead__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+	<objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MBK_Messages__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
@@ -26745,15 +26754,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Manual__kav</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-	<objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>MBK_Messages__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
@@ -28147,7 +28147,19 @@
         <tab>Vehicle__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <tabVisibilities>
+	<tabVisibilities>
+        <tab>Template__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Message_Logs</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Customer_Search</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -28207,18 +28219,7 @@
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-	<tabVisibilities>
-        <tab>Template__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>MBK_Message_Logs</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>MBK_Customer_Search</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
+	
     <userLicense>Partner Community</userLicense>
     <userPermissions>
         <enabled>true</enabled>

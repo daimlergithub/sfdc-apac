@@ -106,7 +106,7 @@ global Database.QueryLocator start(Database.BatchableContext BC){
             for(sObject acc : scope){
                 Account accou = (Account)acc;
                 AccountShare share = new AccountShare();
-                share.AccountAccessLevel = 'READ';
+                share.AccountAccessLevel = 'EDIT';
                 share.OpportunityAccessLevel = 'READ';
                 share.AccountId = accou.Id;
                 share.UserOrGroupId = newUserID;

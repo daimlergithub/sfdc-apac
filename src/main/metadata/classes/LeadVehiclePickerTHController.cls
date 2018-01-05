@@ -48,9 +48,9 @@ global with sharing class LeadVehiclePickerTHController {
         //profileName = userinfo.getprofilename();
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
-        if(p.Name.contains('Dealer')){
+        /*if(p.Name.contains('Dealer')){
             disableButtons = false;
-        }
+        }*/
         currentRecordId  = controller.getId();
        
         Set<Id> lead_VehicleIds;
@@ -195,6 +195,8 @@ global with sharing class LeadVehiclePickerTHController {
             }else{
                 carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c order By Name ASC LIMIT 50000];
             }
+        
+        System.debug('carModels123--'+[SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c]);
             for(Car_Model__c cm : carModels){
                 
                 tempSet = brandClassMap.get(cm.Brand__c);

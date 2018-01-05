@@ -791,19 +791,11 @@
     <customLabels>
         <label><!-- Campaign Notification3 --></label>
         <name>Campaign_Notification3</name>
-    </customLabels>
-    <customLabels>
-        <label><!-- Campaign Notification4 --></label>
-        <name>Campaign_Notification4</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label>※リスト確認にはセールスフォースへのログインが必要となります。</label>
         <name>Campaign_Notification5</name>
-    </customLabels>
-    <customLabels>
-        <label><!-- Campaign Notification6 --></label>
-        <name>Campaign_Notification6</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label><!-- Campaign Notification7 --></label>
         <name>Campaign_Notification7</name>
@@ -875,11 +867,7 @@
     <customLabels>
         <label>本日以下のキャンペーンの対象顧客を抽出しました。</label>
         <name>Campaign_Segmentation1</name>
-    </customLabels>
-    <customLabels>
-        <label><!-- Campaign_Segmentation2 --></label>
-        <name>Campaign_Segmentation2</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label><!-- Retail Campaign Type --></label>
         <name>Campaign_Type</name>
@@ -2336,6 +2324,10 @@
 		<customLabels>
         <label>エラーが発生しました。検索条件を追加・変更して再度実行してください</label>
         <name>Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition</name>
+    </customLabels> 
+				<customLabels>
+        <label>検索結果が多すぎます。検索条件を追加してください。</label>
+        <name>Matched_records_are_too_much_please_add_more_criteria</name>
     </customLabels> 
 	<customLabels>
         <label>興味車両等（マスタの値が反映され、右側は削除されます）</label>

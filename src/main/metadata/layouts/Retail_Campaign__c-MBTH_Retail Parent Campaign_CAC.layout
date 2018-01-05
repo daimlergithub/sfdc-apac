@@ -88,6 +88,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Expected_Number_Of_Prospects__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Activity_Type__c</field>
             </layoutItems>
             <layoutItems>
