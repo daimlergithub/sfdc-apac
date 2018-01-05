@@ -72,7 +72,7 @@ public class LeadHelperJPTest
                           LocaleSidKey='en_US', ProfileId = p.Id, 
                           TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com');
         
-        System.runAs(u) {
+        //System.runAs(u) {
             createTestData();
             test.startTest();
             lead1.Contact__c = objAccount3.id;
@@ -84,7 +84,7 @@ public class LeadHelperJPTest
             // Account_Link__c testAccLink = [Select id from Account_Link__c Where fromRole__c =: objAccount3.id and toRole__c =: DealerAccount.id LIMIT 1];
             test.stopTest();
             //system.assertNotEquals(null, testAccLink);
-        }
+        //}
         
         
     }
