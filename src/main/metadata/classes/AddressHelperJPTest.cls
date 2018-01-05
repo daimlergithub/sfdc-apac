@@ -190,7 +190,7 @@ public class AddressHelperJPTest {
         add.MD__c='JP';
         add.RecordTypeId= Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId();
       addlist.add(add);
-        insert addlist;
+        //insert addlist;
        Account_Link__c al1= new Account_Link__c(Name='new al',toRole__c=personAcc.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
             RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female');
         insert al1;
