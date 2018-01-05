@@ -781,7 +781,7 @@
         <name>Campaign_Notification10</name>
     </customLabels>
     <customLabels>
-        <label>期日までにリスト確認を終え、提出してください。</label>
+        <label>以下のキャンペーンの対象顧客リストを統合顧客管理システムにて展開しました。</label>
         <name>Campaign_Notification11</name>
     </customLabels>
     <customLabels>
@@ -793,7 +793,7 @@
         <name>Campaign_Notification3</name>
     </customLabels> 
     <customLabels>
-        <label>※リスト確認にはセールスフォースへのログインが必要となります。</label>
+        <label>期日までにリスト確認を終え、ご提出をお願いいたします。</label>
         <name>Campaign_Notification5</name>
     </customLabels> 
     <customLabels>
