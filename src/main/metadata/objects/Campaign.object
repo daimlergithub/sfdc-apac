@@ -423,55 +423,77 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>Auto Show</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Loyalty Program</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Competitions and Sales</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interview</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Recall</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Product Issue</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Car Launch</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ad-hoc</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ongoing</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1917,14 +1939,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Sales_quarter</fullName>
                 <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_central DM</fullName>
                 <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_new model target</fullName>
                 <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_fair</fullName>

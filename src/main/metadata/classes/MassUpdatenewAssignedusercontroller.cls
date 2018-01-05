@@ -130,7 +130,7 @@ public without sharing class MassUpdatenewAssignedusercontroller
         }
     }
     
-    public void massUpdateNewAssign() {
+   public void massUpdateNewAssign() {
     if(NewAsignUsr.Portal_Apply_User__c!=null){
     User usr = [SELECT iD,Firstname,lastName FROM User WHERE id=:NewAsignUsr.Portal_Apply_User__c];
     
@@ -145,39 +145,63 @@ public without sharing class MassUpdatenewAssignedusercontroller
 
          List<Account_Link__c> SelectedAccount =new List<Account_Link__c>();
          List<Account_Link__c> SelectedVehicle =new List<Account_Link__c>();
+                                List<Account_Link__c> MergeAccountlinklist =new List<Account_Link__c>();
+                                Map<Id,Account_Link__c>AccountMap = new Map<Id,Account_Link__c>();
+                                Map<Id,Account_Link__c>VehicleMap = new Map<Id,Account_Link__c>();
          List<Lead__c> SelectedLead =new List<Lead__c>();
          List<case> Selectedcase =new List<case>();
           system.debug('user record: '+usr);
          for(WrapperMassUpdate accupdte: accountList){
              if(accupdte.selected==true){
+                 AccountMap.put(accupdte.acc.id,accupdte.acc);
                  SelectedAccount.add(accupdte.acc);
              }
+                                                
          }
-         
+           if(SelectedAccount != null)
+                                                {
+                                                                System.debug('SAccount'+SelectedAccount);
+                                                                MergeAccountlinklist.addAll(SelectedAccount);
+                                                }
+                                   
          List<Account_Link__c> UpdateAcc = New List<Account_Link__c>();
-         for(Account_Link__c acc:SelectedAccount)
+        /* for(Account_Link__c acc:SelectedAccount)
          {
+             System.debug('INloop');
              acc.Retail_Sales_Consultant__c=usr.id;
              UpdateAcc.add(acc);
          }
          if(!UpdateAcc.isempty()){
          update UpdateAcc;
-         }
+         }*/
          List<Account_Link__c> UpdateVehicle = new List<Account_Link__c>();
          for(WrapperMassUpdate vechupdt: vehicleList ){
              if(vechupdt.selected==true){
+                 VehicleMap.put(vechupdt.veh.id,vechupdt.veh);
                  SelectedVehicle.add(vechupdt.veh);             
              }
          }
-         for(Account_Link__c vh :SelectedVehicle ){
+                                if(SelectedVehicle != null)
+                                                {
+                                                                MergeAccountlinklist.addAll(SelectedVehicle);
+                                                }
+                     if(MergeAccountlinklist != null)
+                                {
+                                System.debug('Mlist>>>'+MergeAccountlinklist);
+            Batch_MassUpdateAccountLinkJP batcher = new Batch_MassUpdateAccountLinkJP(MergeAccountlinklist,AccountMap,VehicleMap,usr);
+            Database.executeBatch(batcher, 20);
+
+                                                
+                                 }
+      /*   for(Account_Link__c vh :SelectedVehicle ){
              vh.Service_Advisor__c=usr.id;
              UpdateVehicle.add(vh);
-         }
+         }*/
          List<Lead__c> Updatelead = new List<Lead__c>();
          for(WrapperMassUpdate leadupdte: LeadList ){
              if(leadupdte.selected==true){
                  SelectedLead.add(leadupdte.led);
-             }
+            }
          }
          
          for(Lead__c lf: SelectedLead){
@@ -201,14 +225,15 @@ public without sharing class MassUpdatenewAssignedusercontroller
              update Updatecase;
          }
          
-         if(!UpdateVehicle.isEmpty()){
+        /* if(!UpdateVehicle.isEmpty()){
          update UpdateVehicle;
-         }
+         }*/
          if(!Updatelead.isEmpty()){
          update Updatelead;
-         }   
+        }   
          }
     }
+
     
     
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_$Vehicle__c.Latest_Invoice_Date__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Vehicle__c.Description__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Vehicle__c.New_Used__c</field>
+    </columns>
+    <columns>
+        <field>Campaign_Member__c.Registration_Date__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Vehicle__c.RegistrationNo__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Vehicle__c.Finance_Method__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Vehicle__c.FinanceType__c</field>
+    </columns>
+    <columns>
+        <field>Campaign_Member__c.Interest_Rate__c</field>
+    </columns>
+    <columns>
+        <field>Campaign_Member__c.Customer_Label_Name__c</field>
+    </columns>
+    <description>Campaign Members with Vehicle</description>
+    <format>Tabular</format>
+    <name>Hire &amp; Purchase Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Campaign_Member__c@Campaign_Member__c.Vehicle__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Campaign_Member__c.LastInspectionDate__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
