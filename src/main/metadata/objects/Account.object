@@ -62164,6 +62164,23 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <page>createRetailCopyKRButton</page>
         <protected>false</protected>
     </webLinks>
+	<webLinks>
+        <fullName>Create_Retail_Copy_MY</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Retail Copy</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if({!$Permission.MYDealer}) 
+{ 
+alert("{!$Label.Retail_copy_is_already_present}"); 
+} 
+		else 
+		{ 
+		window.open('apex/Retailcopybutton?scontrolCaching=1&amp;id={!Account.Id}'); 
+		}</url>
+    </webLinks>
     <webLinks>
         <fullName>Create_Vehicle</fullName>
         <availability>online</availability>

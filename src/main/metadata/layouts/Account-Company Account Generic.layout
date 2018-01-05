@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Create_Retail_Copy</customButtons>
+    <customButtons>Create_Retail_Copy_MY</customButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -21,11 +21,11 @@
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
-				<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Status__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
             </layoutItems>
@@ -57,7 +57,6 @@
                 <behavior>Edit</behavior>
                 <field>Special_Mark_on_Account__c</field>
             </layoutItems>
-           
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Newspaper__c</field>
@@ -68,7 +67,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
@@ -152,7 +151,7 @@
                 <behavior>Edit</behavior>
                 <field>Commercial_Reg_No__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vat_No__c</field>
             </layoutItems>
@@ -196,7 +195,7 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>MD__c</field>
             </layoutItems>
@@ -224,6 +223,22 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Retail Copy Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>RetailCopyOnlyRelatedList</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
         <label>Custom Links</label>
         <layoutColumns/>
@@ -239,6 +254,7 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>System__c</fields>
@@ -249,7 +265,6 @@
         <fields>Retail_Email_OptOut__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -264,6 +279,7 @@
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>UsVIN__c</fields>
         <fields>Car_Relation__c</fields>
@@ -274,7 +290,6 @@
         <fields>Registration_Number__c</fields>
         <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
@@ -321,6 +336,7 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Product_Name__c</fields>
@@ -332,7 +348,6 @@
         <fields>ApplicationDate__c</fields>
         <fields>ContractNumber__c</fields>
         <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
