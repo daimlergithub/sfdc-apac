@@ -6,10 +6,10 @@
 
 public class TriggerTaskHandlerMY implements TriggerHandlerIf {
 
-    List<Task> taskNewList=Trigger.new;
+    
     
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
-            
+        List<Task> taskNewList=Trigger.new;   
         if(trigger.isAfter && trigger.isInsert)
         {     
             if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){     
@@ -26,8 +26,9 @@ public class TriggerTaskHandlerMY implements TriggerHandlerIf {
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+       List<Task> taskNewList=Trigger.new;
         // Implementation to be added as required in market.
-       if(taskNewList[0].MD__c==Label.MY){
+       if( !trigger.isdelete  && !taskNewList.isEmpty() && taskNewList.size() > 0 && taskNewList[0].MD__c==Label.MY){
         if(trigger.isAfter && trigger.isInsert)
         {           
               TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);            
