@@ -23,6 +23,10 @@ public class UtilTask {
     private final static String CM_STATUS_SENT = 'Sent';
     private final static String CM_STATUS_FAILED_NO_RESPONSE = 'Failed/No Response';
     private final static String CM_STATUS_DECLINE = 'Decline';
+    private final static String CM_STATUS_RESPONDED1 = '응답함';
+    private final static String CM_STATUS_SENT1 = '발송함';
+    private final static String CM_STATUS_FAILED_NO_RESPONSE1 = '실패/응답 없음';
+    private final static String CM_STATUS_DECLINE1 = '거절';
 
     // Campaign Member Status Priority Map
     private final static Map<String, Integer> CM_STATUS_PRIORITY = 
@@ -31,9 +35,13 @@ public class UtilTask {
             CM_STATUS_PARTICIPATED => 5,
             CM_STATUS_REGISTERED => 4,
             CM_STATUS_RESPONDED => 3,
+            CM_STATUS_RESPONDED1 => 3,
             CM_STATUS_DECLINE => 2,
             CM_STATUS_SENT => 1,
-            CM_STATUS_FAILED_NO_RESPONSE => 0
+            CM_STATUS_FAILED_NO_RESPONSE => 0,
+            CM_STATUS_DECLINE1 => 2,
+            CM_STATUS_SENT1 => 1,
+            CM_STATUS_FAILED_NO_RESPONSE1 => 0
         };
 
     private final static Map<String, String> TASK_STATUS_TO_CM_STATUS = 
@@ -73,7 +81,19 @@ public class UtilTask {
             TASK_RT_OB + 'reservation' => CM_STATUS_FAILED_NO_RESPONSE,
             TASK_RT_OB + 'Successful' => CM_STATUS_RESPONDED,
             TASK_RT_OB + 'invalid call' => CM_STATUS_FAILED_NO_RESPONSE,
-			TASK_RT_OB + 'Language Issue' => CM_STATUS_FAILED_NO_RESPONSE
+            TASK_RT_OB + 'Language Issue' => CM_STATUS_FAILED_NO_RESPONSE,
+            TASK_RT_OB + 'not started' => CM_STATUS_SENT1,
+            TASK_RT_OB + 'no answer' => CM_STATUS_FAILED_NO_RESPONSE1,
+            TASK_RT_OB + 'need call back' => CM_STATUS_SENT1,
+            TASK_RT_OB + 'busy' => CM_STATUS_FAILED_NO_RESPONSE1,
+            TASK_RT_OB + 'reject' => CM_STATUS_DECLINE1,
+            TASK_RT_OB + 'wrong number' => CM_STATUS_FAILED_NO_RESPONSE1,
+            TASK_RT_OB + 'no such person' => CM_STATUS_FAILED_NO_RESPONSE1,
+            TASK_RT_OB + 'invalid data' => CM_STATUS_FAILED_NO_RESPONSE1,
+            TASK_RT_OB + 'reservation' => CM_STATUS_FAILED_NO_RESPONSE1,
+            TASK_RT_OB + 'Successful' => CM_STATUS_RESPONDED1,
+            TASK_RT_OB + 'invalid call' => CM_STATUS_FAILED_NO_RESPONSE1,
+            TASK_RT_OB + 'Language Issue' => CM_STATUS_FAILED_NO_RESPONSE1
         };
 
     public static void updateCampaignMemberStatus(List<Task> tasks) {
@@ -180,7 +200,7 @@ public class UtilTask {
             }
 
             member.Status = needAssignedMemberStatus;
-			member.Status__c = needAssignedMemberStatus;
+            member.Status__c = needAssignedMemberStatus;
             membersNeedToUpdate.add(member);
         }
 
