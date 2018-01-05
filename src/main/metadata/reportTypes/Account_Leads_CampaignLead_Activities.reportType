@@ -6204,11 +6204,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>MTH_Penetration__c</field>
-            <table>Account.Leads__r.Campaign_Leads__r.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Called__c</field>
             <table>Account.Leads__r.Campaign_Leads__r.Activities</table>
         </columns>
@@ -6555,11 +6550,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>eDM_Type__c</field>
-            <table>Account.Leads__r.Campaign_Leads__r.Activities</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Next_Steps__c</field>
             <table>Account.Leads__r.Campaign_Leads__r.Activities</table>
         </columns>
         <columns>
