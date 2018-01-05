@@ -14127,21 +14127,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ContentVersion.AFSC__Replaced_Content_Document_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ContentVersion.AFSC__SHA1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ContentVersion.AFSC__Warning_MAC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ContentVersion.Ad_Num__c</field>
         <readable>false</readable>
     </fieldPermissions>
