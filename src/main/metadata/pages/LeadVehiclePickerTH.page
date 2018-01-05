@@ -374,9 +374,10 @@
               Visualforce.remoting.Manager.invokeAction(
                  '{!$RemoteAction.LeadVehiclePickerTHController.searchVehicles}',JSON.stringify($scope.lookupSearchDetails[0]),
                    function(result, event) {
+                   console.log('result',result);
                         $scope.refreshLookupData(result);
                         $scope.$apply();
-                        $route.reload();
+                        //$route.reload();
              });
          }
          
@@ -553,7 +554,11 @@
                                     
                            };
                            testGetFocusedSubtabId();
-                       }else{
+                       }else if({!ISPICKVAL($User.usertype, 'PowerPartner')}==true)
+                       {
+                            window.top.location="{!$Site.BaseUrl}/{!currentRecordId}";
+                       }
+                       else{
                            window.top.location="/{!currentRecordId}";
                        }                            
               });
@@ -599,7 +604,11 @@
                                     
                            };
                            testGetFocusedSubtabId();
-                       }else{
+                       }else if({!ISPICKVAL($User.usertype, 'PowerPartner')}==true)
+                       {
+                           window.top.location="{!$Site.BaseUrl}/{!currentRecordId}";
+                       }
+                       else{
                            window.top.location="/{!currentRecordId}";
                        }                            
               });
@@ -626,7 +635,11 @@
                                     
                            };
                            testGetFocusedSubtabId();
-                       }else{
+                       }else if({!ISPICKVAL($User.usertype, 'PowerPartner')}==true)
+                       {
+                            window.top.location="{!$Site.BaseUrl}/{!currentRecordId}";
+                       }
+                       else{
                            window.top.location="/{!currentRecordId}";
                        }
               });
@@ -799,7 +812,11 @@
                                     
                            };
                            testGetFocusedSubtabId();
-                       }else{
+                       }else if({!ISPICKVAL($User.usertype, 'PowerPartner')}==true)
+                       {
+                            window.top.location="{!$Site.BaseUrl}/{!currentRecordId}";
+                       }
+                       else{
                            window.top.location="/{!currentRecordId}";
                        }
               });

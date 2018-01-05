@@ -224,13 +224,9 @@
                 <behavior>Edit</behavior>
                 <field>Visit_Opt_Out__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>First_Consent_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>First_Consent_User__c</field>
+                <field>Lastest_Consent_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -239,6 +235,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Updated_Consent_User__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>System_Data_Source__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -366,10 +366,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>System_Data_Source__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
