@@ -13973,6 +13973,11 @@
         <field>DM_Request__c.Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>DM_Request__c.District__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Expected_DM_Material1__c</field>
@@ -14106,6 +14111,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>DM_Request__c.Sub_District__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -29654,7 +29664,7 @@
     </tabVisibilities>
 	<tabVisibilities>
         <tab>DM_Request__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>
         <tab>DM_Stock_Flow__c</tab>
@@ -29698,6 +29708,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Survey_Question__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Vehicle__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -29812,6 +29826,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ContentWorkspaces</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>CreateCustomizeReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

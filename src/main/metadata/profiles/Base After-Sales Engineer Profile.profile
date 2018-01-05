@@ -3002,7 +3002,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3129,7 +3129,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Active__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3149,7 +3149,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Address_Addition_EN__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3164,17 +3164,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Address_EN__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Aftersales_Manager_Email__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Aftersales_Manager__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3184,7 +3184,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Alternate_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3214,7 +3214,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Business_Hours__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3264,7 +3264,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_City_EN__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3354,7 +3354,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Email__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3434,27 +3434,27 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_GC_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_GS_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_General_Manager_Email__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_General_Manager__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Group__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3509,7 +3509,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Legal_Entity__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3544,7 +3544,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_ND_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3554,12 +3554,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_NonWorkingDay_Service__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_NonWorking_Day__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3604,7 +3604,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Province__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3614,17 +3614,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Region__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Representative__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Rollout_Status__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3654,22 +3654,22 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Sales_Manager_Email__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Sales_Manager__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Sales_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Sales_func__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3684,7 +3684,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Suburb__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3694,7 +3694,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Trading_Hours_Service__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

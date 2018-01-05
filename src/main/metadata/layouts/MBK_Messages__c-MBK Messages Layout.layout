@@ -54,8 +54,8 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing__c</field>
-            </layoutItems>						
-			<layoutItems>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBKMessageTemplate__c</field>
             </layoutItems>
@@ -134,6 +134,10 @@
         <editHeading>true</editHeading>
         <label>Related To</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Category__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Account__c</field>
@@ -220,7 +224,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000EuBj</masterLabel>
+        <masterLabel>00h0I000006brAH</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

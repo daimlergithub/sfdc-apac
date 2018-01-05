@@ -123,6 +123,10 @@
     <customLabels>
         <label><!-- A6 Query via website --></label>
         <name>A6_Query_via_website</name>
+    </customLabels>	
+	<customLabels>
+        <label>失注</label>
+        <name>Lost</name>
     </customLabels>
     <customLabels>
         <label><!-- A6 Request for a test drive via website --></label>
@@ -781,25 +785,17 @@
         <name>Campaign_Notification11</name>
     </customLabels>
     <customLabels>
-        <label>以下のキャンペーンの実施日がきました。</label>
+        <label>以下のキャンペーンの実施日となりましたので、お客様へのコンタクトを開始してください。</label>
         <name>Campaign_Notification2</name>
     </customLabels>
     <customLabels>
         <label><!-- Campaign Notification3 --></label>
         <name>Campaign_Notification3</name>
-    </customLabels>
-    <customLabels>
-        <label>お客様へのコンタクトを開始してください。</label>
-        <name>Campaign_Notification4</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label>※リスト確認にはセールスフォースへのログインが必要となります。</label>
         <name>Campaign_Notification5</name>
-    </customLabels>
-    <customLabels>
-        <label>よろしくお願いいたします。</label>
-        <name>Campaign_Notification6</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label><!-- Campaign Notification7 --></label>
         <name>Campaign_Notification7</name>
@@ -869,13 +865,9 @@
         <name>Campaign_Planning_Page_Subtitle</name>
     </customLabels>
     <customLabels>
-        <label>本日以下の販売店キャンペーンの対象顧客を抽出します。</label>
+        <label>本日以下のキャンペーンの対象顧客を抽出しました。</label>
         <name>Campaign_Segmentation1</name>
-    </customLabels>
-    <customLabels>
-        <label>対象顧客を精査の上、キャンペーンのスケジュールに従って、実施してください。</label>
-        <name>Campaign_Segmentation2</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label><!-- Retail Campaign Type --></label>
         <name>Campaign_Type</name>
@@ -2330,6 +2322,10 @@
         <name>Please_Select_only_one_as_a_Master</name>
     </customLabels> 
 		<customLabels>
+        <label>エラーが発生しました。検索条件を追加・変更して再度実行してください</label>
+        <name>Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition</name>
+    </customLabels> 
+				<customLabels>
         <label>検索結果が多すぎます。検索条件を追加してください。</label>
         <name>Matched_records_are_too_much_please_add_more_criteria</name>
     </customLabels> 
@@ -2406,7 +2402,7 @@
         <name>LimitQueries</name>
     </customLabels>
     <customLabels>
-        <label>【ご確認ください】　リスト確認実施のご依頼</label>
+        <label> 【ご確認ください】　対象顧客リスト　メンテナンス実施のご依頼</label>
         <name>List_Ready_Maintenance</name>
     </customLabels>
     <customLabels>

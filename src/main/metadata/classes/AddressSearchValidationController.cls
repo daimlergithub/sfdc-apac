@@ -174,7 +174,7 @@ public class AddressSearchValidationController
             wAreaBoolean=false;
             fAreaBoolean=false;  
          
-        for(PhoneAreaCode__c pac : [select Country_Code__c,Mobile_Area_Code__c,Phone_Area_Code__c from PhoneAreaCode__c where Phone_Area_Code__c!=''])      
+        for(PhoneAreaCode__c pac : [select Country_Code__c,Mobile_Area_Code__c,Phone_Area_Code__c from PhoneAreaCode__c where Phone_Area_Code__c!='' order by Phone_Area_Code__c])      
         {       
              lstPhoneAreaCode.add(new SelectOption(pac.Phone_Area_Code__c,pac.Phone_Area_Code__c));     
         }       

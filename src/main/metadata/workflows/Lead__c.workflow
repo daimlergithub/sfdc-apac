@@ -20,6 +20,17 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Campaign_Lead_Assignment_Notification</template>
     </alerts>
+	<alerts>
+        <fullName>EmailNotification_to_Assigned_Service_Advisor</fullName>
+        <description>EmailNotification to Assigned Service Advisor</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Service_Advisor__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Lead_assignment_to_Service_Advisor</template>
+    </alerts>
     <alerts>
         <fullName>Email_Notification_to_wholesale_Salesmanager</fullName>
         <description>Email Notification to wholesale_Salesmanager</description>
@@ -509,6 +520,15 @@ Lost_CAC_Date_Time__c
         <name>MBTH_update_recordowner_email</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>PersonAssignNotificatonDoneupdate</fullName>
+        <field>Person_Assign_Notificaton_Done__c</field>
+        <literalValue>1</literalValue>
+        <name>PersonAssignNotificatonDoneupdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -2110,6 +2130,20 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <timeLength>90</timeLength>
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+	<rules>
+        <fullName>SendindEmailNotificationtoServiceAdvisor</fullName>
+        <actions>
+            <name>EmailNotification_to_Assigned_Service_Advisor</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>PersonAssignNotificatonDoneupdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(MD__c = 'JP', ISPICKVAL(CAC_Lead_Status__c, 'Allocated'),  $User.Id !=  Service_Advisor__c, OR(ISCHANGED( CAC_Lead_Status__c )|| ISCHANGED(Service_Advisor__c)))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Set Lead Successful Call Number is 0</fullName>

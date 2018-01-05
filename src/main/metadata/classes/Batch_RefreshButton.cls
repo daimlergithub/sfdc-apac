@@ -96,8 +96,10 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             mem.LastInspectionDate__c = mem.Vehicle__r.LastInspectionDate__c;
             mem.LastServiceDate__c = mem.Vehicle__r.LastServiceDate__c;
             mem.LastWorkDate__c = mem.Vehicle__r.LastWorkDate__c;
+           
             
         }
+         membertoupdate.put(mem.id,mem);
         Map<Id,Account_Link__c> mapAccLinks = New Map<Id,Account_Link__c>(); 
         List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c,Vehicle__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: Jointvehicle AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer order by LastModifiedDate desc];
         for(Account_Link__c accMainlink : acclink){
