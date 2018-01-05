@@ -12,7 +12,7 @@
    
    <p>{!relatedTo.Name}</p>
    
-   <p> {!$Label.Campaign_Segmentation2}</p>
+   <!--<p> {!$Label.Campaign_Segmentation2}</p>-->
    
    <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
         Direct link URL to the detail page
@@ -20,7 +20,7 @@
    
    <p> ※対象顧客の確認にはセールスフォースへのログインが必要となります。</p>
    
-   <p> {!$Label.Campaign_Notification6}</p>
+   <!--<p> {!$Label.Campaign_Notification6}</p>-->
    
    <p> {!$Label.Email_LeadDealerAssign13}<br></br>{!$Label.Email_LeadDealerAssign23}</p>
      
