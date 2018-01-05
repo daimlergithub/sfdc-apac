@@ -5,6 +5,9 @@
     <customButtons>New_MB_Complaint</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -181,6 +184,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Recall__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Message__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -612,8 +619,8 @@
         <fields>Vehicle_Registration_Number__c</fields>
         <fields>VIN__c</fields>
         <fields>Damage_Code__c</fields>
-		<fields>Campaign_Type__c</fields>
-        <fields>Recall_Reason__c</fields>        
+        <fields>Campaign_Type__c</fields>
+        <fields>Recall_Reason__c</fields>
         <fields>Recall_Date__c</fields>
         <fields>Estimated_Working_Hours__c</fields>
         <fields>Completion_Date__c</fields>

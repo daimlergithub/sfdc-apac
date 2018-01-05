@@ -35,19 +35,20 @@ public class UserHelperTH{
         if (existUserIds.size() == 0) {
             return;
         }
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Account',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Lead',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Vehicle',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'VehicleRelation',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Case',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'RetailCampaign',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'CampaignMemberCustom',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Campaign',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Accountlink',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'User',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'CarModel',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'SurveyTaken',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Survey',true));
+            
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Account',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Lead',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Vehicle',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'VehicleRelation',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Case',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'RetailCampaign',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'CampaignMemberCustom',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Campaign',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Accountlink',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'User',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'CarModel',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'SurveyTaken',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Survey',true)));
         
         
 
@@ -62,8 +63,8 @@ public class UserHelperTH{
             
         if(accesstorevoke.size()>0){
         //needs to revoke the access once users account or market got changed
-		
-		
+                 
+                 
         //database.ExecuteBatch(new RevokeALLRecordsToNewUserBatchTH(accesstorevoke[0],'Account'));
         
         }
@@ -100,7 +101,7 @@ public class UserHelperTH{
                     else if(u.Dealer_nd_code__c!=null){
                         dealeruser.put(u.id,u.Dealer_nd_code__c);
                     }
-               }
+              }
             }
         }
         if(userlisttosharewhileupdating.size()>0||AccessneedstoRevokefromuser.size()>0||dealeruser.size()>0){
@@ -135,7 +136,7 @@ public class UserHelperTH{
     //If no group is there with dealer nd code then it will create group and adds it to the group
     public static void createGroup(List<User> newUserList)
     {
-        set<id> userid = new set<id>();
+       set<id> userid = new set<id>();
         set<id> newuserid = new set<id>();
         set<string> dealerndcode= new set<string>();
         List<Group> listgp=new List<Group>();

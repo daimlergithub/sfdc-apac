@@ -1,6 +1,7 @@
 global class CampaignMemberDisribution{
 
-
+public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     webservice static void cmDistributionToDealer(String camid){
     
                Set<Id> sid = New Set<Id>();
@@ -9,8 +10,7 @@ global class CampaignMemberDisribution{
         
          system.debug('++++++++camid++++++++++++++'+camid);
          
-         
-         List<Campaign> camList = [Select id,Name,(Select Id ,Name,Preferred_Dealer__c,Contact_Id__c From Campaign_Members1__r) From Campaign Where Id =: camid];
+        List<Campaign> camList = [Select id,Name,(Select Id ,Name,Preferred_Dealer__c,Contact_Id__c,Contact_Id__r.Recordtype.Name,Contact_Id__r.RecordtypeId From Campaign_Members1__r where ( (Contact_Id__r.RecordtypeId=:accPerson_RecordTypeId) OR (Contact_Id__r.RecordtypeId=:accCompany_RecordTypeId )) ) From Campaign Where Id =: camid];
          
          system.debug('++++++++++camList++++++++++++'+camList);
          For(Campaign CamNew : camList){
@@ -21,9 +21,9 @@ global class CampaignMemberDisribution{
          
          }
          } 
-    
-         
-         List<Campaign_Member__c> CamMemList = [Select id ,Name,Preferred_Dealer__c,Campaign_ID__c  From Campaign_Member__c Where Preferred_Dealer__c =:sid AND Campaign_ID__c =: camid]; 
+      
+             
+List<Campaign_Member__c> CamMemList = [Select id ,Name,Preferred_Dealer__c,Campaign_ID__c, Contact_Id__c,Contact_Id__r.Recordtype.Name,Contact_Id__r.RecordtypeId  From Campaign_Member__c Where ((Preferred_Dealer__c =:sid )AND (Campaign_ID__c =: camid) AND ((Contact_Id__r.RecordtypeId=:accPerson_RecordTypeId) OR (Contact_Id__r.RecordtypeId=:accCompany_RecordTypeId) ) )]; 
          
          
          List<Participating_Dealer__c> ParticipateDealer = [Select id,Name,Campaign__c,Dealer__c From Participating_Dealer__c Where Campaign__c =: camid And Dealer__c =:sid];

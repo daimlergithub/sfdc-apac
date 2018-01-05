@@ -134,13 +134,13 @@ public without sharing class createRetailCopy {
 
         AccId = ApexPages.currentPage().getParameters().get('id');
 
-        accList = [Select Id, MD__c, Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c, LastName_Native_1__c, FirstName_Native_1__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c, Company_Name__c from account where id =: AccId];
+        accList = [Select Id, MD__c, LastModifiedDate,  ID_Type__c,ID_Number__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c, LastName_Native_1__c, FirstName_Native_1__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c, Company_Name__c from account where id =: AccId];
         accc = [Select id, Main_Dealer__c from account where id =: account.Main_Dealer__c limit 1];
         system.debug('+++++++++' + addId);
         System.debug('##################' + accc);
         System.debug('#################' + AccId);
         if (addId != null) {
-            SelectedAdd = [select id, createddate, lastmodifieddate, Name, Customer__c, Sub_District__c, Address_Type__c, ZipCode__c, Province__c, Province_Native__c, City_Native__c, District__c, District_Native__c, Block__c, Block_Native__c, Address_Line_1__c, Address_Line_1_Native__c, Address_Line_2__c, Address_Line_2_Native__c, Company_Name__c, Company_Name_Native__c, TitleOfHonor__c, Status__c, Temp_ZipCode__c, Temp_Address__c FROM Address__c where id =: addId Limit 1];
+            SelectedAdd = [select id,Foreign_Nationals__c, createddate, lastmodifieddate, Name, Customer__c, Sub_District__c, Address_Type__c, ZipCode__c, Province__c, Province_Native__c, City_Native__c, District__c, District_Native__c, Block__c, Block_Native__c, Address_Line_1__c, Address_Line_1_Native__c, Address_Line_2__c, Address_Line_2_Native__c, Company_Name__c, Company_Name_Native__c, TitleOfHonor__c, Status__c, Temp_ZipCode__c, Temp_Address__c FROM Address__c where id =: addId Limit 1];
         }
         CurrentUsr = [SELECT Market__c, DMS_UserID__c, IsPortalEnabled, contactid, Id FROM User WHERE Id =: UserInfo.getUserId()];
 
@@ -178,6 +178,8 @@ public without sharing class createRetailCopy {
                         if (accList.MD__c == 'TH') {
                             if (SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
+                                If(SelectedAdd[0].Foreign_Nationals__c != true)
+                                newAlk.Retail_Country__c ='Thailand';
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                                 newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
@@ -188,6 +190,10 @@ public without sharing class createRetailCopy {
                                 newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                             }
                             newAlk.Retail_Salutation__c = acclist.Salutation__c;
+                            newAlk.Retail_ID_Type__c = acclist.ID_Type__c;
+                            newAlk.Retail_ID_Number__c = acclist.ID_Number__c;
+                            newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
+                            newAlk.createddate__c = accList.createdDate;
                             newAlk.Retail_Special_Care__c = acclist.Special_Care__c;
                             newAlk.Retail_LastName_Native__c = accList.LastName_Native_1__c;
                             newAlk.Retail_FirstName_Native__c = accList.FirstName_Native_1__c;
@@ -209,7 +215,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Preferred_Contact_Method__c = accList.Preferred_Contact_Method__c;
                             newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
                             newAlk.Retail_Fax_OptOut__c = accList.PersonHasOptedOutOfFax;
-                            //newAlk.Retail_Primary_Phone__c = accList.Primary_Phone_Display__c;
+																								
                             newAlk.Retail_Phone_OptOut__c = accList.PersonDoNotCall;
                             newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
                             newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
@@ -243,6 +249,8 @@ public without sharing class createRetailCopy {
                         if (accList.MD__c == 'TH') {
                             if (SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
+                                If(SelectedAdd[0].Foreign_Nationals__c != true)
+                                newAlk.Retail_Country__c ='Thailand';
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                                 newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
@@ -253,6 +261,8 @@ public without sharing class createRetailCopy {
                                 newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                             }
                             newAlk.Retail_UCID__c = accList.UCID__c;
+                            newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
+                            newAlk.createddate__c = accList.createdDate;
                             newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
                             newAlk.Retail_Company_Name__c = accList.name;
                             newAlk.Retail_Mobile__c = accList.Mobile__c;
@@ -267,6 +277,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
                             newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
                             newAlk.Retail_Fax__c = accList.fax;
+                            newAlk.Retail_Preferred_Language__c = 'Thai';
                             newAlk.Retail_Industry__c = accList.Industry;
                             newAlk.Retail_Commercial_Reg_No__c = accList.Commercial_Reg_No__c;
                             newAlk.Retail_Vat_No__c = accList.Vat_No__c;
@@ -275,7 +286,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Information_Third_Party_Release__c = accList.Personal_Information_Third_Party_Release__c;
                             newAlk.Retail_Abroad_Agreement__c = accList.Personal_Abroad_Agreement__c;
                             newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
-                            //newAlk.Retail_Foundation_Month__c=    acclist.Foundation_Date__c ;
+                             
                         }
                         InsertAlk.add(newAlk);
                         System.debug('newAlk newAlk%%%%%%%' + newAlk);
@@ -322,6 +333,8 @@ public without sharing class createRetailCopy {
                         if (SelectedAdd[0] != null) {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
+                            If(SelectedAdd[0].Foreign_Nationals__c != true)
+                                newAlk.Retail_Country__c ='Thailand';
                             newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                             newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                             newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
@@ -331,6 +344,10 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                         }
                         newAlk.Retail_Salutation__c = acclist.Salutation__c;
+                        newAlk.Retail_ID_Type__c = acclist.ID_Type__c;
+                        newAlk.Retail_ID_Number__c = acclist.ID_Number__c;
+                        newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
+                        newAlk.createddate__c = accList.createdDate;
                         newAlk.Retail_Special_Care__c = acclist.Special_Care__c;
                         newAlk.Retail_LastName_Native__c = accList.LastName_Native_1__c;
                         newAlk.Retail_FirstName_Native__c = accList.FirstName_Native_1__c;
@@ -352,7 +369,7 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_Preferred_Contact_Method__c = accList.Preferred_Contact_Method__c;
                         newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
                         newAlk.Retail_Fax_OptOut__c = accList.PersonHasOptedOutOfFax;
-                        //newAlk.Retail_Primary_Phone__c = accList.Primary_Phone_Display__c;
+																							
                         newAlk.Retail_Phone_OptOut__c = accList.PersonDoNotCall;
                         newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
                         newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
@@ -388,6 +405,8 @@ public without sharing class createRetailCopy {
                         if (SelectedAdd[0] != null) {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
+                            If(SelectedAdd[0].Foreign_Nationals__c != true)
+                                newAlk.Retail_Country__c ='Thailand';
                             newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                             newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                             newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
@@ -396,11 +415,14 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
                             newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                         }
+                        newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
+                        newAlk.createddate__c = accList.createdDate;
                         newAlk.Retail_Email__c = accList.email__c;
                         newAlk.Retail_UCID__c = accList.UCID__c;
                         newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
                         newAlk.Retail_Company_Name__c = accList.name;
                         newAlk.Retail_Mobile__c = accList.Mobile__c;
+                        newAlk.Retail_Preferred_Language__c = 'Thai';
                         newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
                         newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
                         newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
@@ -419,6 +441,7 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_Information_Third_Party_Release__c = accList.Personal_Information_Third_Party_Release__c;
                         newAlk.Retail_Abroad_Agreement__c = accList.Personal_Abroad_Agreement__c;
                         newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
+                        
                         //newAlk.Retail_Foundation_Month__c=    acclist.Foundation_Date__c ;
                     }
                     InsertAlk.add(newAlk);

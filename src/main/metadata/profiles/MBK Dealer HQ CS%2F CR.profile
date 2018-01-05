@@ -2408,7 +2408,15 @@
 	<classAccesses>
         <apexClass>ManageTasks</apexClass>
         <enabled>true</enabled>
-</classAccesses>
+	</classAccesses>
+	<classAccesses>
+        <apexClass>CtrlMessageSearchKRDFW</apexClass>
+        <enabled>true</enabled>
+	</classAccesses>
+	<classAccesses>
+        <apexClass>CtrlMessageLogViewListKRDFW</apexClass>
+        <enabled>true</enabled>
+	</classAccesses>
 <classAccesses>
         <apexClass>DealerSearch</apexClass>
         <enabled>true</enabled>
@@ -27385,6 +27393,14 @@
         <enabled>true</enabled>
 </pageAccesses>
 <pageAccesses>
+        <apexPage>PageMessageLogViewListKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>PageMessageSearchKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+<pageAccesses>
         <apexPage>DealerSearchPage</apexPage>
         <enabled>true</enabled>
 </pageAccesses>
@@ -28217,6 +28233,18 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Solution</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>Template__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Message_Logs</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Customer_Search</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Partner Community</userLicense>
