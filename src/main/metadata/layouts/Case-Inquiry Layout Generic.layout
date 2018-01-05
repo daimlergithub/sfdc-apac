@@ -257,13 +257,6 @@
                 <behavior>Edit</behavior>
                 <field>SuppliedEmail</field>
             </layoutItems>
-            <layoutItems>
-                <height>200</height>
-                <page>CaseConsoleRefresh</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>true</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
 		   <layoutItems>

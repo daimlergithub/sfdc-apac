@@ -823,7 +823,7 @@ public class AccountHelperTH{
         //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
-            acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;       
+				//acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;       
                 acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;     
                 //acclnk.Retail_UCID__c=acclnk.toRole__r.CDM_UCID__c;     
                 acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;        

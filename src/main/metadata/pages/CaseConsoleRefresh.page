@@ -32,11 +32,11 @@
                 //alert(nowDate);   
                 var minOffset = nowDate.getTime() - cdDate.getTime();
                 minOffset = minOffset/60000;
-				// commented by Asish Nanda to resolve Case Page refresh issue for Base Call Center users
+				
                 // Less than 1 minute auto refresh
-               // if(minOffset <= 1){
-                 //   sforce.console.getEnclosingPrimaryTabId(refreshPrimaryTabById);   
-               // }                            
+                if(minOffset <= 1){
+                    sforce.console.getEnclosingPrimaryTabId(refreshPrimaryTabById);   
+                }                            
             }
         //}
     </script>
