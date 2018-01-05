@@ -3,6 +3,22 @@ public class TriggerAddressTriggerHandlerTHTest{
 
 
 static testMethod void testAccAssignment() {
+    
+    Trigger__c tr = new Trigger__c();
+    
+    tr.after__c = true;
+    tr.before__c = true;
+    tr.delete__c = true;
+    tr.enabled__c = true;
+    tr.insert__c = true;
+    tr.update__c = true;
+    tr.Market__c = 'TH';
+    tr.Trigger_Handler__c = 'TriggerAddressTriggerHandlerTH';
+    tr.Trigger_Name__c = 'TriggerAddress';
+    tr.Name = 'TriggerAddressTH';
+    
+    insert tr;
+    
     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
     User user1 = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
     insert user1;
