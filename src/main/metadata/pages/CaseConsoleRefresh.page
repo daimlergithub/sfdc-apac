@@ -32,6 +32,7 @@
                 //alert(nowDate);   
                 var minOffset = nowDate.getTime() - cdDate.getTime();
                 minOffset = minOffset/60000;
+				
                 // Less than 1 minute auto refresh
                 if(minOffset <= 1){
                     sforce.console.getEnclosingPrimaryTabId(refreshPrimaryTabById);   

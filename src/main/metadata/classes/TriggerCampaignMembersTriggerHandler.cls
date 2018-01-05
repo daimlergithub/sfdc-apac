@@ -18,12 +18,13 @@ public class TriggerCampaignMembersTriggerHandler
         {
             campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(trigger.new);
         }
-         /*if(isBefore && isInsert)
+         if(isBefore && isInsert)
         {
-            campaignMemberHelperKR.updatecustomstatus(trigger.new);
-        }*/
+            campaignMemberHelperKR.updatecustomstatus(trigger.new,(Map<Id,CampaignMember>)Trigger.OldMap);
+        }
         if(trigger.isBefore && trigger.isUpdate){
            CampaignMemberHelperBase.updateCampaignMembermarket(Trigger.New);
+		   campaignMemberHelperKR.updatecustomstatus(trigger.new,(Map<Id,CampaignMember>)Trigger.OldMap);
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
