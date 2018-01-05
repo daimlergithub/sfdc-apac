@@ -220,11 +220,11 @@
 <classAccesses>
         <apexClass>CtrlMessageSearchKRDFW</apexClass>
         <enabled>true</enabled>
-	</classAccesses>
-	<classAccesses>
+</classAccesses>
+<classAccesses>
         <apexClass>CtrlMessageLogViewListKRDFW</apexClass>
         <enabled>true</enabled>
-	</classAccesses>
+</classAccesses>
     <classAccesses>
         <apexClass>AccountHelperJP</apexClass>
         <enabled>false</enabled>
@@ -26768,14 +26768,6 @@
         <apexPage>DealerSearchPage</apexPage>
         <enabled>true</enabled>
 </pageAccesses>
-<pageAccesses>
-        <apexPage>PageMessageLogViewListKRDFW</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-	<pageAccesses>
-        <apexPage>PageMessageSearchKRDFW</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>false</enabled>
@@ -26797,6 +26789,14 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>PageMessageLogViewListKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>PageMessageSearchKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
         <apexPage>AddToCampaign</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -28147,6 +28147,18 @@
         <tab>Vehicle__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+        <tab>Template__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Message_Logs</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>MBK_Customer_Search</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
@@ -28205,18 +28217,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Solution</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>Template__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>MBK_Message_Logs</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-	<tabVisibilities>
-        <tab>MBK_Customer_Search</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Partner Community</userLicense>
