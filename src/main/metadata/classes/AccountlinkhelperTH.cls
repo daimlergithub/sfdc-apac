@@ -18,7 +18,8 @@ Public class AccountlinkhelperTH{
         Acclink=[select id,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,fromRole__r.Dealer_nd_Code__c from Account_link__c  where fromRole__c!=null and id=:acclinklist AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
         for(Account_link__c acclinkrec:Acclink){
             if(acclinkrec.fromRole__r.Dealer_GC_Code__c !=null){
-                AcclinkMap.put(acclinkrec,acclinkrec.fromRole__r.Dealer_nd_Code__c);
+                String grpName='TH'+acclinkrec.fromRole__r.Dealer_nd_Code__c;
+                AcclinkMap.put(acclinkrec,grpName);								   
                 system.debug('%%%'+acclinkmap);
             }
             
@@ -145,7 +146,8 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
         acctoshare.add(acclinkrec.fromRole__c);
         acctoshare.add(acclinkrec.toRole__c);
         if(acclinkrec.fromRole__r.Dealer_ND_Code__c!=null){
-            ndCode.add(acclinkrec.fromRole__r.Dealer_nd_Code__c);
+            String grpName='TH'+acclinkrec.fromRole__r.Dealer_nd_Code__c;
+            ndCode.add(grpName);					
         }
     }
     if(ndCode.size()>0){
@@ -210,8 +212,8 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
          accsharedelete=[SELECT Id, accountid FROM AccountShare WHERE accountid IN:accountIds];
          
          if(list_SharingDele.size()>0){
-             Database.delete(list_SharingDele, false);
-             Database.delete(accsharedelete,false);
+             //Database.delete(list_SharingDele, false);
+             //Database.delete(accsharedelete,false);
          }
          }
        

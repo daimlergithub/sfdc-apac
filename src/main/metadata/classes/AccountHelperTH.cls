@@ -550,8 +550,7 @@ public class AccountHelperTH{
                     
                 }
             }     
-            
-            
+                       
         }    
     } 
     
@@ -758,7 +757,8 @@ public class AccountHelperTH{
             
             if(usr != null)
             {
-                dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:usr.Contact.Account.Dealer_ND_Code__c];
+				String grpName='TH'+usr.Contact.Account.Dealer_ND_Code__c;
+                dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:grpName];
             }
             
             if(!dealergrpList.isEmpty() && dealergrpList != null)
@@ -771,14 +771,15 @@ public class AccountHelperTH{
             
             for(Account shareacc : accLst)
             {
-                if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c) != null && shareacc.OwnerId != usr.Id)
+                String grpName='TH'+usr.Contact.Account.Dealer_ND_Code__c; 
+                if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(grpName) != null)																	
                 {
                     AccountShare accshr = new AccountShare();
                     accshr.AccountId = shareacc.Id;
                     accshr.AccountAccessLevel = 'Edit';
                     accshr.CaseAccessLevel = 'None';
                     accshr.OpportunityAccessLevel = 'None';
-                    accshr.UserOrGroupId = dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c);
+                    accshr.UserOrGroupId = dealerGroupMap.get(grpName);
                     insertAccshList.add(accshr);
                 }
             }
