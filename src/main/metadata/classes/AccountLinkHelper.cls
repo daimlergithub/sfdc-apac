@@ -868,6 +868,7 @@ public class AccountLinkHelper
         }*/
         
         if(!System.isBatch()){
+		
         Batch_VRSharingJP batcher = new Batch_VRSharingJP (dealerAccNameSet,map_FromAccountIdAndListToAccountId,set_ToAccountId );
             Database.executeBatch(batcher, 50);
             }
