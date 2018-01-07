@@ -28,7 +28,7 @@ public class UserHelperTHTest {
             User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'TH',isActive=true);
             insert userObj;  
             userObj.Market__c='MY';
-        	update userObj;
+          update userObj;
         }
         test.stopTest();
     } 
@@ -40,11 +40,11 @@ public class UserHelperTHTest {
         insert grpObj;
         TestUtils.createDealerAccountandUserTH();
        
-        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
+        //User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
         
        
            Account dealerAccount =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId(), Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='1235');
-        	insert dealerAccount;
+          insert dealerAccount;
             Contact c1=new Contact(FirstName = 'Test',Lastname = 'Contact',AccountId=dealerAccount.Id);
         insert c1;
         Contact c2=new Contact(FirstName = 'Test',Lastname = 'Contact2',AccountId=dealerAccount.Id);
@@ -53,17 +53,23 @@ public class UserHelperTHTest {
         
         
         
-        System.runAs(thisUser)
+          System.runAs(adminUserObj)
         {
-			
+        
             Profile profileObj = [select id from profile where Name='Thailand Dealer Delegate Admin' limit 1];
             
-            User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'TH',isActive=true);
-            insert userObj;  
+            User userObj = new User(ContactId=c1.Id,LastName='User',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',isActive=true);
+            insert userObj;
+        userObj.Market__c='TH';
+        update userObj;
+        
             AccountShare accShare=new AccountShare(UserOrGroupId=userObj.Id,AccountId=dealerAccount.Id,AccountAccessLevel='READ',OpportunityAccessLevel = 'READ');
             insert accShare;
             
-            Vehicle__c vehObj=new Vehicle__c(Colour__c='Blue');
+            Car_Model__c modelObj=new Car_Model__c(Name='Polo');
+            insert modelObj;
+            
+            Vehicle__c vehObj=new Vehicle__c(Colour__c='Blue',car_model__c=modelObj.Id);
             insert vehObj;
             
             Vehicle__Share vehShare = new Vehicle__Share();
@@ -74,7 +80,7 @@ public class UserHelperTHTest {
             
             insert vehShare;
             
-            Vehicle_Relationship__c vrObj=new Vehicle_Relationship__c(Card_No__c='13246'); 
+            Vehicle_Relationship__c vrObj=new Vehicle_Relationship__c(Card_No__c='13246',Owner_Dealer__c=dealerAccount.Id,Vehicle_ID__c=vehObj.Id); 
             insert vrObj;
             
             Vehicle_Relationship__Share vrShare = new Vehicle_Relationship__Share();
@@ -84,7 +90,7 @@ public class UserHelperTHTest {
             vrShare.UserOrGroupId = userObj.Id;
             insert vrShare;
             
-            Lead__c leadObj=new Lead__c(Batch_No__c='123465');
+            Lead__c leadObj=new Lead__c(Batch_No__c='123465',Assigned_Dealer__c=dealerAccount.Id,MD__c='TH');
             insert leadObj;
             
             Lead__Share leadShare = new Lead__Share();
@@ -103,8 +109,12 @@ public class UserHelperTHTest {
             rcShare.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             rcShare.UserOrGroupId = userObj.id;
             insert rcShare;
+           
+            Account acc =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId(), Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='1235');
+          insert acc;
+           
             
-            Account_Link__c accLink=new Account_Link__c(Name='test Account link');
+            Account_Link__c accLink=new Account_Link__c(Name='test Account link',MD__c='TH',fromRole__c=dealerAccount.Id,toRole__c=acc.Id);
             insert accLink;
             
             Account_Link__share accLinkShare = new Account_Link__share();
@@ -114,8 +124,7 @@ public class UserHelperTHTest {
             accLinkShare.RowCause = Schema.Account_link__Share.RowCause.Manual;
             insert accLinkShare;
             
-            Car_Model__c modelObj=new Car_Model__c(Name='Polo');
-            insert modelObj;
+            
             
             Car_Model__share cmShare = new Car_Model__share();
             cmShare.AccessLevel = 'READ';
@@ -135,7 +144,7 @@ public class UserHelperTHTest {
             insert campShare;
             
             Campaign_member__c campMemObj=new Campaign_member__c(Bonus_Amount1__c='366666');
-			insert campMemObj;
+      insert campMemObj;
             
             Campaign_member__share campMemShare = new Campaign_member__share();
             campMemShare.AccessLevel = 'EDIT';
@@ -144,7 +153,7 @@ public class UserHelperTHTest {
             campMemShare.RowCause = Schema.campaign_member__Share.RowCause.Manual;
             insert campMemShare;
             
-            case caseObj=new Case(Status='Closed');
+            case caseObj=new Case(Status='Closed',Case_Dealer__c=dealerAccount.Id,MD__c='TH');
             insert caseObj;
             
             caseShare cshare = new caseShare();
@@ -175,9 +184,9 @@ public class UserHelperTHTest {
             insert surveyShare;
             
             User userObj2 = new User(ContactId=c2.Id,LastName='User2',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser02@testing.com',UserName='admusr2@daimler.com',Market__c = 'TH',isActive=true);
-        	insert userObj2;
-        }
+          insert userObj2;
         
+        }
         test.stopTest();
 
     }
