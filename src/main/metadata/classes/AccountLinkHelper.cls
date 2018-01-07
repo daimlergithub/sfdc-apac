@@ -866,8 +866,12 @@ public class AccountLinkHelper
                 Database.insert(list_SharingRecord, false);
             }
         }*/
+        
+        if(!System.isBatch()){
+		
         Batch_VRSharingJP batcher = new Batch_VRSharingJP (dealerAccNameSet,map_FromAccountIdAndListToAccountId,set_ToAccountId );
             Database.executeBatch(batcher, 50);
+            }
     }
  
     public static void updateRetailCopy(boolean isUpdate, boolean isinsert,List<Account_Link__c> accLst,map<id,Account_Link__c> accLinkOldmap)
@@ -1636,6 +1640,3 @@ public class AccountLinkHelper
               }       
     }
 }
-
-
-
