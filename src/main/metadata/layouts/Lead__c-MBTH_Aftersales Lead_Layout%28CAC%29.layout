@@ -55,6 +55,10 @@
                 <behavior>Edit</behavior>
                 <field>Wholesale_Comment__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Current_Vehicle_1__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -97,6 +101,10 @@
                 <behavior>Required</behavior>
                 <field>CAC_Lost_Reason__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Current_Vehicle_2__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -109,6 +117,13 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description__c</field>
+            </layoutItems>
+			<layoutItems>
+                <height>200</height>
+                <page>MarketCheckOnVehiclePicker</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
