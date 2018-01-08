@@ -559,4 +559,36 @@ public With Sharing class CaseHelperTest {
     
 		CaseHelperKR.casesharehierarchy(listcases);
     }
+	static testmethod void sendEmailToQueuetest() {       
+        Profile testProfile = [SELECT Id FROM Profile where Name ='Korea Call Center' Limit 1];    
+        Group g1=[Select Id,Name,type from Group where type='Queue' and name='MBK26Fhq - MB Complaints' Limit 1];
+        System.runAs(new User(Id=UserInfo.getUserId()))
+        {
+        QueuesObject q1 = new QueueSObject(QueueID = g1.id, SobjectType = 'Case');
+        insert q1;      
+        }       
+        Case c1 = new Case(MD__c = 'KR', RecordTypeId = MBRecordtypeid,
+                               Case_type__c='After-Sales',ownerId= g1.Id);
+       List<Case> listcases = new List<Case>();
+        listcases.add(c1);      
+        insert listcases;        
+        map<string,string> caseOwnerIds=new map<string,string>();
+         for(Case cas:listcases)
+         {  
+            caseOwnerIds.put(cas.Id,cas.OwnerId);              
+         }         
+        CaseHelperKR.sendEmailToQueue(caseOwnerIds);
+        Case c4 = new Case(MD__c = 'KR',Vehicle__c = ve1.Id,  RecordTypeId = MBRecordtypeid,
+                               Case_SubType__c=Dealer_after_sales_service_attitude,Case_type__c='After-Sales');
+                               
+        List<Case> listcases1 = new List<Case>();  
+        listcases1.add(c4);
+        insert listcases1;       
+        map<string,string> caseOwnerId1s=new map<string,string>();
+         for(Case cas:listcases1)
+         {  
+            caseOwnerId1s.put(cas.Id,cas.OwnerId);         
+         }
+        CaseHelperKR.sendEmailToQueue(caseOwnerId1s);
+     }
 }
