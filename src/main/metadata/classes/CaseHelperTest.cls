@@ -223,7 +223,7 @@ public With Sharing class CaseHelperTest {
         insert newAccount;
         Case c3 = new Case( AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = acc.Id);
         insert c3; 
-        Case testCase = new Case(Others__c = 'other@163.com',RecordTypeId = MBRecordtypeid ,AccountId= newAccount.Id ,Notice_AS__c = false,CheckFlag_48H__c = false ,CheckFlag_72H__c = false, ParentId = c3.Id);
+        Case testCase = new Case(Others__c = 'other@163.com',RecordTypeId = MBRecordtypeid ,AccountId= newAccount.Id ,Notice_AS__c = false,CheckFlag_48H__c = false ,CheckFlag_72H__c = false, ParentId = c3.Id,Case_RepeatCause__c='test case');
         insert testCase;
 		CaseComment cc = new CaseComment(ParentId = testCase.Id,CommentBody = 'test');
         insert cc;
