@@ -37,7 +37,7 @@ public without sharing class LeadHelperTH {
         for (Lead__c lead: leads) {
 
             if ((lead.RecordTypeId == salesRecordTypeId || lead.RecordTypeId == afterSalesRecordTypeId || lead.RecordTypeId == retailSalesRecordTypeId) && lead.md__c == System.label.MarketTH) {
-                if (accUserMap.get(lead.assigned_dealer__c) != null) {
+                if (accUserMap.get(lead.assigned_dealer__c) != null && UserInfo.getUserType()!='PowerPartner') {
                     lead.ownerID = accUserMap.get(lead.assigned_dealer__c);
                 }
 
@@ -86,7 +86,7 @@ public without sharing class LeadHelperTH {
                     }
 
                 } else if (((Lead__c) Trigger.newMap.get(l.id)).ownerid != ((Lead__c) Trigger.oldMap.get(l.id)).ownerid && (l.RecordTypeId == salesRecordTypeId || l.RecordTypeId == afterSalesRecordTypeId || l.RecordTypeId == retailSalesRecordTypeId)) {
-                    l.ownerID = ((Lead__c) Trigger.newMap.get(l.id)).ownerid;
+                    //l.ownerID = ((Lead__c) Trigger.newMap.get(l.id)).ownerid;
                 } else if ((l.RecordTypeId == salesRecordTypeId || l.RecordTypeId == afterSalesRecordTypeId || l.RecordTypeId == retailSalesRecordTypeId)) {
                     if (l.assigned_dealer__c == null) {
                         //l.ownerID=l.createdbyId;
@@ -198,7 +198,7 @@ public without sharing class LeadHelperTH {
         }
         for (Lead__c lists: leadlist) {
 
-            if (accUserMap.get(lists.assigned_dealer__c) != null && lists.md__c == System.label.MarketTH) {
+            if (accUserMap.get(lists.assigned_dealer__c) != null && lists.md__c == System.label.MarketTH && UserInfo.getUserType()!='PowerPartner') {
                 lists.ownerID = accUserMap.get(lists.assigned_dealer__c);
 
             }
@@ -214,7 +214,7 @@ public without sharing class LeadHelperTH {
         set < id > leadsharingtorevoke = new set < id > ();
         set < String > sharingrevokefromgroups = new set < String > ();
         List < Lead__c > leadlisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, assigned_dealer__c, assigned_dealer__r.Dealer_nd_code__c from Lead__C where id IN: leadlist];
-        System.debug('***leadlisttoiterat' + leadlisttoiterat[0].assigned_dealer__r + '---' + leadlisttoiterat[0].createdby.usertype);
+        //System.debug('***leadlisttoiterat' + leadlisttoiterat[0].assigned_dealer__r + '---' + leadlisttoiterat[0].createdby.usertype);
         //below if part will work at the time of insert
         for (Lead__c leadsrec: leadlisttoiterat) {
             if (!flag) {
