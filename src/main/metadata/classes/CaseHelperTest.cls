@@ -219,11 +219,11 @@ public With Sharing class CaseHelperTest {
         newAccount.City__c = 'asdfsf';
         newAccount.ZipCode__c = '1234567';
         newAccount.MBK_Data_Source__c='Email';
-        newAccount.PersonMobilePhone = '09088767547';       
+        newAccount.Mobile__c = '090-887-6754';       
         insert newAccount;
         Case c3 = new Case( AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = acc.Id);
         insert c3; 
-        Case testCase = new Case(Others__c = 'other@163.com',RecordTypeId = MBRecordtypeid ,AccountId= newAccount.Id ,Notice_AS__c = false,CheckFlag_48H__c = false ,CheckFlag_72H__c = false, ParentId = c3.Id);
+        Case testCase = new Case(Others__c = 'other@163.com',RecordTypeId = MBRecordtypeid ,AccountId= newAccount.Id ,Notice_AS__c = false,CheckFlag_48H__c = false ,CheckFlag_72H__c = false, ParentId = c3.Id,Case_RepeatCause__c='test case');
         insert testCase;
 		CaseComment cc = new CaseComment(ParentId = testCase.Id,CommentBody = 'test');
         insert cc;
@@ -374,7 +374,7 @@ public With Sharing class CaseHelperTest {
 	// Added By - Sreenivasareddy
 	
 	static testmethod void casesharehierarchytest() {
-		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-000-0984');
         insert dealer1;
         Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
         insert contact;
@@ -472,7 +472,7 @@ public With Sharing class CaseHelperTest {
     } 
     
     static testmethod void casesharehierarchytest1() {
-		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-000-0984');
         insert dealer1;
         Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
         insert contact;
@@ -559,4 +559,36 @@ public With Sharing class CaseHelperTest {
     
 		CaseHelperKR.casesharehierarchy(listcases);
     }
+	static testmethod void sendEmailToQueuetest() {       
+        Profile testProfile = [SELECT Id FROM Profile where Name ='Korea Call Center' Limit 1];    
+        Group g1=[Select Id,Name,type from Group where type='Queue' and name='MBK26Fhq - MB Complaints' Limit 1];
+        System.runAs(new User(Id=UserInfo.getUserId()))
+        {
+        QueuesObject q1 = new QueueSObject(QueueID = g1.id, SobjectType = 'Case');
+        insert q1;      
+        }       
+        Case c1 = new Case(MD__c = 'KR', RecordTypeId = MBRecordtypeid,
+                               Case_type__c='After-Sales',ownerId= g1.Id);
+       List<Case> listcases = new List<Case>();
+        listcases.add(c1);      
+        insert listcases;        
+        map<string,string> caseOwnerIds=new map<string,string>();
+         for(Case cas:listcases)
+         {  
+            caseOwnerIds.put(cas.Id,cas.OwnerId);              
+         }         
+        CaseHelperKR.sendEmailToQueue(caseOwnerIds);
+        Case c4 = new Case(MD__c = 'KR',Vehicle__c = ve1.Id,  RecordTypeId = MBRecordtypeid,
+                               Case_SubType__c=Dealer_after_sales_service_attitude,Case_type__c='After-Sales');
+                               
+        List<Case> listcases1 = new List<Case>();  
+        listcases1.add(c4);
+        insert listcases1;       
+        map<string,string> caseOwnerId1s=new map<string,string>();
+         for(Case cas:listcases1)
+         {  
+            caseOwnerId1s.put(cas.Id,cas.OwnerId);         
+         }
+        CaseHelperKR.sendEmailToQueue(caseOwnerId1s);
+     }
 }
