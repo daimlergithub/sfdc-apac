@@ -50,7 +50,7 @@
     <apex:pageBlock id="pb" title="UserSearch">
     <apex:pageblockSection title="Search User"  collapsible="false" columns="4" id="Search">
       <apex:outputLabel style="font-weight:bold;" value="Search User" />
-      <apex:inputText value="{!userinput}"/> 
+      <apex:inputText value="{!userinput}" style="outline:0;" /> 
 
       <apex:commandButton value="Search" action="{!Usersearch}" reRender="pb,search1"/>
      </apex:pageblockSection>
@@ -86,3 +86,4 @@
     </apex:pageBlock>
  </apex:form>
  </apex:page>
+ 

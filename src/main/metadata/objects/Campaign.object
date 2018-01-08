@@ -4842,6 +4842,7 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <language>en_US</language>
 		<sharedTo>
             <roleAndSubordinates>MBTH</roleAndSubordinates>
+			<group>THUsers</group>
         </sharedTo>
     </listViews>
     <listViews>
