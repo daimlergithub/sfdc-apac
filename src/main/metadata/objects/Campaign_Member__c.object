@@ -1695,7 +1695,7 @@ if(typeof(srcUp) == 'function')
 
 if (sforce.console.isInConsole()) 
 { 
-srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}amp;isdtp=vw'); 
+srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}&amp;isdtp=vw'); 
 } 
 else 
 { 
@@ -1706,7 +1706,7 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!Account.Id}
 
 else if(sforce.console.isInConsole()) 
 { 
-srcUp('/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}amp;isdtp=vw'); 
+srcUp('/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}&amp;isdtp=vw'); 
 } 
 else 
 { 
