@@ -32,7 +32,7 @@
                 <field>Retail_Full_Name__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Retail_Related_Company__c</field>
             </layoutItems>
             <layoutItems>
