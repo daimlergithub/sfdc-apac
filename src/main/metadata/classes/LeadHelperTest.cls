@@ -331,7 +331,7 @@ public with sharing class LeadHelperTest {
 	// Added By - Sreenivasareddy
 	
 	static testmethod void Leadsharehierarchytest() {
-		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-000-0984');
         insert dealer1;
         Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
         insert contact;
@@ -432,7 +432,7 @@ public with sharing class LeadHelperTest {
     } 
     
     static testmethod void Leadsharehierarchytest1() {
-		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-000-0984');
         insert dealer1;
         Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
         insert contact;
@@ -520,5 +520,27 @@ public with sharing class LeadHelperTest {
 		system.debug('##############Leads'+listleads);
 		
 		LeadHelperKR.Leadsharehierarchy(listleads);
+    }
+	  static testmethod void sendEmailToQueuetest1() {           
+        Group g1=[Select Id,Name,type from Group where type='Queue' and name='MBK26Fhq - AS Lead' Limit 1];
+        System.runAs(new User(Id=UserInfo.getUserId()))
+        {
+        QueuesObject q1 = new QueueSObject(QueueID = g1.id, SobjectType = 'Lead__c');
+        insert q1;
+        }
+        Lead__c la = new Lead__C();
+        la.RecordTypeId = salesleads_RecordTypeId;     
+        la.CAC_Lead_Status__c = 'New';
+        la.MD__c = 'KR';
+        la.OwnerID = g1.id;          
+        List<Lead__c> listleads = new List<Lead__c>();          
+        listleads.add(la);        
+        insert listleads;        
+        map<string,string> leadOwnerIds=new map<string,string>();
+         for(Lead__c cas:listleads)
+         {  
+            leadOwnerIds.put(cas.Id,cas.OwnerId);          
+         } 
+        LeadHelperKR.sendEmailToQueue(leadOwnerIds);
     }
 }
