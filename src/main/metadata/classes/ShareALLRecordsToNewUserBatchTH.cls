@@ -4,7 +4,6 @@ global final String existUserIDs;
 global final String sobjectName;
 global Map<String,Id> dealerCodeGrpIdMap;
 global Set<String> dealerCodeLst;
-global String dealerCodes;
 
 global ShareALLRecordsToNewUserBatchTH (List<ID> userIdLst,String sobjectNameStr){
     sobjectName = sobjectNameStr;
@@ -16,11 +15,9 @@ global ShareALLRecordsToNewUserBatchTH (List<ID> userIdLst,String sobjectNameStr
     {
         String grpName='TH'+usr.contact.account.Dealer_Nd_code__c;
         grpNamesLst.add(grpName);
-        String dealerCode='\''+usr.contact.account.Dealer_Nd_code__c+'\',';
-        dealerCodes+=dealerCode;
         dealerCodeLst.add(usr.contact.account.Dealer_Nd_code__c);
     }
-    dealerCodes=dealerCodes.left(dealerCodes.length()-1);
+    
     List<Group> grpLst;
     if(grpNamesLst!=null && grpNamesLst.size()>0)
     {
@@ -37,19 +34,7 @@ global ShareALLRecordsToNewUserBatchTH (List<ID> userIdLst,String sobjectNameStr
 
     }  
 }
-/*global ShareALLRecordsToNewUserBatchTH (ID userID, set<id> lstofuser, String sobjectNameStr,boolean isShareorRevoke){
-    newUserID = userID;
-        sobjectName = sobjectNameStr;
-        String userIDs = '';
-        for (ID id : lstofuser) {
-            String idStr = '\'' + id + '\',';
-            userIDs += idStr;
-        }
-        existUserIDs = userIDs.left(userIDs.length()-1);
-        
     
-}*/
-
 global Database.QueryLocator start(Database.BatchableContext BC)
     {
         String query = 'SELECT {0} FROM {1} WHERE {2} and {3}';
@@ -58,14 +43,12 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c');
             condition.add('Account_Link__c');
             condition.add('Md__c=\'TH\'');
-            condition.add('fromRole__c!=null and toRole__c!=null and RetailDealer_ND_Code__c IN :dealerCodeLst');
-		  
+            condition.add('toRole__c!=null');
         } else if ('Lead__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Assigned_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Lead__c');
             condition.add('Md__c=\'TH\'');
             condition.add('Assigned_Dealer__c!=null and Assigned_Dealer__r.Dealer_ND_Code__c IN:dealerCodeLst');
-		 
         } else if ('Case'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Case_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Case');
@@ -77,154 +60,80 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             condition.add('Md__c=\'TH\'');
             condition.add('Owner_Dealer__c!=null and Owner_Dealer_ND_Code__c IN:dealerCodeLst');
           
-													   
-								
-								  
-														   
-										  
-		  
-																 
-								
-												
-																														   
-										  
-		 
-																	   
-								
-												
-																														   
-										  
-		 
-														   
-								
-									  
-																													
-										  
+        }else if('User'.equalsIgnoreCase(sobjectName)){
+            condition.add('Id,Dealer_ND_Code__c');
+            condition.add('User');
+            condition.add('Market__c=\'TH\'');
+            condition.add('Dealer_ND_Code__c!=null and Dealer_ND_Code__c IN:dealerCodeLst');
+          
         }
         
-								
-											 
-																														
-										  
-		  
-													   
-								
-								  
-																											
-											  
-		  
-														   
-								
-										  
-																													 
-										  
-		  
-															  
-								
-											
-																													   
-										  
-		  
-														 
-								
-									   
-																												  
-										  
-		  
         return Database.getQueryLocator(String.format(query, condition));
-
     }
     
     global void execute(Database.BatchableContext BC, List<sObject> scope)
     {
         if ('Account_Link__c'.equalsIgnoreCase(sobjectName)) {
             Map<String,List<Account_Link__c>> DealerCodeAccountLinkMap=new Map<String,List<Account_Link__c>>();
-									 
-											 
-														
-												  
-													  
-										   
-												
-																	 
-										 
-			 
- 
-  
-												   
-													   
+            Map<Id,Id> accLinkIdToRoleIdMap=new Map<Id,Id>();
             for(sObject sObj:scope)
             {  
                 Account_Link__c alObj=(Account_Link__c)sObj;
-                if(DealerCodeAccountLinkMap.containsKey(alObj.RetailDealer_ND_Code__c))
-                {
-                    List<Account_Link__c> accountLinkLst=new List<Account_Link__c>();
-                    accountLinkLst=DealerCodeAccountLinkMap.get(alObj.RetailDealer_ND_Code__c);
-                    accountLinkLst.add(alObj);
-                    DealerCodeAccountLinkMap.put(alObj.RetailDealer_ND_Code__c,accountLinkLst);
-																	
-																	
-									 
-																								
-																					  
-										   
-															 
-																					
-												
-										 
-                }
-                else //if Dealer code is not present in map
-                {
-                    List<Account_Link__c> accountLinkLst=new List<Account_Link__c>();
-                    accountLinkLst.add(alObj);
-                    DealerCodeAccountLinkMap.put(alObj.RetailDealer_ND_Code__c,accountLinkLst);
-                }
-										   
-											  
-																	
-												
-										 
+                accLinkIdToRoleIdMap.put(alObj.Id, alObj.toRole__c);
             }
+            Id dealerAccountRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
+            List<Account_Link__c> accLinkLst;
+            if(accLinkIdToRoleIdMap!=null && accLinkIdToRoleIdMap.size()>0)
+              accLinkLst=[select Id,toRole__c,RetailDealer_ND_Code__c from Account_Link__c where fromRole__r.recordTypeId=:dealerAccountRecordTypeId and toRole__c IN:accLinkIdToRoleIdMap.values()];
+            
+            Map<Id,String> accLinkIdDealerNdCodeMap=new Map<Id,String>();
+            if(accLinkLst!=null && accLinkLst.size()>0)
+            {
+                for(Account_Link__c accLinkObj:accLinkLst)
+                {
+                    accLinkIdDealerNdCodeMap.put(accLinkObj.toRole__c, accLinkObj.RetailDealer_ND_Code__c);
+                }
+            }
+            
             
             List<Account_Link__share> insertaccLinkShare=new List<Account_Link__share>();
             List<AccountShare> insertaccShare=new List<AccountShare>();
             
-            
-            
-            for(String dealerCode:DealerCodeAccountLinkMap.keySet())
-            {
-                List<Account_Link__c> accountLinkLst=DealerCodeAccountLinkMap.get(dealerCode);
-                
-                for(Account_Link__c accLinkObj:accountLinkLst)
+            for(Id accLinkId:accLinkIdToRoleIdMap.keySet())
                 {
-                    Account_Link__share accLinkShare = new Account_Link__share();
-                    accLinkShare.AccessLevel = 'EDIT';
-                    accLinkShare.parentid = accLinkObj.Id;
-                    accLinkShare.UserOrGroupId = dealerCodeGrpIdMap.get(accLinkObj.RetailDealer_ND_Code__c);
-                    accLinkShare.RowCause = Schema.Account_link__Share.RowCause.Manual;
+                    if(dealerCodeGrpIdMap.get(accLinkIdDealerNdCodeMap.get(accLinkIdToRoleIdMap.get(accLinkId)))!=null)
+                    {
+                       Account_Link__share accLinkShare = new Account_Link__share();
+                      accLinkShare.AccessLevel = 'EDIT';
+                      accLinkShare.parentid = accLinkId;
+                      accLinkShare.UserOrGroupId = dealerCodeGrpIdMap.get(accLinkIdDealerNdCodeMap.get(accLinkIdToRoleIdMap.get(accLinkId)));
+                      accLinkShare.RowCause = Schema.Account_link__Share.RowCause.Manual;
                     
-                    insertaccLinkShare.add(accLinkShare);
-                    
-                    AccountShare accShare=new AccountShare();
-                    accShare.AccountAccessLevel = 'EDIT';
-                    accShare.OpportunityAccessLevel = 'READ';
-                    accShare.AccountId = accLinkObj.toRole__c;
-																	 
-																	  
-										   
-												  
-                    accShare.UserOrGroupId = dealerCodeGrpIdMap.get(accLinkObj.RetailDealer_ND_Code__c);
-                    accShare.RowCause = Schema.AccountShare.RowCause.Manual;
-                    
-                    insertaccShare.add(accShare);
+                      insertaccLinkShare.add(accLinkShare);
+                        
+                        AccountShare accShare=new AccountShare();
+                        accShare.AccountAccessLevel = 'EDIT';
+                        accShare.OpportunityAccessLevel = 'READ';
+                        accShare.AccountId = accLinkIdToRoleIdMap.get(accLinkId);
+                        accShare.UserOrGroupId = dealerCodeGrpIdMap.get(accLinkIdDealerNdCodeMap.get(accLinkIdToRoleIdMap.get(accLinkId)));
+                        accShare.RowCause = Schema.AccountShare.RowCause.Manual; 
+                        
+                        insertaccShare.add(accShare);
+                       
+                    }
                  }
-                }
+                
             
             if(insertaccLinkShare!=null && insertaccLinkShare.size()>0)
             {
                 DMLManagerService.insertAsSystem(insertaccLinkShare);
-                DMLManagerService.insertAsSystem(insertaccShare);
+                
             }
+            if(insertaccShare!=null && insertaccShare.size()>0)
+            {
+                DMLManagerService.insertAsSystem(insertaccShare); 
+            }
+               
               
         }else if('Lead__c'.equalsIgnoreCase(sobjectName))
       {
@@ -351,30 +260,67 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                     vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
                     insertVehShare.add(vehShare);
                     
-                    Car_Model__share carModelShare = new Car_Model__share();
+                    /*Car_Model__share carModelShare = new Car_Model__share();
                     carModelShare.AccessLevel = 'READ';
                     carModelShare.parentId = vrObj.Vehicle_ID__r.Car_Model__c;
                     carModelShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
                     carModelShare.RowCause = Schema.Car_Model__share.RowCause.Manual;
-                    insertCarModelShare.add(carModelShare);
-                    
-
+                    insertCarModelShare.add(carModelShare);*/
                 }
             }
             if(insertVRShare!=null && insertVRShare.size()>0)
             {
                 DMLManagerService.insertAsSystem(insertVRShare); 
                 DMLManagerService.insertAsSystem(insertVehShare); 
-                DMLManagerService.insertAsSystem(insertCarModelShare); 
-																	  
-										 
+                //DMLManagerService.insertAsSystem(insertCarModelShare); 
             }
-             									  
+             
+        }else if('User'.equalsIgnoreCase(sobjectName))
+      {
+            Map<String,List<User>> DealerCodeUserMap=new Map<String,List<User>>();
+            for(sObject sObj:scope)
+            {  
+                User userObj=(User)sObj;
+                if(DealerCodeUserMap.containsKey(userObj.Dealer_ND_Code__c))
+                {
+                    List<User> userLst=new List<User>();
+                    userLst=DealerCodeUserMap.get(userObj.Dealer_ND_Code__c);
+                    userLst.add(userObj);
+                    DealerCodeUserMap.put(userObj.Dealer_ND_Code__c,userLst);
+                }
+                else //if Dealer code is not present in map
+                {
+                    List<User> userLst=new List<User>();
+                    userLst.add(userObj);
+                    DealerCodeUserMap.put(userObj.Dealer_ND_Code__c,userLst);
+                }
+            }
+            
+            
+           List<UserShare> insertUserShare=new List<UserShare>();
+            for(String dealerCode:DealerCodeUserMap.keySet())
+            {
+                List<User> userLst=DealerCodeUserMap.get(dealerCode);
+                
+                for(User userObj:userLst)
+                {
+                     UserShare share = new UserShare();
+                     share.UserAccessLevel = 'READ';
+                     share.UserId = userObj.Id;
+                     share.UserOrGroupId = dealerCodeGrpIdMap.get(userObj.Dealer_ND_Code__c);
+                     share.RowCause = Schema.Usershare.RowCause.Manual;
+                     insertUserShare.add(share);
+
+                }
+            }
+            if(insertUserShare!=null && insertUserShare.size()>0)
+             DMLManagerService.insertAsSystem(insertUserShare); 
         }            
-			
     }
     global void finish(Database.BatchableContext BC)
     {
         
     }
+
+
 }
