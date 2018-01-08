@@ -331,7 +331,7 @@ public with sharing class LeadHelperTest {
 	// Added By - Sreenivasareddy
 	
 	static testmethod void Leadsharehierarchytest() {
-		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-000-0984');
         insert dealer1;
         Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
         insert contact;
@@ -432,7 +432,7 @@ public with sharing class LeadHelperTest {
     } 
     
     static testmethod void Leadsharehierarchytest1() {
-		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-000-0984');
         insert dealer1;
         Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
         insert contact;

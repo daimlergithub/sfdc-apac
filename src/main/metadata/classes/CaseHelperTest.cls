@@ -219,7 +219,7 @@ public With Sharing class CaseHelperTest {
         newAccount.City__c = 'asdfsf';
         newAccount.ZipCode__c = '1234567';
         newAccount.MBK_Data_Source__c='Email';
-        newAccount.PersonMobilePhone = '09088767547';       
+        newAccount.Mobile__c = '090-887-6754';       
         insert newAccount;
         Case c3 = new Case( AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = acc.Id);
         insert c3; 
@@ -374,7 +374,7 @@ public With Sharing class CaseHelperTest {
 	// Added By - Sreenivasareddy
 	
 	static testmethod void casesharehierarchytest() {
-		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-000-0984');
         insert dealer1;
         Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
         insert contact;
@@ -472,7 +472,7 @@ public With Sharing class CaseHelperTest {
     } 
     
     static testmethod void casesharehierarchytest1() {
-		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='00000009842');
+		Account dealer1 = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='000-000-0984');
         insert dealer1;
         Contact contact = new Contact(AccountId = dealer1.Id, LastName = 'b', Phone = '01212313', email = 's@s.s');
         insert contact;
