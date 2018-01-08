@@ -1,10 +1,13 @@
 /**
 * Utility for Trigger on Account for TH(Thailand)
 * Author: Mohammed Touseef Ahmed
+*Dhanamjaya  modfied
+*
 * Created Date : 2017-01-23
 *History:
     Author                         Date                    Description
     Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
+	
 */
 
 public class AccountHelperTH{
