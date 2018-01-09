@@ -12,6 +12,9 @@
     <columns>
         <field>CAMPAIGN_DESCRIPTION</field>
     </columns>
+	<columns>
+        <field>Campaign.Department__c</field>
+    </columns>
     <columns>
         <field>CAMPAIGN_OWNER</field>
     </columns>

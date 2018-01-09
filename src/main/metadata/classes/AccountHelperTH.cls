@@ -1,10 +1,13 @@
 /**
 * Utility for Trigger on Account for TH(Thailand)
 * Author: Mohammed Touseef Ahmed
+*Dhanamjaya  modfied
+*
 * Created Date : 2017-01-23
 *History:
     Author                         Date                    Description
     Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
+	
 */
 
 public class AccountHelperTH{
@@ -752,7 +755,7 @@ public class AccountHelperTH{
             
             if(usr != null)
             {
-				String grpName='TH'+usr.Contact.Account.Dealer_ND_Code__c;
+        String grpName='TH'+usr.Contact.Account.Dealer_ND_Code__c;
                 dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:grpName];
             }
             
@@ -767,7 +770,7 @@ public class AccountHelperTH{
             for(Account shareacc : accLst)
             {
                 String grpName='TH'+usr.Contact.Account.Dealer_ND_Code__c; 
-                if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(grpName) != null)																	
+                if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(grpName) != null)                                  
                 {
                     AccountShare accshr = new AccountShare();
                     accshr.AccountId = shareacc.Id;
@@ -813,15 +816,15 @@ public class AccountHelperTH{
                                                 toRole__r.Primary_Address_Reference__r.City__c, toRole__r.Primary_Address_Reference__r.District__c, toRole__r.Primary_Address_Reference__r.Block__c,toRole__r.createdDate,toRole__r.lastmodifieddate,
                                                 toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
                                                 toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, 
-                                                toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,
+                                                toRole__r.Foundation_Date__c,toRole__r.ID_Number__c,toRole__r.Website,toRole__r.ID_Type__c,toRole__r.Primary_Address_Reference__r.CreatedDate,
                                                 toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,                                             toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c,toRole__r.PersonDoNotCall,toRole__r.Postal_Opt_Out__c,toRole__r.Visit_Opt_Out__c,toRole__r.PersonHasOptedOutOfEmail,toRole__r.PersonHasOptedOutOfFax 
                                                 from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
-				//acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;
-				acclnk.Retail_ID_Type__c = acclnk.toRole__r.ID_Type__c;
-				acclnk.Retail_ID_Number__c = acclnk.toRole__r.ID_Number__c;				
+        //acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;
+        acclnk.Retail_ID_Type__c = acclnk.toRole__r.ID_Type__c;
+        acclnk.Retail_ID_Number__c = acclnk.toRole__r.ID_Number__c;        
                 acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;        
                 acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;       
                 acclnk.Retail_Agreement_Info_Processing__c=acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
@@ -840,7 +843,7 @@ public class AccountHelperTH{
                 acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing2__c;                
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
-				acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+        acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
                 acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
@@ -870,8 +873,8 @@ public class AccountHelperTH{
                 acclnk.Retail_Visit_OptOut__c= acclnk.toRole__r.Visit_Opt_Out__c;
                 
             }//End if for Company record type
-			acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;
-			acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;
+      acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;
+      acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;
             acclnk.LastModifiedDate__c = acclnk.toRole__r.LastmodifiedDate;
             acclnk.createddate__c = acclnk.toRole__r.createdDate;
             acclnk.Retail_Industry__c = acclnk.toRole__r.Industry; 
@@ -881,18 +884,18 @@ public class AccountHelperTH{
 
             //Checking Null for sales Address 
             if(acclnk.toRole__r.Primary_Address_Reference__c != null){
-				acclnk.Retail_Address_Reference__c = acclnk.toRole__r.Primary_Address_Reference__c;
-				acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
-				acclnk.Retail_Province__c = (acclnk.toRole__r.Primary_Address_Reference__r.Province__c !=null ?acclnk.toRole__r.Primary_Address_Reference__r.Province__c: '' );
-				acclnk.Retail_City__c = (acclnk.toRole__r.Primary_Address_Reference__r.Sub_District__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.Sub_District__c:'').left(35);
-				acclnk.Retail_Distinct__c = ((acclnk.toRole__r.Primary_Address_Reference__r.District__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.District__c : '')+(acclnk.toRole__r.Primary_Address_Reference__r.Block__c!= null ?acclnk.toRole__r.Primary_Address_Reference__r.Block__c : '')).left(35);
-				acclnk.Retail_Address_Line_1__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c:'').left(35);
-				acclnk.Retail_Address_Line_2__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c:'').left(35);
-				acclnk.Retail_ZipCode__c = (acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c : '' );
-				acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
-				acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
+        acclnk.Retail_Address_Reference__c = acclnk.toRole__r.Primary_Address_Reference__c;
+        acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
+        acclnk.Retail_Province__c = (acclnk.toRole__r.Primary_Address_Reference__r.Province__c !=null ?acclnk.toRole__r.Primary_Address_Reference__r.Province__c: '' );
+        acclnk.Retail_City__c = (acclnk.toRole__r.Primary_Address_Reference__r.Sub_District__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.Sub_District__c:'').left(35);
+        acclnk.Retail_Distinct__c = ((acclnk.toRole__r.Primary_Address_Reference__r.District__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.District__c : '')+(acclnk.toRole__r.Primary_Address_Reference__r.Block__c!= null ?acclnk.toRole__r.Primary_Address_Reference__r.Block__c : '')).left(35);
+        acclnk.Retail_Address_Line_1__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c:'').left(35);
+        acclnk.Retail_Address_Line_2__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c:'').left(35);
+        acclnk.Retail_ZipCode__c = (acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c : '' );
+        acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
+        acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
 
-			}//End if for Sales Address
+      }//End if for Sales Address
             
             AccountlnkUpdate.add(acclnk); //Adding Account link to List  
         }//End of for loop

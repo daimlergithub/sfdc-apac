@@ -61,6 +61,7 @@ public class UserHelperTH{
              FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Lead__c')));
           FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Case')));
           FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Vehicle_Relationship__c')));
+          FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'User')));
          }
       else
         {
@@ -68,6 +69,7 @@ public class UserHelperTH{
             Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Lead__c'));
             Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Case'));
             Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Vehicle_Relationship__c'));
+            Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'User'));
         }
             
         
