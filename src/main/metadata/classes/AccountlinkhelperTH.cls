@@ -156,7 +156,7 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                 AccountShare thisAccountShare = new AccountShare(); //a new empty AccountShare object
                 thisAccountShare.userorgroupid = groupRec.id;
                 thisAccountShare.accountid = acct;
-                thisAccountShare.accountaccesslevel = 'READ';
+                thisAccountShare.accountaccesslevel = 'EDIT';
                 thisAccountShare.RowCause = Schema.AccountShare.RowCause.Manual;
                 thisAccountShare.OpportunityAccessLevel='Read';
                 AccountShareList.add(thisAccountShare);

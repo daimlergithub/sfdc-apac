@@ -67,7 +67,7 @@ public with sharing class TaskHelperTH {
    public static void updateCampaignMemberStatus(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
         if(isInsert)
-            UtilTask.updateCampaignMemberStatus(tasks);
+            UtilTaskTH.updateCampaignMemberStatus(tasks);
         if(isUpdate)
         {
              List<Task> lstTaskUpdate = new List<Task>();
@@ -78,7 +78,7 @@ public with sharing class TaskHelperTH {
                     lstTaskUpdate.add(newTask);
                 }
              }
-             UtilTask.updateCampaignMemberStatus(lstTaskUpdate);
+             UtilTaskTH.updateCampaignMemberStatus(lstTaskUpdate);
         }   
    }
    public static void updateAccountMobile(List<Task> lstTask){          
