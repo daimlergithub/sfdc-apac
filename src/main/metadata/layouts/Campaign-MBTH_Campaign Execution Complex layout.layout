@@ -83,6 +83,7 @@
         <fields>LAST_NAME</fields>
         <fields>MOBILE</fields>
         <fields>PHONE</fields>
+		<fields>MBTH_Status__c</fields>
         <fields>Participating_Dealer_Name__c</fields>
         <fields>Package_Name__c</fields>
         <fields>Source_Campaign_Partner__c</fields>
