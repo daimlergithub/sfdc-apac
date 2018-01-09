@@ -21,7 +21,7 @@ public class EmailNotificationAfter24Hours{
         String afterSalesmanagermail;
         String salesManagermail;
         Id leadOwnerIDs;
-        String communityName='Daimler Community Thailand';
+        String communityName='Dealer Community Thailand';
         boolean flag1=false;
         String commubaseurl;
         List<Lead__c> leadList=[select id,RecordTypeID,assigned_dealer__r.name,lead_desired_service__c,Contact__r.name,name,Dealer_DMS_Comments__c,createddate,createdbyid,assigned_dealer__r.Dealer_Aftersales_Manager_Email__c,assigned_dealer__r.Dealer_Sales_Manager_Email__c,ownerId from Lead__c where id=:ListId ];
