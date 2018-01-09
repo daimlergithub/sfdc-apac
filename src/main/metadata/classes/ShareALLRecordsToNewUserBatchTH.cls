@@ -253,19 +253,14 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                      vrShare.RowCause = Schema.Vehicle_Relationship__share.RowCause.Manual;
                      insertVRShare.add(vrShare);
                     
-                    Vehicle__share vehShare = new Vehicle__share();
-                    vehShare.AccessLevel = 'READ';
-                    vehShare.parentId = vrObj.Vehicle_ID__c;
-                    vehShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
-                    vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
-                    insertVehShare.add(vehShare);
-                    
-                    /*Car_Model__share carModelShare = new Car_Model__share();
-                    carModelShare.AccessLevel = 'READ';
-                    carModelShare.parentId = vrObj.Vehicle_ID__r.Car_Model__c;
-                    carModelShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
-                    carModelShare.RowCause = Schema.Car_Model__share.RowCause.Manual;
-                    insertCarModelShare.add(carModelShare);*/
+					if(vrObj.Vehicle_ID__c!=null){
+						Vehicle__share vehShare = new Vehicle__share();
+						vehShare.AccessLevel = 'READ';
+						vehShare.parentId = vrObj.Vehicle_ID__c;
+						vehShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
+						vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
+						insertVehShare.add(vehShare);
+                    }
                 }
             }
             if(insertVRShare!=null && insertVRShare.size()>0)
