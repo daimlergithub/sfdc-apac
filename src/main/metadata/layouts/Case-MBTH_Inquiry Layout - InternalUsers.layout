@@ -27,7 +27,7 @@
                 <field>Subject</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>MBTH_Case_Department__c</field>
             </layoutItems>
             <layoutItems>
@@ -144,10 +144,16 @@
                 <behavior>Edit</behavior>
                 <field>EuroVIN__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Repeat_Complaint_Times__c</field>
-            </layoutItems>
+        </layoutColumns>
+        <layoutColumns/>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Repeat Complaint</label>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
@@ -313,7 +319,7 @@
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <customButtons>New_DM_Request</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
