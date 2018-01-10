@@ -268,6 +268,10 @@
         <fullName>Deadline_Notification_to_Owner_before_1_hourTH</fullName>
         <description>Deadline Notification to Owner before 1 hourTH</description>
         <protected>false</protected>
+		 <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
         <recipients>
             <type>owner</type>
         </recipients>
@@ -278,6 +282,10 @@
         <fullName>Deadline_Notification_to_Owner_before_1_hour_TH</fullName>
         <description>Deadline Notification to Owner before 1 hour TH</description>
         <protected>false</protected>
+		 <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
         <recipients>
             <type>owner</type>
         </recipients>
@@ -933,6 +941,24 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
+	   <fieldUpdates>
+        <fullName>UpdateOwnerManager</fullName>
+        <field>Case_Owner_manager__c</field>
+        <formula>Owner:User.Manager.Email</formula>
+        <name>UpdateOwnerManager</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateOwnerManager1</fullName>
+        <field>Case_Owner_manager__c</field>
+        <formula>Owner:User.Manager.Email</formula>
+        <name>UpdateOwnerManager1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_ApprovalSubmit_Date</fullName>
         <description>Update Approval_Submit_Date__C  with System.today()</description>
@@ -1553,7 +1579,11 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification TH</fullName>
-        <active>true</active>
+		 <actions>
+            <name>UpdateOwnerManager1</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
         <formula>AND( 
      MD__c = &apos;TH&apos;,
@@ -1578,7 +1608,11 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification TH 2 - Dealer</fullName>
-        <active>true</active>
+		 <actions>
+            <name>UpdateOwnerManager</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
         <formula>AND( 
      MD__c = &apos;TH&apos;,
