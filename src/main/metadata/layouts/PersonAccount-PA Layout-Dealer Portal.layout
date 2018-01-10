@@ -831,7 +831,6 @@
         <relatedList>DM_Request__c.Customer_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>SubmitSurvey</customButtons>
         <fields>NAME</fields>
         <fields>Survey_Taking_Status__c</fields>
         <fields>Survey__c</fields>
