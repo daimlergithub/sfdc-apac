@@ -21,7 +21,7 @@ public class EmailNotificationAfter24Hours{
         String afterSalesmanagermail;
         String salesManagermail;
         Id leadOwnerIDs;
-        String communityName='Daimler Community Thailand';
+        String communityName='Dealer Community Thailand';
         boolean flag1=false;
         String commubaseurl;
         List<Lead__c> leadList=[select id,RecordTypeID,assigned_dealer__r.name,lead_desired_service__c,Contact__r.name,name,Dealer_DMS_Comments__c,createddate,createdbyid,assigned_dealer__r.Dealer_Aftersales_Manager_Email__c,assigned_dealer__r.Dealer_Sales_Manager_Email__c,ownerId from Lead__c where id=:ListId ];
@@ -48,7 +48,7 @@ public class EmailNotificationAfter24Hours{
         String dealercomm=leadlist[0].Dealer_DMS_Comments__c;
         String leadassigndealer=leadlist[0].assigned_dealer__r.name;
         String leadurl=URL.getSalesforceBaseUrl().toExternalForm()+'/'+leadList[0].id;
-         string body=temp.Body.replace('{Lead__c.Assigned_Dealer__c}',leadassigndealer).replace('{Lead__c.Name}',Name).replace('{Lead__c.CreatedDate}',leadCreateddate).replace('{Lead__c.Dealer_DMS_Comments__c}',!String.isBlank(dealercomm)?dealercomm:'not selected').replace('{Lead__c.Contact__c}',leadContact).replace('{Lead__c.Link}',leadurl).replace('{Lead__c.Link1}',commurl);  
+        string body=temp.Body.replace('{Lead__c.Assigned_Dealer__c}',leadassigndealer).replace('{Lead__c.Name}',Name).replace('{Lead__c.CreatedDate}',leadCreateddate).replace('{Lead__c.Dealer_DMS_Comments__c}',!String.isBlank(dealercomm)?dealercomm:'not selected').replace('{Lead__c.Contact__c}',leadContact).replace('{Lead__c.Link}',leadurl).replace('{Lead__c.Link1}',commurl);  
         message.setSubject(sub); 
         message.setPlainTextBody(body);
         

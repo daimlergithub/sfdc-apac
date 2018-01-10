@@ -66,7 +66,7 @@ public class LeadHelperAccountLinkCreateJP {
         set < String > AcclinkContactId = new set < String > ();
         set < String > CompanyId = new set < String > ();
         Map < Id, Lead__c > leadupdate = new Map < Id, Lead__C > ();
-        List < Lead__c > leadLst = [select Id, Retail_Contact__c, Company_Account__c, Contact__c, Assigned_Dealer__c, Contact__r.LastName, Contact__r.FirstName, Contact__r.LastName_Native_1__c,Contact__r.ID_Type__c,Contact__r.ID_Number__c,
+        List < Lead__c > leadLst = [select Id, Retail_Contact__c, Company_Account__c, Contact__c, Assigned_Dealer__c, Contact__r.LastName, Contact__r.FirstName, Contact__r.LastName_Native_1__c,Contact__r.ID_Type__c,Contact__r.ID_Number__c,contact__r.country__c,
             Contact__r.FirstName_Native_1__c, Contact__r.PersonBirthdate, Contact__r.Special_Care__c, Contact__r.Individual_Home_Phone__c, Contact__r.Work_Phone__c, Contact__r.Primary_Address_Reference__r.Sub_District__c,
             Contact__r.Mobile__c, Contact__r.Fax, Contact__r.Email__c, Contact__r.Primary_Address_Reference__r.City__c, Contact__r.Primary_Address_Reference__r.District__c,Contact__r.createdDate,Contact__r.lastmodifieddate,
             Contact__r.Primary_Address_Reference__r.Block__c, Contact__r.Primary_Address_Reference__r.Address_Line_1__c,
@@ -106,8 +106,8 @@ public class LeadHelperAccountLinkCreateJP {
                             acclnk.Retail_Province__c = led.Contact__r.Primary_Address_Reference__r.Province__c;
                             acclnk.Retail_City__c = led.Contact__r.Primary_Address_Reference__r.Sub_District__c;
                             acclnk.Retail_Distinct__c = led.Contact__r.Primary_Address_Reference__r.District__c;
-                            If(led.Contact__r.Primary_Address_Reference__r.Foreign_Nationals__c != true)
-                                acclnk.Retail_Country__c ='Thailand';
+                            
+                                
                             acclnk.Retail_Address_Line_1__c = led.Contact__r.Primary_Address_Reference__r.Address_Line_1__c;
                             acclnk.Retail_Address_Line_2__c = led.Contact__r.Primary_Address_Reference__r.Address_Line_2__c;
                             acclnk.Retail_Address_Type__c = led.Contact__r.Primary_Address_Reference__r.Address_Type__c;
@@ -117,7 +117,7 @@ public class LeadHelperAccountLinkCreateJP {
                             acclnk.Retail_Address_LastModifiedDate__c = date.newinstance(led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.year(), led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.month(), led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.day());
                             System.debug('**prprpr*'+acclnk.Retail_Address_CreatedDate__c + acclnk.Retail_Address_LastModifiedDate__c + date.newinstance(led.Contact__r.Primary_Address_Reference__r.CreatedDate.year(), led.Contact__r.Primary_Address_Reference__r.CreatedDate.month(), led.Contact__r.Primary_Address_Reference__r.CreatedDate.day()));
                         }
-                        
+                        acclnk.Retail_Country__c = led.contact__r.country__c;
                         acclnk.Retail_Full_Name_Title__c = led.contact__r.Salutation__c + ' '+led.Contact__r.LastName + ' ' + led.Contact__r.FirstName;
                         acclnk.Retail_Salutation__c=led.Contact__r.Salutation__c;
                         acclnk.Retail_Special_Care__c=led.Contact__r.Special_Care__c;
@@ -173,8 +173,6 @@ public class LeadHelperAccountLinkCreateJP {
                             acclnk.Retail_Province__c = led.Contact__r.Primary_Address_Reference__r.Province__c;
                             acclnk.Retail_City__c = led.Contact__r.Primary_Address_Reference__r.Sub_District__c;
                             acclnk.Retail_Distinct__c = led.Contact__r.Primary_Address_Reference__r.District__c;
-                            If(led.Contact__r.Primary_Address_Reference__r.Foreign_Nationals__c != true)
-                                acclnk.Retail_Country__c ='Thailand';
                             acclnk.Retail_Address_Line_1__c = led.Contact__r.Primary_Address_Reference__r.Address_Line_1__c;
                             acclnk.Retail_Address_Line_2__c = led.Contact__r.Primary_Address_Reference__r.Address_Line_2__c;
                             acclnk.Retail_Address_Type__c = led.Contact__r.Primary_Address_Reference__r.Address_Type__c;
@@ -183,6 +181,7 @@ public class LeadHelperAccountLinkCreateJP {
                             //System.debug(date.newinstance(led.Contact__r.Primary_Address_Reference__r.CreatedDate.year(), led.Contact__r.Primary_Address_Reference__r.CreatedDate.month(), led.Contact__r.Primary_Address_Reference__r.CreatedDate.day()));
                             acclnk.Retail_Address_LastModifiedDate__c = date.newinstance(led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.year(), led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.month(), led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.day());
                         }
+						acclnk.Retail_Country__c = led.contact__r.country__c;
                         acclnk.Retail_UCID__c = led.Contact__r.UCID__c;
                         acclnk.Retail_DMS_Customer_ID__c = led.Contact__r.DMS_Customer_ID__c;
                         acclnk.Retail_Company_Name__c = led.Contact__r.name;
