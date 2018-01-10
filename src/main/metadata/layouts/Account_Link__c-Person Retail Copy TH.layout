@@ -167,7 +167,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_List_of_Events__c</field>
-            </layoutItems>
+             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Special_Care__c</field>
