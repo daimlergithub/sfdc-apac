@@ -244,8 +244,7 @@ public  void updatecommunityurl(List<Case> caselist){
             }
         }
     }
-    
-    //shareRecord
+
     public Static void ShareRecordswithDealers(List<Case> caselist,Boolean flag){
      Set<String> dealerndcodeset=new Set<String>();
      set<Case> lstcase=new set<Case>();
@@ -326,5 +325,67 @@ public  void updatecommunityurl(List<Case> caselist){
      }
      
  }
-    //sharereocrd
+ 
+ //after checking the checkbox field '1st reminder','2nd reminder' and 'escalated to MBTH', send email to gatekeeper(case owner)
+   public static void sendReminderEmail(Map<Id,sObject> newCaseMap,Map<Id,sObject> oldCaseMap)
+   {
+       List<Case> caseId1stRemLst=new List<Case>();
+       List<Case> caseId2ndRemLst=new List<Case>();
+       List<Case> caseIdEscltnLst=new List<Case>();
+       List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+      
+           for(Id caseId:newCaseMap.keySet())
+           {
+               Case newCaseObj=(Case)newCaseMap.get(caseId);
+               Case oldCaseObj=(Case)oldCaseMap.get(caseId);
+               if(newCaseObj.MBTH_1st_Reminder__c && newCaseObj.MBTH_1st_Reminder__c!=oldCaseObj.MBTH_1st_Reminder__c)
+               {
+                   caseId1stRemLst.add(newCaseObj);
+               }
+               if(newCaseObj.MBTH_2nd_Reminder__c && newCaseObj.MBTH_2nd_Reminder__c!=oldCaseObj.MBTH_2nd_Reminder__c)
+               {
+                   caseId2ndRemLst.add(newCaseObj);
+               }
+               if(newCaseObj.MBTH_Escalated_to_MBTH__c && newCaseObj.MBTH_Escalated_to_MBTH__c!=oldCaseObj.MBTH_Escalated_to_MBTH__c)
+               {
+                  
+                   caseIdEscltnLst.add(newCaseObj);
+               }
+           }
+      
+       if(caseId1stRemLst.size()>0 ||caseId2ndRemLst.size()>0 || caseIdEscltnLst.size()>0)
+       {
+		   //send 1st reminder email to gatekeeper(case owner)
+           if(caseId1stRemLst.size()>0)
+            {
+                Id templateId=[select Id from EmailTemplate where developerName = 'Case_1st_Reminder_Notification'].Id;
+                for(Case caseObj:caseId1stRemLst)
+                {
+                    mails.add(EmailMessage.createSingleEmailMessage(caseObj.OwnerId,templateId,caseObj.Id));
+                }
+                
+            }
+           //send 2nd reminder email to gatekeeper(case owner)
+           if(caseId2ndRemLst.size()>0)
+           {
+               Id templateId=[select Id from EmailTemplate where developerName = 'Case_2nd_Reminder_Notification'].Id;
+                for(Case caseObj:caseId2ndRemLst)
+                {
+                    mails.add(EmailMessage.createSingleEmailMessage(caseObj.OwnerId,templateId,caseObj.Id));
+                }
+           }
+            //send escalation email to gatekeeper(case owner)
+           if(caseIdEscltnLst.size()>0)
+           {
+               Id templateId=[select Id from EmailTemplate where developerName = 'Case_escalated_to_MBTH_Notification'].Id;
+                for(Case caseObj:caseIdEscltnLst)
+                {
+                    mails.add(EmailMessage.createSingleEmailMessage(caseObj.OwnerId,templateId,caseObj.Id));
+                }
+           }
+           if(mails!=null && mails.size()>0)
+           		Messaging.sendEmail(mails);
+       }
+   }	
+	
 }

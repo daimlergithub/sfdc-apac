@@ -40,8 +40,8 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                caseHelperTHd .calculateComplaintAmount(trigger.new); 
              
             }else if (trigger.isUpdate){
-               caseHelperTHd.calculateComplaintAmount(trigger.new);
-                 
+				caseHelperTHd.calculateComplaintAmount(trigger.new);
+				CaseHelperTH.sendReminderEmail(Trigger.newMap,Trigger.oldMap);
             }
            
         }
