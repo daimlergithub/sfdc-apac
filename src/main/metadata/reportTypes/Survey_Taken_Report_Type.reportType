@@ -370,11 +370,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>avayajp__AgentID__c</field>
-            <table>SurveyTaker__c.Activities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>AES_SFConnector__AgentType__c</field>
             <table>SurveyTaker__c.Activities__r</table>
         </columns>
@@ -425,11 +420,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>avayajp__Called__c</field>
-            <table>SurveyTaker__c.Activities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>AES_CNTR__Caller__c</field>
             <table>SurveyTaker__c.Activities__r</table>
         </columns>
@@ -441,11 +431,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Caller__c</field>
-            <table>SurveyTaker__c.Activities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>avayajp__Caller__c</field>
             <table>SurveyTaker__c.Activities__r</table>
         </columns>
         <columns>
@@ -775,11 +760,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>avayajp__OriginalUCID__c</field>
-            <table>SurveyTaker__c.Activities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Other_Activity__c</field>
             <table>SurveyTaker__c.Activities__r</table>
         </columns>
@@ -875,11 +855,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>avayajp__StationID__c</field>
-            <table>SurveyTaker__c.Activities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Status</field>
             <table>SurveyTaker__c.Activities__r</table>
         </columns>
@@ -935,11 +910,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>avayajp__UCID__c</field>
-            <table>SurveyTaker__c.Activities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>UCID__c</field>
             <table>SurveyTaker__c.Activities__r</table>
         </columns>
@@ -971,11 +941,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>AES_SFConnector__UUI__c</field>
-            <table>SurveyTaker__c.Activities__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>avayajp__UUI__c</field>
             <table>SurveyTaker__c.Activities__r</table>
         </columns>
         <columns>
