@@ -23,28 +23,28 @@ public class CaseHelperTH {
             Integer i=0;
             Boolean flag;
             if(caserec.RecordTypeId==caseMBComplaintRec_Id){
-            if(caserec.MBTH_Priority__c=='Red'){
+            //if(caserec.MBTH_Priority__c=='Red'){
                  string dayOfWeek = System.now().format('E');
-                     if(dayOfWeek == 'Sat'){
+                     if(dayOfWeek == 'Sat'||dayOfWeek == 'Fri'){
                             caserec.DeadLine__c=System.Now()+3;
                        }
                      else if(dayOfWeek == 'Sun'){
                         caserec.DeadLine__c=System.Now()+2;
                         
                         }
-                     else if(dayOfWeek == 'Fri'){
+                     /*else if(dayOfWeek == 'Fri'){
                         caserec.DeadLine__c=System.Now()+3;
-                        }
+                        }*/
                      else{
                         caserec.DeadLine__c=System.Now()+1;
                         }
-            }
-            else if(caserec.MBTH_Priority__c=='Yellow'){
+            //}
+            /*else if(caserec.MBTH_Priority__c=='Yellow'){
             updatedeadine(caserec,72);
             }
             else if(caserec.MBTH_Priority__c=='Green' ){
             updatedeadine(caserec,192);
-            }
+            }*/
             }
  
             else if(caserec.RecordTypeId==caseINquiryId){
