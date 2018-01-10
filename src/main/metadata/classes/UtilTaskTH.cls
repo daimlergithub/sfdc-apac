@@ -21,13 +21,13 @@ public static void updateCampaignMemberStatus(List<task> tlst){
     for(CampaignMember cM:campmember){
         if(tk.whoid==cm.contactid && tk.Whatid==cm.campaignId ){
             if(tk.recordtypeid==OBCAllTaskRecordTypeId){
-           
                 if(tk.Activity_Status__c=='not started'){
                     cm.MBTH_Status__c='Open';
                 }else if(tk.Activity_Status__c=='no answer'||tk.Activity_Status__c=='wrong number'||tk.Activity_Status__c=='no such person'||tk.Activity_Status__c=='invalid data'||tk.Activity_Status__c=='invalid call'){
                 cm.MBTH_Status__c='FAILED/NO RESPONSE';
+                system.debug('inside faile');
                 }else if(tk.Activity_Status__c=='need call back'||tk.Activity_Status__c=='busy'||tk.Activity_Status__c=='reservation'){
-                cm.MBTH_Status__c='Responded';
+                cm.MBTH_Status__c='Sent';
                 }else if(tk.Activity_Status__c=='Successful'){
                 cm.MBTH_Status__c='RESPONDED';                
                 }else if(tk.Activity_Status__c=='reject'){
@@ -43,7 +43,7 @@ public static void updateCampaignMemberStatus(List<task> tlst){
                 }else if(tk.Activity_Status__c=='Sent'){
                 cm.MBTH_Status__c='Sent';
                 
-                }else if(tk.Activity_Status__c=='Returned/Failed'){
+                }else if(tk.Activity_Status__c=='Returned'||tk.Activity_Status__c=='Failed'){
                 cm.MBTH_Status__c='FAILED/NO RESPONSE';
                 
                 }
