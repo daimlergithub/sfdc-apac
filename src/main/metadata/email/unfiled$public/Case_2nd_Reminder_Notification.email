@@ -1,0 +1,20 @@
+<messaging:emailTemplate subject="Case Second Reminder notification. Case No. :  {!relatedTo.CaseNumber}" recipientType="User" relatedToType="Case">
+
+<messaging:htmlEmailBody >
+Dear {!relatedTo.Owner.Name},<br></br>
+There’s a case assigned to you. This is second reminder, please take action immediately before the deadline.
+
+<p>
+Customer: {!relatedTo.Contact.Name}<br></br>
+Case.: {!relatedTo.CaseNumber}<br></br>
+Subject : {!relatedTo.Subject}<br></br>
+Please click on the link below to view the record:<br></br>
+<c:URLBasedOnUsers relatedToId="{!relatedTo.Id}" recipientType="{!recipient.usertype}"></c:URLBasedOnUsers>
+</p>
+
+<br></br>
+Best regards, <br></br><br></br>
+This automatic e-mail was sent via Salesforce.
+</messaging:htmlEmailBody>
+
+</messaging:emailTemplate>
