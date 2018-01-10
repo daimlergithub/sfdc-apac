@@ -19,33 +19,37 @@ public class CaseHelperTH {
     public static final String NOT_PRIMARY_REMINDER = 'This Complaint is not a primary complaint, please find the primary complaint.';
     public void updateCaseDeadLineAmount(List<case> caselist){
         for(Case caserec:Caselist){
+            if(caserec.md__c=='TH'){
             Integer i=0;
             Boolean flag;
-            if((caserec.RecordTypeId==caseINquiryId && caserec.priority=='A')||(caserec.RecordTypeId==caseMBComplaintRec_Id && caserec.priority=='Red >= 4')&& caserec.md__c=='TH'){
+            if(caserec.RecordTypeId==caseMBComplaintRec_Id){
+            //if(caserec.MBTH_Priority__c=='Red'){
                  string dayOfWeek = System.now().format('E');
-                     if(dayOfWeek == 'Sat'){
+                     if(dayOfWeek == 'Sat'||dayOfWeek == 'Fri'){
                             caserec.DeadLine__c=System.Now()+3;
                        }
                      else if(dayOfWeek == 'Sun'){
                         caserec.DeadLine__c=System.Now()+2;
                         
                         }
-                     else if(dayOfWeek == 'Fri'){
+                     /*else if(dayOfWeek == 'Fri'){
                         caserec.DeadLine__c=System.Now()+3;
-                        }
+                        }*/
                      else{
                         caserec.DeadLine__c=System.Now()+1;
                         }
-            }
-            else if((caserec.RecordTypeId==caseINquiryId && caserec.priority=='B')||(caserec.RecordTypeId==caseMBComplaintRec_Id && caserec.priority=='Yellow = 3')&& caserec.md__c=='TH'){
+            //}
+            /*else if(caserec.MBTH_Priority__c=='Yellow'){
             updatedeadine(caserec,72);
             }
-            else if(caserec.RecordTypeId==caseMBComplaintRec_Id && caserec.priority=='Green <= 2' && caserec.md__c=='TH'){
-            updatedeadine(caserec,144);
+            else if(caserec.MBTH_Priority__c=='Green' ){
+            updatedeadine(caserec,192);
+            }*/
             }
  
-            else if(caserec.RecordTypeId==caseINquiryId && caserec.md__c=='TH'){
-                if(caserec.priority=='C'){
+            else if(caserec.RecordTypeId==caseINquiryId){
+                caserec.DeadLine__c=System.Now().addhours(3);
+                /*if(caserec.priority=='C'){
                     updatedeadine(caserec,120);
                 }
                 else if(caserec.priority=='D'){
@@ -53,9 +57,10 @@ public class CaseHelperTH {
                 }
                 else if(caserec.priority=='E'){
                     updatedeadine(caserec,360);
-                }
+                }*/
         }    
     }
+        }
     }
     public static String getCommunityURL(){
         String communityName='Dealer Community Thailand';
@@ -66,20 +71,28 @@ public class CaseHelperTH {
            if(net.name==communityName){
            flag1=true;
            commubaseurl=Network.getLoginUrl(net.id);
+          
            break;
+           
            }
        }
        return commubaseurl.replace('login','');
     }
-
+public  void updatecommunityurl(List<Case> caselist){
+    String commURLTH=getCommunityURL();
+    for(Case cas:caselist){
+        cas.Others__c = commURLTH;
+    }
+    
+}
     public void updateCaseOwnerDependsonPrimaryCaseDealer(List<Case> caselist,boolean isInsertFlag){
         set<Id> accset=new set<ID>();
-        String commURLTH=getCommunityURL();
+        
         if(isInsertFlag){
         for(Case cas:caselist){
             if(cas.Case_Dealer__c!=null){
                 accset.add(cas.Case_Dealer__c);
-                cas.Others__c = commURLTH;
+                
             }
         }
 
@@ -87,7 +100,6 @@ public class CaseHelperTH {
         
         else{
             for(Case cas:caselist){
-                cas.Others__c = commURLTH;
              if(((Case)trigger.newmap.get(cas.id)).ownerId!=((case)trigger.oldmap.get(cas.id)).ownerId){
                //c.ownerid=dealerndcode.get(c.Case_Dealer__c).Dealer_Lead_Gate_Keeper__c;
             }else if(cas.Case_Dealer__c!=null&&((Case)trigger.newmap.get(cas.id)).case_Dealer__c!=((case)trigger.oldmap.get(cas.id)).Case_Dealer__c){
@@ -129,8 +141,8 @@ public class CaseHelperTH {
     caserec.deadline__c=System.now()+daystoadd;
     }
     }
-	
-	//Update Case Creator field with the CreatedBy value
+    
+    //Update Case Creator field with the CreatedBy value
     public void updateCaseCreator(List<Case> lst_Cases){
         If(!lst_Cases.isEmpty() && lst_Cases != Null){
             for(Case newCase: lst_Cases){
@@ -138,7 +150,7 @@ public class CaseHelperTH {
             }
         }
     }
-	
+    
     //Calculate total number of repeated MB complaints per account
     public void calculateComplaintAmount(List<Case> cases){
       

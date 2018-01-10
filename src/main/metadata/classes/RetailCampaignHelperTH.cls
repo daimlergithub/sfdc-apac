@@ -41,7 +41,7 @@ public class RetailCampaignHelperTH{
     }
     }
     public static String getCommunityURL(){
-        String communityName='Daimler Community Thailand';
+        String communityName='Dealer Community Thailand';
          String commubaseurl='';
          boolean flag1;
     List<Network>  myNetwork = [SELECT Id,Name FROM Network];

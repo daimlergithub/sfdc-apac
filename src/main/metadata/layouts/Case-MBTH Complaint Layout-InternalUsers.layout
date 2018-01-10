@@ -29,7 +29,7 @@
                 <field>Subject</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>MBTH_Case_Department__c</field>
             </layoutItems>
             <layoutItems>

@@ -2391,6 +2391,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                      endUrl+='&ip_CommercialRegisterId='+(String.isnotblank(objAccount.Commercial_Reg_No__c)?EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c,'UTF-8'):'');
                  }
             }
+		System.debug('Endurl*** ' + endUrl);
         return endUrl;
     }
 	
@@ -2486,6 +2487,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     
     public Object processResponse() {
         HttpResponse res = Continuation.getResponse(this.requestLabel);
+		System.debug('res*** ' + res);
       // Set the result variable that is displayed on the Visualforce page
       try{
       this.requestLabel = res.getBody();

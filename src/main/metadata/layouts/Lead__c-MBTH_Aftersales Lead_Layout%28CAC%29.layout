@@ -272,10 +272,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Invoice_Number_History__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Invoice_Date__c</field>
             </layoutItems>
             <layoutItems>

@@ -1339,7 +1339,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Distinct__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Distinct</label>
+        <label>Retail District</label>
         <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3032,7 +3032,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Vat_No__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Vat No</label>
+        <label>Retail VAT No.</label>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
