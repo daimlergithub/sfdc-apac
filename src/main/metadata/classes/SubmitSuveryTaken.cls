@@ -134,13 +134,18 @@ public SubmitSuveryTaken(ApexPages.StandardController controller) {
              }catch(Exception e){}
           }
         
-         PageReference pr = new PageReference('/'+taskId);
+         PageReference pr = new PageReference('/'+st.id);
           pr.setRedirect(true);
           return pr;
           
       } 
   public void getsurveys()
  {  
+   if(st.Survey_Taking_Status__c == 'Finish' && st.Survey_Taken_Date_Time__c == null)
+   {
+   ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,'Please select Survey Taken Date/Time'));
+   }else
+   {
    showquestion=true;
    showsurveysel=false;
    surveySoql = '';
@@ -148,6 +153,7 @@ public SubmitSuveryTaken(ApexPages.StandardController controller) {
    objectFields =  new List<String>();  
    listquestions = new List<String>();
    listresponseop = new List<String>(); 
+   
    
    if(surveyids!=null)
    {
@@ -276,7 +282,7 @@ public SubmitSuveryTaken(ApexPages.StandardController controller) {
         
    }
   
-   
+   }
  }
   
   

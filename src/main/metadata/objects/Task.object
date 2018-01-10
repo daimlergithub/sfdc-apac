@@ -6918,6 +6918,18 @@
                 <fullName>wrong number</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>not started</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>need call back</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>invalid call</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Communication_Method__c</picklist>
