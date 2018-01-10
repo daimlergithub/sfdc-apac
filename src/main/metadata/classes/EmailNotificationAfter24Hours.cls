@@ -66,6 +66,7 @@ public class EmailNotificationAfter24Hours{
    
         message.setSubject(sub); 
         message.setPlainTextBody(body);
+		 message.setCharset('UTF-8');
         
         //it will call from Process Builder so at any time one record will come to the method.so i am assigning afterSalesmanagermail..values in for loop
         for(Lead__c l:leadList){
