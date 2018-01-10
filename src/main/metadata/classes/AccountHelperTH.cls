@@ -607,7 +607,8 @@ public class AccountHelperTH{
                     Account_Link__c acclnk = new Account_Link__c();
                     if(retailacc.RecordTypeId == accCompany_RecordTypeId)
                     {
-                        acclnk.LastModifiedDate__c = retailacc.LastmodifiedDate;
+						acclnk.LastModifiedDate__c = retailacc.LastmodifiedDate;
+                        acclnk.Retail_Country__c = retailacc.Country__c;
                         acclnk.createddate__c = retailacc.createdDate;
                         acclnk.Retail_Preferred_Language__c = 'Thai';
                         acclnk.Retail_UCID__c = retailacc.UCID__c;
@@ -649,6 +650,7 @@ public class AccountHelperTH{
                     else if(retailacc.RecordTypeId == accPerson_RecordTypeId)
                     {
                         acclnk.Retail_ID_Type__c = retailacc.ID_Type__c;
+						acclnk.Retail_Country__c = retailacc.Country__c;
                         acclnk.Retail_ID_Number__c = retailacc.ID_Number__c;
                         acclnk.LastModifiedDate__c = retailacc.LastmodifiedDate;
                         acclnk.createddate__c = retailacc.createdDate;
@@ -715,8 +717,7 @@ public class AccountHelperTH{
                                 acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(add.CreatedDate);
                                 acclnk.Retail_Address_LastModifiedDate__c = Date.valueOf(add.LastModifiedDate);
                                 acclnk.Retail_Address_Type__c = add.Address_Type__c;
-                                If(add.Foreign_Nationals__c != true)
-                                acclnk.Retail_Country__c ='Thailand';
+                                
                                 if(add.Address_Line_1__c != null && add.Address_Line_1__c != '')
                                 {
                                     acclnk.Retail_Address_Line_1__c = add.Address_Line_1__c;
@@ -809,7 +810,7 @@ public class AccountHelperTH{
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
         List<Account_Link__c> Accountlinklist = [select id,toRole__r.Agreement_to_commit_info_processing__c,toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.UCID__c,toRole__r.CDM_UCID__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.DMS_Retailer_ID__c,Name,toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
-                                                toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, 
+                                                toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, toRole__r.country__c,
                                                 toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,
                                                 toRole__r.Allow_Data_Sharing2__c,toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax,toRole__r.Primary_Address_Reference__r.Foreign_Nationals__c,
                                                 toRole__r.Email__c,toRole__r.Primary_Address_Reference__r.Address_Type__c,toRole__r.Primary_Address_Reference__r.Sub_District__c, toRole__r.Primary_Address_Reference__r.Province__c,
@@ -826,7 +827,8 @@ public class AccountHelperTH{
         acclnk.Retail_ID_Type__c = acclnk.toRole__r.ID_Type__c;
         acclnk.Retail_ID_Number__c = acclnk.toRole__r.ID_Number__c;        
                 acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;        
-                acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;       
+                acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;
+				acclnk.Retail_Country__c=acclnk.toRole__r.country__c;		
                 acclnk.Retail_Agreement_Info_Processing__c=acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
@@ -862,6 +864,7 @@ public class AccountHelperTH{
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company'){ 
                 acclnk.Retail_Company_Name__c = acclnk.toRole__r.Name;
+				acclnk.Retail_Country__c=acclnk.toRole__r.country__c;	
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
                 acclnk.Retail_Vat_No__c = acclnk.toRole__r.Vat_No__c;
@@ -894,8 +897,7 @@ public class AccountHelperTH{
         acclnk.Retail_ZipCode__c = (acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c : '' );
         acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
         acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
-		If(acclnk.toRole__r.Primary_Address_Reference__r.Foreign_Nationals__c != true)
-        acclnk.Retail_Country__c ='Thailand';
+		
 
       }//End if for Sales Address
             
