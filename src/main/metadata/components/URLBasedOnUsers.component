@@ -1,0 +1,9 @@
+<apex:component controller="URLBasedOnUsersController" access="global">
+  <apex:attribute name="relatedToId" type="Id" required="false" description="Id of related Object"/>
+  <apex:attribute name="recipientType" type="String" required="false" description="User type"/>
+  <!-- If recipient type is Community User -->
+  <apex:outputLink value="{!siteUrl}/{!relatedToId}" rendered="{!IF(recipientType=='PowerPartner',true,false)}">Click here</apex:outputLink>
+  <!-- If recipient type is Salesforce User -->
+  <apex:outputLink value="{!sfdcBaseURL}/{!relatedToId}" rendered="{!IF(recipientType=='Standard',true,false)}">Click here</apex:outputLink>
+ 
+</apex:component>

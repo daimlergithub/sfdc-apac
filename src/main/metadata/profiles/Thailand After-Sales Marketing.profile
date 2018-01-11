@@ -1026,6 +1026,10 @@
         <apexClass>Duplicatecheck_controller_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>EmailMessage</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>EmailNotificationAfter24Hours</apexClass>
         <enabled>true</enabled>
@@ -2285,6 +2289,10 @@
     <classAccesses>
         <apexClass>TriggerVehicleRelationshipTriggerHandler</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>URLBasedOnUsersController</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>Unify</apexClass>

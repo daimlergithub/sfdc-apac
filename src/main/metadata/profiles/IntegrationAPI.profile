@@ -1018,6 +1018,10 @@
         <apexClass>Duplicatecheck_controller_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>EmailMessage</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>EmailNotificationAfter24Hours</apexClass>
         <enabled>false</enabled>
@@ -2276,6 +2280,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelationshipTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>URLBasedOnUsersController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -11706,6 +11714,16 @@
         <field>Case.MBK_Data_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_1st_Reminder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_2nd_Reminder__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.MBTH_Case_Class__c</field>
@@ -11725,6 +11743,11 @@
         <editable>false</editable>
         <field>Case.MBTH_Case_Type__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Case.MBTH_Escalated_to_MBTH__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
