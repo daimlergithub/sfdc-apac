@@ -451,10 +451,10 @@ global with sharing class LeadVehiclePickerTHController {
             System.debug('allVehicleIds---'+allVehicleIds);
             System.debug('defaultVehicleIds---'+defaultVehicleIds);
             if (vin_number.equalsIgnoreCase('')){
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c LIMIT 50000];
+                vehicle = [Select Brand__c, Class__c, Model__c,EuroVIN__c,RegistrationNo__c from Vehicle__c Where Id IN :allVehicleIds AND MD__c = :usr.Market__c LIMIT 50000];
             }
             else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
+                vehicle = [Select Brand__c, Class__c, Model__c,EuroVIN__c,RegistrationNo__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
             }                 
         }
         return vehicle;

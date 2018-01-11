@@ -123,6 +123,17 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
             AccountHelperMY.updateAgeRange(Trigger.new);
             AccountHelperMY.activeContracts(Trigger.new);
             }
+			
+			/*	
+			//Created By : Mohammed Touseef Ahmed
+                //Date: 01/09/2018
+                //Description: Create Account Link record in CDM as Retail Copy
+            
+            */
+            if(isAfter && isupdate && !accountNewList.isEmpty() && accountNewList.size() > 0)
+            {
+                AccountHelperMY.createAccountLinkCDM(accountNewList,(Map<Id,Account>)Trigger.OldMap);
+            }   
         }
     }
 }

@@ -134,6 +134,26 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
                 <fullName>10</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>11</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>12</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>13</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>14</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>15</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
