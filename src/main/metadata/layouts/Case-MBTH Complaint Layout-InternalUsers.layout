@@ -150,7 +150,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Vehicle_Source__c</field>
             </layoutItems>
         </layoutColumns>
