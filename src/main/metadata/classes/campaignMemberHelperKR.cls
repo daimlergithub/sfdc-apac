@@ -54,14 +54,41 @@ public with sharing class campaignMemberHelperKR
 	}
 	
 	
-	 /*public static void updatecustomstatus (list<CampaignMember> campMemList)
+	 public static void updatecustomstatus (list<CampaignMember> campMemList,Map<Id,CampaignMember>oldCMmap)
     {
-       if(!campMemList.isEmpty() && campMemList != null)
-        {
+     list<CampaignMember> updateCampaignMemList = new list<CampaignMember>();
+       
             for(CampaignMember camMem : campMemList)
             {
-                camMem.Status__c = camMem.Status;
-            }           
-        }
-    }*/
+               system.debug('camMem.Status__c---'+camMem.Status__c);
+               system.debug('trigger.isUpdate'+trigger.isUpdate);
+                if(camMem.Status__c!=null && camMem.MD__c=='KR')
+                {  
+                system.debug('camMem.Status__c---'+camMem.Status__c);
+                if(oldCMmap!=null)
+                {
+                if((camMem.Status__c == '응답함' || camMem.Status__c == 'Responded') && oldCMmap.get(camMem.id).Status__c != camMem.Status__c && oldCMmap.get(camMem.id).Status__c!=null)
+                {
+                 
+                      camMem.Status = 'Responded';
+                 
+                }
+                }
+                if((camMem.Status == 'Sent' || camMem.Status == 'Responded') && ((camMem.Status__c == 'Sent' || camMem.Status__c == '발송함') || (camMem.Status__c == 'Responded' || camMem.Status__c == '응답함')))
+                {
+                  system.debug('I am here');
+                  camMem.Status__c = camMem.Status;
+                  system.debug(camMem.Status+'Status'+camMem.Status__c);
+                }
+                if(trigger.isUpdate && oldCMmap.get(camMem.id).Status != camMem.Status && ((camMem.Status__c == 'Failed/No Response' || camMem.Status__c == '실패/응답 없음') || (camMem.Status__c == 'Decline' || camMem.Status__c == '거절')))
+                {
+                  system.debug('I am here in update');
+                  camMem.Status__c = camMem.Status;
+                  system.debug(camMem.Status+'Status'+camMem.Status__c);
+                }
+                }
+            }  
+           
+           
+    }
 }

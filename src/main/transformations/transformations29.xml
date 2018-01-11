@@ -1,49 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformations>
-
-	<!--added by dhanamjaya-->
 	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE</token>
     </changetext>
-		<changetext>
+	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH</token>
     </changetext>
-		<changetext>
+	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID</token>
     </changetext>
-		<changetext>
+	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID</token>
     </changetext>
-		<changetext>
+	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID</token>
     </changetext>
-		<changetext>
+	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH</token>
     </changetext>
-		<changetext>
+	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH</token>
     </changetext>
-		<changetext>
+	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID</token>
     </changetext>
-<!--end of -->
-     <changetext>
+	<changetext>
       <filename>objects\Vehicle_Relationship__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='AfterSales_Lead']/url/text()</xpath>
       <token tokenonly="true">OBJECT_LEAD_ID</token>
@@ -152,6 +149,41 @@
 		<filename>objects\DM_Request__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_DM_REQUEST_LEAD_LKID</token>
+    </changetext>
+	<changetext>
+		<filename>objects\DM_Request__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID</token>
+    </changetext>
+	<changetext>
+		<filename>objects\DM_Request__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID</token>
+    </changetext>
+	<changetext>
+		<filename>objects\DM_Request__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_DM_REQUEST_SUB_DISTRICT_ID</token>
+    </changetext>
+	<changetext>
+		<filename>objects\DM_Request__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_DM_REQUEST_DISTRICT_ID</token>
+    </changetext>
+	<changetext>
+		<filename>objects\DM_Request__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_DM_REQUEST_PROVINCE_ID</token>
+    </changetext>
+	<changetext>
+		<filename>objects\DM_Request__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_DM_REQUEST_ZIP_CODE_ID</token>
+    </changetext>
+	<changetext>
+		<filename>objects\DM_Request__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_DM_Request']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_DM_REQUEST_SENDING_ADDRESS_ID</token>
     </changetext>
 	<changetext>
 		<filename>objects\DM_Request__c.object</filename>
@@ -1092,6 +1124,11 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Member']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_LKID</token>
+	</changetext>
 		<changetext>
 		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Member']/url/text()</xpath>
@@ -1111,6 +1148,11 @@
 		<filename>objects\Campaign_Member__C.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_LKID</token>
 	</changetext>
 	<changetext>
 		<filename>caseSharingRules\Case.sharingRules</filename>

@@ -123,6 +123,10 @@
     <customLabels>
         <label><!-- A6 Query via website --></label>
         <name>A6_Query_via_website</name>
+    </customLabels>	
+	<customLabels>
+        <label>失注</label>
+        <name>Lost</name>
     </customLabels>
     <customLabels>
         <label><!-- A6 Request for a test drive via website --></label>
@@ -553,7 +557,7 @@
         <name>CL_VehicleRel_No</name>
     </customLabels>
     <customLabels>
-        <label>本当にマージしますか？</label>
+        <label>本当に統合しますか？</label>
         <name>CP_Merge_Account_Confirm</name>
     </customLabels>
     <customLabels>
@@ -777,29 +781,21 @@
         <name>Campaign_Notification10</name>
     </customLabels>
     <customLabels>
-        <label>期日までにリスト確認を終え、提出してください。</label>
+        <label>以下のキャンペーンの対象顧客リストを統合顧客管理システムにて展開しました。</label>
         <name>Campaign_Notification11</name>
     </customLabels>
     <customLabels>
-        <label>以下のキャンペーンの実施日がきました。</label>
+        <label>以下のキャンペーンの実施日となりましたので、お客様へのコンタクトを開始してください。</label>
         <name>Campaign_Notification2</name>
     </customLabels>
     <customLabels>
         <label><!-- Campaign Notification3 --></label>
         <name>Campaign_Notification3</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
-        <label>お客様へのコンタクトを開始してください。</label>
-        <name>Campaign_Notification4</name>
-    </customLabels>
-    <customLabels>
-        <label>※リスト確認にはセールスフォースへのログインが必要となります。</label>
+        <label>期日までにリスト確認を終え、ご提出をお願いいたします。</label>
         <name>Campaign_Notification5</name>
-    </customLabels>
-    <customLabels>
-        <label>よろしくお願いいたします。</label>
-        <name>Campaign_Notification6</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label><!-- Campaign Notification7 --></label>
         <name>Campaign_Notification7</name>
@@ -869,13 +865,9 @@
         <name>Campaign_Planning_Page_Subtitle</name>
     </customLabels>
     <customLabels>
-        <label>本日以下の販売店キャンペーンの対象顧客を抽出します。</label>
+        <label>本日以下のキャンペーンの対象顧客を抽出しました。</label>
         <name>Campaign_Segmentation1</name>
-    </customLabels>
-    <customLabels>
-        <label>対象顧客を精査の上、キャンペーンのスケジュールに従って、実施してください。</label>
-        <name>Campaign_Segmentation2</name>
-    </customLabels>
+    </customLabels> 
     <customLabels>
         <label><!-- Retail Campaign Type --></label>
         <name>Campaign_Type</name>
@@ -2329,6 +2321,14 @@
         <label>選択したリードが統合先となり左側に表示されます。</label>
         <name>Please_Select_only_one_as_a_Master</name>
     </customLabels> 
+		<customLabels>
+        <label>エラーが発生しました。検索条件を追加・変更して再度実行してください</label>
+        <name>Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition</name>
+    </customLabels> 
+				<customLabels>
+        <label>検索結果が多すぎます。検索条件を追加してください。</label>
+        <name>Matched_records_are_too_much_please_add_more_criteria</name>
+    </customLabels> 
 	<customLabels>
         <label>興味車両等（マスタの値が反映され、右側は削除されます）</label>
         <name>vehicle_Details</name>
@@ -2365,17 +2365,10 @@
         <label>購入済車両：削除</label>
         <name>ch_Purchased_Vehicle_Details</name>
     </customLabels>
-	<customLabels>
-        <label>"表示されている16項目（興味車両メーカー～購入済車両車台番号）については統合先レコードの値が反映されます。
-左側のリードIDがマスターリードとなります。 
-両リードに値が入っている場合は、どちらを残すか選択してください。
-ただし、興味車両等（画面下部）はマスターリードの値のみが残りますので、
-興味車両等をご確認の上、リードIDにチェックを入れてマスターリードを選択してください。
-なお、以下のリードは、自動的にマスターリードとなり、変更できません。
-リードステータスが、受注・購入済・請求もしくは満了リード・クロスポイントリード"
-</label>
+    <customLabels>
+        <label>&quot;左側のリードIDがマスターリードとなります。 両リードに値が入っている場合は、どちらを残すか選択してください。 ただし、興味車両等（画面下部）はマスターリードの値のみが残りますので、 興味車両等をご確認の上、リードIDにチェックを入れてマスターリードを選択してください。 なお、リードステータスが、受注・購入済・請求もしくは満了リード・クロスポイントリードは、自動的にマスターリードとなり、変更できません。&quot;</label>
         <name>Leadmergeupdated</name>
-    </customLabels> 
+    </customLabels>
     <customLabels>
         <label>商談プロセスシート</label>
         <name>Lead_Process_Sheet</name>
@@ -2409,7 +2402,7 @@
         <name>LimitQueries</name>
     </customLabels>
     <customLabels>
-        <label>【ご確認ください】　リスト確認実施のご依頼</label>
+        <label> 【ご確認ください】　対象顧客リスト　メンテナンス実施のご依頼</label>
         <name>List_Ready_Maintenance</name>
     </customLabels>
     <customLabels>

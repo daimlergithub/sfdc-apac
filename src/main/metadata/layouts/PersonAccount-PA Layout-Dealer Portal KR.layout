@@ -63,6 +63,10 @@
                 <behavior>Edit</behavior>
                 <field>Old_UCID__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Message__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

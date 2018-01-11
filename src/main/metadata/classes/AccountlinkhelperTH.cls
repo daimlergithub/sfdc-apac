@@ -18,7 +18,8 @@ Public class AccountlinkhelperTH{
         Acclink=[select id,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,fromRole__r.Dealer_nd_Code__c from Account_link__c  where fromRole__c!=null and id=:acclinklist AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
         for(Account_link__c acclinkrec:Acclink){
             if(acclinkrec.fromRole__r.Dealer_GC_Code__c !=null){
-                AcclinkMap.put(acclinkrec,acclinkrec.fromRole__r.Dealer_nd_Code__c);
+                String grpName='TH'+acclinkrec.fromRole__r.Dealer_nd_Code__c;
+                AcclinkMap.put(acclinkrec,grpName);								   
                 system.debug('%%%'+acclinkmap);
             }
             
@@ -41,6 +42,101 @@ Public class AccountlinkhelperTH{
 
         }
     }
+    
+    public static void ExportNotificationTH (List<Account_Link__c> sample,Map<id,Account_Link__c> oldals)  {
+   
+   
+        List<EP_Export_Notification__c> epList = New list<EP_Export_Notification__c>();
+  
+        for(Account_Link__c als : sample){
+        Id recId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+        Id recrId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+        if ( (als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recId) || (als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == recrId ) ){
+        
+         
+         if(als.Retail_Gender__c!= oldals.get(als.Id).Retail_Gender__c || als.Retail_UCID__c!= oldals.get(als.Id).Retail_UCID__c ||
+ 
+            als.Retail_LastName__c != oldals.get(als.Id).Retail_LastName__c||
+            als.Retail_Full_Name__c != oldals.get(als.Id).Retail_Full_Name__c||
+            als.Retail_Full_Name_Title__c != oldals.get(als.Id).Retail_Full_Name_Title__c||
+            als.Retail_Full_Name_Native__c != oldals.get(als.Id).Retail_Full_Name_Native__c||
+            als.Retail_FirstName__c != oldals.get(als.Id).Retail_FirstName__c||
+            als.Retail_LastName_Native__c != oldals.get(als.Id).Retail_LastName_Native__c||
+            als.Retail_FirstName_Native__c != oldals.get(als.Id).Retail_FirstName_Native__c||
+            als.Retail_Company_Name__c != oldals.get(als.Id).Retail_Company_Name__c||
+            als.Retail_Company_Name_Native1__c != oldals.get(als.Id).Retail_Company_Name_Native1__c||
+            als.Retail_Preferred_Language__c != oldals.get(als.Id).Retail_Preferred_Language__c||
+            als.Retail_Special_Care__c != oldals.get(als.Id).Retail_Special_Care__c||
+            als.Retail_Special_Needs_Class__c !=    oldals.get(als.Id).Retail_Special_Needs_Class__c||
+            als.Retail_PersonBirthdate__c !=    oldals.get(als.Id).Retail_PersonBirthdate__c||
+            als.Retail_Occupation__c != oldals.get(als.Id).Retail_Occupation__c||
+            als.Retail_Vat_No__c != oldals.get(als.Id).Retail_Vat_No__c||
+            als.Retail_Commercial_Reg_No__c != oldals.get(als.Id).Retail_Commercial_Reg_No__c||
+            als.Retail_Foundation_Month__c  !=  oldals.get(als.Id).Retail_Foundation_Month__c||
+            als.Retail_Website__c   !=  oldals.get(als.Id).Retail_Website__c||
+            als.Retail_Industry__c  !=  oldals.get(als.Id).Retail_Industry__c||
+            als.Retail_Primary_Phone__c !=  oldals.get(als.Id).Retail_Primary_Phone__c||
+            als.Retail_Allow_Data_Sharing__c    !=  oldals.get(als.Id).Retail_Allow_Data_Sharing__c||
+            als.Retail_Delete_Flag__c   !=  oldals.get(als.Id).Retail_Delete_Flag__c||
+            als.Retail_Duplicate_Flag__c    !=  oldals.get(als.Id).Retail_Duplicate_Flag__c||
+            als.Retail_Email__c !=  oldals.get(als.Id).Retail_Email__c||
+            als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
+            als.Retail_Individual_Home_Phone__c !=  oldals.get(als.Id).Retail_Individual_Home_Phone__c||
+            als.Retail_Work_Phone__c    !=  oldals.get(als.Id).Retail_Work_Phone__c||
+            als.Retail_Mobile__c    !=  oldals.get(als.Id).Retail_Mobile__c||
+            als.Retail_Company_Phone__c !=  oldals.get(als.Id).Retail_Company_Phone__c||
+            als.Retail_Company_Other_Phone__c   !=  oldals.get(als.Id).Retail_Company_Other_Phone__c||
+            als.Retail_Fax__c   !=  oldals.get(als.Id).Retail_Fax__c||
+            als.Retail_Province__c  !=  oldals.get(als.Id).Retail_Province__c||
+            als.Retail_City__c  != oldals.get(als.Id).Retail_City__c||
+            als.Retail_Distinct__c  !=  oldals.get(als.Id).Retail_Distinct__c||
+            als.Retail_Address_Line_1__c    !=  oldals.get(als.Id).Retail_Address_Line_1__c||
+            als.Retail_Address_Line_2__c    !=  oldals.get(als.Id).Retail_Address_Line_2__c||
+            als.Retail_ZipCode__c   !=  oldals.get(als.Id).Retail_ZipCode__c||
+            als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
+            als.Retail_Primary_Phone__c != oldals.get(als.Id).Retail_Primary_Phone__c ||
+            als.Retail_Address_Type__c  !=  oldals.get(als.Id).Retail_Address_Type__c||
+            als.Retail_Address_CreatedDate__c   !=  oldals.get(als.Id).Retail_Address_CreatedDate__c||
+            als.Retail_Address_LastModifiedDate__c  !=  oldals.get(als.Id).Retail_Address_LastModifiedDate__c||
+            als.Retail_DMS_Customer_ID__c   !=  oldals.get(als.Id).Retail_DMS_Customer_ID__c||
+            als.Retail_Complaint_Amount__c  !=  oldals.get(als.Id).Retail_Complaint_Amount__c||
+            als.Retail_Sales_Sanction__c    !=  oldals.get(als.Id).Retail_Sales_Sanction__c||
+            als.Retail_UCID__c  !=  oldals.get(als.Id).Retail_UCID__c||
+            als.Retail_Preferred_Contact_Method__c  !=  oldals.get(als.Id).Retail_Preferred_Contact_Method__c||
+            als.Retail_Email_OptOut__c  !=  oldals.get(als.Id).Retail_Email_OptOut__c||
+            als.Retail_Fax_OptOut__c    !=  oldals.get(als.Id).Retail_Fax_OptOut__c||
+            als.Retail_Phone_OptOut__c  !=  oldals.get(als.Id).Retail_Phone_OptOut__c||
+            als.Retail_Postal_OptOut__c !=  oldals.get(als.Id).Retail_Postal_OptOut__c||
+            als.Retail_Visit_OptOut__c  !=  oldals.get(als.Id).Retail_Visit_OptOut__c||
+            als.Retail_Gender__c    !=  oldals.get(als.Id).Retail_Gender__c||
+            als.Retail_Agreement__c !=  oldals.get(als.Id).Retail_Agreement__c||
+            als.Retail_Information_Third_Party_Release__c   !=  oldals.get(als.Id).Retail_Information_Third_Party_Release__c||
+            als.Retail_Abroad_Agreement__c  !=  oldals.get(als.Id).Retail_Abroad_Agreement__c||
+            als.Retail_Agreement_Info_Processing__c !=  oldals.get(als.Id).Retail_Agreement_Info_Processing__c||
+            als.Retail_Address_Reference__c !=  oldals.get(als.Id).Retail_Address_Reference__c||
+            als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c){
+        
+            EP_Export_Notification__c epe = New EP_Export_Notification__c();
+            epe.Status__c = 'New';
+            epe.Usecase__c = 'AL.CustomerUpdateTH';
+            epe.MD__c = 'TH';
+            epe.Type__c = 'Account_Link__c';
+            epe.SFDC_object_id__c = als.id;
+           
+            
+            
+         
+           epList.add(epe);
+        
+         }
+       }  
+    
+     }
+     if(epList.size()>0){
+         insert epList;
+        }
+    }
+    
 public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
     List<AccountShare> AccountShareList = new  List<AccountShare>();
     Set<String> ndCode=new Set<String>();
@@ -50,7 +146,8 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
         acctoshare.add(acclinkrec.fromRole__c);
         acctoshare.add(acclinkrec.toRole__c);
         if(acclinkrec.fromRole__r.Dealer_ND_Code__c!=null){
-            ndCode.add(acclinkrec.fromRole__r.Dealer_nd_Code__c);
+            String grpName='TH'+acclinkrec.fromRole__r.Dealer_nd_Code__c;
+            ndCode.add(grpName);					
         }
     }
     if(ndCode.size()>0){
@@ -115,8 +212,8 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
          accsharedelete=[SELECT Id, accountid FROM AccountShare WHERE accountid IN:accountIds];
          
          if(list_SharingDele.size()>0){
-             Database.delete(list_SharingDele, false);
-             Database.delete(accsharedelete,false);
+             //Database.delete(list_SharingDele, false);
+             //Database.delete(accsharedelete,false);
          }
          }
        

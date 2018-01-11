@@ -50,15 +50,17 @@ public with sharing class VehicleRelationshipHelperTH
         for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId &&vehicleRellist[i].md__c==System.Label.MarketTH && vehicleRellist[i].Owner_Dealer__c != null&& vehicleRellist[i].Owner_Dealer_ND_Code__c!=null;i++){
             //if user type is power partner then share only with the dealers under particular Account
             if(vehicleRellist[i].createdby.usertype=='PowerPartner'){
-                vrseditaccesswithdealers.put(vehicleRellist[i].id,vehicleRellist[i].createdby.Dealer_ND_Code__c);
+                String grpName='TH'+vehicleRellist[i].createdby.Dealer_ND_Code__c;
+                vrseditaccesswithdealers.put(vehicleRellist[i].id,grpName);
             }
             else{
-                vrs.put(vehicleRellist[i].id,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                String grpName='TH'+vehicleRellist[i].Owner_Dealer_ND_Code__c;
+                vrs.put(vehicleRellist[i].id,grpName);
                 if(vehicleRellist[i].Contact__c!=null){
-                     accs.put(vehicleRellist[i].Contact__c,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                     accs.put(vehicleRellist[i].Contact__c,grpName);
                  }
                 if(vehicleRellist[i].Vehicle_ID__c!=null){
-                    vehicl.put(vehicleRellist[i].Vehicle_ID__c,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                    vehicl.put(vehicleRellist[i].Vehicle_ID__c,grpName);
                 }
                 
             }
@@ -68,13 +70,14 @@ public with sharing class VehicleRelationshipHelperTH
     else{
         //if old value is null and new value is there then share with new dealer
         for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId&&vehicleRellist[i].md__c==System.Label.MarketTH;i++){
+            String grpName='TH'+vehicleRellist[i].Owner_Dealer_ND_Code__c;
             if(((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&&trigger.oldmap!=null&&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
-                vrs.put(vehicleRellist[i].id,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                vrs.put(vehicleRellist[i].id,grpName);
                 if(vehicleRellist[i].Contact__c!=null){
-                     accs.put(vehicleRellist[i].Contact__c,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                     accs.put(vehicleRellist[i].Contact__c,grpName);
                  }
                 if(vehicleRellist[i].Vehicle_ID__c!=null){
-                    vehicl.put(vehicleRellist[i].Vehicle_ID__c,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                    vehicl.put(vehicleRellist[i].Vehicle_ID__c,grpName);
                 }
             }
             //if old dealer is not same as new dealer then revoke the access from the old dealer and give the access to the new dealer
@@ -82,30 +85,31 @@ public with sharing class VehicleRelationshipHelperTH
                          &&trigger.oldMap!=null &&((Vehicle_Relationship__c)trigger.oldMap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&&
                         ((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c
                        ){
-                        vrs.put(vehicleRellist[i].id,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                        vrs.put(vehicleRellist[i].id,grpName);
                         if(vehicleRellist[i].Contact__c!=null){
-                            accs.put(vehicleRellist[i].Contact__c,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                            accs.put(vehicleRellist[i].Contact__c,grpName);
                          }
                         if(vehicleRellist[i].Vehicle_ID__c!=null){
-                             vehicl.put(vehicleRellist[i].Vehicle_ID__c,vehicleRellist[i].Owner_Dealer_ND_Code__c);
+                             vehicl.put(vehicleRellist[i].Vehicle_ID__c,grpName);
                             }
-                        vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
+                         String oldGgrpName='TH'+((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
+                        vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
                         if(vehicleRellist[i].Contact__c!=null){
-                            accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
+                            accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
                          }
                         if(vehicleRellist[i].Vehicle_ID__c!=null){
-                            vehiclerevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
+                            vehiclerevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
                         }
   
             }//if trigger.old is there and trigger.new is null then revoke vehicle,VR,Account access from dealers
             else if(trigger.oldMap!=null &&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&& ((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
-                 
-                 vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
+                 String oldGrpName='TH'+((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
+                 vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGrpName);
                  if(vehicleRellist[i].Contact__c!=null){
-                    accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Contact__c,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
+                    accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Contact__c,oldGrpName);
                  }
                 if(vehicleRellist[i].Vehicle_ID__c!=null){
-                    vehiclerevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Vehicle_ID__c,((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c);
+                    vehiclerevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Vehicle_ID__c,oldGrpName);
                 }
             }
             
@@ -113,7 +117,8 @@ public with sharing class VehicleRelationshipHelperTH
     }
     Map<id,AccountShare> accalredayhaveaccess=new Map<id,AccountShare>([select id, AccountAccessLevel, userOrgroupid from AccountShare  where Accountid IN:accs.keyset() and userOrgroupid IN: accs.values()]);
     //accalredayhaveaccess=[select id, AccountAccessLevel, userOrgroupid from AccountShare  where Accountid IN:accs.keyset() and userOrgroupid IN: accs.values()];
-    if(vrs.size()>0){
+   System.debug('vrs---'+vrs);
+      if(vrs.size()>0){
         for(Group gp:[select id,name from Group where name IN :vrs.values()]){
             for(ID veh:vrs.keyset()){
                 if(gp.name==vrs.get(veh)){
@@ -151,7 +156,7 @@ public with sharing class VehicleRelationshipHelperTH
         sobj.addAll((List<sObject>)(accshare));
     }
     if(vehiclestoshare.size()>0){
-        //sobj.addall((List<sObject>)(vehiclestoshare));
+        sobj.addall((List<sObject>)(vehiclestoshare));
     }
     if(sobj.size()>0){
         Database.insert(sobj);

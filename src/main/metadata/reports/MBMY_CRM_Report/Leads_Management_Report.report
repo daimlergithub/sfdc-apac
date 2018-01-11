@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_$Lead__c.Interested_Vehicle_Category__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Lead__c.Interested_Vehicle_Model__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Lead__c.CA_Updated_Date__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Lead__c.Assigned_Dealer_by_Rule__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Lead__c.Test_Drive_Detail__c</field>
+    </columns>
+    <columns>
+        <field>FK_CUSTENT_OWNER_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Lead__c.Full_Address__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Lead__c.Mobile__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Lead__c.Email__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Lead__c.Vehicle_Model_Current__c</field>
+    </columns>
+    <columns>
+        <field>Vehicle_Relationship__c.New_Used__c</field>
+    </columns>
+    <description>Vehicle Relationship with Source Lead</description>
+    <format>Tabular</format>
+    <name>Leads Management Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Vehicle_Relationship__c@Vehicle_Relationship__c.Source_Lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Vehicle_Relationship__c.Activated_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

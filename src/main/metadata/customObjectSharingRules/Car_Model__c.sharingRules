@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>CarModelWithCommunityUsers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>AS_Service_Technical_Director</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Share car model with community users.</description>
+        <name>CarModelWithCommunityUsers</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_CarModel_Readable_to_MBJ_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinates>Central</roleAndSubordinates>

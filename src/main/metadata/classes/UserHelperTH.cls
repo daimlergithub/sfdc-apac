@@ -1,5 +1,134 @@
 public class UserHelperTH{
-    public static Id dealerAccount = RecordTypeAccessService.getRecordTypeId('Account','Dealer');
+    public static void shareRecordsAfterInsertAndUpdate(List<User> triggerUserLst)
+    {
+        List<User> usersWithDNClst=new List<User>();
+        List<Id> userIdLst=new List<Id>();
+        Set<String> THDealerCodesLst=new Set<String>();
+        List<Id> triggerUserIdLst=new List<Id>();
+        for(User usr:triggerUserLst)
+        {
+            triggerUserIdLst.add(usr.Id);
+        }
+        List<User> userLst=[select Id,ContactId,Contact.Account.Dealer_Nd_code__c,Market__c from User where Id IN:triggerUserIdLst];
+        for(User usr:userLst)
+        {System.debug('---'+usr.ContactId+'--'+usr.Contact.Account.Dealer_Nd_code__c+'---'+usr.Market__c);
+            //user who have dealer code and market is TH
+            if(usr.ContactId!=null && usr.Contact.Account.Dealer_Nd_code__c!=null && usr.Market__c=='TH')
+            {
+                String dealerCode='TH'+usr.Contact.Account.Dealer_Nd_code__c;
+                THDealerCodesLst.add(dealerCode);
+                usersWithDNClst.add(usr);
+                userIdLst.add(usr.Id);
+            }
+        }
+        System.debug('userIdLst--'+userIdLst);
+        List<User> usersWOGrp=new List<User>();
+        List<User> usersWHGrp=new List<User>();
+        if(usersWithDNClst!=null && usersWithDNClst.size()>0)
+        {
+            Map<Id,Group> groupIdGroupObjMap=new Map<Id,Group>([select Id,Name from Group where Name IN: THDealerCodesLst]);
+            Set<String> groupNamesSet=new Set<String>();
+            for(Id grpId:groupIdGroupObjMap.keySet())
+            {
+                groupNamesSet.add(groupIdGroupObjMap.get(grpId).Name);
+            }
+            for(User usr:usersWithDNClst)
+            {
+                String DealerNCode='TH'+usr.Contact.Account.Dealer_Nd_code__c;
+                //if aready group is present for the user
+                if(groupNamesSet.contains(DealerNCode))
+                {
+                    usersWHGrp.add(usr);
+                }
+                else //if group is not present
+                {
+                    usersWOGrp.add(usr);
+                }
+            }
+            if(usersWOGrp!=null && usersWOGrp.size()>0)
+            {
+                //create group
+                createGroup(usersWOGrp);
+            }
+            if(usersWHGrp!=null && usersWHGrp.size()>0)
+            {
+                //add user to the group
+                addUsersToGroup(usersWHGrp);
+            }
+         if(!Test.isRunningTest())
+         {
+            FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Account_Link__c'))); 
+             FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Lead__c')));
+          FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Case')));
+          FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Vehicle_Relationship__c')));
+         }
+      else
+        {
+            Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Account_Link__c'));
+            Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Lead__c'));
+            Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Case'));
+            Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Vehicle_Relationship__c'));
+        }
+            
+        
+        }
+    }
+    public static void createGroup(List<User> usersWOGrp)
+    {
+        List<Group> grpLst=new List<Group>();
+        Set<Group> grpSet=new Set<Group>();
+        for(User usr:usersWOGrp)
+        {
+            Group grpObj=new Group();
+            grpObj.Name='TH'+usr.contact.Account.Dealer_Nd_code__c;
+            grpObj.DoesIncludeBosses=false;
+            grpSet.add(grpObj);
+        }
+        if(grpSet.size()>0)
+        {
+            grpLst.addAll(grpSet);
+        }
+        if(grpLst!=null && grpLst.size()>0)
+            insert grpLst;
+        System.debug('grpLst---'+grpLst);
+        //add users to group
+        if(grpLst!=null && grpLst.size()>0)
+        {
+            addUsersToGroup(usersWOGrp);
+        }
+    }
+    
+    public static void addUsersToGroup(List<User> usersWHGrp)
+    {
+        Set<String> groupNamesLst = new Set<String>(); 
+        for(User usr:usersWHGrp)
+        {
+            String groupName='TH'+usr.contact.Account.Dealer_Nd_code__c;
+            groupNamesLst.add(groupName);
+        }
+        List<Group> grpLst;
+        if(groupNamesLst!=null && groupNamesLst.size()>0)
+        {
+            grpLst=new List<Group>([select ID,Name from Group where Name IN: groupNamesLst]);
+        }
+        Map<String,Id> grpNameGrpIdMap=new Map<String,Id>();
+        for(Group gp:grpLst)
+        {
+            grpNameGrpIdMap.put(gp.Name, gp.Id);
+        }
+        List<GroupMember> grpMemberLst=new List<GroupMember>();
+        for(User usr:usersWHGrp)
+        {
+            String groupName='TH'+usr.contact.Account.Dealer_Nd_code__c;
+            grpMemberLst.add(new GroupMember(GroupId=grpNameGrpIdMap.get(groupName),UserOrGroupId = usr.id));
+        }
+        if(grpMemberLst!=null && grpMemberLst.size()>0)
+        {
+            DMLManagerService.insertassystem(grpMemberLst);
+        }
+        
+    }
+    /*public static Id dealerAccount = RecordTypeAccessService.getRecordTypeId('Account','Dealer');
     public static List<id> userlisttosharewhileupdating=new List<id>();
     public static List<id> AccessneedstoRevokefromuser=new List<id>();
     public static MAP<id,String> dealeruser=new Map<Id,String>();
@@ -15,7 +144,7 @@ public class UserHelperTH{
                 accid.add(usersList[i].accountid);
             } 
         }
-        
+        */
         //Update Operation will be perform once the requirement got from Market
         /*else if(isUpdate){
         for(integer i=0;i<usersList.size()&&(((User)Trigger.newmap.get(usersList[i].id)).contact.account.md__c=='TH'&&((User)Trigger.newmap.get(usersList[i].id)).contact.accountid!=((User)Trigger.oldmap.get(usersList[i].id)).contact.accountid)||(((User)Trigger.newmap.get(usersList[i].id)).market__c=='TH'&&((User)Trigger.oldmap.get(usersList[i].id)).market__c!='TH'&&((User)Trigger.newmap.get(usersList[i].id)).contact.accountid!=null&&((User)Trigger.newmap.get(usersList[i].id)).contact.account.md__c=='TH');i++){
@@ -25,7 +154,7 @@ public class UserHelperTH{
             }
         }*/
         
-        if(listOfUsers.size()>0){
+       /* if(listOfUsers.size()>0){
         //will provides the existing users under particular Account.As community users creating manually taking only one account in consideration.
          Set<Id> existUserIds = new Set<Id>();
         for(User existUser : [select Id from User where AccountId = :accid[0] and isActive = true]) {
@@ -35,21 +164,22 @@ public class UserHelperTH{
         if (existUserIds.size() == 0) {
             return;
         }
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Account',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Lead',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Vehicle',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'VehicleRelation',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Case',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'RetailCampaign',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'CampaignMemberCustom',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Campaign',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Accountlink',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'User',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'CarModel',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'SurveyTaken',true));
-        Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Survey',true));
+            
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Account',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Lead',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Vehicle',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'VehicleRelation',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Case',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'RetailCampaign',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'CampaignMemberCustom',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Campaign',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Accountlink',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'User',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'CarModel',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'SurveyTaken',true)));
+        FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(listOfUsers[0],existUserIds,'Survey',true)));
         
-        
+        */
 
            
            /* for(User usr:[select id,contact.accountid from User where contact.accountid IN : accid and market__c=:'TH']){
@@ -58,12 +188,12 @@ public class UserHelperTH{
                     }
                 accwithsetofUsers.get(usr.contact.accountid).add(usr.id);
             }*/
-        }
+     /*   }
             
         if(accesstorevoke.size()>0){
         //needs to revoke the access once users account or market got changed
-		
-		
+                 
+                 
         //database.ExecuteBatch(new RevokeALLRecordsToNewUserBatchTH(accesstorevoke[0],'Account'));
         
         }
@@ -100,7 +230,7 @@ public class UserHelperTH{
                     else if(u.Dealer_nd_code__c!=null){
                         dealeruser.put(u.id,u.Dealer_nd_code__c);
                     }
-               }
+              }
             }
         }
         if(userlisttosharewhileupdating.size()>0||AccessneedstoRevokefromuser.size()>0||dealeruser.size()>0){
@@ -135,7 +265,7 @@ public class UserHelperTH{
     //If no group is there with dealer nd code then it will create group and adds it to the group
     public static void createGroup(List<User> newUserList)
     {
-        set<id> userid = new set<id>();
+       set<id> userid = new set<id>();
         set<id> newuserid = new set<id>();
         set<string> dealerndcode= new set<string>();
         List<Group> listgp=new List<Group>();
@@ -205,6 +335,6 @@ public class UserHelperTH{
             dealerndcode.add(acc.dealer_Nd_code__c);
         }
         return [select id,name from group where name IN : dealerndcode];
-        }
+        }*/
 
 }

@@ -1973,26 +1973,46 @@ alert('{!$Label.Error_Message_2}');
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-var userMarket = sforce.connection.query("Select Id, Market__c from User where Id =" + "'{!$User.Id}'"); 
-
+        <url>{!REQUIRESCRIPT("xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("support/console/41.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/41.0/connection.js")} 
+var addressRecord= sforce.connection.query("Select Address_Line_1__c,Address_Line_2__c,District__c,Sub_District__c,Province__c,ZipCode__c,Address_Type__c from Address__c where Customer__c ='{!Account.Id}' and Preferred__c=true"); 
+var addressObj=addressRecord.getArray("records");
+var addressType;
+var addressLine1='';
+var addressLine2='';
+var subDistrict='';
+var district='';
+var province='';
+var zipCode='';
+if(addressObj!=null &amp;&amp; addressObj!='undefined' &amp;&amp; addressObj!='')
+{
+addressType=addressObj[0].Address_Type__c;
+addressLine1=addressObj[0].Address_Line_1__c;
+addressLine2=addressObj[0].Address_Line_2__c;
+subDistrict=addressObj[0].Sub_District__c;
+district=addressObj[0].District__c;
+province=addressObj[0].Province__c;
+zipCode=addressObj[0].ZipCode__c;
+}
 if (sforce.console.isInConsole()) { 
 javascript:sforce.console.getEnclosingPrimaryTabId( 
 function openPrimaryTab(result) { 
-if('{!Case.RecordTypeId}' == 'CASE_INQUIRY_TYPE_RECORDTYPEID') 
-{	
-sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Case.Account}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Case.AccountId}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Case.Lead__c}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Case.LeadId__c}&amp;saveURL={!Case.Id}&amp;retURL={!Case.Id}&amp;cancelURL={!Case.Id}',true, '{!$Label.New_DM_Request}'); 
-} 
+															   
+  
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL={!IF(Case.Id!='', Case.Id, Account.Id)}',true, '{!$Label.New_DM_Request}'); 
+  
 } 
 ) 
 }	
-else { 
-if('{!Case.RecordTypeId}' == 'CASE_INQUIRY_TYPE_RECORDTYPEID') 
-{	
-window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Case.Account}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Case.AccountId}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Case.Lead__c}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Case.LeadId__c}&amp;saveURL={!Case.Id}&amp;retURL={!Case.Id}&amp;cancelURL={!Case.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
-}  
+else {
+if({!ISPICKVAL($User.UserType, 'PowerPartner')}==true)
+{
+window.open("a12/e?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID="+addressLine1+"&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID="+addressLine2+"&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID="+subDistrict+"&amp;OBJECT_DM_REQUEST_DISTRICT_ID="+district+"&amp;OBJECT_DM_REQUEST_PROVINCE_ID="+province+"&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID="+zipCode+"&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID="+addressType+"&amp;saveURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}","_self","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600");
+}
+else{
+window.open("a12/e?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID="+addressLine1+"&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID="+addressLine2+"&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID="+subDistrict+"&amp;OBJECT_DM_REQUEST_DISTRICT_ID="+district+"&amp;OBJECT_DM_REQUEST_PROVINCE_ID="+province+"&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID="+zipCode+"&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID="+addressType+"&amp;saveURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL={!IF(Case.Id!='', Case.Id, Account.Id)}","_self","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+}
 }</url>
     </webLinks>
     <webLinks>
@@ -2005,14 +2025,34 @@ window.open("OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Case
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+        <url>{!REQUIRESCRIPT("xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/soap/ajax/41.0/connection.js")} 
+{!REQUIRESCRIPT("support/console/41.0/integration.js")} 
 var userMarket = sforce.connection.query("Select Id, UserType,Market__c from User where Id =" + "'{!$User.Id}'"); 
 records = userMarket.getArray("records");
 var accid = records[0].Market__c; 
 var usrty=records[0].UserType;
-alert(usrty);
+
+var addressRecord= sforce.connection.query("Select Address_Line_1__c,Address_Line_2__c,District__c,Sub_District__c,Province__c,ZipCode__c,Address_Type__c from Address__c where Customer__c ='{!Lead__c.ContactId__c}' and Preferred__c=true"); 
+var addressObj=addressRecord.getArray("records"); 
+var addressType; 
+var addressLine1=''; 
+var addressLine2=''; 
+var subDistrict=''; 
+var district=''; 
+var province=''; 
+var zipCode=''; 
+if(addressObj!=null &amp;&amp; addressObj!='undefined' &amp;&amp; addressObj!='') 
+{ 
+addressType=addressObj[0].Address_Type__c; 
+addressLine1=addressObj[0].Address_Line_1__c; 
+addressLine2=addressObj[0].Address_Line_2__c; 
+subDistrict=addressObj[0].Sub_District__c; 
+district=addressObj[0].District__c; 
+province=addressObj[0].Province__c; 
+zipCode=addressObj[0].ZipCode__c; 
+} 
+
  if(accid=='TH'){
 var acccount=sforce.connection.query("select Id from DM_Request__c where Customer_Name__c ='{!Lead__c.ContactId__c}' and (Status1__c='Success' OR Status2__c='Success' OR Status3__c='Success') and Sent_Date__c &lt;= LAST_N_DAYS:90");
 reco = acccount.getArray("records");
@@ -2021,17 +2061,17 @@ alert('DM request for this User has been created in last 90 days with status Suc
 } 
 }
 if(usrty=='PowerPartner'&amp;&amp; accid=='TH'){
-alert('hello');
+
 if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
 {	
-window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
 } 
 else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
 { 
-window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
 } 
 else if('{!Lead__c.RecordTypeId}' == '012280000006I7r'){
-window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}');
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}');
 }
 }
 else{
@@ -2040,11 +2080,11 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openPrimaryTab(result) { 
 if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
 {	
-sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
 } 
 else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
 { 
-sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
 } 
 
 } 
@@ -2053,11 +2093,11 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_
 else { 
 if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
 {	
-window.open("OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open('OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',"","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
 { 
-window.open("OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}","","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open('OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',"","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 }
 }</url>

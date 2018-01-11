@@ -866,8 +866,12 @@ public class AccountLinkHelper
                 Database.insert(list_SharingRecord, false);
             }
         }*/
+        
+        if(!System.isBatch()){
+		
         Batch_VRSharingJP batcher = new Batch_VRSharingJP (dealerAccNameSet,map_FromAccountIdAndListToAccountId,set_ToAccountId );
             Database.executeBatch(batcher, 50);
+            }
     }
  
     public static void updateRetailCopy(boolean isUpdate, boolean isinsert,List<Account_Link__c> accLst,map<id,Account_Link__c> accLinkOldmap)
@@ -1334,14 +1338,15 @@ public class AccountLinkHelper
                     retComAccLinkMap.put(accl.toRole__c,accl.Id);      
                 }
             }
-            List<Account_Link__c> accLinkConToCon = [SELECT Id,Position__c,fromRole__c,toRole__C  FROM Account_Link__c WHERE (fromRole__c IN: perAccIdSet AND toRole__c IN: comAccIdSet) OR (fromRole__c IN: comAccIdSet AND toRole__c IN: perAccIdSet)];
+            List<Account_Link__c> accLinkConToCon = [SELECT Id,Position__c,fromRole__c,Retail_Position__c,toRole__C  FROM Account_Link__c WHERE (fromRole__c IN: perAccIdSet AND toRole__c IN: comAccIdSet) OR (fromRole__c IN: comAccIdSet AND toRole__c IN: perAccIdSet)];
             if(accLinkConToCon != NULL && !accLinkConToCon.isEmpty()){
                 for(Account_Link__c acLink : accLinkConToCon){
                     if(!String.isBlank(acLink.Position__c)){
                         if(retComAccLinkMap.get(acLInk.toRole__c) != NULL)
                         updateMap.get(retComAccLinkMap.get(acLInk.toRole__c)).Retail_Position__c = acLink.Position__c;
-                        else if(retComAccLinkMap.get(acLInk.fromRole__c) != NULL)
-                        updateMap.get(retComAccLinkMap.get(acLInk.fromRole__c)).Retail_Position__c = acLink.Position__c;
+                        else if(retComAccLinkMap.get(acLInk.fromRole__c) != NULL && acLink.Retail_Position__c  != null) {
+                            updateMap.get(retComAccLinkMap.get(acLInk.fromRole__c)).Retail_Position__c = acLink.Position__c;
+                        }
                     }
                 }    
             }
@@ -1635,6 +1640,3 @@ public class AccountLinkHelper
               }       
     }
 }
-
-
-

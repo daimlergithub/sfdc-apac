@@ -1,10 +1,10 @@
-<messaging:emailTemplate subject="【ご確認ください】　販売店キャンペーン実行開始のお知らせ" recipientType="User" relatedToType="Retail_Campaign__c"  language="{!recipient.LanguageLocaleKey}">
+<messaging:emailTemplate subject=" 【ご確認ください】　キャンペーン開始のお知らせ" recipientType="User" relatedToType="Retail_Campaign__c"  language="{!recipient.LanguageLocaleKey}">
 <messaging:htmlEmailBody >
 <html>
    <style type="text/css">
    </style>
    <body>
-   <p> {!relatedTo.Dealer_Name__r.owner.Name} {!$Label.Email_LeadDealerAssign2}</p>
+   <p> {!relatedTo.Dealer_Name__r.Name} {!$Label.Email_LeadDealerAssign2}</p>
    
    <p> {!$Label.Campaign_Notification1}</p>
    
@@ -12,7 +12,7 @@
    
    <!--<p> {!$Label.Campaign_Notification3}</p>-->
    
-   <p> {!$Label.Campaign_Notification4}</p>
+   <!--<p> {!$Label.Campaign_Notification4}</p>-->
    
   <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
         Direct link URL to the detail page
@@ -20,7 +20,7 @@
    
    <p> ※販売店キャンペーンの確認にはセールスフォースへのログインが必要となります。</p>
    
-   <p> {!$Label.Campaign_Notification6}</p>
+   <!--<p> {!$Label.Campaign_Notification6}</p>-->
    
    <p> {!$Label.Email_LeadDealerAssign13}<br></br>{!$Label.Email_LeadDealerAssign23}</p>
      
