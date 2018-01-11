@@ -263,11 +263,13 @@ public  void updatecommunityurl(List<Case> caselist){
              
              //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
              if(casesrec.createdby.usertype=='PowerPartner'&& casesrec.createdby.Dealer_nd_code__c!=null){
-                    dealerndcodeset.add(casesrec.createdby.Dealer_nd_code__c);
+                    String grpName='TH'+casesrec.createdby.Dealer_nd_code__c;
+                 	dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
              }
              else if(casesrec.Case_Dealer__c!=null && casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
-                dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
+                 String grpName='TH'+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+                 dealerndcodeset.add(grpName);
                  lstcase.add(casesrec);
             }
         }
@@ -277,16 +279,18 @@ public  void updatecommunityurl(List<Case> caselist){
             //system.debug(((Case)trigger.oldmap.get(casesrec.id)).owner!=((Case)trigger.newmap.get(casesrec.id)).owner);
             system.debug(((Case)trigger.oldmap.get(casesrec.id)).ownerId+'  '+((Case)trigger.newmap.get(casesrec.id)).ownerId);
          if(((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=null  && ((Case)trigger.oldMap.get(casesrec.id)).Case_Dealer__c==null&&casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
-             dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
+             String grpName='TH'+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+             dealerndcodeset.add(grpName);
              lstcase.add(casesrec);
          }
          //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
          else if(((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=null  && ((Case)trigger.oldMap.get(casesrec.id)).Case_Dealer__c!=null&&((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__c&&casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
-            dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
+            String grpName='TH'+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+            dealerndcodeset.add(grpName);
             lstcase.add(casesrec);
           //will revoke record access depends on dealer nd code  if we change the assigned dealer
              if (((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c!=null){
-                sharingrevokefromgroups.add(((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
+                 sharingrevokefromgroups.add(((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
                 casesharingtorevoke.add(((Case)trigger.oldmap.get(casesrec.id)).id);
             }
          }
@@ -296,7 +300,8 @@ public  void updatecommunityurl(List<Case> caselist){
              casesharingtorevoke.add(((Case)trigger.oldmap.get(casesrec.id)).id);
          }
          else if(((Case)trigger.oldmap.get(casesrec.id)).ownerId!=((Case)trigger.newmap.get(casesrec.id)).ownerId){
-             dealerndcodeset.add(usr.get(casesrec.ownerid).dealer_nd_code__c);
+             String grpName='TH'+usr.get(casesrec.ownerid).dealer_nd_code__c;
+             dealerndcodeset.add(grpName);
               lstcase.add(casesrec);
          }
      }
@@ -304,10 +309,12 @@ public  void updatecommunityurl(List<Case> caselist){
      for(Group gp:[select id,name from Group where name IN :dealerndcodeset]){
         for(Case caseid:lstcase){
             //this if part will applicable for Salesforce users
-            if(gp.name==caseid.Case_Dealer__r.Dealer_nd_code__c){
+            String grpName='TH'+caseid.Case_Dealer__r.Dealer_nd_code__c;
+            String createdGrpName='TH'+caseid.createdby.Dealer_nd_code__c;
+            if(gp.name==grpName){
             caseshare.add(new caseShare(CaseId=caseid.id,UserOrGroupId=gp.id,RowCause=Schema.caseShare.Rowcause.manual,CaseAccessLevel='EDIT'));
             }//this else part will applicable for Dealer users
-            else if(gp.name==caseid.createdby.Dealer_nd_code__c&&caseid.createdby.Usertype=='PowerPartner'){
+            else if(gp.name==createdGrpName&&caseid.createdby.Usertype=='PowerPartner'){
                 caseshare.add(new caseShare(CaseId=caseid.id,UserOrGroupId=gp.id,RowCause=Schema.caseShare.Rowcause.manual,CaseAccessLevel='EDIT'));
             }
          }
