@@ -845,7 +845,7 @@ public class AccountHelperTH{
                 acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing2__c;                
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
-        acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+				acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
                 acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
@@ -867,6 +867,7 @@ public class AccountHelperTH{
 				acclnk.Retail_Country__c=acclnk.toRole__r.country__c;	
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
+				acclnk.Retail_Preferred_Language__c = acclnk.toRole__r.Preferred_Language__c;
                 acclnk.Retail_Vat_No__c = acclnk.toRole__r.Vat_No__c;
                 acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;
                 acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
