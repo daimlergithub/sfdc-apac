@@ -341,8 +341,11 @@
     <decisions>
         <name>Decision3</name>
         <label>Decision3</label>
-        <locationX>743</locationX>
-        <locationY>13</locationY>
+        <locationX>742</locationX>
+        <locationY>1</locationY>
+        <defaultConnector>
+            <targetReference>ThankYou1</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>If_Yes</name>
@@ -444,8 +447,8 @@
     <decisions>
         <name>Decision3_0_0_1_1</name>
         <label>Decision Yes/No</label>
-        <locationX>928</locationX>
-        <locationY>126</locationY>
+        <locationX>900</locationX>
+        <locationY>195</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>If_Yes_0_0_1_1</name>
@@ -511,6 +514,80 @@
             </conditions>
             <connector>
                 <targetReference>Q2_1_Correction_C</targetReference>
+            </connector>
+            <label>If No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Decision3_0_0_1_1_1</name>
+        <label>Decision Yes/No</label>
+        <locationX>1088</locationX>
+        <locationY>110</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>If_Yes_0_0_1_1_1</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Q2_1_Radio_1_0</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>YesEngThai</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Q2_4_Q2_5</targetReference>
+            </connector>
+            <label>If Yes</label>
+        </rules>
+        <rules>
+            <name>If_No_0_1_1_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Q2_1_Radio_1_0</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>NoEngThai</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Q2_1_Correction_P</targetReference>
+            </connector>
+            <label>If No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Decision3_0_0_1_1_1_1</name>
+        <label>Decision Yes/No</label>
+        <locationX>1297</locationX>
+        <locationY>32</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>If_Yes_0_0_1_1_1_1</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Q2_1_Radio_1_0_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>YesEngThai</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Q2_4_Q2_5</targetReference>
+            </connector>
+            <label>If Yes</label>
+        </rules>
+        <rules>
+            <name>If_No_0_1_1_1_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Q2_1_Radio_1_0_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>NoEngThai</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Q2_1_Correction_P</targetReference>
             </connector>
             <label>If No</label>
         </rules>
@@ -725,8 +802,11 @@
     <decisions>
         <name>Test_IDNumber</name>
         <label>Test IDNumber</label>
-        <locationX>881</locationX>
-        <locationY>17</locationY>
+        <locationX>876</locationX>
+        <locationY>9</locationY>
+        <defaultConnector>
+            <targetReference>Q2_1_Person_0_1</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>IDnumber_Nationality</name>
@@ -3247,8 +3327,8 @@
     <screens>
         <name>Q2_1_Correction_P</name>
         <label>Q2.1 Correction P</label>
-        <locationX>1053</locationX>
-        <locationY>215</locationY>
+        <locationX>1260</locationX>
+        <locationY>293</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -3313,8 +3393,8 @@
     <screens>
         <name>Q2_1_Person</name>
         <label>Q2.1 Person</label>
-        <locationX>749</locationX>
-        <locationY>120</locationY>
+        <locationX>761</locationX>
+        <locationY>127</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -3369,12 +3449,12 @@
     <screens>
         <name>Q2_1_Person_0</name>
         <label>Q2.1 Person</label>
-        <locationX>1019</locationX>
-        <locationY>25</locationY>
+        <locationX>946</locationX>
+        <locationY>104</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
-            <targetReference>Decision3_0_0_1_1</targetReference>
+            <targetReference>Decision3_0_0_1_1_1</targetReference>
         </connector>
         <fields>
             <name>Q2_1_T_Desc_1_0</name>
@@ -3393,7 +3473,7 @@
         </fields>
         <fields>
             <name>LabelPassport_0</name>
-            <fieldText>{!LabelS5_Q2_3_E_P1} {!IDNumber}</fieldText>
+            <fieldText>{!LabelS5_Your_passport_number_is} {!IDNumber}</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -3413,6 +3493,60 @@
         </fields>
         <fields>
             <name>Q2_1_Radio_1_0</name>
+            <choiceReferences>YesET</choiceReferences>
+            <choiceReferences>NoET</choiceReferences>
+            <dataType>String</dataType>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Q2_1_Person_0_1</name>
+        <label>Q2.1 Person</label>
+        <locationX>1102</locationX>
+        <locationY>27</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <connector>
+            <targetReference>Decision3_0_0_1_1_1_1</targetReference>
+        </connector>
+        <fields>
+            <name>Q2_1_T_Desc_1_0_1</name>
+            <fieldText>{!LabelS5_Q2_1_T_P1} {!Salutation} {!AccName}
+{!LabelS5_Q2_1_T_P2}
+{!LabelS5_Q2_2_T_P1} {!DOB}
+{!LabelS5_Q2_1_T_P3_A}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Q2_1_E_Desc_1_0_1</name>
+            <fieldText>{!LabelS5_Q2_1_E_P1} {!Salutation} {!AccName}
+{!LabelS5_Q2_1_E_P3}
+{!LabelS5_Q2_2_E_P1} {!DOB}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>LabelPassport_0_1</name>
+            <fieldText>{!LabelS5_Your_passport_number_is}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>national_1</name>
+            <fieldText>{!LabelNational_ID}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>nation_dis_1</name>
+            <fieldText>{!LabelS5_Your_Nationaliy_is} {!nation}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Q2_1_Correct_1_0_1</name>
+            <fieldText>{!CorrectEngThai}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Q2_1_Radio_1_0_1</name>
             <choiceReferences>YesET</choiceReferences>
             <choiceReferences>NoET</choiceReferences>
             <dataType>String</dataType>
