@@ -22,6 +22,42 @@ public class AccountHelperBase{
     public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
     public static boolean consentHistoryCodeCalled = true;
     
+	
+	/*
+                //Created By : Mohammed Touseef Ahmed
+                //Date: 01/09/2018
+                //Description: Create Account Link record in CDM as Retail Copy
+            
+    */
+    public static void DealerCommAccountlinkcreatecdm(list < Account > listNewAccounts, map < id, Account > accountOldMa) {
+        Set <Id>userids = new set<Id>();
+        Set < Id > accid = new set < Id > ();
+        Set < Id > AcclinkId = new set < Id > ();
+        List < Account_link__c > Acclink = new List < Account_Link__c > ();
+        for(Account acc: listNewAccounts)
+        {
+            userids.add(acc.createdbyId);
+        }
+        Map<Id,User> usrmap = new Map<Id,user>([select id, Name, ContactId, contact.AccountId, Profile.UserLicense.Name, Contact.Account.Dealer_ND_Code__c from user where Id =: userids]);
+        
+        for (Account acc: listNewAccounts) {
+            system.debug('@asish'+ usrmap.get(acc.createdbyId).profile.UserLicense.Name + acc.Ucid__c + accountOldMa.get(acc.Id).Ucid__c);
+            if ((acc.Ucid__c != '' || acc.Ucid__c!= null) && accountOldMa.containskey(acc.Id) && (accountOldMa.get(acc.Id).Ucid__c == null || accountOldMa.get(acc.Id).Ucid__c == '')&& usrmap.containskey(acc.createdbyId) && usrmap.get(acc.createdbyId).profile.UserLicense.Name == 'Partner Community')
+                {accid.add(acc.Id);}
+        }
+        if (accid.size() > 0 && !accid.isEmpty())
+            Acclink = [select name, Retail_DMS_Customer_ID__c, Retail_UCID__c, toRole__c from Account_link__c where toRole__c in: accid LIMIT 49999];
+        if (Acclink.size() > 0 && !Acclink.isEmpty()) {
+            for (Account_Link__c all: Acclink) {
+                if ((all.Retail_DMS_Customer_ID__c == '' || all.Retail_DMS_Customer_ID__c == null) && (all.Retail_UCID__c == '' || all.Retail_UCID__c == null))
+                    AcclinkId.add(all.Id);
+            }
+        }
+        if (TriggerRecursiveCheck.run && AcclinkId.size() > 0) {
+            TriggerRecursiveCheck.runOnce();
+            CDMInformatica_Services.createAccountLink(AcclinkId, Label.MY, Label.InsertContext);
+        }
+    } 
     public static  String validate(string phonestring,integer num,String fields,integer len,integer digits){
         integer i;
         string phon='';

@@ -2,8 +2,7 @@ Dear Sales and Service manager ,
 
 This is to inform you that dealer {Lead__c.Assigned_Dealer__c} has not touched the lead which is assigned to him for 24 Hrs. Kindly click on below link to access the lead directly. 
  
-Sales force Users: {Lead__c.Link}
-Community User: {Lead__c.Link1}
+Login URL: {Lead__c.Link}
 
 Lead no.  :{Lead__c.Name}
 Customer : {Lead__c.Contact__c}

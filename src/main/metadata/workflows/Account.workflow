@@ -734,7 +734,7 @@ ISCHANGED(Main_Dealer__c)
         <active>true</active>
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for TH</description>
         <formula>ISPICKVAL($User.Market__c,&apos;TH&apos;)</formula>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Work Phone Checkbox autopopulate</fullName>
