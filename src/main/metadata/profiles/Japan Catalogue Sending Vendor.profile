@@ -20046,6 +20046,11 @@
         <field>Retail_Task__c.Finance_Brand__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Finance_Contractor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Finance_Product_Name__c</field>
