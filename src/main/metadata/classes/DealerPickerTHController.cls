@@ -52,7 +52,8 @@ public with Sharing class DealerPickerTHController {
         for(ThailandDealersList listdealer:dealersListThailand){
             if(listdealer.isSelected){
                 retailcampaingstosharewithdealers.add(listdealer.dealerlist);
-                dealerndCode.add(listdealer.dealerlist.dealer_nd_code__c);
+                String grpName='TH'+listdealer.dealerlist.dealer_nd_code__c;
+                dealerndCode.add(grpName);
             } 
         }
         if(dealerndCode.size()>0){
@@ -64,19 +65,11 @@ public with Sharing class DealerPickerTHController {
             if(groupName.size()>0&&accssonRetailcampset.size()>0){
                 for(Group g:groupName){
                     for(Retail_Campaign__Share retshare:accssonRetailcampset){
-                        if(g.id==retshare.userOrgroupid&&String.valueof(retshare.UserOrGroupId).Startswith('00G')){
-                            //actualgrouptoshare.add(g);
-                            //dealerndcodetosendEmails.add(g.name);
-                            system.debug('$$$$$$$$$');
-                        }
-                        else{
-                        actualgrouptoshare.add(g);
+                        if(g.id!=retshare.userOrgroupid&&!String.valueof(retshare.UserOrGroupId).Startswith('00G')){
+							actualgrouptoshare.add(g);
                             dealerndcodetosendEmails.add(g.name);
-                        
                         }
-                        
                     }
-                    
                 }
             }
             else{
@@ -97,9 +90,6 @@ public with Sharing class DealerPickerTHController {
             campShare.CampaignId=camp.Relevant_Central_Campaign__c;
             campShare.CampaignAccessLevel='READ';
             campShare.RowCause=CampaignShare.RowCause.Manual;
-            //campShare.AccessLevel='READ';
-            //campShare.RowCause = Schema.CampaignShare.RowCause.Manual;
-            //campShare.ParentId = camp.Relevant_Central_Campaign__c;
             campaignToShare.add(campShare);
             }
         }
@@ -128,7 +118,7 @@ public with Sharing class DealerPickerTHController {
          Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
          String commubaseurl='';
          boolean flag1;
-         String communityName='Daimler Community Thailand';
+         String communityName='Dealer Community Thailand';
          List<Network>  myNetwork = [SELECT Id,Name FROM Network];
          retcamp=[select name,id,ownerid from Retail_Campaign__C where id =:campaignID];
          for(Network net:myNetwork){
