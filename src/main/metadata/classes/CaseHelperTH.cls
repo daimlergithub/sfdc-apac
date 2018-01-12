@@ -244,8 +244,7 @@ public  void updatecommunityurl(List<Case> caselist){
             }
         }
     }
-    
-    //shareRecord
+
     public Static void ShareRecordswithDealers(List<Case> caselist,Boolean flag){
      Set<String> dealerndcodeset=new Set<String>();
      set<Case> lstcase=new set<Case>();
@@ -264,11 +263,13 @@ public  void updatecommunityurl(List<Case> caselist){
              
              //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
              if(casesrec.createdby.usertype=='PowerPartner'&& casesrec.createdby.Dealer_nd_code__c!=null){
-                    dealerndcodeset.add(casesrec.createdby.Dealer_nd_code__c);
+                    String grpName='TH'+casesrec.createdby.Dealer_nd_code__c;
+                 	dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
              }
              else if(casesrec.Case_Dealer__c!=null && casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
-                dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
+                 String grpName='TH'+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+                 dealerndcodeset.add(grpName);
                  lstcase.add(casesrec);
             }
         }
@@ -278,16 +279,18 @@ public  void updatecommunityurl(List<Case> caselist){
             //system.debug(((Case)trigger.oldmap.get(casesrec.id)).owner!=((Case)trigger.newmap.get(casesrec.id)).owner);
             system.debug(((Case)trigger.oldmap.get(casesrec.id)).ownerId+'  '+((Case)trigger.newmap.get(casesrec.id)).ownerId);
          if(((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=null  && ((Case)trigger.oldMap.get(casesrec.id)).Case_Dealer__c==null&&casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
-             dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
+             String grpName='TH'+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+             dealerndcodeset.add(grpName);
              lstcase.add(casesrec);
          }
          //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
          else if(((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=null  && ((Case)trigger.oldMap.get(casesrec.id)).Case_Dealer__c!=null&&((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__c!=((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__c&&casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
-            dealerndcodeset.add(casesrec.Case_Dealer__r.Dealer_nd_code__c);
+            String grpName='TH'+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+            dealerndcodeset.add(grpName);
             lstcase.add(casesrec);
           //will revoke record access depends on dealer nd code  if we change the assigned dealer
              if (((Case)trigger.newmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c!=null){
-                sharingrevokefromgroups.add(((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
+                 sharingrevokefromgroups.add(((Case)trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
                 casesharingtorevoke.add(((Case)trigger.oldmap.get(casesrec.id)).id);
             }
          }
@@ -297,7 +300,8 @@ public  void updatecommunityurl(List<Case> caselist){
              casesharingtorevoke.add(((Case)trigger.oldmap.get(casesrec.id)).id);
          }
          else if(((Case)trigger.oldmap.get(casesrec.id)).ownerId!=((Case)trigger.newmap.get(casesrec.id)).ownerId){
-             dealerndcodeset.add(usr.get(casesrec.ownerid).dealer_nd_code__c);
+             String grpName='TH'+usr.get(casesrec.ownerid).dealer_nd_code__c;
+             dealerndcodeset.add(grpName);
               lstcase.add(casesrec);
          }
      }
@@ -305,10 +309,12 @@ public  void updatecommunityurl(List<Case> caselist){
      for(Group gp:[select id,name from Group where name IN :dealerndcodeset]){
         for(Case caseid:lstcase){
             //this if part will applicable for Salesforce users
-            if(gp.name==caseid.Case_Dealer__r.Dealer_nd_code__c){
+            String grpName='TH'+caseid.Case_Dealer__r.Dealer_nd_code__c;
+            String createdGrpName='TH'+caseid.createdby.Dealer_nd_code__c;
+            if(gp.name==grpName){
             caseshare.add(new caseShare(CaseId=caseid.id,UserOrGroupId=gp.id,RowCause=Schema.caseShare.Rowcause.manual,CaseAccessLevel='EDIT'));
             }//this else part will applicable for Dealer users
-            else if(gp.name==caseid.createdby.Dealer_nd_code__c&&caseid.createdby.Usertype=='PowerPartner'){
+            else if(gp.name==createdGrpName&&caseid.createdby.Usertype=='PowerPartner'){
                 caseshare.add(new caseShare(CaseId=caseid.id,UserOrGroupId=gp.id,RowCause=Schema.caseShare.Rowcause.manual,CaseAccessLevel='EDIT'));
             }
          }
@@ -326,5 +332,67 @@ public  void updatecommunityurl(List<Case> caselist){
      }
      
  }
-    //sharereocrd
+ 
+ //after checking the checkbox field '1st reminder','2nd reminder' and 'escalated to MBTH', send email to gatekeeper(case owner)
+   public static void sendReminderEmail(Map<Id,sObject> newCaseMap,Map<Id,sObject> oldCaseMap)
+   {
+       List<Case> caseId1stRemLst=new List<Case>();
+       List<Case> caseId2ndRemLst=new List<Case>();
+       List<Case> caseIdEscltnLst=new List<Case>();
+       List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+      
+           for(Id caseId:newCaseMap.keySet())
+           {
+               Case newCaseObj=(Case)newCaseMap.get(caseId);
+               Case oldCaseObj=(Case)oldCaseMap.get(caseId);
+               if(newCaseObj.MBTH_1st_Reminder__c && newCaseObj.MBTH_1st_Reminder__c!=oldCaseObj.MBTH_1st_Reminder__c)
+               {
+                   caseId1stRemLst.add(newCaseObj);
+               }
+               if(newCaseObj.MBTH_2nd_Reminder__c && newCaseObj.MBTH_2nd_Reminder__c!=oldCaseObj.MBTH_2nd_Reminder__c)
+               {
+                   caseId2ndRemLst.add(newCaseObj);
+               }
+               if(newCaseObj.MBTH_Escalated_to_MBTH__c && newCaseObj.MBTH_Escalated_to_MBTH__c!=oldCaseObj.MBTH_Escalated_to_MBTH__c)
+               {
+                  
+                   caseIdEscltnLst.add(newCaseObj);
+               }
+           }
+      
+       if(caseId1stRemLst.size()>0 ||caseId2ndRemLst.size()>0 || caseIdEscltnLst.size()>0)
+       {
+		   //send 1st reminder email to gatekeeper(case owner)
+           if(caseId1stRemLst.size()>0)
+            {
+                Id templateId=[select Id from EmailTemplate where developerName = 'Case_1st_Reminder_Notification'].Id;
+                for(Case caseObj:caseId1stRemLst)
+                {
+                    mails.add(EmailMessage.createSingleEmailMessage(caseObj.OwnerId,templateId,caseObj.Id));
+                }
+                
+            }
+           //send 2nd reminder email to gatekeeper(case owner)
+           if(caseId2ndRemLst.size()>0)
+           {
+               Id templateId=[select Id from EmailTemplate where developerName = 'Case_2nd_Reminder_Notification'].Id;
+                for(Case caseObj:caseId2ndRemLst)
+                {
+                    mails.add(EmailMessage.createSingleEmailMessage(caseObj.OwnerId,templateId,caseObj.Id));
+                }
+           }
+            //send escalation email to gatekeeper(case owner)
+           if(caseIdEscltnLst.size()>0)
+           {
+               Id templateId=[select Id from EmailTemplate where developerName = 'Case_escalated_to_MBTH_Notification'].Id;
+                for(Case caseObj:caseIdEscltnLst)
+                {
+                    mails.add(EmailMessage.createSingleEmailMessage(caseObj.OwnerId,templateId,caseObj.Id));
+                }
+           }
+           if(mails!=null && mails.size()>0)
+           		Messaging.sendEmail(mails);
+       }
+   }	
+	
 }

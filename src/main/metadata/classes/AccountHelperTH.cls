@@ -644,7 +644,7 @@ public class AccountHelperTH{
                         }
                         if(retailacc.Foundation_Date__c != null)
                         {
-                            acclnk.Retail_Foundation_Month__c = String.ValueOf(retailacc.Foundation_Date__c.month())+String.valueOf(retailacc.Foundation_Date__c.year());
+                             acclnk.Retail_Foundation_Month__c = String.valueOf(retailacc.Foundation_Date__c.year()) + (String.ValueOf(retailacc.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(retailacc.Foundation_Date__c.month())) :String.ValueOf(retailacc.Foundation_Date__c.month()))  +(String.ValueOf(retailacc.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(retailacc.Foundation_Date__c.day())) :String.ValueOf(retailacc.Foundation_Date__c.day()));
                         }
                     }
                     else if(retailacc.RecordTypeId == accPerson_RecordTypeId)
@@ -662,7 +662,7 @@ public class AccountHelperTH{
                         acclnk.fromRole__c = usr.Contact.AccountId; 
                         acclnk.toRole__c = retailacc.Id;   
                         acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
-                        acclnk.Retail_Full_Name__c = retailacc.Name;
+                        acclnk.Retail_Full_Name__c = retailacc.FirstName + ' '+retailacc.LastName;
                         acclnk.Retail_LastName__c =  retailacc.LastName;
                         acclnk.Retail_FirstName__c = retailacc.FirstName;                      
                         acclnk.Retail_Complaint_Amount__c = retailacc.Complaint_Amount__c;
@@ -698,7 +698,7 @@ public class AccountHelperTH{
                         acclnk.Retail_Vat_No__c = retailacc.Vat_No__c;
                         if(retailacc.Foundation_Date__c != null)
                         {
-                            acclnk.Retail_Foundation_Month__c = String.ValueOf(retailacc.Foundation_Date__c.month())+String.valueOf(retailacc.Foundation_Date__c.year());
+                            acclnk.Retail_Foundation_Month__c = String.valueOf(retailacc.Foundation_Date__c.year()) + (String.ValueOf(retailacc.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(retailacc.Foundation_Date__c.month())) :String.ValueOf(retailacc.Foundation_Date__c.month()))  +(String.ValueOf(retailacc.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(retailacc.Foundation_Date__c.day())) :String.ValueOf(retailacc.Foundation_Date__c.day()));
                         }
                         if(addrmap.containskey(retailacc.Id) && addrmap.get(retailacc.Id).Customer__c == retailacc.Id)
                         {
@@ -833,8 +833,8 @@ public class AccountHelperTH{
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
                 acclnk.Retail_Salutation__c = acclnk.toRole__r.Salutation__c;
-                acclnk.Retail_Full_Name__c = ((acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + ' ' +(acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(25); 
-                acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+' ' +(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') + ' ' +(acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'')).left(140);
+                acclnk.Retail_Full_Name__c = ((acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'') + ' ' +(acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'')); 
+                acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Salutation__c!= null ? acclnk.toRole__r.Salutation__c: '')+' ' +(acclnk.toRole__r.FirstName != null ? acclnk.toRole__r.FirstName:'') + ' ' + (acclnk.toRole__r.LastName != null ? acclnk.toRole__r.LastName:'') ).left(140);
                 acclnk.Retail_LastName_Native__c = acclnk.toRole__r.LastName_Native_1__c;
                 acclnk.Retail_FirstName_Native__c = acclnk.toRole__r.FirstName_Native_1__c; 
                 acclnk.Retail_Gender__c = acclnk.toRole__r.Gender__c;
@@ -845,7 +845,7 @@ public class AccountHelperTH{
                 acclnk.Retail_Special_Needs_Class__c = acclnk.toRole__r.Special_Needs_Class__c;
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing2__c;                
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
-        acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
+				acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
                 acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
                 acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
@@ -867,11 +867,12 @@ public class AccountHelperTH{
 				acclnk.Retail_Country__c=acclnk.toRole__r.country__c;	
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
+				acclnk.Retail_Preferred_Language__c = acclnk.toRole__r.Preferred_Language__c;
                 acclnk.Retail_Vat_No__c = acclnk.toRole__r.Vat_No__c;
                 acclnk.Retail_Company_Other_Phone__c = acclnk.toRole__r.Work_Phone__c;
                 acclnk.Retail_Company_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
                 if(acclnk.toRole__r.Foundation_Date__c != null)
-                    acclnk.Retail_Foundation_Month__c = string.valueOf(acclnk.toRole__r.Foundation_Date__c.month())+String.valueOf(acclnk.toRole__r.Foundation_Date__c.Year());    
+                     acclnk.Retail_Foundation_Month__c = String.valueOf(acclnk.toRole__r.Foundation_Date__c.year()) + (String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month())) :String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month()))  +(String.ValueOf(acclnk.toRole__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(acclnk.toRole__r.Foundation_Date__c.day())) :String.ValueOf(acclnk.toRole__r.Foundation_Date__c.day()));
                 acclnk.Retail_Postal_OptOut__c= acclnk.toRole__r.Postal_Opt_Out__c;
                 acclnk.Retail_Visit_OptOut__c= acclnk.toRole__r.Visit_Opt_Out__c;
                 

@@ -146,7 +146,7 @@ public with sharing class CustomerMymercInterfaceController {
          Accid = apexpages.currentpage().getparameters().get('id');
          accont = [select id,Data_Source__C, Allow_Data_Sharing2__c,Gender__c,Main_Dealer__c,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
          system.debug('+++++++++++++++++++++'+accont );
-        String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
+         String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
         Pattern MyPattern = Pattern.compile(emailRegex);
         system.debug('++++++++++++'+accont.LastName_Native_1__c);
         if(!String.isBlank(accont.LastName_Native_1__c)){
@@ -160,13 +160,30 @@ public with sharing class CustomerMymercInterfaceController {
         }
         else if(!string.isBlank(MyMercEmail)){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@') || MyMercEmail.);
             //String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
+            
+            String CharSplit = MyMercEmail.substringBefore('@');
+            System.debug('+++++Split+++++++++++'+CharSplit );
+            
+            Integer result = CharSplit.length();
+            System.debug('+++++++result +++++++++++'+result);
+            
+            Boolean dotCheck = CharSplit.startsWith('.'); 
+            System.debug('+++++++dotCheck+++++++++++'+dotCheck);   
+            
+                     
+            if(result >= 64 || dotCheck == true || MyMercEmail.contains('.@')  ){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
+                return null;
+            
+            }
             Pattern MyPatternn = Pattern.compile(emailRegex);
             Matcher MyMatcher = MyPatternn.matcher(MyMercEmail);
-        
-            if (!MyMatcher.matches()){ 
+            
+           
+            if (!MyMatcher.matches() ){ 
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
                 return null;    
-            }else{ 
+            } else{ 
             accont.Email3__c  = MyMercEmail;
         }
         }

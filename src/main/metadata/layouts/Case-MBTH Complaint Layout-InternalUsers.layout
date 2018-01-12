@@ -79,8 +79,8 @@
                 <field>Data_Source__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>status__c</field>
+                <behavior>Required</behavior>
+                <field>Status</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -150,7 +150,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Vehicle_Source__c</field>
             </layoutItems>
         </layoutColumns>
@@ -287,10 +287,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>On_Site_Manager_Confirmed__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

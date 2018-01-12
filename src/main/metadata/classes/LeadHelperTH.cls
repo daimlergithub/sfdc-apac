@@ -220,22 +220,26 @@ public without sharing class LeadHelperTH {
             if (!flag) {
                 //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
                 if (leadsrec.createdby.usertype == 'PowerPartner' && leadsrec.createdby.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+                    String grpName='TH'+leadsrec.createdby.Dealer_nd_code__c;
+                    dealerndcodeset.add(grpName);
                     lstlead.add(leadsrec);
                 } else if (leadsrec.assigned_dealer__c != null && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+                    String grpName='TH'+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+                    dealerndcodeset.add(grpName);
                     lstlead.add(leadsrec);
                 }
             } else {
                 System.debug('***lead values' + ((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c + '--' + ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c + '---' + leadsrec.assigned_dealer__r);
                 //if trigger new map value is filled and  oldmap assigned dealer is null then share records with new assigned value
                 if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c == null && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+                    String grpName='TH'+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+                    dealerndcodeset.add(grpName);
                     lstlead.add(leadsrec);
                 }
                 //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
                 else if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != ((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__c && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+                    String grpName='TH'+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+                    dealerndcodeset.add(grpName);
                     lstlead.add(leadsrec);
                     //will revoke record access depends on dealer nd code  if we change the assigned dealer
                     if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c != null) {
@@ -253,11 +257,13 @@ public without sharing class LeadHelperTH {
         }
         for (Group gp: [select id, name from Group where name IN: dealerndcodeset]) {
             for (Lead__C leadid: lstlead) {
+                String grpName='TH'+leadid.assigned_dealer__r.Dealer_nd_code__c;
+                String createdGrpName='TH'+leadid.createdby.Dealer_nd_code__c;
                 //this if part will applicable for Salesforce users
-                if (gp.name == leadid.assigned_dealer__r.Dealer_nd_code__c) {
+                if (gp.name == grpName) {
                     leadshare.add(new Lead__Share(parentid = leadid.id, UserOrGroupId = gp.id, RowCause = Schema.Lead__share.Rowcause.manual, AccessLevel = 'EDIT'));
                 } //this else part will applicable for Dealer users
-                else if (gp.name == leadid.createdby.Dealer_nd_code__c && leadid.createdby.Usertype == 'PowerPartner') {
+                else if (gp.name == createdGrpName && leadid.createdby.Usertype == 'PowerPartner') {
                     leadshare.add(new Lead__Share(parentid = leadid.id, UserOrGroupId = gp.id, RowCause = Schema.Lead__share.Rowcause.manual, AccessLevel = 'EDIT'));
                 }
             }
