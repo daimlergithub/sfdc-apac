@@ -338,6 +338,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Dealer_Lead_Status_value_as_registration</fullName>
+        <field>Dealer_Lead_Status__c</field>
+        <literalValue>Registration</literalValue>
+        <name>Dealer Lead Status value as registration</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>CAC_Lead_Status_to_Approved</fullName>
         <field>CAC_Lead_Status__c</field>
@@ -2521,6 +2530,31 @@ Modify Reason:
             <value>MY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>Dealer Lead Status should be updated to %E2%80%98Registration%E2%80%99</fullName>
+        <actions>
+            <name>Dealer_Lead_Status_value_as_registration</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Lead_Latest_Phase__c</field>
+            <operation>equals</operation>
+            <value>Registration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <description>If Lead Latest Phase is update to ‘Registration’ (automatic updated via SARI from DMS), Dealer Lead Status should be updated to ‘Registration’</description>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Lost%28Dealer%29 Date Time</fullName>
