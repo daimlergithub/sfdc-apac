@@ -19,6 +19,21 @@ public String surveyRes;
 public List<String> multisplit{get; private set;}
 public List<String> listquestions{get;set;}
 public List<String> listresponseop{get;set;}
+public List<String> listresponseop1{get;set;}
+public List<String> listresponseop2{get;set;}
+public List<String> listresponseop3{get;set;}
+public List<String> listresponseop4{get;set;}
+public List<String> listresponseop5{get;set;}
+public List<String> listresponseop6{get;set;}
+public List<String> listresponseop7{get;set;}
+public List<String> listresponseop8{get;set;}
+public List<String> listresponseop9{get;set;}
+public List<String> listresponseop10{get;set;}
+public List<String> listresponseop11{get;set;}
+public List<String> listresponseop12{get;set;}
+public List<String> listresponseop13{get;set;}
+public List<String> listresponseop14{get;set;}
+public List<String> listresponseop15{get;set;}
 public List<String> listresponse{get;set;}
 public list<string> lr{get;set;}
 Public string soqlque{get;set;}
@@ -153,8 +168,21 @@ public SubmitSuveryTaken(ApexPages.StandardController controller) {
    objectFields =  new List<String>();  
    listquestions = new List<String>();
    listresponseop = new List<String>(); 
-   
-   
+   listresponseop1 = new List<String>();
+   listresponseop2 = new List<String>(); 
+   listresponseop3 = new List<String>();
+   listresponseop4 = new List<String>();
+   listresponseop5 = new List<String>();
+   listresponseop6 = new List<String>();
+   listresponseop7 = new List<String>();
+   listresponseop8 = new List<String>();
+   listresponseop9 = new List<String>();
+   listresponseop10 = new List<String>();
+   listresponseop11 = new List<String>();
+   listresponseop12 = new List<String>();
+   listresponseop13 = new List<String>();
+   listresponseop14 = new List<String>();
+   listresponseop15 = new List<String>();
    if(surveyids!=null)
    {
    try{
@@ -190,6 +218,82 @@ public SubmitSuveryTaken(ApexPages.StandardController controller) {
          system.debug('squ--'+listquestions);
          system.debug('SROu'+listresponseop);
          //system.debug('STRu'+liststresponse);
+       }
+       if(survey.Survey_Response_Options_1__c!=null && survey.Survey_Response_Options_1__c.contains(';'))
+       {
+        listresponseop1.addAll(survey.Survey_Response_Options_1__c.split(';'));
+        system.debug('listresponseop1-----'+listresponseop1);
+       }
+       if(survey.Survey_Response_Options_2__c!=null && survey.Survey_Response_Options_2__c.contains(';'))
+       {
+        listresponseop2.addAll(survey.Survey_Response_Options_2__c.split(';'));
+        system.debug('listresponseop2-----'+listresponseop2);
+       }
+       if(survey.Survey_Response_Options_3__c!=null && survey.Survey_Response_Options_3__c.contains(';'))
+       {
+        listresponseop3.addAll(survey.Survey_Response_Options_3__c.split(';'));
+        system.debug('listresponseop3-----'+listresponseop3);
+       }
+       if(survey.Survey_Response_Options_4__c!=null && survey.Survey_Response_Options_4__c.contains(';'))
+       {
+        listresponseop4.addAll(survey.Survey_Response_Options_4__c.split(';'));
+        system.debug('listresponseop4-----'+listresponseop4);
+       }
+       if(survey.Survey_Response_Options_5__c!=null && survey.Survey_Response_Options_5__c.contains(';'))
+       {
+        listresponseop5.addAll(survey.Survey_Response_Options_5__c.split(';'));
+        system.debug('listresponseop5-----'+listresponseop5);
+       }
+       if(survey.Survey_Response_Options_6__c!=null && survey.Survey_Response_Options_6__c.contains(';'))
+       {
+        listresponseop6.addAll(survey.Survey_Response_Options_6__c.split(';'));
+        system.debug('listresponseop6-----'+listresponseop6);
+       }
+       if(survey.Survey_Response_Options_7__c!=null && survey.Survey_Response_Options_7__c.contains(';'))
+       {
+        listresponseop7.addAll(survey.Survey_Response_Options_7__c.split(';'));
+        system.debug('listresponseop7-----'+listresponseop7);
+       }
+       
+       if(survey.Survey_Response_Options_8__c!=null && survey.Survey_Response_Options_8__c.contains(';'))
+       {
+        listresponseop8.addAll(survey.Survey_Response_Options_8__c.split(';'));
+        system.debug('listresponseop8-----'+listresponseop8);
+       }
+       if(survey.Survey_Response_Options_9__c!=null && survey.Survey_Response_Options_9__c.contains(';'))
+       {
+        listresponseop9.addAll(survey.Survey_Response_Options_9__c.split(';'));
+        system.debug('listresponseop9-----'+listresponseop9);
+       }
+       if(survey.Survey_Response_Options_10__c!=null && survey.Survey_Response_Options_10__c.contains(';'))
+       {
+        listresponseop10.addAll(survey.Survey_Response_Options_10__c.split(';'));
+        system.debug('listresponseop10-----'+listresponseop10);
+       }
+       if(survey.Survey_Response_Options_11__c!=null && survey.Survey_Response_Options_11__c.contains(';'))
+       {
+        listresponseop11.addAll(survey.Survey_Response_Options_11__c.split(';'));
+        system.debug('listresponseop11-----'+listresponseop11);
+       }
+       if(survey.Survey_Response_Options_12__c!=null && survey.Survey_Response_Options_12__c.contains(';'))
+       {
+        listresponseop12.addAll(survey.Survey_Response_Options_12__c.split(';'));
+        system.debug('listresponseop12-----'+listresponseop12);
+       }
+       if(survey.Survey_Response_Options_13__c!=null && survey.Survey_Response_Options_13__c.contains(';'))
+       {
+        listresponseop13.addAll(survey.Survey_Response_Options_13__c.split(';'));
+        system.debug('listresponseop13-----'+listresponseop13);
+       }
+       if(survey.Survey_Response_Options_14__c!=null && survey.Survey_Response_Options_14__c.contains(';'))
+       {
+        listresponseop14.addAll(survey.Survey_Response_Options_14__c.split(';'));
+        system.debug('listresponseop14-----'+listresponseop14);
+       }
+       if(survey.Survey_Response_Options_15__c!=null && survey.Survey_Response_Options_15__c.contains(';'))
+       {
+        listresponseop15.addAll(survey.Survey_Response_Options_15__c.split(';'));
+        system.debug('listresponseop15-----'+listresponseop15);
        }
         String type='Survey__c';
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
