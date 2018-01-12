@@ -4441,6 +4441,15 @@ please contact the number below.</value>
         <shortDescription>Lead to be Merged</shortDescription>
         <value>Lead to be Merged</value>
     </labels>
+	<labels>
+        <fullName>LeademailNotificationTH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeademailNotificationTH</shortDescription>
+        <value>Hi, 
+
+Below Lead is Assigned to you kindly click on below link for Lead details.</value>
+    </labels>
     <labels>
         <fullName>Leagl_Owner</fullName>
         <language>en_US</language>
