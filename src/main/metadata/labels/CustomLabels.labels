@@ -3184,6 +3184,13 @@ please contact the number below.</value>
         <shortDescription>Estimate Number History</shortDescription>
         <value>Estimate Number History</value>
     </labels>
+	<labels>
+        <fullName>EuroVIN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EuroVIN of vehicles</shortDescription>
+        <value>EuroVIN</value>
+    </labels>
     <labels>
         <fullName>Event_Type</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -4433,6 +4440,15 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Lead to be Merged</shortDescription>
         <value>Lead to be Merged</value>
+    </labels>
+	<labels>
+        <fullName>LeademailNotificationTH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeademailNotificationTH</shortDescription>
+        <value>Hi, 
+
+Below Lead is Assigned to you kindly click on below link for Lead details.</value>
     </labels>
     <labels>
         <fullName>Leagl_Owner</fullName>
