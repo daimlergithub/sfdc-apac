@@ -80,123 +80,123 @@ myFun1(vrid);
 <apex:column title="Questions" headerValue="Response Options" style="text-align:left;" id="reop">
 <apex:repeat value="{!objectFields}" var="field" id="rereop"><br/><br/> 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_1__c')}" id="resop1">
-<apex:repeat value="{!listresponseop1}" var="resop" rendered="{!IF(res.Survey_Response_Options_1__c!=null && NOT(ISBLANK('{!listresponseop1}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop1}" var="resop" rendered="{!IF(res.Survey_Response_Options_1__c!=null && listresponseop1.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo1').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_1__c == 'Free Text' || res.Survey_Response_Options_1__c == 'free text',true,false)}" value="{!res.Survey_Response_Options_1__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_1__c != null && res.Survey_Response_Options_1__c != 'Free Text' && ISBLANK('{!listresponseop1}'),true,false)}" value="{!res.Survey_Response_Options_1__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo1').value='{!res.Survey_Response_Options_1__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_1__c != null && res.Survey_Response_Options_1__c != 'Free Text' && listresponseop1.size == 0,true,false)}" value="{!res.Survey_Response_Options_1__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo1').value='{!res.Survey_Response_Options_1__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_2__c')}" id="resop2">
-<apex:repeat value="{!listresponseop2}" var="resop" rendered="{!IF(res.Survey_Response_Options_2__c!=null && NOT(ISBLANK('{!listresponseop2}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop2}" var="resop" rendered="{!IF(res.Survey_Response_Options_2__c!=null && listresponseop2.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo2').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_2__c != null && (res.Survey_Response_Options_2__c == 'Free Text' || res.Survey_Response_Options_2__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_2__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_2__c != null && res.Survey_Response_Options_2__c != 'Free Text' && ISBLANK('{!listresponseop2}'),true,false)}" value="{!res.Survey_Response_Options_2__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo2').value='{!res.Survey_Response_Options_2__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_2__c != null && res.Survey_Response_Options_2__c != 'Free Text' && listresponseop2.size == 0,true,false)}" value="{!res.Survey_Response_Options_2__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo2').value='{!res.Survey_Response_Options_2__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_3__c')}" id="resop3">
-<apex:repeat value="{!listresponseop3}" var="resop" rendered="{!IF(res.Survey_Response_Options_3__c!=null && NOT(ISBLANK('{!listresponseop3}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop3}" var="resop" rendered="{!IF(res.Survey_Response_Options_3__c!=null && listresponseop3.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo3').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_3__c != null && (res.Survey_Response_Options_3__c == 'Free Text' || res.Survey_Response_Options_3__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_3__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_3__c != null && res.Survey_Response_Options_3__c != 'Free Text' && ISBLANK('{!listresponseop3}'),true,false)}" value="{!res.Survey_Response_Options_3__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo3').value='{!res.Survey_Response_Options_3__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_3__c != null && res.Survey_Response_Options_3__c != 'Free Text' && listresponseop3.size == 0,true,false)}" value="{!res.Survey_Response_Options_3__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo3').value='{!res.Survey_Response_Options_3__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_4__c')}" id="resop4">
-<apex:repeat value="{!listresponseop4}" var="resop" rendered="{!IF(res.Survey_Response_Options_4__c!=null && NOT(ISBLANK('{!listresponseop4}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop4}" var="resop" rendered="{!IF(res.Survey_Response_Options_4__c!=null && listresponseop4.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo4').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_4__c != null && (res.Survey_Response_Options_4__c == 'Free Text' || res.Survey_Response_Options_4__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_4__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_4__c != null && res.Survey_Response_Options_4__c != 'Free Text',true,false)}" value="{!res.Survey_Response_Options_4__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo4').value='{!res.Survey_Response_Options_4__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_4__c != null && res.Survey_Response_Options_4__c != 'Free Text' && listresponseop4.size == 0,true,false)}" value="{!res.Survey_Response_Options_4__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo4').value='{!res.Survey_Response_Options_4__c}';return false;"/>
 </apex:outputPanel> 
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_5__c')}" id="resop5">
-<apex:repeat value="{!listresponseop5}" var="resop" rendered="{!IF(res.Survey_Response_Options_5__c!=null && NOT(ISBLANK('{!listresponseop5}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop5}" var="resop" rendered="{!IF(res.Survey_Response_Options_5__c!=null && listresponseop5.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo5').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_5__c != null && (res.Survey_Response_Options_5__c == 'Free Text' || res.Survey_Response_Options_5__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_5__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_5__c != null && res.Survey_Response_Options_5__c != 'Free Text' && ISBLANK('{!listresponseop5}'),true,false)}" value="{!res.Survey_Response_Options_5__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo5').value='{!res.Survey_Response_Options_5__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_5__c != null && res.Survey_Response_Options_5__c != 'Free Text' && listresponseop5.size == 0,true,false)}" value="{!res.Survey_Response_Options_5__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo5').value='{!res.Survey_Response_Options_5__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_6__c')}" id="resop6">
-<apex:repeat value="{!listresponseop6}" var="resop" rendered="{!IF(res.Survey_Response_Options_6__c!=null && NOT(ISBLANK('{!listresponseop6}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop6}" var="resop" rendered="{!IF(res.Survey_Response_Options_6__c!=null && listresponseop6.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo6').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_6__c != null && (res.Survey_Response_Options_6__c == 'Free Text' || res.Survey_Response_Options_6__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_6__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_6__c != null && res.Survey_Response_Options_6__c != 'Free Text' && ISBLANK('{!listresponseop6}'),true,false)}" value="{!res.Survey_Response_Options_6__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo6').value='{!res.Survey_Response_Options_6__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_6__c != null && res.Survey_Response_Options_6__c != 'Free Text' && listresponseop6.size == 0,true,false)}" value="{!res.Survey_Response_Options_6__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo6').value='{!res.Survey_Response_Options_6__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_7__c')}" id="resop7">
-<apex:repeat value="{!listresponseop7}" var="resop" rendered="{!IF(res.Survey_Response_Options_7__c!=null && NOT(ISBLANK('{!listresponseop7}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop7}" var="resop" rendered="{!IF(res.Survey_Response_Options_7__c!=null && listresponseop7.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo7').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_7__c != null && (res.Survey_Response_Options_7__c == 'Free Text' || res.Survey_Response_Options_7__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_7__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_7__c != null && res.Survey_Response_Options_7__c != 'Free Text' && ISBLANK('{!listresponseop7}'),true,false)}" value="{!res.Survey_Response_Options_7__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo7').value='{!res.Survey_Response_Options_7__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_7__c != null && res.Survey_Response_Options_7__c != 'Free Text' && listresponseop7.size == 0,true,false)}" value="{!res.Survey_Response_Options_7__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo7').value='{!res.Survey_Response_Options_7__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_8__c')}" id="resop8">
-<apex:repeat value="{!listresponseop8}" var="resop" rendered="{!IF(res.Survey_Response_Options_8__c!=null && NOT(ISBLANK('{!listresponseop8}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop8}" var="resop" rendered="{!IF(res.Survey_Response_Options_8__c!=null && listresponseop8.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo8').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_8__c != null && (res.Survey_Response_Options_8__c == 'Free Text' || res.Survey_Response_Options_8__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_8__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_8__c != null && res.Survey_Response_Options_8__c != 'Free Text' && ISBLANK('{!listresponseop8}'),true,false)}" value="{!res.Survey_Response_Options_8__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo8').value='{!res.Survey_Response_Options_8__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_8__c != null && res.Survey_Response_Options_8__c != 'Free Text' && listresponseop8.size == 0,true,false)}" value="{!res.Survey_Response_Options_8__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo8').value='{!res.Survey_Response_Options_8__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_9__c')}" id="resop9">
-<apex:repeat value="{!listresponseop9}" var="resop" rendered="{!IF(res.Survey_Response_Options_9__c!=null && NOT(ISBLANK('{!listresponseop9}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop9}" var="resop" rendered="{!IF(res.Survey_Response_Options_9__c!=null && listresponseop9.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo9').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_9__c != null && (res.Survey_Response_Options_9__c == 'Free Text' || res.Survey_Response_Options_9__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_9__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_9__c != null && res.Survey_Response_Options_9__c != 'Free Text' && ISBLANK('{!listresponseop9}'),true,false)}" value="{!res.Survey_Response_Options_9__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo9').value='{!res.Survey_Response_Options_9__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_9__c != null && res.Survey_Response_Options_9__c != 'Free Text' && listresponseop9.size == 0,true,false)}" value="{!res.Survey_Response_Options_9__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo9').value='{!res.Survey_Response_Options_9__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_10__c')}" id="resop10">
-<apex:repeat value="{!listresponseop10}" var="resop" rendered="{!IF(res.Survey_Response_Options_10__c!=null && NOT(ISBLANK('{!listresponseop10}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop10}" var="resop" rendered="{!IF(res.Survey_Response_Options_10__c!=null && listresponseop10.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo10').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_10__c != null && (res.Survey_Response_Options_10__c == 'Free Text' || res.Survey_Response_Options_10__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_10__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_10__c != null && res.Survey_Response_Options_10__c != 'Free Text' && ISBLANK('{!listresponseop10}'),true,false)}" value="{!res.Survey_Response_Options_10__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo10').value='{!res.Survey_Response_Options_10__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_10__c != null && res.Survey_Response_Options_10__c != 'Free Text' && listresponseop10.size == 0,true,false)}" value="{!res.Survey_Response_Options_10__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo10').value='{!res.Survey_Response_Options_10__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_11__c')}" id="resop11">
-<apex:repeat value="{!listresponseop11}" var="resop" rendered="{!IF(res.Survey_Response_Options_11__c!=null && NOT(ISBLANK('{!listresponseop11}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop11}" var="resop" rendered="{!IF(res.Survey_Response_Options_11__c!=null && listresponseop11.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo11').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_11__c != null && (res.Survey_Response_Options_11__c == 'Free Text' || res.Survey_Response_Options_11__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_11__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_11__c != null && res.Survey_Response_Options_11__c != 'Free Text' && ISBLANK('{!listresponseop11}'),true,false)}" value="{!res.Survey_Response_Options_11__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo11').value='{!res.Survey_Response_Options_11__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_11__c != null && res.Survey_Response_Options_11__c != 'Free Text' && listresponseop11.size == 0,true,false)}" value="{!res.Survey_Response_Options_11__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo11').value='{!res.Survey_Response_Options_11__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_12__c')}" id="resop12">
-<apex:repeat value="{!listresponseop12}" var="resop" rendered="{!IF(res.Survey_Response_Options_12__c!=null && NOT(ISBLANK('{!listresponseop12}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop12}" var="resop" rendered="{!IF(res.Survey_Response_Options_12__c!=null && listresponseop12.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo12').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_12__c != null && (res.Survey_Response_Options_12__c == 'Free Text' || res.Survey_Response_Options_12__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_12__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_12__c != null && res.Survey_Response_Options_12__c != 'Free Text' && ISBLANK('{!listresponseop12}'),true,false)}" value="{!res.Survey_Response_Options_12__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo12').value='{!res.Survey_Response_Options_12__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_12__c != null && res.Survey_Response_Options_12__c != 'Free Text' && listresponseop12.size == 0,true,false)}" value="{!res.Survey_Response_Options_12__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo12').value='{!res.Survey_Response_Options_12__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_13__c')}" id="resop13">
-<apex:repeat value="{!listresponseop13}" var="resop" rendered="{!IF(res.Survey_Response_Options_13__c!=null && NOT(ISBLANK('{!listresponseop13}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop13}" var="resop" rendered="{!IF(res.Survey_Response_Options_13__c!=null && listresponseop13.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo13').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_13__c != null && (res.Survey_Response_Options_13__c == 'Free Text' || res.Survey_Response_Options_13__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_13__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_13__c != null && res.Survey_Response_Options_13__c != 'Free Text' && ISBLANK('{!listresponseop13}'),true,false)}" value="{!res.Survey_Response_Options_13__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo13').value='{!res.Survey_Response_Options_13__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_13__c != null && res.Survey_Response_Options_13__c != 'Free Text' && listresponseop13.size == 0,true,false)}" value="{!res.Survey_Response_Options_13__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo13').value='{!res.Survey_Response_Options_13__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_14__c')}" id="resop14">
-<apex:repeat value="{!listresponseop14}" var="resop" rendered="{!IF(res.Survey_Response_Options_14__c!=null && NOT(ISBLANK('{!listresponseop14}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop14}" var="resop" rendered="{!IF(res.Survey_Response_Options_14__c!=null && listresponseop14.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo14').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_14__c != null && (res.Survey_Response_Options_14__c == 'Free Text' || res.Survey_Response_Options_14__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_14__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_14__c != null && res.Survey_Response_Options_14__c != 'Free Text' && ISBLANK('{!listresponseop14}'),true,false)}" value="{!res.Survey_Response_Options_14__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo14').value='{!res.Survey_Response_Options_14__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_14__c != null && res.Survey_Response_Options_14__c != 'Free Text' && listresponseop14.size == 0,true,false)}" value="{!res.Survey_Response_Options_14__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo14').value='{!res.Survey_Response_Options_14__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:outputPanel rendered="{!CONTAINS(field,'survey_question_15__c')}" id="resop15">
-<apex:repeat value="{!listresponseop15}" var="resop" rendered="{!IF(res.Survey_Response_Options_15__c!=null && NOT(ISBLANK('{!listresponseop15}')),true,false)}">&nbsp;
+<apex:repeat value="{!listresponseop15}" var="resop" rendered="{!IF(res.Survey_Response_Options_15__c!=null && listresponseop15.size != 0,true,false)}">&nbsp;
 <apex:commandLink value="{!resop}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo15').value='{!resop}';return false;"/>
 </apex:repeat>
 <apex:outputLabel rendered="{!IF(res.Survey_Response_Options_15__c != null && (res.Survey_Response_Options_15__c == 'Free Text' || res.Survey_Response_Options_15__c == 'free text'),true,false)}" value="{!res.Survey_Response_Options_15__c}"/>
-<apex:commandLink rendered="{!IF(res.Survey_Response_Options_15__c != null && res.Survey_Response_Options_15__c != 'Free Text' && ISBLANK('{!listresponseop15}'),true,false)}" value="{!res.Survey_Response_Options_15__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo15').value='{!res.Survey_Response_Options_15__c}';return false;"/>
+<apex:commandLink rendered="{!IF(res.Survey_Response_Options_15__c != null && res.Survey_Response_Options_15__c != 'Free Text' && listresponseop15.size == 0,true,false)}" value="{!res.Survey_Response_Options_15__c}" onclick="document.getElementById('page1:form:pb2:table:0:rep:'+{!i}+':respo15').value='{!res.Survey_Response_Options_15__c}';return false;"/>
 </apex:outputPanel>
 
 <apex:variable var="i" value="{!i+1}"/> 
