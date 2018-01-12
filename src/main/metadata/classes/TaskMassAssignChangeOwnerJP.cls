@@ -74,21 +74,43 @@ public with sharing class TaskMassAssignChangeOwnerJP {
     
     // This method is used to send notifications to new owner.
     private void sendNotificationToNewOwner(Id newOwnerId, List<Task> tasks) {
+         String wholesaleDealerStr = '';
+         String dealerStr = '';
+         String emailBody = 'Hi,<br/><br/>Following Task are assigned to you - <br/>';
+         String thCommURL='';
         //EmailTemplate templateRec = [Select Id, Name from EmailTemplate where DeveloperName = 'test_email'];
-        User userRec = [select Profile.Name from User where Id =: UserInfo.getUserId()];
+        User userRec = [select Profile.Name,market__c,usertype from User where Id =: UserInfo.getUserId()];
+        if(userRec.market__c=='TH'){
+        thCommURL=RetailCampaignHelperTH.getCommunityURL();
+            User usr = [select Profile.Name,market__c,usertype from User where Id =: newOwnerId];
+            for(Integer i = 1; i <= tasks.size(); i++) {
+              wholesaleDealerStr += '(' + i +') ' + URL.getSalesforceBaseUrl().toExternalForm()+'/'+ tasks[i-1].Id + '<br/>';
+              dealerStr += '(' + i +') ' + thCommURL+ tasks[i-1].Id + '<br/>';   
+            }
+                if(usr.usertype=='PowerPartner'){
+                
+                    emailBody += '<br/>If you are dealer user, please use the link<br/>';
+                   emailBody += dealerStr;
+                   system.debug('i am dealer');
+                }else{
+                  emailBody += '<br/> If you are wholesale user, please use the link<br/>';
+                  emailBody += wholesaleDealerStr;
+                }
+                emailBody += '<br/>Thanks<br/>Salesforce';
+            }
+        else{
         Boolean isJapanProfile = false;
         if(userRec.Profile.Name.toLowerCase().contains('japan dealer')) {
           isJapanProfile = true;
         }
         
-        String wholesaleDealerStr = '';
-        String dealerStr = '';
+        
         for(Integer i = 1; i <= tasks.size(); i++) {
           wholesaleDealerStr += '(' + i +') ' + URL.getSalesforceBaseUrl().toExternalForm()+'/'+ tasks[i-1].Id + '<br/>';
           dealerStr += '(' + i +') ' + URL.getSalesforceBaseUrl().toExternalForm()+'/'+'MBJapan'+'/'+ tasks[i-1].Id + '<br/>';   
         }
         
-        String emailBody = 'Hi,<br/><br/>Following Task are assigned to you - <br/>';
+        
         if(!isJapanProfile) {
           emailBody += '<br/> If you are wholesale user, please use the link<br/>';
           emailBody += wholesaleDealerStr;
@@ -98,6 +120,8 @@ public with sharing class TaskMassAssignChangeOwnerJP {
         }
         emailBody += '<br/>Thanks<br/>Salesforce';
         
+           
+    }   
         List<Messaging.SingleEmailMessage> msgList= new List<Messaging.SingleEmailMessage>();
         Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
         msg.SetsaveAsActivity(false); 
@@ -106,6 +130,6 @@ public with sharing class TaskMassAssignChangeOwnerJP {
         msg.setHTMLBody(emailBody);
         msg.subject = 'Task Assignment Notification';
         msgList.add(msg);
-        Messaging.sendEmail(msgList);     
+        Messaging.sendEmail(msgList);   
     }
 }
