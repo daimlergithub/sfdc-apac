@@ -25,7 +25,7 @@ public class CaseHelperTH {
             if(caserec.RecordTypeId==caseMBComplaintRec_Id){
                  string dayOfWeek = System.now().format('E');
                  //SFDCTH-663
-					if(dayOfWeek == 'Sun'){
+					if(dayOfWeek == 'Sun'||dayOfWeek == 'Sat'){
                         caserec.DeadLine__c=System.Now()+2;
                         
                         }
