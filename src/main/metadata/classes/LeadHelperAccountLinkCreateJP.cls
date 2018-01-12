@@ -118,7 +118,7 @@ public class LeadHelperAccountLinkCreateJP {
                             System.debug('**prprpr*'+acclnk.Retail_Address_CreatedDate__c + acclnk.Retail_Address_LastModifiedDate__c + date.newinstance(led.Contact__r.Primary_Address_Reference__r.CreatedDate.year(), led.Contact__r.Primary_Address_Reference__r.CreatedDate.month(), led.Contact__r.Primary_Address_Reference__r.CreatedDate.day()));
                         }
                         acclnk.Retail_Country__c = led.contact__r.country__c;
-                        acclnk.Retail_Full_Name_Title__c = led.contact__r.Salutation__c + ' '+led.Contact__r.LastName + ' ' + led.Contact__r.FirstName;
+                        acclnk.Retail_Full_Name_Title__c = (led.contact__r.Salutation__c + ' ' + led.Contact__r.FirstName+' '+led.Contact__r.LastName).left(140) ;
                         acclnk.Retail_Salutation__c=led.Contact__r.Salutation__c;
                         acclnk.Retail_Special_Care__c=led.Contact__r.Special_Care__c;
                         acclnk.createddate__c = led.Contact__r.createdDate;
@@ -130,7 +130,7 @@ public class LeadHelperAccountLinkCreateJP {
                         acclnk.Retail_Primary_Phone__c =led.Contact__r.Primary_Phone__c;
                         acclnk.Retail_DMS_Customer_ID__c = led.Contact__r.DMS_Customer_ID__c;
                         acclnk.Retail_DMS_Customer_ID__c = led.Contact__r.DMS_Customer_ID__c;
-                        acclnk.Retail_Full_Name__c = led.Contact__r.LastName + ' ' + led.Contact__r.FirstName;
+                        acclnk.Retail_Full_Name__c =  led.Contact__r.FirstName +' '+ led.Contact__r.LastName ;
                         acclnk.Retail_LastName__c = led.Contact__r.LastName;
                         acclnk.Retail_FirstName__c = led.Contact__r.FirstName;
                         acclnk.Retail_Complaint_Amount__c = led.Contact__r.Complaint_Amount__c;
@@ -164,6 +164,8 @@ public class LeadHelperAccountLinkCreateJP {
                         acclnk.Retail_Abroad_Agreement__c = led.Contact__r.Personal_Abroad_Agreement__c;
                         acclnk.Retail_Agreement_Info_Processing__c = led.Contact__r.Agreement_to_commit_info_processing__c;
                         acclnk.Retail_Vat_No__c = led.Contact__r.Vat_No__c;
+						if(led.Contact__r.Foundation_Date__c != null)
+						 acclnk.Retail_Foundation_Month__c = String.valueOf(led.Contact__r.Foundation_Date__c.year()) + (String.ValueOf(led.Contact__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.month())) :String.ValueOf(led.Contact__r.Foundation_Date__c.month()))  +(String.ValueOf(led.Contact__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.day())) :String.ValueOf(led.Contact__r.Foundation_Date__c.day()));
                     }
                 } else if (led.Contact__r.RecordTypeId == AccountCompanyId) {
 
@@ -206,6 +208,8 @@ public class LeadHelperAccountLinkCreateJP {
                         acclnk.Retail_Information_Third_Party_Release__c = led.Contact__r.Personal_Information_Third_Party_Release__c;
                         acclnk.Retail_Abroad_Agreement__c = led.Contact__r.Personal_Abroad_Agreement__c;
                         acclnk.Retail_Agreement_Info_Processing__c = led.Contact__r.Agreement_to_commit_info_processing__c;
+						if(led.Contact__r.Foundation_Date__c != null)
+						 acclnk.Retail_Foundation_Month__c = String.valueOf(led.Contact__r.Foundation_Date__c.year()) + (String.ValueOf(led.Contact__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.month())) :String.ValueOf(led.Contact__r.Foundation_Date__c.month()))  +(String.ValueOf(led.Contact__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.day())) :String.ValueOf(led.Contact__r.Foundation_Date__c.day()));
                     }
 
                 }

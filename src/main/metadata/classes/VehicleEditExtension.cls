@@ -96,9 +96,11 @@ public with sharing class VehicleEditExtension {
           
           brandit.add(m.Brand__c); 
          }
+          system.debug('++++++++++++++++'+brandit);
           for(String brands:brandit){
-          
+          if(brands != null){
           options.add(new SelectOption(brands,brands));
+          }
           
           }
           system.debug('optionssssss'+options.size());
@@ -120,9 +122,11 @@ public with sharing class VehicleEditExtension {
          {
           brandit.add(m.Series__c); 
          }
+        
           for(String series:brandit){
           
           options.add(new SelectOption(series,series));
+          
           
           }
          }
@@ -319,7 +323,7 @@ public with sharing class VehicleEditExtension {
                 try{  
                     update vehicle;
                     nextPage = new PageReference('/' + vehicle.Id);
-                    nextPage.setRedirect(true);					
+                    nextPage.setRedirect(true);                 
                   }catch(DmlException  e){
                    string error=e.getMessage();
                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
