@@ -895,8 +895,10 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_Allow_Data_Sharing__c = accountMap.get(acclnk.toRole__c).Allow_Data_Sharing2__c;  
                     acclnk.Retail_Individual_Home_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
                     acclnk.Retail_Work_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
-                    acclnk.Retail_Mobile__c = accountMap.get(acclnk.toRole__c).PersonMobilePhone;   
-                    acclnk.Retail_Email__c = accountMap.get(acclnk.toRole__c).PersonEmail;
+                    //acclnk.Retail_Mobile__c = accountMap.get(acclnk.toRole__c).PersonMobilePhone;   
+                    //acclnk.Retail_Email__c = accountMap.get(acclnk.toRole__c).PersonEmail;
+                    acclnk.Retail_Mobile__c = accountMap.get(acclnk.toRole__c).Mobile__c;   
+                    acclnk.Retail_Email__c = accountMap.get(acclnk.toRole__c).Email__c;
                     acclnk.Retail_Primary_Phone__c = accountMap.get(acclnk.toRole__c).Primary_Phone_Display__c;
                     //acclnk.Retail_DMS_Customer_ID__c    = accountMap.get(acclnk.toRole__c).DMS_Customer_ID__c;
                     acclnk.Retail_Complaint_Amount__c = accountMap.get(acclnk.toRole__c).Complaint_Amount__c;
