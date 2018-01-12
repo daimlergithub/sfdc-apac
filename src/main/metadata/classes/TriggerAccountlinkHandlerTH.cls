@@ -3,7 +3,7 @@ public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
         Set < ID > acclids = new Set < ID > ();
         List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new];
         for (Account_Link__c accrec: acclinkr) {
-            if (accrec.toRole__r.UCID__c != '')
+            if (String.isnotblank(accrec.toRole__r.UCID__c))
                 acclids.add(accrec.id);
         }
 

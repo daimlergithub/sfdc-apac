@@ -122,7 +122,7 @@ public  with sharing class coverttolead1controller
          
         {
         
-            
+            system.debug('++++++++leadListToInsert+++++++++++++++++'+leadListToInsert);
                                  
             insert leadListToInsert;
             
@@ -178,7 +178,8 @@ public  with sharing class coverttolead1controller
         } else if(campaignMember.Retail_Campaign_Id__c != null) 
         {
             leadRec.Retail_Campaign_Name__c = campaignMember.Retail_Campaign_Id__c;
-            leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
+           // leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
+           leadRec.OwnerId = UserInfo.getUserId();
         } 
         
         If (userinfo.getUserType() != 'PowerPartner'){
