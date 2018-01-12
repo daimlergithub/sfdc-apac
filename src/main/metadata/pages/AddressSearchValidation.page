@@ -854,24 +854,24 @@
                 <apex:pageBlockSectionItem >        
                     <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                     <apex:inputField value="{!AddressObj.Market__c}"/>      
-                </apex:pageBlockSectionItem>    
-                 <apex:actionFunction name="LoadProvince" action="{!LoadProvince}" reRender="AddrPBS">  
+                </apex:pageBlockSectionItem>  
+                <apex:actionFunction name="LoadProvince" action="{!LoadProvince}" reRender="AddrPBS,msgs">  
                       <apex:param name="provinceSelected" value="" /> 
                  </apex:actionFunction>
                  
-                 <apex:actionFunction name="LoadDistrict" action="{!LoadDistrict}" reRender="AddrPBS">  
+                 <apex:actionFunction name="LoadDistrict" action="{!LoadDistrict}" reRender="AddrPBS,msgs">  
                       <apex:param name="districtselected" value="" /> 
                  </apex:actionFunction> 
                  
-                 <apex:actionFunction name="LoadSubDistrict" action="{!LoadSubDistrict}" reRender="AddrPBS">  
+                 <apex:actionFunction name="LoadSubDistrict" action="{!LoadSubDistrict}" reRender="AddrPBS,msgs">  
                       <apex:param name="subdistrictselected" value="" /> 
                 </apex:actionFunction>
                 
-                <apex:actionFunction name="LoadZip" action="{!LoadZip}" reRender="AddrPBS">  
+                <apex:actionFunction name="LoadZip" action="{!LoadZip}" reRender="AddrPBS,msgs">  
                       <apex:param name="zipselected" value="" /> 
                  </apex:actionFunction> 
                  
-                   <apex:actionFunction name="ShowHideFields" action="{!ShowHideFields}" reRender="AddrPBS">  
+                   <apex:actionFunction name="ShowHideFields" action="{!ShowHideFields}" reRender="AddrPBS,msgs">  
                       <apex:param name="showhideflds" value="" /> 
                  </apex:actionFunction> 
                 </apex:pageBlockSection>
@@ -1246,4 +1246,3 @@
         
     </apex:form>
 </apex:page>
-
