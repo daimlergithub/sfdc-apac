@@ -1633,7 +1633,7 @@ Purchased_Date_Time__c
             <name>Update_dealer_status_to_Ongoing</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 3 AND (2 OR 4)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
