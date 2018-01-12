@@ -104,6 +104,26 @@
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
+	 <alerts>
+        <fullName>LeadAssignmentNotificationDealerUsersTH</fullName>
+        <description>LeadAssignmentNotificationDealerUsersTH</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/LeadAssignmentNotificationDealerUsersTH</template>
+    </alerts>
+	    <alerts>
+        <fullName>LeadAssignmentNotificationWholeSaleUsersTH</fullName>
+        <description>LeadAssignmentNotificationWholeSaleUsersTH</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/LeadAssignmentNotificationTH</template>
+    </alerts>
     <alerts>
         <fullName>MBTH_Email_Notification_to_CCC_Manager</fullName>
         <description>MBTH Email Notification to CCC Manager</description>
@@ -1322,6 +1342,26 @@ Purchased_Date_Time__c
         <active>true</active>
         <description>If Lead Owner is changed, Need to send email to Lead Owner</description>
         <formula>MD__c = 'KR' &amp;&amp;  ISCHANGED ( OwnerId ) &amp;&amp; NOT(ISPICKVAL( $User.User_Type__c , 'Dealer'))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>LeadAssignmentNotificationDealerUsersTH</fullName>
+        <actions>
+            <name>LeadAssignmentNotificationDealerUsersTH</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(MD__c = 'TH', ISPICKVAL( Owner:User.UserType,'PowerPartner'),OR(isnew(),ischanged(OwnerId )))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>LeadAssignmentNotificationWholeSaleUsersTH</fullName>
+        <actions>
+            <name>LeadAssignmentNotificationWholeSaleUsersTH</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(MD__c = 'TH', NOT(ISPICKVAL( Owner:User.UserType,'PowerPartner')),OR(isnew(),ischanged(OwnerId )))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
