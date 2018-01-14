@@ -23,22 +23,15 @@ public class CaseHelperTH {
             Integer i=0;
             Boolean flag;
             if(caserec.RecordTypeId==caseMBComplaintRec_Id){
-            //if(caserec.MBTH_Priority__c=='Red'){
                  string dayOfWeek = System.now().format('E');
-                     if(dayOfWeek == 'Sat'||dayOfWeek == 'Fri'){
-                            caserec.DeadLine__c=System.Now()+3;
-                       }
-                     else if(dayOfWeek == 'Sun'){
+                 //SFDCTH-663
+					if(dayOfWeek == 'Sun'||dayOfWeek == 'Sat'){
                         caserec.DeadLine__c=System.Now()+2;
                         
                         }
-                     /*else if(dayOfWeek == 'Fri'){
-                        caserec.DeadLine__c=System.Now()+3;
-                        }*/
                      else{
                         caserec.DeadLine__c=System.Now()+1;
                         }
-            //}
             /*else if(caserec.MBTH_Priority__c=='Yellow'){
             updatedeadine(caserec,72);
             }
@@ -264,7 +257,7 @@ public  void updatecommunityurl(List<Case> caselist){
              //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
              if(casesrec.createdby.usertype=='PowerPartner'&& casesrec.createdby.Dealer_nd_code__c!=null){
                     String grpName='TH'+casesrec.createdby.Dealer_nd_code__c;
-                 	dealerndcodeset.add(grpName);
+                    dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
              }
              else if(casesrec.Case_Dealer__c!=null && casesrec.Case_Dealer__r.Dealer_nd_code__c!=null){
@@ -362,7 +355,7 @@ public  void updatecommunityurl(List<Case> caselist){
       
        if(caseId1stRemLst.size()>0 ||caseId2ndRemLst.size()>0 || caseIdEscltnLst.size()>0)
        {
-		   //send 1st reminder email to gatekeeper(case owner)
+           //send 1st reminder email to gatekeeper(case owner)
            if(caseId1stRemLst.size()>0)
             {
                 Id templateId=[select Id from EmailTemplate where developerName = 'Case_1st_Reminder_Notification'].Id;
@@ -391,8 +384,8 @@ public  void updatecommunityurl(List<Case> caselist){
                 }
            }
            if(mails!=null && mails.size()>0)
-           		Messaging.sendEmail(mails);
+                Messaging.sendEmail(mails);
        }
-   }	
-	
+   }    
+    
 }
