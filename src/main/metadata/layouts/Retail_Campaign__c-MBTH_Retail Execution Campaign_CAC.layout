@@ -329,7 +329,7 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>Lead_Assignment</customButtons>
+        <customButtons>TH_mass_assign_Leads</customButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Contact__c</fields>
