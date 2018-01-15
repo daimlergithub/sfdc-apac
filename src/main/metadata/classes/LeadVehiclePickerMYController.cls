@@ -89,7 +89,7 @@ global with sharing class LeadVehiclePickerMYController {
                 vehicleIds.add(leadOwnerVehiclesRelationships[i].Vehicle_Id__c);
             }
             if(!vehicleIds.isEmpty()){
-                leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
+                leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, EuroVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
             }
             
             if (lead_Vehicles != null) {
@@ -362,7 +362,7 @@ global with sharing class LeadVehiclePickerMYController {
         Set<Id> allVehicleIds = new Set<Id>();
         
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
         }
         else{
             Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c LIMIT 50000];
@@ -388,7 +388,7 @@ global with sharing class LeadVehiclePickerMYController {
                 vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds AND MD__c = :usr.Market__c LIMIT 50000];
             }
             else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
             }                 
         }
         return vehicle;
