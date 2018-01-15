@@ -4456,6 +4456,34 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <label>All</label>
         <language>zh_CN</language>
     </listViews>
+	<listViews>
+        <fullName>All_MBTH_Retail_Campaigns</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Parent_Campaign1__c</columns>
+        <columns>Y_Status__c</columns>
+        <columns>Child_Campaign_Status__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Close_Date__c</columns>
+        <columns>Campaign_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Retail_Campaign__c.Retail_Execution_Campaign,Retail_Campaign__c.Retail_Parent_Campaign</value>
+        </filters>
+        <label>All MBTH Retail Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>Retail_MB_Best_Practice</fullName>
         <columns>NAME</columns>

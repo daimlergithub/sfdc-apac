@@ -4653,6 +4653,36 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <label>ALL</label>
         <language>en_US</language>
     </listViews>
+	<listViews>
+        <fullName>All_MBTH_Retail_Tasks</fullName>
+        <columns>NAME</columns>
+        <columns>StartDate__c</columns>
+        <columns>EndDate__c</columns>
+        <columns>VIN_Link__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Related_Vehicle__c</columns>
+        <columns>Related_Contact__c</columns>
+        <columns>Related_Contact2__c</columns>
+        <columns>Related_Contact3__c</columns>
+        <columns>Related_Contact4__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Retail_Task__c.Contract,Retail_Task__c.Service</value>
+        </filters>
+        <label>All MBTH Retail Tasks</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>MBF_Contract_Administration_CA_Team_Retail_Task</fullName>
         <filterScope>Queue</filterScope>

@@ -5267,6 +5267,34 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Picklist</type>
     </fields>
     <label>Vehicle Relationship</label>
+	<listViews>
+        <fullName>All_MBTH_Vehicle_Relationships</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Vehicle_ID__c</columns>
+        <columns>Euro_Vin__c</columns>
+        <columns>Car_Relation__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Registration_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Vehicle_Relationship__c.Vehicle_Relationship</value>
+        </filters>
+        <label>All MBTH Vehicle Relationships</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>MBK_New_Vehicle_Relationship</fullName>
         <columns>NAME</columns>

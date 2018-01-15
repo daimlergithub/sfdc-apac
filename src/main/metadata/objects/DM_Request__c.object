@@ -1276,6 +1276,31 @@ Modify Reason:
             <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
+	<listViews>
+        <fullName>All_MBTH_DM_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Status1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Status2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>Status3__c</columns>
+        <columns>Sent_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <label>All MBTH DM Requests</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All_temp</fullName>
         <columns>NAME</columns>

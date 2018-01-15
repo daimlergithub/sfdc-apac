@@ -6390,6 +6390,36 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>DateTime</type>
     </fields>
     <label>Vehicle</label>
+	<listViews>
+        <fullName>All_MBTH_Vehicles</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>EuroVIN__c</columns>
+        <columns>RegistrationNo__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Class__c</columns>
+        <columns>Colour__c</columns>
+        <columns>Range__c</columns>
+        <columns>FirstRegistrationDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Vehicle__c.Competitor,Vehicle__c.MB,Vehicle__c.Vehicle_Product</value>
+        </filters>
+        <label>All MBTH Vehicles</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All_Vehicles</fullName>
         <columns>NAME</columns>
