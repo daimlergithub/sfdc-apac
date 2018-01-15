@@ -672,6 +672,13 @@
         <shortDescription>Announcement</shortDescription>
         <value>Announcements</value>
     </labels>
+	<labels>
+        <fullName>Are_you_sure_to_delete_this_account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure to delete this account?</shortDescription>
+        <value>Are you sure to delete this account?</value>
+    </labels>
     <labels>
         <fullName>Are_you_sure_want_to_send_information_to_Auto_Line_interface</fullName>
         <language>en_US</language>
@@ -4492,6 +4499,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>Logic Error</shortDescription>
         <value>Error: The logic is wrong.</value>
     </labels>
+	 <labels>
+        <fullName>Login_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Mobile</shortDescription>
+        <value>Login Mobile</value>
+    </labels>
     <labels>
         <fullName>Lookup_Button</fullName>
         <language>en_US</language>
@@ -5041,6 +5055,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <protected>false</protected>
         <shortDescription>Memo</shortDescription>
         <value>Memo</value>
+    </labels>
+	 <labels>
+        <fullName>Mercedes_me_Deletion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mercedes me Deletion</shortDescription>
+        <value>Mercedes me Deletion</value>
     </labels>
     <labels>
         <fullName>Merge</fullName>
