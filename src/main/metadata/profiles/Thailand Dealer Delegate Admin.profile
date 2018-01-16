@@ -11557,12 +11557,12 @@
         <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.MBTH_1st_Reminder__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.MBTH_2nd_Reminder__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11587,7 +11587,7 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.MBTH_Escalated_to_MBTH__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -28579,7 +28579,7 @@
     </pageAccesses>
 	<pageAccesses>
         <apexPage>LeadAssignmentPageTH</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadButtonContainerASLeads</apexPage>
