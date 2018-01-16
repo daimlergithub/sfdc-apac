@@ -3046,6 +3046,26 @@ IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))))</defaultValue>
         <label>All</label>
         <language>en_US</language>
     </listViews>
+	<listViews>
+        <fullName>All_MBTH_Car_Models</fullName>
+        <columns>NAME</columns>
+        <columns>Brand_Native__c</columns>
+        <columns>Model__c</columns>
+        <columns>Series__c</columns>
+        <columns>Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <label>All MBTH Car Models</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>Xbenzall</fullName>
         <columns>NAME</columns>

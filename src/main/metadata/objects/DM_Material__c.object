@@ -1950,6 +1950,29 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <label>DM Material</label>
+	<listViews>
+        <fullName>All_MBTH_DM_Materials</fullName>
+        <columns>NAME</columns>
+        <columns>Active__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Model__c</columns>
+        <columns>Type__c</columns>
+        <columns>Series__c</columns>
+        <columns>Stock__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <label>All MBTH DM Materials</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>Low_Stock_DM_Materials</fullName>
         <columns>NAME</columns>

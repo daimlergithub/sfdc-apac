@@ -152,6 +152,10 @@
         <label>お知らせ</label>
         <name>Announcements</name>
     </customLabels>
+	 <customLabels>
+        <label>本当に削除してよろしいですか？</label>
+        <name>Are_you_sure_to_delete_this_account</name>
+    </customLabels>
 	<customLabels>
         <label>保有情報</label>
         <name>Registration_Information</name>
@@ -2413,6 +2417,10 @@
         <label><!-- Logic Error --></label>
         <name>Logic_Error</name>
     </customLabels>
+	 <customLabels>
+        <label>ログイン携帯電話</label>
+        <name>Login_Mobile</name>
+    </customLabels>
     <customLabels>
         <label>参照</label>
         <name>Lookup_Button</name>
@@ -2512,6 +2520,10 @@
     <customLabels>
         <label>コメント</label>
         <name>Memo</name>
+    </customLabels>
+	<customLabels>
+        <label>Mercedes me退会処理</label>
+        <name>Mercedes_me_Deletion</name>
     </customLabels>
     <customLabels>
         <label>統合</label>
