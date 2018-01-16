@@ -419,6 +419,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_EuroVIN</fullName>
+        <field>EuroVIN__c</field>
+        <formula>Vehicle__r.EuroVIN__c</formula>
+        <name>Update EuroVIN</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Assign_to_Supervisor_Team_B</fullName>
         <field>OwnerId</field>
@@ -1015,6 +1024,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Creator_Department_To_MBTH</fullName>
+        <field>Complaint_Creator_Department__c</field>
+        <literalValue>MBTH</literalValue>
+        <name>Update Creator Department To MBTH</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Creator_Department_To_ROCO</fullName>
         <field>Complaint_Creator_Department__c</field>
@@ -1305,6 +1323,16 @@
             <timeLength>48</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+	<rules>
+        <fullName>Auto Populate Eurovin TH</fullName>
+        <actions>
+            <name>Update_EuroVIN</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Vehicle__c  &lt;&gt; null&amp;&amp; MD__c =&apos;TH&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Case Deadline %3A Dealer Notification KR after 72 Hour</fullName>
@@ -2373,7 +2401,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND 3) OR (1 AND 2 AND 4 AND 5)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3) OR (1 AND  4 AND 5)</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -2396,8 +2424,8 @@
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
-            <operation>equals</operation>
-            <value>Thailand System Admin</value>
+            <operation>contains</operation>
+            <value>Dealer</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>
@@ -2409,7 +2437,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND (2 OR 3 OR 4) AND (5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 ) AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -2426,19 +2454,9 @@
             <value>System Administrator</value>
         </criteriaItems>
         <criteriaItems>
-            <field>User.ProfileId</field>
-            <operation>startsWith</operation>
-            <value>Thailand</value>
-        </criteriaItems>
-        <criteriaItems>
             <field>Case.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
         </criteriaItems>
         <description>When a MB Complaint created by RO/CO,  Update Complaint Creator Department To RO/CO.</description>
         <triggerType>onCreateOnly</triggerType>
@@ -2753,6 +2771,31 @@ RecordType.Name=&apos;MB Complaint&apos;
             <value>Dealer</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Complaint Creator Department To MBTH</fullName>
+        <actions>
+            <name>Update_Creator_Department_To_MBTH</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>Thailand</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notContain</operation>
+            <value>Dealer</value>
+        </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
