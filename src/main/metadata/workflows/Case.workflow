@@ -429,7 +429,7 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>A;ssign_to_Supervisor_Team_B</fullName>
+        <fullName>Assign_to_Supervisor_Team_B</fullName>
         <field>OwnerId</field>
         <lookupValue>Supervisor_Team_B</lookupValue>
         <lookupValueType>Queue</lookupValueType>
