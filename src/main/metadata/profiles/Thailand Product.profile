@@ -28602,7 +28602,7 @@
     </pageAccesses>
 	<pageAccesses>
         <apexPage>LeadAssignmentPageTH</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>LeadButtonContainerASLeads</apexPage>
