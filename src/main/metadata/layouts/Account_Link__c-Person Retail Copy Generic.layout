@@ -42,6 +42,10 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Related_Company__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_DMS_Customer_ID__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Complaint_Amount__c</field>
