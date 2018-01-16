@@ -1,5 +1,5 @@
 public class UtilTaskTH{
-public static String  OBCAllTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','OB Task');
+public static String  OBCAllTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','OB Call');
 public static String  DMTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','DM');
 public static String  SMSTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','SMS');
 public static String  eDMTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','eDM');
