@@ -2,9 +2,6 @@ Dear  Dealer,
 
 The  {!Retail_Campaign__c.Approver__c}  has approved your request for Retail Campaign  {!Retail_Campaign__c.Name}
 
-MBTH’s Link:
-{!Retail_Campaign__c.Link}
-
 Dealer’s Link:
 {!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id}
 
