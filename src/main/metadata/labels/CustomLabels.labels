@@ -480,6 +480,20 @@
         <shortDescription>Address Information</shortDescription>
         <value>Address Information</value>
     </labels>
+	<labels>
+        <fullName>Address_Line_1_should_be_less_than_or_equal_to_50_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 1 should be less than or equal to 50 letters</shortDescription>
+        <value>Address Line 1 should be less than or equal to 50 letters</value>
+    </labels>
+    <labels>
+        <fullName>Address_Line_2_should_be_less_than_or_equal_to_50_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 2 should be less than or equal to 50 letters</shortDescription>
+        <value>Address Line 2 should be less than or equal to 50 letters</value>
+    </labels>
     <labels>
         <fullName>Address_PrintPDF</fullName>
         <language>en_US</language>
@@ -508,6 +522,13 @@
         <protected>false</protected>
         <shortDescription>Address Type</shortDescription>
         <value>Address Type</value>
+    </labels>
+	<labels>
+        <fullName>Address_Type_is_required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Type is required</shortDescription>
+        <value>Address Type is required</value>
     </labels>
     <labels>
         <fullName>Address_fields_not_null</fullName>
@@ -864,6 +885,20 @@
         <protected>false</protected>
         <shortDescription>Birthdate</shortDescription>
         <value>Birthdate</value>
+    </labels>
+	<labels>
+        <fullName>Birthdate_is_not_allowed_to_be_later_than_today_or_earlier_than_150_years</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Birthdate is not allowed to be later than today or earlier than 150 years</shortDescription>
+        <value>Birthdate is not allowed to be later than today or earlier than 150 years.</value>
+    </labels>
+    <labels>
+        <fullName>Block_should_be_less_than_or_equal_to_12_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Block should be less than or equal to 12 letters</shortDescription>
+        <value>Block should be less than or equal to 12 letters</value>
     </labels>
     <labels>
         <fullName>Brand</fullName>
@@ -1928,6 +1963,20 @@
         <shortDescription>City native should not be null</shortDescription>
         <value>City native should not be null</value>
     </labels>
+	<labels>
+        <fullName>City_should_be_less_than_or_equal_to_12_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City should be less than or equal to 12 letters</shortDescription>
+        <value>City should be less than or equal to 12 letters</value>
+    </labels>
+    <labels>
+        <fullName>City_should_be_less_than_or_equal_to_18_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City should be less than or equal to 18 letters</shortDescription>
+        <value>City should be less than or equal to 18 letters</value>
+    </labels>
     <labels>
         <fullName>City_should_not_be_null</fullName>
         <language>en_US</language>
@@ -2075,6 +2124,13 @@
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Company Name Department Title</value>
+    </labels>
+	<labels>
+        <fullName>Company_Name_should_be_less_than_or_equal_to_40_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Name should be less than or equal to 40 letters</shortDescription>
+        <value>Company Name should be less than or equal to 40 letters.</value>
     </labels>
     <labels>
         <fullName>Compared_Vehicle_Brand</fullName>
@@ -3393,12 +3449,33 @@ please contact the number below.</value>
         <shortDescription>First Estimate Print</shortDescription>
         <value>First Estimate Print</value>
     </labels>
+	<labels>
+        <fullName>First_Name_Native_should_be_KANA_Chaarcters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Name Native should be KANA Chaarcters</shortDescription>
+        <value>First Name Native should be KANA Characters.</value>
+    </labels>
     <labels>
         <fullName>First_Name_Native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>First Name Native should not be null</shortDescription>
         <value>First Name Native should not be null</value>
+    </labels>
+	<labels>
+        <fullName>First_Name_should_be_less_than_or_equal_to_40_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Name should be less than or equal to 40 letters</shortDescription>
+        <value>First Name should be less than or equal to 40 letters.</value>
+    </labels>
+    <labels>
+        <fullName>First_Name_should_be_of_2_byte_characters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Name should be of 2 byte characters</shortDescription>
+        <value>First Name should be of 2 byte characters.</value>
     </labels>
     <labels>
         <fullName>First_Name_should_not_be_null</fullName>
@@ -3621,6 +3698,27 @@ please contact the number below.</value>
         <shortDescription>S5 Home Phone 2</shortDescription>
         <value>Home Phone 2</value>
     </labels>
+	<labels>
+        <fullName>Home_Phone_2_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone 2 should be less than or equal to 11 digits</shortDescription>
+        <value>Home Phone 2 should be less than or equal to 11 digits.</value>
+    </labels>
+    <labels>
+        <fullName>Home_Phone_2_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone 2 should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Home Phone 2 should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Home_Phone_2_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone 2 should start with &quot;0&quot;</shortDescription>
+        <value>Home Phone 2 should start with &quot;0&quot;</value>
+    </labels>
     <labels>
         <fullName>Home_Type</fullName>
         <language>en_US</language>
@@ -3699,6 +3797,27 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Individual Customer</shortDescription>
         <value>Individual Customer</value>
+    </labels>
+	<labels>
+        <fullName>Individual_Home_Phone_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Home Phone should be less than or equal to 11 digits</shortDescription>
+        <value>Individual Home Phone  should be less than or equal to 11 digits.</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Home_Phone_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone 2 should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>IndividualHome Phone 2 should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Home_Phone_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Home Phone should start with &quot;0&quot;</shortDescription>
+        <value>Individual Home Phone should start with &quot;0&quot;</value>
     </labels>
     <labels>
         <fullName>InformaticaError</fullName>
@@ -4327,12 +4446,33 @@ please contact the number below.</value>
         <shortDescription>Last Modified Date</shortDescription>
         <value>Last Modified Date</value>
     </labels>
+	<labels>
+        <fullName>Last_Name_Native_should_be_KANA_Characters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Name Native should be KANA Characters</shortDescription>
+        <value>Last Name Native should be KANA Characters</value>
+    </labels>
     <labels>
         <fullName>Last_Name_Native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Last Name Native should not be null</shortDescription>
         <value>Last Name Native should not be null</value>
+    </labels>
+	<labels>
+        <fullName>Last_Name_should_be_less_than_or_equal_to_40_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Name should be less than or equal to 40 letters</shortDescription>
+        <value>Last Name should be less than or equal to 40 letters</value>
+    </labels>
+    <labels>
+        <fullName>Last_Name_should_be_of_2_byte_characters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Name should be of 2 byte characters</shortDescription>
+        <value>Last Name should be of 2 byte characters.</value>
     </labels>
     <labels>
         <fullName>Last_Name_should_not_be_null</fullName>
@@ -5124,6 +5264,48 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>Label for Mobile fields which are referenced in VF pages</shortDescription>
         <value>Mobile</value>
     </labels>
+	<labels>
+        <fullName>Mobile_2_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile 2 should be less than or equal to 11 digits</shortDescription>
+        <value>Mobile 2 should be less than or equal to 11 digits</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_2_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile 2 should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Mobile 2 should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_2_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile 2 should start with &quot;0&quot;</shortDescription>
+        <value>Mobile 2 should start with &quot;0&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile should be less than or equal to 11 digits</shortDescription>
+        <value>Mobile should be less than or equal to 11 digits</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Mobile should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile should start with &quot;0&quot;</shortDescription>
+        <value>Mobile should start with &quot;0&quot;</value>
+    </labels>
     <labels>
         <fullName>Model</fullName>
         <language>en_US</language>
@@ -5207,6 +5389,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <protected>false</protected>
         <shortDescription>NA</shortDescription>
         <value>N.A.</value>
+    </labels>
+	<labels>
+        <fullName>Name_should_be_less_than_or_equal_to_40_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name should be less than or equal to 40 letters</shortDescription>
+        <value>Name should be less than or equal to 40 letters.</value>
     </labels>
     <labels>
         <fullName>National_ID</fullName>
@@ -5921,6 +6110,27 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>PhoneService</shortDescription>
         <value>Phone (Service)</value>
     </labels>
+	<labels>
+        <fullName>Phone_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone should be less than or equal to 11 digits</shortDescription>
+        <value>Phone should be less than or equal to 11 digits</value>
+    </labels>
+    <labels>
+        <fullName>Phone_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Phone should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Phone_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone should start with &quot;0&quot;</shortDescription>
+        <value>Phone should start with &quot;0&quot;</value>
+    </labels>
     <labels>
         <fullName>Planned_Purchase_Time</fullName>
         <language>en_US</language>
@@ -5998,6 +6208,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please enter My Merc Email Id for Selected Account</shortDescription>
         <value>Please enter My Merc Email Id for Selected Account.</value>
     </labels>
+	<labels>
+        <fullName>Please_enter_Value_for_Details_of_Acquisition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Value for Details of Acquisition</shortDescription>
+        <value>Please enter Value for Details of Acquisition.</value>
+    </labels>
     <labels>
         <fullName>Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account</fullName>
         <language>en_US</language>
@@ -6046,6 +6263,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Please enter value for Company Name Native2</shortDescription>
         <value>Please enter value for Company Name Native2</value>
+    </labels>
+	<labels>
+        <fullName>Please_select_Acquisition_Objective_Method</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select Acquisition Objective &amp; Method</shortDescription>
+        <value>Please select Acquisition Objective &amp; Method</value>
     </labels>
     <labels>
         <fullName>Please_select_Address</fullName>
@@ -10030,6 +10254,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Why</shortDescription>
         <value>Why</value>
     </labels>
+	<labels>
+        <fullName>WorkPhone_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkPhone should start with &quot;0&quot;</shortDescription>
+        <value>WorkPhone should start with &quot;0&quot;</value>
+    </labels>
     <labels>
         <fullName>Work_Fax</fullName>
         <language>en_US</language>
@@ -10050,6 +10281,20 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Work Phone</shortDescription>
         <value>Work Phone</value>
+    </labels>
+	<labels>
+        <fullName>Work_Phone_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone should be less than or equal to 11 digits</shortDescription>
+        <value>Work Phone should be less than or equal to 11 digits</value>
+    </labels>
+    <labels>
+        <fullName>Work_Phone_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Work Phone should not include &quot;-&quot; or &quot;+&quot;</value>
     </labels>
     <labels>
         <fullName>Would_you_recommend_your_family_or_friends_join_this_event_in_the_future</fullName>
@@ -10257,6 +10502,20 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Yes Thai Can talk</shortDescription>
         <value>ใช่ และ สะดวกคุย</value>
     </labels>
+	<labels>
+        <fullName>You_are_allowed_to_create_Address_record_for_your_home_market_only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You are allowed to create Address record for your home market only</shortDescription>
+        <value>if Address__c.Market__c value is not &apos;JP&apos;,if Address__c.Market__c value is not &apos;JP&apos;.</value>
+    </labels>
+    <labels>
+        <fullName>You_are_allowed_to_create_record_for_your_home_market_only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You are allowed to create record for your home market only</shortDescription>
+        <value>if Account.Market__c value is not &apos;JP&apos;,You are allowed to create record for your home market only.</value>
+    </labels>
     <labels>
         <fullName>You_cannot_Delete_CaseComment</fullName>
         <language>en_US</language>
@@ -10305,6 +10564,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Zipcode</shortDescription>
         <value>七七七七七七七</value>
+    </labels>
+	<labels>
+        <fullName>Zipcode_is_not_7_digits_long</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zipcode is not 7 digits long</shortDescription>
+        <value>Zipcode is not 7 digits long</value>
     </labels>
     <labels>
         <fullName>Zipcode_not_found</fullName>
