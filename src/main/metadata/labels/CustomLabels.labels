@@ -2835,6 +2835,22 @@
         <value>Please check　New customer related information distribution notification .</value>
     </labels>
     <labels>
+        <fullName>Email_Case_CustomerInfo</fullName>
+        <categories>Email, Case, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_CustomerInfo</shortDescription>
+        <value>This is information from customer calling in or customer opinion or related information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Numberof</fullName>
+        <categories>Email, Case, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Numberof</shortDescription>
+        <value>Number of Cases: 1 Case</value>
+    </labels>
+    <labels>
         <fullName>Email_Case_Record</fullName>
         <language>en_US</language>
         <protected>false</protected>
