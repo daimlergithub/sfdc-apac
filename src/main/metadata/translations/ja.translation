@@ -1493,19 +1493,27 @@
         <name>Email_Assignment</name>
     </customLabels>
     <customLabels>
-        <label>【ご確認ください】　新規お客様関連情報展開のお知らせ</label>
+        <label>統合顧客管理システム　貴店へのケース展開のお知らせ</label>
         <name>Email_Case</name>
+    </customLabels>
+    <customLabels>
+        <label>お客様からの入電内容、ご意見、お客様情報変更等のお客様関連情報になります。</label>
+        <name>Email_Case_CustomerInfo</name>
+    </customLabels>
+    <customLabels>
+        <label>ケース展開：　1件</label>
+        <name>Email_Case_Numberof</name>
     </customLabels>
     <customLabels>
         <label>■ケース</label>
         <name>Email_Case_Record</name>
     </customLabels>
     <customLabels>
-        <label>ご対応をお願いいたします。 ※情報の取り扱いにご注意下さい。</label>
+        <label>下記URLからケースをご確認いただき、今後のご対応にご活用ください。</label>
         <name>Email_Case_Respond</name>
     </customLabels>
     <customLabels>
-        <label>お客様関連情報(入電内容、アンケートにおけるご意見、お客様情報変更、等)を展開いたします。</label>
+        <label>、統合顧客管理システムにて貴店へケースを展開いたしましたのでお知らせいたします。</label>
         <name>Email_Case_information</name>
     </customLabels>
     <customLabels>
@@ -1647,7 +1655,7 @@
         <name>Email_Manager</name>
     </customLabels>
     <customLabels>
-        <label>ご協力ありがとうございます。</label>
+        <label>どうぞよろしくお願い申し上げます。</label>
         <name>Email_Thankyou</name>
     </customLabels>
     <customLabels>
@@ -1655,7 +1663,7 @@
         <name>Email_salesActivities</name>
     </customLabels>
     <customLabels>
-        <label>*ケース情報を確認するには、Salesforceにログインする必要があります。</label>
+        <label>※ケースのご確認には、統合顧客管理システムへのログインが必要となります。</label>
         <name>Email_salesforcelogin</name>
     </customLabels>
 	<customLabels>
