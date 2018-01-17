@@ -71,7 +71,7 @@ global with sharing class LeadVehiclePickerTHController {
             leadType = lead_Vehicles.Lead_Type__c;
            
               if((lead_Vehicles.CAC_Lead_Status__c == 'Purchased' || lead_Vehicles.Dealer_Lead_Status__c == 'Purchased') && lead_Vehicles.Purchased_Vehicle__c == null){
-                 ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.TH_purchased_vehicle_related_information+ '</font>'));               
+                 //ApexPages.addmessage(new ApexPages.message(ApexPages.Severity.Info, '<font color="red">' +System.Label.TH_purchased_vehicle_related_information+ '</font>'));               
                
              }      
              if(lead_Vehicles.Lead_Desired_Service__c!= Null && lead_Vehicles.Lead_Desired_Service__c.contains('Trade-In') && lead_Vehicles.Trade_In_Vehicle__c == null){

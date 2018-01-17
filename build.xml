@@ -117,10 +117,10 @@
 					<sf:typeset name="roles"/>
 					<sf:typeset name="documents"/>
 					<sf:typeset name="callCenters"/>
-					<sf:typeset name="objects">
+					<!--<sf:typeset name="objects">
 						<sf:include name="CDM_EP_Switch__c"/>
 						<sf:include name="CDM_Integration_URLs__c"/>
-					</sf:typeset>
+					</sf:typeset>-->
 				</deploy>
 			</target>
 			<target name="deploy05">
@@ -156,7 +156,7 @@
 					<sf:typeset name="approvalProcesses"/>
 					<sf:typeset name="workflows"/>
 					<sf:typeset name="flows">
-						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-1"/>
+						<!--<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-1"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-2"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-3"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-4"/>
@@ -169,7 +169,7 @@
 						<sf:exclude name="Survey_Star_Assist-1"/>
 						<sf:exclude name="Welcome_Call-4"/>
 						<sf:exclude name="MBTH_MBDE_after_Event_Survey-2"/>
-						<sf:exclude name="Mercedes_Benz_Driving_Experience_SP-4"/>
+						<sf:exclude name="Mercedes_Benz_Driving_Experience_SP-4"/>-->
 					</sf:typeset>
 					<sf:typeset name="applications"/>
 					<sf:typeset name="settings"/>
