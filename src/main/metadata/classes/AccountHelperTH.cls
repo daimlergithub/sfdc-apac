@@ -809,7 +809,7 @@ public class AccountHelperTH{
         }
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
-        List<Account_Link__c> Accountlinklist = [select id,toRole__r.Agreement_to_commit_info_processing__c,toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.UCID__c,toRole__r.CDM_UCID__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.DMS_Retailer_ID__c,Name,toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
+        List<Account_Link__c> Accountlinklist = [select id,Retail_Primary_Phone__c,toRole__r.Agreement_to_commit_info_processing__c,toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.UCID__c,toRole__r.CDM_UCID__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.DMS_Retailer_ID__c,Name,toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
                                                 toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, toRole__r.country__c,
                                                 toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,
                                                 toRole__r.Allow_Data_Sharing2__c,toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax,toRole__r.Primary_Address_Reference__r.Foreign_Nationals__c,
@@ -824,8 +824,8 @@ public class AccountHelperTH{
         for(Account_Link__c acclnk : Accountlinklist ){
             if(acclnk.toRole__r.RecordType.Name == 'Person Account') {
         //acclnk.Retail_DMS_Customer_ID__c=acclnk.toRole__r.DMS_Retailer_ID__c;
-        acclnk.Retail_ID_Type__c = acclnk.toRole__r.ID_Type__c;
-        acclnk.Retail_ID_Number__c = acclnk.toRole__r.ID_Number__c;        
+				acclnk.Retail_ID_Type__c = acclnk.toRole__r.ID_Type__c;
+				acclnk.Retail_ID_Number__c = acclnk.toRole__r.ID_Number__c;        
                 acclnk.Retail_Abroad_Agreement__c=acclnk.toRole__r.Personal_Abroad_Agreement__c;        
                 acclnk.Retail_Information_Third_Party_Release__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;
 				acclnk.Retail_Country__c=acclnk.toRole__r.country__c;		
@@ -877,14 +877,15 @@ public class AccountHelperTH{
                 acclnk.Retail_Visit_OptOut__c= acclnk.toRole__r.Visit_Opt_Out__c;
                 
             }//End if for Company record type
-      acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;
-      acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;
+			acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;
+			acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;
             acclnk.LastModifiedDate__c = acclnk.toRole__r.LastmodifiedDate;
             acclnk.createddate__c = acclnk.toRole__r.createdDate;
             acclnk.Retail_Industry__c = acclnk.toRole__r.Industry; 
             acclnk.Retail_Website__c = acclnk.toRole__r.website;
             acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
             acclnk.Retail_Phone_OptOut__c= acclnk.toRole__r.PersonDoNotCall;
+			acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
 
             //Checking Null for sales Address 
             if(acclnk.toRole__r.Primary_Address_Reference__c != null){
