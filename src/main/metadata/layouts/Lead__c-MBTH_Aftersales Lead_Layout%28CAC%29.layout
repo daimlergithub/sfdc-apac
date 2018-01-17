@@ -305,11 +305,11 @@
                 <field>Check_Out_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Read</behavior>
+                <behavior>Edit</behavior>
                 <field>EuroVIN__c</field>
             </layoutItems>
 			<layoutItems>
-                <behavior>Read</behavior>
+                <behavior>Edit</behavior>
                 <field>Registration_Number__c</field>
             </layoutItems>
             <layoutItems>
