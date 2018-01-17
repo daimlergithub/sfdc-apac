@@ -847,7 +847,7 @@ public class AccountHelperTH{
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
 				acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
                 
-                acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
+                
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
                 acclnk.Retail_Agreement__c= acclnk.toRole__r.Personal_Agreement__c;
                 acclnk.Retail_First_Consent_Date__c= acclnk.toRole__r.First_Consent_Date__c;
@@ -886,6 +886,7 @@ public class AccountHelperTH{
             acclnk.Retail_Website__c = acclnk.toRole__r.website;
             acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
             acclnk.Retail_Phone_OptOut__c= acclnk.toRole__r.PersonDoNotCall;
+			acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
 			acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
 
             //Checking Null for sales Address 
