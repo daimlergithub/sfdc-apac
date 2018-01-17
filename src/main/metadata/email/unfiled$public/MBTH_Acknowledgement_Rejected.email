@@ -4,12 +4,9 @@ The Retail  Campaign {!Retail_Campaign__c.Name}  Acknowledgement is Rejected by 
 
 Kindly look into the comment section
 
-
 Dealer’s Link:
 {!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
 
-MBTH’s Link:
-{!Retail_Campaign__c.Link} 
 
 Best Regards,
 {!Retail_Campaign__c.Approver__c}  
