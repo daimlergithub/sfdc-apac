@@ -846,7 +846,7 @@ public class AccountHelperTH{
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing2__c;                
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
 				acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
-                acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
+                
                 acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
                 acclnk.Retail_Agreement__c= acclnk.toRole__r.Personal_Agreement__c;
@@ -878,6 +878,7 @@ public class AccountHelperTH{
                 
             }//End if for Company record type
 			acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;
+			acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
 			acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;
             acclnk.LastModifiedDate__c = acclnk.toRole__r.LastmodifiedDate;
             acclnk.createddate__c = acclnk.toRole__r.createdDate;
