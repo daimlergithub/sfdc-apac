@@ -82,7 +82,7 @@ public class ConvertToLeadController
     }
     public List<SelectOption> getItems() {
         List<SelectOption> options = new List<SelectOption>();
-        options.add(new SelectOption('--None--','--None--'));
+        //options.add(new SelectOption('--None--','--None--'));
         options.add(new SelectOption('Sales_Leads','Sales Leads'));
         options.add(new SelectOption('Aftersales_Leads','Aftersales Leads'));
         
@@ -224,7 +224,8 @@ public class ConvertToLeadController
             leadRec.OwnerId = campaignMember.Campaign_ID__r.OwnerId;
         } else if(objectAPIName == 'Retail_Campaign__c') {
             leadRec.Retail_Campaign_Name__c = campaignId;
-            leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
+            //leadRec.OwnerId = campaignMember.Retail_Campaign_Id__r.OwnerId;
+            leadRec.OwnerId = UserInfo.getUserId();
         } else if(objectAPIName == 'Account') {
             leadRec.Contact__c = campaignId;
             leadRec.OwnerId = campaignMember.Contact_Id__r.OwnerId;
@@ -267,7 +268,7 @@ public class ConvertToLeadController
         }else if(recordtypevalue!= null && recordtypevalue == 'Sales_leads')
         {
            leadRec.RecordTypeId = leadRTId ;
-        }
+        } 
         if(campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Sales' || campaignMember.Campaign_ID__r.parent.Campaign_Type__c == 'Finance')
         {
            leadRec.Trade_In_Vehicle__c=campaignMember.Vehicle__c;
@@ -319,4 +320,3 @@ public class ConvertToLeadController
     }
     
 }
-

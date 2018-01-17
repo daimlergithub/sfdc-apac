@@ -26,7 +26,7 @@ public  with sharing class coverttolead1controller
     }
      public List<SelectOption> getItems() {
         List<SelectOption> options = new List<SelectOption>();
-        options.add(new SelectOption('--None--','--None--'));
+        //options.add(new SelectOption('--None--','--None--'));
         options.add(new SelectOption('Sales_Leads','Sales Leads'));
         options.add(new SelectOption('Aftersales_Leads','Aftersales Leads'));
         
