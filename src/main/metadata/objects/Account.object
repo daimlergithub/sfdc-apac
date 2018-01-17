@@ -60710,7 +60710,7 @@ $Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__
         <fullName>Brahcn_name_Native</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'JP',RecordType.Name = 'Dealer',
- OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))))</errorConditionFormula>
+ OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*"))))</errorConditionFormula>
         <errorDisplayField>Branch_name_Native__c</errorDisplayField>
         <errorMessage>Branch name native should not be single byte and should be ""Kana"" characters.</errorMessage>
     </validationRules>
