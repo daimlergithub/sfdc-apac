@@ -28,7 +28,7 @@ public Lead__c le{set;get;}
          String wholesaleDealerStr = '';
          String dealerStr = '';
          //String emailBody = 'Hi' +newOwnerId+',<br/><br/>Following Leads are assigned to you - <br/>';
-		 String emailBody =  'Hi,<br/><br/>Following Task are assigned to you - <br/>';
+		 String emailBody =  'Hi,<br/><br/>Following Leads are assigned to you - <br/>';
          String thCommURL='';
         //EmailTemplate templateRec = [Select Id, Name from EmailTemplate where DeveloperName = 'test_email'];
         thCommURL=RetailCampaignHelperTH.getCommunityURL();
