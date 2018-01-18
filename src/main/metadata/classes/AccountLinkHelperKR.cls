@@ -871,7 +871,7 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                                                     Primary_Address_Reference__r.Address_Line_1__c, Primary_Address_Reference__r.Address_Line_2__c, Primary_Address_Reference__r.ZipCode__c,Agreement_to_commit_info_processing__c,
                                                     Company_Name_Native_1__c, Commercial_Reg_No__c, Vat_No__c,PersonDoNotCall,Visit_Opt_Out__c,Job__c,Company_Name__c,Personal_Abroad_Agreement__c,
                                                     Foundation_Date__c, Website, Primary_Address_Reference__r.CreatedDate,UCID__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
-                                                    Primary_Address_Reference__r.LastModifiedDate,Postal_Opt_Out__c
+                                                    Primary_Address_Reference__r.LastModifiedDate,Postal_Opt_Out__c,Work_Phone_2__c
                                                     from Account WHERE Id IN :AccountIds]);
         System.debug('Accountlinklist------>'+accountMap);
         //Account link iteration
@@ -938,8 +938,11 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_Vat_No__c = accountMap.get(acclnk.toRole__c).Vat_No__c;
                     acclnk.Retail_Industry__c = accountMap.get(acclnk.toRole__c).Industry; 
                     acclnk.Retail_Website__c = accountMap.get(acclnk.toRole__c).website;
-                    acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
-                    acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+                    //acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
+                    //acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+					acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+                    acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone_2__c;
+                    acclnk.Retail_Company_Mobile__c = accountMap.get(acclnk.toRole__c).Mobile__c;
                     //acclnk.Retail_DMS_Customer_ID__c = accountMap.get(acclnk.toRole__c).DMS_Customer_ID__c;      
                     acclnk.Retail_Email_OptOut__c = accountMap.get(acclnk.toRole__c).PersonHasOptedOutOfEmail;
                     acclnk.Retail_Fax_OptOut__c = accountMap.get(acclnk.toRole__c).PersonHasOptedOutOfFax;

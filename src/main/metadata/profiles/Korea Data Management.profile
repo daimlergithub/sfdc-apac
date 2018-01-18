@@ -5626,6 +5626,11 @@
         <field>Account_Link__c.General_Personal_Information_Mandatory__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Company_Mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.General_Personal_Information_Optional__c</field>
