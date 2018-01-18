@@ -19378,6 +19378,24 @@ Invisible on UI."</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Work_Phone_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Phone 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+	<fields>
+        <fullName>Work_Phone2_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Work Phone2 Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Work_Phone_Last_Modified_By2__c</fullName>
         <externalId>false</externalId>
