@@ -221,7 +221,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_PersonBirthdate__c = accList.PersonBirthdate;
                             newAlk.Retail_Occupation__c = accList.Occupation__c;
                             newAlk.Retail_Position__c = accList.Job__c;
-                            newAlk.Retail_Preferred_Language__c = 'Thai';
+                            newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
                             newAlk.Retail_Gender__c = accList.Gender__c;
                             newAlk.Retail_Industry__c = accList.industry;
                             newAlk.Retail_WebSite__c = accList.Website;
@@ -304,6 +304,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Country__c = acclist.country__c;
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;
+							newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                             newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
                             newAlk.Retail_Company_Name__c = accList.name;
                             newAlk.Retail_Mobile__c = accList.Mobile__c;
@@ -318,7 +319,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
                             newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
                             newAlk.Retail_Fax__c = accList.fax;
-                            newAlk.Retail_Preferred_Language__c = 'Thai';
+                            newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
                             newAlk.Retail_Industry__c = accList.Industry;
                             newAlk.Retail_Commercial_Reg_No__c = accList.Commercial_Reg_No__c;
                             newAlk.Retail_Vat_No__c = accList.Vat_No__c;
@@ -446,7 +447,7 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_PersonBirthdate__c = accList.PersonBirthdate;
                         newAlk.Retail_Occupation__c = accList.Occupation__c;
                         newAlk.Retail_Position__c = accList.Job__c;
-                        newAlk.Retail_Preferred_Language__c = 'Thai';
+                        newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
                         newAlk.Retail_Gender__c = accList.Gender__c;
                         newAlk.Retail_Industry__c = accList.industry;
                         newAlk.Retail_WebSite__c = accList.Website;
@@ -532,7 +533,8 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
                         newAlk.Retail_Company_Name__c = accList.name;
                         newAlk.Retail_Mobile__c = accList.Mobile__c;
-                        newAlk.Retail_Preferred_Language__c = 'Thai';
+						newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                        newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
                         newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
                         newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
                         newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
