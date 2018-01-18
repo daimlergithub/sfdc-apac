@@ -419,6 +419,37 @@
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
                    </tr>
+				    <!--1606 changes - Added by Monalisa -->
+					<tr>        
+                       <th style="text-align: Right;">{!$Label.Work_Phone_2}</th>                
+                       <td>
+                          <apex:selectList value="{!workPhone2AreaCodePart1}" size="1" style="width:80px" rendered="{!editMode}">
+                                <apex:selectOptions value="{!areacodeItems}"/>
+                            </apex:selectList>  
+                          <apex:inputText value="{!workPhone2AreaCodePart2}" id="workPhone2AreaCodePart2" rendered="{!editMode}" style="width:60px"/>
+                          <apex:inputText value="{!workPhone2AreaCodePart3}" id="workPhone2AreaCodePart3" rendered="{!editMode}" style="width:60px"/>
+                       <apex:outputPanel rendered="{!!editMode}"> 
+                       <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone_2__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone_2__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');">
+                        {!ParAcc.Work_Phone_2__c}
+                        </a> 
+                       </apex:outputPanel>     
+                       <apex:inputCheckbox rendered="{!IF(OR(ParAcc.RecordType.Name='Company',ParAcc.RecordType.Name='Person Account'),true,false)&& !!editMode}" value="{!ParAcc.Work_Phone2_Checkbox__c}" style="float:Right;"  />
+                       <apex:inputCheckbox rendered="{!IF(OR(ParAcc.RecordType.Name='Company',ParAcc.RecordType.Name='Person Account'),true,false) && !editMode}" value="{!ParAcc.Work_Phone2_Checkbox__c}" style="float:Right;" disabled="true" />          
+                       </td> 
+                       <td>
+                      
+                       <!--<apex:inputField value="{!ParAcc.Work_Phone2_Status__c}" rendered="{!editMode}" />
+                          
+                           <apex:outputField value="{!ParAcc.Work_Phone2_Status__c}" rendered="{!!editMode}"/>-->
+                       </td>   
+                       <td>
+					    <!--<apex:outputField value="{!ParAcc.Work_Phone2_Last_Modified_By__c}" />-->
+                                               
+                       </td>     
+                       <td>
+					    <!--<apex:outputField value="{!ParAcc.work_phone_2_last_modified_Date__c}"/>-->
+						</td>       
+                   </tr>
                    <!--<tr>        
                        <th style="text-align: Right;">{!$Label.Other_Phone_2}</th>        
                        <td><apex:inputField value="{!ParAcc.Phone}" rendered="{!editMode}" />
