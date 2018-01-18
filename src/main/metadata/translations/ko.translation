@@ -4582,6 +4582,18 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
         <label>직장 전화 2</label>
         <name>Work_Phone_2</name>
     </customLabels>
+	<customLabels>
+        <label>직장 전화</label>
+        <name>Retail_Company_Phone</name>
+    </customLabels>
+	<customLabels>
+        <label>직장 전화 2</label>
+        <name>Retail_Company_Other_Phone</name>
+    </customLabels>
+	<customLabels>
+        <label>휴대전화</label>
+        <name>Retail_Company_Mobile</name>
+    </customLabels>
     <customLabels>
         <label><!-- Would you recommend your family or friends join this event in the future? --></label>
         <name>Would_you_recommend_your_family_or_friends_join_this_event_in_the_future</name>
