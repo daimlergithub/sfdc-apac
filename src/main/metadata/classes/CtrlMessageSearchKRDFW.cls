@@ -13,7 +13,10 @@ public with sharing class CtrlMessageSearchKRDFW {
 	public Boolean allChecked{get;set;}
 	public Integer chkCount{get;set;}
 	public String idList {get;set;}
-		
+	public Boolean isPartner{get;set;}	
+	public String popupUrl{get;set;}
+	public String linkUrl{get;set;}
+	
 	public CtrlMessageSearchKRDFW(){
 		MessageSearchList = new list<MessageSearch>();	
 		compMap = new map<String, String>();
@@ -21,8 +24,22 @@ public with sharing class CtrlMessageSearchKRDFW {
 		chkCount = 0;
 		idList ='';
 		searchStr = '';
+		isPartner = getIsParnter();
+		if(isPartner){
+			popupUrl = '/MBKorea/apex/PageMessagePopupKRDFW';
+			linkUrl = '/MBKorea';
+		}else{
+			popupUrl = '/apex/PageMessagePopupKRDFW'; 	
+			linkUrl = '';	
+		}
 	}
-
+	
+	private Boolean getIsParnter(){
+		User user = [SELECT Id, AccountId FROM User WHERE Id =: userinfo.getuserid()];
+		if(user.AccountId == null) return false;
+		else return true;
+	}
+	
 	public void targetSearch(){
 		allChecked = false;
 		chkCount = 0;

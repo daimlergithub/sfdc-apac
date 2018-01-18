@@ -50,7 +50,7 @@
        		chked_val = chked_val.substring(1, chked_val.length);
        		console.log('chked_val: ' + chked_val);
         	if(!isBulk){
-        		window.open('/apex/PageMessagePopupKRDFW?id='+chked_val, '_blank');
+        		window.open('{!popupUrl}?id='+chked_val, '_blank');
         	}else{
 				Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.CtrlMessageSearchKRDFW.messageScheduling}',
 					chked_val,chkCnt,
@@ -59,7 +59,7 @@
 			            	var resObj = result;
 			            	if(resObj != 'failed') {
 			            		//성공
-			            		window.open('/apex/PageMessagePopupKRDFW?bulkMessageId='+resObj, '_blank');        	
+			            		window.open('{!popupUrl}?bulkMessageId='+resObj, '_blank');        	
 			            	} else {
 			            		//실패
 			            		alert('Message Bulk Message Scheduling failed');
@@ -152,15 +152,15 @@
 					<apex:facet name="header">Personal Abroad Agreement</apex:facet>
 					<apex:outputText value="{!item.Personal_Abroad_Agreement}"/> 
 				</apex:column>                              
-	     
+				
                 <apex:column headerValue="Related To object/ object code">
 					<apex:facet name="header">Related To object/ object code</apex:facet>
-					<a href="/{!item.recordId}" target="_blank"><apex:outputText value="{!item.Related}" /></a>
+					<a href="{!linkUrl}/{!item.recordId}" target="_blank"><apex:outputText value="{!item.Related}" /></a>
                 	<apex:outputPanel rendered="{!item.RelatedWhat <> null}">
-                		<a href="/{!item.RelatedWhat}" target="_blank"><apex:outputText value="/{!item.RelatedWhatName}" /></a>
+                		<a href="{!linkUrl}/{!item.RelatedWhat}" target="_blank"><apex:outputText value="/{!item.RelatedWhatName}" /></a>
                 	</apex:outputPanel>
                 	<apex:outputPanel rendered="{!item.RelatedWho <> null}">
-                		<a href="/{!item.RelatedWho}" target="_blank"><apex:outputText value="/{!item.RelatedWhoName}" /></a>
+                		<a href="{!linkUrl}/{!item.RelatedWho}" target="_blank"><apex:outputText value="/{!item.RelatedWhoName}" /></a>
                 	</apex:outputPanel>                	
                 </apex:column>
             </apex:pageBlockTable> 
