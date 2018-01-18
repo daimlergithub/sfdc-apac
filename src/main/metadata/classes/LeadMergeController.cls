@@ -31,6 +31,8 @@ public class LeadMergeController{
     private Map<String, Schema.SObjectField> fieldNamesMap = Lead__c.sObjectType.getDescribe().fields.getMap(); 
             
      public static id isMasterSelected{ get; set; } 
+	  Public static id  masterids{ get; set; }
+	  Public static id  Slaveids{ get; set; }
     public static id isSlaveSelected{ get; set; } 
     public Lead__c selectedslavelead        {get; set;}
     Public static Id Leadslaveids{get;set;}
@@ -207,6 +209,12 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
            system.debug('+++++++++ SlaveSelectedIdExisting_Contract__c '+ slave.Existing_Contract__c );     
             system.debug('+++++++++ Dealer_Lead_Status__c '+  Master.Dealer_Lead_Status__c );
            system.debug('+++++++++ Dealer_Lead_Status__c '+ slave.Dealer_Lead_Status__c );     
+		   masterids=ApexPages.currentPage().getParameters().get('Id');  
+		    slaveids=ApexPages.currentPage().getParameters().get('selectedValue');   
+			system.debug('++++++ masterids ctedId'+  masterids);
+			           system.debug('+++slaveids Id'+ slaveids);  
+
+
           
              if( ((master.Dealer_Lead_Status__c =='Purchased(Only Non BDC)') || (master.Dealer_Lead_Status__c =='Invoiced') || (master.Dealer_Lead_Status__c =='Order Placed')) ||((master.Existing_Contract__c !=null && slave.Existing_Contract__c ==null)) )
              {
