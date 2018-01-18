@@ -123,7 +123,7 @@
     <fieldUpdates>
         <fullName>Sales_Tel_Display_field_auto_populate_Co</fullName>
         <field>Primary_Phone_Display__c</field>
-        <formula>IF(Mobile__c!=NULL,Mobile__c,IF(Individual_Home_Phone__c!=NULL,Individual_Home_Phone__c,Work_Phone__c))</formula>
+        <formula>IF(Mobile__c!=NULL,Mobile__c,IF(Individual_Home_Phone__c!=NULL,Individual_Home_Phone__c,IF(Work_Phone__c!=NULL,Work_Phone__c,Work_Phone_2__c)))</formula>
         <name>&apos;Sales Tel Display&apos; field auto populate</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -384,7 +384,7 @@
             <operation>equals</operation>
             <value>Person Account</value>
         </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onCreateOnly</triggerType>e>
     </rules>
     <rules>
         <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number for Person Account Record Type</fullName>
