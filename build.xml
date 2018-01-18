@@ -50,7 +50,7 @@
 											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 </target>
 
-<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, postDestructiveChanges">
+<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy02, deploy03, deploy04, postDestructiveChanges">
 <!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">-->
 <sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
@@ -84,7 +84,7 @@
 
 
 			<target name="deploy01">
-				<deploy runAllTests="${sfdc.runAllTests}">
+				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTest}">
 					<sf:typeset name="labels"/>
 					<sf:typeset name="staticresources">
 					<!-- the Checksums resource is handled by separate tasks -->
@@ -117,17 +117,18 @@
 					<sf:typeset name="roles"/>
 					<sf:typeset name="documents"/>
 					<sf:typeset name="callCenters"/>
-					<!--<sf:typeset name="objects">
+					<sf:typeset name="objects">
 						<sf:include name="CDM_EP_Switch__c"/>
 						<sf:include name="CDM_Integration_URLs__c"/>
-					</sf:typeset>-->
+					</sf:typeset>
 				</deploy>
 			</target>
-			<target name="deploy05">
-				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
+			<target name="deploy02">
+				<deploy transformations="transformations29.xml" testLevel="${sfdc.testLevel}" runTest="${sfdc.runTest}">
 			
 					<sf:typeset name="customPermissions" force="true"/>	
-					<sf:typeset name="objects"/> 	
+					<sf:typeset name="objects"/> 
+					<sf:typeset name="customMetadata"/>
 					<sf:typeset name="queues"/>
 					<sf:typeset name="email"/>
 					<sf:typeset name="components"/>
@@ -139,13 +140,14 @@
 					<sf:exclude name="WSMockAddressValidationRespInvalidAddrTH"/>
 					</sf:typeset>
 					<sf:typeset name="pages"/>
-					<sf:typeset name="triggers"/>								
+					<sf:typeset name="triggers"/>	
+					<sf:typeset name="aura"/>
 					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 						
 				</deploy>
 			</target>
-			<target name="deploy07">
-				<deploy runAllTests="${sfdc.runAllTests}">
+			<target name="deploy03">
+				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTest}">
 				<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
 						<sf:exclude name="selectAllChkBox"/>
@@ -156,7 +158,7 @@
 					<sf:typeset name="approvalProcesses"/>
 					<sf:typeset name="workflows"/>
 					<sf:typeset name="flows">
-						<!--<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-1"/>
+						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-1"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-2"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-3"/>
 						<sf:exclude name="MBTH_Email_Notification_to_Sales_or_Service_manager_if_untouched_24_hours-4"/>
@@ -169,7 +171,7 @@
 						<sf:exclude name="Survey_Star_Assist-1"/>
 						<sf:exclude name="Welcome_Call-4"/>
 						<sf:exclude name="MBTH_MBDE_after_Event_Survey-2"/>
-						<sf:exclude name="Mercedes_Benz_Driving_Experience_SP-4"/>-->
+						<sf:exclude name="Mercedes_Benz_Driving_Experience_SP-4"/>
 					</sf:typeset>
 					<sf:typeset name="applications"/>
 					<sf:typeset name="settings"/>
@@ -180,10 +182,11 @@
 					<sf:typeset name="appMenus">
 						<sf:exclude name="AppSwitcher"/>
 					</sf:typeset>
-					<sf:typeset name="accountSharingRules"/>
+					<sf:typeset name="sharingRules"/>
+					<!--<sf:typeset name="accountSharingRules"/>
 					<sf:typeset name="campaignSharingRules"/>
 					<sf:typeset name="caseSharingRules"/>
-					<sf:typeset name="customObjectSharingRules"/>
+					<sf:typeset name="customObjectSharingRules"/>-->
 					<sf:typeset name="reportTypes"/>
 					<sf:typeset name="reports"/>
 					<sf:typeset name="dashboards"/>
@@ -197,7 +200,7 @@
 					<sf:typeset name="translations"/>
 				</deploy>
 			</target>
-			<target name="deploy09">
+			<target name="deploy04">
 				<deploy>    
 					<sf:typeset name="profiles" force="true">								
 					</sf:typeset>
@@ -221,9 +224,7 @@
 </target>
 <!--SN20170912 - Added Custom Permissions-->
 <property name="typesets.circle">
-			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,Report,DataCategoryGroup,
-
-			Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard,CustomPermission
+			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,CustomMetadata,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,Report,DataCategoryGroup,Workflow,EmailTemplate,SharingRules,CustomApplication,AppMenu,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard,CustomPermission,AuraDefinitionBundle
 </property>
 
 <property name="typesets.not-ready">
