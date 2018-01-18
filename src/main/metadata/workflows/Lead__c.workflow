@@ -1350,7 +1350,7 @@ Purchased_Date_Time__c
             <name>LeadAssignmentNotificationDealerUsersTH</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(MD__c = 'TH', ISPICKVAL( Owner:User.UserType,'PowerPartner'),OR(isnew(),ischanged(OwnerId )))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -1360,7 +1360,7 @@ Purchased_Date_Time__c
             <name>LeadAssignmentNotificationWholeSaleUsersTH</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(MD__c = 'TH', NOT(ISPICKVAL( Owner:User.UserType,'PowerPartner')),OR(isnew(),ischanged(OwnerId )))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
