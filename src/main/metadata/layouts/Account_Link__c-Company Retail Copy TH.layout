@@ -146,10 +146,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_Race__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Retail_List_of_Events__c</field>
             </layoutItems>
         </layoutColumns>

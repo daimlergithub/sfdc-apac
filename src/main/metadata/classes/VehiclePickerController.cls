@@ -198,7 +198,8 @@ global with sharing class VehiclePickerController {
                     carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c];
                 }
             }
-            else if(status_type.equalsIgnoreCase('Interested Vehicle')){
+            //else if(status_type.equalsIgnoreCase('Interested Vehicle')){
+            else if(status_type.equalsIgnoreCase('Own Sellable')){
                     if(!Test.isRunningTest()){
                             carModels = [SELECT Brand__c,Name,Series__c,Colour__c,Model__c  FROM Car_Model__c Where Status__c =:status_type AND MD__c = :usr.Market__c AND (System__c = 'Range' OR System__c = '')];
                         }else{
