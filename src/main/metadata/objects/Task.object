@@ -6094,6 +6094,22 @@
                 <fullName>wrong number</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>not started</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>invalid data</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>reservation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Successful</fullName>
+                <default>false</default>
+            </values>
 		</picklistValues>
         <picklistValues>
             <picklist>Call_Category__c</picklist>
