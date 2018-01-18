@@ -48,6 +48,9 @@ public class AddressSearchValidationController
     public String workPhoneAreaCodePart1{get;set;}   
     public String workPhoneAreaCodePart2{get;set;}
     public String workPhoneAreaCodePart3{get;set;}
+	public String workPhone2AreaCodePart1{get;set;}   
+    public String workPhone2AreaCodePart2{get;set;}
+    public String workPhone2AreaCodePart3{get;set;}
     public String homePhone2AreaCode{get;set;}
     public String homePhone2AreaCodePart2{get;set;}
     public String homePhone2AreaCodePart3{get;set;}
@@ -493,6 +496,23 @@ public class AddressSearchValidationController
                     {
                         objAccount.Work_Phone__c = '';
                     }
+					//1606 changes added by Monalisa
+					if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
+                    {                      
+                        objAccount.Work_Phone_2__c = '';
+                    }
+                    else if((workPhone2AreaCodePart1 != ' ' || workPhone2AreaCodePart1 == ' ') && (workPhone2AreaCodePart2 != '' || workPhone2AreaCodePart2 == '') && (workPhone2AreaCodePart3 != '' || workPhone2AreaCodePart3 == ''))
+                    {                         
+                        objAccount.Work_Phone_2__c = workPhone2AreaCodePart1+'-'+workPhone2AreaCodePart2+'-'+workPhone2AreaCodePart3;
+                        if(objAccount.Work_Phone_2__c.startsWith(' -'))
+                        {
+                            objAccount.Work_Phone_2__c = objAccount.Work_Phone_2__c.removeStart(' -');
+                        }
+                    }
+                    else
+                    {
+                        objAccount.Work_Phone_2__c = '';
+                    }
                     if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
                     {              
                         objAccount.Mobile__c = '';
@@ -669,6 +689,22 @@ public class AddressSearchValidationController
                     else
                     {
                         objAccount.Work_Phone__c = '';
+                    }
+					if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
+                    {                      
+                        objAccount.Work_Phone_2__c = '';
+                    }
+                    else if((workPhone2AreaCodePart1 != ' ' || workPhone2AreaCodePart1 == ' ') && (workPhone2AreaCodePart2 != '' || workPhone2AreaCodePart2 == '') && (workPhone2AreaCodePart3 != '' || workPhone2AreaCodePart3 == ''))
+                    {                         
+                        objAccount.Work_Phone_2__c = workPhone2AreaCodePart1+'-'+workPhone2AreaCodePart2+'-'+workPhone2AreaCodePart3;
+                        if(objAccount.Work_Phone_2__c.startsWith(' -'))
+                        {
+                            objAccount.Work_Phone_2__c = objAccount.Work_Phone_2__c.removeStart(' -');
+                        }
+                    }
+                    else
+                    {
+                        objAccount.Work_Phone_2__c = '';
                     }
                     if(mobileAreaCode == ' ' && mobileAreaCodePart2 == '' && mobileAreaCodePart3 == '')
                     {              
@@ -1476,6 +1512,11 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(!(String.isBlank(workPhoneAreaCodePart1)) && !phoneAreaCodeMapKR.containsKey(workPhoneAreaCodePart1)){
                 options.add(new SelectOption( workPhoneAreaCodePart1,workPhoneAreaCodePart1));
             }
+			//Monalisa Code Started
+            if(!(String.isBlank(workPhone2AreaCodePart1)) && !phoneAreaCodeMapKR.containsKey(workPhone2AreaCodePart1)){
+                options.add(new SelectOption( workPhone2AreaCodePart1,workPhone2AreaCodePart1));
+            }
+            //Monalisa Code ended
         }        
         return options;
     }

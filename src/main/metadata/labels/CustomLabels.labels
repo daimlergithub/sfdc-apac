@@ -10298,6 +10298,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Work Phone</shortDescription>
         <value>Work Phone</value>
     </labels>
+	 <labels>
+        <fullName>Work_Phone_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone 2</shortDescription>
+        <value>Work Phone 2</value>
+    </labels>
 	<labels>
         <fullName>Work_Phone_should_be_less_than_or_equal_to_11_digits</fullName>
         <language>en_US</language>

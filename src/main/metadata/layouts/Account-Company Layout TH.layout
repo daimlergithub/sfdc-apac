@@ -71,11 +71,7 @@
                 <behavior>Edit</behavior>
                 <field>Latest_Sales_Dealer__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_Nationality__c</field>
-            </layoutItems>
-        </layoutColumns>
+		</layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>

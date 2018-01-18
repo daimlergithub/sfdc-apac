@@ -140,10 +140,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Retail_Race__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Retail_PersonBirthdate__c</field>
             </layoutItems>
             <layoutItems>
