@@ -10306,6 +10306,27 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Work Phone 2</value>
     </labels>
 	<labels>
+        <fullName>Retail_Company_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Phone</shortDescription>
+        <value>Retail Company Phone</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Company_Other_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Other Phone</shortDescription>
+        <value>Retail Company Other Phone</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Company_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Mobile</shortDescription>
+        <value>Retail Company Mobile</value>
+    </labels>
+	<labels>
         <fullName>Work_Phone_should_be_less_than_or_equal_to_11_digits</fullName>
         <language>en_US</language>
         <protected>false</protected>
