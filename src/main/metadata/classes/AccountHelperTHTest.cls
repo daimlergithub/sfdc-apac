@@ -171,7 +171,8 @@ public with sharing class AccountHelperTHTest
     }*/
    /* method Should remove zero from phone number*/
    /*Commented on 3rd June,2017 due to the reason of straight forward appending of +66 before the phone numbers coming from EP */
-   /* static testMethod void removeZeroFromNumber() {        
+   /* static testMethod void removeZeroFromNumber() {   
+system.debug('test');   
         User user5 = TestUtils.createAdminUser();
         System.runAs (user5) {            
             Account Acc = TestUtils.createPersonAccountAsUserAsOwner(user5);
