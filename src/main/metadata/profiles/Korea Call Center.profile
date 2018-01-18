@@ -5881,6 +5881,11 @@
         <field>Account_Link__c.Retail_Allow_Data_Sharing__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Company_Mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Retail_Business_Type__c</field>
