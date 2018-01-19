@@ -1351,10 +1351,10 @@
                 <fullName>Contact</fullName>
                 <default>false</default>
             </picklistValues>
-			<values>
+			<picklistValues>
                 <fullName>Handover</fullName>
                 <default>false</default>
-            </values>
+            </picklistValues>
             <picklistValues>
                 <fullName>Visited</fullName>
                 <default>false</default>
