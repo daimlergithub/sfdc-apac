@@ -3437,6 +3437,13 @@ please contact the number below.</value>
         <shortDescription>Finance Proposal</shortDescription>
         <value>Finance Proposal</value>
     </labels>
+	 <labels>
+        <fullName>Handover</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Handover</shortDescription>
+        <value>Handover</value>
+    </labels>
     <labels>
         <fullName>First</fullName>
         <language>en_US</language>
