@@ -4,8 +4,7 @@
     <excludeButtons>AccountHierarchy</excludeButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -72,11 +71,7 @@
                 <behavior>Edit</behavior>
                 <field>Latest_Sales_Dealer__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MBTH_Nationality__c</field>
-            </layoutItems>
-        </layoutColumns>
+		</layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
