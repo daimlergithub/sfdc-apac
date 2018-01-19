@@ -80,9 +80,15 @@ public with sharing class RetailTaskSharingWrapService {
 	 * @see   wrapRetailTasks
 	 */
     public List<SharingWrapper> wrapServices(List<Retail_Task__c> services) {
+        User loggedInUser = [select Id, Market__c from User where Id = :UserInfo.getUserId()];
+        if(loggedInUser.Market__c=='TH')
+        {
+            return wrapRetailTasksTH(Schema.Retail_Task__Share.RowCause.Service_Share__c, services,UtilConstant.edit_Access);
+        }
         return wrapRetailTasks(Schema.Retail_Task__Share.RowCause.Service_Share__c, services,UtilConstant.read_Access);
     }
-
+	
+    
      /**	
      * @Description Wraps "Retail Activity" retail tasks.
      *              Users to share are decidied by their access to contrats' vehicle and dealer.    
@@ -116,4 +122,43 @@ public with sharing class RetailTaskSharingWrapService {
 
         return SharingWrapperService.wrapSharings(retailTask2Users, rowCause, accessLevel);
     }
+    
+    /*Specific to TH market*/
+    private List<SharingWrapper> wrapRetailTasksTH(String rowCause, List<Retail_Task__c> retailTasks, String accessLevel) {
+        UserService userService = new UserService();
+        List<Retail_Task__c> retailTasksLst=[select Id,Service_Dealer__c,Service_Dealer__r.Dealer_ND_Code__c from Retail_Task__c where Id IN:retailTasks];
+        Map<String, Set<Id>> dealerNdCode2Grp = userService.mapDealerNdCode2Grp(retailTasksLst);
+        Map<Id, Set<Id>> retailTask2Grp = new Map<Id, Set<Id>>();
+        for(Retail_Task__c retailTask : retailTasksLst) {
+            String grpName='TH'+retailTask.Service_Dealer__r.Dealer_ND_Code__c;
+            if(dealerNdCode2Grp.get(grpName) != null){
+                retailTask2Grp.put(retailTask.Id, dealerNdCode2Grp.get(grpName));
+            }
+        }
+
+        return SharingWrapperService.wrapSharings(retailTask2Grp, rowCause, accessLevel);
+    }
+    /*
+     *@Specific for TH market
+	 *@author tejbir Singh
+	 *@Share only service recordtype of retail task according to dealer and code of users 
+     */
+    public List<SharingWrapper> wrapRetailTasksTH(List<Retail_Task__c> retailTasks)
+    {
+        List<Retail_Task__c> services = new List<Retail_Task__c>();
+        List<SharingWrapper> wrappers = new List<SharingWrapper>();
+        for(Retail_Task__c retailTask : retailTasks) {       
+            if(UtilRecordType.getRecordTypeIdByName('Retail_Task__c','Service').equalsIgnoreCase(retailTask.RecordTypeId)){
+                    
+                services.add(retailTask);
+            }
+        }
+        if(services!=null && services.size()>0)
+        {
+            wrappers.addAll(wrapServices(services));
+        }
+        return wrappers;
+    }
+     
+     
 }

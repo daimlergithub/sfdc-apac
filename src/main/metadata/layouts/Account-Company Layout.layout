@@ -37,13 +37,13 @@
     </customConsoleComponents>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>SendEmail</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <excludeButtons>XClean</excludeButtons>
     <layoutSections>
@@ -79,6 +79,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle_Amount__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Individual_Home_Phone__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -342,6 +346,10 @@
                 <behavior>Edit</behavior>
                 <field>DUPNumber__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MD__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -432,6 +440,21 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_DM_Request</customButtons>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Contact__c</fields>
+        <fields>Status__c</fields>
+        <fields>Expected_DM_Material1__c</fields>
+        <fields>Status1__c</fields>
+        <fields>Expected_DM_Material2__c</fields>
+        <fields>Status2__c</fields>
+        <fields>Expected_DM_Material3__c</fields>
+        <fields>Status3__c</fields>
+        <fields>Sent_Date__c</fields>
+        <relatedList>DM_Request__c.Customer_Name__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>
         <excludeButtons>NewTask</excludeButtons>
         <fields>TASK.SUBJECT</fields>
@@ -460,6 +483,19 @@
         <fields>Lead_DataSource__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Type__c</fields>
+        <fields>Product_Name__c</fields>
+        <fields>Status__c</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>VIN_Link__c</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>ApplicationDate__c</fields>
+        <fields>ContractNumber__c</fields>
+        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
