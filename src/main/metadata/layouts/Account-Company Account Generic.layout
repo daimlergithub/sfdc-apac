@@ -80,7 +80,7 @@
                 <field>Website</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -229,6 +229,13 @@
             <layoutItems>
                 <height>200</height>
                 <page>RetailCopyOnlyRelatedList</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>200</height>
+                <page>RetailCopyViewAreaForDealerUser</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
