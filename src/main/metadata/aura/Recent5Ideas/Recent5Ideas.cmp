@@ -1,0 +1,24 @@
+<!--************************************************************************************
+* Created By:Sarath M
+* Created Date:23-Sept-2017
+* Company:Infosys Ltd
+* Description: Component to display recent 5 ideas based on created date and status 'Open'.
+* **********************************************************************************-->
+<aura:component controller="IdeasCommunityHelper" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="Ideas" type="Ideas__c[]" />
+   
+     <lightning:card iconName="custom:custom95" title="Recent Ideas"  class="card">
+    				<div class="slds-p-left--medium slds-p-right--medium">
+        					<ul class="slds-list--vertical slds-has-dividers--top-space">
+            					<aura:iteration items="{!v.Ideas}" var="item" indexVar="i" >
+                							<li class="slds-list__item">                   
+                    								<a href="{!'/rugcollaboration/s/detail/'+item.Id}" target="_blank" id="{!item.Id}" > {!item.Name}</a>
+                                    		</li>
+            					</aura:iteration>
+        					</ul>
+    				</div>
+         			<div class="slds-text-body_small slds-text-color_error">{!v.message} </div>
+    </lightning:card>
+</aura:component>

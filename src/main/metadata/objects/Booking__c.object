@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,14 +40,17 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>To store Service Booking Information for a particular Account</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -88,17 +87,6 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
-        <fullName>Assigned_Service_Advisors__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Assigned Service Advisor</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Bookings</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
     <fields>
         <fullName>Assigned_Service_Advisor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -107,6 +95,17 @@
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Bookings (Assigned Service Advisor)</relationshipLabel>
         <relationshipName>Bookings1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_Service_Advisors__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned Service Advisor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Bookings</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -414,7 +413,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>Service_Booking_KR</fullName>
         <columns>NAME</columns>
         <columns>OBJECT_ID</columns>
@@ -480,4 +479,5 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))</defaultValue>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
 </CustomObject>

@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global">
+	<span class="slds-text-body_small slds-text-color_error">Note: Maximum File size you can upload is 5 MB</span> 
+    <lightning:fileUpload label="Attach Files" multiple="true" recordId="{!v.recordId}" onuploadfinished="{!c.handleUploadFinished}" />
+</aura:component>

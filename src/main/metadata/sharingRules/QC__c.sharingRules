@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Share_RW_with_IB_TL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share RW with IB TL</label>
+        <sharedTo>
+            <role>IB_TL</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>IB QC</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_RW_with_OB_TL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share RW with OB TL</label>
+        <sharedTo>
+            <role>OB_TL</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Complete</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>OB QC</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_RW_with_SSI_TL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share RW with SSI TL</label>
+        <sharedTo>
+            <role>OB_QC</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>New,Complete,In Progress,Cancel,Disqualified</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>SSI QC</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_SSI_QC_with_RW_to_SSI_TL_and_above</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share SSI QC with RW to SSI TL and above</label>
+        <sharedTo>
+            <role>OB_QC</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Approved__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>SSI QC</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>QC_share_with_OB_CSR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>QC share with OB CSR</label>
+        <sharedTo>
+            <role>OB_CSR</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>OB_QC</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

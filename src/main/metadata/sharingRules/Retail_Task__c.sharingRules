@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>JP_MarketRetail_Task_Readable_to_MBJ_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>View all records of Retail Task with MD__c = &apos;JP&apos; for all Dealer User Roles used in Japan</description>
+        <label>JP_MarketRetail Task_Readable_to_MBJ_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_MarketRetail_Task_Readable_to_MBJ_IT_Dept</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <label>JP_MarketRetail Task_Readable_to_MBJ_IT_Dept</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_Retail_Task_Readable_to_MBJ_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>JP Retail Task Readable to MBJ Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Retail_Task_Service_Records</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Retail Task Service Records</label>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Contract_Service_with_Region</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Contract/Service with Region</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contract,Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Contract_and_Service_with_Central</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share  Contract and Service with Central</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contract,Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Read_Write_with_CAC_users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Contract Read/Write with CAC users</description>
+        <label>Share Read/Write with CAC users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contract</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_readonly_retail_task_to_CAC</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>ShareRetail Activity,Service  Retail task to CAC</description>
+        <label>Share Readonly Retail task to CAC</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail Activity,Service</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

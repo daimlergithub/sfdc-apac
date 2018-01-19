@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,62 +40,22 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Requirement: US-DD-002
 Description: To support this solution we can create a new custom object to track the suspect-duplicates that have been manually confirmed as not a match. The custom object could be called "Rejected Duplicate Log" and would contain a the Master Account, Duplicate Account and Duplicate reason code.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>DUPNumber__c</fullName>
         <description>Requirement: US-DD-002
@@ -155,6 +111,55 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Master_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Requirement: US-DD-002
@@ -186,29 +191,37 @@ CreatedDate: 2013-06-08</description>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Confirmed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Confirmed</fullName>
+                    <default>false</default>
+                    <label>Confirmed</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Rejected Duplicate Log</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>DUPNumber__c</columns>
         <columns>Master_Account__c</columns>
         <columns>Duplicate_Account__c</columns>
         <columns>Duplicate_Reason_Code__c</columns>
         <columns>CREATED_DATE</columns>
+        <columns>MD__c</columns>
+        <columns>Market__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -221,4 +234,5 @@ CreatedDate: 2013-06-08</description>
     <pluralLabel>Rejected Duplicate Logs</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

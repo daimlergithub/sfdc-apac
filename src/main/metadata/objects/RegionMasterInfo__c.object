@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,14 +40,17 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>This object contains details about Language,District,Sub District,Zip Codes for THAILAND .</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -70,24 +69,27 @@
         <fullName>Language__c</fullName>
         <externalId>false</externalId>
         <label>Language</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>English</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>true</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Thai</fullName>
+                    <default>false</default>
+                    <label>Thai</label>
+                </value>
+                <value>
+                    <fullName>English</fullName>
+                    <default>false</default>
+                    <label>English</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
-   
-	 <fields>
+    <fields>
         <fullName>Market__c</fullName>
         <externalId>false</externalId>
         <label>Market</label>
@@ -96,8 +98,8 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>		
-	 <fields>	
+    </fields>
+    <fields>
         <fullName>Province__c</fullName>
         <description>List of all provinces of Thailand</description>
         <externalId>false</externalId>
@@ -138,4 +140,5 @@
     <pluralLabel>RegionMasterInfos</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,15 +40,18 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>QC: Quality Control record based on a outbound call or SSI record</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
@@ -71,21 +70,25 @@
         <inlineHelpText>1.A serious misconduct , is strictly prohibited abusive phone customers, clients and quarrel , etc.
 2. Due to customer service leads to customer / brand / customer service center by significant losses</inlineHelpText>
         <label>A Deadly Mistake Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.It Is Forbidden To Quarrel...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.The Significant Loss Of...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.It Is Forbidden To Quarrel...</fullName>
+                    <default>false</default>
+                    <label>1.It Is Forbidden To Quarrel...</label>
+                </value>
+                <value>
+                    <fullName>2.The Significant Loss Of...</fullName>
+                    <default>false</default>
+                    <label>2.The Significant Loss Of...</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -94,25 +97,30 @@
         <inlineHelpText>1. Abuses in phones is strictly prohibited insulting customers, fight with the customer and other serious misconduct
 2. Customer service leads to significant losses on customer/brand/customer service</inlineHelpText>
         <label>A Deadly Mistake</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Appeal_Comments__c</fullName>
@@ -154,97 +162,118 @@
         <fullName>Appeal_Result__c</fullName>
         <externalId>false</externalId>
         <label>Appeal Result</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Failed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Success</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Appeal_Status__c</fullName>
         <externalId>false</externalId>
         <label>Appeal Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>New Added</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New Added</fullName>
+                    <default>true</default>
+                    <label>New Added</label>
+                </value>
+                <value>
+                    <fullName>In Process</fullName>
+                    <default>false</default>
+                    <label>In Process</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Appeal_Type__c</fullName>
         <externalId>false</externalId>
         <label>Appeal Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>QC judge errors</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>QC regulation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>QC change comments</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Appeal fails</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quality calibration</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuzzy audio</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Major differences</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Business update</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Temporary submission</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>QC judge errors</fullName>
+                    <default>false</default>
+                    <label>QC judge errors</label>
+                </value>
+                <value>
+                    <fullName>QC regulation</fullName>
+                    <default>false</default>
+                    <label>QC regulation</label>
+                </value>
+                <value>
+                    <fullName>QC change comments</fullName>
+                    <default>false</default>
+                    <label>QC change comments</label>
+                </value>
+                <value>
+                    <fullName>Appeal fails</fullName>
+                    <default>false</default>
+                    <label>Appeal fails</label>
+                </value>
+                <value>
+                    <fullName>Quality calibration</fullName>
+                    <default>false</default>
+                    <label>Quality calibration</label>
+                </value>
+                <value>
+                    <fullName>Fuzzy audio</fullName>
+                    <default>false</default>
+                    <label>Fuzzy audio</label>
+                </value>
+                <value>
+                    <fullName>Major differences</fullName>
+                    <default>false</default>
+                    <label>Major differences</label>
+                </value>
+                <value>
+                    <fullName>Business update</fullName>
+                    <default>false</default>
+                    <label>Business update</label>
+                </value>
+                <value>
+                    <fullName>Temporary submission</fullName>
+                    <default>false</default>
+                    <label>Temporary submission</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Appeal__c</fullName>
@@ -270,169 +299,211 @@
         <description>share to Sinotrust user</description>
         <externalId>false</externalId>
         <label>Approved</label>
-        <picklist>
-            <controllingField>Status__c</controllingField>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-                <controllingFieldValues>Complete</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-                <controllingFieldValues>Complete</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Status__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Complete</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>CAI__c</fullName>
         <externalId>false</externalId>
         <label>Communicate Ability - Initiative</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>General</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>General</fullName>
+                    <default>false</default>
+                    <label>General</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>CALA__c</fullName>
         <externalId>false</externalId>
         <label>Communicate Ability - Listening Ability</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>CARR__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Give quick response to customer needs, without pauses for a long time, or even customers reminded to respond to clients ' profiles.</inlineHelpText>
         <label>Communicate Ability - Rapid Response</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>CCCR__c</fullName>
         <externalId>false</externalId>
         <label>Clarify&amp;Confirm Customer Requirement</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>CCD_Comments__c</fullName>
@@ -451,29 +522,35 @@
 3. Misleading customers.
 4. Others</inlineHelpText>
         <label>Clarification Customer Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Not Understand Customer Calls...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Subjective Judgments, Comments...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3.Error to Guide Customers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4.Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Not Understand Customer Calls...</fullName>
+                    <default>false</default>
+                    <label>1.Not Understand Customer Calls...</label>
+                </value>
+                <value>
+                    <fullName>2.Subjective Judgments, Comments...</fullName>
+                    <default>false</default>
+                    <label>2.Subjective Judgments, Comments...</label>
+                </value>
+                <value>
+                    <fullName>3.Error to Guide Customers</fullName>
+                    <default>false</default>
+                    <label>3.Error to Guide Customers</label>
+                </value>
+                <value>
+                    <fullName>4.Other</fullName>
+                    <default>false</default>
+                    <label>4.Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -490,37 +567,45 @@
         <externalId>false</externalId>
         <inlineHelpText>In accordance with the procedures required to collect the necessary information, such as customer information, sales information, vehicle information, such as initial source of information.</inlineHelpText>
         <label>Collect Customer Information</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>CITQ__c</fullName>
@@ -531,37 +616,45 @@
 Breathe out:
 Do not mislead clients, actively verifying the customer's needs.</inlineHelpText>
         <label>Correctly Interpret The Questionnaire</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>CP_Comments__c</fullName>
@@ -578,21 +671,25 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
         <inlineHelpText>1. Business skills
 2. Service attitude</inlineHelpText>
         <label>Customer Perception Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Business Skills</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Attitude Towards Customers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Business Skills</fullName>
+                    <default>false</default>
+                    <label>1.Business Skills</label>
+                </value>
+                <value>
+                    <fullName>2.Attitude Towards Customers</fullName>
+                    <default>false</default>
+                    <label>2.Attitude Towards Customers</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -633,25 +730,30 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
         <fullName>ClarificationCustomerDemand__c</fullName>
         <externalId>false</externalId>
         <label>Clarification Customer Demand</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Completed_Time__c</fullName>
@@ -667,61 +769,74 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
         <fullName>CustomerPerception__c</fullName>
         <externalId>false</externalId>
         <label>Customer Perception</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>DA__c</fullName>
         <externalId>false</externalId>
         <label>Document Accuracy</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Document_Comments__c</fullName>
@@ -736,57 +851,70 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
         <fullName>Document_DeductedReason__c</fullName>
         <externalId>false</externalId>
         <label>Document Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Wrong Character</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Create Information Consultation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Choose Wrong Information Types...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3.Create Leads</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4.Create Car Information</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5.Information Type, Classification Error</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5.Advice Note, Other Note Are...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6.System Template Selection Error</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6.Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>7.Advice Note, Other Note Are...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>8.Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Wrong Character</fullName>
+                    <default>false</default>
+                    <label>1.Wrong Character</label>
+                </value>
+                <value>
+                    <fullName>2.Create Information Consultation</fullName>
+                    <default>false</default>
+                    <label>2.Create Information Consultation</label>
+                </value>
+                <value>
+                    <fullName>2.Choose Wrong Information Types...</fullName>
+                    <default>false</default>
+                    <label>2.Choose Wrong Information Types...</label>
+                </value>
+                <value>
+                    <fullName>3.Create Leads</fullName>
+                    <default>false</default>
+                    <label>3.Create Leads</label>
+                </value>
+                <value>
+                    <fullName>4.Create Car Information</fullName>
+                    <default>false</default>
+                    <label>4.Create Car Information</label>
+                </value>
+                <value>
+                    <fullName>5.Information Type, Classification Error</fullName>
+                    <default>false</default>
+                    <label>5.Information Type, Classification Error</label>
+                </value>
+                <value>
+                    <fullName>5.Advice Note, Other Note Are...</fullName>
+                    <default>false</default>
+                    <label>5.Advice Note, Other Note Are...</label>
+                </value>
+                <value>
+                    <fullName>6.System Template Selection Error</fullName>
+                    <default>false</default>
+                    <label>6.System Template Selection Error</label>
+                </value>
+                <value>
+                    <fullName>6.Other</fullName>
+                    <default>false</default>
+                    <label>6.Other</label>
+                </value>
+                <value>
+                    <fullName>7.Advice Note, Other Note Are...</fullName>
+                    <default>false</default>
+                    <label>7.Advice Note, Other Note Are...</label>
+                </value>
+                <value>
+                    <fullName>8.Other</fullName>
+                    <default>false</default>
+                    <label>8.Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -796,97 +924,118 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
 2.Document content matching call substance
 3.Work order grouped properly</inlineHelpText>
         <label>Document</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>FMSK__c</fullName>
         <externalId>false</externalId>
         <label>Familiar Central/smart/ Knowledge</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>FQL__c</fullName>
         <externalId>false</externalId>
         <label>Following Questionnaire Logic</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>FTOP_Comments__c</fullName>
@@ -901,122 +1050,149 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
         <fullName>FTOP_DeductedReason__c</fullName>
         <externalId>false</externalId>
         <label>Follow The Operation Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Consulting And Upgrade Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Customer Information Processing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3.Sales Leads Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4.Campaign Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5.Complaint Handling Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6.SMS Sending Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>7.Call Flow Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>8.Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1.Check Data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Consulting And Upgrade Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3.SMS Handling Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4.Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Consulting And Upgrade Process</fullName>
+                    <default>false</default>
+                    <label>1.Consulting And Upgrade Process</label>
+                </value>
+                <value>
+                    <fullName>2.Customer Information Processing</fullName>
+                    <default>false</default>
+                    <label>2.Customer Information Processing</label>
+                </value>
+                <value>
+                    <fullName>3.Sales Leads Process</fullName>
+                    <default>false</default>
+                    <label>3.Sales Leads Process</label>
+                </value>
+                <value>
+                    <fullName>4.Campaign Process</fullName>
+                    <default>false</default>
+                    <label>4.Campaign Process</label>
+                </value>
+                <value>
+                    <fullName>5.Complaint Handling Process</fullName>
+                    <default>false</default>
+                    <label>5.Complaint Handling Process</label>
+                </value>
+                <value>
+                    <fullName>6.SMS Sending Process</fullName>
+                    <default>false</default>
+                    <label>6.SMS Sending Process</label>
+                </value>
+                <value>
+                    <fullName>7.Call Flow Process</fullName>
+                    <default>false</default>
+                    <label>7.Call Flow Process</label>
+                </value>
+                <value>
+                    <fullName>8.Other</fullName>
+                    <default>false</default>
+                    <label>8.Other</label>
+                </value>
+                <value>
+                    <fullName>1.Check Data</fullName>
+                    <default>false</default>
+                    <label>1.Check Data</label>
+                </value>
+                <value>
+                    <fullName>2.Consulting And Upgrade Process</fullName>
+                    <default>false</default>
+                    <label>2.Consulting And Upgrade Process</label>
+                </value>
+                <value>
+                    <fullName>3.SMS Handling Process</fullName>
+                    <default>false</default>
+                    <label>3.SMS Handling Process</label>
+                </value>
+                <value>
+                    <fullName>4.Other</fullName>
+                    <default>false</default>
+                    <label>4.Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>FTOP__c</fullName>
         <externalId>false</externalId>
         <label>Follow The Operation Process</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>FollowTheOperationProcess__c</fullName>
         <externalId>false</externalId>
         <label>Follow The Operation Process</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>LAIQ_Comments__c</fullName>
@@ -1034,25 +1210,30 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
 2. The correct interpretation of questionnaire
 3. subjective speculation/comments</inlineHelpText>
         <label>Logic and Interpretation Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.The Wrong Guide</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Correctly Interpret The Questionnaire</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3.Subjective Speculation/Comments</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.The Wrong Guide</fullName>
+                    <default>false</default>
+                    <label>1.The Wrong Guide</label>
+                </value>
+                <value>
+                    <fullName>2.Correctly Interpret The Questionnaire</fullName>
+                    <default>false</default>
+                    <label>2.Correctly Interpret The Questionnaire</label>
+                </value>
+                <value>
+                    <fullName>3.Subjective Speculation/Comments</fullName>
+                    <default>false</default>
+                    <label>3.Subjective Speculation/Comments</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -1071,25 +1252,30 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
 2. The correct interpretation of the questionnaire
 3. Information or comment is not subjective speculation without confirmation</inlineHelpText>
         <label>Logic and Interpretation Questionnaire</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>OP_Comments__c</fullName>
@@ -1106,21 +1292,25 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
         <inlineHelpText>1. Hold the line problem
 2. White space appears in the phone for more than 10 seconds</inlineHelpText>
         <label>Offline Prompt Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Hold</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.The Phone In The Blank...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Hold</fullName>
+                    <default>false</default>
+                    <label>1.Hold</label>
+                </value>
+                <value>
+                    <fullName>2.The Phone In The Blank...</fullName>
+                    <default>false</default>
+                    <label>2.The Phone In The Blank...</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -1131,25 +1321,30 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
 3. May not exceed 30 seconds
 4. Phone cannot be blank (blank length definitions: 10 seconds)</inlineHelpText>
         <label>Offline Prompt</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PACI__c</fullName>
@@ -1158,73 +1353,89 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
 2. Provide accurate and complete information on smart activities;
 3. Provide accurate and complete information on smart related (for example: PDI/on the licensing policy, etc).</inlineHelpText>
         <label>Provide Accurate&amp;Complete Information</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PFOCF__c</fullName>
         <externalId>false</externalId>
         <label>Perception - Focus On Customer Feel</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PHU__c</fullName>
@@ -1234,109 +1445,133 @@ Transfer the exact satisfaction.
 Breathe out,SSI:
 Customer hung up the phone and then hang up.</inlineHelpText>
         <label>Perception - Hang Up</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PJ__c</fullName>
         <externalId>false</externalId>
         <label>Perception - JinYongYu</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PPD__c</fullName>
         <externalId>false</externalId>
         <label>Perception - Patience Degree</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PPIS_Comments__c</fullName>
@@ -1353,21 +1588,25 @@ Customer hung up the phone and then hang up.</inlineHelpText>
         <inlineHelpText>1. Pronunciation and Intonation
 2. Speed (fast)</inlineHelpText>
         <label>Proper Pronunciation Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Pronunciation and Intonation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Speed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Pronunciation and Intonation</fullName>
+                    <default>false</default>
+                    <label>1.Pronunciation and Intonation</label>
+                </value>
+                <value>
+                    <fullName>2.Speed</fullName>
+                    <default>false</default>
+                    <label>2.Speed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -1377,37 +1616,45 @@ Customer hung up the phone and then hang up.</inlineHelpText>
 2.Rising tone and Cadence changes;
 3.Speed matching the mood and needs of customers.</inlineHelpText>
         <label>Proper Pronunciation&amp;Intonation&amp;Speed</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PS_Comment__c</fullName>
@@ -1425,37 +1672,45 @@ Customer hung up the phone and then hang up.</inlineHelpText>
         <externalId>false</externalId>
         <inlineHelpText>Transfer the exact satisfaction.</inlineHelpText>
         <label>Perception - Satisfaction</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PTRS_Comments__c</fullName>
@@ -1475,33 +1730,40 @@ Customer hung up the phone and then hang up.</inlineHelpText>
 4. Call Center knowledge provided but not provided, within the context of information/programme
 5. Other</inlineHelpText>
         <label>Provide The Right Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Product</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3.Solution</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4.Customer Service Center...</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5.Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Product</fullName>
+                    <default>false</default>
+                    <label>1.Product</label>
+                </value>
+                <value>
+                    <fullName>2.Campaign</fullName>
+                    <default>false</default>
+                    <label>2.Campaign</label>
+                </value>
+                <value>
+                    <fullName>3.Solution</fullName>
+                    <default>false</default>
+                    <label>3.Solution</label>
+                </value>
+                <value>
+                    <fullName>4.Customer Service Center...</fullName>
+                    <default>false</default>
+                    <label>4.Customer Service Center...</label>
+                </value>
+                <value>
+                    <fullName>5.Other</fullName>
+                    <default>false</default>
+                    <label>5.Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -1511,25 +1773,30 @@ Customer hung up the phone and then hang up.</inlineHelpText>
 2. Speed keep calls from beginning to end, speed matching customer emotions
 3. When the check information, tips, critical information, due to slow</inlineHelpText>
         <label>Proper Pronunciation, Intonation, Speed</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>ProvideTheRightSolution__c</fullName>
@@ -1537,25 +1804,30 @@ Customer hung up the phone and then hang up.</inlineHelpText>
         <inlineHelpText>1. provide the correct product smart information/solutions
 (Product knowledge, involved in the above activities and solutions is included in the FAQ, knowledgebase, or training)</inlineHelpText>
         <label>Provide The Right Solution</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Q0_Comments__c</fullName>
@@ -1763,21 +2035,25 @@ Otherwise system will update Qualified to be 'Fail'.
 Fatal score refers to 'SSI Quality standards and algorithms 2'.</description>
         <externalId>false</externalId>
         <label>Qualified</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>R_Communicate_Ability_Initiative_P_F_S1__c</fullName>
@@ -2402,37 +2678,45 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <fullName>Responsibility__c</fullName>
         <externalId>false</externalId>
         <label>Responsibility</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SC__c</fullName>
@@ -2440,37 +2724,45 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <inlineHelpText>1.Using the standard closing, said good Freudian;
 2.Speed is moderate, does not appear impatient or speaking too fast to express lack of clarity in the situation.</inlineHelpText>
         <label>Standard Conclusion</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SK_DeductedReason__c</fullName>
@@ -2478,21 +2770,25 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <inlineHelpText>1. Language expression
 2. Ability to listen</inlineHelpText>
         <label>Soft Skill Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Language Expression</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Listening Skill</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Language Expression</fullName>
+                    <default>false</default>
+                    <label>1.Language Expression</label>
+                </value>
+                <value>
+                    <fullName>2.Listening Skill</fullName>
+                    <default>false</default>
+                    <label>2.Listening Skill</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -2511,25 +2807,30 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
 2. Prohibition of service language
 3. Spoken language</inlineHelpText>
         <label>Specification Language Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Polite Words</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Forbidden Words</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3.Colloquial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Polite Words</fullName>
+                    <default>false</default>
+                    <label>1.Polite Words</label>
+                </value>
+                <value>
+                    <fullName>2.Forbidden Words</fullName>
+                    <default>false</default>
+                    <label>2.Forbidden Words</label>
+                </value>
+                <value>
+                    <fullName>3.Colloquial</fullName>
+                    <default>false</default>
+                    <label>3.Colloquial</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -2539,73 +2840,89 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
 2.Speed is moderate, articulate;
 3.Started by show, including willingness to serve language and take the initiative to ask the customer name.</inlineHelpText>
         <label>Standard Opening</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SPL__c</fullName>
         <externalId>false</externalId>
         <label>Specification - Polite Language</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SSIVehicleModel__c</fullName>
@@ -2638,37 +2955,45 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <inlineHelpText>1.Fluency in the call, no spoken language, dialect and other unprofessional language;
 2.No "Yes, Yes, of course, that's it, Oh, Oh," or unnecessary, such as "this ... The ... Hmm ..." spoken language and dialects；</inlineHelpText>
         <label>Specification - Spoken Language</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>false</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Fail</fullName>
+                    <default>false</default>
+                    <label>Fail</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SS_Comments__c</fullName>
@@ -2683,81 +3008,98 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <fullName>SoftSkill__c</fullName>
         <externalId>false</externalId>
         <label>Soft Skill</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SpecificationLanguage__c</fullName>
         <externalId>false</externalId>
         <label>Specification Language</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>New</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Complete</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In Progress</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancel</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Disqualified</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Cancel</fullName>
+                    <default>false</default>
+                    <label>Cancel</label>
+                </value>
+                <value>
+                    <fullName>Disqualified</fullName>
+                    <default>false</default>
+                    <label>Disqualified</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Supervisor_Comments__c</fullName>
@@ -2792,21 +3134,25 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <inlineHelpText>1. Introduction
 2. A closing</inlineHelpText>
         <label>The Standard Opening Deducted Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1.Opening</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2.Closing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1.Opening</fullName>
+                    <default>false</default>
+                    <label>1.Opening</label>
+                </value>
+                <value>
+                    <fullName>2.Closing</fullName>
+                    <default>false</default>
+                    <label>2.Closing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -2859,25 +3205,30 @@ if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <fullName>TheStandardOpeningClosing__c</fullName>
         <externalId>false</externalId>
         <label>The Standard Opening/Closing</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pass</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fatal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pass</fullName>
+                    <default>true</default>
+                    <label>Pass</label>
+                </value>
+                <value>
+                    <fullName>Non-fatal</fullName>
+                    <default>false</default>
+                    <label>Non-fatal</label>
+                </value>
+                <value>
+                    <fullName>Fatal</fullName>
+                    <default>false</default>
+                    <label>Fatal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>TotalScore__c</fullName>
@@ -5677,6 +6028,7 @@ ISPICKVAL(PHU__c, '')
 ))))</errorConditionFormula>
         <errorMessage>You have to fill in all the questionnaires.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Mass_Approve</fullName>
         <availability>online</availability>

@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,14 +40,17 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -80,7 +79,7 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Class_and_Body__c</fullName>
         <externalId>false</externalId>
         <formula>Campaign_Member__r.Class_and_Body__c</formula>
@@ -216,24 +215,29 @@
         <fullName>List_Maintenance_CM_Status__c</fullName>
         <externalId>false</externalId>
         <label>List Maintenance CM Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Ready</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Removed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New</fullName>
-                <default>true</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ready</fullName>
+                    <default>false</default>
+                    <label>Ready</label>
+                </value>
+                <value>
+                    <fullName>Removed</fullName>
+                    <default>false</default>
+                    <label>Removed</label>
+                </value>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>MD__c</fullName>
@@ -249,7 +253,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Model_Description__c</fullName>
         <externalId>false</externalId>
         <formula>Campaign_Member__r.Model_Description__c</formula>
@@ -318,7 +322,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <fields>
         <fullName>Sales_Representative__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign_Member__r.Sales_Representative__c</formula>
+        <formula>Campaign_Member__r.Sales_Consultant__r.LastName&amp;' '&amp;Campaign_Member__r.Sales_Consultant__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Representative</label>
         <required>false</required>
@@ -329,7 +333,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <fields>
         <fullName>Service_Representative__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign_Member__r.Service_Representative__c</formula>
+        <formula>Campaign_Member__r.Service_Advisor__r.LastName&amp;' '&amp;Campaign_Member__r.Service_Advisor__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Representative</label>
         <required>false</required>
@@ -337,7 +341,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Temp_Address__c</fullName>
         <externalId>false</externalId>
         <formula>Campaign_Member__r.Temp_Address__c</formula>
@@ -418,47 +422,20 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
-        <fullName>List_Maintenance_Lock_on_Dealer</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), Campaign__r.Consolidated_List_Completed__c = TRUE)</errorConditionFormula>
-        <errorMessage>List Maintenance is Completed,You Cant Edit And Create</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>lock_on_campaign</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),Participating_Dealer__r.Approve_the_List__c = TRUE)</errorConditionFormula>
-        <errorMessage>Campaign is Locked</errorMessage>
-    </validationRules>
-	 <validationRules>
         <fullName>Account_cannot_be_changed</fullName>
         <active>true</active>
-		<description>Account cannot be changed if List Maintenance CM Status is 'Ready' or 'Removed' , 
+        <description>Account cannot be changed if List Maintenance CM Status is 'Ready' or 'Removed' , 
 As per JIRA SFDCJP-3118</description>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), 
 ISCHANGED(NewAccount__c),(OR((ISPICKVAL(List_Maintenance_CM_Status__c, "Ready")),(ISPICKVAL(List_Maintenance_CM_Status__c, "Removed")))) 
 )</errorConditionFormula>
+        <errorDisplayField>NewAccount__c</errorDisplayField>
         <errorMessage>Account cannot be changed if List Maintenance CM Status is 'Ready' or 'Removed'</errorMessage>
-		<errorDisplayField>NewAccount__c</errorDisplayField>
-    </validationRules>	
-	 <validationRules>
-        <fullName>List_Maintenance_CM_Status_Changes</fullName>
-        <active>true</active>
-		<description>List Maintenance CM Status should be 'New' for new record, As per JIRA SFDCJP-3118</description>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(OR((ISPICKVAL(List_Maintenance_CM_Status__c, "Ready")),(ISPICKVAL(List_Maintenance_CM_Status__c, "Removed")))),ISNEW(), 
-(OR( 
-($Profile.Name = 'Japan Dealer Company Manager'), 
-($Profile.Name = 'Japan Dealer Sales Manager'), 
-($Profile.Name = 'Japan Dealer Sales Representative'), 
-($Profile.Name = 'Japan Dealer Service Advisor'), 
-($Profile.Name = 'Japan Dealer Service Manager'))) 
-)</errorConditionFormula>
-        <errorMessage>List Maintenance CM Status should be 'New' for new record</errorMessage>
-		<errorDisplayField>List_Maintenance_CM_Status__c</errorDisplayField>
-    </validationRules>	
-	<validationRules>
+    </validationRules>
+    <validationRules>
         <fullName>LM_CM_Status_cannot_be_changes_to_New</fullName>
         <active>true</active>
-		<description>List Maintenance CM Status cannot be changed to 'New', 
+        <description>List Maintenance CM Status cannot be changed to 'New', 
 As per JIRA SFDCJP-3118</description>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),ISCHANGED(List_Maintenance_CM_Status__c),NOT(ISPICKVAL(PRIORVALUE(List_Maintenance_CM_Status__c),'New')),(ISPICKVAL(List_Maintenance_CM_Status__c, "New")),NOT(ISNEW()), 
 (OR( 
@@ -468,17 +445,44 @@ As per JIRA SFDCJP-3118</description>
 ($Profile.Name = 'Japan Dealer Service Advisor'), 
 ($Profile.Name = 'Japan Dealer Service Manager'))) 
 )</errorConditionFormula>
+        <errorDisplayField>List_Maintenance_CM_Status__c</errorDisplayField>
         <errorMessage>List Maintenance CM Status cannot be changed to 'New'</errorMessage>
-		<errorDisplayField>List_Maintenance_CM_Status__c</errorDisplayField>
-    </validationRules>	
+    </validationRules>
+    <validationRules>
+        <fullName>List_Maintenance_CM_Status_Changes</fullName>
+        <active>true</active>
+        <description>List Maintenance CM Status should be 'New' for new record, As per JIRA SFDCJP-3118</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),(OR((ISPICKVAL(List_Maintenance_CM_Status__c, "Ready")),(ISPICKVAL(List_Maintenance_CM_Status__c, "Removed")))),ISNEW(), 
+(OR( 
+($Profile.Name = 'Japan Dealer Company Manager'), 
+($Profile.Name = 'Japan Dealer Sales Manager'), 
+($Profile.Name = 'Japan Dealer Sales Representative'), 
+($Profile.Name = 'Japan Dealer Service Advisor'), 
+($Profile.Name = 'Japan Dealer Service Manager'))) 
+)</errorConditionFormula>
+        <errorDisplayField>List_Maintenance_CM_Status__c</errorDisplayField>
+        <errorMessage>List Maintenance CM Status should be 'New' for new record</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>List_Maintenance_Lock_on_Dealer</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), Campaign__r.Consolidated_List_Completed__c = TRUE)</errorConditionFormula>
+        <errorMessage>List Maintenance is Completed,You Cant Edit And Create</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Participating_Dealer_cannot_be_changed</fullName>
         <active>true</active>
-		<description> Participating Dealer cannot be changed, As per JIRA SFDCJP-3118</description>
+        <description>Participating Dealer cannot be changed, As per JIRA SFDCJP-3118</description>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'), 
 NOT(ISBLANK(PRIORVALUE(Participating_Dealer__c))),NOT(ISNEW()),ISCHANGED(Participating_Dealer__c))</errorConditionFormula>
+        <errorDisplayField>Participating_Dealer__c</errorDisplayField>
         <errorMessage>Participating Dealer cannot be changed</errorMessage>
-		<errorDisplayField>Participating_Dealer__c</errorDisplayField>
     </validationRules>
-	
+    <validationRules>
+        <fullName>lock_on_campaign</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( MD__c = 'JP'),Participating_Dealer__r.Approve_the_List__c = TRUE)</errorConditionFormula>
+        <errorMessage>Campaign is Locked</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>
