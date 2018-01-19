@@ -3,9 +3,6 @@
     <customButtons>Create_Retail_Copy</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>Delete</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
@@ -246,7 +243,7 @@
                 <behavior>Edit</behavior>
                 <field>Visit_Opt_Out__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lastest_Consent_Date__c</field>
             </layoutItems>
@@ -258,7 +255,7 @@
                 <behavior>Readonly</behavior>
                 <field>Updated_Consent_User__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>System_Data_Source__c</field>
             </layoutItems>
