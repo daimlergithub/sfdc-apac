@@ -443,6 +443,7 @@
             contentMap = (Map<String, Object>)(filterMap.get('content'));
             system.debug('I am content map'+contentMap);
             setSoql();
+            try{
             
             if(vehicleRelSoql.endsWith('AND  ') || vehicleRelSoql.endsWith('AND ')){
                 vehicleRelSoql = vehicleRelSoql.removeEnd('AND  ').removeEnd('AND ');
@@ -742,7 +743,22 @@
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
             } 
-            system.debug('saveQueryfinal'+saveQuery);
+            }
+            catch (Exception e){
+ string s = 'Maximum view state size limit (135KB) exceeded ' ;
+ if (s.contains('Maximum view state size limit 135KB exceeded' ))
+ {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR,label.Matched_records_are_too_much_please_add_more_criteria));
+                
+            } 
+            
+            else{
+            
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, label.Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition));
+			e.getMessage();
+            System.debug('The following exception has occurred: ' + e.getMessage()); 
+            }
+            }//system.debug('saveQueryfinal'+saveQuery);
             accountIdSet.clear();
             return null;
         }

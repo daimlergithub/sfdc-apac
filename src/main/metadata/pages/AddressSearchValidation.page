@@ -1160,9 +1160,16 @@
                             <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}" rendered="{!recordType == 'Person Account'}">                    
                                 <apex:outputField value="{!Th.firstName}"/>
                             </apex:Column>
-                            <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!recordType == 'Company'}">                    
-                                <apex:outputLink value="/{!Th.Id}">{!Th.Name}</apex:outputLink>
+							
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!($User.ContactId !=null && recordType == 'Company')}">                    
+                                <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.Name}</apex:outputLink>
                             </apex:Column>
+							
+							
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!($User.ContactId ==null && recordType ==  'Company')}">                    
+                                <apex:outputLink value="/{!Th.Id}"  rendered="{!$User.ContactId ==null}">{!Th.Name}</apex:outputLink>
+                            </apex:Column>
+							
                             <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">                    
                                 <apex:outputField value="{!Th.UCID__c}"/>
                             </apex:Column>

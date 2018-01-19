@@ -25698,7 +25698,7 @@
         <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Self Registered Layout-CAC</layout>
+        <layout>Vehicle__c-Self Registered Layout-CAC JP</layout>
         <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
     <layoutAssignments>
