@@ -5,6 +5,7 @@
 * Created Date : 2017-10-10
 */
 public without sharing class  LeadHelperBase{
+    public static boolean booleanCampaignUpdate = true;
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static final String retailSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.RETAIL_SALES_LEADS).getRecordTypeId();
@@ -151,5 +152,44 @@ public without sharing class  LeadHelperBase{
                       leadRec.Market__c=leadRec.MD__c;
                   }  
               }       
+    }
+    
+    //Create retail copy
+    //Mohammed Touseef Ahmed
+    //01-19-18
+    Public void CreateRetailCopy(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap, boolean isInsert, boolean isUpdate) {
+        set < String > contactId = new set < String > ();
+        for (Lead__c le: leadlist) {
+            if (le.Assigned_Dealer__c != null && le.MD__c == 'MY') {
+                if (isInsert || (isUpdate && le.Assigned_Dealer__c != leadOldMap.get(le.id).Assigned_Dealer__c)) {
+                    contactId.add(le.id);
+                }
+            }
+        }
+        if (contactId.size() > 0) {
+            LeadHelperAccountLinkCreateJP.createAccountLinkRecord(contactId);
+        }
+    }
+    
+    
+    //Call informatica web service
+    //Mohammed Touseef Ahmed
+    //01-19-18
+    public void CdmLeadcreate(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap) {
+        Set < Id > LeadIdinsert = new Set < Id > ();
+        Set < Id > LeadIdupdate = new Set < Id > ();
+        Map < Id, Lead__c > ldmap = new Map < Id, Lead__c > ([select id, Contact__r.Ucid__c, Retail_Contact__r.Retail_DMS_Customer_ID__c, Assigned_Dealer__c from Lead__c where id in: leadOldMap.keyset()]);
+        for (Lead__c le: leadlist) {
+            if (ldmap.containskey(le.Id)) {
+                if (ldmap.get(le.Id).Contact__r.Ucid__c != '' && ldmap.get(le.Id).Retail_Contact__r.Retail_DMS_Customer_ID__c != '' && le.Assigned_Dealer__c != null && le.Assigned_Dealer__c == leadOldMap.get(le.id).Assigned_Dealer__c && le.MD__c == 'MY' && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c && le.CAC_Lead_Status__c == 'Accepted') {
+
+                    LeadIdinsert.add(le.Id);
+                }
+            }
+        }
+        if (LeadIdinsert.size() > 0)
+            //call informatica service
+            CDMInformatica_Services.createLead(LeadIdinsert, 'MY', 'insert');
+
     }    
 }
