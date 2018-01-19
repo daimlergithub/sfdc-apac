@@ -7328,7 +7328,6 @@
             </values>
             <values>
                 <fullName>Inquiry</fullName>
-                <fullName>Successful</fullName>
                 <default>false</default>
             </values>
             <values>
