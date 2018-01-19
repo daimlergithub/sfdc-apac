@@ -200,13 +200,10 @@
             get{
                 provincemodel= new List<SelectOption>();
                 provincemodel.add(new SelectOption('', '--None--'));
-                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Address__c.fields.Province__c;
-         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
-          for( Schema.PicklistEntry f : ple)
-         {
-             provincemodel.add(new SelectOption(f.getValue(), f.getLabel()));
+           for(AggregateResult resul:[select Province__c from RegionMasterInfo__c  where Province__c!=null group by Province__c]){
+                  provincemodel.add(new SelectOption((String)resul.get('Province__c'),(String)resul.get('Province__c')));
            }
-                return provincemodel;
+               return provincemodel;
             }
             set;
         }
