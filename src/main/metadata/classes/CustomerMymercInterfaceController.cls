@@ -171,7 +171,7 @@ public with sharing class CustomerMymercInterfaceController {
             System.debug('+++++++dotCheck+++++++++++'+dotCheck);   
             
                      
-            if(result >= 64 || dotCheck == true || MyMercEmail.contains('.@')  || MyMercEmail.contains('@.') || MyMercEmail.contains('..') ){
+            if(result > 64 || dotCheck == true || MyMercEmail.contains('.@')  || MyMercEmail.contains('@.') || MyMercEmail.contains('..') ){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
                 return null;
             
