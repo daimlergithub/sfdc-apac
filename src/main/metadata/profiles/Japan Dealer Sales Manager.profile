@@ -25692,6 +25692,10 @@
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>Vehicle__c-MB Vehicle Layout Dealer Portal JP</layout>
+        <recordType>Vehicle__c.MB</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-Self Registered Layout-CAC</layout>
         <recordType>Vehicle__c.Self_Registered</recordType>
