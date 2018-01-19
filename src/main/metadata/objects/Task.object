@@ -6329,6 +6329,183 @@
             </values>
             <values>
                 <fullName>Email</fullName>
+=======
+>>>>>>> origin/rmtest2
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Number Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Status %28Transfer to dealer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Shut Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politely Decline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC Successful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejection During the Main Part of the Interview</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejection During the Probing Question Phase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Repeat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Returned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Bounced</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subscribe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Successful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to Contact Qualified Interviewee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unanswered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unauthorized Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unsubscribe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voice Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong Number %28Not the person%27s phone number within the address book%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>busy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>call transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>failed to send Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>failed to send SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>failed to send fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>invalid call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>invalid data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>need call back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no such person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>not started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>reject</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>wrong number</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Method__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7103,15 +7280,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Successful</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>busy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>invalid call</fullName>
+            <fullName>invalid call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7159,10 +7328,112 @@
             </values>
             <values>
                 <fullName>Inquiry</fullName>
+=======
+                <fullName>Successful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>busy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>invalid call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>invalid data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>need call back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no such person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>not started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>reject</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>wrong number</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Call_Category__c</picklist>
+            <values>
+                <fullName>RSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Leads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Caller_Type__c</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Center</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Method__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face2Face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+=======
+                <fullName>Inquiry</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>RSA</fullName>
+>>>>>>> origin/rmtest2
                 <default>false</default>
             </values>
             <values>
@@ -9540,6 +9811,122 @@
             </values>
             <values>
                 <fullName>Engaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inconsistent Car Model</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inconsistent Car Pick Up Time</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insufficient Fund</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interview Reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interviewed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Language Obstacle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not the Car Purchase Decision Maker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Number Does Not Exist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Number Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Status %28Transfer to dealer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Shut Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Politely Decline</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejection During the Main Part of the Interview</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejection During the Probing Question Phase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Successful</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unable to Contact Qualified Interviewee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unanswered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unauthorized Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voice Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong Number %28Not the person%27s phone number within the address book%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Method__c</picklist>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+>>>>>>> origin/rmtest2
                 <default>false</default>
             </values>
             <values>
@@ -12040,6 +12427,18 @@
                 <fullName>wrong number</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>reject</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>wrong number</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Communication_Method__c</picklist>
@@ -13562,6 +13961,26 @@ window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?tskid={!Task.Id}");
 else
 {
 alert("{!$Label.Check_DuplicatesErrorMsg}");
+=======
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var market = '{!Task.MD__c}'; 
+if(market == 'KR'){ 
+
+if(typeof(srcUp) == 'function'){ 
+if (sforce.console.isInConsole()) { 
+srcUp('/apex/SubmitSurveyKR'); 
+}else{ 
+window.open('/apex/SubmitSurveyKR?tskid={!Task.Id}'); 
+} 
+} else { 
+window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?tskid={!Task.Id}"); 
+} 
+} 
+else 
+{ 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
     <webLinks>
