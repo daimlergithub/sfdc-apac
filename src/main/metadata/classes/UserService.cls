@@ -275,7 +275,33 @@ public with sharing class UserService {
         }
         return mapCrmCode2Users(crmCodes);
     }
+    /*@add related dealer's Dealer nd Code into list*/
+    public Map<String, Set<Id>> mapDealerNdCode2Grp(List<Retail_Task__c> retailTasks){
+        Set<String> DealerNdCodes = new Set<String>();
+        for(Retail_Task__c retailTask : retailTasks) {
+            if(retailTask.Related_Dealer__c!=null)
+            {
+                String grpName='TH'+retailTask.Service_Dealer__r.Dealer_ND_Code__c;
+                DealerNdCodes.add(grpName);
+            }
+            	
+        }
+        return mapDealerNdCode2Grp(DealerNdCodes);
+    }
     
+    /*map group name with group Ids*/
+    private Map<String, Set<Id>> mapDealerNdCode2Grp(Set<String> DealerNdCodes)
+    {
+        Map<String, Set<Id>> dealerNdCode2Grps = new Map<String, Set<Id>>();
+        for(Group grpObj: [select Id,Name from Group where Name in :DealerNdCodes]) {
+            if(dealerNdCode2Grps.get(grpObj.Name) == null) {
+                dealerNdCode2Grps.put(grpObj.Name, new Set<Id>{grpObj.Id});
+            } else {
+                dealerNdCode2Grps.get(grpObj.Name).add(grpObj.Id);
+            }
+        }
+        return dealerNdCode2Grps;
+    }
     /**    
      * @Description :  Maps the crm code of a vehicle relationship record to dealers using the crm code.
      * @author      : Justin Yu

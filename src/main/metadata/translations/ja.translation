@@ -1933,6 +1933,10 @@
         <label>納車</label>
         <name>Hand_Over</name>
     </customLabels>
+	 <customLabels>
+        <label>納車</label>
+        <name>Handover</name>
+    </customLabels>
     <customLabels>
         <label><!-- Has Attended Campaign --></label>
         <name>Has_Attended_Campaign</name>
