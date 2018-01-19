@@ -13929,39 +13929,7 @@ if(
         <masterLabel>SubmitSurvey</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
-var market = '{!Task.MD__c}';
-var redirectUrl = '/apex/SubmitSurveyKR?tskid={!Task.Id}';
-if(market == 'KR'){
-if('{!User.ContactId}' ==''){
-if (sforce.console.isInConsole()) {
-sforce.console.getEnclosingTabId(function(enclosingResult){
-sforce.console.getEnclosingPrimaryTabId(function(primaryResult){
-sforce.console.openSubtab(primaryResult.id, redirectUrl, true, '', null);
-});
-});
-
-
-}
-else
-{
-window.open('/apex/SubmitSurveyKR?tskid={!Task.Id}');
-}
-
-}
-else {
-if('{!User.ContactId}' !='')
-{
-window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?tskid={!Task.Id}");
-}
-}
-}
-else
-{
-alert("{!$Label.Check_DuplicatesErrorMsg}");
-        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
+<url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
 var market = '{!Task.MD__c}'; 
