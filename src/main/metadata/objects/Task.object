@@ -13780,7 +13780,6 @@ var redirectUrl = '/apex/SubmitSurveyKR?tskid={!Task.Id}';
 if(market == 'KR'){
 if('{!User.ContactId}' ==''){
 if (sforce.console.isInConsole()) {
-alert('Is in console');
 sforce.console.getEnclosingTabId(function(enclosingResult){
 sforce.console.getEnclosingPrimaryTabId(function(primaryResult){
 sforce.console.openSubtab(primaryResult.id, redirectUrl, true, '', null);
