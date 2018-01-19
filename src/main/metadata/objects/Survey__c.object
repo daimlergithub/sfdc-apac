@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,14 +40,17 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
@@ -66,7 +65,7 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-                <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
@@ -89,78 +88,95 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	    <fields>
+    <fields>
         <fullName>Selected_Questions_to_Display__c</fullName>
         <externalId>false</externalId>
         <label>Selected Questions to Display</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>7</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>8</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>9</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>10</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>11</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>12</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>13</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>14</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>15</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+                <value>
+                    <fullName>7</fullName>
+                    <default>false</default>
+                    <label>7</label>
+                </value>
+                <value>
+                    <fullName>8</fullName>
+                    <default>false</default>
+                    <label>8</label>
+                </value>
+                <value>
+                    <fullName>9</fullName>
+                    <default>false</default>
+                    <label>9</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>10</label>
+                </value>
+                <value>
+                    <fullName>11</fullName>
+                    <default>false</default>
+                    <label>11</label>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                    <label>12</label>
+                </value>
+                <value>
+                    <fullName>13</fullName>
+                    <default>false</default>
+                    <label>13</label>
+                </value>
+                <value>
+                    <fullName>14</fullName>
+                    <default>false</default>
+                    <label>14</label>
+                </value>
+                <value>
+                    <fullName>15</fullName>
+                    <default>false</default>
+                    <label>15</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>5</visibleLines>
     </fields>
     <fields>
@@ -203,7 +219,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <type>Html</type>
         <visibleLines>10</visibleLines>
     </fields>
-	<fields>
+    <fields>
         <fullName>Survey_Question_10__c</fullName>
         <externalId>false</externalId>
         <label>Survey Question 10</label>
@@ -212,7 +228,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Survey_Question_11__c</fullName>
         <externalId>false</externalId>
         <label>Survey Question 11</label>
@@ -339,6 +355,96 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Survey_Response_10__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 10</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_4__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 4</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_5__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 5</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_6__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 6</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_7__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 7</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_8__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 8</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Response_9__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Response 9</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Survey_Response_Options_10__c</fullName>
         <externalId>false</externalId>
         <label>Survey Response Options 10</label>
@@ -347,7 +453,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Survey_Response_Options_11__c</fullName>
         <externalId>false</externalId>
         <label>Survey Response Options 11</label>
@@ -473,42 +579,49 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Survey_Status__c</fullName>
         <externalId>false</externalId>
         <label>Survey Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Valid</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>true</default>
+                    <label>Valid</label>
+                </value>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
-	<fields>
+    <fields>
         <fullName>Survey_Type__c</fullName>
         <externalId>false</externalId>
         <label>Survey Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>OB Call</fullName>
-                <default>true</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OB Call</fullName>
+                    <default>true</default>
+                    <label>OB Call</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Thank_You_Text__c</fullName>
@@ -605,6 +718,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))</defaultValue>
         <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Preview</fullName>
         <availability>online</availability>
@@ -623,7 +737,7 @@ window.open("/apex/SubmitSurvey?surveyID={!Survey__c.Id}&amp;type=preview","neww
 alert("{!$Label.Btn_Preview_No_Questions}");
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Record_Share</fullName>
         <availability>online</availability>
         <displayType>button</displayType>

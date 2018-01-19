@@ -4,6 +4,7 @@
     <fields>
         <fullName>Escalation_Hours__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Escalation Hours</label>
         <precision>4</precision>
         <required>false</required>
@@ -15,6 +16,7 @@
         <fullName>Priority__c</fullName>
         <description>This is used to store Case Priority</description>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <inlineHelpText>Fill same value as Case Priority</inlineHelpText>
         <label>Priority</label>
         <length>255</length>
@@ -25,26 +27,33 @@
     <fields>
         <fullName>Record_Type__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Record Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Inquiry</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Complaint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB_Complaint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Inquiry</fullName>
+                    <default>true</default>
+                    <label>Inquiry</label>
+                </value>
+                <value>
+                    <fullName>MB Complaint</fullName>
+                    <default>false</default>
+                    <label>MB Complaint</label>
+                </value>
+                <value>
+                    <fullName>MB_Complaint</fullName>
+                    <default>false</default>
+                    <label>MB_Complaint</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Case Escalation Matrix</label>
     <pluralLabel>Case Escalation Matrix</pluralLabel>
+    <visibility>Public</visibility>
 </CustomObject>

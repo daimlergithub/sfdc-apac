@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,13 +40,16 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -58,39 +57,46 @@
         <fullName>department__c</fullName>
         <description>used to store the department value.</description>
         <externalId>false</externalId>
-        <label>Department</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Call center</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CoC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inside Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <label>department</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Call center</fullName>
+                    <default>false</default>
+                    <label>Call center</label>
+                </value>
+                <value>
+                    <fullName>CoC</fullName>
+                    <default>false</default>
+                    <label>CoC</label>
+                </value>
+                <value>
+                    <fullName>Inside Sales</fullName>
+                    <default>false</default>
+                    <label>Inside Sales</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>emailId__c</fullName>
         <description>used to store email of the requestor</description>
         <externalId>false</externalId>
-        <label>EmailId</label>
+        <label>emailId</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Email</type>
@@ -100,7 +106,7 @@
         <fullName>first_Name__c</fullName>
         <description>used to store firstname</description>
         <externalId>false</externalId>
-        <label>First Name</label>
+        <label>first Name</label>
         <length>40</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -111,7 +117,7 @@
         <fullName>last_Name__c</fullName>
         <description>used to store last name</description>
         <externalId>false</externalId>
-        <label>Last Name</label>
+        <label>last Name</label>
         <length>40</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -134,84 +140,103 @@
         <description>used to store the region of the requestor</description>
         <externalId>false</externalId>
         <label>region</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ANZ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Brazil</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>India</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Japan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Korea</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Malaysia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>South Africa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Thailand</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Turkey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>ANZ</fullName>
+                    <default>false</default>
+                    <label>ANZ</label>
+                </value>
+                <value>
+                    <fullName>Brazil</fullName>
+                    <default>false</default>
+                    <label>Brazil</label>
+                </value>
+                <value>
+                    <fullName>India</fullName>
+                    <default>false</default>
+                    <label>India</label>
+                </value>
+                <value>
+                    <fullName>Japan</fullName>
+                    <default>false</default>
+                    <label>Japan</label>
+                </value>
+                <value>
+                    <fullName>Korea</fullName>
+                    <default>false</default>
+                    <label>Korea</label>
+                </value>
+                <value>
+                    <fullName>Malaysia</fullName>
+                    <default>false</default>
+                    <label>Malaysia</label>
+                </value>
+                <value>
+                    <fullName>South Africa</fullName>
+                    <default>false</default>
+                    <label>South Africa</label>
+                </value>
+                <value>
+                    <fullName>Thailand</fullName>
+                    <default>false</default>
+                    <label>Thailand</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>request_Status__c</fullName>
         <externalId>false</externalId>
         <label>request Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>New</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending implementation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Pending implementation</fullName>
+                    <default>false</default>
+                    <label>Pending implementation</label>
+                </value>
+                <value>
+                    <fullName>Pending Approval</fullName>
+                    <default>false</default>
+                    <label>Pending Approval</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>userName__c</fullName>
@@ -225,7 +250,7 @@ firstname_lastname@rugcollaboration.diamler.com</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Registered User</label>
+    <label>Registered Users</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -239,12 +264,21 @@ firstname_lastname@rugcollaboration.diamler.com</description>
         <label>All</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>Community_Management_Queue_Registered_Users</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Community Management Queue</label>
+        <queue>Community_Management_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>R-{0000}</displayFormat>
         <label>Registered Users Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Registered User</pluralLabel>
+    <pluralLabel>Registered Users</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>first_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>last_Name__c</customTabListAdditionalFields>
@@ -258,4 +292,5 @@ firstname_lastname@rugcollaboration.diamler.com</description>
         <lookupPhoneDialogsAdditionalFields>region__c</lookupPhoneDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

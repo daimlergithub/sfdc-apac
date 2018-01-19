@@ -3,6 +3,7 @@
     <fields>
         <fullName>Cooperative_society_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Cooperative society TL</label>
         <length>40</length>
         <required>false</required>
@@ -12,6 +13,7 @@
     <fields>
         <fullName>Cooperative_society__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Cooperative society</label>
         <length>40</length>
         <required>false</required>
@@ -21,6 +23,7 @@
     <fields>
         <fullName>Education_insitution_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Education insitution TL</label>
         <length>40</length>
         <required>false</required>
@@ -30,6 +33,7 @@
     <fields>
         <fullName>Education_insitution__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Education insitution</label>
         <length>40</length>
         <required>false</required>
@@ -39,6 +43,7 @@
     <fields>
         <fullName>Joint_venture_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Joint venture TL</label>
         <length>40</length>
         <required>false</required>
@@ -48,6 +53,7 @@
     <fields>
         <fullName>Joint_venture__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Joint venture</label>
         <length>40</length>
         <required>false</required>
@@ -57,6 +63,7 @@
     <fields>
         <fullName>Limited_liability_company_T__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Limited liability company TL</label>
         <length>40</length>
         <required>false</required>
@@ -66,6 +73,7 @@
     <fields>
         <fullName>Limited_liability_company__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Limited liability company</label>
         <length>40</length>
         <required>false</required>
@@ -75,6 +83,7 @@
     <fields>
         <fullName>Limited_partnership_company_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Limited partnership company TL</label>
         <length>40</length>
         <required>false</required>
@@ -84,6 +93,7 @@
     <fields>
         <fullName>Limited_partnership_company__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Limited partnership company</label>
         <length>40</length>
         <required>false</required>
@@ -93,6 +103,7 @@
     <fields>
         <fullName>MD__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Market Discriminator</label>
         <length>40</length>
         <required>false</required>
@@ -102,6 +113,7 @@
     <fields>
         <fullName>Medical_corporation_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Medical corporation TL</label>
         <length>40</length>
         <required>false</required>
@@ -111,6 +123,7 @@
     <fields>
         <fullName>Medical_corporation__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Medical corporation</label>
         <length>40</length>
         <required>false</required>
@@ -120,6 +133,7 @@
     <fields>
         <fullName>Medical_enterprise_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Medical enterprise TL</label>
         <length>40</length>
         <required>false</required>
@@ -129,6 +143,7 @@
     <fields>
         <fullName>Medical_enterprise__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Medical enterprise</label>
         <length>40</length>
         <required>false</required>
@@ -138,6 +153,7 @@
     <fields>
         <fullName>Mutual_aid_association_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mutual aid association TL</label>
         <length>40</length>
         <required>false</required>
@@ -147,6 +163,7 @@
     <fields>
         <fullName>Mutual_aid_association__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mutual aid association</label>
         <length>40</length>
         <required>false</required>
@@ -156,6 +173,7 @@
     <fields>
         <fullName>Mutual_company_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mutual company TL</label>
         <length>40</length>
         <required>false</required>
@@ -165,6 +183,7 @@
     <fields>
         <fullName>Mutual_company__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mutual company</label>
         <length>40</length>
         <required>false</required>
@@ -174,6 +193,7 @@
     <fields>
         <fullName>Object__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Object</label>
         <length>40</length>
         <required>false</required>
@@ -183,6 +203,7 @@
     <fields>
         <fullName>Others_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Others TL</label>
         <length>40</length>
         <required>false</required>
@@ -192,6 +213,7 @@
     <fields>
         <fullName>Others__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Others</label>
         <length>40</length>
         <required>false</required>
@@ -201,6 +223,7 @@
     <fields>
         <fullName>Picklist_Name__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Picklist Name</label>
         <length>40</length>
         <required>false</required>
@@ -210,6 +233,7 @@
     <fields>
         <fullName>Religious_corporation_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Religious corporation TL</label>
         <length>40</length>
         <required>false</required>
@@ -219,6 +243,7 @@
     <fields>
         <fullName>Religious_corporation__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Religious corporation</label>
         <length>40</length>
         <required>false</required>
@@ -228,6 +253,7 @@
     <fields>
         <fullName>Social_welfare_institution_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Social welfare institution TL</label>
         <length>40</length>
         <required>false</required>
@@ -237,6 +263,7 @@
     <fields>
         <fullName>Social_welfare_institution__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Social welfare institution</label>
         <length>40</length>
         <required>false</required>
@@ -246,6 +273,7 @@
     <fields>
         <fullName>Stock_company_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Stock company TL</label>
         <length>40</length>
         <required>false</required>
@@ -255,6 +283,7 @@
     <fields>
         <fullName>Stock_company__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Stock company</label>
         <length>40</length>
         <required>false</required>
@@ -264,6 +293,7 @@
     <fields>
         <fullName>Unlimited_partnership_company_TL__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Unlimited partnership company TL</label>
         <length>40</length>
         <required>false</required>
@@ -273,6 +303,7 @@
     <fields>
         <fullName>Unlimited_partnership_company__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Unlimited partnership company</label>
         <length>40</length>
         <required>false</required>
@@ -281,4 +312,5 @@
     </fields>
     <label>company legal form</label>
     <pluralLabel>company legal form</pluralLabel>
+    <visibility>Protected</visibility>
 </CustomObject>

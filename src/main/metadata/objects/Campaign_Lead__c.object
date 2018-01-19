@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,15 +40,18 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Lead: To link campaign and lead</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
@@ -202,1091 +201,1805 @@ Modify Reason:
         <fullName>Lead_DataSource__c</fullName>
         <externalId>false</externalId>
         <label>Lead DataSource</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3rd party data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Web/Mobile Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BBAC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-mail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz financial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz driving Academy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Media advertisement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Friends recommend</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Searching engine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB website</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Partners</fullName>
+                    <default>false</default>
+                    <label>Partners</label>
+                </value>
+                <value>
+                    <fullName>3rd party data</fullName>
+                    <default>false</default>
+                    <label>3rd party data</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Web/Mobile Phone</fullName>
+                    <default>false</default>
+                    <label>Web/Mobile Phone</label>
+                </value>
+                <value>
+                    <fullName>BBAC</fullName>
+                    <default>false</default>
+                    <label>BBAC</label>
+                </value>
+                <value>
+                    <fullName>OB Call</fullName>
+                    <default>false</default>
+                    <label>OB Call</label>
+                </value>
+                <value>
+                    <fullName>IB Call</fullName>
+                    <default>false</default>
+                    <label>IB Call</label>
+                </value>
+                <value>
+                    <fullName>Dealers</fullName>
+                    <default>false</default>
+                    <label>Dealers</label>
+                </value>
+                <value>
+                    <fullName>MB Magazine</fullName>
+                    <default>false</default>
+                    <label>MB Magazine</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz</label>
+                </value>
+                <value>
+                    <fullName>E-mail</fullName>
+                    <default>false</default>
+                    <label>E-mail</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz financial</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz financial</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz driving Academy</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz driving Academy</label>
+                </value>
+                <value>
+                    <fullName>Media advertisement</fullName>
+                    <default>false</default>
+                    <label>Media advertisement</label>
+                </value>
+                <value>
+                    <fullName>Friends recommend</fullName>
+                    <default>false</default>
+                    <label>Friends recommend</label>
+                </value>
+                <value>
+                    <fullName>Social media</fullName>
+                    <default>false</default>
+                    <label>Social media</label>
+                </value>
+                <value>
+                    <fullName>Searching engine</fullName>
+                    <default>false</default>
+                    <label>Searching engine</label>
+                </value>
+                <value>
+                    <fullName>MB website</fullName>
+                    <default>false</default>
+                    <label>MB website</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Lead_DataSubSource__c</fullName>
         <externalId>false</externalId>
         <label>Lead DataSubSource</label>
-        <picklist>
-            <controllingField>Lead_DataSource__c</controllingField>
-            <picklistValues>
-                <fullName>Air China</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jingdong mall</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Taobao station</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cooperation media</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China telecom / 189 mailbox</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dunhill</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>D&amp;G</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HUGO BOSS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bank of communications</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TNT</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Axciom</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G2</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Event</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz interactive community</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina Blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart official website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bitauto</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pcauto</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Baidu</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interaction through</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SoHu</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SNS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz website _ pre-sale</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ test drive</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ star gruppo</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ product manual and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart_ contact us _ product manual and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart_ contact us _ pre-sale</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart_ contact us _ test drive</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Xcar</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Autohome</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>QQ</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NetEase</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart interactive community</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site information</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto show information</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Energy source</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Central</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Voice mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-                <controllingFieldValues>OB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Road rescue switching</fullName>
-                <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Financial</fullName>
-                <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealers nomination</fullName>
-                <default>false</default>
-                <controllingFieldValues>Dealers</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Magazine Response Card</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB Magazine</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SSI</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DMS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle administration office</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used car</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fax</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Short message</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VVIP</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-newsletter</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-brochure and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>APP</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E Cabriolet web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E Coupe web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS Shooting Break web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>baidu Brandzone</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S web special-Mobile</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S Web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inmobi</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E web special-Mobile</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-GE web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>安沃</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Internet Info Agency</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Youku</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ifeng</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBDE</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C web special-mobile</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C web special-PC</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Au</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car reviews</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C coupe webspecial</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hexun</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C 63 AMG web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Online event registration</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>eDM-PC</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>eDM-Mobile</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Loan data</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz financial</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBDA</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz driving Academy</controllingFieldValues>
-                <controllingFieldValues>OB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>COACH</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>mymb</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Owners Club</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>edm_PotentialCustome</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Motor Show 2012</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Direct mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wifi</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Arena</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C Coupe web special</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Web site _ after sale</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Netcom</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PowerScreen</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wedo</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>eMB</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>iQiyi</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Google</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLA web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mobile-MEC</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mobile-EMC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina-EMC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China Unicom</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>iDaily</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bookshelf</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>XCP</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina-MEC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China News</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Eastmoney</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>People</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Feichangzhun</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Skynod</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jinritoutiao</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Blue Focus</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tmall Sina Alipay</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FlightManager</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Letv</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ogilvy</fullName>
-                <default>false</default>
-                <controllingFieldValues>Dealers</controllingFieldValues>
-                <controllingFieldValues>Friends recommend</controllingFieldValues>
-                <controllingFieldValues>MB website</controllingFieldValues>
-                <controllingFieldValues>Media advertisement</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-                <controllingFieldValues>Searching engine</controllingFieldValues>
-                <controllingFieldValues>Social media</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PM2.5</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Lead_DataSource__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Air China</fullName>
+                    <default>false</default>
+                    <label>Air China</label>
+                </value>
+                <value>
+                    <fullName>Jingdong mall</fullName>
+                    <default>false</default>
+                    <label>Jingdong mall</label>
+                </value>
+                <value>
+                    <fullName>Taobao station</fullName>
+                    <default>false</default>
+                    <label>Taobao station</label>
+                </value>
+                <value>
+                    <fullName>Cooperation media</fullName>
+                    <default>false</default>
+                    <label>Cooperation media</label>
+                </value>
+                <value>
+                    <fullName>China telecom / 189 mailbox</fullName>
+                    <default>false</default>
+                    <label>China telecom / 189 mailbox</label>
+                </value>
+                <value>
+                    <fullName>Dunhill</fullName>
+                    <default>false</default>
+                    <label>Dunhill</label>
+                </value>
+                <value>
+                    <fullName>D&amp;G</fullName>
+                    <default>false</default>
+                    <label>D&amp;G</label>
+                </value>
+                <value>
+                    <fullName>HUGO BOSS</fullName>
+                    <default>false</default>
+                    <label>HUGO BOSS</label>
+                </value>
+                <value>
+                    <fullName>Bank of communications</fullName>
+                    <default>false</default>
+                    <label>Bank of communications</label>
+                </value>
+                <value>
+                    <fullName>TNT</fullName>
+                    <default>false</default>
+                    <label>TNT</label>
+                </value>
+                <value>
+                    <fullName>Axciom</fullName>
+                    <default>false</default>
+                    <label>Axciom</label>
+                </value>
+                <value>
+                    <fullName>G2</fullName>
+                    <default>false</default>
+                    <label>G2</label>
+                </value>
+                <value>
+                    <fullName>Auto Show</fullName>
+                    <default>false</default>
+                    <label>Auto Show</label>
+                </value>
+                <value>
+                    <fullName>Other Event</fullName>
+                    <default>false</default>
+                    <label>Other Event</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz interactive community</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz interactive community</label>
+                </value>
+                <value>
+                    <fullName>ML web special</fullName>
+                    <default>false</default>
+                    <label>ML web special</label>
+                </value>
+                <value>
+                    <fullName>B web special</fullName>
+                    <default>false</default>
+                    <label>B web special</label>
+                </value>
+                <value>
+                    <fullName>Sina Blog</fullName>
+                    <default>false</default>
+                    <label>Sina Blog</label>
+                </value>
+                <value>
+                    <fullName>smart official website</fullName>
+                    <default>false</default>
+                    <label>smart official website</label>
+                </value>
+                <value>
+                    <fullName>Bitauto</fullName>
+                    <default>false</default>
+                    <label>Bitauto</label>
+                </value>
+                <value>
+                    <fullName>E web special</fullName>
+                    <default>false</default>
+                    <label>E web special</label>
+                </value>
+                <value>
+                    <fullName>Pcauto</fullName>
+                    <default>false</default>
+                    <label>Pcauto</label>
+                </value>
+                <value>
+                    <fullName>Baidu</fullName>
+                    <default>false</default>
+                    <label>Baidu</label>
+                </value>
+                <value>
+                    <fullName>GLK web special</fullName>
+                    <default>false</default>
+                    <label>GLK web special</label>
+                </value>
+                <value>
+                    <fullName>Interaction through</fullName>
+                    <default>false</default>
+                    <label>Interaction through</label>
+                </value>
+                <value>
+                    <fullName>SoHu</fullName>
+                    <default>false</default>
+                    <label>SoHu</label>
+                </value>
+                <value>
+                    <fullName>SNS</fullName>
+                    <default>false</default>
+                    <label>SNS</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz website _ pre-sale</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz website _ pre-sale</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz _ contact us _ test drive</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz _ contact us _ test drive</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz _ contact us _ star gruppo</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz _ contact us _ star gruppo</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz _ contact us _ product manual and price list</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz _ contact us _ product manual and price list</label>
+                </value>
+                <value>
+                    <fullName>smart_ contact us _ product manual and price list</fullName>
+                    <default>false</default>
+                    <label>smart_ contact us _ product manual and price list</label>
+                </value>
+                <value>
+                    <fullName>smart_ contact us _ pre-sale</fullName>
+                    <default>false</default>
+                    <label>smart_ contact us _ pre-sale</label>
+                </value>
+                <value>
+                    <fullName>smart_ contact us _ test drive</fullName>
+                    <default>false</default>
+                    <label>smart_ contact us _ test drive</label>
+                </value>
+                <value>
+                    <fullName>C web special</fullName>
+                    <default>false</default>
+                    <label>C web special</label>
+                </value>
+                <value>
+                    <fullName>Xcar</fullName>
+                    <default>false</default>
+                    <label>Xcar</label>
+                </value>
+                <value>
+                    <fullName>Autohome</fullName>
+                    <default>false</default>
+                    <label>Autohome</label>
+                </value>
+                <value>
+                    <fullName>QQ</fullName>
+                    <default>false</default>
+                    <label>QQ</label>
+                </value>
+                <value>
+                    <fullName>NetEase</fullName>
+                    <default>false</default>
+                    <label>NetEase</label>
+                </value>
+                <value>
+                    <fullName>smart interactive community</fullName>
+                    <default>false</default>
+                    <label>smart interactive community</label>
+                </value>
+                <value>
+                    <fullName>Site information</fullName>
+                    <default>false</default>
+                    <label>Site information</label>
+                </value>
+                <value>
+                    <fullName>Auto show information</fullName>
+                    <default>false</default>
+                    <label>Auto show information</label>
+                </value>
+                <value>
+                    <fullName>Telephone</fullName>
+                    <default>false</default>
+                    <label>Telephone</label>
+                </value>
+                <value>
+                    <fullName>Energy source</fullName>
+                    <default>false</default>
+                    <label>Energy source</label>
+                </value>
+                <value>
+                    <fullName>Central</fullName>
+                    <default>false</default>
+                    <label>Central</label>
+                </value>
+                <value>
+                    <fullName>Voice mail</fullName>
+                    <default>false</default>
+                    <label>Voice mail</label>
+                </value>
+                <value>
+                    <fullName>E-mail</fullName>
+                    <default>false</default>
+                    <label>E-mail</label>
+                </value>
+                <value>
+                    <fullName>OB Call</fullName>
+                    <default>false</default>
+                    <label>OB Call</label>
+                </value>
+                <value>
+                    <fullName>Road rescue switching</fullName>
+                    <default>false</default>
+                    <label>Road rescue switching</label>
+                </value>
+                <value>
+                    <fullName>IB Call</fullName>
+                    <default>false</default>
+                    <label>IB Call</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Financial</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Financial</label>
+                </value>
+                <value>
+                    <fullName>Dealers nomination</fullName>
+                    <default>false</default>
+                    <label>Dealers nomination</label>
+                </value>
+                <value>
+                    <fullName>Magazine Response Card</fullName>
+                    <default>false</default>
+                    <label>Magazine Response Card</label>
+                </value>
+                <value>
+                    <fullName>SSI</fullName>
+                    <default>false</default>
+                    <label>SSI</label>
+                </value>
+                <value>
+                    <fullName>DMS</fullName>
+                    <default>false</default>
+                    <label>DMS</label>
+                </value>
+                <value>
+                    <fullName>Vehicle administration office</fullName>
+                    <default>false</default>
+                    <label>Vehicle administration office</label>
+                </value>
+                <value>
+                    <fullName>Used car</fullName>
+                    <default>false</default>
+                    <label>Used car</label>
+                </value>
+                <value>
+                    <fullName>Fax</fullName>
+                    <default>false</default>
+                    <label>Fax</label>
+                </value>
+                <value>
+                    <fullName>Short message</fullName>
+                    <default>false</default>
+                    <label>Short message</label>
+                </value>
+                <value>
+                    <fullName>VVIP</fullName>
+                    <default>false</default>
+                    <label>VVIP</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz E-newsletter</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz E-newsletter</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz E-brochure and price list</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz E-brochure and price list</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Mobile</fullName>
+                    <default>false</default>
+                    <label>Mobile</label>
+                </value>
+                <value>
+                    <fullName>APP</fullName>
+                    <default>false</default>
+                    <label>APP</label>
+                </value>
+                <value>
+                    <fullName>E Cabriolet web special</fullName>
+                    <default>false</default>
+                    <label>E Cabriolet web special</label>
+                </value>
+                <value>
+                    <fullName>E Coupe web special</fullName>
+                    <default>false</default>
+                    <label>E Coupe web special</label>
+                </value>
+                <value>
+                    <fullName>SL web special</fullName>
+                    <default>false</default>
+                    <label>SL web special</label>
+                </value>
+                <value>
+                    <fullName>SLK web special</fullName>
+                    <default>false</default>
+                    <label>SLK web special</label>
+                </value>
+                <value>
+                    <fullName>CLS Shooting Break web special</fullName>
+                    <default>false</default>
+                    <label>CLS Shooting Break web special</label>
+                </value>
+                <value>
+                    <fullName>baidu Brandzone</fullName>
+                    <default>false</default>
+                    <label>baidu Brandzone</label>
+                </value>
+                <value>
+                    <fullName>S web special-Mobile</fullName>
+                    <default>false</default>
+                    <label>S web special-Mobile</label>
+                </value>
+                <value>
+                    <fullName>S Web special</fullName>
+                    <default>false</default>
+                    <label>S Web special</label>
+                </value>
+                <value>
+                    <fullName>Inmobi</fullName>
+                    <default>false</default>
+                    <label>Inmobi</label>
+                </value>
+                <value>
+                    <fullName>E web special-Mobile</fullName>
+                    <default>false</default>
+                    <label>E web special-Mobile</label>
+                </value>
+                <value>
+                    <fullName>C-GE web special</fullName>
+                    <default>false</default>
+                    <label>C-GE web special</label>
+                </value>
+                <value>
+                    <fullName>安沃</fullName>
+                    <default>false</default>
+                    <label>安沃</label>
+                </value>
+                <value>
+                    <fullName>Internet Info Agency</fullName>
+                    <default>false</default>
+                    <label>Internet Info Agency</label>
+                </value>
+                <value>
+                    <fullName>Youku</fullName>
+                    <default>false</default>
+                    <label>Youku</label>
+                </value>
+                <value>
+                    <fullName>Ifeng</fullName>
+                    <default>false</default>
+                    <label>Ifeng</label>
+                </value>
+                <value>
+                    <fullName>MBDE</fullName>
+                    <default>false</default>
+                    <label>MBDE</label>
+                </value>
+                <value>
+                    <fullName>C web special-mobile</fullName>
+                    <default>false</default>
+                    <label>C web special-mobile</label>
+                </value>
+                <value>
+                    <fullName>C web special-PC</fullName>
+                    <default>false</default>
+                    <label>C web special-PC</label>
+                </value>
+                <value>
+                    <fullName>Au</fullName>
+                    <default>false</default>
+                    <label>Au</label>
+                </value>
+                <value>
+                    <fullName>Car reviews</fullName>
+                    <default>false</default>
+                    <label>Car reviews</label>
+                </value>
+                <value>
+                    <fullName>Sina</fullName>
+                    <default>false</default>
+                    <label>Sina</label>
+                </value>
+                <value>
+                    <fullName>C coupe webspecial</fullName>
+                    <default>false</default>
+                    <label>C coupe webspecial</label>
+                </value>
+                <value>
+                    <fullName>Hexun</fullName>
+                    <default>false</default>
+                    <label>Hexun</label>
+                </value>
+                <value>
+                    <fullName>C 63 AMG web special</fullName>
+                    <default>false</default>
+                    <label>C 63 AMG web special</label>
+                </value>
+                <value>
+                    <fullName>CLS web special</fullName>
+                    <default>false</default>
+                    <label>CLS web special</label>
+                </value>
+                <value>
+                    <fullName>A web special</fullName>
+                    <default>false</default>
+                    <label>A web special</label>
+                </value>
+                <value>
+                    <fullName>Online event registration</fullName>
+                    <default>false</default>
+                    <label>Online event registration</label>
+                </value>
+                <value>
+                    <fullName>eDM-PC</fullName>
+                    <default>false</default>
+                    <label>eDM-PC</label>
+                </value>
+                <value>
+                    <fullName>eDM-Mobile</fullName>
+                    <default>false</default>
+                    <label>eDM-Mobile</label>
+                </value>
+                <value>
+                    <fullName>Loan data</fullName>
+                    <default>false</default>
+                    <label>Loan data</label>
+                </value>
+                <value>
+                    <fullName>MBDA</fullName>
+                    <default>false</default>
+                    <label>MBDA</label>
+                </value>
+                <value>
+                    <fullName>COACH</fullName>
+                    <default>false</default>
+                    <label>COACH</label>
+                </value>
+                <value>
+                    <fullName>mymb</fullName>
+                    <default>false</default>
+                    <label>mymb</label>
+                </value>
+                <value>
+                    <fullName>Owners Club</fullName>
+                    <default>false</default>
+                    <label>Owners Club</label>
+                </value>
+                <value>
+                    <fullName>edm_PotentialCustome</fullName>
+                    <default>false</default>
+                    <label>edm_PotentialCustome</label>
+                </value>
+                <value>
+                    <fullName>Motor Show 2012</fullName>
+                    <default>false</default>
+                    <label>Motor Show 2012</label>
+                </value>
+                <value>
+                    <fullName>Direct mail</fullName>
+                    <default>false</default>
+                    <label>Direct mail</label>
+                </value>
+                <value>
+                    <fullName>Wifi</fullName>
+                    <default>false</default>
+                    <label>Wifi</label>
+                </value>
+                <value>
+                    <fullName>MB Arena</fullName>
+                    <default>false</default>
+                    <label>MB Arena</label>
+                </value>
+                <value>
+                    <fullName>C Coupe web special</fullName>
+                    <default>false</default>
+                    <label>C Coupe web special</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Web site _ after sale</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Web site _ after sale</label>
+                </value>
+                <value>
+                    <fullName>Netcom</fullName>
+                    <default>false</default>
+                    <label>Netcom</label>
+                </value>
+                <value>
+                    <fullName>PowerScreen</fullName>
+                    <default>false</default>
+                    <label>PowerScreen</label>
+                </value>
+                <value>
+                    <fullName>Wedo</fullName>
+                    <default>false</default>
+                    <label>Wedo</label>
+                </value>
+                <value>
+                    <fullName>eMB</fullName>
+                    <default>false</default>
+                    <label>eMB</label>
+                </value>
+                <value>
+                    <fullName>iQiyi</fullName>
+                    <default>false</default>
+                    <label>iQiyi</label>
+                </value>
+                <value>
+                    <fullName>Google</fullName>
+                    <default>false</default>
+                    <label>Google</label>
+                </value>
+                <value>
+                    <fullName>CLA web special</fullName>
+                    <default>false</default>
+                    <label>CLA web special</label>
+                </value>
+                <value>
+                    <fullName>Mobile-MEC</fullName>
+                    <default>false</default>
+                    <label>Mobile-MEC</label>
+                </value>
+                <value>
+                    <fullName>Mobile-EMC</fullName>
+                    <default>false</default>
+                    <label>Mobile-EMC</label>
+                </value>
+                <value>
+                    <fullName>Sina-EMC</fullName>
+                    <default>false</default>
+                    <label>Sina-EMC</label>
+                </value>
+                <value>
+                    <fullName>China Unicom</fullName>
+                    <default>false</default>
+                    <label>China Unicom</label>
+                </value>
+                <value>
+                    <fullName>iDaily</fullName>
+                    <default>false</default>
+                    <label>iDaily</label>
+                </value>
+                <value>
+                    <fullName>Bookshelf</fullName>
+                    <default>false</default>
+                    <label>Bookshelf</label>
+                </value>
+                <value>
+                    <fullName>XCP</fullName>
+                    <default>false</default>
+                    <label>XCP</label>
+                </value>
+                <value>
+                    <fullName>FT</fullName>
+                    <default>false</default>
+                    <label>FT</label>
+                </value>
+                <value>
+                    <fullName>Sina-MEC</fullName>
+                    <default>false</default>
+                    <label>Sina-MEC</label>
+                </value>
+                <value>
+                    <fullName>China News</fullName>
+                    <default>false</default>
+                    <label>China News</label>
+                </value>
+                <value>
+                    <fullName>Eastmoney</fullName>
+                    <default>false</default>
+                    <label>Eastmoney</label>
+                </value>
+                <value>
+                    <fullName>People</fullName>
+                    <default>false</default>
+                    <label>People</label>
+                </value>
+                <value>
+                    <fullName>Feichangzhun</fullName>
+                    <default>false</default>
+                    <label>Feichangzhun</label>
+                </value>
+                <value>
+                    <fullName>Skynod</fullName>
+                    <default>false</default>
+                    <label>Skynod</label>
+                </value>
+                <value>
+                    <fullName>Jinritoutiao</fullName>
+                    <default>false</default>
+                    <label>Jinritoutiao</label>
+                </value>
+                <value>
+                    <fullName>Blue Focus</fullName>
+                    <default>false</default>
+                    <label>Blue Focus</label>
+                </value>
+                <value>
+                    <fullName>Tmall Sina Alipay</fullName>
+                    <default>false</default>
+                    <label>Tmall Sina Alipay</label>
+                </value>
+                <value>
+                    <fullName>FlightManager</fullName>
+                    <default>false</default>
+                    <label>FlightManager</label>
+                </value>
+                <value>
+                    <fullName>Letv</fullName>
+                    <default>false</default>
+                    <label>Letv</label>
+                </value>
+                <value>
+                    <fullName>Ogilvy</fullName>
+                    <default>false</default>
+                    <label>Ogilvy</label>
+                </value>
+                <value>
+                    <fullName>PM2.5</fullName>
+                    <default>false</default>
+                    <label>PM2.5</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>E-mail</controllingFieldValue>
+                <valueName>Mercedes-Benz E-newsletter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-mail</controllingFieldValue>
+                <valueName>Mercedes-Benz E-brochure and price list</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-mail</controllingFieldValue>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Fax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Short message</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>VVIP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>eDM-PC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>eDM-Mobile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Direct mail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Media advertisement</controllingFieldValue>
+                <controllingFieldValue>Friends recommend</controllingFieldValue>
+                <controllingFieldValue>Social media</controllingFieldValue>
+                <controllingFieldValue>Searching engine</controllingFieldValue>
+                <controllingFieldValue>MB website</controllingFieldValue>
+                <controllingFieldValue>Dealers</controllingFieldValue>
+                <valueName>Ogilvy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz financial</controllingFieldValue>
+                <valueName>Loan data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz driving Academy</controllingFieldValue>
+                <controllingFieldValue>OB Call</controllingFieldValue>
+                <valueName>MBDA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Air China</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Jingdong mall</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Taobao station</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Cooperation media</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>China telecom / 189 mailbox</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Dunhill</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>D&amp;G</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>HUGO BOSS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Bank of communications</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>COACH</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>edm_PotentialCustome</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>China Unicom</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3rd party data</controllingFieldValue>
+                <valueName>TNT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3rd party data</controllingFieldValue>
+                <valueName>Axciom</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3rd party data</controllingFieldValue>
+                <valueName>G2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3rd party data</controllingFieldValue>
+                <valueName>PowerScreen</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3rd party data</controllingFieldValue>
+                <valueName>Wedo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <valueName>Auto Show</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <valueName>Other Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <valueName>Motor Show 2012</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <valueName>Wifi</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz interactive community</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>ML web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>B web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Sina Blog</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>smart official website</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Bitauto</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>E web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Pcauto</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Baidu</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>GLK web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Interaction through</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>SoHu</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>SNS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz website _ pre-sale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz _ contact us _ test drive</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz _ contact us _ star gruppo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz _ contact us _ product manual and price list</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>smart_ contact us _ product manual and price list</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>smart_ contact us _ pre-sale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>smart_ contact us _ test drive</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>C web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Xcar</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Autohome</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>QQ</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>NetEase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>smart interactive community</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mobile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>APP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>E Cabriolet web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>E Coupe web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>SL web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>SLK web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>CLS Shooting Break web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>baidu Brandzone</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>S web special-Mobile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>S Web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Inmobi</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>E web special-Mobile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>C-GE web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>安沃</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Internet Info Agency</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Youku</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Ifeng</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>MBDE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>C web special-mobile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>C web special-PC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Au</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Car reviews</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Sina</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>C coupe webspecial</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Hexun</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>C 63 AMG web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>CLS web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>A web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Online event registration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes-Benz Web site _ after sale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Netcom</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>eMB</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>iQiyi</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Google</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>CLA web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mobile-MEC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>iDaily</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Bookshelf</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>XCP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Feichangzhun</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Skynod</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Jinritoutiao</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Blue Focus</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Tmall Sina Alipay</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>FlightManager</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Letv</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>PM2.5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Site information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Auto show information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Telephone</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Energy source</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Central</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Voice mail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>E-mail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OB Call</controllingFieldValue>
+                <valueName>OB Call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IB Call</controllingFieldValue>
+                <valueName>Road rescue switching</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IB Call</controllingFieldValue>
+                <valueName>IB Call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IB Call</controllingFieldValue>
+                <valueName>Mercedes-Benz Financial</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealers</controllingFieldValue>
+                <valueName>Dealers nomination</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MB Magazine</controllingFieldValue>
+                <valueName>Magazine Response Card</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>SSI</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>DMS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>Vehicle administration office</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>Used car</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>mymb</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>Owners Club</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>MB Arena</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Lead_InfoSourceSub__c</fullName>
         <externalId>false</externalId>
         <label>Lead InfoSourceSub</label>
-        <picklist>
-            <controllingField>Lead_InfoSource__c</controllingField>
-            <picklistValues>
-                <fullName>Air China</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Artron</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party (Partner) Mail_Minsheng Bank</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party (Partner) Mail _Bank of Communication</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Event</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB official website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina Blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart official website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chinese radio network</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mobile Phone Web</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Web, Community, Blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart community</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China Telecom/189 email</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Advertising</fullName>
-                <default>false</default>
-                <controllingFieldValues>Newspaper/Magazine</controllingFieldValues>
-                <controllingFieldValues>Outdoor Advertising</controllingFieldValues>
-                <controllingFieldValues>Radio</controllingFieldValues>
-                <controllingFieldValues>TV Advertising</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-newsletter</fullName>
-                <default>false</default>
-                <controllingFieldValues>Email</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-brochure and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>Email</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Telephone Contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Telephone Contact</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer telephone contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Telephone Contact</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party Telephone Contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Telephone Contact</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Products range cards</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Brochure &amp; Price List</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer message contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party Message Contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Message</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Message Contact</fullName>
-                <default>false</default>
-                <controllingFieldValues>Message</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Show Room</fullName>
-                <default>false</default>
-                <controllingFieldValues>Message</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Friend Recommendation</fullName>
-                <default>false</default>
-                <controllingFieldValues>Dealer Exhibition Hall</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telephone Query Service</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>User Guide</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Official Website (incl. smart community)</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other websites, community, blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina Microblog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG WebSite</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-                <controllingFieldValues>Newspaper/Magazine</controllingFieldValues>
-                <controllingFieldValues>Other</controllingFieldValues>
-                <controllingFieldValues>Radio</controllingFieldValues>
-                <controllingFieldValues>TV Advertising</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Lead_InfoSource__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Air China</fullName>
+                    <default>false</default>
+                    <label>Air China</label>
+                </value>
+                <value>
+                    <fullName>Artron</fullName>
+                    <default>false</default>
+                    <label>Artron</label>
+                </value>
+                <value>
+                    <fullName>Third Party (Partner) Mail_Minsheng Bank</fullName>
+                    <default>false</default>
+                    <label>Third Party (Partner) Mail_Minsheng Bank</label>
+                </value>
+                <value>
+                    <fullName>Third Party (Partner) Mail _Bank of Communication</fullName>
+                    <default>false</default>
+                    <label>Third Party (Partner) Mail _Bank of Communication</label>
+                </value>
+                <value>
+                    <fullName>Auto Show</fullName>
+                    <default>false</default>
+                    <label>Auto Show</label>
+                </value>
+                <value>
+                    <fullName>Other Event</fullName>
+                    <default>false</default>
+                    <label>Other Event</label>
+                </value>
+                <value>
+                    <fullName>MB official website</fullName>
+                    <default>false</default>
+                    <label>MB official website</label>
+                </value>
+                <value>
+                    <fullName>ML web special</fullName>
+                    <default>false</default>
+                    <label>ML web special</label>
+                </value>
+                <value>
+                    <fullName>B web special</fullName>
+                    <default>false</default>
+                    <label>B web special</label>
+                </value>
+                <value>
+                    <fullName>Sina Blog</fullName>
+                    <default>false</default>
+                    <label>Sina Blog</label>
+                </value>
+                <value>
+                    <fullName>smart official website</fullName>
+                    <default>false</default>
+                    <label>smart official website</label>
+                </value>
+                <value>
+                    <fullName>Chinese radio network</fullName>
+                    <default>false</default>
+                    <label>Chinese radio network</label>
+                </value>
+                <value>
+                    <fullName>Mobile Phone Web</fullName>
+                    <default>false</default>
+                    <label>Mobile Phone Web</label>
+                </value>
+                <value>
+                    <fullName>Other Web, Community, Blog</fullName>
+                    <default>false</default>
+                    <label>Other Web, Community, Blog</label>
+                </value>
+                <value>
+                    <fullName>smart community</fullName>
+                    <default>false</default>
+                    <label>smart community</label>
+                </value>
+                <value>
+                    <fullName>China Telecom/189 email</fullName>
+                    <default>false</default>
+                    <label>China Telecom/189 email</label>
+                </value>
+                <value>
+                    <fullName>Advertising</fullName>
+                    <default>false</default>
+                    <label>Advertising</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz E-newsletter</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz E-newsletter</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz E-brochure and price list</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz E-brochure and price list</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Telephone Contact</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Telephone Contact</label>
+                </value>
+                <value>
+                    <fullName>Dealer telephone contact</fullName>
+                    <default>false</default>
+                    <label>Dealer telephone contact</label>
+                </value>
+                <value>
+                    <fullName>Third Party Telephone Contact</fullName>
+                    <default>false</default>
+                    <label>Third Party Telephone Contact</label>
+                </value>
+                <value>
+                    <fullName>Products range cards</fullName>
+                    <default>false</default>
+                    <label>Products range cards</label>
+                </value>
+                <value>
+                    <fullName>Brochure &amp; Price List</fullName>
+                    <default>false</default>
+                    <label>Brochure &amp; Price List</label>
+                </value>
+                <value>
+                    <fullName>Other Mail</fullName>
+                    <default>false</default>
+                    <label>Other Mail</label>
+                </value>
+                <value>
+                    <fullName>Dealer message contact</fullName>
+                    <default>false</default>
+                    <label>Dealer message contact</label>
+                </value>
+                <value>
+                    <fullName>Third Party Message Contact</fullName>
+                    <default>false</default>
+                    <label>Third Party Message Contact</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Message Contact</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Message Contact</label>
+                </value>
+                <value>
+                    <fullName>Dealer Show Room</fullName>
+                    <default>false</default>
+                    <label>Dealer Show Room</label>
+                </value>
+                <value>
+                    <fullName>Friend Recommendation</fullName>
+                    <default>false</default>
+                    <label>Friend Recommendation</label>
+                </value>
+                <value>
+                    <fullName>Telephone Query Service</fullName>
+                    <default>false</default>
+                    <label>Telephone Query Service</label>
+                </value>
+                <value>
+                    <fullName>User Guide</fullName>
+                    <default>false</default>
+                    <label>User Guide</label>
+                </value>
+                <value>
+                    <fullName>smart Official Website (incl. smart community)</fullName>
+                    <default>false</default>
+                    <label>smart Official Website (incl. smart community)</label>
+                </value>
+                <value>
+                    <fullName>Other websites, community, blog</fullName>
+                    <default>false</default>
+                    <label>Other websites, community, blog</label>
+                </value>
+                <value>
+                    <fullName>Dealer website</fullName>
+                    <default>false</default>
+                    <label>Dealer website</label>
+                </value>
+                <value>
+                    <fullName>Sina Microblog</fullName>
+                    <default>false</default>
+                    <label>Sina Microblog</label>
+                </value>
+                <value>
+                    <fullName>AMG WebSite</fullName>
+                    <default>false</default>
+                    <label>AMG WebSite</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Message</controllingFieldValue>
+                <valueName>Third Party Message Contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Message</controllingFieldValue>
+                <valueName>Mercedes-Benz Message Contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Message</controllingFieldValue>
+                <valueName>Dealer Show Room</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealer Exhibition Hall</controllingFieldValue>
+                <valueName>Friend Recommendation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Telephone Query Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>User Guide</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>smart Official Website (incl. smart community)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Other websites, community, blog</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Dealer website</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Sina Microblog</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>AMG WebSite</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <controllingFieldValue>Radio</controllingFieldValue>
+                <controllingFieldValue>Newspaper/Magazine</controllingFieldValue>
+                <controllingFieldValue>TV Advertising</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Air China</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Artron</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Third Party (Partner) Mail_Minsheng Bank</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Third Party (Partner) Mail _Bank of Communication</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <valueName>Auto Show</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <valueName>Other Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>MB official website</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>ML web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>B web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Sina Blog</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>smart official website</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Chinese radio network</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mobile Phone Web</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Other Web, Community, Blog</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>smart community</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>China Telecom/189 email</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Radio</controllingFieldValue>
+                <controllingFieldValue>Outdoor Advertising</controllingFieldValue>
+                <controllingFieldValue>Newspaper/Magazine</controllingFieldValue>
+                <controllingFieldValue>TV Advertising</controllingFieldValue>
+                <valueName>Advertising</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Email</controllingFieldValue>
+                <valueName>Mercedes-Benz E-newsletter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Email</controllingFieldValue>
+                <valueName>Mercedes-Benz E-brochure and price list</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Telephone Contact</controllingFieldValue>
+                <valueName>Mercedes-Benz Telephone Contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Telephone Contact</controllingFieldValue>
+                <valueName>Dealer telephone contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Telephone Contact</controllingFieldValue>
+                <valueName>Third Party Telephone Contact</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mail</controllingFieldValue>
+                <valueName>Products range cards</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mail</controllingFieldValue>
+                <valueName>Brochure &amp; Price List</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mail</controllingFieldValue>
+                <valueName>Other Mail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mail</controllingFieldValue>
+                <valueName>Dealer message contact</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Lead_InfoSource__c</fullName>
         <externalId>false</externalId>
         <label>Lead InfoSource</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Web/Mobile Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outdoor Advertising</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Newspaper/Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TV Advertising</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telephone Contact</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Message</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Exhibition Hall</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Partners</fullName>
+                    <default>false</default>
+                    <label>Partners</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Web/Mobile Phone</fullName>
+                    <default>false</default>
+                    <label>Web/Mobile Phone</label>
+                </value>
+                <value>
+                    <fullName>Radio</fullName>
+                    <default>false</default>
+                    <label>Radio</label>
+                </value>
+                <value>
+                    <fullName>Outdoor Advertising</fullName>
+                    <default>false</default>
+                    <label>Outdoor Advertising</label>
+                </value>
+                <value>
+                    <fullName>Newspaper/Magazine</fullName>
+                    <default>false</default>
+                    <label>Newspaper/Magazine</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>TV Advertising</fullName>
+                    <default>false</default>
+                    <label>TV Advertising</label>
+                </value>
+                <value>
+                    <fullName>Telephone Contact</fullName>
+                    <default>false</default>
+                    <label>Telephone Contact</label>
+                </value>
+                <value>
+                    <fullName>Mail</fullName>
+                    <default>false</default>
+                    <label>Mail</label>
+                </value>
+                <value>
+                    <fullName>Message</fullName>
+                    <default>false</default>
+                    <label>Message</label>
+                </value>
+                <value>
+                    <fullName>Dealer Exhibition Hall</fullName>
+                    <default>false</default>
+                    <label>Dealer Exhibition Hall</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Lead_Source__c</fullName>
         <externalId>false</externalId>
         <label>Lead Source</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Online Registration</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Data marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partnership Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Autoshow</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Online Registration</fullName>
+                    <default>false</default>
+                    <label>Online Registration</label>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                    <label>Dealer</label>
+                </value>
+                <value>
+                    <fullName>Central</fullName>
+                    <default>false</default>
+                    <label>Central</label>
+                </value>
+                <value>
+                    <fullName>Data marketing</fullName>
+                    <default>false</default>
+                    <label>Data marketing</label>
+                </value>
+                <value>
+                    <fullName>IB</fullName>
+                    <default>false</default>
+                    <label>IB</label>
+                </value>
+                <value>
+                    <fullName>MB Magazine</fullName>
+                    <default>false</default>
+                    <label>MB Magazine</label>
+                </value>
+                <value>
+                    <fullName>Partnership Event</fullName>
+                    <default>false</default>
+                    <label>Partnership Event</label>
+                </value>
+                <value>
+                    <fullName>Autoshow</fullName>
+                    <default>false</default>
+                    <label>Autoshow</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Lead__c</fullName>
@@ -1296,7 +2009,7 @@ Modify Reason:
         <relationshipLabel>Campaign Leads</relationshipLabel>
         <relationshipName>Campaign_Leads</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
@@ -1520,18 +2233,18 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>Campaign_lead_validation_check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (NOT( ISPICKVAL(CreatedBy.User_Type__c,"Dealer"))&amp;&amp; ISCHANGED(Campaign__c) &amp;&amp; ISPICKVAL($User.User_Type__c,"Dealer"),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Cannot change associated Campaign if this was created by wholesale</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Can_Not_Change_Registration_Date</fullName>
         <active>true</active>
         <description>You can NOT change the registration date of lead after enter first time.</description>
         <errorConditionFormula>ISCHANGED(RegistrationDate__c) &amp;&amp; PRIORVALUE(RegistrationDate__c) != null</errorConditionFormula>
         <errorDisplayField>RegistrationDate__c</errorDisplayField>
         <errorMessage>You can not change Registration Date</errorMessage>
-    </validationRules>
-	    <validationRules>
-        <fullName>Campaign_lead_validation_check</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND (NOT( ISPICKVAL(CreatedBy.User_Type__c,"Dealer"))&amp;&amp; ISCHANGED(Campaign__c) &amp;&amp; ISPICKVAL($User.User_Type__c,"Dealer"),MD__c = 'JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorMessage>Cannot change associated Campaign if this was created by wholesale</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Do_Not_Select_CAC_Campaign</fullName>
@@ -1540,6 +2253,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <errorDisplayField>Campaign__c</errorDisplayField>
         <errorMessage>This Field can not be selected CAC Campaign Level.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>New_Campaign_Lead</fullName>
         <availability>online</availability>
@@ -1553,7 +2267,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
 
 {
-window.open("OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_Campaign_Execution_RECORD_TYPE_ID&amp;ent=Campaign");
+window.open("OBJECT_CAMPAIGN_LEAD_WEBLINK_OBJECTS_KEYPREFIX?retURL=%2F701%2Fo&amp;RecordType=01228000001Dg45&amp;ent=Campaign");
 
 
 }</url>

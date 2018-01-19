@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,60 +40,20 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Campaign_Question_Ref__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -135,6 +91,56 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Need_Free_TextBox__c</fullName>
@@ -228,7 +234,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
-	<fields>
+    <fields>
         <fullName>Total_Responses__c</fullName>
         <externalId>false</externalId>
         <label>Total Responses</label>
@@ -244,29 +250,35 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Single Select--Vertical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Single Select--Horizontal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Multi-Select--Vertical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Free Text</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Single Select--Vertical</fullName>
+                    <default>false</default>
+                    <label>Single Select--Vertical</label>
+                </value>
+                <value>
+                    <fullName>Single Select--Horizontal</fullName>
+                    <default>false</default>
+                    <label>Single Select--Horizontal</label>
+                </value>
+                <value>
+                    <fullName>Multi-Select--Vertical</fullName>
+                    <default>false</default>
+                    <label>Multi-Select--Vertical</label>
+                </value>
+                <value>
+                    <fullName>Free Text</fullName>
+                    <default>false</default>
+                    <label>Free Text</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Survey Question</label>
     <listViews>
@@ -335,4 +347,5 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <errorConditionFormula>AND(OR(ISPICKVAL( Type__c , 'Multi-Select--Vertical'),ISPICKVAL( Type__c , 'Free Text')), Need_Free_TextBox__c, $Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorMessage>Only Single selection can show the free text box</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

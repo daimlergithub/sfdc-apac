@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,15 +40,18 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>This object is used for Central_Activity(Inbound Call) Handling,  Assign a munber od IB Call tasks to a number of CSRs or TLs.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -60,20 +59,24 @@
         <fullName>Assign_Type__c</fullName>
         <externalId>false</externalId>
         <label>Assign Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Assignment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assignment</fullName>
+                    <default>false</default>
+                    <label>Assignment</label>
+                </value>
+                <value>
+                    <fullName>Recall</fullName>
+                    <default>false</default>
+                    <label>Recall</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Assignment__c</fullName>
@@ -87,32 +90,39 @@
         <fullName>Assignment_per_Agent__c</fullName>
         <externalId>false</externalId>
         <label>Assignment per Agent</label>
-        <picklist>
-            <picklistValues>
-                <fullName>65</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>75</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>85</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>95</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>100</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>65</fullName>
+                    <default>false</default>
+                    <label>65</label>
+                </value>
+                <value>
+                    <fullName>75</fullName>
+                    <default>true</default>
+                    <label>75</label>
+                </value>
+                <value>
+                    <fullName>85</fullName>
+                    <default>false</default>
+                    <label>85</label>
+                </value>
+                <value>
+                    <fullName>95</fullName>
+                    <default>false</default>
+                    <label>95</label>
+                </value>
+                <value>
+                    <fullName>100</fullName>
+                    <default>false</default>
+                    <label>100</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Batch_No__c</fullName>
@@ -160,111 +170,137 @@
         <fullName>Campaign1__c</fullName>
         <externalId>false</externalId>
         <label>Campaign</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Campaign 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 5</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 6</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 7</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 8</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 9</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 10</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 11</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Campaign 1</fullName>
+                    <default>false</default>
+                    <label>Campaign 1</label>
+                </value>
+                <value>
+                    <fullName>Campaign 2</fullName>
+                    <default>false</default>
+                    <label>Campaign 2</label>
+                </value>
+                <value>
+                    <fullName>Campaign 3</fullName>
+                    <default>false</default>
+                    <label>Campaign 3</label>
+                </value>
+                <value>
+                    <fullName>Campaign 4</fullName>
+                    <default>false</default>
+                    <label>Campaign 4</label>
+                </value>
+                <value>
+                    <fullName>Campaign 5</fullName>
+                    <default>false</default>
+                    <label>Campaign 5</label>
+                </value>
+                <value>
+                    <fullName>Campaign 6</fullName>
+                    <default>false</default>
+                    <label>Campaign 6</label>
+                </value>
+                <value>
+                    <fullName>Campaign 7</fullName>
+                    <default>false</default>
+                    <label>Campaign 7</label>
+                </value>
+                <value>
+                    <fullName>Campaign 8</fullName>
+                    <default>false</default>
+                    <label>Campaign 8</label>
+                </value>
+                <value>
+                    <fullName>Campaign 9</fullName>
+                    <default>false</default>
+                    <label>Campaign 9</label>
+                </value>
+                <value>
+                    <fullName>Campaign 10</fullName>
+                    <default>false</default>
+                    <label>Campaign 10</label>
+                </value>
+                <value>
+                    <fullName>Campaign 11</fullName>
+                    <default>false</default>
+                    <label>Campaign 11</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Campaign2__c</fullName>
         <externalId>false</externalId>
         <label>Campaign</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Campaign 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 5</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 6</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 7</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 8</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 9</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 10</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign 11</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Campaign 1</fullName>
+                    <default>false</default>
+                    <label>Campaign 1</label>
+                </value>
+                <value>
+                    <fullName>Campaign 2</fullName>
+                    <default>false</default>
+                    <label>Campaign 2</label>
+                </value>
+                <value>
+                    <fullName>Campaign 3</fullName>
+                    <default>false</default>
+                    <label>Campaign 3</label>
+                </value>
+                <value>
+                    <fullName>Campaign 4</fullName>
+                    <default>false</default>
+                    <label>Campaign 4</label>
+                </value>
+                <value>
+                    <fullName>Campaign 5</fullName>
+                    <default>false</default>
+                    <label>Campaign 5</label>
+                </value>
+                <value>
+                    <fullName>Campaign 6</fullName>
+                    <default>false</default>
+                    <label>Campaign 6</label>
+                </value>
+                <value>
+                    <fullName>Campaign 7</fullName>
+                    <default>false</default>
+                    <label>Campaign 7</label>
+                </value>
+                <value>
+                    <fullName>Campaign 8</fullName>
+                    <default>false</default>
+                    <label>Campaign 8</label>
+                </value>
+                <value>
+                    <fullName>Campaign 9</fullName>
+                    <default>false</default>
+                    <label>Campaign 9</label>
+                </value>
+                <value>
+                    <fullName>Campaign 10</fullName>
+                    <default>false</default>
+                    <label>Campaign 10</label>
+                </value>
+                <value>
+                    <fullName>Campaign 11</fullName>
+                    <default>false</default>
+                    <label>Campaign 11</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Campaign__c</fullName>
@@ -421,86 +457,105 @@
         <fullName>Subject__c</fullName>
         <externalId>false</externalId>
         <label>Subject</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Welcome Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1st Survey Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2nd Survey Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome Call + 1st Survey Call</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Campaign Executed</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Campaign Auto Creation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Welcome Call</fullName>
+                    <default>false</default>
+                    <label>Welcome Call</label>
+                </value>
+                <value>
+                    <fullName>1st Survey Call</fullName>
+                    <default>false</default>
+                    <label>1st Survey Call</label>
+                </value>
+                <value>
+                    <fullName>2nd Survey Call</fullName>
+                    <default>false</default>
+                    <label>2nd Survey Call</label>
+                </value>
+                <value>
+                    <fullName>Welcome Call + 1st Survey Call</fullName>
+                    <default>false</default>
+                    <label>Welcome Call + 1st Survey Call</label>
+                </value>
+                <value>
+                    <fullName>Campaign Executed</fullName>
+                    <default>false</default>
+                    <label>Campaign Executed</label>
+                </value>
+                <value>
+                    <fullName>Campaign Auto Creation</fullName>
+                    <default>false</default>
+                    <label>Campaign Auto Creation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Suspect_Dup__c</fullName>
         <externalId>false</externalId>
         <label>Suspect Dup</label>
-        <picklist>
-            <picklistValues>
-                <fullName>All</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dup</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-Dup</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                    <label>All</label>
+                </value>
+                <value>
+                    <fullName>Dup</fullName>
+                    <default>false</default>
+                    <label>Dup</label>
+                </value>
+                <value>
+                    <fullName>Non-Dup</fullName>
+                    <default>false</default>
+                    <label>Non-Dup</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Task_Type__c</fullName>
         <externalId>false</externalId>
         <label>Subject</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Welcome call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1st servey call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2nd servey call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1st servey + welcome call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Welcome call</fullName>
+                    <default>false</default>
+                    <label>Welcome call</label>
+                </value>
+                <value>
+                    <fullName>1st servey call</fullName>
+                    <default>false</default>
+                    <label>1st servey call</label>
+                </value>
+                <value>
+                    <fullName>2nd servey call</fullName>
+                    <default>false</default>
+                    <label>2nd servey call</label>
+                </value>
+                <value>
+                    <fullName>1st servey + welcome call</fullName>
+                    <default>false</default>
+                    <label>1st servey + welcome call</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Tasks_Found__c</fullName>
@@ -548,4 +603,5 @@
     <pluralLabel>OB Task Handings</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

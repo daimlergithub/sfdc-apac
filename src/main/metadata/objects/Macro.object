@@ -43,6 +43,9 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>IsAlohaSupported</fullName>
+    </fields>
+    <fields>
         <fullName>Name</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -50,6 +53,9 @@
         <fullName>OwnerId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StartingContext</fullName>
     </fields>
     <searchLayouts>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>

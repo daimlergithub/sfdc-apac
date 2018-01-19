@@ -1,0 +1,19 @@
+<!--/************************************************************************************
+* Created By:Sarath M
+* Created Date:22-sept-17
+* Company:Infosys Ltd
+* Description: 1. Display Vote symbol and count the number of votes.
+* ***********************************************************************************/-->
+<aura:component controller="IdeasCommunityHelper" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,lightning:actionOverride,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="numberOfVotes" type="Integer" default='0'/>
+    <aura:attribute name="IconVisible" type="boolean" default="false" />
+    
+    <div class="slds-scope">
+        <div class="slds-text-Center slds-icon--x-large voteText" >
+            <lightning:buttonIcon iconName="utility:like" variant="bare" size="large" alternativeText="Vote" onclick="{!c.increaseLikeCount}" disabled="{!v.IconVisible}"/>
+            <ui:outputText value="{!v.numberOfVotes}" /> &nbsp;&nbsp;
+      	</div>
+    </div>    
+</aura:component>

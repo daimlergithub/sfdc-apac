@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,14 +40,17 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Retail Campaign Member</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
@@ -72,41 +71,50 @@
         <description>The communication channel with campiagn member</description>
         <externalId>false</externalId>
         <label>Communication Channel</label>
-        <picklist>
-            <picklistValues>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>eDM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OB CALL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social Media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SMS</fullName>
+                    <default>false</default>
+                    <label>SMS</label>
+                </value>
+                <value>
+                    <fullName>MMS</fullName>
+                    <default>false</default>
+                    <label>MMS</label>
+                </value>
+                <value>
+                    <fullName>eDM</fullName>
+                    <default>false</default>
+                    <label>eDM</label>
+                </value>
+                <value>
+                    <fullName>DM</fullName>
+                    <default>false</default>
+                    <label>DM</label>
+                </value>
+                <value>
+                    <fullName>OB CALL</fullName>
+                    <default>false</default>
+                    <label>OB CALL</label>
+                </value>
+                <value>
+                    <fullName>Social Media</fullName>
+                    <default>false</default>
+                    <label>Social Media</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Contact__c</fullName>
@@ -160,49 +168,60 @@
         <description>Campaign Member Status</description>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>New</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Failed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Show up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Show up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Converted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Sent</fullName>
+                    <default>false</default>
+                    <label>Sent</label>
+                </value>
+                <value>
+                    <fullName>Accepted</fullName>
+                    <default>false</default>
+                    <label>Accepted</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Show up</fullName>
+                    <default>false</default>
+                    <label>Show up</label>
+                </value>
+                <value>
+                    <fullName>Not Show up</fullName>
+                    <default>false</default>
+                    <label>Not Show up</label>
+                </value>
+                <value>
+                    <fullName>Order Placed</fullName>
+                    <default>false</default>
+                    <label>Order Placed</label>
+                </value>
+                <value>
+                    <fullName>Converted</fullName>
+                    <default>false</default>
+                    <label>Converted</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Unique_Code__c</fullName>
@@ -227,6 +246,7 @@
     <pluralLabel>Retail Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Convert_To_Lead</fullName>
         <availability>online</availability>

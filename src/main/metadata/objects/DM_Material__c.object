@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,61 +40,21 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Case: Track the Material used by DM Request</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Active__c</fullName>
         <defaultValue>false</defaultValue>
@@ -122,29 +78,35 @@ Modify Reason:
 */</description>
         <externalId>false</externalId>
         <label>Brand</label>
-        <picklist>
-            <picklistValues>
-                <fullName>MB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MB</fullName>
+                    <default>false</default>
+                    <label>MB</label>
+                </value>
+                <value>
+                    <fullName>Smart</fullName>
+                    <default>false</default>
+                    <label>Smart</label>
+                </value>
+                <value>
+                    <fullName>AMG</fullName>
+                    <default>false</default>
+                    <label>AMG</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Car_Model__c</fullName>
@@ -287,71 +249,85 @@ Modify Reason:
         <fullName>MBTH_Type__c</fullName>
         <externalId>false</externalId>
         <label>MBTH Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Brochures/Catalogue</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Price List</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invitation Letter/Card</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Journals/Magazines/News Letters</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Souvenir/Gifts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Handbook</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome Pack</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Voucher</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Loyalty card</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Random Act of Kindness</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Brochures/Catalogue</fullName>
+                    <default>false</default>
+                    <label>Brochures/Catalogue</label>
+                </value>
+                <value>
+                    <fullName>Price List</fullName>
+                    <default>false</default>
+                    <label>Price List</label>
+                </value>
+                <value>
+                    <fullName>Invitation Letter/Card</fullName>
+                    <default>false</default>
+                    <label>Invitation Letter/Card</label>
+                </value>
+                <value>
+                    <fullName>MB Magazine</fullName>
+                    <default>false</default>
+                    <label>MB Magazine</label>
+                </value>
+                <value>
+                    <fullName>Journals/Magazines/News Letters</fullName>
+                    <default>false</default>
+                    <label>Journals/Magazines/News Letters</label>
+                </value>
+                <value>
+                    <fullName>Souvenir/Gifts</fullName>
+                    <default>false</default>
+                    <label>Souvenir/Gifts</label>
+                </value>
+                <value>
+                    <fullName>Handbook</fullName>
+                    <default>false</default>
+                    <label>Handbook</label>
+                </value>
+                <value>
+                    <fullName>Welcome Pack</fullName>
+                    <default>false</default>
+                    <label>Welcome Pack</label>
+                </value>
+                <value>
+                    <fullName>Voucher</fullName>
+                    <default>false</default>
+                    <label>Voucher</label>
+                </value>
+                <value>
+                    <fullName>Loyalty card</fullName>
+                    <default>false</default>
+                    <label>Loyalty card</label>
+                </value>
+                <value>
+                    <fullName>Random Act of Kindness</fullName>
+                    <default>false</default>
+                    <label>Random Act of Kindness</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -362,20 +338,73 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Model__c</fullName>
         <externalId>false</externalId>
         <label>Model</label>
-        <picklist>
-            <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>none</fullName>
+                    <default>false</default>
+                    <label>none</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Preliminary_Flag__c</fullName>
@@ -440,1425 +469,1780 @@ Modify Reason:
 */</description>
         <externalId>false</externalId>
         <label>Series</label>
-        <picklist>
-            <picklistValues>
-                <fullName>A-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CL-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLK-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GL-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maybach</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jeep</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Truck</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chrysler</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mitsubishi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Beijing Jeep</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz commercial vehicles</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Generic Model</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A6</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A8</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A8L</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Allroad</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Q7</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S8</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TT Cooupe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New A4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New A6L</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bentley</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1 Series</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3 Series</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5 Series</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6 Series</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>7 Series</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>8 Series</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ActiveHybrid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>M3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>M5</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>M6</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>P298548</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SC00003</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X5</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X6</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Z3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Z4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>i</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Regal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lacrosse</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Excelle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Boulevard</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Saber</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Royaum</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Century</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lark</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aisikaladi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tai-Wai</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fleetwood</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cutty Luo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cadillac</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Saiwei</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Spark</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Astro</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>EpicA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Blazers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cauchy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aveo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lova</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SUBURBAN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>About 10,000</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New sail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chevrolet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tracker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>300C</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PT walkers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Urban and rural areas</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GRAND VOYAGER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Navigator</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Crossfire</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>King</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wrangler</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sebring</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pacific</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sun dance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C5</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C8</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Elysee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Picasso</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Beverly</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The Arc de Triomphe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Saina</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Arcadia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ESPERO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Super Salon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daewoo elegance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daewoo racer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Blue Dragon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Traveler</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daewoo Matiz</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Magnus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CILO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fiat</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chroma</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HP Ang</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pyron</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Palio weekend wind Palio</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Palio weekend wind</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Punto</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Siena</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UNO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aspire</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fox</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Carnival</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Festival</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Taurus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Thunderbird</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maweilike</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PUMA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mondeo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercury</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Explorer d</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Probe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tempo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Crown Victoria</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wenda</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mustang</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The Conqueror</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SMAX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CRV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Acura</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Odyssey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The fit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sailing ship</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Langcheng</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mileage</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Stream</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Think of Andy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CR-V</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Civic</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The new CR-V</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Overture</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The accord</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sound Dorset</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Element</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HUMMER H2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Atuozi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ai Wente</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dilai Po</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yan foke</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jia Le Bao</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>XG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cool</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Flower bulbs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Meijia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Shengda</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Santa Fe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Century flagship</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sidaruikesi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sonata</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trajet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Terracan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sudden Pietro MASCAGNI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tucson</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dynasty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The modern century</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Azera</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ATOS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Elantra</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The compact hatchback</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yu Cheung</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Leopard</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Big Cherokee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cherokee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Free man</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rio Maxima</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Antes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ka Wah</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jia Le</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RIO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Optima electrically</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>All opirus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pulaite</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KIA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maxima</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sailatu</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SEPHIA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lion run</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Speicher</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sorento</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SHUMA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Optima</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Discover</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Land Rover Range Rover</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rover</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Guardian</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ES</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Ma</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Familia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hippocampus 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mazda</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Premacy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cabrio</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Clubman</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cooper</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GOOD WOOD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>One</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grandis</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grant</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lancer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Liju</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Montero</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The Outlander</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mitsubishi Pajero</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Eclipse</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Space car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>350Z</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ami</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ALTIMA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Green Lotus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grace</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Elegance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Duke</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mitsuoka</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Urvan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Junyi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fast</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Blue Jays</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Murano</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nissan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Paladin</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pickup</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prima</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chi Chun</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SAFARI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Senterui</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pathfinder</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Teana</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PATROL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unlimited</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CIMA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sylphy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sunshine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tiida/Tiida</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Europe jieli</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Omega</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Avant garde</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Zafira</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weida</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weita</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Astra</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Peugeot</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Landscape</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Laguna</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mekana</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Space</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weisaidi</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Saab</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fabia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Octavia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Oja</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Skoda</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Speed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Alto</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Big Dipper</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jim</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lianna</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Suzuki</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Antelope</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tianyu hatchback</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vitra</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Swift</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RAV4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AVENSIS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Toyota</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Plateau people</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hi Lux</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sequoia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Crown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Corolla</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Camry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Coaster</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Land Cruiser</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Runners</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Previa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prius</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reitz</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CELLCA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rate Le Na</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Terui</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vios</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Alex</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Asia Dragon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S40</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S60</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S80</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>XC70</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>XC90</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Polaris</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Polo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gower</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Phaeton</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jetta</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CARAVELLE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Katie</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cordoba</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lingyu</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Magotan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Santana</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sarang</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sagitar</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Touran</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Touareg</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Polaris</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Beetle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The transporter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Boxter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cayman</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>911</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Panamera</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cayenne</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ILX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MDX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RDX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TSX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ZDX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Caliber</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Journey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A-Class</fullName>
+                    <default>false</default>
+                    <label>A-Class</label>
+                </value>
+                <value>
+                    <fullName>B-Class</fullName>
+                    <default>false</default>
+                    <label>B-Class</label>
+                </value>
+                <value>
+                    <fullName>C-Class</fullName>
+                    <default>false</default>
+                    <label>C-Class</label>
+                </value>
+                <value>
+                    <fullName>CL-Class</fullName>
+                    <default>false</default>
+                    <label>CL-Class</label>
+                </value>
+                <value>
+                    <fullName>CLK-Class</fullName>
+                    <default>false</default>
+                    <label>CLK-Class</label>
+                </value>
+                <value>
+                    <fullName>CLS-Class</fullName>
+                    <default>false</default>
+                    <label>CLS-Class</label>
+                </value>
+                <value>
+                    <fullName>E-Class</fullName>
+                    <default>false</default>
+                    <label>E-Class</label>
+                </value>
+                <value>
+                    <fullName>G-Class</fullName>
+                    <default>false</default>
+                    <label>G-Class</label>
+                </value>
+                <value>
+                    <fullName>GL-Class</fullName>
+                    <default>false</default>
+                    <label>GL-Class</label>
+                </value>
+                <value>
+                    <fullName>GLK-Class</fullName>
+                    <default>false</default>
+                    <label>GLK-Class</label>
+                </value>
+                <value>
+                    <fullName>ML-Class</fullName>
+                    <default>false</default>
+                    <label>ML-Class</label>
+                </value>
+                <value>
+                    <fullName>R-Class</fullName>
+                    <default>false</default>
+                    <label>R-Class</label>
+                </value>
+                <value>
+                    <fullName>S-Class</fullName>
+                    <default>false</default>
+                    <label>S-Class</label>
+                </value>
+                <value>
+                    <fullName>SL-Class</fullName>
+                    <default>false</default>
+                    <label>SL-Class</label>
+                </value>
+                <value>
+                    <fullName>SLK-Class</fullName>
+                    <default>false</default>
+                    <label>SLK-Class</label>
+                </value>
+                <value>
+                    <fullName>Smart</fullName>
+                    <default>false</default>
+                    <label>Smart</label>
+                </value>
+                <value>
+                    <fullName>AMG</fullName>
+                    <default>false</default>
+                    <label>AMG</label>
+                </value>
+                <value>
+                    <fullName>Maybach</fullName>
+                    <default>false</default>
+                    <label>Maybach</label>
+                </value>
+                <value>
+                    <fullName>Jeep</fullName>
+                    <default>false</default>
+                    <label>Jeep</label>
+                </value>
+                <value>
+                    <fullName>Truck</fullName>
+                    <default>false</default>
+                    <label>Truck</label>
+                </value>
+                <value>
+                    <fullName>Chrysler</fullName>
+                    <default>false</default>
+                    <label>Chrysler</label>
+                </value>
+                <value>
+                    <fullName>Mitsubishi</fullName>
+                    <default>false</default>
+                    <label>Mitsubishi</label>
+                </value>
+                <value>
+                    <fullName>Beijing Jeep</fullName>
+                    <default>false</default>
+                    <label>Beijing Jeep</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz commercial vehicles</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz commercial vehicles</label>
+                </value>
+                <value>
+                    <fullName>Generic Model</fullName>
+                    <default>false</default>
+                    <label>Generic Model</label>
+                </value>
+                <value>
+                    <fullName>A4</fullName>
+                    <default>false</default>
+                    <label>A4</label>
+                </value>
+                <value>
+                    <fullName>A6</fullName>
+                    <default>false</default>
+                    <label>A6</label>
+                </value>
+                <value>
+                    <fullName>A8</fullName>
+                    <default>false</default>
+                    <label>A8</label>
+                </value>
+                <value>
+                    <fullName>A8L</fullName>
+                    <default>false</default>
+                    <label>A8L</label>
+                </value>
+                <value>
+                    <fullName>Allroad</fullName>
+                    <default>false</default>
+                    <label>Allroad</label>
+                </value>
+                <value>
+                    <fullName>Q7</fullName>
+                    <default>false</default>
+                    <label>Q7</label>
+                </value>
+                <value>
+                    <fullName>S8</fullName>
+                    <default>false</default>
+                    <label>S8</label>
+                </value>
+                <value>
+                    <fullName>TT Cooupe</fullName>
+                    <default>false</default>
+                    <label>TT Cooupe</label>
+                </value>
+                <value>
+                    <fullName>New A4</fullName>
+                    <default>false</default>
+                    <label>New A4</label>
+                </value>
+                <value>
+                    <fullName>New A6L</fullName>
+                    <default>false</default>
+                    <label>New A6L</label>
+                </value>
+                <value>
+                    <fullName>Bentley</fullName>
+                    <default>false</default>
+                    <label>Bentley</label>
+                </value>
+                <value>
+                    <fullName>1 Series</fullName>
+                    <default>false</default>
+                    <label>1 Series</label>
+                </value>
+                <value>
+                    <fullName>3 Series</fullName>
+                    <default>false</default>
+                    <label>3 Series</label>
+                </value>
+                <value>
+                    <fullName>5 Series</fullName>
+                    <default>false</default>
+                    <label>5 Series</label>
+                </value>
+                <value>
+                    <fullName>6 Series</fullName>
+                    <default>false</default>
+                    <label>6 Series</label>
+                </value>
+                <value>
+                    <fullName>7 Series</fullName>
+                    <default>false</default>
+                    <label>7 Series</label>
+                </value>
+                <value>
+                    <fullName>8 Series</fullName>
+                    <default>false</default>
+                    <label>8 Series</label>
+                </value>
+                <value>
+                    <fullName>ActiveHybrid</fullName>
+                    <default>false</default>
+                    <label>ActiveHybrid</label>
+                </value>
+                <value>
+                    <fullName>GT</fullName>
+                    <default>false</default>
+                    <label>GT</label>
+                </value>
+                <value>
+                    <fullName>M3</fullName>
+                    <default>false</default>
+                    <label>M3</label>
+                </value>
+                <value>
+                    <fullName>M5</fullName>
+                    <default>false</default>
+                    <label>M5</label>
+                </value>
+                <value>
+                    <fullName>M6</fullName>
+                    <default>false</default>
+                    <label>M6</label>
+                </value>
+                <value>
+                    <fullName>P298548</fullName>
+                    <default>false</default>
+                    <label>P298548</label>
+                </value>
+                <value>
+                    <fullName>SC00003</fullName>
+                    <default>false</default>
+                    <label>SC00003</label>
+                </value>
+                <value>
+                    <fullName>X1</fullName>
+                    <default>false</default>
+                    <label>X1</label>
+                </value>
+                <value>
+                    <fullName>X3</fullName>
+                    <default>false</default>
+                    <label>X3</label>
+                </value>
+                <value>
+                    <fullName>X5</fullName>
+                    <default>false</default>
+                    <label>X5</label>
+                </value>
+                <value>
+                    <fullName>X6</fullName>
+                    <default>false</default>
+                    <label>X6</label>
+                </value>
+                <value>
+                    <fullName>Z3</fullName>
+                    <default>false</default>
+                    <label>Z3</label>
+                </value>
+                <value>
+                    <fullName>Z4</fullName>
+                    <default>false</default>
+                    <label>Z4</label>
+                </value>
+                <value>
+                    <fullName>i</fullName>
+                    <default>false</default>
+                    <label>i</label>
+                </value>
+                <value>
+                    <fullName>GL</fullName>
+                    <default>false</default>
+                    <label>GL</label>
+                </value>
+                <value>
+                    <fullName>Regal</fullName>
+                    <default>false</default>
+                    <label>Regal</label>
+                </value>
+                <value>
+                    <fullName>Lacrosse</fullName>
+                    <default>false</default>
+                    <label>Lacrosse</label>
+                </value>
+                <value>
+                    <fullName>Excelle</fullName>
+                    <default>false</default>
+                    <label>Excelle</label>
+                </value>
+                <value>
+                    <fullName>Boulevard</fullName>
+                    <default>false</default>
+                    <label>Boulevard</label>
+                </value>
+                <value>
+                    <fullName>Saber</fullName>
+                    <default>false</default>
+                    <label>Saber</label>
+                </value>
+                <value>
+                    <fullName>Royaum</fullName>
+                    <default>false</default>
+                    <label>Royaum</label>
+                </value>
+                <value>
+                    <fullName>Century</fullName>
+                    <default>false</default>
+                    <label>Century</label>
+                </value>
+                <value>
+                    <fullName>Lark</fullName>
+                    <default>false</default>
+                    <label>Lark</label>
+                </value>
+                <value>
+                    <fullName>Aisikaladi</fullName>
+                    <default>false</default>
+                    <label>Aisikaladi</label>
+                </value>
+                <value>
+                    <fullName>Tai-Wai</fullName>
+                    <default>false</default>
+                    <label>Tai-Wai</label>
+                </value>
+                <value>
+                    <fullName>Fleetwood</fullName>
+                    <default>false</default>
+                    <label>Fleetwood</label>
+                </value>
+                <value>
+                    <fullName>Cutty Luo</fullName>
+                    <default>false</default>
+                    <label>Cutty Luo</label>
+                </value>
+                <value>
+                    <fullName>Cadillac</fullName>
+                    <default>false</default>
+                    <label>Cadillac</label>
+                </value>
+                <value>
+                    <fullName>Saiwei</fullName>
+                    <default>false</default>
+                    <label>Saiwei</label>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+                <value>
+                    <fullName>Spark</fullName>
+                    <default>false</default>
+                    <label>Spark</label>
+                </value>
+                <value>
+                    <fullName>Astro</fullName>
+                    <default>false</default>
+                    <label>Astro</label>
+                </value>
+                <value>
+                    <fullName>EpicA</fullName>
+                    <default>false</default>
+                    <label>EpicA</label>
+                </value>
+                <value>
+                    <fullName>Blazers</fullName>
+                    <default>false</default>
+                    <label>Blazers</label>
+                </value>
+                <value>
+                    <fullName>Cauchy</fullName>
+                    <default>false</default>
+                    <label>Cauchy</label>
+                </value>
+                <value>
+                    <fullName>Aveo</fullName>
+                    <default>false</default>
+                    <label>Aveo</label>
+                </value>
+                <value>
+                    <fullName>Lova</fullName>
+                    <default>false</default>
+                    <label>Lova</label>
+                </value>
+                <value>
+                    <fullName>SUBURBAN</fullName>
+                    <default>false</default>
+                    <label>SUBURBAN</label>
+                </value>
+                <value>
+                    <fullName>About 10,000</fullName>
+                    <default>false</default>
+                    <label>About 10,000</label>
+                </value>
+                <value>
+                    <fullName>New sail</fullName>
+                    <default>false</default>
+                    <label>New sail</label>
+                </value>
+                <value>
+                    <fullName>Chevrolet</fullName>
+                    <default>false</default>
+                    <label>Chevrolet</label>
+                </value>
+                <value>
+                    <fullName>Tracker</fullName>
+                    <default>false</default>
+                    <label>Tracker</label>
+                </value>
+                <value>
+                    <fullName>300C</fullName>
+                    <default>false</default>
+                    <label>300C</label>
+                </value>
+                <value>
+                    <fullName>PT walkers</fullName>
+                    <default>false</default>
+                    <label>PT walkers</label>
+                </value>
+                <value>
+                    <fullName>Urban and rural areas</fullName>
+                    <default>false</default>
+                    <label>Urban and rural areas</label>
+                </value>
+                <value>
+                    <fullName>GRAND VOYAGER</fullName>
+                    <default>false</default>
+                    <label>GRAND VOYAGER</label>
+                </value>
+                <value>
+                    <fullName>Navigator</fullName>
+                    <default>false</default>
+                    <label>Navigator</label>
+                </value>
+                <value>
+                    <fullName>Crossfire</fullName>
+                    <default>false</default>
+                    <label>Crossfire</label>
+                </value>
+                <value>
+                    <fullName>King</fullName>
+                    <default>false</default>
+                    <label>King</label>
+                </value>
+                <value>
+                    <fullName>Wrangler</fullName>
+                    <default>false</default>
+                    <label>Wrangler</label>
+                </value>
+                <value>
+                    <fullName>Sebring</fullName>
+                    <default>false</default>
+                    <label>Sebring</label>
+                </value>
+                <value>
+                    <fullName>Pacific</fullName>
+                    <default>false</default>
+                    <label>Pacific</label>
+                </value>
+                <value>
+                    <fullName>Sun dance</fullName>
+                    <default>false</default>
+                    <label>Sun dance</label>
+                </value>
+                <value>
+                    <fullName>C2</fullName>
+                    <default>false</default>
+                    <label>C2</label>
+                </value>
+                <value>
+                    <fullName>C3</fullName>
+                    <default>false</default>
+                    <label>C3</label>
+                </value>
+                <value>
+                    <fullName>C5</fullName>
+                    <default>false</default>
+                    <label>C5</label>
+                </value>
+                <value>
+                    <fullName>C8</fullName>
+                    <default>false</default>
+                    <label>C8</label>
+                </value>
+                <value>
+                    <fullName>Elysee</fullName>
+                    <default>false</default>
+                    <label>Elysee</label>
+                </value>
+                <value>
+                    <fullName>Picasso</fullName>
+                    <default>false</default>
+                    <label>Picasso</label>
+                </value>
+                <value>
+                    <fullName>Beverly</fullName>
+                    <default>false</default>
+                    <label>Beverly</label>
+                </value>
+                <value>
+                    <fullName>The Arc de Triomphe</fullName>
+                    <default>false</default>
+                    <label>The Arc de Triomphe</label>
+                </value>
+                <value>
+                    <fullName>Saina</fullName>
+                    <default>false</default>
+                    <label>Saina</label>
+                </value>
+                <value>
+                    <fullName>Arcadia</fullName>
+                    <default>false</default>
+                    <label>Arcadia</label>
+                </value>
+                <value>
+                    <fullName>ESPERO</fullName>
+                    <default>false</default>
+                    <label>ESPERO</label>
+                </value>
+                <value>
+                    <fullName>Super Salon</fullName>
+                    <default>false</default>
+                    <label>Super Salon</label>
+                </value>
+                <value>
+                    <fullName>Daewoo elegance</fullName>
+                    <default>false</default>
+                    <label>Daewoo elegance</label>
+                </value>
+                <value>
+                    <fullName>Daewoo racer</fullName>
+                    <default>false</default>
+                    <label>Daewoo racer</label>
+                </value>
+                <value>
+                    <fullName>Blue Dragon</fullName>
+                    <default>false</default>
+                    <label>Blue Dragon</label>
+                </value>
+                <value>
+                    <fullName>Traveler</fullName>
+                    <default>false</default>
+                    <label>Traveler</label>
+                </value>
+                <value>
+                    <fullName>Daewoo Matiz</fullName>
+                    <default>false</default>
+                    <label>Daewoo Matiz</label>
+                </value>
+                <value>
+                    <fullName>Magnus</fullName>
+                    <default>false</default>
+                    <label>Magnus</label>
+                </value>
+                <value>
+                    <fullName>CILO</fullName>
+                    <default>false</default>
+                    <label>CILO</label>
+                </value>
+                <value>
+                    <fullName>Fiat</fullName>
+                    <default>false</default>
+                    <label>Fiat</label>
+                </value>
+                <value>
+                    <fullName>Chroma</fullName>
+                    <default>false</default>
+                    <label>Chroma</label>
+                </value>
+                <value>
+                    <fullName>HP Ang</fullName>
+                    <default>false</default>
+                    <label>HP Ang</label>
+                </value>
+                <value>
+                    <fullName>Pyron</fullName>
+                    <default>false</default>
+                    <label>Pyron</label>
+                </value>
+                <value>
+                    <fullName>Palio weekend wind Palio</fullName>
+                    <default>false</default>
+                    <label>Palio weekend wind Palio</label>
+                </value>
+                <value>
+                    <fullName>Palio weekend wind</fullName>
+                    <default>false</default>
+                    <label>Palio weekend wind</label>
+                </value>
+                <value>
+                    <fullName>Punto</fullName>
+                    <default>false</default>
+                    <label>Punto</label>
+                </value>
+                <value>
+                    <fullName>Siena</fullName>
+                    <default>false</default>
+                    <label>Siena</label>
+                </value>
+                <value>
+                    <fullName>UNO</fullName>
+                    <default>false</default>
+                    <label>UNO</label>
+                </value>
+                <value>
+                    <fullName>Aspire</fullName>
+                    <default>false</default>
+                    <label>Aspire</label>
+                </value>
+                <value>
+                    <fullName>Fox</fullName>
+                    <default>false</default>
+                    <label>Fox</label>
+                </value>
+                <value>
+                    <fullName>Carnival</fullName>
+                    <default>false</default>
+                    <label>Carnival</label>
+                </value>
+                <value>
+                    <fullName>Festival</fullName>
+                    <default>false</default>
+                    <label>Festival</label>
+                </value>
+                <value>
+                    <fullName>Taurus</fullName>
+                    <default>false</default>
+                    <label>Taurus</label>
+                </value>
+                <value>
+                    <fullName>Thunderbird</fullName>
+                    <default>false</default>
+                    <label>Thunderbird</label>
+                </value>
+                <value>
+                    <fullName>Maweilike</fullName>
+                    <default>false</default>
+                    <label>Maweilike</label>
+                </value>
+                <value>
+                    <fullName>PUMA</fullName>
+                    <default>false</default>
+                    <label>PUMA</label>
+                </value>
+                <value>
+                    <fullName>Mondeo</fullName>
+                    <default>false</default>
+                    <label>Mondeo</label>
+                </value>
+                <value>
+                    <fullName>Mercury</fullName>
+                    <default>false</default>
+                    <label>Mercury</label>
+                </value>
+                <value>
+                    <fullName>Explorer d</fullName>
+                    <default>false</default>
+                    <label>Explorer d</label>
+                </value>
+                <value>
+                    <fullName>Probe</fullName>
+                    <default>false</default>
+                    <label>Probe</label>
+                </value>
+                <value>
+                    <fullName>Tempo</fullName>
+                    <default>false</default>
+                    <label>Tempo</label>
+                </value>
+                <value>
+                    <fullName>Crown Victoria</fullName>
+                    <default>false</default>
+                    <label>Crown Victoria</label>
+                </value>
+                <value>
+                    <fullName>Wenda</fullName>
+                    <default>false</default>
+                    <label>Wenda</label>
+                </value>
+                <value>
+                    <fullName>Mustang</fullName>
+                    <default>false</default>
+                    <label>Mustang</label>
+                </value>
+                <value>
+                    <fullName>The Conqueror</fullName>
+                    <default>false</default>
+                    <label>The Conqueror</label>
+                </value>
+                <value>
+                    <fullName>SMAX</fullName>
+                    <default>false</default>
+                    <label>SMAX</label>
+                </value>
+                <value>
+                    <fullName>CRV</fullName>
+                    <default>false</default>
+                    <label>CRV</label>
+                </value>
+                <value>
+                    <fullName>Acura</fullName>
+                    <default>false</default>
+                    <label>Acura</label>
+                </value>
+                <value>
+                    <fullName>Odyssey</fullName>
+                    <default>false</default>
+                    <label>Odyssey</label>
+                </value>
+                <value>
+                    <fullName>The fit</fullName>
+                    <default>false</default>
+                    <label>The fit</label>
+                </value>
+                <value>
+                    <fullName>Sailing ship</fullName>
+                    <default>false</default>
+                    <label>Sailing ship</label>
+                </value>
+                <value>
+                    <fullName>Langcheng</fullName>
+                    <default>false</default>
+                    <label>Langcheng</label>
+                </value>
+                <value>
+                    <fullName>Mileage</fullName>
+                    <default>false</default>
+                    <label>Mileage</label>
+                </value>
+                <value>
+                    <fullName>Stream</fullName>
+                    <default>false</default>
+                    <label>Stream</label>
+                </value>
+                <value>
+                    <fullName>Think of Andy</fullName>
+                    <default>false</default>
+                    <label>Think of Andy</label>
+                </value>
+                <value>
+                    <fullName>CR-V</fullName>
+                    <default>false</default>
+                    <label>CR-V</label>
+                </value>
+                <value>
+                    <fullName>Civic</fullName>
+                    <default>false</default>
+                    <label>Civic</label>
+                </value>
+                <value>
+                    <fullName>The new CR-V</fullName>
+                    <default>false</default>
+                    <label>The new CR-V</label>
+                </value>
+                <value>
+                    <fullName>Overture</fullName>
+                    <default>false</default>
+                    <label>Overture</label>
+                </value>
+                <value>
+                    <fullName>The accord</fullName>
+                    <default>false</default>
+                    <label>The accord</label>
+                </value>
+                <value>
+                    <fullName>Sound Dorset</fullName>
+                    <default>false</default>
+                    <label>Sound Dorset</label>
+                </value>
+                <value>
+                    <fullName>Element</fullName>
+                    <default>false</default>
+                    <label>Element</label>
+                </value>
+                <value>
+                    <fullName>HUMMER H2</fullName>
+                    <default>false</default>
+                    <label>HUMMER H2</label>
+                </value>
+                <value>
+                    <fullName>Atuozi</fullName>
+                    <default>false</default>
+                    <label>Atuozi</label>
+                </value>
+                <value>
+                    <fullName>Ai Wente</fullName>
+                    <default>false</default>
+                    <label>Ai Wente</label>
+                </value>
+                <value>
+                    <fullName>Dilai Po</fullName>
+                    <default>false</default>
+                    <label>Dilai Po</label>
+                </value>
+                <value>
+                    <fullName>Yan foke</fullName>
+                    <default>false</default>
+                    <label>Yan foke</label>
+                </value>
+                <value>
+                    <fullName>Jia Le Bao</fullName>
+                    <default>false</default>
+                    <label>Jia Le Bao</label>
+                </value>
+                <value>
+                    <fullName>XG</fullName>
+                    <default>false</default>
+                    <label>XG</label>
+                </value>
+                <value>
+                    <fullName>Cool</fullName>
+                    <default>false</default>
+                    <label>Cool</label>
+                </value>
+                <value>
+                    <fullName>Flower bulbs</fullName>
+                    <default>false</default>
+                    <label>Flower bulbs</label>
+                </value>
+                <value>
+                    <fullName>Meijia</fullName>
+                    <default>false</default>
+                    <label>Meijia</label>
+                </value>
+                <value>
+                    <fullName>Shengda</fullName>
+                    <default>false</default>
+                    <label>Shengda</label>
+                </value>
+                <value>
+                    <fullName>Santa Fe</fullName>
+                    <default>false</default>
+                    <label>Santa Fe</label>
+                </value>
+                <value>
+                    <fullName>Century flagship</fullName>
+                    <default>false</default>
+                    <label>Century flagship</label>
+                </value>
+                <value>
+                    <fullName>Sidaruikesi</fullName>
+                    <default>false</default>
+                    <label>Sidaruikesi</label>
+                </value>
+                <value>
+                    <fullName>Sonata</fullName>
+                    <default>false</default>
+                    <label>Sonata</label>
+                </value>
+                <value>
+                    <fullName>Trajet</fullName>
+                    <default>false</default>
+                    <label>Trajet</label>
+                </value>
+                <value>
+                    <fullName>Terracan</fullName>
+                    <default>false</default>
+                    <label>Terracan</label>
+                </value>
+                <value>
+                    <fullName>Sudden Pietro MASCAGNI</fullName>
+                    <default>false</default>
+                    <label>Sudden Pietro MASCAGNI</label>
+                </value>
+                <value>
+                    <fullName>Tucson</fullName>
+                    <default>false</default>
+                    <label>Tucson</label>
+                </value>
+                <value>
+                    <fullName>Dynasty</fullName>
+                    <default>false</default>
+                    <label>Dynasty</label>
+                </value>
+                <value>
+                    <fullName>The modern century</fullName>
+                    <default>false</default>
+                    <label>The modern century</label>
+                </value>
+                <value>
+                    <fullName>Accent</fullName>
+                    <default>false</default>
+                    <label>Accent</label>
+                </value>
+                <value>
+                    <fullName>Azera</fullName>
+                    <default>false</default>
+                    <label>Azera</label>
+                </value>
+                <value>
+                    <fullName>ATOS</fullName>
+                    <default>false</default>
+                    <label>ATOS</label>
+                </value>
+                <value>
+                    <fullName>Elantra</fullName>
+                    <default>false</default>
+                    <label>Elantra</label>
+                </value>
+                <value>
+                    <fullName>The compact hatchback</fullName>
+                    <default>false</default>
+                    <label>The compact hatchback</label>
+                </value>
+                <value>
+                    <fullName>Yu Cheung</fullName>
+                    <default>false</default>
+                    <label>Yu Cheung</label>
+                </value>
+                <value>
+                    <fullName>Leopard</fullName>
+                    <default>false</default>
+                    <label>Leopard</label>
+                </value>
+                <value>
+                    <fullName>Big Cherokee</fullName>
+                    <default>false</default>
+                    <label>Big Cherokee</label>
+                </value>
+                <value>
+                    <fullName>Cherokee</fullName>
+                    <default>false</default>
+                    <label>Cherokee</label>
+                </value>
+                <value>
+                    <fullName>Free man</fullName>
+                    <default>false</default>
+                    <label>Free man</label>
+                </value>
+                <value>
+                    <fullName>Rio Maxima</fullName>
+                    <default>false</default>
+                    <label>Rio Maxima</label>
+                </value>
+                <value>
+                    <fullName>Antes</fullName>
+                    <default>false</default>
+                    <label>Antes</label>
+                </value>
+                <value>
+                    <fullName>Ka Wah</fullName>
+                    <default>false</default>
+                    <label>Ka Wah</label>
+                </value>
+                <value>
+                    <fullName>Jia Le</fullName>
+                    <default>false</default>
+                    <label>Jia Le</label>
+                </value>
+                <value>
+                    <fullName>RIO</fullName>
+                    <default>false</default>
+                    <label>RIO</label>
+                </value>
+                <value>
+                    <fullName>Optima electrically</fullName>
+                    <default>false</default>
+                    <label>Optima electrically</label>
+                </value>
+                <value>
+                    <fullName>All opirus</fullName>
+                    <default>false</default>
+                    <label>All opirus</label>
+                </value>
+                <value>
+                    <fullName>Pulaite</fullName>
+                    <default>false</default>
+                    <label>Pulaite</label>
+                </value>
+                <value>
+                    <fullName>KIA</fullName>
+                    <default>false</default>
+                    <label>KIA</label>
+                </value>
+                <value>
+                    <fullName>Maxima</fullName>
+                    <default>false</default>
+                    <label>Maxima</label>
+                </value>
+                <value>
+                    <fullName>Sailatu</fullName>
+                    <default>false</default>
+                    <label>Sailatu</label>
+                </value>
+                <value>
+                    <fullName>SEPHIA</fullName>
+                    <default>false</default>
+                    <label>SEPHIA</label>
+                </value>
+                <value>
+                    <fullName>Lion run</fullName>
+                    <default>false</default>
+                    <label>Lion run</label>
+                </value>
+                <value>
+                    <fullName>Speicher</fullName>
+                    <default>false</default>
+                    <label>Speicher</label>
+                </value>
+                <value>
+                    <fullName>Sorento</fullName>
+                    <default>false</default>
+                    <label>Sorento</label>
+                </value>
+                <value>
+                    <fullName>SHUMA</fullName>
+                    <default>false</default>
+                    <label>SHUMA</label>
+                </value>
+                <value>
+                    <fullName>Optima</fullName>
+                    <default>false</default>
+                    <label>Optima</label>
+                </value>
+                <value>
+                    <fullName>Discover</fullName>
+                    <default>false</default>
+                    <label>Discover</label>
+                </value>
+                <value>
+                    <fullName>Land Rover Range Rover</fullName>
+                    <default>false</default>
+                    <label>Land Rover Range Rover</label>
+                </value>
+                <value>
+                    <fullName>Rover</fullName>
+                    <default>false</default>
+                    <label>Rover</label>
+                </value>
+                <value>
+                    <fullName>Guardian</fullName>
+                    <default>false</default>
+                    <label>Guardian</label>
+                </value>
+                <value>
+                    <fullName>ES</fullName>
+                    <default>false</default>
+                    <label>ES</label>
+                </value>
+                <value>
+                    <fullName>GS</fullName>
+                    <default>false</default>
+                    <label>GS</label>
+                </value>
+                <value>
+                    <fullName>GX</fullName>
+                    <default>false</default>
+                    <label>GX</label>
+                </value>
+                <value>
+                    <fullName>IS</fullName>
+                    <default>false</default>
+                    <label>IS</label>
+                </value>
+                <value>
+                    <fullName>LS</fullName>
+                    <default>false</default>
+                    <label>LS</label>
+                </value>
+                <value>
+                    <fullName>LX</fullName>
+                    <default>false</default>
+                    <label>LX</label>
+                </value>
+                <value>
+                    <fullName>RX</fullName>
+                    <default>false</default>
+                    <label>RX</label>
+                </value>
+                <value>
+                    <fullName>SC</fullName>
+                    <default>false</default>
+                    <label>SC</label>
+                </value>
+                <value>
+                    <fullName>S-Ma</fullName>
+                    <default>false</default>
+                    <label>S-Ma</label>
+                </value>
+                <value>
+                    <fullName>Familia</fullName>
+                    <default>false</default>
+                    <label>Familia</label>
+                </value>
+                <value>
+                    <fullName>Hippocampus 3</fullName>
+                    <default>false</default>
+                    <label>Hippocampus 3</label>
+                </value>
+                <value>
+                    <fullName>Mazda</fullName>
+                    <default>false</default>
+                    <label>Mazda</label>
+                </value>
+                <value>
+                    <fullName>Premacy</fullName>
+                    <default>false</default>
+                    <label>Premacy</label>
+                </value>
+                <value>
+                    <fullName>Cabrio</fullName>
+                    <default>false</default>
+                    <label>Cabrio</label>
+                </value>
+                <value>
+                    <fullName>Clubman</fullName>
+                    <default>false</default>
+                    <label>Clubman</label>
+                </value>
+                <value>
+                    <fullName>Cooper</fullName>
+                    <default>false</default>
+                    <label>Cooper</label>
+                </value>
+                <value>
+                    <fullName>GOOD WOOD</fullName>
+                    <default>false</default>
+                    <label>GOOD WOOD</label>
+                </value>
+                <value>
+                    <fullName>One</fullName>
+                    <default>false</default>
+                    <label>One</label>
+                </value>
+                <value>
+                    <fullName>Grandis</fullName>
+                    <default>false</default>
+                    <label>Grandis</label>
+                </value>
+                <value>
+                    <fullName>Grant</fullName>
+                    <default>false</default>
+                    <label>Grant</label>
+                </value>
+                <value>
+                    <fullName>Lancer</fullName>
+                    <default>false</default>
+                    <label>Lancer</label>
+                </value>
+                <value>
+                    <fullName>Liju</fullName>
+                    <default>false</default>
+                    <label>Liju</label>
+                </value>
+                <value>
+                    <fullName>Montero</fullName>
+                    <default>false</default>
+                    <label>Montero</label>
+                </value>
+                <value>
+                    <fullName>The Outlander</fullName>
+                    <default>false</default>
+                    <label>The Outlander</label>
+                </value>
+                <value>
+                    <fullName>Mitsubishi Pajero</fullName>
+                    <default>false</default>
+                    <label>Mitsubishi Pajero</label>
+                </value>
+                <value>
+                    <fullName>Eclipse</fullName>
+                    <default>false</default>
+                    <label>Eclipse</label>
+                </value>
+                <value>
+                    <fullName>Space car</fullName>
+                    <default>false</default>
+                    <label>Space car</label>
+                </value>
+                <value>
+                    <fullName>China</fullName>
+                    <default>false</default>
+                    <label>China</label>
+                </value>
+                <value>
+                    <fullName>350Z</fullName>
+                    <default>false</default>
+                    <label>350Z</label>
+                </value>
+                <value>
+                    <fullName>Ami</fullName>
+                    <default>false</default>
+                    <label>Ami</label>
+                </value>
+                <value>
+                    <fullName>ALTIMA</fullName>
+                    <default>false</default>
+                    <label>ALTIMA</label>
+                </value>
+                <value>
+                    <fullName>Green Lotus</fullName>
+                    <default>false</default>
+                    <label>Green Lotus</label>
+                </value>
+                <value>
+                    <fullName>Grace</fullName>
+                    <default>false</default>
+                    <label>Grace</label>
+                </value>
+                <value>
+                    <fullName>Elegance</fullName>
+                    <default>false</default>
+                    <label>Elegance</label>
+                </value>
+                <value>
+                    <fullName>Duke</fullName>
+                    <default>false</default>
+                    <label>Duke</label>
+                </value>
+                <value>
+                    <fullName>Mitsuoka</fullName>
+                    <default>false</default>
+                    <label>Mitsuoka</label>
+                </value>
+                <value>
+                    <fullName>Urvan</fullName>
+                    <default>false</default>
+                    <label>Urvan</label>
+                </value>
+                <value>
+                    <fullName>Junyi</fullName>
+                    <default>false</default>
+                    <label>Junyi</label>
+                </value>
+                <value>
+                    <fullName>Fast</fullName>
+                    <default>false</default>
+                    <label>Fast</label>
+                </value>
+                <value>
+                    <fullName>Blue Jays</fullName>
+                    <default>false</default>
+                    <label>Blue Jays</label>
+                </value>
+                <value>
+                    <fullName>Murano</fullName>
+                    <default>false</default>
+                    <label>Murano</label>
+                </value>
+                <value>
+                    <fullName>Nissan</fullName>
+                    <default>false</default>
+                    <label>Nissan</label>
+                </value>
+                <value>
+                    <fullName>Paladin</fullName>
+                    <default>false</default>
+                    <label>Paladin</label>
+                </value>
+                <value>
+                    <fullName>Pickup</fullName>
+                    <default>false</default>
+                    <label>Pickup</label>
+                </value>
+                <value>
+                    <fullName>Prima</fullName>
+                    <default>false</default>
+                    <label>Prima</label>
+                </value>
+                <value>
+                    <fullName>Chi Chun</fullName>
+                    <default>false</default>
+                    <label>Chi Chun</label>
+                </value>
+                <value>
+                    <fullName>SAFARI</fullName>
+                    <default>false</default>
+                    <label>SAFARI</label>
+                </value>
+                <value>
+                    <fullName>Senterui</fullName>
+                    <default>false</default>
+                    <label>Senterui</label>
+                </value>
+                <value>
+                    <fullName>Pathfinder</fullName>
+                    <default>false</default>
+                    <label>Pathfinder</label>
+                </value>
+                <value>
+                    <fullName>Teana</fullName>
+                    <default>false</default>
+                    <label>Teana</label>
+                </value>
+                <value>
+                    <fullName>PATROL</fullName>
+                    <default>false</default>
+                    <label>PATROL</label>
+                </value>
+                <value>
+                    <fullName>Unlimited</fullName>
+                    <default>false</default>
+                    <label>Unlimited</label>
+                </value>
+                <value>
+                    <fullName>CIMA</fullName>
+                    <default>false</default>
+                    <label>CIMA</label>
+                </value>
+                <value>
+                    <fullName>Sylphy</fullName>
+                    <default>false</default>
+                    <label>Sylphy</label>
+                </value>
+                <value>
+                    <fullName>Sunshine</fullName>
+                    <default>false</default>
+                    <label>Sunshine</label>
+                </value>
+                <value>
+                    <fullName>Tiida/Tiida</fullName>
+                    <default>false</default>
+                    <label>Tiida/Tiida</label>
+                </value>
+                <value>
+                    <fullName>Europe jieli</fullName>
+                    <default>false</default>
+                    <label>Europe jieli</label>
+                </value>
+                <value>
+                    <fullName>Omega</fullName>
+                    <default>false</default>
+                    <label>Omega</label>
+                </value>
+                <value>
+                    <fullName>Avant garde</fullName>
+                    <default>false</default>
+                    <label>Avant garde</label>
+                </value>
+                <value>
+                    <fullName>Zafira</fullName>
+                    <default>false</default>
+                    <label>Zafira</label>
+                </value>
+                <value>
+                    <fullName>Weida</fullName>
+                    <default>false</default>
+                    <label>Weida</label>
+                </value>
+                <value>
+                    <fullName>Weita</fullName>
+                    <default>false</default>
+                    <label>Weita</label>
+                </value>
+                <value>
+                    <fullName>Astra</fullName>
+                    <default>false</default>
+                    <label>Astra</label>
+                </value>
+                <value>
+                    <fullName>Peugeot</fullName>
+                    <default>false</default>
+                    <label>Peugeot</label>
+                </value>
+                <value>
+                    <fullName>Landscape</fullName>
+                    <default>false</default>
+                    <label>Landscape</label>
+                </value>
+                <value>
+                    <fullName>Laguna</fullName>
+                    <default>false</default>
+                    <label>Laguna</label>
+                </value>
+                <value>
+                    <fullName>Mekana</fullName>
+                    <default>false</default>
+                    <label>Mekana</label>
+                </value>
+                <value>
+                    <fullName>Space</fullName>
+                    <default>false</default>
+                    <label>Space</label>
+                </value>
+                <value>
+                    <fullName>Weisaidi</fullName>
+                    <default>false</default>
+                    <label>Weisaidi</label>
+                </value>
+                <value>
+                    <fullName>Saab</fullName>
+                    <default>false</default>
+                    <label>Saab</label>
+                </value>
+                <value>
+                    <fullName>Fabia</fullName>
+                    <default>false</default>
+                    <label>Fabia</label>
+                </value>
+                <value>
+                    <fullName>Octavia</fullName>
+                    <default>false</default>
+                    <label>Octavia</label>
+                </value>
+                <value>
+                    <fullName>Oja</fullName>
+                    <default>false</default>
+                    <label>Oja</label>
+                </value>
+                <value>
+                    <fullName>Skoda</fullName>
+                    <default>false</default>
+                    <label>Skoda</label>
+                </value>
+                <value>
+                    <fullName>Speed</fullName>
+                    <default>false</default>
+                    <label>Speed</label>
+                </value>
+                <value>
+                    <fullName>Alto</fullName>
+                    <default>false</default>
+                    <label>Alto</label>
+                </value>
+                <value>
+                    <fullName>Big Dipper</fullName>
+                    <default>false</default>
+                    <label>Big Dipper</label>
+                </value>
+                <value>
+                    <fullName>Jim</fullName>
+                    <default>false</default>
+                    <label>Jim</label>
+                </value>
+                <value>
+                    <fullName>Lianna</fullName>
+                    <default>false</default>
+                    <label>Lianna</label>
+                </value>
+                <value>
+                    <fullName>Suzuki</fullName>
+                    <default>false</default>
+                    <label>Suzuki</label>
+                </value>
+                <value>
+                    <fullName>Antelope</fullName>
+                    <default>false</default>
+                    <label>Antelope</label>
+                </value>
+                <value>
+                    <fullName>Tianyu hatchback</fullName>
+                    <default>false</default>
+                    <label>Tianyu hatchback</label>
+                </value>
+                <value>
+                    <fullName>Vitra</fullName>
+                    <default>false</default>
+                    <label>Vitra</label>
+                </value>
+                <value>
+                    <fullName>Swift</fullName>
+                    <default>false</default>
+                    <label>Swift</label>
+                </value>
+                <value>
+                    <fullName>RAV4</fullName>
+                    <default>false</default>
+                    <label>RAV4</label>
+                </value>
+                <value>
+                    <fullName>AVENSIS</fullName>
+                    <default>false</default>
+                    <label>AVENSIS</label>
+                </value>
+                <value>
+                    <fullName>Toyota</fullName>
+                    <default>false</default>
+                    <label>Toyota</label>
+                </value>
+                <value>
+                    <fullName>Plateau people</fullName>
+                    <default>false</default>
+                    <label>Plateau people</label>
+                </value>
+                <value>
+                    <fullName>Hi Lux</fullName>
+                    <default>false</default>
+                    <label>Hi Lux</label>
+                </value>
+                <value>
+                    <fullName>Sequoia</fullName>
+                    <default>false</default>
+                    <label>Sequoia</label>
+                </value>
+                <value>
+                    <fullName>Crown</fullName>
+                    <default>false</default>
+                    <label>Crown</label>
+                </value>
+                <value>
+                    <fullName>Corolla</fullName>
+                    <default>false</default>
+                    <label>Corolla</label>
+                </value>
+                <value>
+                    <fullName>Camry</fullName>
+                    <default>false</default>
+                    <label>Camry</label>
+                </value>
+                <value>
+                    <fullName>Coaster</fullName>
+                    <default>false</default>
+                    <label>Coaster</label>
+                </value>
+                <value>
+                    <fullName>Land Cruiser</fullName>
+                    <default>false</default>
+                    <label>Land Cruiser</label>
+                </value>
+                <value>
+                    <fullName>Runners</fullName>
+                    <default>false</default>
+                    <label>Runners</label>
+                </value>
+                <value>
+                    <fullName>Previa</fullName>
+                    <default>false</default>
+                    <label>Previa</label>
+                </value>
+                <value>
+                    <fullName>Prius</fullName>
+                    <default>false</default>
+                    <label>Prius</label>
+                </value>
+                <value>
+                    <fullName>Reitz</fullName>
+                    <default>false</default>
+                    <label>Reitz</label>
+                </value>
+                <value>
+                    <fullName>CELLCA</fullName>
+                    <default>false</default>
+                    <label>CELLCA</label>
+                </value>
+                <value>
+                    <fullName>Rate Le Na</fullName>
+                    <default>false</default>
+                    <label>Rate Le Na</label>
+                </value>
+                <value>
+                    <fullName>Terui</fullName>
+                    <default>false</default>
+                    <label>Terui</label>
+                </value>
+                <value>
+                    <fullName>Vios</fullName>
+                    <default>false</default>
+                    <label>Vios</label>
+                </value>
+                <value>
+                    <fullName>Alex</fullName>
+                    <default>false</default>
+                    <label>Alex</label>
+                </value>
+                <value>
+                    <fullName>Asia Dragon</fullName>
+                    <default>false</default>
+                    <label>Asia Dragon</label>
+                </value>
+                <value>
+                    <fullName>S40</fullName>
+                    <default>false</default>
+                    <label>S40</label>
+                </value>
+                <value>
+                    <fullName>S60</fullName>
+                    <default>false</default>
+                    <label>S60</label>
+                </value>
+                <value>
+                    <fullName>S80</fullName>
+                    <default>false</default>
+                    <label>S80</label>
+                </value>
+                <value>
+                    <fullName>XC70</fullName>
+                    <default>false</default>
+                    <label>XC70</label>
+                </value>
+                <value>
+                    <fullName>XC90</fullName>
+                    <default>false</default>
+                    <label>XC90</label>
+                </value>
+                <value>
+                    <fullName>Polaris</fullName>
+                    <default>false</default>
+                    <label>Polaris</label>
+                </value>
+                <value>
+                    <fullName>Polo</fullName>
+                    <default>false</default>
+                    <label>Polo</label>
+                </value>
+                <value>
+                    <fullName>Gower</fullName>
+                    <default>false</default>
+                    <label>Gower</label>
+                </value>
+                <value>
+                    <fullName>Golf</fullName>
+                    <default>false</default>
+                    <label>Golf</label>
+                </value>
+                <value>
+                    <fullName>Phaeton</fullName>
+                    <default>false</default>
+                    <label>Phaeton</label>
+                </value>
+                <value>
+                    <fullName>Jetta</fullName>
+                    <default>false</default>
+                    <label>Jetta</label>
+                </value>
+                <value>
+                    <fullName>CARAVELLE</fullName>
+                    <default>false</default>
+                    <label>CARAVELLE</label>
+                </value>
+                <value>
+                    <fullName>Katie</fullName>
+                    <default>false</default>
+                    <label>Katie</label>
+                </value>
+                <value>
+                    <fullName>Cordoba</fullName>
+                    <default>false</default>
+                    <label>Cordoba</label>
+                </value>
+                <value>
+                    <fullName>Lingyu</fullName>
+                    <default>false</default>
+                    <label>Lingyu</label>
+                </value>
+                <value>
+                    <fullName>Magotan</fullName>
+                    <default>false</default>
+                    <label>Magotan</label>
+                </value>
+                <value>
+                    <fullName>Santana</fullName>
+                    <default>false</default>
+                    <label>Santana</label>
+                </value>
+                <value>
+                    <fullName>Sarang</fullName>
+                    <default>false</default>
+                    <label>Sarang</label>
+                </value>
+                <value>
+                    <fullName>Sagitar</fullName>
+                    <default>false</default>
+                    <label>Sagitar</label>
+                </value>
+                <value>
+                    <fullName>Touran</fullName>
+                    <default>false</default>
+                    <label>Touran</label>
+                </value>
+                <value>
+                    <fullName>Touareg</fullName>
+                    <default>false</default>
+                    <label>Touareg</label>
+                </value>
+                <value>
+                    <fullName>New Polaris</fullName>
+                    <default>false</default>
+                    <label>New Polaris</label>
+                </value>
+                <value>
+                    <fullName>New Beetle</fullName>
+                    <default>false</default>
+                    <label>New Beetle</label>
+                </value>
+                <value>
+                    <fullName>The transporter</fullName>
+                    <default>false</default>
+                    <label>The transporter</label>
+                </value>
+                <value>
+                    <fullName>CC</fullName>
+                    <default>false</default>
+                    <label>CC</label>
+                </value>
+                <value>
+                    <fullName>Boxter</fullName>
+                    <default>false</default>
+                    <label>Boxter</label>
+                </value>
+                <value>
+                    <fullName>Cayman</fullName>
+                    <default>false</default>
+                    <label>Cayman</label>
+                </value>
+                <value>
+                    <fullName>911</fullName>
+                    <default>false</default>
+                    <label>911</label>
+                </value>
+                <value>
+                    <fullName>Panamera</fullName>
+                    <default>false</default>
+                    <label>Panamera</label>
+                </value>
+                <value>
+                    <fullName>Cayenne</fullName>
+                    <default>false</default>
+                    <label>Cayenne</label>
+                </value>
+                <value>
+                    <fullName>ILX</fullName>
+                    <default>false</default>
+                    <label>ILX</label>
+                </value>
+                <value>
+                    <fullName>MDX</fullName>
+                    <default>false</default>
+                    <label>MDX</label>
+                </value>
+                <value>
+                    <fullName>RDX</fullName>
+                    <default>false</default>
+                    <label>RDX</label>
+                </value>
+                <value>
+                    <fullName>TL</fullName>
+                    <default>false</default>
+                    <label>TL</label>
+                </value>
+                <value>
+                    <fullName>TSX</fullName>
+                    <default>false</default>
+                    <label>TSX</label>
+                </value>
+                <value>
+                    <fullName>ZDX</fullName>
+                    <default>false</default>
+                    <label>ZDX</label>
+                </value>
+                <value>
+                    <fullName>Caliber</fullName>
+                    <default>false</default>
+                    <label>Caliber</label>
+                </value>
+                <value>
+                    <fullName>Journey</fullName>
+                    <default>false</default>
+                    <label>Journey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Stock_Alert__c</fullName>
@@ -1901,56 +2285,68 @@ Modify Reason:
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Car Book</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Price List</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart manual</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Letterheads envelopes and consumables</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Journals and magazines</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Entrance Ticket</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Presents</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Folding</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Car Book</fullName>
+                    <default>false</default>
+                    <label>Car Book</label>
+                </value>
+                <value>
+                    <fullName>Price List</fullName>
+                    <default>false</default>
+                    <label>Price List</label>
+                </value>
+                <value>
+                    <fullName>smart manual</fullName>
+                    <default>false</default>
+                    <label>smart manual</label>
+                </value>
+                <value>
+                    <fullName>Letterheads envelopes and consumables</fullName>
+                    <default>false</default>
+                    <label>Letterheads envelopes and consumables</label>
+                </value>
+                <value>
+                    <fullName>MB Magazine</fullName>
+                    <default>false</default>
+                    <label>MB Magazine</label>
+                </value>
+                <value>
+                    <fullName>Journals and magazines</fullName>
+                    <default>false</default>
+                    <label>Journals and magazines</label>
+                </value>
+                <value>
+                    <fullName>Entrance Ticket</fullName>
+                    <default>false</default>
+                    <label>Entrance Ticket</label>
+                </value>
+                <value>
+                    <fullName>Presents</fullName>
+                    <default>false</default>
+                    <label>Presents</label>
+                </value>
+                <value>
+                    <fullName>Folding</fullName>
+                    <default>false</default>
+                    <label>Folding</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>DM Material</label>
-	<listViews>
+    <listViews>
         <fullName>All_MBTH_DM_Materials</fullName>
         <columns>NAME</columns>
         <columns>Active__c</columns>
@@ -1991,6 +2387,127 @@ Modify Reason:
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_DM_Material</fullName>
+        <columns>NAME</columns>
+        <columns>Active__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Model__c</columns>
+        <columns>Series__c</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All DM Material</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBK01E</group>
+            <group>MBK01Ehq</group>
+            <group>MBK01Esc</group>
+            <group>MBK01W</group>
+            <group>MBK02L</group>
+            <group>MBK02S</group>
+            <group>MBK02W</group>
+            <group>MBK03F</group>
+            <group>MBK03L</group>
+            <group>MBK03W</group>
+            <group>MBK04F</group>
+            <group>MBK04Fsc</group>
+            <group>MBK04L</group>
+            <group>MBK04S</group>
+            <group>MBK04W</group>
+            <group>MBK05W</group>
+            <group>MBK06W</group>
+            <group>MBK06Wsc</group>
+            <group>MBK06Wuc</group>
+            <group>MBK07S</group>
+            <group>MBK07W</group>
+            <group>MBK08S</group>
+            <group>MBK09E</group>
+            <group>MBK09S</group>
+            <group>MBK09Shq</group>
+            <group>MBK09W</group>
+            <group>MBK10S</group>
+            <group>MBK10W</group>
+            <group>MBK11W</group>
+            <group>MBK11Whq</group>
+            <group>MBK11Wsc</group>
+            <group>MBK12S</group>
+            <group>MBK12W</group>
+            <group>MBK14S</group>
+            <group>MBK14W</group>
+            <group>MBK14Whq</group>
+            <group>MBK14Wsc</group>
+            <group>MBK15W</group>
+            <group>MBK15Wsc</group>
+            <group>MBK16W</group>
+            <group>MBK17W</group>
+            <group>MBK17Whq</group>
+            <group>MBK17Wsc</group>
+            <group>MBK18W</group>
+            <group>MBK18Wsc</group>
+            <group>MBK21F</group>
+            <group>MBK21Fhq</group>
+            <group>MBK21Fsc</group>
+            <group>MBK21W</group>
+            <group>MBK26F</group>
+            <group>MBK26Fhq</group>
+            <group>MBK26Fsc</group>
+            <group>MBK26W</group>
+            <group>MBK28F</group>
+            <group>MBK28Fhq</group>
+            <group>MBK28Fsc</group>
+            <group>MBK28Fuc</group>
+            <group>MBK30W</group>
+            <group>MBK30Whq</group>
+            <group>MBK30Wsc</group>
+            <group>MBK30Wuc</group>
+            <group>MBK311sr</group>
+            <group>MBK31S</group>
+            <group>MBK31Shq</group>
+            <group>MBK31Ssc</group>
+            <group>MBK31W</group>
+            <group>MBK32F</group>
+            <group>MBK32Fsc</group>
+            <group>MBK32W</group>
+            <group>MBK33S</group>
+            <group>MBK33W</group>
+            <group>MBK33Wuc</group>
+            <group>MBK34S</group>
+            <group>MBK35W</group>
+            <group>MBK35Wsc</group>
+            <group>MBK36W</group>
+            <group>MBK36Wsc</group>
+            <group>MBK37W</group>
+            <group>MBK37Wsc</group>
+            <group>MBK38S</group>
+            <group>MBK38Ssc</group>
+            <group>MBK41F</group>
+            <group>MBK41Fhq</group>
+            <group>MBK48W</group>
+            <group>MBK49F</group>
+            <group>MBK49Fsc</group>
+            <group>MBK49Fuc</group>
+            <group>MBK50S</group>
+            <group>MBK52S</group>
+            <group>MBK53W</group>
+            <group>MBK53Wsc</group>
+            <group>MBK54W</group>
+            <group>MBK55F</group>
+            <group>MBK55Fsc</group>
+            <group>MBK55W</group>
+            <group>MBK55Wsc</group>
+            <group>MBK55Wuc</group>
+            <group>MBK56F</group>
+            <group>MBK56Fsc</group>
+            <group>MBK56S</group>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2155,14 +2672,15 @@ Modify Reason:
         <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-   <validationRules>
+    <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c ='JP',MD__c ='KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
         <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
     </validationRules>
-	<webLinks>
+    <visibility>Public</visibility>
+    <webLinks>
         <fullName>Record_Share</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -2190,6 +2708,5 @@ else
 { 
 alert('This button is for Korea'); 
 }</url>
-
     </webLinks>
 </CustomObject>

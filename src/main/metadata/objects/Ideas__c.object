@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,6 +40,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>Ideas_Compact_Layout</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Ideas_Compact_Layout</fullName>
@@ -56,9 +53,11 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Read</externalSharingModel>
@@ -100,65 +99,78 @@
         <fullName>Category__c</fullName>
         <externalId>false</externalId>
         <label>Category</label>
-        <picklist>
-            <picklistValues>
-                <fullName>oCRM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CDM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>aCRM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cross-Platform</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Miscellaneous</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>true</required>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>oCRM</fullName>
+                    <default>false</default>
+                    <label>oCRM</label>
+                </value>
+                <value>
+                    <fullName>CDM</fullName>
+                    <default>false</default>
+                    <label>CDM</label>
+                </value>
+                <value>
+                    <fullName>aCRM</fullName>
+                    <default>false</default>
+                    <label>aCRM</label>
+                </value>
+                <value>
+                    <fullName>Cross-Platform</fullName>
+                    <default>false</default>
+                    <label>Cross-Platform</label>
+                </value>
+                <value>
+                    <fullName>Miscellaneous</fullName>
+                    <default>false</default>
+                    <label>Miscellaneous</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Classification__c</fullName>
         <externalId>false</externalId>
         <label>Classification</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Quality Improvement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cost Reduction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Process Improvements</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>true</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Quality Improvement</fullName>
+                    <default>false</default>
+                    <label>Quality Improvement</label>
+                </value>
+                <value>
+                    <fullName>Cost Reduction</fullName>
+                    <default>false</default>
+                    <label>Cost Reduction</label>
+                </value>
+                <value>
+                    <fullName>Process Improvements</fullName>
+                    <default>false</default>
+                    <label>Process Improvements</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Cost_Estimate_Class_A__c</fullName>
@@ -220,7 +232,7 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields>	
+    </fields>
     <fields>
         <fullName>PointsSummary__c</fullName>
         <externalId>false</externalId>
@@ -253,31 +265,37 @@ IMAGE('/rugcollaboration/resource/Rug_low', "Low")))</formula>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed by Admin</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Taken up for product roadmap</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Closed by Admin</fullName>
+                    <default>false</default>
+                    <label>Closed by Admin</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Taken up for product roadmap</fullName>
+                    <default>false</default>
+                    <label>Taken up for product roadmap</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>To_Be_Business_Requirements__c</fullName>
@@ -389,4 +407,5 @@ OwnerId!= $User.Id )</errorConditionFormula>
         <errorConditionFormula>ISNEW()  &amp;&amp; NOT(ISPICKVAL(Status__c, 'open'))</errorConditionFormula>
         <errorMessage>Idea should be in "Open" status for new idea creation</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>
