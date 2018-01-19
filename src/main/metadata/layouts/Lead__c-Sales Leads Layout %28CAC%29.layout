@@ -889,6 +889,10 @@
                 <behavior>Edit</behavior>
                 <field>Quotation_Model__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Quotation_Model_History__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Quotation_Print_Date__c</field>
