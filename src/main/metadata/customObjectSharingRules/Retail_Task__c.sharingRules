@@ -48,7 +48,7 @@
             <operation>equals</operation>
             <value>JP</value>
         </criteriaItems>
-		<criteriaItems>
+        <criteriaItems>
             <field>Allow_Data_Sharing__c</field>
             <operation>equals</operation>
             <value>True</value>
@@ -68,6 +68,25 @@
         </criteriaItems>
         <accessLevel>Read</accessLevel>
         <name>Retail Task Service Records</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>ShareWithMBTH</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share the retail task with users having MBTH role.</description>
+        <name>ShareWithMBTH</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_Contract_Service_with_Region</fullName>
