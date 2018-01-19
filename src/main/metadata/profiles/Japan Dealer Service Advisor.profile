@@ -25694,10 +25694,6 @@
         <recordType>Vehicle__c.Competitor</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
-        <recordType>Vehicle__c.MB</recordType>
-    </layoutAssignments>
-	<layoutAssignments>
         <layout>Vehicle__c-MB Vehicle Layout Dealer Portal JP</layout>
         <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
