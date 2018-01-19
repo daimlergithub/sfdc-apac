@@ -4,8 +4,9 @@
 * Created Date : 2017-03-02
 */
 
-public with sharing class TaskHelperTH {
+public without sharing class TaskHelperTH {
   private static String OBCAllTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+  private static String iBCAllTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
   private static String eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
    
   public static string closedString='closed'; 
@@ -82,100 +83,128 @@ public with sharing class TaskHelperTH {
         }   
    }
    public static void updateAccountMobile(List<Task> lstTask){          
-        Set<ID> conId = new Set<ID>();
+        Set<ID> accId = new Set<ID>();
         Set<ID> leadId = new Set<ID>();
         Set<ID> campId = new Set<ID>();
         set<id> contactId = new set<id>();
         Set<ID> dmRequestId = new Set<ID>();
-        system.debug('IN');
-        List<Contact> lstAccount = new List<Contact>();
+        List<Account> lstAccount = new List<Account>();
         List<Lead__c> lstLead = new List<Lead__c>();
         List<DM_Request__c> lstDMRequest = new List<DM_Request__c>();
         List<Account> lstCampaignAccount = new List<Account>();
         List<campaignmember> lstCampContact = new List<campaignmember>();
         List<Campaign> campaignList = new List<Campaign>();
-        
         // Maps 
         Map<Id , String> mapTask = new Map<Id , String>();
         Map<Id , String> mapEMailTask = new Map<Id , String>();
         Map<Id, Id> contactMap = new Map<Id, Id>();
         Map<Id , String> mapLead = new Map<Id , String>();
         Map<Id , String> mapEMailLead = new Map<Id , String>();
-        
         Map<Id , String> mapDMRequestPhone = new Map<Id , String>();
         Map<Id , String> mapDMRequestEmail = new Map<Id , String>();
-        
+        Map<Id , id> custname = new Map<Id , id>();
         Map<Id , String> mapCampaign = new Map<Id , String>();
         Map<Id , String> mapEMailCampaign = new Map<Id , String>();
         
-        for(Task tsk : lstTask){  
-            System.debug('++++++++++++++++++++++++++++'+tsk.AccountId );
-                if( tsk.WhoId  != null && String.valueOf( tsk.WhoId  ).startsWith( '003' )){
-                    System.debug('+++++++++++++++++++++Initializing Accid'+ tsk.WhoId );
-                    conId.add(tsk.WhoId );       
+        for(Task tsk : lstTask){ 
+            if( tsk.whatId != null && String.valueOf( tsk.whatId ).startsWith( '001' )){
+                accId.add(tsk.whatId);       
+            }
+            else if(tsk.WhatId != null){
+                if(String.valueOf( tsk.WhatId ).startsWith(leadTabId)){
+                   
+                  leadId.add(tsk.WhatId);        
+                }else if(String.valueOf( tsk.WhatId ).startsWith( dmRequestTabId )){
+                  dmRequestId.add(tsk.WhatId);  
                 }
-                if(tsk.WhatId != null && tsk.WhoId == Null){
-                    if(String.valueOf( tsk.WhatId ).startsWith(leadTabId)){
-                      leadId.add(tsk.WhatId);        
-                    }else if(String.valueOf( tsk.WhatId ).startsWith( dmRequestTabId )){
-                      dmRequestId.add(tsk.WhatId);    
-                    }
-                            
-                }  
+                        
+            }
+        
         }
-        if(conId != Null && !conId.isEmpty()){
-            lstAccount = [Select Id,Account.Mobile__c,Account.Email__c from Contact where Id =:conId];
+        if(accId != Null && !accId.isEmpty()){
+            lstAccount = [Select Id,Mobile__c,Email__c, Primary_Phone__c,individual_Home_Phone__c,Work_Phone__c from Account where Id =:accId];
         }        
         
         if(leadId != Null && !leadId.isEmpty()){
-            lstLead = [Select Id,Contact__r.Mobile__c,Contact__r.Email__c,Company_Account__r.Mobile__c,Company_Account__r.Email__c from Lead__c where Id =:leadId];
+            lstLead = [Select Id,Contact__r.Mobile__c,Contact__c,Contact__r.Email__c, Contact__r.Primary_Phone__c,Contact__r.individual_Home_Phone__c,Contact__r.PersonContactId,Contact__r.Work_Phone__c,Company_Account__r.Mobile__c,Company_Account__r.Email__c from Lead__c where Id =:leadId];
+            
         }
         
-        if(dmRequestId != Null && dmRequestId.isEmpty()){
-           lstDMRequest = [Select Id,Customer_Name__r.Mobile__c,Customer_Name__r.Email__c from DM_Request__c where Id =:dmRequestId]; 
+        if(dmRequestId != Null && !dmRequestId.isEmpty()){
+           lstDMRequest = [Select Id,Customer_Name__c,Customer_Name__r.Mobile__c,Customer_Name__r.Primary_Phone__c,Customer_Name__r.individual_Home_Phone__c,Customer_Name__r.Work_Phone__c,Customer_Name__r.Email__c,Customer_Name__r.PersonContactId  from DM_Request__c where Id =:dmRequestId]; 
+            
         }
         
         
-        for(Contact con : lstAccount){
-            System.debug('+++++++++++++++++++++++++++Mobile'+con.Account.Mobile__c);
-          mapTask.put(con.id, con.Account.Mobile__c);  
-            mapEMailTask.put(con.id, con.Account.Email__c);
+        for(Account acc : lstAccount){
+            if(acc.Primary_Phone__c!=null){
+                if(acc.Primary_Phone__c=='Mobile phone'){
+                mapTask.put(acc.id, acc.Mobile__c);
+                }
+                else if(acc.Primary_Phone__c=='Home phone'){
+                mapTask.put(acc.id, acc.individual_Home_Phone__c);
+                }
+                else if(acc.Primary_Phone__c=='Work Phone'){
+                    mapTask.put(acc.id, acc.Work_Phone__c);
+                }
+            }         
+            mapEMailTask.put(acc.id, acc.Email__c);
+           
         }
         
         for(Lead__c led : lstLead){
-            if(led.Contact__r.Mobile__c == null ||   led.Contact__r.Email__c == null ){
-                    mapLead.put(led.id, led.Company_Account__r.Mobile__c);
-                    mapEMailLead.put(led.id, led.Company_Account__r.Email__c);
-                }else{
-                    mapLead.put(led.id, led.Contact__r.Mobile__c);
-                    mapEMailLead.put(led.id, led.Contact__r.Email__c);
+
+            if(led.contact__c!=null && led.Contact__r.Primary_Phone__c!=null){
+                    if(led.Contact__r.Primary_Phone__c=='Mobile phone'){
+                        mapLead.put(led.id, led.Contact__r.Mobile__c);
+                    }
+                    else if(led.Contact__r.Primary_Phone__c=='Home phone'){
+                        mapLead.put(led.id,led.Contact__r.individual_Home_Phone__c);
+                    }
+                    else if(led.Contact__r.Primary_Phone__c=='Work Phone'){
+                            mapLead.put(led.id, led.Contact__r.Work_Phone__c);
+                    }
                 }
+                mapEMailLead.put(led.id, led.Contact__r.Email__c);
+                custname.put(led.id,led.Contact__r.PersonContactId);
+    
         }
         
-        for(DM_Request__c dmr : lstDMRequest){            
-            mapDMRequestPhone.put(dmr.id, dmr.Customer_Name__r.Mobile__c);
+        for(DM_Request__c dmr : lstDMRequest){   
+             if(dmr.Customer_Name__c!=null && dmr.Customer_Name__r.Primary_Phone__c!=null){
+                    if(dmr.Customer_Name__r.Primary_Phone__c=='Mobile phone'){
+                        mapDMRequestPhone.put(dmr.id, dmr.Customer_Name__r.Mobile__c);
+                    }
+                    else if(dmr.Customer_Name__r.Primary_Phone__c=='Home phone'){
+                        mapDMRequestPhone.put(dmr.id,dmr.Customer_Name__r.individual_Home_Phone__c);
+                    }
+                    else if(dmr.Customer_Name__r.Primary_Phone__c=='Work Phone'){
+                            mapDMRequestPhone.put(dmr.id, dmr.Customer_Name__r.Work_Phone__c);
+                    }
+                }         
             mapDMRequestEmail.put(dmr.id, dmr.Customer_Name__r.Email__c);
+            custname.put(dmr.id,dmr.Customer_Name__r.PersonContactId);
         }
                 
         for(Task t : lstTask){
-            if(t.RecordTypeId == OBCAllTaskRecordTypeId){
-               if(t.whoId  != Null && String.valueOf( t.whoId  ).startsWith( '003' )){
-                   t.Phone__c = mapTask.get(t.whoId);  
-                   System.debug('++++++++++++++++++++++++++'+mapTask.get(t.whoId));
+            if(t.RecordTypeId == OBCAllTaskRecordTypeId||t.RecordTypeid==iBCAllTaskRecordTypeId){
+                system.debug(t.WhoId+'abcdef');
+                if(t.WhoId != Null && String.valueOf( t.whoid ).startsWith( '003' )){
+                    t.Phone__c = mapTask.get(t.WhatId);   
                 }
-              /*  if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( '001' )){
+                else if(t.WhoId != Null && String.valueOf( t.WhoId ).startsWith( '001' )){
                      t.Phone__c = mapTask.get(t.WhatId); 
-                   
-                }*/
-                if(t.WhatId != Null){                    
-                    if(String.valueOf( t.WhatId ).startsWith(leadTabId)){
-                      t.Phone__c = mapLead.get(t.WhatId);    
-                    }else if(String.valueOf( t.WhatId ).startsWith(dmRequestTabId)){
-                        t.Phone__c = mapDMRequestPhone.get(t.WhatId);    
-                    }                     
                 }
-          }else
-            if(t.RecordTypeId == eDMTaskRecordTypeId){
+                else if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( leadTabId )){
+                    t.Phone__c = mapLead.get(t.WhatId);  
+                     t.whoid= custname.get(t.whatid);
+                }
+                else if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith(dmRequestTabId)){                    
+                    
+                        t.Phone__c = mapDMRequestPhone.get(t.WhatId);
+                         t.whoid= custname.get(t.whatid);
+                }
+            }else if(t.RecordTypeId == eDMTaskRecordTypeId){
                 if(t.WhoId != Null && String.valueOf( t.whoid ).startsWith( '003' )){
                     t.Email_Address__c = mapEMailTask.get(t.WhoId);                    
                 } 
