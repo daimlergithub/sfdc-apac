@@ -13961,7 +13961,6 @@ window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?tskid={!Task.Id}");
 else
 {
 alert("{!$Label.Check_DuplicatesErrorMsg}");
-=======
         <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
 {!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
