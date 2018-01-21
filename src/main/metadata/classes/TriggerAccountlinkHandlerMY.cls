@@ -25,8 +25,8 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
 
         if (Trigger.isAfter && Trigger.isupdate) {
 
-            if (TriggerRecursiveCheck.run && acclids.size() > 0) {
-                TriggerRecursiveCheck.runOnce();
+            if (TriggerRecursiveCheck.run2 && acclids.size() > 0) {
+                TriggerRecursiveCheck.runOnce2();
                 CDMInformatica_Services.createAccountLink(acclids, Label.MY, Label.UpdateContext);
             }
             if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){ 
