@@ -12,7 +12,7 @@ global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,s
     dealerCodeGrpIdMap=new Map<String,Id>();
     Set<String> grpNamesLst=new Set<String>();
     dealerCodeLst=new Set<String>();
-	market=market;
+	market=this.market;
     for(User usr:usrLst)
     {
         String grpName=usr.contact.account.Dealer_Nd_code__c;
