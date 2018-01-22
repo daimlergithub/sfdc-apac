@@ -47,7 +47,12 @@ public with sharing class VehicleEditExtension {
             recrdType=vehicle.recordtype.name;
             if(recrdType == 'MB'){
             type='Own Sellable';
-            }else
+            }
+            else if(type == 'Self Registered')
+            {
+                type='Competitor';
+            }
+            else
             {
              type='Competitor';
             }
@@ -90,7 +95,7 @@ public with sharing class VehicleEditExtension {
     {
         List<SelectOption> options = new List<SelectOption>();
         set<string> brandit=new set<string>();
-        
+        System.debug('^&^&^&^&^&^&^&'+type);
          for (Car_Model__c m :[Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type])
          {
           
@@ -139,7 +144,8 @@ public with sharing class VehicleEditExtension {
         if(class1!=null){
         
           options.add(new SelectOption('',''));
-         
+         System.debug('@@@@@@@@@@@@@@@@@@@@@'+class1);
+             System.debug('@@@@@@@@@@@@@@@@@@@@@'+brand);
          for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Series__c=:class1 and Brand__c=:brand ] )
          {
           system.debug('m'+m);
@@ -157,7 +163,8 @@ public with sharing class VehicleEditExtension {
          
           options.add(new SelectOption('',''));
           
-           
+           System.debug('**************'+type);
+            System.debug('**************'+model);
          for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Name=:model] )
          {
           system.debug('m'+m);
@@ -261,7 +268,7 @@ public with sharing class VehicleEditExtension {
      
      public PageReference saveveh()
     {
-        
+        system.debug('i am here');
         if (!Schema.sObjectType.Vehicle__c.isUpdateable()){
                          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL,'InsufficientAccessToUpdate')); 
                      return null;
@@ -303,7 +310,8 @@ public with sharing class VehicleEditExtension {
                 vehicle.Vehicle_Group__c=VG;
                 vehicle.BaumusterEx__c=steering;
                 vehicle.Competitor_Model__c=compModel;
-               
+               system.debug(vehicle.Class__c+'i am here vehicle details'+vehicle.Brand__c);
+               system.debug('modell----'+vehicle.Model__c);
                  if(recrdType == UtilConstant.MB){
             list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Own Sellable' order by CreatedDate ];
             if(!carModelId.isEmpty()){
@@ -317,6 +325,21 @@ public with sharing class VehicleEditExtension {
                 vehicle.Car_Model__c=carModelId[0].id;
                 vehicle.Model_Description__c=compModel;
                  vehicle.Brand__c=compBrand;
+            }
+        }
+                    else if(recrdType =='Self Registered'){
+        system.debug('I am hereaaaa');
+                        system.debug('I am brand hereaaaa'+brand);
+                        system.debug('I am class1 hereaaaa'+class1);
+                        system.debug('I am hereaaaamodel '+model);
+                        system.debug('I am hereaaaa range'+range);
+                         system.debug('I am hereaaaa modPackage'+modPackage); 
+           list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Competitor' order by CreatedDate ];
+           
+                        System.debug('###################### carModelId'+carModelId);
+                        if(!carModelId.isEmpty()){
+                vehicle.Car_Model__c=carModelId[0].id;
+                vehicle.Model_Description__c=model;
             }
         }
         
@@ -395,6 +418,14 @@ public with sharing class VehicleEditExtension {
             if(!carModelId.isEmpty()){
                 vehicle.Car_Model__c=carModelId[0].id;
                 vehicle.Model_Description__c=compModel;
+            }
+        }
+                    else if(recrdType == 'Self Registered'){
+        system.debug('I am hereaaaa');
+            list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Competitor' order by CreatedDate ];
+            if(!carModelId.isEmpty()){
+                vehicle.Car_Model__c=carModelId[0].id;
+                vehicle.Model_Description__c=model;
             }
         }
                 try
