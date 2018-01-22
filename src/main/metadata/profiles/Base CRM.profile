@@ -27369,7 +27369,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyViewAreaForDealerUser</apexPage>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailTaskInsurance</apexPage>

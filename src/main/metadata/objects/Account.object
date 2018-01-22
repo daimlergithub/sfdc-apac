@@ -4719,7 +4719,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -62005,7 +62004,7 @@ REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{8}"),
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{9}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{10}")), 
 OR(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{7}"), 
-REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{6}"),
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{6}"),
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{8}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{9}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{10}"))))), 
