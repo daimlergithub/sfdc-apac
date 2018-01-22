@@ -25,8 +25,8 @@
                 <field>Brand__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Model__c</field>
+                <behavior>Edit</behavior>
+                <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
