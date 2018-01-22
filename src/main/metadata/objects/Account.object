@@ -61900,6 +61900,53 @@ IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NO
         <errorDisplayField>Website</errorDisplayField>
         <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
     </validationRules>
+	   <validationRules>
+        <fullName>WorkPhone2_Format_KR</fullName>
+        <active>true</active>
+        <description>Work Phone 2 must be in any of the following formats : 
+	1.	0x-xxx-xxxx
+	2.  0x-xxxx-xxxx
+	2.	0xx-xxx-xxxx
+	3.	0xx-xxxx-xxxx
+	4.  blank-xxxx-xxxx</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR',
+NOT(ISBLANK(Work_Phone_2__c)),
+NOT(
+OR(
+REGEX(Work_Phone_2__c, "[02]{2}-[0-9]{4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[051]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[053]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[032]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[062]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[042]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[052]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[044]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[031]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[033]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[043]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[041]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[0-9]{4}-[0-9]{4}") 
+)
+)
+)</errorConditionFormula>
+        <errorMessage>Work Phone 2 must be in any of the following formats : 
+			1.	0x-xxx-xxxx
+			2.  0x-xxxx-xxxx
+			2.	0xx-xxx-xxxx
+			3.	0xx-xxxx-xxxx
+			4.  blank-xxxx-xxxx</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Validation_on_Salutation_and_Gender</fullName>
         <active>false</active>
