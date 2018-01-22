@@ -868,7 +868,7 @@ public class AccountLinkHelper
         }*/
         
         if(!System.isBatch()){
-		
+    
         Batch_VRSharingJP batcher = new Batch_VRSharingJP (dealerAccNameSet,map_FromAccountIdAndListToAccountId,set_ToAccountId );
             Database.executeBatch(batcher, 50);
             }
@@ -1638,5 +1638,56 @@ public class AccountLinkHelper
                      accLinkRec.Market__c=accLinkRec.MD__c;
                   }  
               }       
+    }
+    
+    /*Added changes related to SFDCJP-3221*/
+    public static void deleteduplicatec2calk(List<Account_link__c> accLinkList){
+        Set<Id> fromId=new Set<Id>();
+        Set<Id> toId=new Set<Id>();
+        Set<String> Role1=new Set<String>();
+        Set<String> Role2=new Set<String>();
+        List<Account_link__c> duplicatealk=new List<Account_link__c>();
+        List<Account_link__c> Deletealk=new List<Account_link__c>();
+         List<Account_link__c> deleteDupAlk=new List<Account_link__c>();
+       // Map<Id,Account_link__c> deleteDupAlk=new Map<Id,Account_link__c>();
+        try
+        {
+            
+       
+        for(Account_link__c dupal:accLinkList)
+       {
+           if(dupal.recordtypeId == AccountLink_contact2conatctRecordTypeId)
+           {
+                fromId.add(dupal.fromRole__c);
+              toId.add(dupal.toRole__c);
+               Role1.add(dupal.Role__c);
+               Role2.add(dupal.Role2__c);
+           }
+           
+       }
+         if(fromId !=null && toId!=null && Role1!=null && Role2!=null)
+              {
+              duplicatealk=[Select id,fromRole__c,toRole__c,Role__c,Role2__c from Account_link__c where fromRole__c=:fromId and toRole__c=:toId and recordtypeId=:AccountLink_contact2conatctRecordTypeId and Role__c=:Role1 and Role2__c=:Role2];
+               System.debug('^&&&&&&&&&&&&&&&duplicatealk'+duplicatealk );
+                System.debug('^&&&&&&&&&&&&&&&duplicatealk'+duplicatealk.size());
+                  if(duplicatealk.size() >1)
+                  {
+                      Deletealk=[Select id,fromRole__c,toRole__c,Role__c,Role2__c from Account_link__c where fromRole__c=:fromId and toRole__c=:toId and recordtypeId=:AccountLink_contact2conatctRecordTypeId and Role__c=:Role1 and Role2__c=:Role2 limit 1];
+                      if(Deletealk !=null)
+                      {
+                           for(Account_link__c alks:Deletealk)
+                          {
+                              deleteDupAlk.add(alks);
+                          }
+                          
+                      }
+                     
+                  }
+              }
+        if(deleteDupAlk !=null)
+        {
+            Database.delete(deleteDupAlk);
+        }
+             }Catch(Exception e){}
     }
 }
