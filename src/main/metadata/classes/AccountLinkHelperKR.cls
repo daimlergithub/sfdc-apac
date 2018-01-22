@@ -1577,6 +1577,7 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
         Map<Id,String> accLinkPosMap = new Map<Id,String>();
         Map<Id,Id> accLinkFromToRoleMapC2C = new Map<Id,Id>();
         Map<Id,Id> accLinkFromToRoleMapComp = new Map<Id,Id>();
+		List <id>accLinkId = new List<Id>();
 		list<account_link__c> updateList = new List<Account_link__c>();
         if((isInsert || isUpdate) && isAfter ){
         system.debug('>>>>>>>>>>>>>>>>>>>');
