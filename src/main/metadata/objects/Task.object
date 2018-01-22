@@ -2527,10 +2527,6 @@
                 <default>false</default>
             </values>
 			<values>
-                <fullName>Handover</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
@@ -2556,6 +2552,10 @@
             </values>
             <values>
                 <fullName>Visited</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Handover</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
