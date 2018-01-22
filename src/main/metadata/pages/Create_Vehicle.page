@@ -491,7 +491,7 @@
                    </apex:pageBlockSection>
                 </span>
                  <span ng-switch-when="Self Registered">
-                    <apex:pageBlockSection title="Registration Information" rendered="{!nonThaiUserLoggedIn}"> 
+                 <apex:pageBlockSection title="{!$Label.Registration_Information}"  rendered="{!nonThaiUserLoggedIn}"> 
                         <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
                          <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
                         <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
