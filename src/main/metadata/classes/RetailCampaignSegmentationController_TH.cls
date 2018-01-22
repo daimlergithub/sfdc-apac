@@ -396,7 +396,7 @@
             if(leadSoql.length()>leadLength){
                 //saveQuery += 'AND Id IN('+leadSoql+')';
                 system.debug('FinalLeadSoql'+leadSoql);
-                List<Lead__C> leadList = Database.query(leadSoql+ 'limit 2000');
+                List<Lead__C> leadList = Database.query(leadSoql+ 'limit 1700');
                 for(Lead__C vr : leadList){
                     accountIdSet.add(vr.Contact__c);
                     leadSet.add(vr.Contact__c);
@@ -416,7 +416,7 @@
                 AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
                 //saveQuery += 'AND Id IN('+AccountLinkSoql+')';
                 system.debug('FianlAccountLinkSoql '+AccountLinkSoql);
-                List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 2000');
+                List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 1700');
                 for(Account_Link__C vr : accLinkList){
                     accountIdSet.add(vr.toRole__c);
                     toRoleAndAccLinkMap.put(vr.toRole__c,vr);
@@ -437,7 +437,7 @@
             if(AddressSoql.length()>addressLength){
                 //saveQuery += 'AND Id IN('+AddressSoql+')';
                 system.debug('FinalAddressSoql '+AddressSoql);
-                List<Address__c> addList = Database.query(AddressSoql+ 'limit 2000');
+                List<Address__c> addList = Database.query(AddressSoql+ 'limit 1700');
                 for(Address__c vr : addList ){
                     accountIdSet.add(vr.Customer__c);
                     AddressSet.add(vr.Customer__c);
@@ -457,7 +457,7 @@
             if(campaignMemSoql.length()>campLength){
                 //saveQuery += 'AND Id IN('+campaignMemSoql+')';
                 system.debug('FinalcampaignMemSoql'+campaignMemSoql);
-                List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 2000');
+                List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 1700');
                 for(Campaign_Member__c vr : camMemList ){
                     accountIdSet.add(vr.Contact_Id__c);
                     CampaignMemebrset.add(vr.Contact_Id__c);
@@ -478,7 +478,7 @@
             if(recallSoql.length()>recallLength){
                 System.debug('recallSoqlFinal>>>>'+recallSoql);
                // saveQuery += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
-                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 800');
+                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 1700');
                 for(recall__c rc : recallList){
                     vehIdSet.add(rc.Vehicle_Id__c);
                     vehIdRecallRecMap.put(rc.Vehicle_Id__C,rc);
@@ -493,7 +493,7 @@
                 VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Service_Advisor__c', 'Service_Advisor__r.Name').replace('Service_Dealer__c', 'Service_Dealer__r.name');
                 system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
                 //saveQuery += 'AND Vehicle_Id__c IN ('+VehRetCopySoql+') ';
-                List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' limit 2000');
+                List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' limit 1700');
                 
                 for(Account_Link__c ac : vehRetialList){
                     vehIdSet1.add(ac.Vehicle__c);
@@ -520,7 +520,7 @@
             if(vehicleRelSoql.length()>vehRelLength && segmentationBase != 'Vehicle'){
                 vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
                 system.debug('vehiclerelSoqlAtCommon>>>>'+vehicleRelSoql);
-                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 2000');
+                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 1700');
                 For(Vehicle_relationship__C vr : vehRelList){
                     if(segmentationBase == 'Customer'){
                     accountIdSet.add(vr.Contact__c);
@@ -543,7 +543,7 @@
             if(accountSoql.length()>accountLenght && segmentationBase != 'Customer'){
                 system.debug('AccountSoqlatCommon ' + accountSoql);
                 //List<account> accList = Database.Query(accountSoql+' LIMIT 500');
-                MAP<id,account> accList=new MAP<ID,account>((List<Account>)Database.Query(accountSoql+' LIMIT 2000'));
+                MAP<id,account> accList=new MAP<ID,account>((List<Account>)Database.Query(accountSoql+' LIMIT 1700'));
                 accountIdSet=accList.keyset();
                 vechicleCustomer=acclist.keyset();
             }
@@ -572,7 +572,7 @@
                 saveQuery = saveQuery.replace('AND ','');
                 }
                 system.debug('++++++++++++'+saveQuery );
-                List<account> accList = Database.Query(saveQuery+' limit 2000');
+                List<account> accList = Database.Query(saveQuery+' limit 1700');
                 Map<Id,Account> accIdAccountMap = new Map<Id,Account>();
                 for(Account acc : accList){
                     accIdToGetRetailPerson.add(acc.Id);
@@ -632,8 +632,8 @@
                 saveQuery = saveQuery.removeEnd('AND ');
                 }
                  system.debug('++++++++++++'+saveQuery );
-                //List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 2000');
-                List<Vehicle_relationship__C> vehRelList = Database.query(saveQuery + ' limit 2000');
+                //List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 1700');
+                List<Vehicle_relationship__C> vehRelList = Database.query(saveQuery + ' limit 1700');
                 for(Vehicle_Relationship__c vr : vehRelList){
                     vehIdToGetVehExtLink.add(vr.Vehicle_ID__c);
                 }
