@@ -30088,7 +30088,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyOnlyRelatedList</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyViewAreaForDealerUser</apexPage>

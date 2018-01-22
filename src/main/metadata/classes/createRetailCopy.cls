@@ -520,41 +520,70 @@ public without sharing class createRetailCopy {
                     // if market is MY
                         if (accList.MD__c == 'MY') {
                             if (SelectedAdd[0] != null) {                               
-                                newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
-                                newAlk.Retail_City__c = SelectedAdd[0].City__c;
+                              newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
+                                newAlk.Retail_City__c = SelectedAdd[0].District__c ;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
                                 newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                                 newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
+								newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
                                 newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
                                 newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
+								newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                                newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
+                           
                             }                           
-                            newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                            newAlk.Retail_Full_Name_Native__c= accList.LastName_Native_1__c+' '+accList.FirstName_Native_1__c;
-                            newAlk.Retail_Full_Name__c = accList.LastName+' '+accList.FirstName;
+                             newAlk.Retail_Salutation__c = acclist.Title__c;
+                            newAlk.Retail_Country__c = acclist.country__c;
+                            newAlk.Retail_ID_Type__c = acclist.ID_Type__c;
+                            newAlk.Retail_ID_Number__c = acclist.ID_Number__c;
+                            newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
+                            newAlk.createddate__c = accList.createdDate;
+							newAlk.Retail_Race__c=acclist.Race__c;
+                            newAlk.Retail_Special_Care__c = acclist.Special_Care__c;
+                            newAlk.Retail_LastName_Native__c = accList.LastName_Native_1__c;
+                            newAlk.Retail_FirstName_Native__c = accList.FirstName_Native_1__c;
+                            newAlk.Retail_Primary_Phone__c = accList.Primary_Phone__c;
+                            newAlk.Retail_Full_Name__c = accList.FirstName + ' ' + accList.LastName ;
+                            newAlk.Retail_Full_Name_Title__c = ((acclist.Title__c!= null ?acclist.Title__c:'')  + ' ' + (accList.FirstName!= null ?accList.FirstName:'') + ' ' +(accList.LastName!= null ?accList.LastName:'')).left(140) ;
+                            newAlk.Retail_LastName__c = accList.LastName;
+                            newAlk.Retail_FirstName__c = accList.FirstName;
+                            newAlk.Retail_Complaint_Amount__c = accList.Complaint_Amount__c;
+                            newAlk.Retail_Sales_Sanction__c = accList.Sales_Sanction__c;
                             newAlk.Retail_UCID__c = accList.UCID__c;
-                            newAlk.Retail_Allow_Data_Sharing__c = accList.Allow_Data_Sharing2__c;
+                            newAlk.Retail_Allow_Data_Sharing__c = accList.Allow_Data_Sharing__c;
                             newAlk.Retail_Mobile__c = accList.Mobile__c;
                             newAlk.Retail_Individual_Home_Phone__c = accList.Individual_Home_Phone__c;
                             newAlk.Retail_Work_Phone__c = accList.Work_Phone__c;
-                            newAlk.Retail_Email__c = accList.Email__c;
+                            newAlk.Retail_Email__c = accList.PersonEmail;
                             newAlk.Retail_Fax__c = accList.Fax;
                             newAlk.Retail_Preferred_Contact_Method__c = accList.Preferred_Contact_Method__c;
+                            newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
+                            newAlk.Retail_Fax_OptOut__c = accList.PersonHasOptedOutOfFax;
+                                                                                                
+                            newAlk.Retail_Phone_OptOut__c = accList.PersonDoNotCall;
+                            newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
+                            newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
                             newAlk.Retail_PersonBirthdate__c = accList.PersonBirthdate;
                             newAlk.Retail_Occupation__c = accList.Occupation__c;
                             newAlk.Retail_Position__c = accList.Job__c;
-                            newAlk.Retail_Preferred_Language__c = 'Malay';
+                            newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
                             newAlk.Retail_Gender__c = accList.Gender__c;
                             newAlk.Retail_Industry__c = accList.industry;
                             newAlk.Retail_WebSite__c = accList.Website;
-                            newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
-                            newAlk.Retail_Special_Care__c=accList.Special_Care__c;
-                            newAlk.Retail_Special_Needs_Class__c=accList.Special_Needs_Class__c;
-                            //newAlk.Retail_Company_UCID__c=accList.UCID__c;
-                            //newAlk.Retail_Company_DMS_ID__c=accList.DMS_Customer_ID__c;
-                            //newAlk.Position__c=accList.Position__c;
-                            newAlk.Retail_Industry__c = accList.industry;   
-                        }   
+                            //newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                            newAlk.Retail_Commercial_Reg_No__c = accList.Commercial_Reg_No__c;
+
+                            newAlk.Retail_Agreement__c = accList.Personal_Agreement__c;
+                            newAlk.Retail_Information_Third_Party_Release__c = accList.Personal_Information_Third_Party_Release__c;
+                            newAlk.Retail_Abroad_Agreement__c = accList.Personal_Abroad_Agreement__c;
+                            newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
+                            newAlk.Retail_Vat_No__c = accList.Vat_No__c;
+                            if(accList.Foundation_Date__c != null)
+                            {
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                            }
+						}
                     InsertAlk.add(newAlk);
 
                 }
@@ -617,28 +646,51 @@ public without sharing class createRetailCopy {
                         if (accList.MD__c == 'MY') {
                             if (SelectedAdd[0] != null) {                               
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
-                                newAlk.Retail_City__c = SelectedAdd[0].City__c;
+                                newAlk.Retail_City__c = SelectedAdd[0].District__c ;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
                                 newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                                 newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
+								newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
                                 newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
                                 newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
+								newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                                newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
+                           
                             }                           
-                            newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                            //newAlk.Retail_DMS_Retailer_ID__c=accList.DMS_Retailer_ID__c;
-                            newAlk.Retail_UCID__c = accList.UCID__c;
-                            newAlk.Retail_Allow_Data_Sharing__c = accList.Allow_Data_Sharing2__c;
-                            newAlk.Retail_Industry__c = accList.industry;
-                            newAlk.Retail_Fax__c = accList.Fax;                         
-                            newAlk.Retail_Company_Name__c = accList.Name;                                              
+                               newAlk.Retail_UCID__c = accList.UCID__c;
+                            newAlk.Retail_Country__c = acclist.country__c;
+                            newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
+                            newAlk.createddate__c = accList.createdDate;
+							newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                            newAlk.Retail_Company_Name__c = accList.name;
+                            newAlk.Retail_Mobile__c = accList.Mobile__c;
+                            newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
+                            newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
+                            newAlk.Retail_Email__c = accList.email__c;
+                            newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
+                            newAlk.Retail_Fax_OptOut__c = accList.PersonHasOptedOutOfFax;
+                            newAlk.Retail_Primary_Phone__c = accList.Primary_Phone__c;
+                            newAlk.Retail_Sales_Sanction__c = accList.Sales_Sanction__c;
+                            newAlk.Retail_Phone_OptOut__c = accList.PersonDoNotCall;
+                            newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
+                            newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
+                            newAlk.Retail_Fax__c = accList.fax;
+							newAlk.Retail_Position__c=acclist.Job__c;
+                            newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
+                            newAlk.Retail_Industry__c = accList.Industry;
                             newAlk.Retail_Commercial_Reg_No__c = accList.Commercial_Reg_No__c;
-                            newAlk.Retail_Vat_No__c = accList.Vat_No__c;                        
+                            newAlk.Retail_Vat_No__c = accList.Vat_No__c;
                             newAlk.Retail_WebSite__c = accList.Website;
                             newAlk.Retail_Agreement__c = accList.Personal_Agreement__c;
-                            newAlk.Retail_Company_Other_Phone__c=accList.Work_Phone__c;
-                            newAlk.Retail_Company_Phone__c=accList.Individual_Home_Phone__c;    
-                        }
+                            newAlk.Retail_Information_Third_Party_Release__c = accList.Personal_Information_Third_Party_Release__c;
+                            newAlk.Retail_Abroad_Agreement__c = accList.Personal_Abroad_Agreement__c;
+                            newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
+                            if(accList.Foundation_Date__c != null)
+                            {
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                            }   
+					}
                     InsertAlk.add(newAlk);
                     System.debug('newAlk newAlk%%%%%%%' + newAlk);
 
