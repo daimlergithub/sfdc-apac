@@ -100,7 +100,7 @@
         Public Set<Id> vechicleCustomer; 
         Public Set<Id> vehicleRetailtask;
         Public Set<Id> vehicleRelCopyMain ;
-        Public Set<Id> retailtaskset;
+        
         
         // For data model
         public Account account { get; set; }
@@ -108,7 +108,7 @@
         public Vehicle__c vehicle { get; set; }
         public Vehicle_Relationship__c vehicleRel { get; set; }
         public Account_Link__c AlkRec{ get; set; }
-        public Retail_Task__c RatilTask{ get; set; }
+        //public Retail_Task__c RatilTask{ get; set; }
         public Address__c  address{ get; set; }
         public campaign_member__C camMem {get; set;}
         public recall__C recall {get; set;}
@@ -137,10 +137,10 @@
             system.debug('++++++++++'+con);
             retailCampaignId = ApexPages.currentPage().getParameters().get('id');
             personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-            retailTaskLeaseRecType = Schema.SobjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
-            retailTaskLoanRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Loan Contract').getRecordTypeId();
-            retailTaskInsRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Insurance Contract').getRecordTypeId();
-            retailTaskcontractType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
+            //retailTaskLeaseRecType = Schema.SobjectType.Retail_Task__c.getRecordTypeInfosByName().get('Lease Contract').getRecordTypeId();
+            //retailTaskLoanRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Loan Contract').getRecordTypeId();
+            //retailTaskInsRecType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Insurance Contract').getRecordTypeId();
+            //retailTaskcontractType = Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
             retailPesonRecType = Schema.sObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
             //retailCompanyRecType = Schema.sObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
             dealerAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -215,61 +215,6 @@
             options.add(new SelectOption('Outlet','Outlet'));
             return options;
         }
-           
-        public List<SelectOption> RetailTaskStatus{
-            get{
-                RetailTaskStatus= new List<SelectOption>();
-                RetailTaskStatus.add(new SelectOption('', '--None--'));
-                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Status__c;
-                for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retTaskStatus.contains(entry.getValue()))
-                    RetailTaskStatus.add(new SelectOption(entry.getValue(), entry.getLabel()));
-                }
-                return RetailTaskStatus;
-            }
-            set;
-        }
-        
-        public List<SelectOption> RetailTaskType{
-            get{
-                RetailTaskType= new List<SelectOption>();
-                RetailTaskType.add(new SelectOption('', '--None--'));
-                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Type__C;
-                for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retTaskType.contains(entry.getValue()))
-                    RetailTaskType.add(new SelectOption(entry.getValue(), entry.getLabel()));
-                }
-                return RetailTaskType;
-            }
-            set;
-        }
-                       public List<SelectOption> RetailProductName{
-            get{
-                RetailProductName= new List<SelectOption>();
-                RetailProductName.add(new SelectOption('', '--None--'));
-                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Product_Name__c;
-                for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retProductName.contains(entry.getValue()))
-                    RetailProductName.add(new SelectOption(entry.getValue(), entry.getLabel()));
-                }
-                return RetailProductName;
-            }
-            set;
-        }  
-                                   public List<SelectOption> RetailFinanceProductName{
-            get{
-                RetailFinanceProductName= new List<SelectOption>();
-                RetailFinanceProductName.add(new SelectOption('', 'None'));
-                Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Retail_Task__c.fields.Finance_Product_Name__c;
-                for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-                    if(retFinanceProductName.contains(entry.getValue()))
-                    RetailFinanceProductName.add(new SelectOption(entry.getValue(), entry.getLabel()));
-                }
-                return RetailFinanceProductName;
-            }
-            set;
-        }
-       
         public List<SelectOption> SpecialMarkonAccount{
             get{
                 SpecialMarkonAccount= new List<SelectOption>();
@@ -430,8 +375,7 @@
             vechicleCustomer = new Set<id>();
             vehicleRetailtask = new Set<id>();
             vehicleRelCopyMain = new Set<id>();
-            retailtaskset = new Set<id>();
-            
+                      
         }
       
         public PageReference searchAccount(){    
@@ -442,7 +386,7 @@
             system.debug('I am filter map'+filterMap);
             contentMap = (Map<String, Object>)(filterMap.get('content'));
             system.debug('I am content map'+contentMap);
-            setSoql();
+            setSoql();//================================================================================================================>>1
             try{
             
             if(vehicleRelSoql.endsWith('AND  ') || vehicleRelSoql.endsWith('AND ')){
@@ -452,7 +396,7 @@
             if(leadSoql.length()>leadLength){
                 //saveQuery += 'AND Id IN('+leadSoql+')';
                 system.debug('FinalLeadSoql'+leadSoql);
-                List<Lead__C> leadList = Database.query(leadSoql+ 'limit 10000');
+                List<Lead__C> leadList = Database.query(leadSoql+ 'limit 2000');
                 for(Lead__C vr : leadList){
                     accountIdSet.add(vr.Contact__c);
                     leadSet.add(vr.Contact__c);
@@ -472,7 +416,7 @@
                 AccountLinkSoql = AccountLinkSoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Retail_Sales_Consultant__c', 'Retail_Sales_Consultant__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
                 //saveQuery += 'AND Id IN('+AccountLinkSoql+')';
                 system.debug('FianlAccountLinkSoql '+AccountLinkSoql);
-                List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 10000');
+                List<Account_Link__C> accLinkList = Database.query(AccountLinkSoql + 'limit 2000');
                 for(Account_Link__C vr : accLinkList){
                     accountIdSet.add(vr.toRole__c);
                     toRoleAndAccLinkMap.put(vr.toRole__c,vr);
@@ -493,7 +437,7 @@
             if(AddressSoql.length()>addressLength){
                 //saveQuery += 'AND Id IN('+AddressSoql+')';
                 system.debug('FinalAddressSoql '+AddressSoql);
-                List<Address__c> addList = Database.query(AddressSoql+ 'limit 10000');
+                List<Address__c> addList = Database.query(AddressSoql+ 'limit 2000');
                 for(Address__c vr : addList ){
                     accountIdSet.add(vr.Customer__c);
                     AddressSet.add(vr.Customer__c);
@@ -513,7 +457,7 @@
             if(campaignMemSoql.length()>campLength){
                 //saveQuery += 'AND Id IN('+campaignMemSoql+')';
                 system.debug('FinalcampaignMemSoql'+campaignMemSoql);
-                List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 10000');
+                List<Campaign_Member__c> camMemList = Database.query(campaignMemSoql+ 'limit 2000');
                 for(Campaign_Member__c vr : camMemList ){
                     accountIdSet.add(vr.Contact_Id__c);
                     CampaignMemebrset.add(vr.Contact_Id__c);
@@ -534,7 +478,7 @@
             if(recallSoql.length()>recallLength){
                 System.debug('recallSoqlFinal>>>>'+recallSoql);
                // saveQuery += 'AND Vehicle_Id__c IN ('+recallSoql+') ';
-                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 8000');
+                List<recall__c> recallList = Database.query(recallSoql + ' LIMIT 800');
                 for(recall__c rc : recallList){
                     vehIdSet.add(rc.Vehicle_Id__c);
                     vehIdRecallRecMap.put(rc.Vehicle_Id__C,rc);
@@ -549,7 +493,7 @@
                 VehRetCopySoql = VehRetCopySoql.replace('Sales_Representative__c', 'Sales_Representative__r.Name').replace('Service_Advisor__c', 'Service_Advisor__r.Name').replace('Service_Dealer__c', 'Service_Dealer__r.name');
                 system.debug('vehicleRetialCopySoql'+VehRetCopySoql);
                 //saveQuery += 'AND Vehicle_Id__c IN ('+VehRetCopySoql+') ';
-                List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' LIMIT 10000');
+                List<Account_Link__c> vehRetialList = Database.query(VehRetCopySoql+' limit 2000');
                 
                 for(Account_Link__c ac : vehRetialList){
                     vehIdSet1.add(ac.Vehicle__c);
@@ -576,7 +520,7 @@
             if(vehicleRelSoql.length()>vehRelLength && segmentationBase != 'Vehicle'){
                 vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c','Last_Service_Dealer__r.Name');
                 system.debug('vehiclerelSoqlAtCommon>>>>'+vehicleRelSoql);
-                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
+                List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 2000');
                 For(Vehicle_relationship__C vr : vehRelList){
                     if(segmentationBase == 'Customer'){
                     accountIdSet.add(vr.Contact__c);
@@ -598,23 +542,10 @@
             
             if(accountSoql.length()>accountLenght && segmentationBase != 'Customer'){
                 system.debug('AccountSoqlatCommon ' + accountSoql);
-                List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
-                for(Account acc : accList){
-                    accountIdSet.add(acc.Id);
-                    vechicleCustomer.add(acc.Id);
-                    system.debug('+++vechilecustomer+++'+vechicleCustomer);
-                    
-                    
-                }
-            }
-            
-            if(RetailTaskSoql.length()>retailaskLength && segmentationBase != 'Contract'){
-                 system.debug('FinalRetaiTaskSoqlatCommmon>>>>>>>>'+RetailTaskSoql);
-                 List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ 'limit 10000'); 
-                 for(Retail_Task__c rt : retTaskList){
-                     accountIdSet.add(rt.account__c);
-                     retailtaskset.add(rt.account__c);
-                 }
+                //List<account> accList = Database.Query(accountSoql+' LIMIT 500');
+                MAP<id,account> accList=new MAP<ID,account>((List<Account>)Database.Query(accountSoql+' LIMIT 2000'));
+                accountIdSet=accList.keyset();
+                vechicleCustomer=acclist.keyset();
             }
     
             system.debug('accountIdsetbeforegogingtoSegmentationBase'+accountIdSet);
@@ -632,7 +563,7 @@
                 system.debug('FinalAccountSoql>>>>>>>>'+accountSoql);
                 system.debug('FinalAccountSoql>>>>>>>>'+accountIdSet.size());
                 system.debug('FinalAccountSoql>>>>>>>>'+accountIdSet);
-               // List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
+               // List<account> accList = Database.Query(accountSoql+' limit 20000');
                // system.debug('>>>>>'+accList.size());
                saveQuery = saveQuery.replace('AND AND','AND');
                system.debug('++++++++++++'+saveQuery );
@@ -641,7 +572,7 @@
                 saveQuery = saveQuery.replace('AND ','');
                 }
                 system.debug('++++++++++++'+saveQuery );
-                List<account> accList = Database.Query(saveQuery+' LIMIT 10000');
+                List<account> accList = Database.Query(saveQuery+' limit 2000');
                 Map<Id,Account> accIdAccountMap = new Map<Id,Account>();
                 for(Account acc : accList){
                     accIdToGetRetailPerson.add(acc.Id);
@@ -701,8 +632,8 @@
                 saveQuery = saveQuery.removeEnd('AND ');
                 }
                  system.debug('++++++++++++'+saveQuery );
-                //List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 10000');
-                List<Vehicle_relationship__C> vehRelList = Database.query(saveQuery + ' limit 3000');
+                //List<Vehicle_relationship__C> vehRelList = Database.query(vehicleRelSoql + ' limit 2000');
+                List<Vehicle_relationship__C> vehRelList = Database.query(saveQuery + ' limit 2000');
                 for(Vehicle_Relationship__c vr : vehRelList){
                     vehIdToGetVehExtLink.add(vr.Vehicle_ID__c);
                 }
@@ -712,36 +643,12 @@
                 noOfRecords = con.getResultSize();
                 getloadwrapAccountList(); 
             } else if(segmentationBase == 'Contract'){
-               /* if(accountIdSet.size()>0){
-                    if(RetailTaskSoql.endsWith('AND ')){    
-                        RetailTaskSoql +='Related_Contact__c IN : retailtaskset';
-                    } else {
-                        RetailTaskSoql +='Related_Contact__c IN : accountIdSet';
-                    } 
-                }
-                if(vehIdSetForContract.size()>0){
-                    if(RetailTaskSoql.endsWith('AND ')){    
-                        RetailTaskSoql += 'Related_Vehicle__c IN : vehIdSetForContract';
-                    } else {
-                        RetailTaskSoql += ' AND Related_Vehicle__c IN : vehIdSetForContract';
-                    } 
-                } */
-                saveQuery = saveQuery.replace('AND  AND','AND');
-               system.debug('++++++++++++'+saveQuery );
-               saveQuery = saveQuery.replace('AND AND','AND');
-               if(saveQuery.endsWith('AND     ')){
-                saveQuery = saveQuery.replace('AND     ','');
-                }
+              
+               
+               
+             
                 
-                 system.debug('++++++++++++'+saveQuery );
-                system.debug('finalRetailTaskSoql>>>>'+RetailTaskSoql);
-                system.debug('+++++++++++'+saveQuery );
-                //List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ ' limit 10000'); 
-                List<Retail_Task__c> retTaskList = Database.query(saveQuery+ ' limit 10000');
-                con = new ApexPages.StandardSetController(retTaskList);
-                con.setPageSize(100); 
-                noOfRecords = con.getResultSize();
-                getloadwrapAccountList(); 
+                
             } 
             }
             catch (Exception e){
@@ -755,7 +662,7 @@
             else{
             
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, label.Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition));
-			e.getMessage();
+            e.getMessage();
             System.debug('The following exception has occurred: ' + e.getMessage()); 
             }
             }//system.debug('saveQueryfinal'+saveQuery);
@@ -764,20 +671,27 @@
         }
         
         public void setSoql(){
-            accountSoql = 'SELECT Id, Name, Market__c,PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
-            vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Car_Model__r.Model_Name__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';
+        String market='TH';
+            //accountSoql = 'SELECT Id, Name, Market__c,PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
+            accountSoql = 'SELECT Id, Name, Market__c,PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE md__C=\''+market+'\' AND RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
+           // vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Car_Model__r.Model_Name__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';
+            vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Car_Model__r.Model_Name__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where md__C=\''+market+'\' AND Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';
             if(selectedValueService=='Outlet'){
                 vehicleRelSoql += 'Last_Service_Dealer__c =\''+ u.Contact.AccountId+'\' AND ';
             }
             recallSoql = 'SELECT Vehicle_Id__c,Recall_No__c,Status__c From Recall__c Where';
             VehRetCopySoql = 'SELECT Vehicle__c,NextInspectionDate__c,toRole__c,LastInspectionDate__c,LastWorkDate__c,NextServiceDate__c,Service_Advisor__c,Service_Dealer__c FROM Account_Link__c WHERE RecordTypeId = \'' + vehRetCopyRecType + '\' AND ';
-            leadSoql = 'SELECT Contact__c from Lead__c where ';
-            campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
-            AccountLinkSoql = 'SELECT toRole__c,LastWorkDate__c,LastInspectionDate__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
+            //leadSoql = 'SELECT Contact__c from Lead__c where ';
+            leadSoql = 'SELECT Contact__c from Lead__c where md__C=\''+market+'\' AND ';
+            //campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where ';
+            campaignMemSoql = 'Select Contact_Id__c From Campaign_Member__c where md__C=\''+market+'\' AND ';
+            //AccountLinkSoql = 'SELECT toRole__c,LastWorkDate__c,LastInspectionDate__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE RecordTypeId = \''+retailPesonRecType + '\' AND '; 
+            AccountLinkSoql = 'SELECT toRole__c,LastWorkDate__c,LastInspectionDate__c,Sales_Representative__c,Retail_Sales_Consultant__c,Selling_Dealer__c From Account_Link__c WHERE  md__C=\''+market+'\' AND RecordTypeId = \''+retailPesonRecType + '\' AND '; 
             AddressSoql = 'SELECT Customer__c From Address__c where ';
+           //AddressSoql = 'SELECT Customer__c From Address__c where md__C=\''+market+'\' AND';
             RetailTaskSoql = 'SELECT Account__c,Account__r.RecordTypeId,Finance_Product_Name__c,Product_Name__c,EndDate__c,Type__c,Duration__c,Status__c,Latest_Sales_Person__c,Related_Vehicle__c,Related_Dealer__c,ContractNumber__c,Supporting_Dealer__c,Activation_Dealer_Code__c From Retail_Task__c WHERE (RecordTypeId =\'' + retailTaskLeaseRecType + '\' or  RecordTypeId = \'' + retailTaskLoanRecType + '\' or RecordTypeId = \''+retailTaskInsRecType + '\'or RecordTypeId = \''+ retailTaskcontractType + '\') AND Account__r.RecordTypeId = \'' + personAccntRecTypId + '\' AND ';
             if(u.contactId != NULL){
-                RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND     ';
+                RetailTaskSoql += 'Related_Dealer__c = \''+u.Contact.AccountId+'\' AND ';
             }
             
             if(segmentationBase == 'Customer')
@@ -969,7 +883,7 @@
         // Create a new Map to verify whether the Account is already added in the Map
         Map <id,Account> SelectedAccountMap = new Map <id,Account>();      
         Map <id,Vehicle_Relationship__c> SelectedVrMap = new Map <id,Vehicle_Relationship__c>();      
-        Map <id,Retail_Task__c> SelectedRetailTaskMap = new Map <id,Retail_Task__c>();      
+       // Map <id,Retail_Task__c> SelectedRetailTaskMap = new Map <id,Retail_Task__c>();      
          
         // This method process accounts and formats List of wrapper Accounts to be used with checkbox 
         public list<wrapperAccount> getloadwrapAccountList()
@@ -1023,7 +937,7 @@
             }
             else if(segmentationBase == 'Contract'){
                    
-                for(Retail_Task__c a : (List<Retail_Task__c>)con.getRecords()){
+                /*for(Retail_Task__c a : (List<Retail_Task__c>)con.getRecords()){
                     wrapperAccount wrapAcc = new wrapperAccount();
                     wrapAcc.retail = a;                          
                     if(SelectedRetailTaskMap.containsKey(a.id)){
@@ -1034,7 +948,7 @@
                     }
                     
                     wrapperList.add(wrapAcc);   
-                }
+                }*/
                
             }
                 system.debug('Called Wrapper method size---- '+wrapperList.size());
@@ -1057,8 +971,8 @@
                         SelectedAccountMap.put(wr.acc.id,wr.acc);
                         else if(segmentationBase == 'Vehicle')
                         SelectedVrMap.put(wr.veh.id,wr.veh);
-                        else if(segmentationBase == 'Contract')
-                        SelectedRetailTaskMap.put(wr.retail.id,wr.retail);
+                        //else if(segmentationBase == 'Contract')
+                        //SelectedRetailTaskMap.put(wr.retail.id,wr.retail);
                     }
                     if(wr.isSelected == false)
                     {
@@ -1075,7 +989,7 @@
                         }
                         } 
                         else if(segmentationBase == 'Contract'){
-                        SelectedRetailTaskMap.remove(wr.retail.id);
+                        //SelectedRetailTaskMap.remove(wr.retail.id);
                         }
                         }  
                     }
@@ -1151,7 +1065,7 @@
                 }
             }
             else if(segmentationBase == 'Contract'){
-                if(SelectedRetailTaskMap.size() > 0){
+                /*if(SelectedRetailTaskMap.size() > 0){
                     for(Retail_Task__c curRec : SelectedRetailTaskMap.values()){
                         if(!conIdcamMemMap.containsKey(curRec.Account__c) || (conIdcamMemMap.containsKey(curRec.Account__c) && conIdcamMemMap.get(curRec.Account__c).Retail_Task__c != curRec.Id)){
                             Campaign_Member__c member = new Campaign_Member__c(Status__c = 'Ready', Retail_Campaign_Id__c = retailCampaignId);
@@ -1167,7 +1081,7 @@
                             retailCampaignMembers.add(member);
                         }    
                     }
-                }
+                }*/
             }
            
             System.debug('retailCampaignMembersAfter'+retailCampaignMembers);
