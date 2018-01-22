@@ -3,7 +3,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
        Set < ID > acclids = new Set < ID > ();
         List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new];
         for (Account_Link__c accrec: acclinkr) {
-            if (accrec.toRole__r.UCID__c != '')
+            if (String.isnotblank(accrec.toRole__r.UCID__c))
                 acclids.add(accrec.id);
         }
 
@@ -25,8 +25,8 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
 
         if (Trigger.isAfter && Trigger.isupdate) {
 
-            if (TriggerRecursiveCheck.run && acclids.size() > 0) {
-                TriggerRecursiveCheck.runOnce();
+            if (TriggerRecursiveCheck.run2 && acclids.size() > 0) {
+                TriggerRecursiveCheck.runOnce2();
                 CDMInformatica_Services.createAccountLink(acclids, Label.MY, Label.UpdateContext);
             }
             if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){ 

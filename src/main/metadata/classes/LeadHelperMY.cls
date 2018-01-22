@@ -26,5 +26,14 @@ public without sharing class  LeadHelperMY{
     public  void leadValidation(List<lead__c> leadlist){
         helperBase.leadValidation(leadList,Market);    
     }
-    
+    //create retail copy
+    public void CreateRetailCopy(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap, boolean isInsert, boolean isUpdate)
+    {
+        helperBase.CreateRetailCopy(leadlist, leadOldMap, isInsert, isUpdate);
+    }
+    //Create Lead
+     public void CdmLeadcreate(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap)
+    {
+        helperBase.CdmLeadcreate(leadlist, leadOldMap);
+    }
 }

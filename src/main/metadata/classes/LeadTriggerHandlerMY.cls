@@ -7,10 +7,13 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
 { 
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
+        List < Lead__c > ldupdate = new List < Lead__c > ();
+        user usr = [select id, profileId, profile.Name from User WHERE Id =: userInfo.getUserId()];
         boolean flag=true;
         LeadHelperMY leadRS= new LeadHelperMY();
         
-        if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+        if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
+        {
                 
             if(Trigger.isbefore && Trigger.isUpdate){
                 LeadHelperBase.updatemarket(Trigger.New);
@@ -27,6 +30,31 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
             if(Trigger.isafter && Trigger.isinsert){
                  leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate);  
             }
+            
+            if (Trigger.isafter && (Trigger.isinsert || Trigger.isUpdate) && usr.Profile.Name != 'IntegrationAPI') {
+
+            if (LeadHelperBase.booleanCampaignUpdate) {
+                LeadHelperBase.booleanCampaignUpdate = false;
+                
+               // LeadHelperBase.ShareRecordswithDealers(Trigger.new, Trigger.isupdate);
+                leadRS.CreateRetailCopy(trigger.new, (Map < Id, Lead__C > ) Trigger.OldMap, isInsert, isUpdate);
+                if (Trigger.isUpdate) {
+                    Map < id, Lead__c > ldmap = new Map < id, Lead__c > ((Map < Id, Lead__C > ) Trigger.OldMap);
+                    for (Lead__c lds: (List < Lead__c > ) Trigger.new) {
+                        if (ldmap.containsKey(lds.Id) && lds.CAC_Lead_Status__c != ldmap.get(lds.Id).CAC_Lead_Status__c && lds.CAC_Lead_Status__c == 'Lost(Dealer)') {
+                            Lead__c ldclone = new Lead__c(id = lds.Id);
+              ldclone.Lead_Lost_Date_Time__c = system.now();
+                            ldupdate.add(ldclone);
+                        }
+                    }
+                    if (ldupdate.size() > 0)
+                        update ldupdate;
+                    leadRS.CdmLeadcreate(trigger.new, (Map < Id, Lead__C > ) Trigger.OldMap);
+
+                }
+              }
+           }
+                
         }
   
     }
