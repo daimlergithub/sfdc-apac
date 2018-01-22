@@ -672,16 +672,18 @@ public class AccountHelperBase{
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();//Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();//Retriveing record type ID for Retail Company
         List<Account_Link__c> Accountlinklist = [select id,toRole__r.Agreement_to_commit_info_processing__c,toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.UCID__c,toRole__r.CDM_UCID__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.DMS_Retailer_ID__c,Name,toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
-        toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.race__c,toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, 
-        toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,
-        toRole__r.Allow_Data_Sharing2__c,toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax,
-        toRole__r.Email__c,toRole__r.Primary_Address_Reference__r.Address_Type__c, toRole__r.Primary_Address_Reference__r.Province__c,
+        toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.race__c,toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry,toRole__r.createdDate, 
+        toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,torole__r.LastModifiedDate ,
+        toRole__r.Allow_Data_Sharing2__c,toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax,torole__r.ID_Type__c,torole__r.ID_Number__c,
+        toRole__r.Email__c,toRole__r.Primary_Address_Reference__r.Address_Type__c, toRole__r.Primary_Address_Reference__r.Province__c,toRole__r.country__c,
         toRole__r.Primary_Address_Reference__r.City__c, toRole__r.Primary_Address_Reference__r.District__c, toRole__r.Primary_Address_Reference__r.Block__c,
         toRole__r.Primary_Address_Reference__r.Address_Line_1__c, toRole__r.Primary_Address_Reference__r.Address_Line_3__c,toRole__r.Primary_Address_Reference__r.Address_Line_2__c, toRole__r.Primary_Address_Reference__r.ZipCode__c,
-        toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, toRole__r.Job__c,
-        toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,toRole__r.Title__c,
+        toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c, toRole__r.Job__c,toRole__r.Sales_Sanction__c,toRole__r.Allow_Data_Sharing__c,
+        toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,toRole__r.Title__c,toRole__r.Preferred_Contact_Method__c,
         toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,/*toRole__r.MBTH_Mercede__c,*/
-        toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c
+        toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c,toRole__r.PersonHasOptedOutOfEmail,
+		torole__r.PersonHasOptedOutOfFax,torole__r.PersonDoNotCall,torole__r.Postal_Opt_Out__c,
+        torole__r.Visit_Opt_Out__c	
         from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         
         //Account link iteration
@@ -704,14 +706,14 @@ public class AccountHelperBase{
                 acclnk.Retail_Full_Name_Title__c = ((acclnk.toRole__r.Title__c!= null ?acclnk.toRole__r.Title__c:'')  + ' ' + (acclnk.toRole__r.FirstName!= null ?acclnk.toRole__r.FirstName:'') + ' ' +(acclnk.toRole__r.LastName!= null ?acclnk.toRole__r.LastName:'')).left(140) ;
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
-                acclnk.Retail_Complaint_Amount__c = acclnk.toRole__r.Complaint_Amount__c;
+                //acclnk.Retail_Complaint_Amount__c = acclnk.toRole__r.Complaint_Amount__c;
                 acclnk.Retail_Sales_Sanction__c = acclnk.toRole__r.Sales_Sanction__c;
                 acclnk.Retail_UCID__c = acclnk.toRole__r.UCID__c;
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing__c;
                 acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;
                 acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
-                acclnk.Retail_Email__c = acclnk.toRole__r.PersonEmail;
+                acclnk.Retail_Email__c = acclnk.toRole__r.email__c;
                 acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
                 acclnk.Retail_Preferred_Contact_Method__c = acclnk.toRole__r.Preferred_Contact_Method__c;
                 acclnk.Retail_Email_OptOut__c = acclnk.toRole__r.PersonHasOptedOutOfEmail;
