@@ -22,7 +22,7 @@
                 <behavior>Edit</behavior>
                 <field>Priority</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBTH_Case_Class__c</field>
             </layoutItems>
@@ -49,10 +49,14 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Origin</field>
             </layoutItems>
@@ -63,7 +67,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
@@ -113,7 +117,7 @@
                 <behavior>Edit</behavior>
                 <field>CarClassOne__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CarClassTwo__c</field>
             </layoutItems>
@@ -259,14 +263,14 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-		   <layoutItems>
+            <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
-		   <layoutItems>
-		    <behavior>Edit</behavior>
-            <field>Market__c</field>
-		   </layoutItems>
-		</layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
+        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -363,7 +367,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h5D000000IiWq</masterLabel>
+        <masterLabel>00h5D000000Ikes</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
