@@ -1,6 +1,6 @@
 Global class JSON2ApexStouch {
-    public String record_count;
-	public List<Person> Output_IDS=new List<Person>();
+    public String RecordCount;
+	public List<Person> O_customerdetails=new List<Person>();
     public class Person{
         public string LastName;
         public string PersonMobilePhone;
