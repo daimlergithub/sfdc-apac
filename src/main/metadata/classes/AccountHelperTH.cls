@@ -40,7 +40,7 @@ public class AccountHelperTH{
                 {accid.add(acc.Id);}
         }
         if (accid.size() > 0 && !accid.isEmpty())
-            Acclink = [select name, Retail_DMS_Customer_ID__c, Retail_UCID__c, toRole__c from Account_link__c where toRole__c in: accid LIMIT 49999];
+            Acclink = [select name, Retail_DMS_Customer_ID__c, Retail_UCID__c, toRole__c from Account_link__c where toRole__c in: accid AND fromRole__r.Dealer_Rollout_Status__c ='Done' LIMIT 49999];
         if (Acclink.size() > 0 && !Acclink.isEmpty()) {
             for (Account_Link__c all: Acclink) {
                 if ((all.Retail_DMS_Customer_ID__c == '' || all.Retail_DMS_Customer_ID__c == null) && (all.Retail_UCID__c == '' || all.Retail_UCID__c == null))
