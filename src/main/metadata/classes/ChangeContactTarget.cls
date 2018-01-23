@@ -84,7 +84,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                         //salesretailperson = acclink.Retail_Sales_Consultant__c;
                         salesretailperson.add(acclink.Retail_Sales_Consultant__c);
                     }
-                    else if(acclink.torole__c == vehiclewrpper.aftersalescontactvr .contact__c && acclink.Retail_Sales_Consultant__c != null)
+                    if(acclink.torole__c == vehiclewrpper.aftersalescontactvr .contact__c && acclink.Retail_Sales_Consultant__c != null)
                     {
                         vehiclewrpper.aftersalescontactacclink= acclink;
                         //aftersalesperson = acclink.Retail_Sales_Consultant__c;

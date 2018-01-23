@@ -973,6 +973,15 @@ First_Contact_Customer_Date__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Proxy_Lost_Dealer_date_timr</fullName>
+        <field>Lost_Dealer_Date_Time__c</field>
+        <formula>IF ( MD__c = 'KR',if(!isblank( Lost_Dealer_Date_Time__c ), Lost_Dealer_Date_Time__c,NOW()),Lost_Dealer_Date_Time__c)</formula>
+        <name>Update Proxy Lost(Dealer) date timr</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Order_Placed</fullName>
         <field>Order_Placed_Date__c</field>
