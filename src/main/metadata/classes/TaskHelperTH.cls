@@ -138,7 +138,7 @@ public without sharing class TaskHelperTH {
         
         for(Account acc : lstAccount){
             if(acc.Primary_Phone__c!=null){
-                if(acc.Primary_Phone__c=='Mobile phone'){
+                if(acc.Primary_Phone__c=='Mobile'){
                 mapTask.put(acc.id, acc.Mobile__c);
                 }
                 else if(acc.Primary_Phone__c=='Home phone'){
@@ -155,7 +155,7 @@ public without sharing class TaskHelperTH {
         for(Lead__c led : lstLead){
 
             if(led.contact__c!=null && led.Contact__r.Primary_Phone__c!=null){
-                    if(led.Contact__r.Primary_Phone__c=='Mobile phone'){
+                    if(led.Contact__r.Primary_Phone__c=='Mobile'){
                         mapLead.put(led.id, led.Contact__r.Mobile__c);
                     }
                     else if(led.Contact__r.Primary_Phone__c=='Home phone'){
@@ -172,7 +172,7 @@ public without sharing class TaskHelperTH {
         
         for(DM_Request__c dmr : lstDMRequest){   
              if(dmr.Customer_Name__c!=null && dmr.Customer_Name__r.Primary_Phone__c!=null){
-                    if(dmr.Customer_Name__r.Primary_Phone__c=='Mobile phone'){
+                    if(dmr.Customer_Name__r.Primary_Phone__c=='Mobile'){
                         mapDMRequestPhone.put(dmr.id, dmr.Customer_Name__r.Mobile__c);
                     }
                     else if(dmr.Customer_Name__r.Primary_Phone__c=='Home phone'){
