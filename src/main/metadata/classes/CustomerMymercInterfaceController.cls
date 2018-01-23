@@ -158,7 +158,7 @@ public with sharing class CustomerMymercInterfaceController {
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_input_My_Mercedes_Email_Id));
             return null;
         }
-        else if(!string.isBlank(MyMercEmail)){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@') || MyMercEmail.);
+        else if(!string.isBlank(MyMercEmail)){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@') || || MyMercEmail.length() >80);
             //String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
             
             String CharSplit = MyMercEmail.substringBefore('@');
