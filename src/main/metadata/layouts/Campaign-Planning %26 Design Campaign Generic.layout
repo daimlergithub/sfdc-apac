@@ -51,12 +51,16 @@
                 <behavior>Edit</behavior>
                 <field>Event_Type__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Event_Type__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status</field>
@@ -122,49 +126,49 @@
                 <behavior>Edit</behavior>
                 <field>Car_Model__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Region__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Region_Expense__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Region_Budget__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Plan_Start_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Plan_End_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Media_Type__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Media_Type__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CBU_PbP__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Min_Car_Age__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Max_Car_Age__c</field>
             </layoutItems>
-		</layoutColumns>
+        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -223,10 +227,10 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
-			<layoutItems>
-				<behavior>Edit</behavior>
-				<field>Market__c</field>
-			</layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

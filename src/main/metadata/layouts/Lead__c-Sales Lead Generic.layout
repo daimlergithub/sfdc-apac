@@ -13,15 +13,15 @@
                 <behavior>Edit</behavior>
                 <field>Allow_Data_Sharing__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>CAC_Lead_Status__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Type__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Sub_Type__c</field>
             </layoutItems>
@@ -29,7 +29,7 @@
                 <behavior>Edit</behavior>
                 <field>CAC_Lost_Reason__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Comment__c</field>
             </layoutItems>
@@ -40,7 +40,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Priority__c</field>
-            </layoutItems>            
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_CAC_Date__c</field>
@@ -61,8 +61,12 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>OwnerId</field>
-            </layoutItems>            
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Case__c</field>
@@ -75,7 +79,7 @@
                 <behavior>Edit</behavior>
                 <field>Lead_DataSource__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_DataSubSource__c</field>
             </layoutItems>
@@ -91,7 +95,7 @@
                 <behavior>Edit</behavior>
                 <field>Lost_To__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Order_Placed_Date_Time__c</field>
             </layoutItems>
@@ -138,7 +142,7 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Lead Customer Information</label>
-		 <layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Contact__c</field>
@@ -150,10 +154,9 @@
                 <field>Company_Account__c</field>
             </layoutItems>
         </layoutColumns>
-       
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-	 <layoutSections>
+    <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
@@ -207,11 +210,11 @@
                 <behavior>Readonly</behavior>
                 <field>Purchase_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Purchased_Date__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Bought_Vehicle_Brand__c</field>
             </layoutItems>
@@ -312,10 +315,10 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
-			<layoutItems>
-				<behavior>Edit</behavior>
-				<field>Market__c</field>
-			</layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

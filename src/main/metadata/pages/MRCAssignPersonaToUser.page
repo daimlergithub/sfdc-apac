@@ -1,32 +1,38 @@
 <apex:page standardcontroller="User" extensions="MRC_AssignPersonaToUserExt">
+<style>
+.ClassName {
+    margin-bottom:0px;
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 10pt;
+}
+</style>
+<style>
+.ClassName1 {
+    margin-bottom:10px;
+    margin-top: 0px;
+}
+</style>
 
-<script>
-function changeValue(input, textid) {
-    document.getElementById(textid).value = input.value;
-}   
-</script>
 
  <apex:form >
-<apex:pageBlock title="Select a Persona for User" >
-<apex:pageblockSection >
+ <div  align="center" draggable="false"  >                                    
+  <p><font size="5">Persona Assignment</font></p>
+  </div>
 
-<apex:pageBlockTable width="100%" value="{!majList}" var="maj">
-<apex:column width="10%" >
-<input type="radio" name="chosen" id="{!maj.id}" VALUE="{!maj.id}" onclick="changeValue(this,'{!$Component.RadioButtonValue}');"/>
-
-</apex:column>    
-<apex:column headerValue="Functionality" width="30%" value="{!maj.PersonaName__c}" />
-   
-<apex:column headerValue="Functionality" width="60%" value="{!maj.Functionality_Access__r.Module_Name__c }" />
-
-</apex:pageBlockTable>
-<apex:inputHidden value="{!selMajID}" id="RadioButtonValue" />
-
-
- </apex:pageblockSection> 
-<apex:pageBlockbuttons location="bottom">
-<apex:commandButton value="Assign Selected Persona" action="{!selectPersona }" />
-
-</apex:pageBlockbuttons> </apex:pageBlock> 
- </apex:form>
+<apex:pageMessages id="showmsg" rendered="{! isError}"></apex:pageMessages>
+<apex:pageBlock rendered="{! !isError}">
+<div style="text-align: center;"> 
+<apex:pageblockSection columns="1"  title="Please select a persona for User" collapsible="false">
+<apex:outputText styleClass="ClassName" style="white-space: pre" value="Persona Name  -  Module Name"></apex:outputText>   
+<apex:selectRadio styleClass="ClassName1" id="RadioButtonValue1" style="white-space: pre" value="{!isPersona}" layout="pageDirection"  >
+<apex:selectOptions value="{!Personas}" />
+ </apex:selectRadio>  
+</apex:pageblockSection> 
+</div>
+</apex:pageBlock> 
+<div style="text-align: center" ><apex:commandButton rendered="{! !isError}" value="Assign Selected Persona" action="{!selectPersona }" />
+<apex:commandButton value="Cancel" action="{! cancel}" /></div>
+</apex:form>
 </apex:page>
+                          
