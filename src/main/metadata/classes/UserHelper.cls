@@ -1187,7 +1187,7 @@ public with sharing class UserHelper {
     
     
   /**    
-     * @Description : invokes another class permission handler which is used to assign permisson set to user based on persona assignment
+     * @Description : invokes another class permission handler which is used to assign permisson set to updated user based on persona assignment
      * @author      : Harshit Kabra 
      * @Date        : 6-September-2017
      * @param       : list of new users
@@ -1199,6 +1199,21 @@ public with sharing class UserHelper {
            MRC_PermissionHandler mrcp=new MRC_PermissionHandler();
            mrcp.assignMarketBasedPermisionSetsToUsers((List<User>)usersList);
     }
+    
+  /**    
+     * @Description : invokes another class permission handler which is used to assign permisson set to newly created user based on persona assignment
+     * @author      : Harshit Kabra 
+     * @Date        : 17-January-2018
+     * @param       : list of new users
+     * @see         : UserTriggerHandler(UserHelper.InvokePermissionHandlerForUserCreation)
+    **/    
+    
+    public static void InvokePermissionHandlerForUserCreation(list<user> usersList)
+    {
+           MRC_PermissionHandler mrcp=new MRC_PermissionHandler();
+           mrcp.assignMarketBasedPermisionSetsToUsersCreated((List<User>)usersList);
+    }   
+    
     
 	//---------------------------- Case/Lead Owner Update - SFDCKR-964 ----------------------------
     // Added By - Sreenivasareddy 

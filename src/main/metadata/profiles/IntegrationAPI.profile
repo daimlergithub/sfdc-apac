@@ -2974,6 +2974,10 @@
         <apexClass>shareAccountRecordTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>stouchPersonSearch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>stouchUtilForAccountLink</apexClass>
         <enabled>true</enabled>

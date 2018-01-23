@@ -39,65 +39,103 @@ public static void updateProfile(List<ID> ids )
     DMLManagerService.updateAsSystem(userToUpdate);
     //update userToUpdate;
 }
+
+//for DML operations(delete existing and update new) on Permission Set Assignment records     
+@future
+public static void futureMethodsForDMLOperations(Set<Id> userIdSet )
+{
+   try{
+         
+  
+    //fetch Users updated   
+    List<User> c = [SELECT Id,Market__c,ProfileId,Persona_Assigned__c FROM user WHERE id in : userIdSet];
+    //fetch existing Permission Sets to the users updated   
+    List<PermissionSetAssignment> UsersExistingPermissionSets =    [SELECT Id, PermissionSet.Name,AssigneeId FROM PermissionSetAssignment WHERE AssigneeId =:userIdSet and PermissionSetId IN (SELECT Id FROM PermissionSet WHERE IsOwnedByProfile =false)];
+    system.debug('**@@@****'+c.size()+'**@@@****'+UsersExistingPermissionSets.size()); 
+    //delete UsersExistingPermissionSets;
+    DMLManagerService.deleteAsSystem(UsersExistingPermissionSets);
+    List<UserDetails> listUserDetails=new List<UserDetails>();   
+    List<PermissionSetAssignment> PSAListToInsert = new List<PermissionSetAssignment>();   
+    //fetch PS and assign new PS , according to persona      
+    for(User u: c )
+    {  
+      UserDetails ud = new UserDetails();
+      ud.Uid=u.id;
+      ud.Umarket=u.Market__c;
+      ud.Uprofile=u.ProfileId;
+      ud.Upersona=u.Persona_Assigned__c;
+      listUserDetails.add(ud);   
+    } 
+   
+    if(listUserDetails.size()>0)
+     {
+       List<UserDetails>UserwithPermissions= getPermissionsetIdsForUser(listUserDetails);
+       //assign the permissionsets
+       PSAListToInsert= assignPermissionSetstoUsers(UserwithPermissions);
+       DMLManagerService.upsertAsSystem(PSAListToInsert);      
+       
+     }   
+   
+   }catch(Exception e)
+      {   
+          CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
+      }
+        
+   
     
-    
+}
     
   //this method to be called from the user trigger handler to assign permission sets to each user
   public void assignMarketBasedPermisionSetsToUsers(List<User> userList)
   {
+     Set<ID> userID = new Set<Id>();  
       try{
+           for(SObject obj:Trigger.new)
+           {   
+             User newu=(User)obj;
+             User oldu=(User)trigger.oldmap.get(newu.id);
+        
+        
+             //ChangesMadeInAssignedPersona__c=true, when changes made in functionality associated with assigned persona 
+             //i.e. persona remains same only its access changes. 
+             if(newu.Persona_Assigned__c != oldu.Persona_Assigned__c || newu.ChangesMadeInAssignedPersona__c == True )
+             {
+               userID.add(newu.id); 
+             }  
+           }
+          if(userID != null && userID.size()>0) futureMethodsForDMLOperations(userID);         
           
-    List<UserDetails> listUserDetails=new List<UserDetails>();
-    
-    for(SObject obj:Trigger.new)
-    {   
-        User newu=(User)obj;
-        User oldu=(User)trigger.oldmap.get(newu.id);
-       
-      //ChangesMadeInAssignedPersona__c=true, when changes made in functionality associated with assigned persona 
-      //i.e. persona remains same only its access changes. 
-        if(newu.Persona_Assigned__c != oldu.Persona_Assigned__c || newu.ChangesMadeInAssignedPersona__c == True )
+        }catch(Exception e)
         {
-         UserDetails ud= new UserDetails();
-         ud.Uid=newu.id;
-         ud.Umarket=newu.Market__c;
-         ud.Uprofile=newu.ProfileId;
-         ud.Upersona=newu.Persona_Assigned__c;
-         //ud.u=newu;
-        
-         List<PermissionSetAssignment> currentUserPerSetAssgmt =    [SELECT Id, PermissionSet.Name,AssigneeId FROM PermissionSetAssignment WHERE AssigneeId =:newu.id and PermissionSetId IN (SELECT Id FROM PermissionSet WHERE IsOwnedByProfile =false)];
-         //remove already existing PS 
-        
-            try{
-                 if(currentUserPerSetAssgmt.size() > 0)
-                  {
-                    //delete currentUserPerSetAssgmt;
-                    DMLManagerService.deleteAsSystem(currentUserPerSetAssgmt);
-                  }
-                }catch(Exception e)
-                {
-                 CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
-                }
-         listUserDetails.add(ud);
-        }
-        
-    }
-   if(listUserDetails.size()>0)
-     {
-       List<UserDetails>UserwithPermissions= getPermissionsetIdsForUser(listUserDetails);
-       //assign the permissionsets
-       upsert assignPermissionSetstoUsers(UserwithPermissions);
-     }
- 
-      }
-      catch(Exception e)
-      {
           CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
-      }
+        }
   }
+    
+ //this method to be called from the user trigger handler to assign permission sets to each user created
+  public void assignMarketBasedPermisionSetsToUsersCreated(List<User> userList)
+  {
+     Set<ID> userID = new Set<Id>();  
+      try{
+           for(SObject obj:Trigger.new)
+           { 
+             User newu=(User)obj;
+             //User oldu=(User)trigger.oldmap.get(newu.id);
+                    
+             if(newu.Persona_Assigned__c != null && newu.Persona_Assigned__c != '')
+             {
+               userID.add(newu.id); 
+             }  
+           }
+           if(userID != null && userID.size()>0) futureMethodsForDMLOperations(userID);
+        }catch(Exception e)
+        {
+          CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
+        }
+  }    
+    
   
   //get permissionsets sets from junction object according to persona
-  public List<UserDetails> getPermissionsetIdsForUser(List<UserDetails> listUserDetails )
+  public static List<UserDetails> getPermissionsetIdsForUser(List<UserDetails> listUserDetails )
   { 
         
    List<UserDetails> PermissionsToUser=new List<UserDetails>();
@@ -138,7 +176,7 @@ public static void updateProfile(List<ID> ids )
      return PermissionsToUser;
   }
   //assign a list of permission sets to each user
-  public List<PermissionSetAssignment> assignPermissionSetstoUsers(List<UserDetails> PermissionsToUser)
+  public static List<PermissionSetAssignment> assignPermissionSetstoUsers(List<UserDetails> PermissionsToUser)
   {
     List<PermissionSetAssignment> psaList=new List<PermissionSetAssignment>();
     for(UserDetails ptu: PermissionsToUser)
@@ -201,5 +239,7 @@ public static void updateProfile(List<ID> ids )
       //delete psaFromQuery;
   }
   
+
+    
 
 }
