@@ -3,15 +3,11 @@
         <apex:pageBlock title="{!$Label.Related_Dealer_View_for_Contract}">
             <apex:pageBlockSection columns="2">
             
-            <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+           <apex:pageBlockSectionItem >                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Finance_Contractor__c.Label}"/>
                         <apex:outputField value="{!displayRetail.Finance_Contractor__c}"/>  
               </apex:pageBlockSectionItem>
-          <apex:pageBlockSectionItem rendered="{!$User.ContactId!=null}">                
-                     <!--   <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Finance_Contractor__c.Label}"/>
-                        <apex:outputText value="{!Accountlkp}"/>   -->
-              </apex:pageBlockSectionItem>
-               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
+              <apex:pageBlockSectionItem >                
                          
               </apex:pageBlockSectionItem>
               
