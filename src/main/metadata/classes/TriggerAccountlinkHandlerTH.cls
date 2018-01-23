@@ -1,7 +1,7 @@
 public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
         Set < ID > acclids = new Set < ID > ();
-        List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new];
+        List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new AND fromRole__r.Dealer_Rollout_Status__c ='Done'];
         for (Account_Link__c accrec: acclinkr) {
             if (String.isnotblank(accrec.toRole__r.UCID__c))
                 acclids.add(accrec.id);

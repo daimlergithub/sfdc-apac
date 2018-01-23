@@ -122,7 +122,7 @@ public without sharing class LeadHelperTH {
     public void CdmLeadcreate(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap) {
         Set < Id > LeadIdinsert = new Set < Id > ();
         Set < Id > LeadIdupdate = new Set < Id > ();
-        Map < Id, Lead__c > ldmap = new Map < Id, Lead__c > ([select id, Contact__r.Ucid__c, Retail_Contact__r.Retail_DMS_Customer_ID__c, Assigned_Dealer__c from Lead__c where id in: leadOldMap.keyset()]);
+        Map < Id, Lead__c > ldmap = new Map < Id, Lead__c > ([select id, Contact__r.Ucid__c, Retail_Contact__r.Retail_DMS_Customer_ID__c, Assigned_Dealer__c from Lead__c where id in: leadOldMap.keyset() AND Retail_Contact__c != null AND Retail_Contact__r.fromRole__c !=null AND Retail_Contact__r.fromRole__r.Dealer_Rollout_Status__c ='Done']);
         for (Lead__c le: leadlist) {
             if (ldmap.containskey(le.Id)) {
                 if (ldmap.get(le.Id).Contact__r.Ucid__c != '' && ldmap.get(le.Id).Retail_Contact__r.Retail_DMS_Customer_ID__c != '' && le.Assigned_Dealer__c != null && le.Assigned_Dealer__c == leadOldMap.get(le.id).Assigned_Dealer__c && le.MD__c == 'TH' && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c && le.CAC_Lead_Status__c == 'Accepted') {

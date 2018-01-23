@@ -246,7 +246,8 @@ public without sharing class AddressSelectionforExistingCustomer {
                             newAlk.Retail_Vat_No__c = accList.Vat_No__c;
                             if (accList.Foundation_Date__c != null) {
                                 newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) : String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) : String.ValueOf(accList.Foundation_Date__c.day()));
-                            }
+                            
+							}
                         }
                         // if market is MY
                         if (accList.MD__c == 'MY') {
@@ -312,7 +313,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                             newAlk.Retail_Vat_No__c = accList.Vat_No__c;
                             if(accList.Foundation_Date__c != null)
                             {
-                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) ;
                             }
                         }
                         InsertAlk.add(newAlk);
@@ -416,7 +417,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                             newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
                             if(accList.Foundation_Date__c != null)
                             {
-                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month()));
                             }
                         }
                         InsertAlk.add(newAlk);
@@ -586,7 +587,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                             newAlk.Retail_Vat_No__c = accList.Vat_No__c;
                             if(accList.Foundation_Date__c != null)
                             {
-                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) ;
                             }
                     }
                     InsertAlk.add(newAlk);
@@ -691,7 +692,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                             newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
                             if(accList.Foundation_Date__c != null)
                             {
-                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) ;
                             }
                     }
                     InsertAlk.add(newAlk);
