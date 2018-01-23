@@ -16,6 +16,10 @@
                 <field>ContractNumber__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Contractor__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Account__c</field>
             </layoutItems>
@@ -63,7 +67,7 @@
                 <behavior>Readonly</behavior>
                 <field>Contract_Update_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Related_Lead__c</field>
             </layoutItems>
@@ -76,6 +80,9 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
