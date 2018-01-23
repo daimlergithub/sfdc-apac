@@ -302,7 +302,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Vat_No__c = accList.Vat_No__c;
                             if(accList.Foundation_Date__c != null)
                             {
-                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month()));
                             }
                         }
                         InsertAlk.add(newAlk);
@@ -409,7 +409,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
                             if(accList.Foundation_Date__c != null)
                             {
-                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month()));
                             }
                         }
                         InsertAlk.add(newAlk);
@@ -558,8 +558,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Fax__c = accList.Fax;
                             newAlk.Retail_Preferred_Contact_Method__c = accList.Preferred_Contact_Method__c;
                             newAlk.Retail_Email_OptOut__c = accList.PersonHasOptedOutOfEmail;
-                            newAlk.Retail_Fax_OptOut__c = accList.PersonHasOptedOutOfFax;
-                                                                                                
+                            newAlk.Retail_Fax_OptOut__c = accList.PersonHasOptedOutOfFax;       
                             newAlk.Retail_Phone_OptOut__c = accList.PersonDoNotCall;
                             newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
                             newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
@@ -580,7 +579,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Vat_No__c = accList.Vat_No__c;
                             if(accList.Foundation_Date__c != null)
                             {
-                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month()));
                             }
 						}
                     InsertAlk.add(newAlk);
@@ -687,7 +686,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
                             if(accList.Foundation_Date__c != null)
                             {
-                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                                newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month()));
                             }   
 					}
                     InsertAlk.add(newAlk);
