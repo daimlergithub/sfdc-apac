@@ -29,7 +29,7 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
                // leadRS.leadValidation(trigger.new);
                 leadRS.updateOwnerwithDealer(Trigger.new); 
                 //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community 
-                leadRS.updatecommunityURL(Trigger.new);  
+                //leadRS.updatecommunityURL(Trigger.new);  
             }
             if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){
                  leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,trigger.isupdate); 
