@@ -10862,6 +10862,27 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>please input &quot;My Mercedes Email Id&quot;</shortDescription>
         <value>please input &quot;My Mercedes Email Id&quot;</value>
     </labels>
+	  <labels>
+        <fullName>Please_Input_MyMercedes_Email_Id_or_Login_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please input &quot;My Mercedes Email Id&quot; or &quot;Login Mobile&quot;</shortDescription>
+        <value>Please input &quot;My Mercedes Email Id&quot; or &quot;Login Mobile&quot;</value>
+    </labels>
+	 <labels>
+        <fullName>Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Did you Get Agreement From Customer? Login Mobile is a mandatory for Concierge S</shortDescription>
+        <value>Did you Get Agreement From Customer?Login Mobile is a mandatory for Concierge Service</value>
+    </labels>
+	 <labels>
+        <fullName>Please_input_proper_Mobile_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please input proper Mobile number</shortDescription>
+        <value>Please input proper Mobile number</value>
+    </labels>
     <labels>
         <fullName>purchased_vehicle_related_information</fullName>
         <categories>VehiclePicker</categories>
