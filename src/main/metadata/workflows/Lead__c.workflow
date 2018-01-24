@@ -2541,6 +2541,10 @@ Modify Reason:
             <name>Update_Proxy_Date_Time_to_Lost_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
+		<actions>
+            <name>Update_Proxy_Lost_Dealer_date_timr</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>true</active>
         <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>

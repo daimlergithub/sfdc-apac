@@ -19,6 +19,7 @@ public with sharing class CustomerMymercInterfaceController {
     public string myMercId{get;set;}
     public string MyMercEmail{get;set;}
     public string RegOutlet{get;set;}
+	public string loginmobile{get;set;}
     public boolean MyMercVar{get;set;}
     public boolean MyMercEmailVar{get;set;}
     public boolean ContactSectorvar{get;set;}
@@ -124,8 +125,8 @@ public with sharing class CustomerMymercInterfaceController {
         
     public pagereference savepop()
     {
-        if( MyMercEmail == NULL || string.isBlank(MyMercEmail)){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_input_My_Mercedes_Email_Id));
+        if( MyMercEmail == NULL || string.isBlank(MyMercEmail)  && loginmobile == NULL ){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_MyMercedes_Email_Id_or_Login_Mobile));
             return null;
         } 
         else{ 
@@ -140,6 +141,17 @@ public with sharing class CustomerMymercInterfaceController {
             return pr;
         }
     }
+	
+	 public PageReference MercedesmeDeletion(){
+        
+      //   accont = [select id,Data_Source__C,Customer_LastUpdatedDate__c, Allow_Data_Sharing2__c,Gender__c,Main_Dealer__c,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
+            accont.Customer_LastUpdatedDate__c= System.today();
+            accont.Portal_Apply_Status__c ='To be Deleted';
+            Database.SaveResult accResults = Database.Update(accont);
+            pagereference pr = new pagereference ('/apex/CustomerMymercInterface?id='+Accid);
+            pr.setRedirect(true);
+            return pr;
+         } 
  
     public PageReference mymercnew(){
     try{
@@ -155,7 +167,7 @@ public with sharing class CustomerMymercInterfaceController {
         } 
         
         if( MyMercEmail == NULL || string.isBlank(MyMercEmail)){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_input_My_Mercedes_Email_Id));
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_MyMercedes_Email_Id_or_Login_Mobile));
             return null;
         }
         else if(!string.isBlank(MyMercEmail)){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@'));

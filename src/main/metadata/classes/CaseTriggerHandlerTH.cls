@@ -47,6 +47,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
         }
         //share Record start
         if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){
+			caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
             CaseHelperTH.ShareRecordswithDealers(Trigger.new,Trigger.isupdate);
         }
         //share Record end
