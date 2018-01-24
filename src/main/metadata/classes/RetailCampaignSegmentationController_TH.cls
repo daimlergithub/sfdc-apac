@@ -322,7 +322,7 @@
             set;
         }
         
-         public List<SelectOption> RetailSalesSanction{
+         /*public List<SelectOption> RetailSalesSanction{
             get{
                 RetailSalesSanction= new List<SelectOption>();
                 RetailSalesSanction.add(new SelectOption('', '--None--'));
@@ -335,7 +335,7 @@
                 return RetailSalesSanction;
             }
             set;
-        }
+        }*/
          
          public List<SelectOption> RetailOptOutContactReason{
             get{
