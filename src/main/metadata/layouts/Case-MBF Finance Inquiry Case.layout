@@ -61,7 +61,7 @@
                 <height>560</height>
                 <page>MBJ_FS_Case_Inquiry_Detail_Page</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
