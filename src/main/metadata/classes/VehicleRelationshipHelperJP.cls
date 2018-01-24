@@ -132,7 +132,8 @@ public with sharing class VehicleRelationshipHelperJP
                 ContactIdsforValidity.add(vr.Contact__c); 
           }
         }  
-         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);        
+         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);    
+         updateVehicleAmount(ContactIds);  //Uncommented as per 40249407    
          createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
          updateAccountstatus(ContactIdsforValidity);
     } 
@@ -171,6 +172,7 @@ public with sharing class VehicleRelationshipHelperJP
             }  
         }                          
         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);
+        updateVehicleAmount(ContactIds); //Uncommented as per CISM 40249407
         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
         updateAccountstatus(ContactIdsforValidity);   
     } 
@@ -186,7 +188,8 @@ public with sharing class VehicleRelationshipHelperJP
                 VehicleIds.add(vr.Vehicle_ID__c);
             }  
         }                 
-         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);           
+         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);    
+         updateVehicleAmount(ContactIds); //Uncommented as per CISM 40249407       
     } 
     
     Public static void updateAccountstatus(Set<Id> ContactIds){
@@ -212,6 +215,10 @@ public with sharing class VehicleRelationshipHelperJP
                        the functionality to count the amount of vehicle in its entirity to all the cases,
                        until we enable it again at some point in future.
        Commented by : Lokesh M
+       
+       */
+       
+       //Activating again as per CISM 40249407
        
     Public static void updateVehicleAmount(Set<Id> ContactIds){           
         system.debug('ContactIds>>>>'+ContactIds.size());      
@@ -250,7 +257,7 @@ public with sharing class VehicleRelationshipHelperJP
         if(!vehicleAmountToUpdate.isEmpty())
             update vehicleAmountToUpdate;         
     }  
-        */
+        
         
         
     //Create Account Link   
@@ -393,7 +400,8 @@ public with sharing class VehicleRelationshipHelperJP
        
           if(!lstAccLink.isEmpty())  
           {
-              Database.insert(lstAccLink,false);   
+              Database.insert(lstAccLink,false);              
+                         
               
           }
            
