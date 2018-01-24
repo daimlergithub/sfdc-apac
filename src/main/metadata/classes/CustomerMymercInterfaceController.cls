@@ -19,6 +19,7 @@ public with sharing class CustomerMymercInterfaceController {
     public string myMercId{get;set;}
     public string MyMercEmail{get;set;}
     public string RegOutlet{get;set;}
+	public string loginmobile{get;set;}
     public boolean MyMercVar{get;set;}
     public boolean MyMercEmailVar{get;set;}
     public boolean ContactSectorvar{get;set;}
