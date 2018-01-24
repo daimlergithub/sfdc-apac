@@ -11,4 +11,9 @@ public class UserHelperMY {
     public static void ShareUsersToDealersAfterInsertAndUpdate(List<User> userlist,boolean flag, List<User> oldusrlst){
          UserHelperBase.ShareUsersToDealersAfterInsertAndUpdate(userlist,Trigger.isupdate,oldusrlst);
     }
+	
+	
+	public static void shareRecordsAfterInsertAndUpdate(List<User> userlist,string market){
+         UserHelperBase.shareRecordsAfterInsertAndUpdate(userlist,Market);
+    }
 }

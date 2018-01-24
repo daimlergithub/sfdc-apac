@@ -2,7 +2,7 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <choices>
         <name>Average</name>
-        <choiceText>Average</choiceText>
+        <choiceText>{!LabeforAverage}</choiceText>
         <dataType>String</dataType>
         <value>
             <elementReference>LabeforAverage</elementReference>
@@ -10,7 +10,7 @@
     </choices>
     <choices>
         <name>Beyond_Expectation</name>
-        <choiceText>Beyond Expectation</choiceText>
+        <choiceText>{!LabelforBeyondexpectation}</choiceText>
         <dataType>String</dataType>
         <value>
             <elementReference>LabelforBeyondexpectation</elementReference>
@@ -18,7 +18,7 @@
     </choices>
     <choices>
         <name>Good</name>
-        <choiceText>Good</choiceText>
+        <choiceText>{!LabelforGood}</choiceText>
         <dataType>String</dataType>
         <value>
             <elementReference>LabelforGood</elementReference>
@@ -26,7 +26,7 @@
     </choices>
     <choices>
         <name>Some_what_disappointed</name>
-        <choiceText>Some what disappointed</choiceText>
+        <choiceText>{!LabelforSomewhatdisappointed}</choiceText>
         <dataType>String</dataType>
         <value>
             <elementReference>LabelforSomewhatdisappointed</elementReference>
@@ -34,7 +34,7 @@
     </choices>
     <choices>
         <name>Very_Disapponted</name>
-        <choiceText>Very Disapponted</choiceText>
+        <choiceText>{!LabelforVerydisappointed}</choiceText>
         <dataType>String</dataType>
         <value>
             <elementReference>LabelforVerydisappointed</elementReference>
@@ -50,8 +50,8 @@
     <decisions>
         <name>Start_Star_Assist_Survey</name>
         <label>Start Star Assist Survey</label>
-        <locationX>28</locationX>
-        <locationY>37</locationY>
+        <locationX>4</locationX>
+        <locationY>43</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>Start_Survey</name>
@@ -64,7 +64,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Q1</targetReference>
+                <targetReference>Fetch_Contact_ID</targetReference>
             </connector>
             <label>Start Survey</label>
         </rules>
@@ -416,12 +416,18 @@
     <recordCreates>
         <name>Create_Survey_Taken</name>
         <label>Create Survey Taken</label>
-        <locationX>900</locationX>
-        <locationY>132</locationY>
+        <locationX>905</locationX>
+        <locationY>136</locationY>
         <assignRecordIdToReference>SurveyTakenId</assignRecordIdToReference>
         <connector>
             <targetReference>Create_Survey_Question_Response1</targetReference>
         </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>AccountID</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>Campaign__c</field>
             <value>
@@ -460,14 +466,35 @@
         </inputAssignments>
         <object>SurveyTaker__c</object>
     </recordCreates>
+    <recordLookups>
+        <name>Fetch_Contact_ID</name>
+        <label>Fetch Contact ID</label>
+        <locationX>159</locationX>
+        <locationY>43</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Q1</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LeadID</elementReference>
+            </value>
+        </filters>
+        <object>Lead__c</object>
+        <outputAssignments>
+            <assignToReference>AccountID</assignToReference>
+            <field>Contact__c</field>
+        </outputAssignments>
+    </recordLookups>
     <screens>
         <name>Q1</name>
         <label>Q1</label>
-        <locationX>177</locationX>
-        <locationY>37</locationY>
+        <locationX>291</locationX>
+        <locationY>44</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q2</targetReference>
         </connector>
@@ -491,11 +518,10 @@
     <screens>
         <name>Q2</name>
         <label>Q2</label>
-        <locationX>324</locationX>
-        <locationY>38</locationY>
+        <locationX>421</locationX>
+        <locationY>43</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q3</targetReference>
         </connector>
@@ -519,11 +545,10 @@
     <screens>
         <name>Q3</name>
         <label>Q3</label>
-        <locationX>471</locationX>
-        <locationY>40</locationY>
+        <locationX>549</locationX>
+        <locationY>42</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q4</targetReference>
         </connector>
@@ -547,11 +572,10 @@
     <screens>
         <name>Q4</name>
         <label>Q4</label>
-        <locationX>611</locationX>
+        <locationX>673</locationX>
         <locationY>40</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q5</targetReference>
         </connector>
@@ -575,11 +599,10 @@
     <screens>
         <name>Q5</name>
         <label>Q5</label>
-        <locationX>760</locationX>
-        <locationY>41</locationY>
+        <locationX>796</locationX>
+        <locationY>39</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q6</targetReference>
         </connector>
@@ -603,11 +626,10 @@
     <screens>
         <name>Q6</name>
         <label>Q6</label>
-        <locationX>897</locationX>
-        <locationY>42</locationY>
+        <locationX>919</locationX>
+        <locationY>39</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q7</targetReference>
         </connector>
@@ -635,7 +657,6 @@
         <locationY>39</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Q8</targetReference>
         </connector>
@@ -659,11 +680,10 @@
     <screens>
         <name>Q8</name>
         <label>Q8</label>
-        <locationX>1039</locationX>
-        <locationY>130</locationY>
+        <locationX>1044</locationX>
+        <locationY>135</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <connector>
             <targetReference>Create_Survey_Taken</targetReference>
         </connector>
@@ -674,9 +694,11 @@
         </fields>
         <fields>
             <name>Q8_Radio</name>
-            <dataType>String</dataType>
-            <fieldType>InputField</fieldType>
-            <isRequired>true</isRequired>
+            <defaultValue>
+                <stringValue></stringValue>
+            </defaultValue>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
         </fields>
     </screens>
     <screens>
@@ -686,14 +708,20 @@
         <locationY>248</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
         <fields>
             <name>surveyComplete</name>
-            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:16px&quot; COLOR=&quot;#3366FF&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;B&gt;{!surveyCompleted}&lt;/B&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#0099FF&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!surveyCompleted}&lt;FONT STYLE=&quot;font-size:16px&quot;&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
     </screens>
     <startElementReference>Start_Star_Assist_Survey</startElementReference>
+    <variables>
+        <name>AccountID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
     <variables>
         <name>CampaignID</name>
         <dataType>String</dataType>

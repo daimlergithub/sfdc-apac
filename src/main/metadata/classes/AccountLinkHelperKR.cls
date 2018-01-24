@@ -871,7 +871,7 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                                                     Primary_Address_Reference__r.Address_Line_1__c, Primary_Address_Reference__r.Address_Line_2__c, Primary_Address_Reference__r.ZipCode__c,Agreement_to_commit_info_processing__c,
                                                     Company_Name_Native_1__c, Commercial_Reg_No__c, Vat_No__c,PersonDoNotCall,Visit_Opt_Out__c,Job__c,Company_Name__c,Personal_Abroad_Agreement__c,
                                                     Foundation_Date__c, Website, Primary_Address_Reference__r.CreatedDate,UCID__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
-                                                    Primary_Address_Reference__r.LastModifiedDate,Postal_Opt_Out__c
+                                                    Primary_Address_Reference__r.LastModifiedDate,Postal_Opt_Out__c,Work_Phone_2__c
                                                     from Account WHERE Id IN :AccountIds]);
         System.debug('Accountlinklist------>'+accountMap);
         //Account link iteration
@@ -938,8 +938,11 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Retail_Vat_No__c = accountMap.get(acclnk.toRole__c).Vat_No__c;
                     acclnk.Retail_Industry__c = accountMap.get(acclnk.toRole__c).Industry; 
                     acclnk.Retail_Website__c = accountMap.get(acclnk.toRole__c).website;
-                    acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
-                    acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+                    //acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Individual_Home_Phone__c;
+                    //acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+					acclnk.Retail_Company_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone__c;
+                    acclnk.Retail_Company_Other_Phone__c = accountMap.get(acclnk.toRole__c).Work_Phone_2__c;
+                    acclnk.Retail_Company_Mobile__c = accountMap.get(acclnk.toRole__c).Mobile__c;
                     //acclnk.Retail_DMS_Customer_ID__c = accountMap.get(acclnk.toRole__c).DMS_Customer_ID__c;      
                     acclnk.Retail_Email_OptOut__c = accountMap.get(acclnk.toRole__c).PersonHasOptedOutOfEmail;
                     acclnk.Retail_Fax_OptOut__c = accountMap.get(acclnk.toRole__c).PersonHasOptedOutOfFax;
@@ -1572,7 +1575,10 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
          system.debug('>>>>>>>>>>>>>>>>>>>label.MarketKR'+label.MarketKR);
          
         Map<Id,String> accLinkPosMap = new Map<Id,String>();
-        list<account_link__c> updateList = new List<Account_link__c>();
+        Map<Id,Id> accLinkFromToRoleMapC2C = new Map<Id,Id>();
+        Map<Id,Id> accLinkFromToRoleMapComp = new Map<Id,Id>();
+		List <id>accLinkId = new List<Id>();
+		list<account_link__c> updateList = new List<Account_link__c>();
         if((isInsert || isUpdate) && isAfter ){
         system.debug('>>>>>>>>>>>>>>>>>>>');
             for(Account_Link__c accLink : accLst){
@@ -1584,6 +1590,44 @@ public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean i
                     accLinkPosMap.put(accLink.toRole__c,accLink.position__c);
                     accLinkPosMap.put(accLink.fromRole__c,accLink.Position__c);
                 }
+				if(accLink.RecordtypeId == AccountLink_Contact2ContactRecordTypeId  && accLink.MD__c == label.MarketKR){
+                 accLinkFromToRoleMapC2C.put(accLink.toRole__c,accLink.fromRole__c);
+                 }
+                 if(accLink.RecordtypeId == AccountLink_RetailCompanyRecordTypeId && accLink.MD__c == label.MarketKR){
+                 accLinkFromToRoleMapComp.put(accLink.toRole__c,accLink.fromRole__c);
+                 accLinkId.add(accLink.Id);
+                 }
+            }
+			//Changes by Monalisa For SFDCKR-1633
+			if(accLinkFromToRoleMapC2C.size()>0){
+             List<Account_Link__c> retailCopyCompAccLinks =new  List<Account_Link__c> ();
+             List<Account_Link__c> retailCopyPersonAccLinks = [SELECT Id,Retail_Related_Company__c,fromRole__c,toRole__c FROM Account_Link__c WHERE toRole__c =:accLinkFromToRoleMapC2C.keySet() AND recordTypeId =: AccountLink_RetailPersonRecordTypeId AND Retail_Related_Company__c=NULL];
+                   if(retailCopyPersonAccLinks.size()>0){
+                    for(Account_Link__c acc : retailCopyPersonAccLinks){
+                        retailCopyCompAccLinks = [SELECT Id,fromRole__c,toRole__c FROM Account_Link__c WHERE toRole__c =:accLinkFromToRoleMapC2C.values()  AND recordTypeId =: AccountLink_RetailCompanyRecordTypeId AND fromRole__c=:acc.fromRole__c];
+                        System.debug('retailCopyCompAccLinks------>'+retailCopyCompAccLinks );
+                        if(retailCopyCompAccLinks.size()>0){
+                            acc.Retail_Related_Company__c=retailCopyCompAccLinks[0].Id;
+                            updateList.add(acc);
+                        }
+                    
+                     }   
+                 }
+            }
+            if(accLinkFromToRoleMapComp.size()>0){
+                 List<Account_Link__c> personAccountlinklist=new  List<Account_Link__c> ();
+                 List<Account_Link__c> AccountlinkC2Clist = [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE  fromRole__c =: accLinkFromToRoleMapComp.keySet() AND RecordTypeID =: AccountLink_Contact2ContactRecordTypeId AND Retail_Delete_Flag__c = false limit 1];
+                     System.debug('AccountlinkC2Clist------>'+AccountlinkC2Clist );
+                     if(AccountlinkC2Clist.size()>0){                    
+                     personAccountlinklist= [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: accLinkFromToRoleMapComp.values() AND toRole__c =: AccountlinkC2Clist[0].toRole__c AND RecordTypeID =: AccountLink_RetailPersonRecordTypeId  AND Retail_Delete_Flag__c = false];
+                      }
+                       System.debug('personAccountlinklist------>'+personAccountlinklist );
+                       if(personAccountlinklist.size()>0){
+                       for(Account_Link__c acc : personAccountlinklist){
+                            acc.Retail_Related_Company__c=accLinkId[0];
+                            updateList.add(acc);
+                          }
+                      }
             }
             if(accLinkPosMap.size()>0){
                 List<Account_Link__c> retailCopyAccLinks = [SELECT Id,Position__C,fromRole__c,toRole__c FROM Account_Link__c WHERE toRole__c IN: accLinkPosMap.keySet() AND (recordTypeId =: AccountLink_RetailPersonRecordTypeId OR recordTypeId =: AccountLink_RetailCompanyRecordTypeId)];

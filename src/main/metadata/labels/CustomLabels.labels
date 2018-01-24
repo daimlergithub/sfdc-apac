@@ -2835,6 +2835,22 @@
         <value>Please check　New customer related information distribution notification .</value>
     </labels>
     <labels>
+        <fullName>Email_Case_CustomerInfo</fullName>
+        <categories>Email, Case, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_CustomerInfo</shortDescription>
+        <value>This is information from customer calling in or customer opinion or related information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Numberof</fullName>
+        <categories>Email, Case, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Numberof</shortDescription>
+        <value>Number of Cases: 1 Case</value>
+    </labels>
+    <labels>
         <fullName>Email_Case_Record</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3420,6 +3436,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Finance Proposal</shortDescription>
         <value>Finance Proposal</value>
+    </labels>
+	 <labels>
+        <fullName>Handover</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Handover</shortDescription>
+        <value>Handover</value>
     </labels>
     <labels>
         <fullName>First</fullName>
@@ -7842,7 +7865,7 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q2.1 E P1</shortDescription>
-        <value>Your First name is สมหญิง พุ่มทอง</value>
+        <value>Your First name is</value>
     </labels>
     <labels>
         <fullName>S5_Q2_1_E_P2</fullName>
@@ -10282,6 +10305,34 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Work Phone</shortDescription>
         <value>Work Phone</value>
     </labels>
+	 <labels>
+        <fullName>Work_Phone_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone 2</shortDescription>
+        <value>Work Phone 2</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Company_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Phone</shortDescription>
+        <value>Retail Company Phone</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Company_Other_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Other Phone</shortDescription>
+        <value>Retail Company Other Phone</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Company_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Mobile</shortDescription>
+        <value>Retail Company Mobile</value>
+    </labels>
 	<labels>
         <fullName>Work_Phone_should_be_less_than_or_equal_to_11_digits</fullName>
         <language>en_US</language>
@@ -10810,6 +10861,27 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>please input &quot;My Mercedes Email Id&quot;</shortDescription>
         <value>please input &quot;My Mercedes Email Id&quot;</value>
+    </labels>
+	  <labels>
+        <fullName>Please_Input_MyMercedes_Email_Id_or_Login_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please input &quot;My Mercedes Email Id&quot; or &quot;Login Mobile&quot;</shortDescription>
+        <value>Please input &quot;My Mercedes Email Id&quot; or &quot;Login Mobile&quot;</value>
+    </labels>
+	 <labels>
+        <fullName>Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Did you Get Agreement From Customer? Login Mobile is a mandatory for Concierge S</shortDescription>
+        <value>Did you Get Agreement From Customer?Login Mobile is a mandatory for Concierge Service</value>
+    </labels>
+	 <labels>
+        <fullName>Please_input_proper_Mobile_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please input proper Mobile number</shortDescription>
+        <value>Please input proper Mobile number</value>
     </labels>
     <labels>
         <fullName>purchased_vehicle_related_information</fullName>

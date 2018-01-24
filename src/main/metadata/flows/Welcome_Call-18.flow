@@ -373,8 +373,8 @@
     <decisions>
         <name>Decision3_0</name>
         <label>Decision Yes/No</label>
-        <locationX>507</locationX>
-        <locationY>608</locationY>
+        <locationX>428</locationX>
+        <locationY>624</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>If_Yes_0</name>
@@ -440,6 +440,43 @@
             </conditions>
             <connector>
                 <targetReference>Q2_6_LT</targetReference>
+            </connector>
+            <label>If No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Decision3_0_0_0</name>
+        <label>Decision Yes/No</label>
+        <locationX>500</locationX>
+        <locationY>509</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>If_Yes_0_0_0</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Q2_1_Radio_3_0_0</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>YesEngThai</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Q3_S</targetReference>
+            </connector>
+            <label>If Yes</label>
+        </rules>
+        <rules>
+            <name>If_No_0_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Q2_1_Radio_3_0_0</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>NoEngThai</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Q2_6_TH_0</targetReference>
             </connector>
             <label>If No</label>
         </rules>
@@ -632,8 +669,8 @@
     <decisions>
         <name>Decision3_1</name>
         <label>Decision3</label>
-        <locationX>201</locationX>
-        <locationY>419</locationY>
+        <locationX>132</locationX>
+        <locationY>418</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>If_No_1</name>
@@ -699,6 +736,43 @@
             </conditions>
             <connector>
                 <targetReference>Q2_6_LT</targetReference>
+            </connector>
+            <label>Email absent</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Decision_Email_Null_0</name>
+        <label>Decision Email Null</label>
+        <locationX>808</locationX>
+        <locationY>509</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Email_present_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>EmailId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Q2_6_extra_0</targetReference>
+            </connector>
+            <label>Email present</label>
+        </rules>
+        <rules>
+            <name>Email_absent_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>EmailId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Q2_6_TH_0</targetReference>
             </connector>
             <label>Email absent</label>
         </rules>
@@ -916,8 +990,8 @@
     <decisions>
         <name>testprofile_3_3</name>
         <label>testprofile</label>
-        <locationX>790</locationX>
-        <locationY>419</locationY>
+        <locationX>782</locationX>
+        <locationY>416</locationY>
         <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
         <rules>
             <name>SA_3_3</name>
@@ -930,7 +1004,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Q2_6_TH_0</targetReference>
+                <targetReference>Decision_Email_Null_0</targetReference>
             </connector>
             <label>SA</label>
         </rules>
@@ -3483,7 +3557,7 @@
         </fields>
         <fields>
             <name>nation_dis</name>
-            <fieldText>{!LabelS5_Your_Nationaliy_is} {!nation}</fieldText>
+            <fieldText>{!LabelS5_Your_Nationaliy_is} {!Nationality1}</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
@@ -3603,7 +3677,7 @@
     <screens>
         <name>Q2_6_extra</name>
         <label>Q2.6 extra</label>
-        <locationX>501</locationX>
+        <locationX>500</locationX>
         <locationY>307</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3635,9 +3709,43 @@
         </fields>
     </screens>
     <screens>
+        <name>Q2_6_extra_0</name>
+        <label>Q2.6 extra</label>
+        <locationX>650</locationX>
+        <locationY>505</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <connector>
+            <targetReference>Decision3_0_0_0</targetReference>
+        </connector>
+        <fields>
+            <name>thaiemail_0</name>
+            <fieldText>{!LabelS5_Q2_6_T_LT_P1} {!LabelS5_Q2_6_T_LT_P2} {!EmailId}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>emailltp1_0</name>
+            <fieldText>{!LabelS5_Q2_6_E_LT_P1} {!EmailId}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Q2_1_Correct_3_0_0</name>
+            <fieldText>{!CorrectEngThai}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Q2_1_Radio_3_0_0</name>
+            <choiceReferences>YesET</choiceReferences>
+            <choiceReferences>NoET</choiceReferences>
+            <dataType>String</dataType>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <screens>
         <name>Q2_6_LT</name>
         <label>Q2.6 LT</label>
-        <locationX>361</locationX>
+        <locationX>310</locationX>
         <locationY>421</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -3664,8 +3772,8 @@
     <screens>
         <name>Q2_6_TH_0</name>
         <label>Q2.6 TH</label>
-        <locationX>793</locationX>
-        <locationY>520</locationY>
+        <locationX>812</locationX>
+        <locationY>611</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -3737,8 +3845,8 @@
     <screens>
         <name>Q2_8_LT</name>
         <label>Q2.8 LT</label>
-        <locationX>201</locationX>
-        <locationY>515</locationY>
+        <locationX>128</locationX>
+        <locationY>508</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -3871,16 +3979,16 @@
             <isRequired>false</isRequired>
         </fields>
         <fields>
-            <name>a3</name>
+            <name>a4</name>
             <dataType>String</dataType>
-            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!LabelS5_Block}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!LabelS5_Town}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
         <fields>
-            <name>a4</name>
+            <name>a3</name>
             <dataType>String</dataType>
-            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!LabelS5_Town}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!LabelS5_Block}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
@@ -3902,8 +4010,8 @@
     <screens>
         <name>Q3_S</name>
         <label>Q3 S</label>
-        <locationX>373</locationX>
-        <locationY>518</locationY>
+        <locationX>327</locationX>
+        <locationY>517</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -3931,8 +4039,8 @@
     <screens>
         <name>Q4</name>
         <label>Q4</label>
-        <locationX>372</locationX>
-        <locationY>608</locationY>
+        <locationX>267</locationX>
+        <locationY>628</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -3955,8 +4063,8 @@
     <screens>
         <name>Q4_A</name>
         <label>Q4_A</label>
-        <locationX>657</locationX>
-        <locationY>607</locationY>
+        <locationX>595</locationX>
+        <locationY>632</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <connector>
@@ -4053,7 +4161,7 @@
         <allowFinish>true</allowFinish>
         <fields>
             <name>surveycompleted</name>
-            <fieldText>{!LabelSurveyCompleted}</fieldText>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:18px&quot; COLOR=&quot;#0099FF&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;{!LabelSurveyCompleted}&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
     </screens>
@@ -4175,7 +4283,7 @@
     </textTemplates>
     <textTemplates>
         <name>res30</name>
-        <text>{!a11} {!a2} {!a3} {!a4} {!a5} - {!a6}</text>
+        <text>{!a11} {!a2} {!a4} {!a3} {!a5} - {!a6}</text>
     </textTemplates>
     <textTemplates>
         <name>Thankyou</name>

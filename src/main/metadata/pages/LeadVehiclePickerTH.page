@@ -128,7 +128,10 @@
        /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle1 != undefined){
            $scope.vehicleCurrent1DetailText = "Edit";
-           $scope.CurrentVehicle1Details = $scope.leadVehicles.CurrentVehicle1.Brand +' ' +$scope.leadVehicles.CurrentVehicle1.Class + ' ' + $scope.leadVehicles.CurrentVehicle1.Model;
+           var currVeh1Brand=$scope.leadVehicles.CurrentVehicle1.Brand!=null ? $scope.leadVehicles.CurrentVehicle1.Brand : '';
+           var currVeh1Class=$scope.leadVehicles.CurrentVehicle1.Class!=null ? $scope.leadVehicles.CurrentVehicle1.Class : '';
+           var currVeh1Model=$scope.leadVehicles.CurrentVehicle1.Model!=null ? $scope.leadVehicles.CurrentVehicle1.Model : '';
+           $scope.CurrentVehicle1Details = currVeh1Brand+' '+currVeh1Class+' '+currVeh1Model;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -161,7 +164,10 @@
        /*CURRENT VEHICLE2 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle2 != undefined){
            $scope.vehicleCurrent2DetailText = "Edit";
-           $scope.CurrentVehicle2Details = $scope.leadVehicles.CurrentVehicle2.Brand +' ' +$scope.leadVehicles.CurrentVehicle2.Class + ' ' + $scope.leadVehicles.CurrentVehicle2.Model;
+           var currVeh2Brand=$scope.leadVehicles.CurrentVehicle2.Brand!=null ? $scope.leadVehicles.CurrentVehicle2.Brand : '';
+           var currVeh2Class=$scope.leadVehicles.CurrentVehicle2.Class!=null ? $scope.leadVehicles.CurrentVehicle2.Class : '';
+           var currVeh2Model=$scope.leadVehicles.CurrentVehicle2.Model!=null ? $scope.leadVehicles.CurrentVehicle2.Model : '';
+           $scope.CurrentVehicle2Details = currVeh2Brand+' '+currVeh2Class+' '+currVeh2Model;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -194,7 +200,10 @@
        /*TradeIn Vehicle : Vehicle Intitialization details*/
        if($scope.leadVehicles.TradeIn != undefined){
            $scope.tradeInVehicleDetailText = "Edit";
-           $scope.tradeInVehicleDetails = $scope.leadVehicles.TradeIn.Brand +' ' +$scope.leadVehicles.TradeIn.Class + ' ' + $scope.leadVehicles.TradeIn.Model;
+           var tradeInVehBrand=$scope.leadVehicles.TradeIn.Brand!=null ? $scope.leadVehicles.TradeIn.Brand : '';
+           var tradeInVehClass=$scope.leadVehicles.TradeIn.Class!=null ? $scope.leadVehicles.TradeIn.Class : '';
+           var tradeInVehModel=$scope.leadVehicles.TradeIn.Model!=null ? $scope.leadVehicles.TradeIn.Model : '';
+           $scope.tradeInVehicleDetails = tradeInVehBrand+' '+tradeInVehClass+' '+tradeInVehModel;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;
@@ -227,7 +236,10 @@
        /*Purchased Vehicle : Vehicle Intitialization details*/
        if($scope.leadVehicles.PurchasedVehicle != undefined){
            $scope.purchasedVehicleDetailText = "Edit";
-           $scope.purchasedVehicleDetails = $scope.leadVehicles.PurchasedVehicle.Brand +' ' +$scope.leadVehicles.PurchasedVehicle.Class + ' ' + $scope.leadVehicles.PurchasedVehicle.Model;
+           var purchasedVehBrand=$scope.leadVehicles.PurchasedVehicle.Brand!=null ? $scope.leadVehicles.PurchasedVehicle.Brand : '';
+           var purchasedVehClass=$scope.leadVehicles.PurchasedVehicle.Class!=null ? $scope.leadVehicles.PurchasedVehicle.Class : '';
+           var purchasedVehModel=$scope.leadVehicles.PurchasedVehicle.Model!=null ? $scope.leadVehicles.PurchasedVehicle.Model : '';
+           $scope.purchasedVehicleDetails = purchasedVehBrand+' '+purchasedVehClass+' '+purchasedVehModel;
            $scope.checkedVehicleId;
            $scope.vehicleText = "(no vehicle entered)";
            $scope.vehicleDetail = false;

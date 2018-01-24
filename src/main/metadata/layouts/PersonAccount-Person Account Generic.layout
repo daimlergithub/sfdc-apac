@@ -27,14 +27,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>LastName_Native_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>FirstName_Native_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Status__c</field>
             </layoutItems>
             <layoutItems>
@@ -65,17 +57,10 @@
                 <behavior>Edit</behavior>
                 <field>Race__c</field>
             </layoutItems>
+			
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Opt_In_SMS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>PersonDoNotCall</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>PersonHasOptedOutOfEmail</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -84,7 +69,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -113,6 +98,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Special_Care__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -323,6 +312,13 @@
             <layoutItems>
                 <height>200</height>
                 <page>RetailCopyOnlyRelatedList</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>200</height>
+                <page>RetailCopyViewAreaForDealerUser</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>

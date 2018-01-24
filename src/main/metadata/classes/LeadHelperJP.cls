@@ -718,10 +718,10 @@ public class LeadHelperJP
                     }
                     }
                     
-                    if(emaLeds.CAC_Lead_Status__c == 'Allocated' && (isInsert || (isUpdate && (emaLeds.CAC_Lead_Status__c != leadOldMap.get(emaLeds.id).CAC_Lead_Status__c))))
-                    {
+                    //if(emaLeds.CAC_Lead_Status__c == 'Allocated' && (isInsert || (isUpdate && (emaLeds.CAC_Lead_Status__c != leadOldMap.get(emaLeds.id).CAC_Lead_Status__c))))
+                    //{
                         emaLeds.Lead_Assignment_Notification_Done__c = True;
-                    }
+                   // }
                 }
                 // Commented below and achived this through workflow rulw
                 /*if(emaLeds.Service_Advisor__c != null && emaLeds.Service_Advisor__c != Userinfo.getUserId() && emaLeds.Person_Assign_Notificaton_Done__c == false)
@@ -755,20 +755,20 @@ public class LeadHelperJP
             }
             Catch(Exception exe)
             {
-                
+               
             }
         }
         system.debug('updateLeadLists++++++++++'+updateLeadLists);
         if(updateLeadLists.size()>0)
         {
-            try  
-            {
+            //try  
+            //{
                 update updateLeadLists; 
-            }
-            Catch(Exception excep)
-            {
-                
-            }                     
+            //}
+            //Catch(Exception excep)
+            //{
+            //System.debug('@@#@#@#@#@#@#@#@#'+excep.getMessage());    
+            //}                     
         }
     }     
          public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)

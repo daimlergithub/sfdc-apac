@@ -578,9 +578,9 @@
                                     <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>                                   
                                     <option value="Status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
                                     <option value="Gender__c">{!$ObjectType.Account.Fields.Gender__c.Label}</option>
-                                    <option value="Personal_Agreement__c">{!$ObjectType.Account.Fields.Personal_Agreement__c.Label}</option>
+                                    <option value="Personal_Agreement__c">Consent Status</option>
                                     <option value="Hobby__c">{!$ObjectType.Account.Fields.Hobby__c.Label}</option>
-                                    <option value="ID_Type__c">{!$ObjectType.Account.Fields.ID_Type__c.Label}</option>
+                                    <option value="ID_Type__c">Nationality</option>
                                     <option value="Customer_Lifecycle_Phase__c">{!$Label.Customer_Stage}</option>
                                 </select>
                             </td>
@@ -665,15 +665,16 @@
                             <td>
                                 <select onchange="showCriteria(this);"> 
                                     <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
-                                    <option value="Retail_Sales_Consultant__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}</option>
-                                    <option value="Selling_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}</option>
-                                    <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
+                                    <option value="Retail_Sales_Consultant__c"> Sales Rep</option>
+                                    <option value="Selling_Dealer__c">Sales dealer</option>
+                                    <!-- SFDCTH-668-->
+                                    <!--<option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
                                     <option value="Retail_Sales_Sanction__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Sanction__c.Label}</option>
                                     <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
                                     <option value="Retail_Phone_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Phone_OptOut__c.Label}</option>
                                     <option value="Retail_Fax_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Fax_OptOut__c.Label}</option>
                                     <option value="Retail_Email_OptOut__c">{!$Label.Retail_Email_OptOut}</option>
-                                    <option value="Retail_OptOutContact_Reason__c">{!$ObjectType.Account_Link__c.Fields.Retail_OptOutContact_Reason__c.Label}</option>
+                                    <option value="Retail_OptOutContact_Reason__c">{!$ObjectType.Account_Link__c.Fields.Retail_OptOutContact_Reason__c.Label}</option>-->
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -691,9 +692,9 @@
                                 <input class="inputText" type="text" style="display:block;"/>
                                <!-- <apex:inputField value="{!AlkRec.Sales_Representative__c}" styleClass="Sales_Representative__c"/>-->                        
                                <!--<apex:inputField value="{!AlkRec.Retail_OptOutContact_Reason__c}" styleClass="Retail_OptOutContact_Reason__c"/> -->
-                              <apex:selectList styleClass="Retail_Sales_Sanction__c" size="1" multiselect="false">
+                              <!--<apex:selectList styleClass="Retail_Sales_Sanction__c" size="1" multiselect="false">
                                     <apex:selectOptions value="{!RetailSalesSanction}"></apex:selectOptions>
-                                </apex:selectList>                                                              
+                                </apex:selectList>    -->                                                          
                              
                               
                              <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="5" multiselect="true">
@@ -801,14 +802,14 @@
                             <td>{!$ObjectType.Vehicle__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                   <option value="Car_Model__r.Model_Name__c">{!$ObjectType.Car_Model__c.Fields.Model_Name__c.Label}</option>                                                                     
-                                   <option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>   
-                                   <option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>                                                                     
-                                   <option value="Modification_Package__c">{!$ObjectType.Vehicle__c.Fields.Modification_Package__c.Label}</option>
+                                   <option value="Car_Model__r.Model_Name__c">Model</option>                                                                     
+                                   <!--<option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>-->
+                                   <!--<option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>-->                                                                     
+                                   <!--<option value="Modification_Package__c">{!$ObjectType.Vehicle__c.Fields.Modification_Package__c.Label}</option>-->
                                    <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
-                                   <option value="Handover_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Handover_Date__c.Label}</option>
-                                   <option value="Recall_No__c">{!$ObjectType.Recall__c.Fields.Recall_No__c.Label}</option> 
-                                   <option value="Status__c">{!$Label.Recall_Status}</option> 
+                                   <option value="Handover_Date__c">Delivery (Hand Over Date) Date From To</option>
+                                   <!--<option value="Recall_No__c">{!$ObjectType.Recall__c.Fields.Recall_No__c.Label}</option> -->
+                                   <!--<option value="Status__c">{!$Label.Recall_Status}</option> -->
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -859,8 +860,8 @@
                             <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
-                                    <option value="End_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}</option>    
+                                    <option value="New_Used__c">New Used</option>
+                                    <option value="End_Date__c">EndDate</option>    
                                     <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->
                                     <!--<option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option> -->                                                               
                                 </select>
@@ -913,15 +914,15 @@
                             <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);">                                                                     
-                                    <option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>
-                                    <option value="Service_Advisor__c">{!$ObjectType.Account_Link__c.Fields.Service_Advisor__c.Label}</option>
+                                    <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
+                                    <option value="Service_Advisor__c">Service Rep</option>
                                     <option value="LastServiceDate__c">{!$Label.Last_Service_Date}</option>                              
                                     <option value="NextServiceDate__c">{!$ObjectType.Account_Link__c.Fields.NextServiceDate__c.Label}</option>
-                                    <option value="NextInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}</option>
-                                    <option value="CurrentMileage__c">{!$ObjectType.Account_Link__c.Fields.CurrentMileage__c.Label}</option> 
+                                    <!--<option value="NextInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}</option>-->
+                                    <option value="CurrentMileage__c">Mileage From To</option> 
                                     <option value="Service_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}</option> 
-                                    <option value="LastWorkDate__c">{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}</option>
-                                    <option value="LastInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}</option>
+                                    <!--<option value="LastWorkDate__c">{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}</option>-->
+                                    <!--<option value="LastInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}</option>-->
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -1097,10 +1098,10 @@
                             <td>
                                 <select onchange="showCriteria(this);"> 
                                    
-                                   <option value="ZipCode__c">{!$ObjectType.Address__c.Fields.ZipCode__c.Label}</option>                                                                     
-                                    <!--<option value="Province__c">{!$ObjectType.Address__c.Fields.Province__c.Label}</option> -->   
-                                    <option value="District__c">{!$ObjectType.Address__c.Fields.District__c.Label}</option>                                
-                                    <option value="Sub_District__c">{!$ObjectType.Address__c.Fields.Sub_District__c.Label}</option>                              
+                                   <option value="ZipCode__c">Postal code and Prefecture</option>                                                                     
+                                    <option value="Province__c">Province</option> 
+                                    <option value="District__c">District</option>                                
+                                    <option value="Sub_District__c">Sub District</option>                              
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -1116,15 +1117,17 @@
                             <td class="criteria">
                                 <input class="inputText" type="text" />
                                 
-                               <!--<apex:selectList styleClass="Province__c" size="1" multiselect="false" >
+                               <apex:selectList styleClass="Province__c" size="1" multiselect="false" >
                                     <apex:selectOptions value="{!provincemodel}"></apex:selectOptions>
-                                </apex:selectList>-->
+                                </apex:selectList>
                                 <apex:inputField value="{!address.ZipCode__c}" styleClass="ZipCode__c" style="display:block;"/> 
                                   <apex:inputField value="{!address.District__c}" styleClass="District__c"/>
                                   <apex:inputField value="{!address.Sub_District__c}" styleClass="Sub_District__c"/>
-                                 <!-- <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/> -->  
+                                 <apex:inputField value="{!address.Province__c}" styleClass="Province__c"/> 
                                   
                             </td>
+                            <td><apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/></td>
+                            <td><apex:inputField value="{!address.Market__c}" styleClass="Address__c"/></td>
                             <td></td>
                             <td></td>
                             <td class="logic"></td>
@@ -1224,9 +1227,9 @@
                             <apex:column headerValue="{!$ObjectType.Car_Model__c.Fields.Model_Name__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Car_Model__r.Model_Name__c}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                            <!--<apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Model_Description__c}"/> 
-                            </apex:column>
+                            </apex:column>-->
                             <!--<apex:column headerValue="{!$ObjectType.Recall__c.Fields.Status__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.recall.Status__c}"/> 
                             </apex:column>-->
@@ -1245,15 +1248,15 @@
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextServiceDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.accLink.NextServiceDate__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                            <!--<apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.accLink.NextInspectionDate__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
-                            </apex:column>
+                            </apex:column>-->
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.accLink.Service_Dealer__c}" rendered="{!wrapAcc.accLink != NULL}"/> 
                             </apex:column>
-                            <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                            <!--<apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.accLink.LastWorkDate__c}" rendered="{wrapAcc.accLink != null}"/> 
-                            </apex:column>
+                            </apex:column>-->
                             <apex:column headerValue="{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.accLink.LastInspectionDate__c}" rendered="{wrapAcc.accLink != null}"/> 
                             </apex:column>

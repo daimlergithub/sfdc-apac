@@ -451,20 +451,31 @@
                             <apex:inputText value="{!workPhoneAreaCodePart3}" id="workPhoneAreaCodePart3" style="width:60px"/>
                         </apex:outputPanel>                   
                    </apex:pageBlockSectionItem>  
-                   <apex:inputField value="{!objAccount.Email__c}" />          
-                   <apex:inputField value="{!objAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                 
-                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>            
-                   <apex:inputField value="{!objAccount.Fax}" />
+                   <!-- added by Monalisa-->
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone_2__c.Label}" />                        
+                          <apex:outputPanel >
+                            <apex:selectList value="{!workPhone2AreaCodePart1}" size="1" style="width:80px">
+                                <apex:selectOptions value="{!areacodeItems}"/>
+                           </apex:selectList>                                          
+                            <apex:inputText value="{!workPhone2AreaCodePart2}" id="workPhone2AreaCodePart2" style="width:60px"/>
+                            <apex:inputText value="{!workPhone2AreaCodePart3}" id="workPhone2AreaCodePart3" style="width:60px"/>
+                        </apex:outputPanel>                   
+                   </apex:pageBlockSectionItem>                
+                   <apex:inputField value="{!objAccount.Email__c}" /> 
+                   <apex:inputField value="{!objAccount.Fax}" />                              
+                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/>             
                    <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" rendered="{!if(Market =='KR',True,false)}"/>
                    <apex:inputField value="{!objAccount.Vat_No__c}" rendered="{!if(Market =='KR',True,false)}"/>        
-                   <apex:inputField value="{!objAccount.VIN__c}" />
+                   <!--<apex:inputField value="{!objAccount.VIN__c}" />-->
                    <!--Commented by Santosh Mohanty-->
                    <!--<apex:outputField value="{!objAccount.Market__c }" />-->
                    <!--MD Changes added by Santosh Mohanty-->
                     <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
                        <apex:inputField value="{!objAccount.Market__c}"/>
-                    </apex:pageBlockSectionItem>     
+                    </apex:pageBlockSectionItem>
+                    <apex:inputField value="{!objAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                      
                 </apex:pageBlockSection>       
         <!--  KOREA MARKET Company Account - End -->
          
@@ -1401,9 +1412,16 @@
                             <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}" rendered="{!recordType == 'Person Account'}">                    
                                 <apex:outputField value="{!Th.firstName}"/>
                             </apex:Column>
-                            <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!recordType == 'Company'}">                    
-                                <apex:outputLink value="/{!Th.Id}">{!Th.Name}</apex:outputLink>
+							
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!($User.ContactId !=null && recordType == 'Company')}">                    
+                                <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.Name}</apex:outputLink>
                             </apex:Column>
+							
+							
+                            <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!($User.ContactId ==null && recordType ==  'Company')}">                    
+                                <apex:outputLink value="/{!Th.Id}"  rendered="{!$User.ContactId ==null}">{!Th.Name}</apex:outputLink>
+                            </apex:Column>
+							
                             <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">                    
                                 <apex:outputField value="{!Th.UCID__c}"/>
                             </apex:Column>

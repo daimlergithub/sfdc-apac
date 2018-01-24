@@ -17,7 +17,7 @@ Public class RetailtaskInlineEditController{
             }
             system.debug('>>> :'+us.Dealer_GC_Code__c);
             system.debug('>>> :'+retailtask.Related_Dealer__r.Dealer_GC_Code__c);
-            If((us.Dealer_GC_Code__c == retailtask.Related_Dealer__r.Dealer_GC_Code__c ) || us.profile.name=='System Administrator' || us.profile.name=='IntegrationAPI' || MBFMBJ == TRUE )
+            If((us.Dealer_GC_Code__c == retailtask.Related_Dealer__r.Dealer_GC_Code__c ) || us.profile.name=='System Administrator' || us.profile.name=='IntegrationAPI' || us.profile.name == 'MBK Support Profile' || MBFMBJ == TRUE )
             {
                 system.debug('I am here too');
                 ShowAmount=true;

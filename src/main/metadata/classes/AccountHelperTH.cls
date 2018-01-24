@@ -40,7 +40,7 @@ public class AccountHelperTH{
                 {accid.add(acc.Id);}
         }
         if (accid.size() > 0 && !accid.isEmpty())
-            Acclink = [select name, Retail_DMS_Customer_ID__c, Retail_UCID__c, toRole__c from Account_link__c where toRole__c in: accid LIMIT 49999];
+            Acclink = [select name, Retail_DMS_Customer_ID__c, Retail_UCID__c, toRole__c from Account_link__c where toRole__c in: accid AND fromRole__r.Dealer_Rollout_Status__c ='Done' LIMIT 49999];
         if (Acclink.size() > 0 && !Acclink.isEmpty()) {
             for (Account_Link__c all: Acclink) {
                 if ((all.Retail_DMS_Customer_ID__c == '' || all.Retail_DMS_Customer_ID__c == null) && (all.Retail_UCID__c == '' || all.Retail_UCID__c == null))
@@ -846,8 +846,8 @@ public class AccountHelperTH{
                 acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing2__c;                
                 acclnk.Retail_Work_Phone__c = acclnk.toRole__r.Work_Phone__c;
 				acclnk.Retail_Individual_Home_Phone__c = acclnk.toRole__r.Individual_Home_Phone__c;
-                acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
-                acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
+                
+                
                 acclnk.Retail_Prefered_Radiostation__c= acclnk.toRole__r.Preferred_Radio_Station__c;
                 acclnk.Retail_Agreement__c= acclnk.toRole__r.Personal_Agreement__c;
                 acclnk.Retail_First_Consent_Date__c= acclnk.toRole__r.First_Consent_Date__c;
@@ -878,6 +878,7 @@ public class AccountHelperTH{
                 
             }//End if for Company record type
 			acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;
+			acclnk.Retail_Email__c = acclnk.toRole__r.Email__c;
 			acclnk.Retail_Mobile__c = acclnk.toRole__r.Mobile__c;
             acclnk.LastModifiedDate__c = acclnk.toRole__r.LastmodifiedDate;
             acclnk.createddate__c = acclnk.toRole__r.createdDate;
@@ -885,6 +886,7 @@ public class AccountHelperTH{
             acclnk.Retail_Website__c = acclnk.toRole__r.website;
             acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
             acclnk.Retail_Phone_OptOut__c= acclnk.toRole__r.PersonDoNotCall;
+			acclnk.Retail_Race__c= acclnk.toRole__r.MBTH_Nationality__c;
 			acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
 
             //Checking Null for sales Address 

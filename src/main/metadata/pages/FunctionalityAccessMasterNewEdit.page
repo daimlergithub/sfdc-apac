@@ -5,17 +5,17 @@
     
         <apex:pageBlock title="Functionality Access Master">
         <apex:pageMessages ></apex:pageMessages>
-        <apex:pageBlockSection columns="1">
+        <apex:pageBlockSection columns="2">
         <apex:inputField value="{!oFAM.Module_Name__c}"/>
         <apex:inputField value="{!oFAM.Description__c}"/>
-            <c:MultiselectPicklistForPersona leftLabel="Available Permission Sets"
+        <c:MultiselectPicklistForPersona leftLabel="Available Permission Sets"
                 leftOptions="{!availablePermissionSets}"
                 rightLabel="Selected Permissionsets"
                 rightOptions="{!selectedPermissionSets}"
-                size="14"
-                width="150px"/>
-                </apex:pageBlockSection>
-            <apex:pageBlockButtons >
+                size="14" 
+                width="325px"/>
+         </apex:pageBlockSection>
+         <apex:pageBlockButtons >
                 <apex:commandButton value="Save" action="{!saveRecord}"/>
                 <apex:commandButton value="Cancel" action="{!cancel}"/>
             </apex:pageBlockButtons>

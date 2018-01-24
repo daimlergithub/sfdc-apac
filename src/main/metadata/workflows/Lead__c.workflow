@@ -973,6 +973,15 @@ First_Contact_Customer_Date__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Proxy_Lost_Dealer_date_timr</fullName>
+        <field>Lost_Dealer_Date_Time__c</field>
+        <formula>IF ( MD__c = 'KR',if(!isblank( Lost_Dealer_Date_Time__c ), Lost_Dealer_Date_Time__c,NOW()),Lost_Dealer_Date_Time__c)</formula>
+        <name>Update Proxy Lost(Dealer) date timr</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_Order_Placed</fullName>
         <field>Order_Placed_Date__c</field>
@@ -1350,7 +1359,7 @@ Purchased_Date_Time__c
             <name>LeadAssignmentNotificationDealerUsersTH</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(MD__c = 'TH', ISPICKVAL( Owner:User.UserType,'PowerPartner'),OR(isnew(),ischanged(OwnerId )))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -1360,7 +1369,7 @@ Purchased_Date_Time__c
             <name>LeadAssignmentNotificationWholeSaleUsersTH</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(MD__c = 'TH', NOT(ISPICKVAL( Owner:User.UserType,'PowerPartner')),OR(isnew(),ischanged(OwnerId )))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -1682,7 +1691,7 @@ Purchased_Date_Time__c
             <name>Update_dealer_status_to_Ongoing</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <booleanFilter>1 AND 3 AND (2 OR 4)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
@@ -2530,6 +2539,10 @@ Modify Reason:
         </actions>
         <actions>
             <name>Update_Proxy_Date_Time_to_Lost_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+		<actions>
+            <name>Update_Proxy_Lost_Dealer_date_timr</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>

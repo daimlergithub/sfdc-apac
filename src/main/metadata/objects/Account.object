@@ -4719,8 +4719,12 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
@@ -19378,6 +19382,24 @@ Invisible on UI."</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Work_Phone_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Phone 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+	<fields>
+        <fullName>Work_Phone2_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Work Phone2 Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Work_Phone_Last_Modified_By2__c</fullName>
         <externalId>false</externalId>
@@ -19798,50 +19820,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <sharedTo>
             <role>MBK_Management</role>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBTH_Dealer</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Dealer</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </filters>
-        <label>MBTH Dealer</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBTH_Dealer1</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Dealer</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </filters>
-        <label>MBTH Active Dealer</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -60691,7 +60669,7 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <fullName>AtleastOneContact_TH</fullName>
         <active>true</active>
         <description>Please Enter Atleast one contact Information</description>
-        <errorConditionFormula>IF( AND(ISBLANK(Mobile__c),MD__c = 'TH',$Profile.Name !='IntegrationAPI',ISBLANK(Work_Phone__c),ISBLANK(Individual_Home_Phone__c),( OR(ISNULL(Email__c),ISBLANK(Email__c)) )) , true, false)</errorConditionFormula>
+        <errorConditionFormula>IF( AND(ISBLANK(Mobile__c),MD__c = 'TH',RecordType.DeveloperName!='Dealer',$Profile.Name !='IntegrationAPI',ISBLANK(Work_Phone__c),ISBLANK(Individual_Home_Phone__c),( OR(ISNULL(Email__c),ISBLANK(Email__c)) )) , true, false)</errorConditionFormula>
         <errorMessage>Please Enter Atleast one contact Information</errorMessage>
     </validationRules>
     <validationRules>
@@ -60710,7 +60688,7 @@ $Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__
         <fullName>Brahcn_name_Native</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'JP',RecordType.Name = 'Dealer',
- OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))))</errorConditionFormula>
+ OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*"))))</errorConditionFormula>
         <errorDisplayField>Branch_name_Native__c</errorDisplayField>
         <errorMessage>Branch name native should not be single byte and should be ""Kana"" characters.</errorMessage>
     </validationRules>
@@ -61803,7 +61781,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Phone_Required_for_Sales_TEL</fullName>
         <active>true</active>
         <description>When Mobile is selected for picklist field Sales TEL, then field value Mobile is required.</description>
-        <errorConditionFormula>AND(OR(AND(ISPICKVAL(Primary_Phone__c,'Mobile'),ISBLANK(Mobile__c)),AND(ISPICKVAL(Primary_Phone__c,'Home Phone'),ISBLANK(Individual_Home_Phone__c)),AND(ISPICKVAL(Primary_Phone__c,'Work Phone'),ISBLANK(Work_Phone__c))),MD__c = 'TH',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(OR(AND(ISPICKVAL(Primary_Phone__c,'Mobile'),ISBLANK(Mobile__c)),AND(ISPICKVAL(Primary_Phone__c,'Home Phone'),ISBLANK(Individual_Home_Phone__c)),AND(ISPICKVAL(Primary_Phone__c,'Work Phone'),ISBLANK(Work_Phone__c))),MD__c = 'TH', RecordType.DeveloperName!='Dealer' ,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>No value entered in Phone field for selected value in Sales Tel</errorMessage>
     </validationRules>
     <validationRules>
@@ -61882,6 +61860,53 @@ IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NO
         <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
         <errorDisplayField>Website</errorDisplayField>
         <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
+    </validationRules>
+	   <validationRules>
+        <fullName>WorkPhone2_Format_KR</fullName>
+        <active>true</active>
+        <description>Work Phone 2 must be in any of the following formats : 
+	1.	0x-xxx-xxxx
+	2.  0x-xxxx-xxxx
+	2.	0xx-xxx-xxxx
+	3.	0xx-xxxx-xxxx
+	4.  blank-xxxx-xxxx</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR',
+NOT(ISBLANK(Work_Phone_2__c)),
+NOT(
+OR(
+REGEX(Work_Phone_2__c, "[02]{2}-[0-9]{4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[051]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[053]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[032]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[062]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[042]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[052]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[044]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[031]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[033]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[043]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[041]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[0-9]{4}-[0-9]{4}") 
+)
+)
+)</errorConditionFormula>
+        <errorMessage>Work Phone 2 must be in any of the following formats : 
+			1.	0x-xxx-xxxx
+			2.  0x-xxxx-xxxx
+			2.	0xx-xxx-xxxx
+			3.	0xx-xxxx-xxxx
+			4.  blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validation_on_Salutation_and_Gender</fullName>
@@ -61987,7 +62012,7 @@ REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{8}"),
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{9}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{10}")), 
 OR(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{7}"), 
-REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{6}"),
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{6}"),
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{8}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{9}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{10}"))))), 
