@@ -1725,7 +1725,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         System.debug('@@@@*(*(*(*(*(*(*(*('+result);
          if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
         { 
-		objPersonAccount.LastName(Label.LastName_and_TouchPoint_fileds_are_mandatory);
+		objPersonAccount.LastName.adderror(Label.LastName_and_TouchPoint_fileds_are_mandatory);
            // ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.LastName_and_TouchPoint_fileds_are_mandatory));
         }
         else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
