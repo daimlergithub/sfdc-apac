@@ -93,9 +93,9 @@ public without sharing  class  LeadHelperMY{
         }
     }
    // Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community 
-   // public void updatecommunityURL(List<Lead__c> Leadlist){
-      //  LeadHelperBase.updatecommunityurl(Leadlist, Market);
-   // }
+    public void updatecommunityURL(List<Lead__c> Leadlist){
+        LeadHelperBase.updatecommunityurl(Leadlist, Market);
+    }
 	 public void CdmLeadcreate(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap)
     {
         helperBase.CdmLeadcreate(leadlist, leadOldMap);

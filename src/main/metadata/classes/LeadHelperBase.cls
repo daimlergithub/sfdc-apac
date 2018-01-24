@@ -199,7 +199,7 @@ public without sharing class  LeadHelperBase{
     }    
 	    //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community  
     
-    /* public static String getCommunityURL(){
+     public static String getCommunityURL(){
         String communityName='Daimler Community Malaysia';
          String commubaseurl='';
          boolean flag1;
@@ -214,16 +214,16 @@ public without sharing class  LeadHelperBase{
            }
        }
        return commubaseurl.replace('login','');
-    } */
+    } 
     // Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community  
-   /* public static void updatecommunityurl(List<Lead__c> Leadlist, String Market){
+    public static void updatecommunityurl(List<Lead__c> Leadlist, String Market){
     String commURLMY=getCommunityURL();
     for(Lead__c le:Leadlist){
         if(le.md__c == Market)
         le.Others__c = commURLMY;
     }
     
-} */  
+}   
 /*
 Added by : Asish Nanda
 Test Cases : Conditions having When to Share Lead Record With Delaers
