@@ -246,11 +246,11 @@ public without sharing class createRetailCopy {
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
                                 newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                                 newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-								newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
+                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
                                 newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
                                 newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
-								newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
                                 newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                            
                             }                           
@@ -261,7 +261,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_ID_Number__c = acclist.ID_Number__c;
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;
-							newAlk.Retail_Race__c=acclist.Race__c;
+                            newAlk.Retail_Race__c=acclist.Race__c;
                             newAlk.Retail_Special_Care__c = acclist.Special_Care__c;
                             newAlk.Retail_LastName_Native__c = accList.LastName_Native_1__c;
                             newAlk.Retail_FirstName_Native__c = accList.FirstName_Native_1__c;
@@ -332,7 +332,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Country__c = acclist.country__c;
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;
-							newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                            newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                             newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
                             newAlk.Retail_Company_Name__c = accList.name;
                             newAlk.Retail_Mobile__c = accList.Mobile__c;
@@ -370,11 +370,11 @@ public without sharing class createRetailCopy {
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
                                 newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                                 newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-								newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
+                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
                                 newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
                                 newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
-								newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
                                 newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                            
                             }                           
@@ -383,7 +383,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Country__c = acclist.country__c;
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;
-							newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                            newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                             newAlk.Retail_Company_Name__c = accList.name;
                             newAlk.Retail_Mobile__c = accList.Mobile__c;
                             newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
@@ -397,7 +397,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
                             newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
                             newAlk.Retail_Fax__c = accList.fax;
-							newAlk.Retail_Position__c=acclist.Job__c;
+                            newAlk.Retail_Position__c=acclist.Job__c;
                             newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
                             newAlk.Retail_Industry__c = accList.Industry;
                             newAlk.Retail_Commercial_Reg_No__c = accList.Commercial_Reg_No__c;
@@ -522,13 +522,28 @@ public without sharing class createRetailCopy {
                               newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].District__c ;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
+                                /*newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                                 newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-								newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
+                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;*/
+                                Integer line1_length = SelectedAdd[0].Address_Line_1__c.length();
+                                Integer line2_length = SelectedAdd[0].Address_Line_2__c.length();
+                                Integer line3_length = SelectedAdd[0].Address_Line_3__c.length();
+                                if(line1_length>35 )
+                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c.substring(0,35);
+                                else if(line1_length<35)
+                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c.substring(0,line1_length);
+                                if(line2_length>35 )
+                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c.substring(0,35);
+                                else if(line2_length<35)
+                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c.substring(0,line2_length);
+                                if(line3_length>35 )
+                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c.substring(0,35);
+                                else if(line3_length<35)
+                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c.substring(0,line3_length);
                                 newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
                                 newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
-								newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
                                 newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                            
                             }                           
@@ -538,7 +553,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_ID_Number__c = acclist.ID_Number__c;
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;
-							newAlk.Retail_Race__c=acclist.Race__c;
+                            newAlk.Retail_Race__c=acclist.Race__c;
                             newAlk.Retail_Special_Care__c = acclist.Special_Care__c;
                             newAlk.Retail_LastName_Native__c = accList.LastName_Native_1__c;
                             newAlk.Retail_FirstName_Native__c = accList.FirstName_Native_1__c;
@@ -581,7 +596,7 @@ public without sharing class createRetailCopy {
                             {
                                 newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month()));
                             }
-						}
+                        }
                     InsertAlk.add(newAlk);
 
                 }
@@ -613,7 +628,7 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
                         newAlk.Retail_Company_Name__c = accList.name;
                         newAlk.Retail_Mobile__c = accList.Mobile__c;
-						newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                        newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                         newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
                         newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
                         newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
@@ -646,13 +661,28 @@ public without sharing class createRetailCopy {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].District__c ;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
+                                /*newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                                 newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-								newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
+                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;*/
+                                Integer line1_length = SelectedAdd[0].Address_Line_1__c.length();
+                                Integer line2_length = SelectedAdd[0].Address_Line_2__c.length();
+                                Integer line3_length = SelectedAdd[0].Address_Line_3__c.length();
+                                if(line1_length>35 )
+                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c.substring(0,35);
+                                else if(line1_length<35)
+                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c.substring(0,line1_length);
+                                if(line2_length>35 )
+                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c.substring(0,35);
+                                else if(line2_length<35)
+                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c.substring(0,line2_length);
+                                if(line3_length>35 )
+                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c.substring(0,35);
+                                else if(line3_length<35)
+                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c.substring(0,line3_length);
                                 newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
                                 newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
-								newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
+                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
                                 newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
                            
                             }                           
@@ -660,7 +690,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Country__c = acclist.country__c;
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;
-							newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
+                            newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                             newAlk.Retail_Company_Name__c = accList.name;
                             newAlk.Retail_Mobile__c = accList.Mobile__c;
                             newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
@@ -674,7 +704,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Postal_OptOut__c = accList.Postal_Opt_Out__c;
                             newAlk.Retail_Visit_OptOut__c = accList.Visit_Opt_Out__c;
                             newAlk.Retail_Fax__c = accList.fax;
-							newAlk.Retail_Position__c=acclist.Job__c;
+                            newAlk.Retail_Position__c=acclist.Job__c;
                             newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
                             newAlk.Retail_Industry__c = accList.Industry;
                             newAlk.Retail_Commercial_Reg_No__c = accList.Commercial_Reg_No__c;
@@ -688,7 +718,7 @@ public without sharing class createRetailCopy {
                             {
                                 newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month()));
                             }   
-					}
+                    }
                     InsertAlk.add(newAlk);
                     System.debug('newAlk newAlk%%%%%%%' + newAlk);
 
