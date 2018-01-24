@@ -2394,14 +2394,14 @@
         <description>When a MB Complaint created by CAC, Update Complaint Creator Department To CAC.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-    <rules>
+	<rules>
         <fullName>Case%3A Update Complaint Creator Department To Dealer</fullName>
         <actions>
             <name>Update_Creator_Department_to_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND 3) OR (1 AND  4 AND 5)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3) OR ((1 OR 6) AND 5  AND 4)</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -2426,6 +2426,11 @@
             <field>User.ProfileId</field>
             <operation>contains</operation>
             <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>

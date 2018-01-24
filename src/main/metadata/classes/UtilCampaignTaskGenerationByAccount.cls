@@ -88,7 +88,7 @@ system.debug('&******************'+cpList);
                     Campaign.Template__c, Status, Campaign.OwnerId, Campaign.MD__c,Campaign.Campaign_Code__c, Campaign.OBSMSTemplate__c, 
                     Campaign.OBSMSTemplate__r.Message_Detail__c, Campaign.OBSMSTemplate__r.Template_ID__c, Campaign.Questionnaire__c
             from CampaignMember
-            where CampaignId in :cpIdList and Task_Generated__c = false]);
+            where CampaignId in :cpIdList and Task_Generated__c = false FOR UPDATE]);
     } 
     
     global void execute(Database.BatchableContext BC, List<CampaignMember> scope) {
