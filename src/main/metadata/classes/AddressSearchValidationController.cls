@@ -1217,28 +1217,28 @@ EP/Tolerant for Validation.
             }
             else if((AddressObj.market__c !='JP') && market == System.Label.JP )
             {
-                AddressObj.market__c.addError('You are allowed to create record for your home market only');
+                AddressObj.market__c.addError(Label.You_are_allowed_to_create_Address_record_for_your_home_market_only); 
             }
             
             else if((AddressObj.Address_Line_1__c !=  Null || !String.isblank(AddressObj.Address_Line_1__c)) && market == System.Label.JP && AddressObj.Address_Line_1__c.length() >=51 )
             {
-                AddressObj.Address_Line_1__c.addError('Address Line 1 should be less than or equal to 50.');
+                AddressObj.Address_Line_1__c.addError(Label.Address_Line_1_should_be_less_than_or_equal_to_50_letters);
             }
            else if((AddressObj.Address_Line_2__c !=  Null || !String.isblank(AddressObj.Address_Line_2__c)) && market == System.Label.JP && AddressObj.Address_Line_2__c.length() >=51 )
             {
-                AddressObj.Address_Line_2__c.addError('Address Line 2 should be less than or equal to 50.');
+                AddressObj.Address_Line_2__c.addError('Label.Address_Line_2_should_be_less_than_or_equal_to_50_letters');
             }
            else  if((AddressObj.Block__c !=  Null || !String.isblank(AddressObj.Block__c)) && market == System.Label.JP && AddressObj.Block__c.length() >=13 )
             {
-                AddressObj.Block__c.addError('Block should be less than or equal to 12');
+                AddressObj.Block__c.addError(Label.Block_should_be_less_than_or_equal_to_12_letters);
             }
             else  if((AddressObj.City__c !=  Null || !String.isblank(AddressObj.City__c)) && market == System.Label.JP && AddressObj.City__c.length() >=13 )
             {
-                AddressObj.City__c.addError('City should be less than or equal to 12 letters');
+                AddressObj.City__c.addError(Label.City_should_be_less_than_or_equal_to_12_letters);
             }
            else  if((AddressObj.District__c !=  Null || !String.isblank(AddressObj.District__c)) && market == System.Label.JP && AddressObj.District__c.length() >=19 )
             {
-                AddressObj.District__c.addError('City should be less than or equal to 18 letters');
+                AddressObj.District__c.addError(Label.City_should_be_less_than_or_equal_to_18_letters);
             }
             else  if((AddressObj.ZipCode__c !=  Null || !String.isblank(AddressObj.ZipCode__c)) && market == System.Label.JP && !AddressObj.ZipCode__c.isNumeric() )
             {
@@ -1246,7 +1246,7 @@ EP/Tolerant for Validation.
             }
             else if((AddressObj.ZipCode__c !=  Null || !String.isblank(AddressObj.ZipCode__c)) && market == System.Label.JP && AddressObj.ZipCode__c.length() !=7 )
             {
-                AddressObj.ZipCode__c.addError('Zip Code should be 7 digits');
+                AddressObj.ZipCode__c.addError(Label.Zipcode_is_not_7_digits_long);
             }
             else if(AddressObj.ZipCode__c != null){
                 AddressObj.MD__c = Market;
@@ -1676,8 +1676,8 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void onLineDeduplication(){ 
   //  Readonly= true;  
    //    Editmode=false; 
-        String Doblebyte='[^ -~｡-ﾟ]*';
-        String KanaChar='[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*';
+        String Doblebyte='[^ -~ï½¡-ï¾Ÿ]*';
+        String KanaChar='[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*';
         Boolean result;
         Boolean resultFname;
         Boolean resultKanaLname;
@@ -1725,7 +1725,8 @@ If the user is Saving  same address which matches the fields returned by toleran
         System.debug('@@@@*(*(*(*(*(*(*(*('+result);
          if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
         { 
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.LastName_and_TouchPoint_fileds_are_mandatory));
+		objPersonAccount.LastName.adderror(Label.LastName_and_TouchPoint_fileds_are_mandatory);
+           // ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.LastName_and_TouchPoint_fileds_are_mandatory));
         }
         else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
         { 
@@ -1737,137 +1738,137 @@ If the user is Saving  same address which matches the fields returned by toleran
         }
         else if((recordType == 'Person Account' ||   recordType == 'Company') && market == System.Label.JP && (objPersonAccount.Market__c !='JP' ))
         {
-             objPersonAccount.Market__c.addError('You are allowed to create record for your home market only'); 
+              objPersonAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only); 
         }
         else if((recordType == 'Person Account'  ||   recordType == 'Company') && market == System.Label.JP && (objPersonAccount.Status__c  =='Customer'  || objAccount.Status__c  =='Customer'))
         { 
-            objPersonAccount.Status__c.addError('If customer has no vehicle relationship, Status must not be Customer'); 
+           objPersonAccount.Status__c.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer); 
              
         }
         else if(recordType == 'Person Account'  && market == System.Label.JP && (objPersonAccount.Acquisition_Objective_Method__c == NULL||String.isBlank(objPersonAccount.Acquisition_Objective_Method__c) ) && objPersonAccount.Allow_Data_Sharing2__c=='Yes'  && objPersonAccount.Data_Source__c=='Dealer Outlet')
         { 
-            objPersonAccount.Acquisition_Objective_Method__c.addError('Please select Acquisition Objective & Method');  
+            objPersonAccount.Acquisition_Objective_Method__c.addError(Label.Please_select_Acquisition_Objective_Method);  
         }
          else if(recordType == 'Person Account'  && market == System.Label.JP && objPersonAccount.PersonBirthdate != NULL  && (objPersonAccount.PersonBirthdate  >=System.today() || bdayyear  >=151))
         { 
-            objPersonAccount.PersonBirthdate.addError('Birthdate is not allowed to be later than today or earlier than 150 years.');  
+             objPersonAccount.PersonBirthdate.addError(Label.Birthdate_is_not_allowed_to_be_later_than_today_or_earlier_than_150_years);    
             
         }
          else if(recordType == 'Company' && market == System.Label.JP && objAccount.Name != NULL && objAccount.Name.length() >=40) 
         {
-              objAccount.Name.addError('Name should be less than or equal to 40 letters.');  
+              objAccount.Name.addError(Label.Name_should_be_less_than_or_equal_to_40_letters);   
         }
          else if(recordType == 'Company' && market == System.Label.JP && objAccount.Company_Name__c != NULL && objAccount.Company_Name__c.length() >=41) 
         {
-             objAccount.Company_Name__c.addError('Company Name should be less than or equal to 40 letters.');  
+              objAccount.Company_Name__c.addError(Label.Company_Name_should_be_less_than_or_equal_to_40_letters);  
         }
          else if(recordType == 'Person Account'  && market == System.Label.JP  && objPersonAccount.Acquisition_Objective_Method__c=='Others'  && (objPersonAccount.Details_of_Acquisition__c== null   || String.isBlank(objPersonAccount.Details_of_Acquisition__c)) )
         { 
-             objPersonAccount.Details_of_Acquisition__c.addError('Please enter Value for Details of Acquisition.');
+             objPersonAccount.Details_of_Acquisition__c.addError(Label.Please_enter_Value_for_Details_of_Acquisition);
         }
         else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.FirstName != NULL && resultFname==false))
         { 
-            objPersonAccount.FirstName.addError('First Name should be of 2 byte characters.');
+            objPersonAccount.FirstName.addError(Label.First_Name_should_be_of_2_byte_characters);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.FirstName_Native_1__c != NULL && resultKanafname==false))
         { 
-            objPersonAccount.FirstName_Native_1__c.addError('First Name Native should be KANA Chaarcters.');
+            objPersonAccount.FirstName_Native_1__c.addError(Label.First_Name_Native_should_be_KANA_Chaarcters);
         }
         else if(recordType == 'Person Account' && market == System.Label.JP && objPersonAccount.FirstName != NULL && objPersonAccount.FirstName.length() >=41)
         {
-           objPersonAccount.FirstName.addError('First Name should be less than or equal to 40 letters.');
+           objPersonAccount.FirstName.addError(Label.First_Name_should_be_less_than_or_equal_to_40_letters);
        
         }
         else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Home_Phone_2__c != NULL && !objPersonAccount.Home_Phone_2__c.isNumeric()))
         { 
-            objPersonAccount.Home_Phone_2__c.addError('Home Phone 2 should not include ""-"" or ""+""');
+             objPersonAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_not_include_or);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && objPersonAccount.Home_Phone_2__c != NULL && objPersonAccount.Home_Phone_2__c.length() >=12)
         {
-           objPersonAccount.Home_Phone_2__c.addError(' Home Phone 2 should be less than or equal to 11 digits.');
+           objPersonAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_be_less_than_or_equal_to_11_digits);
        
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Home_Phone_2__c != NULL &&  !objPersonAccount.Home_Phone_2__c.startsWith('0')))
         { 
-            objPersonAccount.Home_Phone_2__c.addError('Home Phone 2 should start with ""0""');
+              objPersonAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_start_with_0);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Individual_Home_Phone__c != NULL && !objPersonAccount.Individual_Home_Phone__c.isNumeric()))
         { 
-            objPersonAccount.Individual_Home_Phone__c.addError('Home Phone 2 should not include ""-"" or ""+"".');
+            objPersonAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_not_include_or);
         }
         else if(recordType == 'Person Account' && market == System.Label.JP && objPersonAccount.Individual_Home_Phone__c!= NULL && objPersonAccount.Individual_Home_Phone__c.length() >=12)
         {
-           objPersonAccount.Individual_Home_Phone__c.addError(' Home Phone 2 should be less than or equal to 11 digits.');
+            objPersonAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_be_less_than_or_equal_to_11_digits);
        
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Individual_Home_Phone__c != NULL &&  !objPersonAccount.Individual_Home_Phone__c.startsWith('0')))
         { 
-            objPersonAccount.Individual_Home_Phone__c.addError('Home Phone 2  should start with ""0""');
+            objPersonAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_start_with_0);
         }
         else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.LastName != NULL && result==false))
         { 
-            objPersonAccount.LastName.addError('Last Name should be of 2 byte characters.');
+            objPersonAccount.LastName.addError(Label.Last_Name_should_be_of_2_byte_characters);
         }
          else if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.lastName != NULL && objPersonAccount.lastName.length() >=41 ))
         { 
-            objPersonAccount.LastName.addError('last Name should be less than or equal to 40 letters.');
+             objPersonAccount.LastName.addError(Label.Last_Name_should_be_less_than_or_equal_to_40_letters);
         }
         
         else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.LastName_Native_1__c != NULL && resultKanaLname==false))
         { 
-            objPersonAccount.LastName_Native_1__c.addError('Last Name Native should be KANA Chaarcters.');
+            objPersonAccount.LastName_Native_1__c.addError(Label.Last_Name_Native_should_be_KANA_Characters);
         }
         
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Mobile__c != NULL && !objPersonAccount.Mobile__c.isNumeric()))
         { 
-            objPersonAccount.Mobile__c.addError('Mobile should not include ""-"" or ""+"".');
+            objPersonAccount.Mobile__c.addError(Label.Mobile_should_not_include_or);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Mobile__c != NULL && objPersonAccount.Mobile__c.length() >=12))
         { 
-            objPersonAccount.Mobile__c.addError('Mobile  should be less than or equal to 11 digits.');
+             objPersonAccount.Mobile__c.addError(Label.Mobile_should_be_less_than_or_equal_to_11_digits);
         }
         else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Mobile__c != NULL &&  !objPersonAccount.Mobile__c.startsWith('0')))
         { 
-            objPersonAccount.Mobile__c.addError('Mobile should start with ""0""');
+            objPersonAccount.Mobile__c.addError(Label.Mobile_should_start_with_0);
         }
         else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Mobile2__c != NULL && !objPersonAccount.Mobile2__c.isNumeric()))
         { 
-            objPersonAccount.Mobile2__c.addError('Mobile 2 should not include ""-"" or ""+"".');
+            objPersonAccount.Mobile2__c.addError(Label.Mobile_2_should_not_include_or);
         }
         else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Mobile2__c != NULL && objPersonAccount.Mobile2__c.length() >=12))
         { 
-            objPersonAccount.Mobile2__c.addError('Mobile 2 should be less than or equal to 11 digits.');
+             objPersonAccount.Mobile2__c.addError(Label.Mobile_2_should_be_less_than_or_equal_to_11_digits);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Mobile2__c != NULL &&  !objPersonAccount.Mobile2__c.startsWith('0')))
         { 
-            objPersonAccount.Mobile2__c.addError('Mobile 2 should start with ""0""');
+             objPersonAccount.Mobile2__c.addError(Label.Mobile_2_should_start_with_0);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Phone != NULL && !objPersonAccount.Phone.isNumeric()))
         { 
-            objPersonAccount.Phone.addError('Phone should not include ""-"" or ""+"".');
+            objPersonAccount.Phone.addError(Label.Phone_should_not_include_or);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.phone != NULL && objPersonAccount.phone.length() >=12))
         { 
-            objPersonAccount.phone.addError('phone should be less than or equal to 11 digits.');
+            objPersonAccount.phone.addError(Label.Phone_should_be_less_than_or_equal_to_11_digits);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Phone != NULL &&  !objPersonAccount.Phone.startsWith('0')))
         { 
-            objPersonAccount.Phone.addError('Phone should start with ""0""');
+            objPersonAccount.Phone.addError(Label.Phone_should_start_with_0);
         }
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Work_Phone__c != NULL && !objPersonAccount.Work_Phone__c.isNumeric()))
         { 
-            objPersonAccount.Work_Phone__c.addError('Work Phone should not include ""-"" or ""+"".');
+            objPersonAccount.Work_Phone__c.addError(Label.Work_Phone_should_not_include_or);
         }
         
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Work_Phone__c != NULL && objPersonAccount.Work_Phone__c.length() >=12))
         { 
-            objPersonAccount.Work_Phone__c.addError('Work phone should be less than or equal to 11 digits.');
+            objPersonAccount.Work_Phone__c.addError(Label.Work_Phone_should_be_less_than_or_equal_to_11_digits);
         }
          
         
          else if(recordType == 'Person Account' && market == System.Label.JP && (objPersonAccount.Work_Phone__c != NULL &&  !objPersonAccount.Work_Phone__c.startsWith('0')))
         { 
-            objPersonAccount.Work_Phone__c.addError('WorkPhone should start with ""0""');
+             objPersonAccount.Work_Phone__c.addError(Label.WorkPhone_should_start_with_0);
         }
         
         else
@@ -1901,6 +1902,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(market == System.Label.KR)
             {
+			            Editmode = false;
+						Readonly = false;
                 if(homePhoneAreaCodePart1!= '' && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')
                 {                      
                     objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
