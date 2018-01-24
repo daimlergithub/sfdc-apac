@@ -187,7 +187,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                         newAlk.fromRole__c = DealeAccId;
                         newAlk.RecordTypeId = alkPerson_RecordTypeId;
                         if (accList.MD__c == 'TH') {
-                            if (SelectedAdd[0] != null) {
+                            if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
@@ -328,7 +328,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                         newAlk.fromRole__c = DealeAccId;
                         newAlk.RecordTypeId = alkCompany_RecordTypeId;
                         if (accList.MD__c == 'TH') {
-                            if (SelectedAdd[0] != null) {
+                            if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
@@ -462,7 +462,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                     newAlk.fromRole__c = account.Main_Dealer__c;
                     newAlk.RecordTypeId = alkPerson_RecordTypeId;
                     if (accList.MD__c == 'TH') {
-                        if (SelectedAdd[0] != null) {
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
                             newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
@@ -602,7 +602,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                     newAlk.fromRole__c = account.Main_Dealer__c;
                     newAlk.RecordTypeId = alkCompany_RecordTypeId;
                     if (accList.MD__c == 'TH') {
-                        if (SelectedAdd[0] != null) {
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
                             newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
