@@ -761,14 +761,14 @@ public class LeadHelperJP
         system.debug('updateLeadLists++++++++++'+updateLeadLists);
         if(updateLeadLists.size()>0)
         {
-            try  
-            {
+            //try  
+            //{
                 update updateLeadLists; 
-            }
-            Catch(Exception excep)
-            {
-            System.debug('@@#@#@#@#@#@#@#@#'+excep.getMessage());    
-            }                     
+            //}
+            //Catch(Exception excep)
+            //{
+            //System.debug('@@#@#@#@#@#@#@#@#'+excep.getMessage());    
+            //}                     
         }
     }     
          public static void updateAssignedDealer(List<Lead__c> dealerLeadList, set<Id> salesConIds)
