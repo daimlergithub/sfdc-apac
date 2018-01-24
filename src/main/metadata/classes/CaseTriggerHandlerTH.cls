@@ -37,9 +37,11 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                caseHelperTHd .calculateComplaintAmount(trigger.old);
             }
             else if (trigger.isInsert){
+			caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
                caseHelperTHd .calculateComplaintAmount(trigger.new); 
              
             }else if (trigger.isUpdate){
+				caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
 				caseHelperTHd.calculateComplaintAmount(trigger.new);
 				CaseHelperTH.sendReminderEmail(Trigger.newMap,Trigger.oldMap);
             }
@@ -47,7 +49,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
         }
         //share Record start
         if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){
-			caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
+			
             CaseHelperTH.ShareRecordswithDealers(Trigger.new,Trigger.isupdate);
         }
         //share Record end
