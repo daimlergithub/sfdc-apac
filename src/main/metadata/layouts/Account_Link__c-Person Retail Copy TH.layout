@@ -48,7 +48,7 @@
                 <field>Retail_Comments__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Sales_Sanction__c</field>
             </layoutItems>
             <layoutItems>
@@ -147,7 +147,7 @@
                 <field>Retail_Occupation__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Position__c</field>
             </layoutItems>
         </layoutColumns>
@@ -165,11 +165,11 @@
                 <field>Retail_List_of_Events__c</field>
              </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Special_Care__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Special_Needs_Class__c</field>
             </layoutItems>
             <layoutItems>
