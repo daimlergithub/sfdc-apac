@@ -9,17 +9,22 @@ global without sharing class stouchPersonSearch {
         String count=(String)cObjMap.get('Rec_count');
         system.debug('@@'+obj);
         list<String> accountlinklist1=new  list<String>();
-        list<map<string,string>> newmap1=new  list<map<string,string>>();
+        //list<map<string,string>> newmap1=new  list<map<string,string>>();
         for(Object ob:obj)
         {
             accountlinklist1.add((String)ob);
         }
-        list<Account_link__c> accountlinklist=[select toRole__r.MBK_Data_Source__c,Retail_PersonBirthdate__c,Retail_LastName__c,Retail_Mobile__c,Retail_Email__c,Retail_UCID__c,RecordTypeid,Ownerid from account_link__c where id=:accountlinklist1] ;
+        list<Account_link__c> accountlinklist=[select toRole__r.MBK_Data_Source__c,Retail_PersonBirthdate__c,Retail_LastName__c,Retail_Mobile__c,Retail_Email__c,Retail_UCID__c,RecordTypeid,Ownerid from account_link__c where id=:accountlinklist1];
+        List<id> userIds=new List<Id>();
+        for(Account_link__c ac:accountlinklist){
+            userIds.add(ac.OwnerId);
+        }
+        Map<Id,User> users=new map<Id,User>([select id,federationIdentifier from user where id in :userIds]);
         JSON2ApexStouch ja= new JSON2ApexStouch();
         ja.RecordCount=count;
         for(Account_link__c ac:accountlinklist)
         {
-            JSON2ApexStouch.Person jaw=new JSON2ApexStouch.Person(ac);
+            JSON2ApexStouch.Person jaw=new JSON2ApexStouch.Person(ac,users.get(ac.OwnerId).federationIdentifier);
             ja.O_customerdetails.add(jaw);
         }   
         return ja; 
