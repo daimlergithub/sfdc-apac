@@ -6060,6 +6060,7 @@
         <editable>false</editable>
         <field>Account_Link__c.Retail_Industry__c</field>
         <readable>false</readable>
+		<hidden>true</hidden>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

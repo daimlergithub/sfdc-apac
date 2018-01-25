@@ -342,7 +342,7 @@
     <fieldUpdates>
         <fullName>CACLead_status_to_Qualified_aftersales</fullName>
         <field>CAC_Lead_Status__c</field>
-        <literalValue>Qualified</literalValue>
+        <literalValue>Allocated</literalValue>
         <name>Update_CACLead_status_to_Qualified</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
