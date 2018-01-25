@@ -545,7 +545,13 @@
                                     
                            };
                            testGetFocusedSubtabId();
-                       }else{
+                       }
+                       // Added by - Laqshay Arora ,test case- Added the below condition to the following lines for redirecting it to correct URL of the lead record in Dealer Community
+                       else if({!ISPICKVAL($User.usertype, 'PowerPartner')}==true)
+                       {
+                            window.top.location="{!$Site.BaseUrl}/{!currentRecordId}";
+                       }
+                       else{
                            window.top.location="/{!currentRecordId}";
                        }                            
               });
@@ -591,9 +597,15 @@
                                     
                            };
                            testGetFocusedSubtabId();
-                       }else{
+                       }
+                       // Added by - Laqshay Arora ,test case- Added the below condition to the following lines for redirecting it to correct URL of the lead record in Dealer Community
+                       else if({!ISPICKVAL($User.usertype, 'PowerPartner')}==true)
+                       {
+                            window.top.location="{!$Site.BaseUrl}/{!currentRecordId}";
+                       }
+                       else{
                            window.top.location="/{!currentRecordId}";
-                       }                            
+                       }                           
               });
           };
           
@@ -618,7 +630,13 @@
                                     
                            };
                            testGetFocusedSubtabId();
-                       }else{
+                       }
+                       // Added by - Laqshay Arora ,test case- Added the below condition to the following lines for redirecting it to correct URL of the lead record in Dealer Community
+                       else if({!ISPICKVAL($User.usertype, 'PowerPartner')}==true)
+                       {
+                            window.top.location="{!$Site.BaseUrl}/{!currentRecordId}";
+                       }
+                       else{
                            window.top.location="/{!currentRecordId}";
                        }
               });
@@ -791,7 +809,13 @@
                                     
                            };
                            testGetFocusedSubtabId();
-                       }else{
+                       }
+                       // Added by - Laqshay Arora ,test case- Added the below condition to the following lines for redirecting it to correct URL of the lead record in Dealer Community
+                       else if({!ISPICKVAL($User.usertype, 'PowerPartner')}==true)
+                       {
+                            window.top.location="{!$Site.BaseUrl}/{!currentRecordId}";
+                       }
+                       else{
                            window.top.location="/{!currentRecordId}";
                        }
               });
