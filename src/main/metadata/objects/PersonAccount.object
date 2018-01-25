@@ -821,6 +821,10 @@
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Email</fullName>
                 <default>false</default>
