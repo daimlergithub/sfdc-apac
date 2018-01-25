@@ -3133,7 +3133,10 @@ public pagereference saveAccountTH()
                             AddressObj.Customer__c = objAccount.id; 
                             AddressObj.Preferred__c=true; 
                             DMLManagerService.insertAsSystem(AddressObj);                              
-                            //insert AddressObj;      
+                            //insert AddressObj; 
+							Account acc=new Account(Id=objAccount.Id);
+                            acc.Primary_Address_Reference__c=AddressObj.Id;
+                            DMLManagerService.updateAsSystem(acc);							
                             PageReference pageRef = new PageReference('/'+objAccount.Id);       
                             return PageRef;     
                         }       
