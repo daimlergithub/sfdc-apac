@@ -1269,6 +1269,7 @@
                           </script>                    
                        </apex:outputText>
                    </apex:outputPanel>
+			 <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(market=='TH' ,true,false)}"/>  
              <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(And(market=='JP',Editmode) ,true,false)}"/>    
               <apex:commandButton action="{!canceljp}"  value="{!$Label.Cancel_Button}" rendered="{!If(And(market=='JP',Readonly) ,true,false)}"  status="actStatusId"/>
             <apex:actionStatus id="actStatusId" style="align:center;">
