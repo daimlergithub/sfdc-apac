@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email has been sent after Lead owner has been changed to Dealer Lead gate keeper</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Email to Dealer_Gate Keeper_MY</name>
+    <style>none</style>
+    <subject>Lead No.: {!Lead__c.Name}, Record Type: {!Lead__c.RecordType} assigned to you.</subject>
+    <type>custom</type>
+</EmailTemplate>

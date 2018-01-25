@@ -1,0 +1,15 @@
+Dear {!Lead__c.Owner},<br> 
+A Lead has been assigned to you. Please take action immediately. 
+
+<p> 
+Lead No.: {!Lead__c.Name}<br> 
+Record Type: {!Lead__c.RecordType}<br> 
+Lead Type: {!Lead__c.Lead_Type__c}<br> 
+Please click on the link below to view the record:<br>
+ <a href="{!Lead__c.Others__c}{!Lead__c.Id}">Click here</a><br>
+</p> 
+
+
+<br> 
+Best Regards,<br><br> 
+This automatic e-mail was sent via Salesforce.
