@@ -56,49 +56,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Active__c</fullName>
         <defaultValue>false</defaultValue>
@@ -123,21 +80,34 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Brand</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>MB</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Smart</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -346,12 +316,12 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -360,6 +330,48 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Model__c</fullName>
@@ -1902,17 +1914,21 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Type</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Car Book</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Price List</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart manual</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Letterheads envelopes and consumables</fullName>
@@ -1921,18 +1937,22 @@ Modify Reason:
             <picklistValues>
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Journals and magazines</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Entrance Ticket</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Presents</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Folding</fullName>
@@ -1941,6 +1961,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1949,8 +1970,17 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <label>DM Material</label>
-	<listViews>
+    <listViews>
         <fullName>All_MBTH_DM_Materials</fullName>
         <columns>NAME</columns>
         <columns>Active__c</columns>
@@ -1991,6 +2021,127 @@ Modify Reason:
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_DM_Material</fullName>
+        <columns>NAME</columns>
+        <columns>Active__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Model__c</columns>
+        <columns>Series__c</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All DM Material</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBK01E</group>
+            <group>MBK01Ehq</group>
+            <group>MBK01Esc</group>
+            <group>MBK01W</group>
+            <group>MBK02L</group>
+            <group>MBK02S</group>
+            <group>MBK02W</group>
+            <group>MBK03F</group>
+            <group>MBK03L</group>
+            <group>MBK03W</group>
+            <group>MBK04F</group>
+            <group>MBK04Fsc</group>
+            <group>MBK04L</group>
+            <group>MBK04S</group>
+            <group>MBK04W</group>
+            <group>MBK05W</group>
+            <group>MBK06W</group>
+            <group>MBK06Wsc</group>
+            <group>MBK06Wuc</group>
+            <group>MBK07S</group>
+            <group>MBK07W</group>
+            <group>MBK08S</group>
+            <group>MBK09E</group>
+            <group>MBK09S</group>
+            <group>MBK09Shq</group>
+            <group>MBK09W</group>
+            <group>MBK10S</group>
+            <group>MBK10W</group>
+            <group>MBK11W</group>
+            <group>MBK11Whq</group>
+            <group>MBK11Wsc</group>
+            <group>MBK12S</group>
+            <group>MBK12W</group>
+            <group>MBK14S</group>
+            <group>MBK14W</group>
+            <group>MBK14Whq</group>
+            <group>MBK14Wsc</group>
+            <group>MBK15W</group>
+            <group>MBK15Wsc</group>
+            <group>MBK16W</group>
+            <group>MBK17W</group>
+            <group>MBK17Whq</group>
+            <group>MBK17Wsc</group>
+            <group>MBK18W</group>
+            <group>MBK18Wsc</group>
+            <group>MBK21F</group>
+            <group>MBK21Fhq</group>
+            <group>MBK21Fsc</group>
+            <group>MBK21W</group>
+            <group>MBK26F</group>
+            <group>MBK26Fhq</group>
+            <group>MBK26Fsc</group>
+            <group>MBK26W</group>
+            <group>MBK28F</group>
+            <group>MBK28Fhq</group>
+            <group>MBK28Fsc</group>
+            <group>MBK28Fuc</group>
+            <group>MBK30W</group>
+            <group>MBK30Whq</group>
+            <group>MBK30Wsc</group>
+            <group>MBK30Wuc</group>
+            <group>MBK311sr</group>
+            <group>MBK31S</group>
+            <group>MBK31Shq</group>
+            <group>MBK31Ssc</group>
+            <group>MBK31W</group>
+            <group>MBK32F</group>
+            <group>MBK32Fsc</group>
+            <group>MBK32W</group>
+            <group>MBK33S</group>
+            <group>MBK33W</group>
+            <group>MBK33Wuc</group>
+            <group>MBK34S</group>
+            <group>MBK35W</group>
+            <group>MBK35Wsc</group>
+            <group>MBK36W</group>
+            <group>MBK36Wsc</group>
+            <group>MBK37W</group>
+            <group>MBK37Wsc</group>
+            <group>MBK38S</group>
+            <group>MBK38Ssc</group>
+            <group>MBK41F</group>
+            <group>MBK41Fhq</group>
+            <group>MBK48W</group>
+            <group>MBK49F</group>
+            <group>MBK49Fsc</group>
+            <group>MBK49Fuc</group>
+            <group>MBK50S</group>
+            <group>MBK52S</group>
+            <group>MBK53W</group>
+            <group>MBK53Wsc</group>
+            <group>MBK54W</group>
+            <group>MBK55F</group>
+            <group>MBK55Fsc</group>
+            <group>MBK55W</group>
+            <group>MBK55Wsc</group>
+            <group>MBK55Wuc</group>
+            <group>MBK56F</group>
+            <group>MBK56Fsc</group>
+            <group>MBK56S</group>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2155,14 +2306,22 @@ Modify Reason:
         <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-   <validationRules>
+    <validationRules>
+        <fullName>DM_Material_Market_can_not_be_changed</fullName>
+        <active>true</active>
+        <description>Market field of DM Material  should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c =&apos;JP&apos;,MD__c =&apos;KR&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c ='JP',MD__c ='KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
         <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
     </validationRules>
-	<webLinks>
+    <webLinks>
         <fullName>Record_Share</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -2190,6 +2349,5 @@ else
 { 
 alert('This button is for Korea'); 
 }</url>
-
     </webLinks>
 </CustomObject>
