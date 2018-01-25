@@ -20761,6 +20761,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Email</fullName>
                 <default>false</default>
