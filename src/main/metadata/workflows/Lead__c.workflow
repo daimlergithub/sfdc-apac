@@ -10,6 +10,16 @@
         <senderType>CurrentUser</senderType>
         <template>MBK_Email_Templates/Assigned_to_Dealer_Gatekeeper_Lead</template>
     </alerts>
+	<alerts>
+        <fullName>Lead_Owner_has_been_Updated</fullName>
+        <description>Lead Owner has been Updated</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+		<template>MBMY_Email_Template/Email_to_Dealer_Gate_Keeper_MY</template>
+    </alerts>
     <alerts>
         <fullName>Campaign_Lead_Assignment_Notification</fullName>
         <description>Campaign Lead Assignment Notification</description>
@@ -271,7 +281,7 @@
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
-    <alerts>
+	<alerts>
         <fullName>abcd</fullName>
         <description>24hrs Lead Escalation</description>
         <protected>false</protected>
@@ -332,7 +342,7 @@
     <fieldUpdates>
         <fullName>CACLead_status_to_Qualified_aftersales</fullName>
         <field>CAC_Lead_Status__c</field>
-        <literalValue>Qualified</literalValue>
+        <literalValue>Allocated</literalValue>
         <name>Update_CACLead_status_to_Qualified</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
@@ -400,6 +410,16 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>MBTH_Update_Order_Placed_Date_Time</fullName>
+        <field>Order_Placed_Date_Time__c</field>
+        <formula>IF(ISBLANK(Order_Placed_Date_Time__c),NOW(),Order_Placed_Date_Time__c)</formula>
+        <name>MBTH_Update Order Placed Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Change_CAC_Lead_Status_to_Initial</fullName>
@@ -503,16 +523,6 @@ Lost_CAC_Date_Time__c
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
-    </fieldUpdates>
-     <fieldUpdates>
-        <fullName>MBTH_Update_Order_Placed_Date_Time</fullName>
-        <field>Order_Placed_Date_Time__c</field>
-        <formula>IF(ISBLANK(Order_Placed_Date_Time__c),NOW(),Order_Placed_Date_Time__c)</formula>
-        <name>MBTH_Update Order Placed Date Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>MBTH_Update_Test_Drive_Date_Time</fullName>
@@ -1884,53 +1894,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>MBTH_Update Order Placed Date Time</fullName>
-        <actions>
-            <name>MBTH_Update_Order_Placed_Date_Time</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <booleanFilter>(1 OR 6) AND (2 OR 3 OR 4) AND (5 OR 7)</booleanFilter>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Retail Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Order Placed</value>
-        </criteriaItems>
-		
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>MY</value>			
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.CAC_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Order Placed</value>
-        </criteriaItems>
-        <description>When the Dealer lead status is set to &quot;Order Placed&quot; then the Order Placeddate time field need to be updated with current time</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>MBTH_Update Purchased Date Time</fullName>
         <actions>
             <name>Update_Purchased_Date_Time</name>
@@ -2505,6 +2468,68 @@ Modify Reason:
             <value>MY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>MBTH_Update Order Placed Date Time</fullName>
+        <actions>
+            <name>MBTH_Update_Order_Placed_Date_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 6) AND (2 OR 3 OR 4) AND (5 OR 7 OR 8)</booleanFilter>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail Sales Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Dealer_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Order Placed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Order Placed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Service Requested</value>
+        </criteriaItems>
+        <description>When the Dealer lead status is set to &quot;Order Placed&quot; then the Order Placeddate time field need to be updated with current time</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>Lead Email To Dealer GateKeeper_MY</fullName>
+        <actions>
+            <name>Lead_Owner_has_been_Updated</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>This flow is used to send email to dealer gatekeper. This is on Lead object when dealer account associated with the Lead and that dealers account contact (gate keeper) becomes the new owner of the case.</description>
+        <formula>AND(NOT(ISNULL(Assigned_Dealer__c)), ISCHANGED(Assigned_Dealer__c),  (PRIORVALUE(OwnerId) != OwnerId ), (MD__c == &apos;MY&apos;))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 	<rules>
         <fullName>Dealer Lead Status should be updated to %E2%80%98Registration%E2%80%99</fullName>

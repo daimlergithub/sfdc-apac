@@ -70,9 +70,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_UCID__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
 			<layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_ID_Type__c</field>
@@ -93,9 +91,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_FirstName_Native__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Allow_Data_Sharing__c</field>
@@ -104,9 +100,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Consultant__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction_Comment__c</field>
@@ -158,15 +152,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Fax__c</field>
@@ -226,9 +212,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Phone_OptOut__c</field>
@@ -292,9 +276,7 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_Industry__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_WebSite__c</field>

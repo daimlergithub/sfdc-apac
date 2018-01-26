@@ -1403,7 +1403,7 @@
             <!--    <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">-->
                     <apex:pageBlock title="Match Found" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
                     <apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
-                        <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="Th">   
+                        <apex:PageBlockTable Columns="8" value="{!displayAccList}" var="Th">   
                             <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!($User.ContactId !=null && recordType == 'Person Account')}">  
                                 <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.LastName}</apex:outputLink>    
                             </apex:Column>
