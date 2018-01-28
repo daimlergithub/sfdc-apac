@@ -47,6 +47,10 @@
                 <behavior>Edit</behavior>
                 <field>Wholesale_Comment__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_Contact__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Current_Vehicle_1__c</field>
