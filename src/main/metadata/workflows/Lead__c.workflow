@@ -1616,7 +1616,7 @@ Purchased_Date_Time__c
             <operation>equals</operation>
             <value>Retail Sales Leads</value>
         </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>MBTH_SARI_Mapping%28Lost%29</fullName>
@@ -1689,7 +1689,7 @@ Purchased_Date_Time__c
             <operation>equals</operation>
             <value>Retail Sales Leads</value>
         </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>MBTH_SARI_Mapping%28Quotation%29</fullName>
@@ -1724,7 +1724,7 @@ Purchased_Date_Time__c
             <value>Retail Sales Leads</value>
         </criteriaItems>
         <description>If lead latest phase is Quotation then dealer is ongoing and cac lead is Qualified</description>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>MBTH_SARI_Mapping%28WIP Linkage or Estimation or job cardissue%29</fullName>
