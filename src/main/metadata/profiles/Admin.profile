@@ -1367,6 +1367,41 @@
     </classAccesses>
     <custom>false</custom>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Material__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+			<fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		<fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_Locator__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		<fieldPermissions>
+        <editable>false</editable>
+        <field>Recall__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		<fieldPermissions>
+        <editable>false</editable>
+        <field>Rejected_Duplicate_Log__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		<fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	   <fieldPermissions>
+        <editable>false</editable>
+        <field>Survey_Question__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
 		<editable>true</editable>
         <field>IdeasVoting__c.IdeaLikeCount__c</field>
         <readable>true</readable>
