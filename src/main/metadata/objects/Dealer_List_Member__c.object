@@ -318,7 +318,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <fields>
         <fullName>Sales_Representative__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign_Member__r.Sales_Consultant__r.LastName&amp;' 'amp;&Campaign_Member__r.Sales_Consultant__r.FirstName</formula>
+        <formula>Campaign_Member__r.Sales_Consultant__r.LastName&amp;' '&amp;Campaign_Member__r.Sales_Consultant__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Representative</label>
         <required>false</required>
@@ -329,7 +329,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <fields>
         <fullName>Service_Representative__c</fullName>
         <externalId>false</externalId>
-        <formula>Campaign_Member__r.Service_Advisor__r.LastName&amp;' 'amp;&Campaign_Member__r.Service_Advisor__r.FirstName</formula>
+        <formula>Campaign_Member__r.Service_Advisor__r.LastName&amp;' '&amp;Campaign_Member__r.Service_Advisor__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Representative</label>
         <required>false</required>
