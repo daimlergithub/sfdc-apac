@@ -25,19 +25,20 @@ global without sharing class LoyalityManger {
             }
             List<Vehicle__c> vehicles=new List<Vehicle__c>();
             vehicles=[select id,RegistrationNo__c from vehicle__c where RegistrationNo__c like :regNumwithwildcards and MD__c='KR'];
+            String regNumber=null;
             system.debug(vehicles);
                 for(vehicle__c v:vehicles)
             {
-                if(v.RegistrationNo__c.deleteWhitespace()==Vehicle_Registration)
+                if(v.RegistrationNo__c.deleteWhitespace().right(5)==Vehicle_Registration)
                 {
-                    Vehicle_Registration=v.RegistrationNo__c;
+                    regNumber=v.RegistrationNo__c;
                 }
             }  
-        if(Vehicle_Registration!=null && Vehicle_Registration!='' && !String.isBlank(Vehicle_Registration))
+        if(regNumber!=null && regNumber!='' && !String.isBlank(regNumber))
         {  
-        vehlist=[select id,Related_contact__c,RegistrationNo__c from Vehicle__c where RegistrationNo__c =:Vehicle_Registration and MD__c='KR'];
+        vehlist=[select id,Related_contact__c,RegistrationNo__c from Vehicle__c where RegistrationNo__c =:regNumber and MD__c='KR'];
         }
-    	}
+        }
     system.debug(vehlist);
     if(Loyalty_Card_No!=null && Loyalty_Card_No!='' && !String.isBlank(Loyalty_Card_No))
     {
@@ -55,7 +56,7 @@ global without sharing class LoyalityManger {
      if(vehlist.size()>0)
         {
             if(Lclist.size()>0){
-            	vehrel=[select owner_relation__c,Contact__r.ucid__c  from Vehicle_Relationship__c where contact__c=:Lclist[0].Account__c and Vehicle_ID__c=:vehlist[0].id and End_Date__c=null and MD__c='KR'];   
+                vehrel=[select owner_relation__c,Contact__r.ucid__c  from Vehicle_Relationship__c where contact__c=:Lclist[0].Account__c and Vehicle_ID__c=:vehlist[0].id and End_Date__c=null and MD__c='KR'];   
             }
             responsemap.put('Vehicle_exist','True');
             responsemap.put('Vehicle_ID',vehlist[0].id);

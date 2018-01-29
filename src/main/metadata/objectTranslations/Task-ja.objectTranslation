@@ -415,6 +415,10 @@
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
+        <sections>
+            <label>不使用</label>
+            <section>Not Used</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>IB Call</layout>
