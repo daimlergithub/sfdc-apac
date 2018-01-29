@@ -550,6 +550,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>Comments__c</fullName>
         <externalId>false</externalId>
@@ -2825,6 +2834,19 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Past_Selling_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Past Selling Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Vehicle Relationship (Past Selling Dealer)</relationshipLabel>
+        <relationshipName>Vehicle_Relationship4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Performance__c</fullName>
