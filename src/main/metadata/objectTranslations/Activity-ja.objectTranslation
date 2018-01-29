@@ -864,11 +864,11 @@
         <name>Created_By_EP_Transaction__c</name>
     </fields>
     <fields>
-        <label><!-- CustomerName --></label>
+        <label>顧客名</label>
         <name>CustomerName__c</name>
     </fields>
     <fields>
-        <label><!-- DUP Number --></label>
+        <label>UCID</label>
         <name>DUP_Number__c</name>
     </fields>
     <fields>

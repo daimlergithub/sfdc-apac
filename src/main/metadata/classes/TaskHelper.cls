@@ -1045,4 +1045,121 @@ public class TaskHelper {
             update  updlead.Values();  
         }          
     } 
+    
+    /**
+  *@Description : Update Name and UCID to the task record. 
+  *@Date : 1/12/2018
+  *@param: List of Tasks.new , Task Old Map , Indicators for Insert/Update.
+  *@return:This mehtod does not return any value.
+----------------------------------------------------------
+   @issue : JP-3203
+   @modified date : 18-jan-2018
+   @name : Sergio K
+   @desc : updating Name and UCID values to the task record.
+  */
+    
+    public static void UpdateNameAndUCID(List<Task> tasks,Map<Id,Task> taskOldMap,boolean isInsert,boolean isUpdate) {
+
+        Map<Id, Task> taskMap = new Map<Id, Task>();
+        
+        Map<Id, Id> taskCaseMap = new Map<Id, Id>();
+        
+        Map<Id, Id> taskALMap = new Map<Id, Id>();
+
+        Map<Id, Id> taskLeadMap = new Map<Id, Id>();
+
+        if (isInsert){
+            for (Task t:tasks){
+                if (t.WhatID != null){
+                    String whatIdString = t.WhatId;
+                    
+                    if((whatIdString.substring(0, 3)).equals('500')){
+                        taskMap.put(t.Id, t);
+                        taskCaseMap.put(t.Id, t.WhatId);
+                    }else if((whatIdString.substring(0, 3)).equals('a08')){
+                        taskMap.put(t.Id, t);
+                        taskALMap.put(t.Id, t.WhatId);
+                    }else if((whatIdString.substring(0, 3)).equals('a13')){
+                        taskMap.put(t.Id, t);
+                        taskLeadMap.put(t.Id, t.WhatId);
+                    }
+                }
+            }
+        } else if (isUpdate){
+            for (Task t:tasks){
+                if (t.WhatId != ((Task)taskOldMap.get(t.Id)).WhatID){
+                    String whatIdString = t.WhatId;
+                    
+                    if((whatIdString.substring(0, 3)).equals('500')){
+                        taskMap.put(t.Id, t);
+                        taskCaseMap.put(t.Id, t.WhatId);
+                    }else if((whatIdString.substring(0, 3)).equals('a08')){
+                        taskMap.put(t.Id, t);
+                        taskALMap.put(t.Id, t.WhatId);
+                    }else if((whatIdString.substring(0, 3)).equals('a13')){
+                        taskMap.put(t.Id, t);
+                        taskLeadMap.put(t.Id, t.WhatId);
+                    }
+                }
+            }            
+        }
+
+        if(!taskMap.isEmpty()){
+            
+            Map<Id, Case> caseMap = new Map<Id, Case>();
+            
+            for (Case c:[select Id, Account.Name, Account.UCID__c from Case where Id in :taskCaseMap.values()]){
+                caseMap.put(c.Id, c);
+            }
+            
+            for (Id caseId:caseMap.keySet()){
+                
+                for(Id taskId:taskCaseMap.keySet()){
+                    if (taskCaseMap.get(taskId) == caseId){
+                        Task updateTask = taskMap.get(taskId);
+                        updateTask.CustomerName__c = caseMap.get(caseId).Account.Name;
+                        updateTask.DUP_Number__c = caseMap.get(caseId).Account.UCID__c;
+                        taskMap.put(taskId, updateTask);
+                    }
+                }
+            }
+            
+            Map<Id, Account_Link__c> ALMap = new Map<Id, Account_Link__c>();
+            
+            for (Account_Link__c a:[select Id, toRole__r.Name, toRole__r.UCID__c from Account_Link__c where Id in :taskALMap.values()]){
+                ALMap.put(a.Id, a);
+            }
+            
+            for (Id ALId:ALMap.keySet()){
+                
+                for(Id taskId:taskALMap.keySet()){
+                    if (taskALMap.get(taskId) == ALId){
+                        Task updateTask = taskMap.get(taskId);
+                        updateTask.CustomerName__c = ALMap.get(ALId).toRole__r.Name;
+                        updateTask.DUP_Number__c = ALMap.get(ALId).toRole__r.UCID__c;
+                        taskMap.put(taskId, updateTask);
+                    }
+                }
+            }
+            
+            Map<Id, Lead__c> leadMap = new Map<Id, Lead__c>();
+            
+            for (Lead__c l:[select Id, Contact__r.Name, Contact__r.UCID__c from Lead__c where Id in :taskLeadMap.values()]){
+                leadMap.put(l.Id, l);
+            }
+            
+            for (Id leadId:leadMap.keySet()){
+                
+                for(Id taskId:taskLeadMap.keySet()){
+                    if (taskLeadMap.get(taskId) == leadId){
+                        Task updateTask = taskMap.get(taskId);
+                        updateTask.CustomerName__c = leadMap.get(leadId).Contact__r.Name;
+                        updateTask.DUP_Number__c = leadMap.get(leadId).Contact__r.UCID__c;
+                        taskMap.put(taskId, updateTask);
+                    }
+                }
+            }
+
+        }
+    }
 }
