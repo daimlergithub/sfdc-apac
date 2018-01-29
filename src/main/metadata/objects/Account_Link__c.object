@@ -888,7 +888,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <relationshipLabel>Account Link</relationshipLabel>
         <relationshipName>Account_Link</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -1364,7 +1364,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <description>Readyonly</description>
         <externalId>false</externalId>
         <label>Retail Duplicate Flag</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
