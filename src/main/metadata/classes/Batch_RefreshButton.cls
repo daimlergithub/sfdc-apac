@@ -101,13 +101,13 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
         }
          membertoupdate.put(mem.id,mem);
         Map<Id,Account_Link__c> mapAccLinks = New Map<Id,Account_Link__c>(); 
-        List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c,Vehicle__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: Jointvehicle AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer order by LastModifiedDate desc];
+        List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c,Vehicle__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: Jointvehicle AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer order by LastModifiedDate desc LIMIT 1];
         for(Account_Link__c accMainlink : acclink){
             
             mapAccLinks.put(accMainlink.Vehicle__c,accMainlink);
         }
         
-        
+        System.debug('+++++++++acclink++++++++++++'+acclink);
         if(!acclink.isEmpty() && acclink.size()>0){
         for(Campaign_Member__c camp : scope){
           for(Account_Link__c acc : acclink ){
@@ -128,8 +128,9 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             
         }
          Map<Id,Account_Link__c> mapAccSalesLinks = New Map<Id,Account_Link__c>();
-          List<Account_Link__c> Personacclink = [select Id, Name,Vehicle__c , Retail_Sales_Consultant__c,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc];
+          List<Account_Link__c> Personacclink = [select Id, Name,Vehicle__c , Retail_Sales_Consultant__c,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc LIMIT 1];
        
+         System.debug('+++++++++Personacclink++++++++++++'+Personacclink );
         if(!Personacclink.isempty()&&Personacclink.size()>0){
         for(Account_Link__c acc :Personacclink){
         
@@ -150,7 +151,8 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
         
         
         //update membertoupdate;
-        update membertoupdate.values();
+        database.update(membertoupdate.values(), false);
+        //update membertoupdate.values();
         //upsert membertoupdate.values();
     
         
