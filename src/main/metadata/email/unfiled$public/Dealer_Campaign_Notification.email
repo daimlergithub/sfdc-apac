@@ -4,14 +4,11 @@
    <style type="text/css">
    </style>
    <body>
-   <p>{!$Label.Email_LeadDealerAssign1} {!relatedTo.Owner.Name} {!$Label.Store}</p>
-   <p> {!$Label.Campaign_Notification1}</p>
+   <p> {!relatedTo.Owner.Name} 店</p>
+   <p> 管理者様、ご担当者様</p>
    
-   <p> {!$Label.Campaign_Notification10}</p>
+   <p> 本日以下のキャンペーンの対象顧客を抽出し、キャンペーンメンバーとして展開しました。</p>
    <p> {!relatedTo.Name}  </p>
-   
-   <p> {!$Label.Campaign_Notification11}</p>
-   
    
   
   <a href="{!$Label.Dealer_login_Url}/{!relatedTo.Id}">
@@ -19,23 +16,27 @@
         Direct link URL to the detail page
   </a> 
    
-   <p> {!$Label.Campaign_Notification5}</p>
+   <p> ※対象顧客の確認にはセールスフォースへのログインが必要となります。</p>
    
-   <p> {!$Label.Campaign_Notification6}</p>
+  
    
-   <p> {!$Label.Campaign_Notification7}</p>
+   <p> 統合顧客管理システムの操作について、ご不明な点がございましたら</p>
    
-   <p> {!$Label.Campaign_Notification8}</p>
+   <p> 統合顧客管理システム　サポートデスクまでお問い合わせください。</p>
    
-   <p> {!$Label.Campaign_Notification9}</p>
+   <p> 重要:このメールはシステムより自動配信されています。本メールへは返信しないようにお願いいたします。</p>
+     
+   ***********************************************************************************************************
    
-   -------------------------------------------
-   
-    <p> {!$Label.Email_LeadDealerAssign15}</p>
-    <p> {!$Label.Email_LeadDealerAssign16}</p>
-    <p> {!$Label.Email_LeadDealerAssign17}</p>
-    <p> {!$Label.Email_LeadDealerAssign18}</p>
-   -----------------------------------------------
+    <p> 統合顧客管理システム（受付時間：毎日9時から20時　 *土日・祝日も営業)</p>
+    <p> ITサポートデスク</p>
+    <p> システムトラブル時のサポート、ユーザーID申請に関する質問</p>
+    <p> TEL:03-5643-6071</p>
+    <p> ビジネスサポートデスク</p>
+    <p>マニュアル、FAQでは解決しない使い方、活用方法に関する質問</p>
+    <p>TEL:03-5623-3498</p>
+    <p>※音声ガイダンスに従って「1」を押してください。</p>
+   ***********************************************************************************************************
    
    </body>
    </html>
