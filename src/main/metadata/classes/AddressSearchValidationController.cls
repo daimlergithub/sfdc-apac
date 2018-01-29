@@ -52,7 +52,7 @@ public class AddressSearchValidationController
     public String workPhoneAreaCodePart1{get;set;}   
     public String workPhoneAreaCodePart2{get;set;}
     public String workPhoneAreaCodePart3{get;set;}
-	public String workPhone2AreaCodePart1{get;set;}   
+  public String workPhone2AreaCodePart1{get;set;}   
     public String workPhone2AreaCodePart2{get;set;}
     public String workPhone2AreaCodePart3{get;set;}
     public String homePhone2AreaCode{get;set;}
@@ -507,8 +507,8 @@ public class AddressSearchValidationController
                     {
                         objAccount.Work_Phone__c = '';
                     }
-					//1606 changes added by Monalisa
-					if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
+          //1606 changes added by Monalisa
+          if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
                     {                      
                         objAccount.Work_Phone_2__c = '';
                     }
@@ -701,7 +701,7 @@ public class AddressSearchValidationController
                     {
                         objAccount.Work_Phone__c = '';
                     }
-					if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
+          if(workPhone2AreaCodePart1 == ' ' && workPhone2AreaCodePart2 == '' && workPhone2AreaCodePart3 == '')
                     {                      
                         objAccount.Work_Phone_2__c = '';
                     }
@@ -1585,7 +1585,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(!(String.isBlank(workPhoneAreaCodePart1)) && !phoneAreaCodeMapKR.containsKey(workPhoneAreaCodePart1)){
                 options.add(new SelectOption( workPhoneAreaCodePart1,workPhoneAreaCodePart1));
             }
-			//Monalisa Code Started
+      //Monalisa Code Started
             if(!(String.isBlank(workPhone2AreaCodePart1)) && !phoneAreaCodeMapKR.containsKey(workPhone2AreaCodePart1)){
                 options.add(new SelectOption( workPhone2AreaCodePart1,workPhone2AreaCodePart1));
             }
@@ -1676,8 +1676,8 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void onLineDeduplication(){ 
   //  Readonly= true;  
    //    Editmode=false; 
-        String Doblebyte='[^ -~ï½¡-ï¾Ÿ]*';
-        String KanaChar='[ã‚¡ã‚¢ã‚£ã‚¤ã‚¥ã‚¦ã‚§ã‚¨ã‚©ã‚ªã‚«ã‚¬ã‚­ã‚®ã‚¯ã‚°ã‚±ã‚²ã‚³ã‚´ã‚µã‚¶ã‚·ã‚¸ã‚¹ã‚ºã‚»ã‚¼ã‚½ã‚¾ã‚¿ãƒ€ãƒãƒ‚ãƒƒãƒ„ãƒ…ãƒ†ãƒ‡ãƒˆãƒ‰ãƒŠãƒ‹ãƒŒãƒãƒŽãƒãƒãƒ‘ãƒ’ãƒ“ãƒ”ãƒ•ãƒ–ãƒ—ãƒ˜ãƒ™ãƒšãƒ›ãƒœãƒãƒžãƒŸãƒ ãƒ¡ãƒ¢ãƒ£ãƒ¤ãƒ¥ãƒ¦ãƒ§ãƒ¨ãƒ©ãƒªãƒ«ãƒ¬ãƒ­ãƒ®ãƒ¯ãƒ°ãƒ±ãƒ²ãƒ³ãƒ´ãƒµãƒ¶ï¼ãƒ¼]*';
+        String Doblebyte='[^ -~¡-ß]*';
+        String KanaChar='[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*';
         Boolean result;
         Boolean resultFname;
         Boolean resultKanaLname;
@@ -1725,7 +1725,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         System.debug('@@@@*(*(*(*(*(*(*(*('+result);
          if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) || objPersonAccount.Data_source__C == NULL || String.isBlank(objPersonAccount.Data_source__C)))
         { 
-		objPersonAccount.LastName.adderror(Label.LastName_and_TouchPoint_fileds_are_mandatory);
+    objPersonAccount.LastName.adderror(Label.LastName_and_TouchPoint_fileds_are_mandatory);
            // ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.LastName_and_TouchPoint_fileds_are_mandatory));
         }
         else if(recordType == 'Person Account'  && Userinfo.getUserType() == 'PowerPartner' && market == System.Label.JP && (objPersonAccount.LastName == NULL||String.isBlank(objPersonAccount.LastName) ))
@@ -1902,8 +1902,8 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(market == System.Label.KR)
             {
-			            Editmode = false;
-						Readonly = false;
+                  Editmode = false;
+            Readonly = false;
                 if(homePhoneAreaCodePart1!= '' && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')
                 {                      
                     objPersonAccount.Individual_Home_Phone__c = homePhoneAreaCodePart1+'-'+homePhoneAreaCodePart2+'-'+homePhoneAreaCodePart3;
@@ -3134,9 +3134,9 @@ public pagereference saveAccountTH()
                             AddressObj.Preferred__c=true; 
                             DMLManagerService.insertAsSystem(AddressObj);                              
                             //insert AddressObj; 
-							Account acc=new Account(Id=objAccount.Id);
+              Account acc=new Account(Id=objAccount.Id);
                             acc.Primary_Address_Reference__c=AddressObj.Id;
-                            DMLManagerService.updateAsSystem(acc);							
+                            DMLManagerService.updateAsSystem(acc);              
                             PageReference pageRef = new PageReference('/'+objAccount.Id);       
                             return PageRef;     
                         }       

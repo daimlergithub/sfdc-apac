@@ -7,23 +7,31 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
         
     }
      global Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([Select id ,(Select id,Name,NewAccount__c,List_Maintenance_CM_Status__c,Campaign_Member__c From Dealer_List_Members__r) From Participating_Dealer__c Where Campaign__c =:query  ] );
+        return Database.getQueryLocator([Select id,Campaign__c ,(Select id,Name,NewAccount__c,List_Maintenance_CM_Status__c,Campaign_Member__c From Dealer_List_Members__r) From Participating_Dealer__c Where Campaign__c =:query  ] );
     }
     global void execute(Database.BatchableContext BC, List<Participating_Dealer__c> scope){
     
     Set<Id> sid = New Set<Id>();
    Set<Id> mid = New Set<Id>();
    Set<String> aid = New Set<String>();  
+   Set<id> parId = New Set<Id>();
    Set<Id> dupliCheck = New Set<Id>(); 
    List<Campaign_Member__c> camInsertList = New List<Campaign_Member__c>();
    List<Campaign> CampaignList = New List<Campaign>();
     Boolean DupeChecker = true ;
+   For(Participating_Dealer__c participate :scope){
    
+       parId.add(participate.id);
+   
+   }
+   
+   List<Dealer_List_Member__c> DealList = [Select id,Name,NewAccount__c,List_Maintenance_CM_Status__c,Participating_Dealer__c,Campaign_Member__c From Dealer_List_Member__c Where Participating_Dealer__c =:parId];
    
    For(Participating_Dealer__c par : scope){
        
-       For(Dealer_List_Member__c deal : par.Dealer_List_Members__r ){
+       For(Dealer_List_Member__c deal : DealList  ){
            
+           if(deal.Participating_Dealer__c == par.id){
            if(deal.List_Maintenance_CM_Status__c == 'Removed'){
                
                
@@ -35,6 +43,7 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
                     aid.add(deal.NewAccount__c);
                     mid.add(deal.Id);
                
+                }
                 }
               }
         
@@ -130,7 +139,7 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
      
           
         Batch_JointDrivenCampaign  batcher = new Batch_JointDrivenCampaign(aid, camList,parentCampaignList);
-            Database.executeBatch(batcher, 50);  
+            Database.executeBatch(batcher, 1);  
             
             }  
     

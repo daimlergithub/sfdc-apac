@@ -63,14 +63,16 @@ global without sharing class customerVehiceStatus {
         }
         List<Vehicle__c> vehicles=new List<Vehicle__c>();
         vehicles=[select id,RegistrationNo__c from vehicle__c where RegistrationNo__c like :regNumwithwildcards and Md__c='KR' limit 50000];
+        String regNumber=null;
         for(vehicle__c v:vehicles){
-            if(v.RegistrationNo__c.deleteWhitespace()==RegistrationNumber){
-                RegistrationNumber=v.RegistrationNo__c;
+            system.debug(v.RegistrationNo__c.deleteWhitespace().right(5));
+            if(v.RegistrationNo__c.deleteWhitespace().right(5)==RegistrationNumber){
+                regNumber=v.RegistrationNo__c;
             }
         }
         //considering removal of white spaces
-        if(RegistrationNumber !=null && RegistrationNumber !='' && !String.isBlank(RegistrationNumber)){
-            vehicle=[select id from Vehicle__c where RegistrationNo__c=:RegistrationNumber limit 1];
+        if(regNumber !=null && regNumber !='' && !String.isBlank(regNumber)){
+            vehicle=[select id from Vehicle__c where RegistrationNo__c=:regNumber limit 1];
         }
         if(vehicle.size()==0){
             return response;
@@ -90,14 +92,14 @@ global without sharing class customerVehiceStatus {
         lcv=[select id,Loyalty_Card_Number__c from Loyalty_Card__c where vehicle__c=:vehicle[0].id and Loyalty_Card_End_Date__c>=:system.today() and Md__c='KR' limit 1];
         system.debug(lcv.size());
         if(lcv.size()>0){
-            	response.put('VehicleRelationship', lcv[0].Loyalty_Card_Number__c+';Nil');
+              response.put('VehicleRelationship', lcv[0].Loyalty_Card_Number__c+';Nil');
         }
         if(acc.size()>0){
             List<Vehicle_Relationship__c> vrs=new List<Vehicle_Relationship__c>();
             vrs=[select id,Owner_Relation__c,Vehicle_ID__c from Vehicle_Relationship__c where Contact__c=:acc[0].id and Vehicle_ID__c=:vehicle[0].id and End_Date__c =null and Md__c='KR' Order By LastModifiedDate DESC limit 1]; 
             system.debug(vrs.size());
             if(response.get('VehicleRelationship')!='Nil' && vrs.size()>0){
-            	String relation=vrs[0].Owner_Relation__c=='Same'?'Owner':'Contact';
+              String relation=vrs[0].Owner_Relation__c=='Same'?'Owner':'Contact';
                 response.put('VehicleRelationship', lcv[0].Loyalty_Card_Number__c+';'+relation);
             }
             else if(vrs.size()>0){
