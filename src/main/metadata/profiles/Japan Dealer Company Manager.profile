@@ -24905,7 +24905,7 @@
         <recordType>Campaign.CAC_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Execution</layout>
+        <layout>Campaign-Campaign Execution Dealer</layout>
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25324,7 +25324,7 @@
         <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
+        <layout>Participating_Dealer__c-Participating Dealer Layout %28Dealer%29</layout>
         <recordType>Participating_Dealer__c.Participating_Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25449,7 +25449,7 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail Execution Campaign</layout>
+        <layout>Retail_Campaign__c-Retail Campaign Execution Dealer</layout>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
