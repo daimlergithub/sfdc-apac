@@ -6,10 +6,12 @@ public class TaskTriggerHandlerJP
           if(trigger.isBefore && trigger.isInsert)
         {
             TaskHelper.UpdateLinkedLeads(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);             
+            TaskHelper.UpdateNameAndUCID(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
             TaskHelper.UpdateLinkedLeads(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);             
+            TaskHelper.UpdateNameAndUCID(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
         }
     }        
     

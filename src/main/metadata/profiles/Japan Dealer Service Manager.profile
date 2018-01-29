@@ -13614,7 +13614,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.CustomerName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22644,7 +22644,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.CustomerName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
