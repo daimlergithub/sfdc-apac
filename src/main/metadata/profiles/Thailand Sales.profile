@@ -29108,7 +29108,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.CompanyExternalLink</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
@@ -29119,12 +29119,12 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.ContactSector</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -29139,7 +29139,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
