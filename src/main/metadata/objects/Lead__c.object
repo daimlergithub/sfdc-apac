@@ -13312,6 +13312,16 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+		 <fields>
+        <fullName>Others__c</fullName>
+        <externalId>false</externalId>
+        <label>Others</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
     <fields>
         <fullName>Retail_Interested_Vehicle_Class__c</fullName>
         <externalId>false</externalId>
