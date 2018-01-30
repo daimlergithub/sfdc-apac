@@ -8725,6 +8725,11 @@
         <field>Campaign_Member__c.Retail_Campaign_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Retail_Copy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Retail_Task__c</field>
@@ -8818,6 +8823,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.UsVIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Vehicle_ExternalLink__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13026,6 +13036,11 @@
         <field>Dealer_List_Member__c.Removed__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.Retail_Copy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.Sales_Representative__c</field>
@@ -13049,6 +13064,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.VehicleRelationship__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.Vehicle_ExternalLink__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13614,7 +13634,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.CustomerName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -22644,7 +22664,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.CustomerName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -24951,7 +24971,7 @@
         <recordType>Campaign.Campaign_Execution</recordType>
     </layoutAssignments>
 		    <layoutAssignments>
-        <layout>Campaign-Campaign Execution</layout>
+        <layout>Campaign-Campaign Execution Dealer</layout>
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25347,10 +25367,10 @@
         <layout>Package_Item__c-Package Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
+        <layout>Participating_Dealer__c-Participating Dealer Layout %28Dealer%29</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
+        <layout>Participating_Dealer__c-Participating Dealer Layout %28Dealer%29</layout>
         <recordType>Participating_Dealer__c.Participating_Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -25455,7 +25475,7 @@
         <recordType>Retail_Campaign__c.Retail_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail Execution Campaign</layout>
+        <layout>Retail_Campaign__c-Retail Campaign Execution Dealer</layout>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>

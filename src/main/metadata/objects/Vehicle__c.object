@@ -2440,6 +2440,24 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_EuroVIN
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Extended_Warranty_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Extended Warranty End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Extended_Warranty_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Extended Warranty Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>FinanceExpiryDate__c</fullName>
         <description>/* 
