@@ -55,49 +55,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Campaign_Question_Ref__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -135,6 +92,48 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Need_Free_TextBox__c</fullName>
@@ -228,7 +227,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
-	<fields>
+    <fields>
         <fullName>Total_Responses__c</fullName>
         <externalId>false</externalId>
         <label>Total Responses</label>
@@ -267,6 +266,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <label>Survey Question</label>
     <listViews>
@@ -327,6 +335,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA'))))</defaultValue>
         <errorConditionFormula>AND(Need_Free_TextBox__c,NOT( ISBLANK( Redirect_Question_Number__c )), ISBLANK( Single_FreeText_Next_Question_No__c ),  $Profile.Name != 'IntegrationAPI',OR(MD__c = 'KR',MD__c = 'JP'))</errorConditionFormula>
         <errorDisplayField>Single_FreeText_Next_Question_No__c</errorDisplayField>
         <errorMessage>Please set the single opinion free text next question number</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Survey_Question_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Survey Question  should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Type_Show_Free_TextBox</fullName>

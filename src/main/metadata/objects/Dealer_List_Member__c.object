@@ -315,6 +315,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Retail_Copy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Copy</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Dealer List Members</relationshipLabel>
+        <relationshipName>Dealer_List_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Sales_Representative__c</fullName>
         <externalId>false</externalId>
@@ -369,6 +381,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Vehicle_ExternalLink__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Vehicle External Link</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Dealer List Members (Vehicle External Link)</relationshipLabel>
+        <relationshipName>Dealer_List_Members1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Vehicle__c</fullName>
