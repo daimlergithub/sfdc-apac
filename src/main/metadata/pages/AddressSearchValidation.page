@@ -61,7 +61,7 @@
                 
                 <apex:actionFunction action="{!selectedRecordTypeValue}" name="setRecType"/>
         <!--  All Markets Record Type Selection - Start -->
-                <apex:pageBlockSection rendered="{If(ISPICKVAL($User.Market__c,'JP') ,true,false)}">
+                <apex:pageBlockSection >
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}"/>
                         <!--<apex:outputLabel value="{!$Label.RecordTypeId}"/> -->
