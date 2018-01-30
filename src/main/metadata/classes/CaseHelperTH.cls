@@ -93,7 +93,7 @@ public class CaseHelperTH {
         }
         for (Case led: caseLst) {
             System.debug('11*');
-            if (led.Case_Dealer__c != null && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0)) {
+            if (led.Case_Dealer__c != null && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0) && (isInsert || (isUpdate && led.Case_Dealer__c != caseOldMap.get(led.id).Case_Dealer__c)) ) {
                 Account_Link__c acclnk = new Account_Link__c();
                 //accLst.add(acclnk);
                 System.debug('22*' + led.Account.RecordTypeId + PersonRecordTypeId);

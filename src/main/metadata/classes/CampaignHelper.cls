@@ -42,7 +42,7 @@ public class CampaignHelper {
     }
 }
     
- /***********************************************************************************
+/***********************************************************************************
 Created By          :    Abhishekh Dasepalle   
 Created Date        :    30.01.2017
 Company             :    NTT Data,Inc.
@@ -73,48 +73,8 @@ JIRA NO             :    SFDCJP-1026
     
     
   }
-  EmailTemplate templateId = [Select id from EmailTemplate where name = 'ListMaintenanceNotification'];
-  List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
-  System.Debug('++++++++++'+CamList );
-  
-        For(Campaign c : CamList){
-  
-     For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
-          
-          
-             DealerIds.add(parDealer.Dealer__c);
-             ParticipateIds.add(ParDealer.Id);
-          
-           }
-           }
-         
-         If(DealerIds.size() >0){
-          List<User> UseList = [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:DealerIds AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ]; 
-          For(Campaign c : CamList){
-          For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
-          For(User u : UseList  )
-          { 
-          
-          If(u.contact.AccountId == parDealer.Dealer__c){
-         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-         mail.saveAsActivity = false;
-         mail.setTargetObjectId(u.Id);
-       
-         mail.setWhatId(parDealer.Id);
-        
-         mail.setTemplateID(templateId.Id); 
-         mail.setUseSignature(false);
-         mail.setSaveAsActivity(false);
-              
-       mails.add(mail); 
-      }     
-   }
-       
-         
-    }}
-     Messaging.sendEmail(mails);
-  
-   } 
+  Batch_EmailNotification   batcher = New Batch_EmailNotification(sid);
+       Database.executeBatch(batcher, 50);
    
    } 
    /* End Of SFDCJP-1026 */

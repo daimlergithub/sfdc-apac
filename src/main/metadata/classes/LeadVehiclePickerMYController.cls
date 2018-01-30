@@ -48,9 +48,10 @@ global with sharing class LeadVehiclePickerMYController {
         //profileName = userinfo.getprofilename();
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
-        if(p.Name.contains('Dealer')){
+        //Added by - Laqshay Arora Test Case- Commented the following condition at line 51-53 for enabling the buttons on the VF page.
+       /* if(p.Name.contains('Dealer')){
             disableButtons = false;
-        }
+        }*/
         currentRecordId  = controller.getId();
        
         Set<Id> lead_VehicleIds;

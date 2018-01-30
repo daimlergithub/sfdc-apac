@@ -11,7 +11,7 @@ Global class JSON2ApexStouch {
         public String Birthdate;
         public Person(Account_link__c acclink,String federationIdentifier){
             this.LastName=string.ISBlank(acclink.Retail_LastName__c)? ' ' : acclink.Retail_LastName__c;
-            this.PersonMobilePhone=string.ISBlank(acclink.Retail_Mobile__c)? ' ' : acclink.Retail_Mobile__c;
+            this.PersonMobilePhone=string.ISBlank(acclink.Retail_Mobile__c)? ' ' : acclink.Retail_Mobile__c.remove('-');
             this.PersonEmail=string.ISBlank(acclink.Retail_Email__c)? ' '  : acclink.Retail_Email__c;
             this.Personal_UCID=string.ISBlank(acclink.Retail_UCID__c)? ' '  : acclink.Retail_UCID__c;
             this.Owner=string.ISBlank(federationIdentifier)? ' '  : federationIdentifier;

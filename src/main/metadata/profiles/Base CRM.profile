@@ -6075,6 +6075,7 @@
         <editable>false</editable>
         <field>Account_Link__c.Retail_Industry__c</field>
         <readable>false</readable>
+		<hidden>true</hidden>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -26276,7 +26277,7 @@
         <recordType>Retail_Campaign__c.Retail_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Record Layout</layout>
+        <layout>Retail_Campaign__c-Retail Execution Campaign Generic</layout>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -26288,7 +26289,7 @@
         <recordType>Retail_Campaign__c.Retail_Media</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Record Layout</layout>
+        <layout>Retail_Campaign__c-Retail Planning %26 Design Campaign Generic</layout>
         <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>

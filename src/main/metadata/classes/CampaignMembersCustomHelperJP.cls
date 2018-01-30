@@ -418,7 +418,9 @@ insert campMemShareList;
         Set<Id> DealerAccId=new Set<Id>();
         Set<Id> VrID=new Set<Id>();
         system.debug('%^%^%^%^^%^%^% mapCheckingType'+mapCheckingType);
-        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:mapCheckingType.keySet() Or fromRole__c=:mapCheckingType.keySet()];
+        system.debug('++++++++++++++'+mapCheckingType.keySet());
+        system.debug('++++++++++++++'+mapCheckingType.keySet().size());
+        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:mapCheckingType.keySet() Or fromRole__c=:mapCheckingType.keySet() LIMIT 10000];
          system.debug('%^%^%^%^^%^%^% ListAlk '+ListAlk );
         for(Account_Link__c alk:ListAlk) {
             DealerAccId.add(alk.fromRole__c);
@@ -587,14 +589,14 @@ insert campMemShareList;
                     and retail campaign status to 'Response collection'
        date     : 15th Mar, 2017
      */
-    public static void afterUpdateCampaignMembers(Map<Id,Campaign_Member__c> afterCampMembers){
+    public static void afterUpdateCampaignMembers(List<Campaign_Member__c> afterCampMembers){
         Set<Id> parentRetailCampIds = new Set<Id>();
         Set<String> campaignMemberStatusSet = new Set<String>{'Bounced', 'Responded','Not Responded'};
-        for(Campaign_Member__c campMem : [SELECT Status__c, Campaign_Id__c, Retail_Campaign_Id__c FROM Campaign_Member__c WHERE ID IN: afterCampMembers.keySet()]){
-            if(campaignMemberStatusSet.contains(campMem.Status__c)){
+        for(Campaign_Member__c campMem : afterCampMembers ){
+            
                 if(campMem.Retail_Campaign_Id__c != null)
                     parentRetailCampIds.add(campMem.Retail_Campaign_Id__c);
-            }            
+                       
         }
 
         List<Retail_Campaign__c> listRetCamp = new List<Retail_Campaign__c>();

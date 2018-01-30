@@ -84,11 +84,13 @@ public without sharing class TaskHelperTH {
    }
    public static void updateAccountMobile(List<Task> lstTask){          
         Set<ID> accId = new Set<ID>();
+        Set<ID> conId = new Set<ID>();
         Set<ID> leadId = new Set<ID>();
         Set<ID> campId = new Set<ID>();
         set<id> contactId = new set<id>();
         Set<ID> dmRequestId = new Set<ID>();
         List<Account> lstAccount = new List<Account>();
+         List<contact> lstcon = new List<contact>();
         List<Lead__c> lstLead = new List<Lead__c>();
         List<DM_Request__c> lstDMRequest = new List<DM_Request__c>();
         List<Account> lstCampaignAccount = new List<Account>();
@@ -107,8 +109,11 @@ public without sharing class TaskHelperTH {
         Map<Id , String> mapEMailCampaign = new Map<Id , String>();
         
         for(Task tsk : lstTask){ 
-            if( tsk.whatId != null && String.valueOf( tsk.whatId ).startsWith( '001' )){
-                accId.add(tsk.whatId);       
+            if( tsk.whoid != null && String.valueOf( tsk.whoid ).startsWith( '001' )){
+                accId.add(tsk.whoid);       
+            }
+            else if( tsk.whoid != null && String.valueOf( tsk.whoId ).startsWith( '003' )){
+                conId.add(tsk.whoId);       
             }
             else if(tsk.WhatId != null){
                 if(String.valueOf( tsk.WhatId ).startsWith(leadTabId)){
@@ -122,8 +127,11 @@ public without sharing class TaskHelperTH {
         
         }
         if(accId != Null && !accId.isEmpty()){
-            lstAccount = [Select Id,Mobile__c,Email__c, Primary_Phone__c,individual_Home_Phone__c,Work_Phone__c from Account where Id =:accId];
-        }        
+            lstAccount = [Select Id,Mobile__c,Email__c, Primary_Phone__c,individual_Home_Phone__c,PersonContactId,Work_Phone__c from Account where Id =:accId or id=:conId];
+        } 
+    if(conId != Null && !conId.isEmpty()){
+            lstcon = [Select Id, Account.Email__c, Account.Primary_Phone__c,Account.individual_Home_Phone__c,Account.Work_Phone__c from contact where Id =:conId];
+        }       
         
         if(leadId != Null && !leadId.isEmpty()){
             lstLead = [Select Id,Contact__r.Mobile__c,Contact__c,Contact__r.Email__c, Contact__r.Primary_Phone__c,Contact__r.individual_Home_Phone__c,Contact__r.PersonContactId,Contact__r.Work_Phone__c,Company_Account__r.Mobile__c,Company_Account__r.Email__c from Lead__c where Id =:leadId];
@@ -136,6 +144,22 @@ public without sharing class TaskHelperTH {
         }
         
         
+        for(contact con : lstcon){
+            if(con.account.Primary_Phone__c!=null){
+                if(con.account.Primary_Phone__c=='Mobile'){
+                mapTask.put(con.id, con.account.Mobile__c);
+                }
+                else if(con.account.Primary_Phone__c=='Home phone'){
+                mapTask.put(con.id, con.account.individual_Home_Phone__c);
+                }
+                else if(con.account.Primary_Phone__c=='Work Phone'){
+                    mapTask.put(con.id, con.account.Work_Phone__c);
+                }
+            }         
+            mapEMailTask.put(con.id, con.account.Email__c);
+            //custname.put(acc.id,acc.PersonContactId);
+           
+        }
         for(Account acc : lstAccount){
             if(acc.Primary_Phone__c!=null){
                 if(acc.Primary_Phone__c=='Mobile'){
@@ -149,6 +173,7 @@ public without sharing class TaskHelperTH {
                 }
             }         
             mapEMailTask.put(acc.id, acc.Email__c);
+            //custname.put(acc.id,acc.PersonContactId);
            
         }
         
@@ -190,10 +215,12 @@ public without sharing class TaskHelperTH {
             if(t.RecordTypeId == OBCAllTaskRecordTypeId||t.RecordTypeid==iBCAllTaskRecordTypeId){
                 system.debug(t.WhoId+'abcdef');
                 if(t.WhoId != Null && String.valueOf( t.whoid ).startsWith( '003' )){
-                    t.Phone__c = mapTask.get(t.WhatId);   
+                    t.Phone__c = mapTask.get(t.Whoid);  
+                    //t.whoid= custname.get(t.whatid);
                 }
-                else if(t.WhoId != Null && String.valueOf( t.WhoId ).startsWith( '001' )){
+                else if(t.whoid != Null && String.valueOf( t.whoid ).startsWith( '001' )){
                      t.Phone__c = mapTask.get(t.WhatId); 
+                     //t.whoid= custname.get(t.whatid);
                 }
                 else if(t.WhatId != Null && String.valueOf( t.WhatId ).startsWith( leadTabId )){
                     t.Phone__c = mapLead.get(t.WhatId);  

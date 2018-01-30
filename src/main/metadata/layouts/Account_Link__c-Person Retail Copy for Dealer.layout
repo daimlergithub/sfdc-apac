@@ -71,9 +71,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_UCID__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_ID_Type__c</field>
@@ -82,9 +80,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_ID_Number__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Allow_Data_Sharing__c</field>
@@ -148,15 +144,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Fax__c</field>
@@ -300,9 +288,7 @@
         <editHeading>true</editHeading>
         <label>System Information</label>
         <layoutColumns>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>fromRole__c</field>
@@ -327,6 +313,14 @@
                 <behavior>Readonly</behavior>
                 <field>Last_Modified_User_Type__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_CreatedDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_LastModifiedDate__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -337,14 +331,7 @@
                 <behavior>Edit</behavior>
                 <field>Market__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_CreatedDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_LastModifiedDate__c</field>
-            </layoutItems>
+            
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
