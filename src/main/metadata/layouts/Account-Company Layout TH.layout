@@ -329,7 +329,6 @@
         <fields>Dealer_ND_Code__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <fields>LAST_UPDATE</fields>
-        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Desc</sortOrder>
