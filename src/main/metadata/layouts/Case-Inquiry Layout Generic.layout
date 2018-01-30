@@ -225,12 +225,7 @@
                 <field>Lead__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Customer_Care_Owner__c</field>
-            </layoutItems>
-        </layoutColumns>
+        
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
