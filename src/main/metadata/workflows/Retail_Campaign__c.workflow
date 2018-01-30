@@ -401,10 +401,55 @@
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
+	<rules>
+        <fullName>MBMY_update_Campaign Status</fullName>
+        <actions>
+            <name>Update_status_to_planning</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Retail_Campaign__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaign Execution</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_Email_Notification_Owner</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Update_status_to_Execution</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Execution_Start_Date__c</offsetFromField>
+            <timeLength>9</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_Notification_to_Dealer</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Update_status_to_Segmentation</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Retail_Campaign__c.Segmentation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
     <rules>
         <fullName>Retail Execution Start Date Notification To Owner</fullName>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.Record_Type_Name__c</field>
             <operation>equals</operation>
@@ -419,6 +464,11 @@
             <field>Retail_Campaign__c.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Retail_Campaign__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
