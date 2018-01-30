@@ -136,6 +136,12 @@
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
+			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+			<layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Survey_Response_1__c</field>

@@ -2603,7 +2603,7 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"</description>
         <externalId>false</externalId>
         <inlineHelpText>Defines vehicle being new or used</inlineHelpText>
-        <label>New Used</label>
+        <label>New/Used</label>
         <picklist>
             <picklistValues>
                 <fullName>New</fullName>
