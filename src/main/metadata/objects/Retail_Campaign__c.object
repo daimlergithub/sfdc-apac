@@ -2550,6 +2550,49 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
         <description>Retail Campaign: Max Car Age of the campaign</description>
