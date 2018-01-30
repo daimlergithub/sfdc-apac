@@ -1016,6 +1016,11 @@ public class TaskHelper {
                         le1.Trade_in_Date__c= t1.Activity_Date__c;
                         mainLead.add(le1); 
                     }
+                    else if(t1.intention_status__c=='Handover' && t1.Activity_Date__c!=NULL && le1.RecordTypeID == SalesLeadRectypeID)
+                    {
+                        le1.Handover_Date__c= t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
                     else if(t1.intention_status__c=='Trade-In' || t1.intention_status__c=='Test Drive' || t1.intention_status__c=='Simple Estimation' || t1.intention_status__c=='Finance Proposal' || t1.intention_status__c=='Product Proposal' && le1.RecordTypeID == AfterSalesLeadRectypeID)
                     
                      t1.addError('Please select appropriate activity for the Leads');
