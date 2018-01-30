@@ -87,7 +87,7 @@
                 </apex:pageBlockSection>
 				
 				<!-- RecordType selection for japan -->
-				 <apex:pageBlockSection rendered="{!If(OR(AND(ISPICKVAL($User.Market__c,'JP'),Editmode)) ,true,false)}">
+			<!--	 <apex:pageBlockSection rendered="{!If(OR(AND(ISPICKVAL($User.Market__c,'JP'),Editmode)) ,true,false)}">
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
@@ -100,7 +100,7 @@
                             </apex:selectList>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
-                     </apex:pageBlockSection>
+                     </apex:pageBlockSection> -->
   
 
         <!--  All Markets Record Type Selection - End -->
