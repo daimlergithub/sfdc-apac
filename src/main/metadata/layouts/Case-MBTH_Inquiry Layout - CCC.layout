@@ -74,10 +74,6 @@
                 <field>EuroVIN__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>MD__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Case_Owner_manager__c</field>
             </layoutItems>
