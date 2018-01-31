@@ -147,15 +147,15 @@
                 <behavior>Edit</behavior>
                 <field>Ad_Location__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Start_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_End_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Apply_Status__c</field>
             </layoutItems>
