@@ -42,6 +42,8 @@ public class AddressSearchValidationController
     public boolean Readonly {get;set;}
     public Boolean Editmode {get;set;}
     public Boolean cancel1 {get;set;}
+    public Boolean personrectype {get;set;}
+    public Boolean companyrectype {get;set;}
     public String var {get;set;}
     public map<string,string> labelNvalue=new map<string,string>();
     // KOREA related parameters - Start
@@ -150,7 +152,8 @@ public class AddressSearchValidationController
         
         Readonly=false;
       Editmode=true;
-        
+       companyrectype = false;
+      personrectype = false;
         //Introduced for TH market
         IsForeignNational=false;
         MBKNoMatch=false;
@@ -984,6 +987,8 @@ public class AddressSearchValidationController
         PageReference pageRef; 
               Readonly=false;
       Editmode=true;
+      companyrectype = false;
+      personrectype= false;
         pageRef = new PageReference('/apex/AddressSearchValidation');
         return PageRef;
        
@@ -1676,6 +1681,21 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void onLineDeduplication(){ 
   //  Readonly= true;  
    //    Editmode=false; 
+               if(market == Label.JP){
+    if(recordType == 'Person Account'){
+    personrectype = true;
+
+    }
+   
+    if(recordType == 'Company'){
+   system.debug ('+++++++++companyrectype'+companyrectype );
+    companyrectype = true;
+
+   system.debug ('+++++++++companyrectype'+companyrectype );
+    
+    }
+    
+    }
         String Doblebyte='[^ -~¡-ß]*';
         String KanaChar='[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*';
         Boolean result;
@@ -1685,6 +1705,14 @@ If the user is Saving  same address which matches the fields returned by toleran
           Integer yr;       
         System.debug('&&&&&&&&&&&&&&&&&&&&&&'+objPersonAccount.PersonBirthdate);
         Integer bdayyear;
+         
+       
+        System.debug('***************** objPersonAccount.Acquisition_Objective_Method__c'+objPersonAccount.Acquisition_Objective_Method__c);
+        System.debug('***************** recordType'+recordType);
+         System.debug('***************** recordType'+System.Label.JP+market);
+         System.debug('***************** recordType'+objPersonAccount.Allow_Data_Sharing2__c);
+         System.debug('***************** recordType'+objPersonAccount.Data_Source__c);
+        
         if(objPersonAccount.PersonBirthdate !=null)
         {
             Integer currentYear = System.Today().year();
@@ -1745,7 +1773,7 @@ If the user is Saving  same address which matches the fields returned by toleran
            objPersonAccount.Status__c.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer); 
              
         }
-        else if(recordType == 'Person Account'  && market == System.Label.JP && (objPersonAccount.Acquisition_Objective_Method__c == NULL||String.isBlank(objPersonAccount.Acquisition_Objective_Method__c) ) && objPersonAccount.Allow_Data_Sharing2__c=='Yes'  && objPersonAccount.Data_Source__c=='Dealer Outlet')
+        else if(recordType == 'Person Account'  && market == System.Label.JP && (objPersonAccount.Acquisition_Objective_Method__c == null || String.isBlank(objPersonAccount.Acquisition_Objective_Method__c) ) && objPersonAccount.Allow_Data_Sharing2__c=='Yes'  && (objPersonAccount.Data_Source__c=='Dealer Outlet' || TouchPoint=='Dealer Outlet'))
         { 
             objPersonAccount.Acquisition_Objective_Method__c.addError(Label.Please_select_Acquisition_Objective_Method);  
         }

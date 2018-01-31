@@ -19237,6 +19237,11 @@
         <field>Retail_Campaign__c.M_YearlyTA__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Max_Car_Age__c</field>
@@ -26277,7 +26282,7 @@
         <recordType>Retail_Campaign__c.Retail_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Record Layout</layout>
+        <layout>Retail_Campaign__c-Retail Execution Campaign Generic</layout>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -26289,7 +26294,7 @@
         <recordType>Retail_Campaign__c.Retail_Media</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Record Layout</layout>
+        <layout>Retail_Campaign__c-Retail Planning %26 Design Campaign Generic</layout>
         <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>

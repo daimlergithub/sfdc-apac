@@ -13321,11 +13321,11 @@ window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_AFTERSALES_REC
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 if('{!User.ContactId}' !='') 
 {
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ManageTasks?campid={!Campaign.Id}", "_blank","scrollbars=yes,resizable=yes,top=250,left=500,width=1000,height=700");
 }
 else if('{!User.ContactId}' =='') 
 {
-var myWindow = window.open("/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+var myWindow = window.open("/apex/ManageTasks?campid={!Campaign.Id}", "_blank","scrollbars=yes,resizable=yes,top=250,left=500,width=1000,height=700");
 }</url>
     </webLinks>
     <webLinks>
