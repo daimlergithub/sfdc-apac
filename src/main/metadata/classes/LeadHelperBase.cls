@@ -9,7 +9,7 @@ public without sharing class  LeadHelperBase{
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static final String retailSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.RETAIL_SALES_LEADS).getRecordTypeId();
-	private static final String PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    private static final String PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     private static final String AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     private static final String alkCompanyRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     private static final String alkpersonRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
@@ -26,20 +26,18 @@ public without sharing class  LeadHelperBase{
                 accId.add(lead.assigned_dealer__c);    
             }
         }
-        List<Account> accList = new List<Account>();
-        accList = [Select Dealer_Lead_Gate_Keeper__c from Account where id=:accId ];
-        if (accList.size()>0){
-            for(Account acc:accList){
-                if (acc.Dealer_Lead_Gate_Keeper__c != null){
-                    accUserMap.put(acc.id, acc.Dealer_Lead_Gate_Keeper__c); 
-                }
-            }
+        
+        if(accId.size()> 0){
+            accUserMap = getAccountToDLGKUser(accId);
         }
         for(Lead__c lead:leads){
             if((lead.RecordTypeId==salesRecordTypeId || lead.RecordTypeId==afterSalesRecordTypeId || lead.RecordTypeId==retailSalesRecordTypeId) && lead.md__c==Market){
                 if(accUserMap.get(lead.assigned_dealer__c) !=null){
                     lead.ownerID = accUserMap.get(lead.assigned_dealer__c); 
-                }   
+                }
+                else if(accUserMap.get(lead.assigned_dealer__c) ==null){
+                    lead.addError('The Dealer Lead Gate Keeper user is either not present or is inactive.');
+                }
             }
         }
     }
@@ -133,19 +131,33 @@ public without sharing class  LeadHelperBase{
     public Static void updateOwnership(set<id> acc,List<Lead__c> leadlist, string Market){
         Map<id, id> accUserMap = new Map<id, id>();
         if(acc.size()>0){
-            List<Account> accountList=[select Dealer_Lead_Gate_Keeper__c from Account where id=:acc];
-            for(Account ac:accountList){
-                if(ac.Dealer_Lead_Gate_Keeper__c!=null){
-                    accUserMap.put(ac.id,ac.Dealer_Lead_Gate_Keeper__c);
-                }
-            }
+            accUserMap = getAccountToDLGKUser(acc);
         }
         for(Lead__c lists:leadlist){
             if(accUserMap.get(lists.assigned_dealer__c) !=null && lists.md__c==Market){
                 lists.ownerID = accUserMap.get(lists.assigned_dealer__c); 
-            } 
+            }
+            else if(accUserMap.get(lists.assigned_dealer__c) ==null){
+                lists.addError('The Dealer Lead Gate Keeper user is either not present or is inactive.');
+            }
         }
     }
+    
+    public Static Map<ID, ID> getAccountToDLGKUser(Set<ID> Accid){
+        Map<ID,ID> mAccToDLGKUser = new Map<ID,ID>();
+        Map<ID,ID> mContactToUsr = new Map<ID,ID>();
+        
+        for(User user : [Select id, contact.AccountID, ContactID from user where contact.AccountID in :Accid and isActive = true]){
+            mContactToUsr.put(user.contactID, user.id);
+        }
+        
+        for(Contact con : [Select id, AccountID from contact where AccountID in :Accid and Dealer_Lead_Gate_Keeper__c = true]){
+            mAccToDLGKUser.put(con.AccountID, mContactToUsr.get(con.id));
+        }
+        
+        return mAccToDLGKUser;
+    }
+
     /* Data Migration Explicit Fix - Santosh Mohanty */
     public static void updatemarket(List<Lead__c> leadList){       
         
@@ -197,7 +209,7 @@ public without sharing class  LeadHelperBase{
             CDMInformatica_Services.createLead(LeadIdinsert, 'MY', 'insert');
 
     }    
-	    //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community  
+        //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community  
     
      public static String getCommunityURL(){
         String communityName='Daimler Community Malaysia';
@@ -214,7 +226,7 @@ public without sharing class  LeadHelperBase{
            }
        }
        return commubaseurl.replace('login','');
-    } 
+    }
     // Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community  
     public static void updatecommunityurl(List<Lead__c> Leadlist, String Market){
     String commURLMY=getCommunityURL();
@@ -303,7 +315,7 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
         }
 
     }
-	/*
+    /*
     Added by : Asish Nanda
     Test Case : A retail Copy (Reatil Person/ Retail Company)Will be Created in Dealer account automatically , if a dealer will be assigned to Lead 
     */
@@ -347,11 +359,10 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
         }
 
         List < Account_Link__c > dealercount = [select id from Account_Link__c WHERE fromRole__c IN: dealerId AND(toRole__c IN: AcclinkContactId OR toRole__c IN: CompanyId) AND(RecordTypeId =: alkCompanyRecordTypeId OR RecordTypeId =: alkpersonRecordTypeId) AND(Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false)];
-        system.debug('########' + dealercount);
         for (Lead__c led: leadlst) {
             if (led.Assigned_Dealer__c != null && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0)) {
                 Account_Link__c acclnk = new Account_Link__c(RecordTypeId = alkContactSectorRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
-                accLst.add(acclnk);
+                //accLst.add(acclnk);
                 if (led.Contact__r.RecordTypeId == PersonRecordTypeId) {
 
                     acclnk = new Account_Link__c(RecordTypeId = alkpersonRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
@@ -474,7 +485,7 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
         }
        
         if (!accLst.isEmpty()) {
-            insert accLst;
+            //insert accLst;
 
             Database.SaveResult[] srList = Database.insert(accLst, false);
             for (Database.SaveResult sr: srList) {
