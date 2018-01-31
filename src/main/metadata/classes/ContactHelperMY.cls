@@ -29,37 +29,54 @@ public static void assignGateKeeperToDealer(Set<ID> dealerIds) {
         Boolean flag = false;
         Map<String, User> userMap = new Map<String, User>();
         List<Lead__c> leads = new List<Lead__c>();
-        List<User> usrList=[select Id, AccountId, Contact.AccountId from User 
+        List<User> usrList=[select Id, AccountId, Contact.AccountId, contact.account.Dealer_Lead_Gate_Keeper__c from User 
                         where  isActive = true and ContactId != null and Contact.AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true];
-        List<Account> lDealers = new List<Account>();   
+        List<Account> lDealersNotChanged = new List<Account>();  
+        List<Account> lDealersChanged = new List<Account>(); 
         for(User usr : usrList){
             userMap.put(usr.Contact.AccountId, usr);
-            lDealers.add(new Account(id = usr.Contact.AccountId,Dealer_Lead_Gate_Keeper__c = usr.id));
-        }   
-        for(Lead__c lead : [select Assigned_Dealer__r.Dealer_Lead_Gate_Keeper__c, Assigned_Dealer__c, OwnerId from Lead__c where Assigned_Dealer__c in :dealerIds]){ 
+            if(usr.contact.account.Dealer_Lead_Gate_Keeper__c == NULL){
+                lDealersNotChanged.add(new Account(id = usr.Contact.AccountId,Dealer_Lead_Gate_Keeper__c = usr.id));
+            }
+            else{
+                lDealersChanged.add(new Account(id = usr.Contact.AccountId,Dealer_Lead_Gate_Keeper__c = usr.id));
+            }
+        }
+        if(!lDealersNotChanged.isEmpty()){
+            try{
+                update lDealersNotChanged;
+            }
+            catch(Exception ex){
+                Trigger.new[0].addError(ex.getMessage());
+            }
+        }
+        if(!lDealersChanged.isEmpty()){
+            for(Lead__c lead : [select Assigned_Dealer__r.Dealer_Lead_Gate_Keeper__c, Assigned_Dealer__c, OwnerId from Lead__c where Assigned_Dealer__c in :dealerIds]){ 
             if((lead.ownerID == NULL || lead.OwnerId == lead.Assigned_Dealer__r.Dealer_Lead_Gate_Keeper__c) && userMap.keySet().contains(lead.Assigned_Dealer__c)){                  
-                        lead.OwnerId = userMap.get(lead.Assigned_Dealer__c).Id;
-                        leads.add(lead);
-                }
-        }
-        if(leads.size() > 0){
+            lead.OwnerId = userMap.get(lead.Assigned_Dealer__c).Id;
+            leads.add(lead);
+            }
+            }
+            if(leads.size() > 0){
             try{
-                update leads;
-                flag = true;
+            update leads;
+            flag = true;
             }
             catch(Exception ex){
-                Trigger.new[0].addError(ex.getMessage());
+            Trigger.new[0].addError(ex.getMessage());
             }
-        }
-        if(!lDealers.isEmpty() && lDealers.size() > 0 && flag){
+            }
+            if(!lDealersChanged.isEmpty() && lDealersChanged.size() > 0 && flag){
             try{
-                update lDealers;
+            update lDealersChanged;
             }
             catch(Exception ex){
-                Trigger.new[0].addError(ex.getMessage());
+            Trigger.new[0].addError(ex.getMessage());
             }
+            }   
         }
     }
+
 
 public static void validateGateKeeper(List<Contact> contacts) {
         List<Contact> newContactsForGateKeeper = new List<Contact>(); 
