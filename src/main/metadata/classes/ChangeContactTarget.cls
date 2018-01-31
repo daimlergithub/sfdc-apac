@@ -78,7 +78,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                     {
                         vehiclewrpper.purchaseracclink = acclink;   
                     }
-                    else if(acclink.torole__c == vehiclewrpper .salescontactvr .contact__c && acclink.Retail_Sales_Consultant__c != null)
+                    if(acclink.torole__c == vehiclewrpper .salescontactvr .contact__c && acclink.Retail_Sales_Consultant__c != null)
                     {
                         vehiclewrpper.salescontactacclink = acclink;
                         //salesretailperson = acclink.Retail_Sales_Consultant__c;

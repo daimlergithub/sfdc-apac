@@ -8197,6 +8197,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Campaign.Activate_for_retail_campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Campaign.ActualCost</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -20893,6 +20898,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.M_YearlyTA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
