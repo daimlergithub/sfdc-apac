@@ -130,7 +130,7 @@ public without sharing class TaskHelperTH {
             lstAccount = [Select Id,Mobile__c,Email__c, Primary_Phone__c,individual_Home_Phone__c,PersonContactId,Work_Phone__c from Account where Id =:accId or id=:conId];
         } 
     if(conId != Null && !conId.isEmpty()){
-            lstcon = [Select Id, Account.Email__c, Account.Primary_Phone__c,Account.individual_Home_Phone__c,Account.Work_Phone__c from contact where Id =:conId];
+            lstcon = [Select Id, Account.Email__c,Account.Mobile__c,Account.Primary_Phone__c,Account.individual_Home_Phone__c,Account.Work_Phone__c from contact where Id =:conId];
         }       
         
         if(leadId != Null && !leadId.isEmpty()){
