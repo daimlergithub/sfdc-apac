@@ -473,7 +473,7 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Add_Preferred_Dealer__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1596,7 +1596,7 @@
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
-	<fields>
+    <fields>
         <fullName>CommunityURL__c</fullName>
         <externalId>false</externalId>
         <label>CommunityURL</label>
@@ -2294,7 +2294,9 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'),'TH',IF(ISPICKVAL($User.Market__c, 'MY'),'MY','NA'))))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'),'TH','NA')))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -2549,49 +2551,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-	<fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
@@ -4497,7 +4456,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <label>All</label>
         <language>zh_CN</language>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>All_MBTH_Retail_Campaigns</fullName>
         <columns>NAME</columns>
         <columns>RECORDTYPE</columns>
@@ -4521,7 +4480,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <label>All MBTH Retail Campaigns</label>
         <language>en_US</language>
         <sharedTo>
-            <group>THUsers</group>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
@@ -11362,6 +11320,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>CRM%2FCSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -11371,14 +11337,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </values>
             <values>
                 <fullName>Sales and After Sales</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CRM/CSR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Marketing Event</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15431,7 +15389,7 @@ false)</errorConditionFormula>
     <validationRules>
         <fullName>Auto_Segmentation_Criteria</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),OR(MD__c = 'JP',MD__c = 'TH'),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
         <errorMessage>If Auto Segmentation Check box is checked then Segmentation Criteria is Required</errorMessage>
     </validationRules>
     <validationRules>
@@ -15656,7 +15614,7 @@ ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
 ISPICKVAL(Child_Campaign_Status__c, 'Response collection') ,ISPICKVAL(Child_Campaign_Status__c, '')
 
 ),
-OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),
+OR(MD__c = 'JP',MD__c = 'TH'),
 $Profile.Name != 'IntegrationAPI',
 RecordType.DeveloperName = 'Retail_Execution_Campaign' 
 )</errorConditionFormula>
@@ -15670,7 +15628,7 @@ OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'),
 ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
 ISPICKVAL(Child_Campaign_Status__c, '')
 ),
-OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), 
+OR(MD__c = 'JP',MD__c = 'TH'), 
 $Profile.Name != 'IntegrationAPI',
 RecordType.DeveloperName = 'Retail_Execution_Campaign' 
 )</errorConditionFormula>
@@ -15687,7 +15645,7 @@ ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
 ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
 ISPICKVAL(Child_Campaign_Status__c, '')
 ),
-OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), 
+OR(MD__c = 'JP',MD__c = 'TH'), 
 $Profile.Name != 'IntegrationAPI',
 RecordType.DeveloperName = 'Retail_Execution_Campaign' 
 )</errorConditionFormula>
@@ -15696,7 +15654,7 @@ RecordType.DeveloperName = 'Retail_Execution_Campaign'
     <validationRules>
         <fullName>Retail_Campaign_Status_Completed</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c = 'TH'),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Close_Date__c</errorDisplayField>
         <errorMessage>Retail Campaign status Completed you cant change Close Date</errorMessage>
     </validationRules>
@@ -15730,7 +15688,7 @@ $Profile.Name != 'IntegrationAPI'
         <fullName>Start_Date_And_End_date</fullName>
         <active>true</active>
         <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>AND(OR(MD__c='TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(IF(NOT(Close_Date__c &gt;=Start_Date__c), true,false)))</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c='TH',(IF(NOT(Close_Date__c &gt;=Start_Date__c), true,false)))</errorConditionFormula>
         <errorDisplayField>Close_Date__c</errorDisplayField>
         <errorMessage>Close  Date should be greater than Start Date</errorMessage>
     </validationRules>
@@ -15747,7 +15705,7 @@ if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISC
     <validationRules>
         <fullName>Status_is_Ongoing_cant_change_Start_Date</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c='TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(IF( ISCHANGED( Start_Date__c) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c='TH'),(IF( ISCHANGED( Start_Date__c) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Status is ongoing you can not change Start date</errorMessage>
     </validationRules>
@@ -15760,7 +15718,7 @@ if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISC
     <validationRules>
         <fullName>TH_Feedback_Mandatory_Actual_End_Date</fullName>
         <active>false</active>
-        <errorConditionFormula>AND(OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), 
+        <errorConditionFormula>AND(MD__c='TH', 
 ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), 
 OR(ISBLANK(Actual_Period_End_Date__c ),ISBLANK( Actual_Period_Start_Date__c)),$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
@@ -15769,7 +15727,7 @@ OR(ISBLANK(Actual_Period_End_Date__c ),ISBLANK( Actual_Period_Start_Date__c)),$P
     <validationRules>
         <fullName>TH_Feedback_Mandatory_Actual_Start_Date</fullName>
         <active>false</active>
-        <errorConditionFormula>AND( OR(MD__c ='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), 
+        <errorConditionFormula>AND( MD__c ='TH', 
 ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), 
 ISBLANK( Actual_Period_Start_Date__c), 
 $Profile.Name != 'IntegrationAPI' 
@@ -15798,14 +15756,14 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>TH_You_Can_not_Change_Campaign_Status</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(RecordType.Name ='Campaign Execution',ISCHANGED( Child_Campaign_Status__c ),MD__c='TH' ,Not(ispickval(Child_Campaign_Status__c ,'No Response')))</errorConditionFormula>
         <errorMessage>You Can't Change Campaign Status Manually.it will change according to the Execution,segmentation,start and close date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>TH_You_cant_Create_child_Campaign</fullName>
         <active>true</active>
-        <errorConditionFormula>( isnew()&amp;&amp;NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp;Parent_Campaign1__r.Close_Date__c &lt;today()&amp;&amp;OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)))</errorConditionFormula>
+        <errorConditionFormula>( isnew()&amp;&amp;NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp;Parent_Campaign1__r.Close_Date__c &lt;today()&amp;&amp;MD__c='TH')</errorConditionFormula>
         <errorMessage>Parent campaign already reached close date so You can't create child campaigns</errorMessage>
     </validationRules>
     <validationRules>
@@ -15823,7 +15781,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>TH_you_cant_Add_childcampaings_for_close</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(MD__c ='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), isPickval(Parent_Campaign1__r.Status__c,'Completed'))</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c ='TH', isPickval(Parent_Campaign1__r.Status__c,'Completed'))</errorConditionFormula>
         <errorMessage>You Can't Create child campaigns for the Completed Campaigns</errorMessage>
     </validationRules>
     <validationRules>
@@ -16033,20 +15991,27 @@ alert('The event has yet to be published or has been closed.');
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "xdomain/xdomain.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/41.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "support/console/41.0/integration.js")} 
 if({!Campaign.IsActive}){
 if('{!Campaign.MD__c}' == 'TH') {
-window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;ent={!Retail_Campaign__c.Id}');
-
-
-
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;00N2800000IkqaO={!Campaign.Description}&amp;00N2800000Ikqad={!Campaign.Status}&amp;CF00N2800000A9Cpq={!Campaign.Name}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!Campaign.Name}&amp;ent={!Retail_Campaign__c.Id}';
 }
 }
 else{
-alert('kindly Activate The Campaign');
-
+if (confirm('To create Retail Campaign, related WS Campaign needs to be activated. Do you want to Proceed ?'))
+{
+if('{!Campaign.Id}'!=null &amp;&amp; '{!Campaign.Id}'!='' &amp;&amp; '{!Campaign.Id}'!='undefined')
+{
+var campaignObj = new sforce.SObject("Campaign");
+campaignObj.id="{!Campaign.Id}";
+campaignObj.Activate_for_retail_campaign__c=true;
+campaignObj.IsActive=true;
+result = sforce.connection.update([campaignObj]);
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;00N2800000IkqaO={!Campaign.Description}&amp;00N2800000Ikqad={!Campaign.Status}&amp;CF00N2800000A9Cpq={!Campaign.Name}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!Campaign.Name}&amp;ent={!Retail_Campaign__c.Id}',"_self";
+}
+}
 }</url>
     </webLinks>
     <webLinks>
@@ -16277,6 +16242,78 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // ---- END ----</url>
     </webLinks>
     <webLinks>
+        <fullName>OPR_Label_Print</fullName>
+        <availability>online</availability>
+        <description>OPROARTS</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPR]Label Print</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+// 
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
+
+
+// ---- BEGIN ---- 
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
+{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
+
+var tpArray = (function () { 
+var dmTemplate= sforce.connection.query("SELECT id,DM_Template__r.Type__c FROM Retail_Campaign__c WHERE ID ='{!Retail_Campaign__c.Id}' LIMIT 1"); 
+records = dmTemplate.getArray("records"); 
+var dmmaterial_type = records[0].DM_Template__r.Type__c; 
+switch(dmmaterial_type){ 
+case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
+case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
+case 'smart manual': return 'p03_DirectMailPrint';brak; 
+case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
+case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
+case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
+case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting';brak; 
+} 
+}()); 
+
+OPROARTS.Live.fF.action({ 
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
+// このパラメータを省略することはできません。 
+tp:tpArray, 
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
+fe:false, 
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+createsAttach:false, 
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
+// - taskSubject: 活動履歴の件名 
+// - taskComment: 活動履歴のコメント 
+// 無指定の場合は、システムの初期値が適用されます。 
+createsTask:false, 
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
+title:'', 
+
+// objectId: 帳票オブジェクトのIDを指定します。 
+objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。 
+// このパラメータを編集しないでください。 
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
+}).url("https://benz.pd.oproarts.com/liveffb/action").opr(); 
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
+// ---- END ----</url>
+    </webLinks>
+    <webLinks>
         <fullName>Refresh</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -16325,8 +16362,7 @@ alert('You cannot create campaign members for this campaign status');
 var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
 if(marketusr) {
 window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation_TH?id={!Retail_Campaign__c.Id}");
-}
-else{
+}else{
 window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}");
 }
 }</url>
@@ -16784,5 +16820,4 @@ navigateToUrl('/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Ret
 alert('Application status error.'); 
 }</url>
     </webLinks>
-
 </CustomObject>
