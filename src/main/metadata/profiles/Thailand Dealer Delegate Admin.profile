@@ -10304,7 +10304,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Car_Model__c.Vehicle_SubSubGroup__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
