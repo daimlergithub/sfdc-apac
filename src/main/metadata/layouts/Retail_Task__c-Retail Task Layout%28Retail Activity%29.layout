@@ -60,10 +60,6 @@
                 <behavior>Edit</behavior>
                 <field>Follow_Up_Type__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isTestRunning__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

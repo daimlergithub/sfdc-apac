@@ -51,10 +51,6 @@
                 <behavior>Edit</behavior>
                 <field>Monthly_Repayment_Tax__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isTestRunning__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -279,10 +279,6 @@
                 <behavior>Edit</behavior>
                 <field>Historical_Actual_Show_up_Customer__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isTestRunning__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -59,11 +59,7 @@
                 <behavior>Readonly</behavior>
                 <field>Approver_Validation__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isTestRunning__c</field>
-            </layoutItems>
-        </layoutColumns>
+              </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>

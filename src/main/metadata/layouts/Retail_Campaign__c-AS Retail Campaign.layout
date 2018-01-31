@@ -54,11 +54,7 @@
                 <behavior>Edit</behavior>
                 <field>Two_Percentage_Annual_Audit__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isTestRunning__c</field>
-            </layoutItems>
-        </layoutColumns>
+           </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
