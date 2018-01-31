@@ -320,7 +320,87 @@
             <field>SurveyTakenByVehicle__c.VIN_Number__c</field>
             <table>SurveyTaker__c</table>
         </columns>
-        <masterLabel>Surveys Taken</masterLabel>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Vehicle_ID__c.Name</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Vehicle_ID__c.VehicleAge__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Registration_Number__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Purchase_Date__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Mileage_End__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Lead__c.Service_Date__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.UCID__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Gender__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Primary_Address_Display__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.TextName</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Mobile__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.RecordType</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Last_Service_Dealer__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Last_Service_Date__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Sales_Consultant__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>SurveyTakenByVehicle__c.Vehicle_Model__c</field>
+            <table>SurveyTaker__c</table>
+        </columns>
+     <masterLabel>Surveys Taken</masterLabel>
     </sections>
     <sections>
         <columns>
