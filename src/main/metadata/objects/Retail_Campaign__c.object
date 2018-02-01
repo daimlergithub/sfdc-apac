@@ -4426,6 +4426,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>true</unique>
     </fields>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <label>Retail Campaign</label>
     <listViews>
         <fullName>AS_Retail_Campaign</fullName>
@@ -15884,6 +15893,14 @@ ISCHANGED( Feedback_Comments__c ),ISCHANGED( Actual_Start_Date__c ),ISCHANGED( A
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>You can't update Feedback information with current feedback status or apply status.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Retailcampaign_Market_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Market field of Retail Campaign should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Create_Child_Retail_Campaign</fullName>
