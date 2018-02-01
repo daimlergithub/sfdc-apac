@@ -8,7 +8,7 @@ global class Batch_DistributionDealer implements Database.Batchable<sObject> ,Da
     }
     
      global Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([Select id ,Name ,Preferred_Dealer__c,Campaign_ID__c, Contact_Id__c   from campaign_Member__c WHERE Campaign_ID__c =: query AND Preferred_Dealer__c != null ] );
+        return Database.getQueryLocator([Select id ,Name,Retail_Copy__c,Vehicle_ExternalLink__c,Preferred_Dealer__c,Campaign_ID__c, Contact_Id__c   from campaign_Member__c WHERE Campaign_ID__c =: query AND Preferred_Dealer__c != null ] );
     }
     
     global void execute(Database.BatchableContext BC, List<Campaign_Member__C> scope){
@@ -44,6 +44,14 @@ global class Batch_DistributionDealer implements Database.Batchable<sObject> ,Da
                       dlist.Campaign_Member__c = CamMem.id;
                       dlist.List_Maintenance_CM_Status__c ='Ready';
                       dlist.NewAccount__c =CamMem.Contact_Id__c;
+                      if(CamMem.Vehicle_ExternalLink__c !=null)
+                      {
+                      dlist.Vehicle_ExternalLink__c=CamMem.Vehicle_ExternalLink__c;
+                      }
+                      if(CamMem.Retail_Copy__c !=null)
+                      {
+                      dlist.Retail_Copy__c=CamMem.Retail_Copy__c;
+                      }
                    dealerMainList.add(dlist);
       
     }

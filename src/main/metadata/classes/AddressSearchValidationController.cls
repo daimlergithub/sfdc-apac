@@ -1231,7 +1231,7 @@ EP/Tolerant for Validation.
             }
            else if((AddressObj.Address_Line_2__c !=  Null || !String.isblank(AddressObj.Address_Line_2__c)) && market == System.Label.JP && AddressObj.Address_Line_2__c.length() >=51 )
             {
-                AddressObj.Address_Line_2__c.addError('Label.Address_Line_2_should_be_less_than_or_equal_to_50_letters');
+                AddressObj.Address_Line_2__c.addError(Label.Address_Line_2_should_be_less_than_or_equal_to_50_letters);
             }
            else  if((AddressObj.Block__c !=  Null || !String.isblank(AddressObj.Block__c)) && market == System.Label.JP && AddressObj.Block__c.length() >=13 )
             {
