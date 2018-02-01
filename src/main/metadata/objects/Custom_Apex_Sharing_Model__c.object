@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Protected</customSettingsVisibility>
+    <description>This will help us to setup sharing model for country per object</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ObjectAPI__c</fullName>
+        <externalId>false</externalId>
+        <label>ObjectAPI</label>
+		<length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Field</label>
+		<length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+    </fields>
+	<fields>
+        <fullName>Picklist_Values__c</fullName>
+        <externalId>false</externalId>
+        <label>Picklist Values</label>
+		<length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+    </fields>
+	<fields>
+        <fullName>Batch__c</fullName>
+        <externalId>false</externalId>
+        <label>Batch?</label>
+		<defaultValue>false</defaultValue>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Custom Apex Sharing Model</label>
+</CustomObject>
