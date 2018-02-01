@@ -2840,6 +2840,16 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Past Selling Dealer</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper Dealer account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Vehicle Relationship (Past Selling Dealer)</relationshipLabel>
         <relationshipName>Vehicle_Relationship4</relationshipName>
