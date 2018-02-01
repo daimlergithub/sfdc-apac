@@ -224,7 +224,20 @@
             }
             set;
         }
-     
+                     public List<SelectOption> Democarflag{
+            get{
+                Democarflag= new List<SelectOption>();
+                Democarflag.add(new SelectOption('', '--None--'));
+      Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Vehicle_Relationship__c.fields.Customer_Type__c;
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+          for( Schema.PicklistEntry f : ple)
+         {
+             Democarflag.add(new SelectOption(f.getValue(), f.getLabel()));
+           }
+                return Democarflag;
+            }
+            set;
+        }
         public List<SelectOption> provincemodel{
             get{
                 provincemodel= new List<SelectOption>();
