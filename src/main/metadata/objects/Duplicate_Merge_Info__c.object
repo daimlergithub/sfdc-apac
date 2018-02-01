@@ -48,6 +48,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -78,7 +79,20 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Duplicate_Retail_Customer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Duplicate Retail Customer</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Duplicate Merge Info</relationshipLabel>
+        <relationshipName>Duplicate_Retail_Customer</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Duplicate_UCID__c</fullName>
         <externalId>false</externalId>
         <label>Duplicate UCID</label>
@@ -128,7 +142,20 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Master_Retail_Customer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Master Retail Customer</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Duplicate Merge Info (Master Retail Customer)</relationshipLabel>
+        <relationshipName>Duplicate_Merge_Info</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Master_UCID__c</fullName>
         <externalId>false</externalId>
         <label>Master UCID</label>
@@ -140,15 +167,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Transaction_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Transaction Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	<fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
@@ -172,8 +190,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Transaction Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <label>Duplicate Merge Info</label>
     <listViews>
