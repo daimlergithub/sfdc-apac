@@ -224,7 +224,8 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             //acclinklist.add(vehiclewrpper.aftersalescontactacclink);
             //}
          LeadUtil.isAcctrigger = False;
-        update acclinklist;
+         System.debug('@@@@@@@@@@@@@@#########################'+acclinklist);
+        Database.update(acclinklist,false);
         //update acclinkupdate;
         
         /*if(!VRid.isEmpty()){
