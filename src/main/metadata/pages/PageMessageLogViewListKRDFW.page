@@ -74,10 +74,15 @@
                     <apex:outputText value="MMS" rendered="{!item.channel__c='M'}"/>
                 </apex:column>
 
-                <apex:column headerValue="Message ID">
+                <apex:column headerValue="Message ID" rendered="{!isPartner=false}">
                     <apex:facet name="header">Message ID</apex:facet>
                     <a href="javascript:srcUp('{!baseUrl}/{!item.Id}?isdtp=vw');" target="_blank"><apex:outputField value="{!item.Name}"/></a>
                 </apex:column>
+                <apex:column headerValue="Message ID" rendered="{!isPartner=true}">
+                    <apex:facet name="header">Message ID</apex:facet>
+                    <a href="{!baseUrl}/MBKorea/{!item.Id};" target="_blank"><apex:outputField value="{!item.Name}"/></a>
+                </apex:column>
+                                
                 <apex:column headerValue="Account Name">
                     <apex:facet name="header">
 	  					<apex:commandLink value="Account Name" action="{!toggleSort}" rerender="LogList" >

@@ -19,6 +19,7 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
                 LeadHelperBase.updatemarket(Trigger.New);      
                 leadRS.updateOwner(Trigger.new);  
                 leadRS.updatecommunityURL(Trigger.new);
+				leadRs.updateRetailLookups(trigger.New,Label.MY);
             }
             
             if(Trigger.isbefore && Trigger.isinsert){
