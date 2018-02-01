@@ -1834,7 +1834,7 @@
         <name>First_Name_Native_should_not_be_null</name>
     </customLabels>
 	<customLabels>
-        <label>名は必ず20文字以下で入力して下さい。</label>
+        <label>/名は必ず20文字以下で入力して下さい。</label>
         <name>First_Name_should_be_less_than_or_equal_to_40_letters</name>
     </customLabels>
     <customLabels>

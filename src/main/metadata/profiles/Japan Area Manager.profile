@@ -8701,6 +8701,11 @@
         <field>Campaign_Member__c.Retail_Campaign_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Retail_Copy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Retail_Task__c</field>
@@ -8799,6 +8804,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.UsVIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Vehicle_ExternalLink__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13012,6 +13022,11 @@
         <field>Dealer_List_Member__c.Removed__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.Retail_Copy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.Sales_Representative__c</field>
@@ -13035,6 +13050,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.VehicleRelationship__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_List_Member__c.Vehicle_ExternalLink__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19035,6 +19055,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.M_YearlyTA__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

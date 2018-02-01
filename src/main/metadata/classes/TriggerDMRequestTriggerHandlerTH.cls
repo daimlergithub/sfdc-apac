@@ -19,9 +19,13 @@ public class TriggerDMRequestTriggerHandlerTH
             DMRequestHelperTH.updateStatus(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isInsert,isUpdate);
             DMRequestHelperTH.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isUpdate);                        
         } 
+        if (Trigger.isafter && (Trigger.isUpdate||Trigger.isInsert))
+        { 
+            DMRequestHelperTH.updateCampaignMemberStatus((Map<ID,DM_Request__c>)trigger.newMap);                      
+        } 
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
-	{
+  {
       // Implementation to addedd as required in market
     }
 }

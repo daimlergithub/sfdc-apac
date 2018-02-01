@@ -390,10 +390,7 @@
                 <behavior>Edit</behavior>
                 <field>ServiceProgram_Proposal_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Test_Drive_Date__c</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Product_Name__c</field>

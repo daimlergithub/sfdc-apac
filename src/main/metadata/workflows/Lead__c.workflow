@@ -2420,7 +2420,7 @@ Modify Reason:
         <formula>AND(Contains($Profile.Name, 'Japan Dealer' ), MD__c = 'JP')</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-    <rules>
+	<rules>
         <fullName>Update Lost%28CAC%29 Date Time</fullName>
         <actions>
             <name>Update_Lost_CAC_Date_Time_to_Now</name>
@@ -2431,7 +2431,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND (3 OR 4 OR 5)) OR (1 AND (4 OR 5) AND (6 OR 7))</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4 OR 5)) OR (1 AND (4 OR 5) AND 6) OR ((1 OR 8) AND (4 OR 5) AND 7)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
@@ -2467,9 +2467,14 @@ Modify Reason:
             <operation>equals</operation>
             <value>MY</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.CAC_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Lost</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<rules>
+    <rules>
         <fullName>MBTH_Update Order Placed Date Time</fullName>
         <actions>
             <name>MBTH_Update_Order_Placed_Date_Time</name>
@@ -2528,7 +2533,9 @@ Modify Reason:
         </actions>
         <active>true</active>
         <description>This flow is used to send email to dealer gatekeper. This is on Lead object when dealer account associated with the Lead and that dealers account contact (gate keeper) becomes the new owner of the case.</description>
-        <formula>AND(NOT(ISNULL(Assigned_Dealer__c)), ISCHANGED(Assigned_Dealer__c),  (PRIORVALUE(OwnerId) != OwnerId ), (MD__c == &apos;MY&apos;))</formula>
+        <formula>AND(NOT(ISNEW()), 
+AND(ISCHANGED(OwnerId), (MD__c == &apos;MY&apos;))
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 	<rules>

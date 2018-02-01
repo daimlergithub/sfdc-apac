@@ -160,7 +160,7 @@ public class CampaignHelperTH {
          {
             if(CampaignCMPExes.get(cp.Id)==null)
                 CampaignCMPExes.put(cp.id,0);
-            if ((cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId()) && (CampaignCMPExes.get(cp.Id) < 1 ))
+            if ((cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId()) && (CampaignCMPExes.get(cp.Id) < 1 ) && !cp.Activate_for_retail_campaign__c)
             {
                 
                   cp.addError('You can not activate a campaign without any execution.');

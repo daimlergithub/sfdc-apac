@@ -123,6 +123,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Activate_for_retail_campaign__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used by TH market. It will be used for activating campaign without creating execution campaign.</description>
+        <externalId>false</externalId>
+        <label>Activate for retail campaign</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ActualCost</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -4865,7 +4874,7 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <operation>equals</operation>
             <value>True</value>
         </filters>
-        <label>My Campaigns</label>
+        <label>My Created Campaigns</label>
         <language>en_US</language>
 		<sharedTo>
             <roleAndSubordinates>MBTH</roleAndSubordinates>
@@ -23811,7 +23820,7 @@ OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Prof
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
         <errorConditionFormula>(OR(ISPICKVAL( Status , 'Planned'),ISPICKVAL( Status , 'Draft'))) &amp;&amp; IsActive &amp;&amp; RecordType.DeveloperName = "Planning_Design_Campaign"&amp;&amp;
-UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; !Activate_for_retail_campaign__c</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
