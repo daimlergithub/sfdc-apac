@@ -1218,7 +1218,7 @@ EP/Tolerant for Validation.
             {
                 System.debug('^^^^^^^^^^^^^^^^^^^^^^^'+addresspicklist);
                  System.debug('^^^^^^^^^^^^^^^^^^^^^^^'+String.isblank(AddressObj.Address_Type__c));
-               AddressObj.Address_Type__c.addError('Address Type is required.');
+               AddressObj.Address_Type__c.addError(Label.Address_Type_is_required);
             }
             else if((AddressObj.market__c !='JP') && market == System.Label.JP )
             {
