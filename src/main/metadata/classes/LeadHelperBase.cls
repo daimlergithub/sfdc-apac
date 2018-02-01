@@ -45,12 +45,12 @@ public without sharing class  LeadHelperBase{
 						
 				}				
 				if(string.isnotblank(l.Sales_Consultant__c) && l.RecordTypeId==salesRecordTypeId && string.isnotblank(l.assigned_dealer__c)){
-					l.ownerID = mConToUsr.get(((Lead__c)Trigger.newMap.get(l.id)).Sales_Consultant__c);
+					l.ownerID = mConToUsr.get(L.Sales_Consultant__c);
 					checkSas=false;
 																			
 				}
 				else if(string.isnotblank(l.Service_Advisor__c) && l.RecordTypeId==afterSalesRecordTypeId && string.isnotblank(l.assigned_dealer__c)){
-					l.ownerID = ((Lead__c)Trigger.newMap.get(l.id)).Service_Advisor__c;
+					l.ownerID = L.Service_Advisor__c;
 					checkSas=false;
 				}
 				if(checkSas && (string.isnotblank(l.assigned_dealer__c))){
@@ -139,7 +139,7 @@ public without sharing class  LeadHelperBase{
     //it will handle all SARI validations of lead module
     public  void leadValidation(List<lead__c> leadlist, string Market){
         Id profileId=userinfo.getProfileId();
-        String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+        String profileName=[Select Id,Name from Profile where Id=:profileId].Name; 
         for(Lead__c listlead:leadlist){
             if(listlead.md__c==Market){
                 if((listlead.recordtypeid==afterSalesRecordTypeId || listlead.recordtypeid==salesRecordTypeId)&& profileName!='IntegrationAPI'){
@@ -598,19 +598,34 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
 					
 					if(string.isnotblank(le.contact__c)?existingRC.containskey(string.valueof(le.Assigned_Dealer__c)+string.valueof(le.contact__c)):False){
 						le.Retail_Contact__c=existingRC.get(string.valueof(le.Assigned_Dealer__c)+string.valueof(le.contact__c));
+						
 					}
 					
 					if(string.isnotblank(le.Company_Account__c)?existingRC.containskey(string.valueof(le.Assigned_Dealer__c)+string.valueof(le.Company_Account__c)):False){
 						le.Retail_Company__c=existingRC.get(string.valueof(le.Assigned_Dealer__c)+string.valueof(le.Company_Account__c));
 					}
-					
+					leadupdate.put(le.id, le);		
                 }
+				else if(isUpdate && (le.contact__c != leadOldMap.get(le.id).contact__c)){
+					if(string.isnotblank(le.contact__c)?existingRC.containskey(string.valueof(le.Assigned_Dealer__c)+string.valueof(le.contact__c)):False){
+						le.Retail_Contact__c=existingRC.get(string.valueof(le.Assigned_Dealer__c)+string.valueof(le.contact__c));						
+					}
+					leadupdate.put(le.id, le);
+				}
+				else if(isUpdate && (le.Company_Account__c != leadOldMap.get(le.id).Company_Account__c)){
+					
+					if(string.isnotblank(le.Company_Account__c)?existingRC.containskey(string.valueof(le.Assigned_Dealer__c)+string.valueof(le.Company_Account__c)):False){
+						le.Retail_Company__c=existingRC.get(string.valueof(le.Assigned_Dealer__c)+string.valueof(le.Company_Account__c));
+					}
+					leadupdate.put(le.id, le);
+				}
             }
 			else if(isupdate && string.isblank(le.Assigned_Dealer__c) &&  string.isnotblank(leadOldMap.get(le.id).Assigned_Dealer__c) && le.MD__c==Market){
 				le.Retail_Contact__c=NULL;
 				le.Retail_Company__c=NULL;
+				leadupdate.put(le.id, le);
 			}
-			leadupdate.put(le.id, le);
+			
         }
 		
 	/*	
@@ -650,6 +665,15 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
 			}
 		
 		} 
+	}
+	
+	public static void autoPopulateAssignDealer(List<Lead__c> Leadlist, String Market){
+	 if (userInfo.getUserType() == 'PowerPartner' ) {
+		 User usr = [Select id, contactID,AccountID from user where contactID =: userInfo.getUserId()];
+		 for(Lead__c le:Leadlist){
+			if(string.isblank(le.Assigned_Dealer__c)) le.Assigned_Dealer__c=usr.AccountID;		
+		} 
+	  }
 	}
 	
 }

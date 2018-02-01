@@ -764,22 +764,33 @@
             <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
-            </picklistValues>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
+				 </picklistValues>
             <picklistValues>
                 <fullName>DM</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>OB</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
-            </picklistValues>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				</picklistValues>
             <picklistValues>
                 <fullName>DM Magazine</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -829,18 +840,29 @@
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>After Sales</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales and After Sales</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales -&gt; Crosspoint</fullName>
@@ -853,14 +875,18 @@
             <picklistValues>
                 <fullName>Marketing Event</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CRM/CSR</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -878,70 +904,106 @@
             <picklistValues>
                 <fullName>Parts Cross Promotion</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Idle Hour Promotion</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Product Promotion</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance Promotion</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Maintenance Promotion</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Familiarization workshop for new vehicle owners</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>VEP(Seasonal Check)</fullName>
                 <default>false</default>
-            </picklistValues>
+				<controllingFieldValues>TH</controllingFieldValues>
+				</picklistValues>
             <picklistValues>
                 <fullName>Used-car buy-back/Trade-in</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Customer Acquisition</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Promotion on Technical accessories and collections</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>POM/Advertisement</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Marketing Survey</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>After Sales</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1824,166 +1886,237 @@
             <picklistValues>
                 <fullName>Road Show</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Test Drive</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Auto Show</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Festival</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Car Launch</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Joint Event</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Showroom Event</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sports Marketing</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Charity</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Prints relevant</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_quarter</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_central DM</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_new model target</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_fair</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_others</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_catalogue response</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance_cross point</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance_maturity</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance_insurance</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_MOT</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_Mcare Inspection</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_inspections (After 4years)</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_service program</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_new car six month inspections</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_accessory</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_collection</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_motor show</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_sales</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_participatory</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_display</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_othres</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Connection/me</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>loyalty_magazine</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>loyalty_guift</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_NCBS</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_SSI</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_CSI</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_CLI</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_Model</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_MBF CSI</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2019,18 +2152,27 @@
             <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>OB Call</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DM</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
@@ -2047,14 +2189,18 @@
             <picklistValues>
                 <fullName>IB call</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Social media</fullName>
                 <default>false</default>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2272,19 +2418,26 @@
             <picklistValues>
                 <fullName>Approved</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Rejected</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Submitted</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Needs to Modify</fullName>
                 <default>false</default>
-            </picklistValues>
+				<controllingFieldValues>TH</controllingFieldValues>
+				</picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -3609,14 +3762,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Customer</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Contract</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -4425,6 +4585,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <label>Retail Campaign</label>
     <listViews>
@@ -15170,15 +15339,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <values>
                 <fullName>Approved</fullName>
                 <default>false</default>
-            </values>
+				</values>
             <values>
                 <fullName>Rejected</fullName>
                 <default>false</default>
-            </values>
+				</values>
             <values>
                 <fullName>Submitted</fullName>
                 <default>false</default>
-            </values>
+				</values>
         </picklistValues>
         <picklistValues>
             <picklist>M_ATL_BTL__c</picklist>
@@ -15884,6 +16053,14 @@ ISCHANGED( Feedback_Comments__c ),ISCHANGED( Actual_Start_Date__c ),ISCHANGED( A
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>You can't update Feedback information with current feedback status or apply status.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>Retailcampaign_Market_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Market field of Retail Campaign should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Create_Child_Retail_Campaign</fullName>
