@@ -139,6 +139,32 @@ IF(ISPICKVAL($User.Market__c, 'JP'),'JP', IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	 <fields>
+        <fullName>Duplicate_Retail_Customer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Duplicate Retail Customer</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Duplicate Merge Info</relationshipLabel>
+        <relationshipName>Duplicate_Retail_Customer</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>Master_Retail_Customer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Master Retail Customer</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Duplicate Merge Info (Master Retail Customer)</relationshipLabel>
+        <relationshipName>Duplicate_Merge_Info</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Transaction_Date__c</fullName>
         <externalId>false</externalId>
