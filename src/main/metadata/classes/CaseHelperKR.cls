@@ -847,23 +847,31 @@ public class CaseHelperKR
           EmailTemplate templateId  =[select id,name,Subject from EmailTemplate WHERE name = 'Case owner is updated to Queue'];
           Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
           List<Id> ccDeatils=new List<Id>();
+		  List<Id> updatedCcDeatils=new List<Id>();
           for(string caseOwnrId: LstnewCase.keySet())
           {   
               for(GroupMember grmMbr: ownerids)
               {
                   system.debug(grmMbr.Group.Id + '   **$$***$$***$$**   ' + grmMbr.UserOrGroupId + '   *&*&* Entered For Loop for email *&*&*&   ' + LstnewCase.get(caseOwnrId));                
-                  if(grmMbr.Group.Id == LstnewCase.get(caseOwnrId))
+                  if(grmMbr.Group.Id == LstnewCase.get(caseOwnrId) && String.ValueOf(grmMbr.UserOrGroupId).startsWith('005'))
                   {
-                      message.setTargetObjectId(grmMbr.UserOrGroupId);
                       ccDeatils.add(grmMbr.UserOrGroupId);
+                      message.setWhatId(caseOwnrId);
                   }              
-                  System.debug('ccDeatils----'+ccDeatils);
-                  message.setToAddresses(ccDeatils);
-                  message.setWhatId(caseOwnrId);
-                  message.setTemplateId(templateId.id);
-                  message.setSaveAsActivity(false);
+                  
               }
           }
+				  System.debug('ccDeatils----'+ccDeatils);
+                  List<User> activeUser=[select Id from User where id in:ccDeatils and isActive=TRUE];
+                  System.debug('activeUser----'+activeUser);
+                  for(User u:activeUser){
+                  message.setTargetObjectId(u.Id);
+                  updatedCcDeatils.add(u.Id);
+                  }
+                  System.debug('Updated ccDeatils----'+updatedCcDeatils);
+                  message.setToAddresses(updatedCcDeatils);
+                  message.setTemplateId(templateId.id);
+                  message.setSaveAsActivity(false);
           try
             {   
               if(!ownerids.isEmpty() && ownerids!= null)
