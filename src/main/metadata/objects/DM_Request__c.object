@@ -313,6 +313,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Touch Point</label>
         <picklist>
+		<controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Dealer Outlet</fullName>
                 <default>false</default>
@@ -734,6 +735,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>MBK Channel</label>
         <picklist>
+		<controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
@@ -845,6 +847,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>MBTH Channel</label>
         <picklist>
+		<controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>IB Call</fullName>
                 <default>false</default>
@@ -1015,6 +1018,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <externalId>false</externalId>
         <label>Sending Address</label>
         <picklist>
+		<controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Home</fullName>
                 <default>false</default>
@@ -1105,6 +1109,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Status1</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Open</fullName>
                 <default>false</default>
@@ -1171,6 +1176,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Status2</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Open</fullName>
                 <default>false</default>
@@ -1237,6 +1243,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Status3</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Open</fullName>
                 <default>false</default>
@@ -1303,6 +1310,7 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Status</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Open</fullName>
                 <default>true</default>
