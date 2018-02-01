@@ -2246,70 +2246,88 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>N - Service</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>K - Retail/Restaurant</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>F - Manufacture</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>P - Medical Service/Welfare</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E - Construction</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>J - Wholesale</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>L - Real Estate</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>H - Transport/Telecommunications</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>M - Finance/Insurance</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Q - Education/Religion</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R - Public Officer</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C - Fishery</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>A - Agriculture</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B - Forestry</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>D - Mining</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G - Utility</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S - Other</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -3669,110 +3687,154 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             <picklistValues>
                 <fullName>Predelivery inspection</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>1year inspection</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MOT</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MB Safety check</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Campaign</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>General Repair</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Warranty</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Outside Order</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Paint Jobs</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Re-Repair</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Quick Service</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Transfer</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Accessories</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Maintenance</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MB 1year inspection</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>First MOT</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Test Jobs</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Electrical Jobs</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Body Jobs</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Jobs</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wear &amp; Tear Jobs</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Return Jobs</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Contract</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New car/used car sales</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Free</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Used car purchase</fullName>
                 <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Not selected</fullName>
                 <default>false</default>
+				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Blank</fullName>
@@ -4433,22 +4495,32 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             <picklistValues>
                 <fullName>Standard Warranty</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Used Car Warranty</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Loan</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lease</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Program</fullName>
                 <default>false</default>
+				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -4637,6 +4709,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <label>Retail Task</label>
     <listViews>
@@ -11439,7 +11520,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <searchResultsAdditionalFields>ContractNumber__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-    <sharingReasons>
+	<validationRules>
+        <fullName>Retail_Task_Market_can_not_be_changed</fullName>
+        <active>true</active>
+        <description>Market field of Retail task should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
+	<sharingReasons>
         <fullName>Contract_Share__c</fullName>
         <label>Contract Share</label>
     </sharingReasons>

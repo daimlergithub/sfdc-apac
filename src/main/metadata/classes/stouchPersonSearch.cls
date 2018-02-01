@@ -5,7 +5,7 @@ global without sharing class stouchPersonSearch {
     }
     private class stouchPersonSearchClass implements stouchPersonSearchInterface{
         public String RecordCount;
-        public List<Object> Out_PersonDetails;
+        public List<Object> O_customerdetails;
     }
     @HttpPost
     global static stouchPersonSearchInterface PersonSearchResult()
@@ -43,7 +43,7 @@ global without sharing class stouchPersonSearch {
         
         stouchPersonSearchClass sp=new stouchPersonSearchClass();
         sp.RecordCount=count;
-        sp.Out_PersonDetails=PersonResultsList;
+        sp.O_customerdetails=PersonResultsList;
         return sp;  
     }       
 }
