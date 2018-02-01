@@ -2243,6 +2243,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Industry Type</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>N - Service</fullName>
                 <default>false</default>
@@ -3684,6 +3685,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Service Code</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Predelivery inspection</fullName>
                 <default>false</default>
@@ -4308,6 +4310,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Type</label>
         <picklist>
+		  <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Accepted vehicle order VS</fullName>
                 <default>false</default>
