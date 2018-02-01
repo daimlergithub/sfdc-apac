@@ -2975,6 +2975,10 @@
         <enabled>false</enabled>
     </classAccesses>
 	<classAccesses>
+        <apexClass>stouchCompanySearch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>stouchPersonSearch</apexClass>
         <enabled>true</enabled>
     </classAccesses>

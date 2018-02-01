@@ -23,11 +23,7 @@
                 <behavior>Edit</behavior>
                 <field>Sequence_No__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isTestRunning__c</field>
-            </layoutItems>
-        </layoutColumns>
+            </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>

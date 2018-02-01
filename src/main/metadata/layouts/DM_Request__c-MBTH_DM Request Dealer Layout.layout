@@ -25,11 +25,7 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Channel__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isTestRunning__c</field>
-            </layoutItems>
-        </layoutColumns>
+            </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>

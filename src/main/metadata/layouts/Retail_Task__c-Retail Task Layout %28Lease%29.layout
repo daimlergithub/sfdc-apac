@@ -48,10 +48,6 @@
                 <behavior>Readonly</behavior>
                 <field>Related_Lead__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isTestRunning__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
