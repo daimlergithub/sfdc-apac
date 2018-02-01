@@ -8,7 +8,7 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
-     return Database.getQueryLocator([select id,Name,Address__r.Name,Vehicle__c,Contact_Id__c,Finance_Address__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Address__r.District__c,Contract__r.Contractor_Address1_Native__c ,Contact_Id__r.Primary_Address_Reference__r.District__c, Contract__r.Contractor_Address3_Native__c,Campaign_ID__c ,Vehicle_Relationship__r.vehicle_address__r.name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c ,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,NextInspectionDate__c,NextServiceDate__c,LastInspectionDate__c,LastServiceDate__c,LastWorkDate__c,Service_Advisor__c,Sales_Consultant__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Retail_Campaign_Id__r.Segmentation_Base__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c  from campaign_Member__c WHERE Retail_Campaign_Id__c =: query]);
+     return Database.getQueryLocator([select id,Name,Retail_Copy__c,Vehicle_ExternalLink__c,Address__r.Name,Vehicle__c,Contact_Id__c,Finance_Address__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Address__r.District__c,Contract__r.Contractor_Address1_Native__c ,Contact_Id__r.Primary_Address_Reference__r.District__c, Contract__r.Contractor_Address3_Native__c,Campaign_ID__c ,Vehicle_Relationship__r.vehicle_address__r.name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c ,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,NextInspectionDate__c,NextServiceDate__c,LastInspectionDate__c,LastServiceDate__c,LastWorkDate__c,Service_Advisor__c,Sales_Consultant__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Retail_Campaign_Id__r.Segmentation_Base__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c  from campaign_Member__c WHERE Retail_Campaign_Id__c =: query]);
     }
     
     global void execute(Database.BatchableContext BC, List<Campaign_Member__C> scope){
@@ -95,6 +95,7 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
             camp.LastServiceDate__c = mapAccLinks.get(camp.Vehicle__c).LastServiceDate__c;
             camp.LastWorkDate__c = mapAccLinks.get(camp.Vehicle__c).LastWorkDate__c;
             camp.Service_Advisor__c = mapAccLinks.get(camp.Vehicle__c).Service_Advisor__c;
+            camp.Vehicle_ExternalLink__c = mapAccLinks.get(camp.Vehicle__c).Id;
             membertoupdate.put(camp.id,camp);
         }
         }
@@ -108,6 +109,11 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
         for(Campaign_Member__c retcamp : scope){
             retcamp.Sales_Consultant__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c;
             membertoupdate.put(retcamp.id,retcamp);
+            if(retcamp.Contact_Id__c !=null)
+            {
+             retcamp.Retail_Copy__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Id;
+            }
+           
         }
         }
         update membertoupdate.values();
