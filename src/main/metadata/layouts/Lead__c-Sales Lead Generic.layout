@@ -60,7 +60,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -285,18 +285,7 @@
                 <behavior>Edit</behavior>
                 <field>Purchased_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bought_Vehicle_Brand__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bought_Vehicle_Class__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bought_Vehicle_Model__c</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Received_Date_Time__c</field>
