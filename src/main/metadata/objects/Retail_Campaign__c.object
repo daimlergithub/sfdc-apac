@@ -761,6 +761,7 @@
         <externalId>false</externalId>
         <label>Campaign Execution Channels</label>
         <picklist>
+		<controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
@@ -837,6 +838,7 @@
         <externalId>false</externalId>
         <label>Campaign Sub Type</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
@@ -901,6 +903,7 @@
         <externalId>false</externalId>
         <label>Campaign Type</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Parts Cross Promotion</fullName>
                 <default>false</default>
@@ -1883,6 +1886,7 @@
         <externalId>false</externalId>
         <label>Event Type</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Road Show</fullName>
                 <default>false</default>
@@ -2149,6 +2153,7 @@
         <externalId>false</externalId>
         <label>Execution Type</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
@@ -2415,6 +2420,7 @@
         <externalId>false</externalId>
         <label>Approval Status</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Approved</fullName>
                 <default>false</default>
@@ -3759,6 +3765,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Segmentation Base</label>
         <picklist>
+		 <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Customer</fullName>
                 <default>false</default>

@@ -872,7 +872,8 @@
                             <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                    <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
+                              <!--  <option value="Market__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Market__c.Label}</option> -->
+                                 <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>  
                                     <option value="End_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}</option>    
                                     <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->
                                    <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>                                                                 
@@ -891,8 +892,8 @@
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
                                   <apex:inputField value="{!vehicleRel.New_Used__c}" styleClass="New_Used__c" style="display:block;"/> 
-                             <1--    <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>  -->
-							      <apex:selectList styleClass="Customer_Type__c" size="1" multiselect="false" >
+                            <!--    <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>  -->
+                                    <apex:selectList styleClass="Customer_Type__c" size="1" multiselect="false" >
                                     <apex:selectOptions value="{!Democarflag}"></apex:selectOptions>
                                 </apex:selectList>
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
@@ -1159,7 +1160,7 @@
         </apex:outputPanel>
             
             <apex:outputPanel layout="block" id="searchingResult">
-			
+            
                 <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign,saveCriteria" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
                     

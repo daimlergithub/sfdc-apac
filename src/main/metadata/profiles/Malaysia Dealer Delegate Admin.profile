@@ -28754,7 +28754,7 @@
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-MBTH_Aftersales Lead_Layout%28CAC%29</layout>
+        <layout>Lead__c-After-Sales Lead Generic Dealer Layout</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -28762,7 +28762,7 @@
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-MBTH_Sales Leads Layout %28CAC%29</layout>
+        <layout>Lead__c-Sales Lead Dealer Generic</layout>
         <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
