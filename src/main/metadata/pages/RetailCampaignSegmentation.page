@@ -891,7 +891,10 @@
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
                                   <apex:inputField value="{!vehicleRel.New_Used__c}" styleClass="New_Used__c" style="display:block;"/> 
-                                 <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/> 
+                             <1--    <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>  -->
+							      <apex:selectList styleClass="Customer_Type__c" size="1" multiselect="false" >
+                                    <apex:selectOptions value="{!Democarflag}"></apex:selectOptions>
+                                </apex:selectList>
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/> 
                             </td>
