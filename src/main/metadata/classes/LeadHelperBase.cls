@@ -53,7 +53,7 @@ public without sharing class  LeadHelperBase{
 					l.ownerID = ((Lead__c)Trigger.newMap.get(l.id)).Service_Advisor__c;
 					checkSas=false;
 				}
-				if(checkSas){
+				if(checkSas && (string.isnotblank(l.assigned_dealer__c))){
 					ldowner.add(l);
 					accId.add(l.assigned_dealer__c);    
 				  }
@@ -172,7 +172,7 @@ public without sharing class  LeadHelperBase{
             if(accUserMap.get(lists.assigned_dealer__c) !=null && lists.md__c==Market){
                 lists.ownerID = accUserMap.get(lists.assigned_dealer__c); 
             } 
-			else if(accUserMap.get(lists.assigned_dealer__c) ==null){
+			else if(lists.assigned_dealer__c!=null &&  accUserMap.get(lists.assigned_dealer__c) ==null){
                 lists.addError('The Dealer Lead Gate Keeper user is either not present or is inactive.');
             }														 
         }
@@ -252,7 +252,7 @@ public without sharing class  LeadHelperBase{
         le.Others__c = commURLMY;
     }
     
-}   
+	}   
 /*
 Added by : Asish Nanda
 Test Cases : Conditions having When to Share Lead Record With Delaers
@@ -301,11 +301,11 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                 /*
                 Added by Asish Nanda  
                 Test Case- If CAC_Lead_Status__c will be Set to Purchased, Then Lead record will be Shared with Other Dealers , those who belong to Dealer_nd_code__c
-                */
+                
                 else if(((Lead__c)Trigger.newMap.get(leadsrec.id)).CAC_Lead_Status__c != ((Lead__c)Trigger.oldMap.get(leadsrec.id)).CAC_Lead_Status__c && ((Lead__c)Trigger.newMap.get(leadsrec.id)).CAC_Lead_Status__c == 'Purchased'){
                     sharingrevokefromgroups.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
                     leadsharingtorevoke.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).id);
-                }
+                }*/
             }
         }
         for (Group gp: [select id, name from Group where name IN: dealerndcodeset]) {
@@ -434,18 +434,15 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                     acclnk = new Account_Link__c(RecordTypeId = alkpersonRecordTypeId, toRole__c = led.Contact__c, fromRole__c = led.Assigned_Dealer__c);
                     if (led.Contact__r.Primary_Address_Reference__c != null) {
                             acclnk.Retail_Province__c = led.Contact__r.Primary_Address_Reference__r.Province__c;
-                            acclnk.Retail_City__c = led.Contact__r.Primary_Address_Reference__r.Sub_District__c;
-                            acclnk.Retail_Distinct__c = led.Contact__r.Primary_Address_Reference__r.District__c;
-							
-								
+                            acclnk.Retail_City__c = led.Contact__r.Primary_Address_Reference__r.District__c;
+                            acclnk.Retail_Distinct__c = led.Contact__r.Primary_Address_Reference__r.Sub_District__c;
                             acclnk.Retail_Address_Line_1__c = led.Contact__r.Primary_Address_Reference__r.Address_Line_1__c;
                             acclnk.Retail_Address_Line_2__c = led.Contact__r.Primary_Address_Reference__r.Address_Line_2__c;
 							acclnk.Retail_Address_Line_3__c = led.Contact__r.Primary_Address_Reference__r.Address_Line_3__c;
                             acclnk.Retail_Address_Type__c = led.Contact__r.Primary_Address_Reference__r.Address_Type__c;
                             acclnk.Retail_ZipCode__c = led.Contact__r.Primary_Address_Reference__r.ZipCode__c;
                             acclnk.Retail_Address_CreatedDate__c = date.newinstance(led.Contact__r.Primary_Address_Reference__r.CreatedDate.year(), led.Contact__r.Primary_Address_Reference__r.CreatedDate.month(), led.Contact__r.Primary_Address_Reference__r.CreatedDate.day());
-
-                            acclnk.Retail_Address_LastModifiedDate__c = date.newinstance(led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.year(), led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.month(), led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.day());
+							acclnk.Retail_Address_LastModifiedDate__c = date.newinstance(led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.year(), led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.month(), led.Contact__r.Primary_Address_Reference__r.Lastmodifieddate.day());
                           
                         }
                         acclnk.Retail_Country__c = led.contact__r.country__c;
@@ -639,5 +636,21 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
 		    }
         
     }
+	
+	/*
+	Description: This method will be used to empty the retial copy field lookup of company and person
+	*/
+	
+	public static void updateRetailLookups(List<Lead__c> Leadlist, String Market){
+   
+		for(Lead__c le:Leadlist){
+			 if (string.isblank(le.Assigned_Dealer__c) && le.MD__c== Market) {
+				le.Retail_Contact__c=NULL;
+				le.Retail_Company__c=NULL;
+			}
+		
+		} 
+	}
+	
 }
  

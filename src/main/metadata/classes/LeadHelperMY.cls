@@ -27,12 +27,11 @@ public without sharing  class  LeadHelperMY{
     */
     
     public  void ShareRecordswithDealers(List<lead__c> leadlist,Boolean flag){
-     helperBase.ShareRecordswithDealers(leadList,flag,market);    
-    
+     helperBase.ShareRecordswithDealers(leadList,flag,market);        
     }
     
   // Added by Asish Nanda, Test Case-  A retail Copy (Reatil Person/ Retail Company)Will be Created in Dealer account automatically , if a dealer will be assigned to Lead 
-     Public void CreateRetailCopy(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap, boolean isInsert, boolean isUpdate,string market) {
+    Public void CreateRetailCopy(List < Lead__c > leadlist, map < id, Lead__c > leadOldMap, boolean isInsert, boolean isUpdate,string market) {
         LeadHelperBase.CheckRetailCopy( leadlist,  leadOldMap,  isInsert,  isUpdate, market);
     }
 	
@@ -45,5 +44,10 @@ public without sharing  class  LeadHelperMY{
     {
         helperBase.CdmLeadcreate(leadlist, leadOldMap,market);
     }
+	
+	public void updateRetailLookups(List < Lead__c > leadlist,string market){
+		LeadHelperBase.updateRetailLookups(Trigger.New,market);
+    }
+	
 
 }
