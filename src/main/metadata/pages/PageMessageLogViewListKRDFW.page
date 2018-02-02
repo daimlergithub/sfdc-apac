@@ -80,7 +80,7 @@
                 </apex:column>
                 <apex:column headerValue="Message ID" rendered="{!isPartner=true}">
                     <apex:facet name="header">Message ID</apex:facet>
-                    <a href="{!baseUrl}/MBKorea/{!item.Id};" target="_blank"><apex:outputField value="{!item.Name}"/></a>
+                    <a href="{!baseUrl}/MBKorea/{!item.Id}" target="_blank"><apex:outputField value="{!item.Name}"/></a>
                 </apex:column>
                                 
                 <apex:column headerValue="Account Name">

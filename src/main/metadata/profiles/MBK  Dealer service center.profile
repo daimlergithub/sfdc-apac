@@ -2712,6 +2712,16 @@
         <field>Account.Targeted_Advertising_Info_Optional__c</field>
         <readable>true</readable>
     </fieldPermissions>
+		<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Person_Info_Custom_Service_Optional__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Person_Agree_Test_Driving_Optional__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Unique_Identification_Info_Mandatory__c</field>
