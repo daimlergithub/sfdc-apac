@@ -29,7 +29,7 @@ IF(AND(ISPICKVAL(Retail_Campaign_Id__r.Segmentation_Base__c,&apos;Customer&apos;
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(OR(ISNEW(),ISCHANGED( Address__c )), MD__c =&apos;JP&apos;)</formula>
+        <formula>MD__c =&apos;JP&apos;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 	<rules>
