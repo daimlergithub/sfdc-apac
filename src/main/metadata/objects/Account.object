@@ -10085,7 +10085,7 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
     <fields>
         <fullName>General_Personal_Information_Mandatory__c</fullName>
         <externalId>false</externalId>
-        <label>General Personal Info (Mandatory)</label>
+        <label>General Personal Information (Mandatory)</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
