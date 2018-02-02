@@ -356,7 +356,7 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                  }             
             }
         for(Account acc:[select id,Dealer_ND_Code__c from Account where id IN:deleteSharingRec]){
-            gname.add(acc.Dealer_ND_Code__C);
+            gname.add('TH'+acc.Dealer_ND_Code__C);
             
         }
         if(deleteSharingRec.size()>0){
