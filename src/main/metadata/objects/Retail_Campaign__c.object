@@ -15541,6 +15541,13 @@ $Profile.Name != 'IntegrationAPI'
         <errorConditionFormula>IF(Close_Date__c!=null&amp;&amp;Close_Date__c &lt;=TODAY()&amp;&amp;MD__c='TH',TRUE,IF(Start_Date__c!=null &amp;&amp;Close_Date__c&lt;Start_Date__c&amp;&amp;MD__c='TH',TRUE,FALSE))</errorConditionFormula>
         <errorMessage>Campaign End date can't past date and can't be less than start date</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Start_date_error_when_status_completed	</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),if(AND(MD__c=='MY',$Permission.MYDealer),true,false),(IF( ISCHANGED( Start_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>You cant change Start Date once Retail Campaign status Completed</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Feedback_Mandatory_Actual_End_Date</fullName>
         <active>true</active>
@@ -15735,6 +15742,22 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Close  Date should be greater than Start Date</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Cant_add_members_once_segmentation_reach</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISCHANGED( Total_Retail_Campaign_Members__c ),OR( RecordType.Name = 'Planning &amp; Design Campaign',RecordType.Name = 'Campaign Execution'),$Profile.Name != 'IntegrationAPI',(Segmentation_Date__c>today()),if(AND(MD__c=='MY',$Permission.MYDealer),true,false))</errorConditionFormula>
+        <errorMessage>You can't add Campaign member once the segmentation date is reached</errorMessage>
+    </validationRules>
+	   <validationRules>
+        <fullName>Start_Date_can_not_be_less_than_Today</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(if(AND(MD__c=='MY',$Permission.MYDealer),true,false),
+Start_Date__c &lt; TODAY(),
+if( RecordType.Name='Campaign Execution'&amp;&amp;ischanged(Start_Date__c),true,
+if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISChanged(Start_Date__c),true,false))))</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
+	<validationRules>
         <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
         <active>true</active>
         <errorConditionFormula>AND(MD__c='TH',
@@ -15902,6 +15925,9 @@ var accid = records[0].Market__c;
 if(accid=='TH'){ 
 window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 }
+else if(accid=='MY')
+ {  window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_NEW_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_NEW_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
+ }
 else
  { 
  window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
@@ -16329,8 +16355,8 @@ if(CampStatus != 'Planning' &amp;&amp; CampStatus != 'Segmentation') {
 alert('You cannot create campaign members for this campaign status');
 }else
 {
-var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
-if(marketusr) {
+var marketusr="{!TEXT($User.Market__c)}"; 
+if(marketusr=='TH'||marketusr=='MY') { 
 window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation_TH?id={!Retail_Campaign__c.Id}");
 }
 else{
