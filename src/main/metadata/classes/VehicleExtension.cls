@@ -306,7 +306,7 @@ global with sharing class VehicleExtension {
            type='Competitor';
         }
                     
-        carModels = [SELECT Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c Where Status__c =:type];
+        carModels = [SELECT toLabel(Brand__c),Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c Where Status__c =:type];
         
         for(Car_Model__c cm : carModels){
             
