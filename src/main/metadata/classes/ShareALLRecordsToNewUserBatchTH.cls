@@ -40,10 +40,10 @@ global Database.QueryLocator start(Database.BatchableContext BC)
         String query = 'SELECT {0} FROM {1} WHERE {2} and {3}';
          List<String> condition = new List<String>();
         if ('Account_Link__c'.equalsIgnoreCase(sobjectName)){
-            condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c');
+            condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c,fromRole__r.recordTypeID,recordTypeID');
             condition.add('Account_Link__c');
             condition.add('Md__c=\'TH\'');
-            condition.add('toRole__c!=null');
+            condition.add('(toRole__c!=null or fromRole__c!=null)');
         } else if ('Lead__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Assigned_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Lead__c');
@@ -76,53 +76,129 @@ global Database.QueryLocator start(Database.BatchableContext BC)
         if ('Account_Link__c'.equalsIgnoreCase(sobjectName)) {
             Map<String,List<Account_Link__c>> DealerCodeAccountLinkMap=new Map<String,List<Account_Link__c>>();
             Map<Id,Id> accLinkIdToRoleIdMap=new Map<Id,Id>();
+            Map<Id,Set<String>> accLinkIdDealerCodeMap=new Map<Id,Set<String>>();
+            Map<Id,String> accLinkIdDealerCodeForAccountMap=new Map<Id,String>();
+            Id dealerAccountRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
+            Id contact2contactAccountLinkRecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+            Map<Id,Id> c2cAccLinkIdfromRoleIdMap=new Map<Id,Id>();
+            Map<Id,Id> c2cAccLinkIdToRoleIdMap=new Map<Id,Id>();
+   
             for(sObject sObj:scope)
             {  
                 Account_Link__c alObj=(Account_Link__c)sObj;
                 accLinkIdToRoleIdMap.put(alObj.Id, alObj.toRole__c);
-            }
-            Id dealerAccountRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
-            List<Account_Link__c> accLinkLst;
-            if(accLinkIdToRoleIdMap!=null && accLinkIdToRoleIdMap.size()>0)
-              accLinkLst=[select Id,toRole__c,RetailDealer_ND_Code__c from Account_Link__c where fromRole__r.recordTypeId=:dealerAccountRecordTypeId and toRole__c IN:accLinkIdToRoleIdMap.values()];
-            
-            Map<Id,String> accLinkIdDealerNdCodeMap=new Map<Id,String>();
-            if(accLinkLst!=null && accLinkLst.size()>0)
-            {
-                for(Account_Link__c accLinkObj:accLinkLst)
+                if(alObj.fromRole__c!=null && alObj.fromRole__r.recordTypeID==dealerAccountRecordTypeId && alObj.RetailDealer_ND_Code__c!=null)
                 {
-                    accLinkIdDealerNdCodeMap.put(accLinkObj.toRole__c, accLinkObj.RetailDealer_ND_Code__c);
+                    accLinkIdDealerCodeMap.put(alObj.Id, new Set<String>{alObj.RetailDealer_ND_Code__c});
+                    accLinkIdDealerCodeForAccountMap.put(alObj.Id, alObj.RetailDealer_ND_Code__c);
+                }
+                else if(alObj.recordTypeID==contact2contactAccountLinkRecordTypeId && alObj.fromRole__c!=null && alObj.toRole__c!=null)
+                {
+                    c2cAccLinkIdfromRoleIdMap.put(alObj.Id,alObj.fromRole__c);
+                    c2cAccLinkIdToRoleIdMap.put(alObj.Id, alObj.toRole__c);
+                    
+                }
+                    
+            }
+            
+            //sharing logic for contact to contact account link recordtype
+            if(c2cAccLinkIdfromRoleIdMap!=null && c2cAccLinkIdfromRoleIdMap.size()>0)
+            {
+                Map<Id,Set<String>> c2cAccLinkFromRoleIdSetDealerCodeMap=new Map<Id,Set<String>>();
+                Map<Id,Set<String>> c2cAccLinkToRoleIdSetDealerCodeMap=new Map<Id,Set<String>>();
+                for(Id accLinkId:accLinkIdToRoleIdMap.keySet())
+                {
+                    for(Id c2cAccLinkId:c2cAccLinkIdfromRoleIdMap.keySet())
+                    {
+                        if(accLinkIdToRoleIdMap.get(accLinkId)==c2cAccLinkIdfromRoleIdMap.get(c2cAccLinkId) && accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
+                        {
+                            if(!c2cAccLinkFromRoleIdSetDealerCodeMap.containsKey(c2cAccLinkId))
+                                c2cAccLinkFromRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
+                            else
+                               c2cAccLinkFromRoleIdSetDealerCodeMap.get(c2cAccLinkId).addAll(accLinkIdDealerCodeMap.get(accLinkId)); 
+                        }
+                    }
+                    for(Id c2cAccLinkId:c2cAccLinkIdToRoleIdMap.keySet())
+                    {
+                        if(accLinkIdToRoleIdMap.get(accLinkId)==c2cAccLinkIdToRoleIdMap.get(c2cAccLinkId) && accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
+                        {
+                            if(!c2cAccLinkToRoleIdSetDealerCodeMap.containsKey(c2cAccLinkId))
+                                c2cAccLinkToRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
+                            else
+                               c2cAccLinkToRoleIdSetDealerCodeMap.get(c2cAccLinkId).addAll(accLinkIdDealerCodeMap.get(accLinkId));
+                        }
+                    }
+                    
+                }
+                for(Id c2cAccLinkId:c2cAccLinkFromRoleIdSetDealerCodeMap.keySet())
+                {
+                    Set<String> fromRoleDealerCodeSet=c2cAccLinkFromRoleIdSetDealerCodeMap.get(c2cAccLinkId);
+                    Set<String> toRoleDealerCodeSet=c2cAccLinkToRoleIdSetDealerCodeMap.get(c2cAccLinkId);
+                    if(fromRoleDealerCodeSet!=null && fromRoleDealerCodeSet.size()>0 && toRoleDealerCodeSet!=null && toRoleDealerCodeSet.size()>0)
+                    {
+                        for(String fromdealerCode:fromRoleDealerCodeSet)
+                        {
+                            if(fromdealerCode!=null && toRoleDealerCodeSet.contains(fromdealerCode))
+                            {
+                                if(!accLinkIdDealerCodeMap.containsKey(c2cAccLinkId))
+                                    accLinkIdDealerCodeMap.put(c2cAccLinkId, new Set<String>{fromdealerCode});
+                                else
+                                    accLinkIdDealerCodeMap.get(c2cAccLinkId).add(fromdealerCode);
+                            }
+                                
+                        }
+                    }
+                    
                 }
             }
-            
-            
+             
             List<Account_Link__share> insertaccLinkShare=new List<Account_Link__share>();
             List<AccountShare> insertaccShare=new List<AccountShare>();
             
-            for(Id accLinkId:accLinkIdToRoleIdMap.keySet())
+                for(Id accLinkId:accLinkIdToRoleIdMap.keySet())
                 {
-                    if(dealerCodeGrpIdMap.get(accLinkIdDealerNdCodeMap.get(accLinkIdToRoleIdMap.get(accLinkId)))!=null)
+                    if(accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
                     {
-                       Account_Link__share accLinkShare = new Account_Link__share();
-                      accLinkShare.AccessLevel = 'EDIT';
-                      accLinkShare.parentid = accLinkId;
-                      accLinkShare.UserOrGroupId = dealerCodeGrpIdMap.get(accLinkIdDealerNdCodeMap.get(accLinkIdToRoleIdMap.get(accLinkId)));
-                      accLinkShare.RowCause = Schema.Account_link__Share.RowCause.Manual;
-                    
-                      insertaccLinkShare.add(accLinkShare);
+                      Set<String> delaerCodeSet=accLinkIdDealerCodeMap.get(accLinkId);
+                      if(delaerCodeSet!=null && delaerCodeSet.size()>0)
+                      {
+                          for(String dealerCode:delaerCodeSet)
+                          {
+                              if(dealerCodeGrpIdMap.get(dealerCode)!=null)
+                              {
+                                  Account_Link__share accLinkShare = new Account_Link__share();
+                                  accLinkShare.AccessLevel = 'EDIT';
+                                  accLinkShare.parentid = accLinkId;
+                                  accLinkShare.UserOrGroupId = dealerCodeGrpIdMap.get(dealerCode);
+                                  accLinkShare.RowCause = Schema.Account_link__Share.RowCause.Manual;
+                                
+                                  insertaccLinkShare.add(accLinkShare);
+                              }
+                              
+                          }
+                          
+                      }
+                        //all account records will shared excecpt dealer account record type
+                        if(accLinkIdToRoleIdMap.get(accLinkId)!=null && accLinkIdDealerCodeForAccountMap.get(accLinkId)!=null)
+                        {
+                            if(accLinkIdDealerCodeForAccountMap.get(accLinkId)!=null && dealerCodeGrpIdMap.get(accLinkIdDealerCodeForAccountMap.get(accLinkId))!=null)
+                            {
+                                AccountShare accShare=new AccountShare();
+                                accShare.AccountAccessLevel = 'EDIT';
+                                accShare.OpportunityAccessLevel = 'READ';
+                                accShare.AccountId = accLinkIdToRoleIdMap.get(accLinkId);
+                                accShare.UserOrGroupId = dealerCodeGrpIdMap.get(accLinkIdDealerCodeForAccountMap.get(accLinkId));
+                                accShare.RowCause = Schema.AccountShare.RowCause.Manual; 
+                                
+                                insertaccShare.add(accShare);
+                            }
+                            
+                        }
                         
-                        AccountShare accShare=new AccountShare();
-                        accShare.AccountAccessLevel = 'EDIT';
-                        accShare.OpportunityAccessLevel = 'READ';
-                        accShare.AccountId = accLinkIdToRoleIdMap.get(accLinkId);
-                        accShare.UserOrGroupId = dealerCodeGrpIdMap.get(accLinkIdDealerNdCodeMap.get(accLinkIdToRoleIdMap.get(accLinkId)));
-                        accShare.RowCause = Schema.AccountShare.RowCause.Manual; 
-                        
-                        insertaccShare.add(accShare);
                        
                     }
                  }
-                
+              
             
             if(insertaccLinkShare!=null && insertaccLinkShare.size()>0)
             {
@@ -253,13 +329,13 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                      vrShare.RowCause = Schema.Vehicle_Relationship__share.RowCause.Manual;
                      insertVRShare.add(vrShare);
                     
-					if(vrObj.Vehicle_ID__c!=null){
-						Vehicle__share vehShare = new Vehicle__share();
-						vehShare.AccessLevel = 'READ';
-						vehShare.parentId = vrObj.Vehicle_ID__c;
-						vehShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
-						vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
-						insertVehShare.add(vehShare);
+                    if(vrObj.Vehicle_ID__c!=null){
+                        Vehicle__share vehShare = new Vehicle__share();
+                        vehShare.AccessLevel = 'READ';
+                        vehShare.parentId = vrObj.Vehicle_ID__c;
+                        vehShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
+                        vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
+                        insertVehShare.add(vehShare);
                     }
                 }
             }
@@ -312,9 +388,43 @@ global Database.QueryLocator start(Database.BatchableContext BC)
              DMLManagerService.insertAsSystem(insertUserShare); 
         }            
     }
+    
     global void finish(Database.BatchableContext BC)
     {
-        
+        Id dealerAccountRecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
+        List<Account> dealerAccountLst=[Select Id,Dealer_ND_Code__c from account where recordTypeId=:dealerAccountRecordTypeId];
+        Map<Id,String> accIdDealerCodeMap=new Map<Id,String>();
+        List<AccountShare> insertaccShare=new List<AccountShare>();
+        if(dealerAccountLst!=null && dealerAccountLst.size()>0)
+        {
+            for(Account acc:dealerAccountLst)
+            {
+                accIdDealerCodeMap.put(acc.Id, acc.Dealer_ND_Code__c);
+            }
+        }
+        //share dealerRecordType
+        if(accIdDealerCodeMap!=null && accIdDealerCodeMap.size()>0)
+        {
+            for(Id accId:accIdDealerCodeMap.keySet())
+            {
+                if(accIdDealerCodeMap.get(accId)!=null && dealerCodeGrpIdMap.get(accIdDealerCodeMap.get(accId))!=null)
+                {
+                    AccountShare accShare=new AccountShare();
+                    accShare.AccountAccessLevel = 'EDIT';
+                    accShare.OpportunityAccessLevel = 'READ';
+                    accShare.AccountId = accId;
+                    accShare.UserOrGroupId = dealerCodeGrpIdMap.get(accIdDealerCodeMap.get(accId));
+                    accShare.RowCause = Schema.AccountShare.RowCause.Manual; 
+                    insertaccShare.add(accShare);          
+                }
+             
+            }
+            if(insertaccShare!=null && insertaccShare.size()>0)
+            {
+                DMLManagerService.insertAsSystem(insertaccShare); 
+            }
+            
+        }
     }
 
 

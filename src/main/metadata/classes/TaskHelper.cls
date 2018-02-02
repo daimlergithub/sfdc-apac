@@ -1075,7 +1075,7 @@ public class TaskHelper {
 
         if (isInsert){
             for (Task t:tasks){
-                if (t.WhatID != null){
+                if (t.WhatID != null && t.RecordTypeId == GeneralTaskRecordTypeId){
                     String whatIdString = t.WhatId;
                     
                     if((whatIdString.substring(0, 3)).equals('500')){
@@ -1092,7 +1092,7 @@ public class TaskHelper {
             }
         } else if (isUpdate){
             for (Task t:tasks){
-                if (t.WhatId != ((Task)taskOldMap.get(t.Id)).WhatID){
+                if (t.WhatId != ((Task)taskOldMap.get(t.Id)).WhatID && t.RecordTypeId == GeneralTaskRecordTypeId){
                     String whatIdString = t.WhatId;
                     
                     if((whatIdString.substring(0, 3)).equals('500')){
