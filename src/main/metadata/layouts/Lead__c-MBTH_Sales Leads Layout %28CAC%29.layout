@@ -158,6 +158,10 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Assigned_Date_Time__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Campaign_Name__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Sales_Consultant__c</field>
