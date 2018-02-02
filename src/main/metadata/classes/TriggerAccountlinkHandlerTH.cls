@@ -27,6 +27,7 @@ public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
         if (Trigger.isAfter && Trigger.isupdate) {
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
             AccountlinkhelperTH.ExportNotificationTH(Trigger.new,oldmap);
+			AccountlinkhelperTH.addressupdateRT(Trigger.new,oldmap);
             if (TriggerRecursiveCheck.run2 && acclids.size() > 0) {
                 TriggerRecursiveCheck.runOnce2();
                 CDMInformatica_Services.createAccountLink(acclids, 'TH', 'update');
