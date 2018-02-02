@@ -28,6 +28,10 @@
                       <apex:outputText value="{!eachWrap.PortalEmail}" ID="txtName1" rendered="{!IF(eachWrap.vehicleRelationship != null, true, false)}"/>
                        
                     </apex:column>
+                     <apex:column headerValue="{!$Label.Login_Mobile}">
+                        <apex:inputText id="inptid" value="{!eachWrap.loginmobile}" rendered="{!IF(myMercId == null, true, false)}" />
+                        <apex:outputText value="{!eachWrap.loginmobile}" rendered="{!IF(myMercId != null, true, false)}" />
+                        </apex:column> 
                     <apex:column >
                    <apex:commandLink value="{!$Label.Emails}" action="{!showPopup}" reRender="one">
                         <apex:param name="recordID" value="{!eachWrap.VID}"/>
