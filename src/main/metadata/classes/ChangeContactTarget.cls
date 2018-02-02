@@ -102,7 +102,8 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
         set<String> VRid = new set<String>();
         set<String> contactId = new set<String>();
        list<vehicle_relationship__c> vrlist= new list<vehicle_relationship__c>();
-       List<account_link__c> acclinklist = new List<account_link__c>();
+       //List<account_link__c> acclinklist = new List<account_link__c>();
+        Map<Id,account_link__c> acclinklist = new Map<Id,account_link__c>();
        list<vehicle_relationship__c> newsalescontractvrlist= new list<vehicle_relationship__c>();
        list<vehicle_relationship__c> newaftersalescontractvrlist= new list<vehicle_relationship__c>();
             if (vehiclewrpper.purchaservr.id!=null)
@@ -190,11 +191,13 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             if(vehiclewrpper.userdealeracclink.id!=null)
             {
             //acclinklist.add(vehiclewrpper.userdealeracclink.id,vehiclewrpper.userdealeracclink);
-            acclinklist.add(vehiclewrpper.userdealeracclink);
+           // acclinklist.add(vehiclewrpper.userdealeracclink);
+            acclinklist.put(vehiclewrpper.userdealeracclink.id,vehiclewrpper.userdealeracclink);
             }
             if(vehiclewrpper.purchaseracclink.id!=null){
            // acclinklist.put(vehiclewrpper.purchaseracclink.id,vehiclewrpper.purchaseracclink);
-            acclinklist.add(vehiclewrpper.purchaseracclink);
+           // acclinklist.add(vehiclewrpper.purchaseracclink);
+           acclinklist.put(vehiclewrpper.purchaseracclink.id,vehiclewrpper.purchaseracclink);
             }
             for(Account_Link__c Acclink : Accountlink)
             {
@@ -213,7 +216,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
                     
                 }
                 //acclinklist.put(Acclink.id,Acclink);
-               acclinklist.add(Acclink); 
+               acclinklist.put(acclink.id,Acclink); 
             }
             
             //if(vehiclewrpper.salescontactacclink.id!=null){
@@ -225,7 +228,7 @@ private static final String RetailCompany = Schema.sObjectType.account_link__c.g
             //}
          LeadUtil.isAcctrigger = False;
          System.debug('@@@@@@@@@@@@@@#########################'+acclinklist);
-        Database.update(acclinklist,false);
+        Database.update(acclinklist.values(),false);
         //update acclinkupdate;
         
         /*if(!VRid.isEmpty()){
