@@ -4,7 +4,8 @@
    <style type="text/css">
    </style>
    <body>
-   <p> {!relatedTo.Owner.Name} 店</p>
+   <!--<p> {!relatedTo.Owner.Name} 店</p>-->
+   <p>{!relatedTo.Dealer_Name__r.Name} 店</p>
    <p> 管理者様、ご担当者様</p>
    
    <p> 本日以下のキャンペーンの対象顧客を抽出し、キャンペーンメンバーとして展開しました。</p>

@@ -90,7 +90,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                 if(alObj.fromRole__c!=null && alObj.fromRole__r.recordTypeID==dealerAccountRecordTypeId && alObj.RetailDealer_ND_Code__c!=null)
                 {
                     accLinkIdDealerCodeMap.put(alObj.Id, new Set<String>{alObj.RetailDealer_ND_Code__c});
-                	accLinkIdDealerCodeForAccountMap.put(alObj.Id, alObj.RetailDealer_ND_Code__c);
+                    accLinkIdDealerCodeForAccountMap.put(alObj.Id, alObj.RetailDealer_ND_Code__c);
                 }
                 else if(alObj.recordTypeID==contact2contactAccountLinkRecordTypeId && alObj.fromRole__c!=null && alObj.toRole__c!=null)
                 {
@@ -112,8 +112,8 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                     {
                         if(accLinkIdToRoleIdMap.get(accLinkId)==c2cAccLinkIdfromRoleIdMap.get(c2cAccLinkId) && accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
                         {
-       						if(!c2cAccLinkFromRoleIdSetDealerCodeMap.containsKey(c2cAccLinkId))
-                            	c2cAccLinkFromRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
+                            if(!c2cAccLinkFromRoleIdSetDealerCodeMap.containsKey(c2cAccLinkId))
+                                c2cAccLinkFromRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
                             else
                                c2cAccLinkFromRoleIdSetDealerCodeMap.get(c2cAccLinkId).addAll(accLinkIdDealerCodeMap.get(accLinkId)); 
                         }
@@ -123,7 +123,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                         if(accLinkIdToRoleIdMap.get(accLinkId)==c2cAccLinkIdToRoleIdMap.get(c2cAccLinkId) && accLinkIdDealerCodeMap.get(accLinkId)!=null && accLinkIdDealerCodeMap.get(accLinkId).size()>0)
                         {
                             if(!c2cAccLinkToRoleIdSetDealerCodeMap.containsKey(c2cAccLinkId))
-                            	c2cAccLinkToRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
+                                c2cAccLinkToRoleIdSetDealerCodeMap.put(c2cAccLinkId, accLinkIdDealerCodeMap.get(accLinkId));
                             else
                                c2cAccLinkToRoleIdSetDealerCodeMap.get(c2cAccLinkId).addAll(accLinkIdDealerCodeMap.get(accLinkId));
                         }
@@ -134,17 +134,21 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                 {
                     Set<String> fromRoleDealerCodeSet=c2cAccLinkFromRoleIdSetDealerCodeMap.get(c2cAccLinkId);
                     Set<String> toRoleDealerCodeSet=c2cAccLinkToRoleIdSetDealerCodeMap.get(c2cAccLinkId);
-                    for(String fromdealerCode:fromRoleDealerCodeSet)
+                    if(fromRoleDealerCodeSet!=null && fromRoleDealerCodeSet.size()>0 && toRoleDealerCodeSet!=null && toRoleDealerCodeSet.size()>0)
                     {
-                        if(toRoleDealerCodeSet.contains(fromdealerCode))
+                        for(String fromdealerCode:fromRoleDealerCodeSet)
                         {
-                            if(!accLinkIdDealerCodeMap.containsKey(c2cAccLinkId))
-                                accLinkIdDealerCodeMap.put(c2cAccLinkId, new Set<String>{fromdealerCode});
-                            else
-                                accLinkIdDealerCodeMap.get(c2cAccLinkId).add(fromdealerCode);
+                            if(fromdealerCode!=null && toRoleDealerCodeSet.contains(fromdealerCode))
+                            {
+                                if(!accLinkIdDealerCodeMap.containsKey(c2cAccLinkId))
+                                    accLinkIdDealerCodeMap.put(c2cAccLinkId, new Set<String>{fromdealerCode});
+                                else
+                                    accLinkIdDealerCodeMap.get(c2cAccLinkId).add(fromdealerCode);
+                            }
+                                
                         }
-                            
                     }
+                    
                 }
             }
              
@@ -175,7 +179,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                           
                       }
                         //all account records will shared excecpt dealer account record type
-                        if(accLinkIdDealerCodeForAccountMap.get(accLinkId)!=null)
+                        if(accLinkIdToRoleIdMap.get(accLinkId)!=null && accLinkIdDealerCodeForAccountMap.get(accLinkId)!=null)
                         {
                             if(accLinkIdDealerCodeForAccountMap.get(accLinkId)!=null && dealerCodeGrpIdMap.get(accLinkIdDealerCodeForAccountMap.get(accLinkId))!=null)
                             {
@@ -325,13 +329,13 @@ global Database.QueryLocator start(Database.BatchableContext BC)
                      vrShare.RowCause = Schema.Vehicle_Relationship__share.RowCause.Manual;
                      insertVRShare.add(vrShare);
                     
-					if(vrObj.Vehicle_ID__c!=null){
-						Vehicle__share vehShare = new Vehicle__share();
-						vehShare.AccessLevel = 'READ';
-						vehShare.parentId = vrObj.Vehicle_ID__c;
-						vehShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
-						vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
-						insertVehShare.add(vehShare);
+                    if(vrObj.Vehicle_ID__c!=null){
+                        Vehicle__share vehShare = new Vehicle__share();
+                        vehShare.AccessLevel = 'READ';
+                        vehShare.parentId = vrObj.Vehicle_ID__c;
+                        vehShare.UserOrGroupId = dealerCodeGrpIdMap.get(vrObj.Owner_Dealer_ND_Code__c);
+                        vehShare.RowCause = Schema.Vehicle__share.RowCause.Manual;
+                        insertVehShare.add(vehShare);
                     }
                 }
             }
@@ -405,7 +409,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             {
                 if(accIdDealerCodeMap.get(accId)!=null && dealerCodeGrpIdMap.get(accIdDealerCodeMap.get(accId))!=null)
                 {
-             		AccountShare accShare=new AccountShare();
+                    AccountShare accShare=new AccountShare();
                     accShare.AccountAccessLevel = 'EDIT';
                     accShare.OpportunityAccessLevel = 'READ';
                     accShare.AccountId = accId;
