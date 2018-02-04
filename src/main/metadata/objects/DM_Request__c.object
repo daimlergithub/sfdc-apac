@@ -845,7 +845,7 @@ Modify Reason:
     <fields>
         <fullName>MBTH_Channel__c</fullName>
         <externalId>false</externalId>
-        <label>MBTH Channel</label>
+        <label>Channel</label>
         <picklist>
 		<controllingField>Market__c</controllingField>
             <picklistValues>
@@ -867,7 +867,7 @@ Modify Reason:
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Add Social Media</fullName>
+                <fullName>Social Media</fullName>
                 <default>false</default>
 				<controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -884,7 +884,7 @@ Modify Reason:
 				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Others.</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
 				<controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
