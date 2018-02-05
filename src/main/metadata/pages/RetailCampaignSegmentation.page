@@ -94,11 +94,10 @@
         
         function selecttemplate2()
         {
-        document.getElementById('retail1').value='Selling_Dealer__c';
+              document.getElementById('retail1').value='Selling_Dealer__c';
                showCriteria(document.getElementById('retail1'));
                document.getElementById('selectoptionretailcopy').value='Equals';
-                document.getElementById('crie').value='{!accnames}';
-                addEmptyFilterItem('AccountRetailCopyTable', 'AND', false)
+                document.getElementById('crie').value='{!accnames}'; 
                 document.getElementById('vrfiletr').value='End_Date__c'; 
                 showCriteria(document.getElementById('vrfiletr'));
                 document.getElementById('vfilter').value='Car_Model__r.Model_Name__c';
@@ -639,9 +638,9 @@
         <apex:pageMessages />
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
         <apex:pageBlock >
-         <input type="button" value="Select Template 1" onClick="CallSOQL()"/>  <br></br> <br></br>
-         <input type="button" value="Select Template 2" onClick="selecttemplate2()"/>  <br></br> <br></br>
-         <input type="button" value="Select Template 3" onClick="selecttemplate3()"/>  <br></br> <br></br>
+         <input type="button" value="Select Template 1" onClick="CallSOQL()"/> Description 1  <br></br> <br></br>
+         <input type="button" value="Select Template 2" onClick="selecttemplate2()"/> Description 2  <br></br> <br></br>
+         <input type="button" value="Select Template 3" onClick="selecttemplate3()"/>  Description 3  <br></br> <br></br>
          </apex:pageBlock>
         <apex:pageBlock id="block">
             <div id="filterBody" style="margin:10px;">
@@ -1387,4 +1386,4 @@
             </apex:outputPanel>
         </apex:pageBlock>
     </apex:form>
-</apex:page>
+</apex:page>                                     
