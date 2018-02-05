@@ -2601,6 +2601,11 @@
         <field>Account.General_Personal_Info_Sales_Marketing__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.General_Personal_Info_Mandatory__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.General_Personal_Information_Mandatory__c</field>

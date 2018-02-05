@@ -2575,6 +2575,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Account.General_Personal_Info_Mandatory__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Account.Person_Info_Custom_Service_Optional__c</field>
         <readable>true</readable>
     </fieldPermissions>
