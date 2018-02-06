@@ -1350,7 +1350,7 @@
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
                 <!--PR20170918--Start-- Modified for Thailand(Will be modified shortly)-->
                 <!--<apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF((market == 'TH' || market == 'JP'), true, false)}">-->
-                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'JP', true, false)}">
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">
                 <!--PR20170918--End-- Modified for Thailand-->
                      <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>    
