@@ -4713,29 +4713,27 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <value>What information a user can use for login, will depend on input information.</value>
     </labels>
 	<labels>
-        <fullName>Login_Email_A_customer_will_be_able_to_use_the_email_for_login_A_customer_will</fullName>
+        <fullName>Login_Email_A_customer_will_be_able_to_use_the_email</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Login Email: A customer will be able to use the email for login (A customer will</shortDescription>
         <value>Login Email: A customer will be able to use the email for login (A customer will receive a registration email)</value>
     </labels>
 	 <labels>
-        <fullName>Login_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login_A_customer_wi</fullName>
+        <fullName>Login_Mobile_A_customer_will_be_able_to_use_the_mobile_for</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Login Mobile: A customer will be able to use the mobile for login (A customer wi</shortDescription>
         <value>Login Mobile: A customer will be able to use the mobile for login (A customer will receive a registration SMS).</value>
     </labels>
-	
-	  <labels>
-        <fullName>Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login_A_cus</fullName>
+	<labels>
+        <fullName>Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Login Email and Mobile: A customer will be able to use the mobile for login (A cus</shortDescription>
         <value>Login Email and Mobile: A customer will be able to use the mobile for login (A customer will receive a registration SMS). The email will be registered on Mercedes me, but a customer cannot use it as a login email</value>
     </labels>
-	
-    <labels>
+	<labels>
         <fullName>MBF_Authentication_Section</fullName>
         <language>en_US</language>
         <protected>false</protected>
