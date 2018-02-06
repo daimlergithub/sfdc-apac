@@ -4691,6 +4691,50 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>Lookup Button</shortDescription>
         <value>Lookup</value>
     </labels>
+	  <labels>
+        <fullName>Please_set_all_information_received_from_a_customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please set all information received from a customer</shortDescription>
+        <value>Please set all information received from a customer</value>
+    </labels>
+	 <labels>
+        <fullName>Login_Mobile_is_a_mandatory_for_Concierge_Service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Mobile is a mandatory for Concierge Service</shortDescription>
+        <value>Login Mobile is a mandatory for Concierge Service</value>
+    </labels>
+	 <labels>
+        <fullName>What_information_a_user_can_use_for_login_will_depend_on_input_information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>What information a user can use for login, will depend on input information.</shortDescription>
+        <value>What information a user can use for login, will depend on input information.</value>
+    </labels>
+	<labels>
+        <fullName>Login_Email_A_customer_will_be_able_to_use_the_email_for_login_A_customer_will</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Email: A customer will be able to use the email for login (A customer will</shortDescription>
+        <value>Login Email: A customer will be able to use the email for login (A customer will receive a registration email)</value>
+    </labels>
+	 <labels>
+        <fullName>Login_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login_A_customer_wi</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Mobile: A customer will be able to use the mobile for login (A customer wi</shortDescription>
+        <value>Login Mobile: A customer will be able to use the mobile for login (A customer will receive a registration SMS).</value>
+    </labels>
+	
+	  <labels>
+        <fullName>Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login_A_cus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Email & Mobile: A customer will be able to use the mobile for login (A cus</shortDescription>
+        <value>Login Email & Mobile: A customer will be able to use the mobile for login (A customer will receive a registration SMS). The email will be registered on Mercedes me, but a customer cannot use it as a login email</value>
+    </labels>
+	
     <labels>
         <fullName>MBF_Authentication_Section</fullName>
         <language>en_US</language>
