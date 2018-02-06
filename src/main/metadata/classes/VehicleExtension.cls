@@ -21,6 +21,7 @@ global with sharing class VehicleExtension {
     public String compModel{get;set;}
     public String marketcheck{get;set;}
     public PageReference nextPage;
+    public String selectedNewUsed{get;set;}
     private ApexPages.StandardController stdController;
     
     // ***For Thailand*** Declaration Start
@@ -33,12 +34,14 @@ global with sharing class VehicleExtension {
     public VehicleExtension(ApexPages.StandardController stdController) {
         String type;
         check=true;
-        
+        //selectedNewUsed='New Used';
         // ***For Thailand*** Start
         nonThaiUserLoggedIn = true;
         // ***For Thailand*** End
         
         vehicle = (Vehicle__C)stdController.getRecord();
+         
+        System.debug('************* vehicle'+vehicle);
         vehicle.market__c=[Select market__c From User Where Id = :UserInfo.getUserId()][0].market__c;
         marketcheck = vehicle.market__c;
         string returnId = ApexPages.currentPage().getParameters().get('accId');
@@ -111,6 +114,15 @@ global with sharing class VehicleExtension {
             }
         }
         return nextPage;
+    }
+    
+    public List<SelectOption> getnewusedOptions() {
+        List<SelectOption> countryOptions = new List<SelectOption>();
+        countryOptions.add(new SelectOption('','-None-'));
+        countryOptions.add(new SelectOption('New','新車'));
+        countryOptions.add(new SelectOption('Used','中古車')); 
+
+        return countryOptions;
     }
     
         /**    
@@ -199,11 +211,19 @@ global with sharing class VehicleExtension {
             }
         }else if(recordType == 'Self Registered'){
         system.debug('I am hereaaaa');
-            list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Competitor' order by CreatedDate ];
+        System.debug('************************'+brand);
+        System.debug('************************'+class1);
+        System.debug('************************'+model);
+          System.debug('************************'+range );
+            System.debug('************************'+range );
+              System.debug('************************'+modPackage);
+            list<Car_Model__c> carModelId = [select id from Car_Model__c where Series__c =:class1 and Name =:model and (Brand__c=:brand OR Range__c=:range OR Mod_Pack__c=:modPackage) and Status__c='Competitor' order by CreatedDate ];
+           System.debug('#######################'+carModelId);
             if(!carModelId.isEmpty()){
                 vehicle.Car_Model__c=carModelId[0].id;
                 vehicle.Model_Description__c=model;
             }
+            System.debug('#######################'+vehicle.Model_Description__c);
         }
         else{
             list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:compBrand and Name =:compModel and Status__c='Competitor' order by CreatedDate ];                   
@@ -223,7 +243,15 @@ global with sharing class VehicleExtension {
         vehicle.Vehicle_Group__c=VG;
         vehicle.BaumusterEx__c=steering;
         vehicle.Competitor_Model__c=compModel;
-        
+        System.debug('$$$$$$$$$$$$$ selectedNewUsed'+selectedNewUsed);
+        if(selectedNewUsed !=null && selectedNewUsed  =='New')
+        {
+        vehicle.New_Used__c='New';
+        }
+        if(selectedNewUsed !=null && selectedNewUsed  =='Used')
+        {
+        vehicle.New_Used__c='Used';
+        }
         //try{  
         insert vehicle;                       
         // }catch(DmlException  e){

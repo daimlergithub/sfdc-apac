@@ -1306,7 +1306,7 @@
                           </script>                    
                        </apex:outputText>
                    </apex:outputPanel>
-             <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(market=='TH' ,true,false)}"/>  
+             <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(or(market=='TH',market=='KR') ,true,false)}"/>  
              <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(And(market=='JP',Editmode) ,true,false)}"/>    
               <apex:commandButton action="{!canceljp}"  value="{!$Label.Cancel_Button}" rendered="{!If(And(market=='JP',Readonly) ,true,false)}"  status="actStatusId"/>
             <apex:actionStatus id="actStatusId" style="align:center;">
@@ -1350,7 +1350,7 @@
             <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
                 <!--PR20170918--Start-- Modified for Thailand(Will be modified shortly)-->
                 <!--<apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF((market == 'TH' || market == 'JP'), true, false)}">-->
-                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'JP', true, false)}">
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">
                 <!--PR20170918--End-- Modified for Thailand-->
                      <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>    
