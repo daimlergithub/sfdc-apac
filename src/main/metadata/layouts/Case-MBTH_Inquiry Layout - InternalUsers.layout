@@ -87,6 +87,10 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Priority__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Priority</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>DeadLine__c</field>
