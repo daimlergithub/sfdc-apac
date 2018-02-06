@@ -217,7 +217,7 @@ global with sharing class VehicleExtension {
           System.debug('************************'+range );
             System.debug('************************'+range );
               System.debug('************************'+modPackage);
-            list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Competitor' order by CreatedDate ];
+            list<Car_Model__c> carModelId = [select id from Car_Model__c where Series__c =:class1 and Name =:model and (Brand__c=:brand OR Range__c=:range OR Mod_Pack__c=:modPackage) and Status__c='Competitor' order by CreatedDate ];
            System.debug('#######################'+carModelId);
             if(!carModelId.isEmpty()){
                 vehicle.Car_Model__c=carModelId[0].id;
