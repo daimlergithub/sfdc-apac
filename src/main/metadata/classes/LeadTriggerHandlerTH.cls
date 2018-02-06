@@ -4,7 +4,9 @@
  * Created Date : 2017-01-23
  */
 public class LeadTriggerHandlerTH implements TriggerHandlerIf {
+
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
+    
         List < Lead__c > ldupdate = new List < Lead__c > ();
         user usr = [select id, profileId, profile.Name from User WHERE Id =: userInfo.getUserId()];
         boolean flag = true;
@@ -21,6 +23,8 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf {
         if (Trigger.isbefore && Trigger.isinsert) {
             leadRS.leadValidation(trigger.new);
             leadRS.updateOwnerwithDealer(Trigger.new);
+            LeadHelperTH.changeDealerAccount(Trigger.new);
+            system.debug('naren');
         }
         if (Trigger.isafter && (Trigger.isinsert || Trigger.isUpdate) && usr.Profile.Name != 'IntegrationAPI') {
 
@@ -34,7 +38,7 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf {
                     for (Lead__c lds: (List < Lead__c > ) Trigger.new) {
                         if (ldmap.containsKey(lds.Id) && lds.CAC_Lead_Status__c != ldmap.get(lds.Id).CAC_Lead_Status__c && lds.CAC_Lead_Status__c == 'Lost(Dealer)') {
                             Lead__c ldclone = new Lead__c(id = lds.Id);
-							ldclone.Lead_Lost_Date_Time__c = system.now();
+                            ldclone.Lead_Lost_Date_Time__c = system.now();
                             ldupdate.add(ldclone);
                         }
                     }

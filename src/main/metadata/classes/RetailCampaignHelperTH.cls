@@ -12,6 +12,7 @@ public class RetailCampaignHelperTH{
     public static Id planningRecordId = RecordTypeAccessService.getRecordTypeId('Retail_Campaign__c','Planning & Design Campaign');
     public static Id executionRecordId = RecordTypeAccessService.getRecordTypeId('Retail_Campaign__c','Campaign Execution');
     Set<ID> retailExecutionid=new Set<ID>();
+  
     Set<ID> retailplanningId=new Set<ID>();
     public static Map<id,string> retailcampaign= new Map<id,string>();
     public static List<Retail_Campaign__c> updateRetailCampaign=new List<Retail_Campaign__c>();
@@ -128,5 +129,22 @@ public class RetailCampaignHelperTH{
         if(retcampshare.size()>0){
             DMLManagerService.insertAsSystem(retcampshare);
         }
+    }
+     Public static void changeDealerAccount(List<Retail_Campaign__c> triggernew){
+        Map<id,User> usrmap=getDealerAccount(triggernew);
+         for(Retail_Campaign__c re:triggernew){
+         if(re.ownerid!=null&&usrmap.get(re.ownerid)!=null&&(usrmap.get(re.ownerid)).contact!=null){
+             re.Dealer_Name__c=(usrmap.get(re.ownerid)).contact.accountid;
+         }
+       
+         }
+    
+    }
+    Public static Map<id,User> getDealerAccount(List<Sobject> triggernew){
+    set<id> usrset=new Set<id>();
+         for(sobject re:triggernew){
+             usrset.add((ID)re.get('ownerid'));
+         }
+    return new map<id,User>([select id,usertype,contact.accountid from user where id IN : usrset and usertype='PowerPartner']);
     }
 }

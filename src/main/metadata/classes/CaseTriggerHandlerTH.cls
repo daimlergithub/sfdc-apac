@@ -19,6 +19,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true);
         caseHelperTHd.updateCaseCreator(trigger.new);
         caseHelperTHd.updatecommunityurl(Trigger.New);
+        CaseHelperTH.changeDealerAccount(Trigger.New);
             }
         }
         else if(trigger.isupdate &&trigger.isbefore){
@@ -37,19 +38,19 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                caseHelperTHd .calculateComplaintAmount(trigger.old);
             }
             else if (trigger.isInsert){
-			caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
+            caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
                caseHelperTHd .calculateComplaintAmount(trigger.new); 
              
             }else if (trigger.isUpdate){
-				caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
-				caseHelperTHd.calculateComplaintAmount(trigger.new);
-				CaseHelperTH.sendReminderEmail(Trigger.newMap,Trigger.oldMap);
+                caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
+                caseHelperTHd.calculateComplaintAmount(trigger.new);
+                CaseHelperTH.sendReminderEmail(Trigger.newMap,Trigger.oldMap);
             }
            
         }
         //share Record start
         if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){
-			
+            
             CaseHelperTH.ShareRecordswithDealers(Trigger.new,Trigger.isupdate);
         }
         //share Record end

@@ -548,5 +548,14 @@ public class CaseHelperTH {
                 Messaging.sendEmail(mails);
         }
     }
+public static void changeDealerAccount(List<case> triggernew){
+Map<id,User> usrmap=RetailCampaignHelperTH.getDealerAccount(triggernew);
+for(case re:triggernew){
+         if(re.ownerid!=null&&usrmap.get(re.ownerid)!=null&&(usrmap.get(re.ownerid)).contact!=null){
+             re.Case_Dealer__c=(usrmap.get(re.ownerid)).contact.accountid;
+         }
+       
+         }
+}
 
 }
