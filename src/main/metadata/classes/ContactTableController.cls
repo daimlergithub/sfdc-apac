@@ -40,7 +40,7 @@ public class ContactTableController
     public String workPhoneAreaCodePart1{get;set;}
     public String workPhoneAreaCodePart2{get;set;}
     public String workPhoneAreaCodePart3{get;set;}
-	public String workPhone2AreaCodePart1{get;set;}
+    public String workPhone2AreaCodePart1{get;set;}
     public String workPhone2AreaCodePart2{get;set;}
     public String workPhone2AreaCodePart3{get;set;}
     public String mobilePhoneAreaCodePart1{get;set;}
@@ -57,7 +57,7 @@ public class ContactTableController
     public boolean hAreaBoolean{get;set;}
     Public boolean wAreaBoolean{get;set;}
     Public boolean fAreaBoolean{get;set;}
-	
+    
     /*Sn20171709 - end*/
     
    // public String MarketDescriminator= [Select Market__c From User Where Id =:UserInfo.getUserId()][0].Market__c;
@@ -79,7 +79,7 @@ public class ContactTableController
         hAreaBoolean=false;
         wAreaBoolean=false;
         fAreaBoolean=false;
-		
+        
         //MT20170909 - Added  code to get the area code from the custom settings
           //Fill in CountryCodes
         //lstMobileAreaCode=new List<SelectOption>();
@@ -100,11 +100,12 @@ public class ContactTableController
         //MT20170909
         
         AccId = stdController.getId();
+        
         if(!test.isRunningTest()){  
         //sarath added Market__c field to retrieve in query
-        stdController.addFields(new List<String> {'Id','Fax_Last_Modified_By__c','Work_Fax_Last_Modified_By__c','Fax_Last_Modified_Date__c','Fax2_Last_Modified_Date__c','Mobile__c','Mobile2__c','Individual_Home_Phone__c','Home_Phone_2__c','Work_Phone__c','Phone','Email__c','Email2__c','Email3__c','Fax2__c','Fax','Fax_Validity2__c','Fax_Validity__c','Email_Status__c','Email_Status_2__c','Work_Phone_Last_Modified_Date__c','Work_Phone_Last_Modified_Date2__c',
+        stdController.addFields(new List<String> {'Id','Fax_Last_Modified_By__c','Mobile_3__c','Mobile3_Status__c','Mobile3_Last_Modified_By__c','Mobile3_Last_Modified_Date__c','Work_Fax_Last_Modified_By__c','Fax_Last_Modified_Date__c','Fax2_Last_Modified_Date__c','Mobile__c','Mobile2__c','Individual_Home_Phone__c','Home_Phone_2__c','Work_Phone__c','Work_Phone_2__c','Work_Phone2_Checkbox__c','Phone','Email__c','Email2__c','Email3__c','Fax2__c','Fax','Fax_Validity2__c','Fax_Validity__c','Email_Status__c','Email_Status_2__c','Work_Phone_Last_Modified_Date__c','Work_Phone_Last_Modified_Date2__c',
             'Email_Status_3__c','Work_Phone_Status__c','Work_Phone_Status_2__c','Individual_Home_Phone_Status__c', 'Home_Phone_Status_2__c' ,'Mobile_Status__c','SMS_MMS_IM_Status_2__c','Email_Last_Modified_By__c','Email_Last_Modified_By2__c','Email_Last_Modified_By3__c','Email_Last_Modified_Date__c','Email_Last_Modified_Date2__c',
-           'Work_Phone_Last_Modified_By__c','Work_Phone_Last_Modified_By2__c','Home_Phone_Last_Modified_By__c','Home_Phone_Last_Modified_By2__c','SMS_Last_Modified_By__c','SMS_Last_Modified_By2__c','SMS_Last_Modified_Date__c','SMS_Last_Modified_Date2__c','Home_Phone_Last_Modified_Date__c','Home_Phone_Last_Modified_Date2__c','Email_Last_Modified_Date3__c','MD__c','Market__c','RecordType.Name','Mobile_Phone_Checkbox__c','home_Phone_Checkbox__c','Work_Phone_Checkbox__c','Primary_Phone__c','Work_Phone_2__c','Work_Phone2_Checkbox__c'});
+           'Work_Phone_Last_Modified_By__c','Work_Phone_Last_Modified_By2__c','Home_Phone_Last_Modified_By__c','Home_Phone_Last_Modified_By2__c','SMS_Last_Modified_By__c','SMS_Last_Modified_By2__c','SMS_Last_Modified_Date__c','SMS_Last_Modified_Date2__c','Home_Phone_Last_Modified_Date__c','Home_Phone_Last_Modified_Date2__c','Email_Last_Modified_Date3__c','MD__c','Market__c','RecordType.Name','Mobile_Phone_Checkbox__c','home_Phone_Checkbox__c','Work_Phone_Checkbox__c','Primary_Phone__c'});
              
             } 
         ParAcc = (Account)stdController.getRecord(); 
@@ -285,7 +286,7 @@ public class ContactTableController
                 } 
             }
         }
-		if(!(String.isBlank(ParAcc.Work_Phone_2__c)) && (ParAcc.MD__c=='KR')){ 
+        if(!(String.isBlank(ParAcc.Work_Phone_2__c)) && (ParAcc.MD__c=='KR')){ 
             if(!ParAcc.Work_Phone_2__c.contains('-')){
               ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,System.label.Insufficient_privilege));
             }
@@ -304,7 +305,7 @@ public class ContactTableController
                    workPhone2AreaCodePart3=resultsworkPhoneAreaCode[2]; 
                 }
             }
-        } 		
+        }       
     }
     /**
     *@Description : This method makes editMode true which allows the user to input values to the phone numbers  and email fields for Thailand market only.
@@ -781,7 +782,7 @@ public class ContactTableController
         { 
              ParAcc.Mobile__c='';
         }
-		   if((String.isBlank(workPhone2AreaCodePart1)) && (String.isBlank(workPhone2AreaCodePart2)) && (String.isBlank(workPhone2AreaCodePart3)))
+           if((String.isBlank(workPhone2AreaCodePart1)) && (String.isBlank(workPhone2AreaCodePart2)) && (String.isBlank(workPhone2AreaCodePart3)))
       {
                ParAcc.Work_Phone_2__c='';
       }
@@ -820,7 +821,7 @@ public class ContactTableController
             {
                 refreshPage = true;
                    system.debug('****MD*****'+parAcc);
-				   if(ParAcc.RecordType.Name=='Company'||ParAcc.RecordType.Name=='Person Account')
+                   if(ParAcc.RecordType.Name=='Company'||ParAcc.RecordType.Name=='Person Account')
         {
                        
          if((ParAcc.Mobile_Phone_Checkbox__c==true && ParAcc.home_Phone_Checkbox__c==true && ParAcc.Work_Phone_Checkbox__c==true && ParAcc.Work_Phone2_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true && ParAcc.home_Phone_Checkbox__c==true && ParAcc.Work_Phone2_Checkbox__c==true && ParAcc.Work_Phone_Checkbox__c==false)||(ParAcc.Mobile_Phone_Checkbox__c==false && ParAcc.home_Phone_Checkbox__c==true && ParAcc.Work_Phone_Checkbox__c==true && ParAcc.Work_Phone2_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true && ParAcc.home_Phone_Checkbox__c==false && ParAcc.Work_Phone_Checkbox__c==true && ParAcc.Work_Phone2_Checkbox__c==true)||(ParAcc.Mobile_Phone_Checkbox__c==true && ParAcc.home_Phone_Checkbox__c==true && ParAcc.Work_Phone_Checkbox__c==true && ParAcc.Work_Phone2_Checkbox__c==false)||(String.isBlank(ParAcc.Mobile__c) && ParAcc.Mobile_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Individual_Home_Phone__c)&& ParAcc.home_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Work_Phone__c) && ParAcc.Work_Phone_Checkbox__c==true)||(String.isBlank(ParAcc.Work_Phone_2__c) && ParAcc.Work_Phone2_Checkbox__c==true)

@@ -1960,6 +1960,10 @@
     <customLabels>
         <label>Eメール(自宅）</label>
         <name>Home_Email</name>
+    </customLabels>	
+    <customLabels>
+        <label>Mercedes me携帯電話</label>
+        <name>Mobile_3</name>
     </customLabels>
     <customLabels>
         <label>電話番号(固定）</label>

@@ -175,7 +175,24 @@
                        </td>         
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date2__c}"/></td>              
                    </tr> 
-                   
+                   <tr>        
+                       <th style="text-align: Right;">{!$Label.Mobile_3}</th>        
+                       <td><apex:inputField value="{!ParAcc.Mobile_3__c}" rendered="{!editMode}" />
+                           <apex:outputField value="{!ParAcc.Mobile_3__c}" rendered="{!!editMode}" />
+                       </td>           
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Mobile3_Status__c}" rendered="{!editMode}"/>
+                          <!--<apex:selectList size="1" value="{!selectedEmailStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!emailStatusList}"/>
+                           </apex:selectList>-->
+                           <apex:outputField value="{!ParAcc.Mobile3_Status__c}" rendered="{!!editMode}"/>
+                       </td>   
+                       <td><apex:outputField value="{!ParAcc.Mobile3_Last_Modified_By__c}" />
+                                               
+                       </td>         
+                       <td><apex:outputField value="{!ParAcc.Mobile3_Last_Modified_Date__c}"/></td>  
+                   </tr> 
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Home_Email}</th>        
                        <td><apex:inputField value="{!ParAcc.Email__c}" rendered="{!editMode}" />
@@ -419,8 +436,8 @@
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
                    </tr>
-				    <!--1606 changes - Added by Monalisa -->
-					<tr>        
+                    <!--1606 changes - Added by Monalisa -->
+                    <tr>        
                        <th style="text-align: Right;">{!$Label.Work_Phone_2}</th>                
                        <td>
                           <apex:selectList value="{!workPhone2AreaCodePart1}" size="1" style="width:80px" rendered="{!editMode}">
@@ -443,12 +460,12 @@
                            <apex:outputField value="{!ParAcc.Work_Phone2_Status__c}" rendered="{!!editMode}"/>-->
                        </td>   
                        <td>
-					    <!--<apex:outputField value="{!ParAcc.Work_Phone2_Last_Modified_By__c}" />-->
+                        <!--<apex:outputField value="{!ParAcc.Work_Phone2_Last_Modified_By__c}" />-->
                                                
                        </td>     
                        <td>
-					    <!--<apex:outputField value="{!ParAcc.work_phone_2_last_modified_Date__c}"/>-->
-						</td>       
+                        <!--<apex:outputField value="{!ParAcc.work_phone_2_last_modified_Date__c}"/>-->
+                        </td>       
                    </tr>
                    <!--<tr>        
                        <th style="text-align: Right;">{!$Label.Other_Phone_2}</th>        
@@ -663,16 +680,16 @@
                        </td>     
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
                    </tr>
-					<tr>        
-						<th style="text-align: Right;">{!$ObjectType.Account.fields.Primary_Phone__c.label}</th>        
-						<td>
-							<apex:inputField value="{!ParAcc.Primary_Phone__c}"  rendered="{!editMode}" required="{!IF(ParAcc.MD__c='TH',true,false)}"/>
-							<apex:outputField value="{!ParAcc.Primary_Phone__c}"  rendered="{!!editMode}"/>
-						</td>                           
-						<td></td>   
-						<td></td>      
-						<td></td>        
-					</tr>
+                    <tr>        
+                        <th style="text-align: Right;">{!$ObjectType.Account.fields.Primary_Phone__c.label}</th>        
+                        <td>
+                            <apex:inputField value="{!ParAcc.Primary_Phone__c}"  rendered="{!editMode}" required="{!IF(ParAcc.MD__c='TH',true,false)}"/>
+                            <apex:outputField value="{!ParAcc.Primary_Phone__c}"  rendered="{!!editMode}"/>
+                        </td>                           
+                        <td></td>   
+                        <td></td>      
+                        <td></td>        
+                    </tr>
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Business_Email}</th>        
                        <td><apex:inputField value="{!ParAcc.Email__c}"  rendered="{!editMode}"/>
