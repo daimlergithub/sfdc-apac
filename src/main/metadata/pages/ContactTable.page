@@ -177,8 +177,8 @@
                    </tr> 
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Mobile_3}</th>        
-                       <td><apex:inputField value="{!ParAcc.Mobile_3__c}" rendered="{!editMode}" />
-                           <apex:outputField value="{!ParAcc.Mobile_3__c}" rendered="{!!editMode}" />
+                       <td><apex:inputField value="{!ParAcc.Mobile_3__c}" rendered="{!editMode2}" />
+                           <apex:outputField value="{!ParAcc.Mobile_3__c}" rendered="{!!editMode2}" />
                        </td>           
                        <td>
                        <!--MD changes - Added by Santosh Mohanty -->
