@@ -4731,8 +4731,8 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <fullName>Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login_A_cus</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Login Email & Mobile: A customer will be able to use the mobile for login (A cus</shortDescription>
-        <value>Login Email & Mobile: A customer will be able to use the mobile for login (A customer will receive a registration SMS). The email will be registered on Mercedes me, but a customer cannot use it as a login email</value>
+        <shortDescription>Login Email and Mobile: A customer will be able to use the mobile for login (A cus</shortDescription>
+        <value>Login Email and Mobile: A customer will be able to use the mobile for login (A customer will receive a registration SMS). The email will be registered on Mercedes me, but a customer cannot use it as a login email</value>
     </labels>
 	
     <labels>
