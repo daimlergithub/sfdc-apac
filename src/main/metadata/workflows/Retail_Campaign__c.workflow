@@ -66,6 +66,17 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/MBTH_Retail_Campaign_Email_Notification_to_the_Dealer</template>
     </alerts>
+	<alerts>
+        <fullName>MBMY_Email_Notification_to_Dealers</fullName>
+        <description>MBMY_Email Notification to Dealers</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Dealer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBMY_Email_Template/MBMY_Retail_Campaign_Planning_And_Design_Notification_to_Dealers</template>
+    </alerts>
     <alerts>
         <fullName>MBTH_Intial_Submission_Action_Retail_campaign</fullName>
         <description>MBTH_Intial Submission Action_Retail_campaign</description>
@@ -449,7 +460,7 @@
     <rules>
         <fullName>Retail Execution Start Date Notification To Owner</fullName>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.Record_Type_Name__c</field>
             <operation>equals</operation>
@@ -464,11 +475,6 @@
             <field>Retail_Campaign__c.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Retail_Campaign__c.MD__c</field>
-            <operation>equals</operation>
-            <value>MY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -557,6 +563,16 @@
         </actions>
         <active>true</active>
         <formula>Dealer_Email__c !=null&amp;&amp; MD__c ==&apos;TH&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>MBMY_send Email Notification to the Dealer	</fullName>
+        <actions>
+            <name>MBMY_Email_Notification_to_Dealers</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>Dealer_Email__c !=null&amp;&amp; MD__c ==&apos;MY&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
