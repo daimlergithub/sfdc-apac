@@ -13614,7 +13614,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.DUP_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -16589,6 +16589,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>OB_Task_Handing__c.By_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+		   <fieldPermissions>
+        <editable>false</editable>
+        <field>OB_Task_Handing__c.By_Account__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22648,7 +22653,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.DUP_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

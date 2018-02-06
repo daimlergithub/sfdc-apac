@@ -13,6 +13,7 @@
 
     public String SegementationName { get; set; }
         
+        
         public Set<Id> accIdToGetRetailPerson;
         public Set<Id> vehIdToGetVehExtLink;
         public Set<Id> vehIdSetForContract;
@@ -24,6 +25,7 @@
         //To save the query in segmentation criteria object
         public String saveQuery{get;set;}
         public  Static String Query{get;set;}
+        public String accnames{get; set;}
         
         private String retailCampaignId;
         Boolean vehicleFind;
@@ -166,7 +168,14 @@
                 }
             }
            
-            
+            if(u !=null)
+            {
+            if(u.contactId !=null)
+            {
+            accnames=u.contact.Account.Name;
+            }
+            System.debug('&&&&&&&&&&&&&&&&'+accnames);
+            }
            
             
             setFieldType();
@@ -1004,7 +1013,7 @@
             else{
             
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, label.Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition));
-			e.getMessage();
+            e.getMessage();
             System.debug('The following exception has occurred: ' + e.getMessage()); 
             }
             }

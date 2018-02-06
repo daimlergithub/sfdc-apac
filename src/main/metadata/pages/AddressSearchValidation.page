@@ -426,12 +426,17 @@
                    <apex:inputField value="{!objPersonAccount.Company_Name__c}" rendered="{!if(RecordType == 'Person Account',True,false)}" />
                   <apex:inputField value="{!objPersonAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}" style="width:160px" />
                   <apex:inputField value="{!objPersonAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/> 
-                  <apex:inputField value="{!objPersonAccount.Personal_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
+                  <!--SFDCKR-1741 Changes added by Monalisa Das-->
+                   <!--<apex:inputField value="{!objPersonAccount.Personal_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
                   <apex:inputField value="{!objPersonAccount.Agreement_to_commit_info_processing__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
                   <apex:inputField value="{!objPersonAccount.Personal_Information_Third_Party_Release__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
-                  <apex:inputField value="{!objPersonAccount.Personal_Abroad_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>      
+                  <apex:inputField value="{!objPersonAccount.Personal_Abroad_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>-->
+				<apex:inputField value="{!objPersonAccount.General_Personal_Info_Mandatory__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
+                  <apex:inputField value="{!objPersonAccount.Person_Info_Custom_Service_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" />
+                  <apex:inputField value="{!objPersonAccount.Person_Agree_Test_Driving_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" />
+                  <apex:inputField value="{!objPersonAccount.Targeted_Advertising_Info_Optional__c}"  rendered="{!if(Market =='KR',True,false)}" style="width:80px" />				  
                   <!--MD Changes added by Santosh Mohanty-->
-                  <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                  <!--<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>-->
                     <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
                        <apex:inputField value="{!objPersonAccount.Market__c}"/>

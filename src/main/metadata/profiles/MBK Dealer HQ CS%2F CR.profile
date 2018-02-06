@@ -2685,6 +2685,11 @@
         <field>Account.General_Personal_Information_Mandatory__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.General_Personal_Info_Mandatory__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.General_Personal_Information_Optional__c</field>
@@ -2723,6 +2728,16 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Targeted_Advertising_Info_Optional__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Person_Info_Custom_Service_Optional__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Person_Agree_Test_Driving_Optional__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>

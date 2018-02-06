@@ -348,7 +348,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Main Contact and Consent</label>
+        <label>Contact Method and Customer Consent (Old)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -524,7 +524,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Customer Consent (old)</label>
+        <label>CCC Consent (old)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -552,10 +552,6 @@
                 <behavior>Readonly</behavior>
                 <field>Expiration_Date_for_CC_Old__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Consent_Form_Serial_No__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -563,7 +559,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Customer Consent (2017)</label>
+        <label>Customer Consent (new)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -592,16 +588,8 @@
                 <field>General_Personal_InfoThirdParty_Optional__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Targeted_Advertising_Info_Optional__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Expiration_Date_for_CC_New__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Consent_Form_Serial_No_for_CC_New__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -610,11 +598,23 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Marketing Consent</label>
+        <label>SalesTouch &amp; CCC Consent (new)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>General_Personal_Info_Sales_Marketing__c</field>
+                <field>General_Personal_Info_Mandatory__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Person_Agree_Test_Driving_Optional__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Person_Info_Custom_Service_Optional__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Targeted_Advertising_Info_Optional__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -625,10 +625,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Withdrawal_Date_for_Marketing_Consent__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Consent_Form_Serial_No_for_Marketing__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
