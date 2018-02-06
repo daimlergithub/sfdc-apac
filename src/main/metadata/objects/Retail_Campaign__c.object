@@ -16564,6 +16564,22 @@ if(marketusr)
 window.open("{!URLFOR($Site.Prefix)}/apex/DealerPickerTH?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>Share_To_Dealers</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ShareToDealers</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var marketusr={!ISPICKVAL($User.Market__c , "MY")}; 
+if(marketusr)
+{ 
+window.open("{!URLFOR($Site.Prefix)}/apex/DealerPicker?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Submit_for_Approval</fullName>
         <availability>online</availability>

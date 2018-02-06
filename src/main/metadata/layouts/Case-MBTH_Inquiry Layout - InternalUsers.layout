@@ -87,7 +87,7 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Priority__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Priority</field>
             </layoutItems>
