@@ -10133,6 +10133,31 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
         <type>Picklist</type>
     </fields>
 	<fields>
+        <fullName>Targeted_Advert_Info_Optional_STCCC__c</fullName>
+        <externalId>false</externalId>
+        <label>Targeted Advert Info (Optional) STCCC</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
         <fullName>Person_Info_Custom_Service_Optional__c</fullName>
         <externalId>false</externalId>
         <label>Person Info Custom Service (Optional)</label>

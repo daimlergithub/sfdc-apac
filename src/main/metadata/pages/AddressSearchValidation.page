@@ -432,9 +432,9 @@
                   <apex:inputField value="{!objPersonAccount.Personal_Information_Third_Party_Release__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
                   <apex:inputField value="{!objPersonAccount.Personal_Abroad_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>-->
 				<apex:inputField value="{!objPersonAccount.General_Personal_Info_Mandatory__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
-                  <apex:inputField value="{!objPersonAccount.Person_Info_Custom_Service_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" />
-                  <apex:inputField value="{!objPersonAccount.Person_Agree_Test_Driving_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" />
-                  <apex:inputField value="{!objPersonAccount.Targeted_Advertising_Info_Optional__c}"  rendered="{!if(Market =='KR',True,false)}" style="width:80px" />				  
+                  <apex:inputField value="{!objPersonAccount.Person_Info_Custom_Service_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
+                  <apex:inputField value="{!objPersonAccount.Person_Agree_Test_Driving_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
+                  <apex:inputField value="{!objPersonAccount.Targeted_Advert_Info_Optional_STCCC__c}"  rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>				  
                   <!--MD Changes added by Santosh Mohanty-->
                   <!--<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>-->
                     <apex:pageBlockSectionItem >

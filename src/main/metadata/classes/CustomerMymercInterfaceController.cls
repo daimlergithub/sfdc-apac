@@ -241,7 +241,7 @@ public with sharing class CustomerMymercInterfaceController {
            
         }
         }
-        else if(!string.isBlank(loginmobile))
+        if(!string.isBlank(loginmobile))
         {
          accont.Mobile_3__c = loginmobile;
         }

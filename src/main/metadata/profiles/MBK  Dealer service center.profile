@@ -2729,6 +2729,11 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Account.Targeted_Advert_Info_Optional_STCCC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Account.Unique_Identification_Info_Mandatory__c</field>
         <readable>true</readable>
     </fieldPermissions>
