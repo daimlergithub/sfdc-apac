@@ -3191,10 +3191,15 @@ public pagereference saveAccountTH()
               
          try
             {                    
-                    if(recordType == 'Company')               
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
-                    else
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
+                    if(recordType == 'Company') {              
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');}
+                    else if (recordType == 'Person Account'){
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');}
+					else
+					{
+						ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select valid record type'));
+						return false;
+					}
                     objAccount.RecordTypeId = recordTypeId; 
                                          
                       if
