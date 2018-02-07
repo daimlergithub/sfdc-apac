@@ -1283,7 +1283,7 @@
                        <!-- <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}"  rendered="{!if(Market =='JP',True,false)}"  status="actStatusId"/> -->
                     </apex:outputPanel>     
                     <apex:outputPanel >
-                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}" rendered="{!if(And(market=='JP',Editmode) ,True,false)}" rerender="redirectPanel,msgs,AddrJPKRPBS1,PersonAccBlock3,PersonAccBlock2,PB1,form,companyBlock1"   status="actStatusId"/>
+                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}" rendered="{!if(And(market=='JP',Editmode) ,True,false)}" rerender="redirectPanel,msgs,cnfm,AddrJPKRPBS1,PersonAccBlock3,PersonAccBlock2,PB1,form,companyBlock1"   status="actStatusId"/>
                     </apex:outputPanel> 
                         <apex:outputPanel >
                     <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(And(market=='JP',Readonly) ,True,false)}" status="actStatusId"/>
@@ -1347,7 +1347,7 @@
     </apex:pageBlock>  
         </div>
         <div>
-            <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!if(And(market=='JP',Readonly,show) ,True,false)}" >
+            <apex:pageBlock title="{!$Label.Confirmed_Match}" id ="cnfm"   rendered="{!if(And(market=='JP',Readonly,show) ,True,false)}" >
                 <!--PR20170918--Start-- Modified for Thailand(Will be modified shortly)-->
                 <!--<apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF((market == 'TH' || market == 'JP'), true, false)}">-->
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">
