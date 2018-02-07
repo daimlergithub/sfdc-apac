@@ -3059,6 +3059,16 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
+		<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Related_Company2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Related_Company3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
 		<editable>true</editable>
         <field>IdeasVoting__c.IdeaLikeCount__c</field>
@@ -4842,6 +4852,11 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Person_Agree_Test_Driving_Optional__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Targeted_Advert_Info_Optional_STCCC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

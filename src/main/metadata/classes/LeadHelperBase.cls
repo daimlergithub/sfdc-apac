@@ -39,9 +39,10 @@ public without sharing class  LeadHelperBase{
 			if((l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId) && l.md__c==Market){               
 				Boolean checkSAS= true;
 				if((string.isnotblank(l.assigned_dealer__c))){
-					
+					if (userInfo.getUserType() != 'PowerPartner' ) {
 						l.Assigned_Date_Time__c = System.now();
 						l.CAC_Lead_Status__c = 'Assigned';
+					}
 						
 				}				
 				if(string.isnotblank(l.Sales_Consultant__c) && l.RecordTypeId==salesRecordTypeId && string.isnotblank(l.assigned_dealer__c)){
@@ -106,8 +107,10 @@ public without sharing class  LeadHelperBase{
         for(Lead__c l : leads){
 			if(l.RecordTypeId==salesRecordTypeId || l.RecordTypeId==afterSalesRecordTypeId || l.RecordTypeId==retailSalesRecordTypeId){
 			if((((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c != ((Lead__c)Trigger.oldMap.get(l.id)).assigned_dealer__c && ((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c != NULL)){
-                l.Assigned_Date_Time__c = System.now();
-                l.CAC_Lead_Status__c = 'Assigned';
+                if (userInfo.getUserType() != 'PowerPartner' ) {
+					l.Assigned_Date_Time__c = System.now();
+					l.CAC_Lead_Status__c = 'Assigned';
+				}
                 //ldowner.add(l);
             }
             if(((Lead__c)Trigger.newMap.get(l.id)).Sales_Consultant__c !=((Lead__c)Trigger.oldMap.get(l.id)).Sales_Consultant__c && ((Lead__c)Trigger.newMap.get(l.id)).Sales_Consultant__c != NULL  && (l.RecordTypeId==salesRecordTypeId) && ((Lead__c)Trigger.newMap.get(l.id)).assigned_dealer__c != NULL) {

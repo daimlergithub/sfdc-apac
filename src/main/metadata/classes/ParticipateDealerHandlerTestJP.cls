@@ -3,8 +3,10 @@ public class ParticipateDealerHandlerTestJP
 {
  private static Account dealer;
   private static Account dealer2;
+  public Static Account DealerAccount;
   private static Participating_Dealer__c lead;   
      public static Contact contact;
+     Public static List<Dealer_List_Member__c> dlList = new List<Dealer_List_Member__c>();
    public static User sysAdminUser1;
     public static testMethod void testAfterInsert()
     {
@@ -63,5 +65,39 @@ public class ParticipateDealerHandlerTestJP
         ParticipateDealerHandlerJP.afterInsertEvent(newList);
         ParticipateDealerHandlerJP.afterUpdateEvent(newList,oldMap);
         Test.stopTest();
-    }      
+    } 
+     
+     public static testMethod void test_DealerListMember()
+    {
+      
+    Trigger__c TriggerDLM=new Trigger__c(Name='DealerListMember',Trigger_Name__c='triggerDealerListMember',Trigger_Handler__c='TriggerDealerListMemberTriggerHandlerJP',update__c=False,insert__c=True,delete__c=False,after__c=True,before__c=False,enabled__c=False,Market__c='JP');
+        insert TriggerDLM;
+        RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
+      DealerAccount= new Account();
+        DealerAccount.RecordtypeId=dealerType.id;
+        DealerAccount.Name='Test Person 1st';
+        DealerAccount.Type='Personal';
+        DealerAccount.Status__c='Active';
+         DealerAccount.Dealer_GC_Code__c='12345';
+        DealerAccount.Province__c='Province1';
+        DealerAccount.City__c='Test';
+        DealerAccount.Email__c='test@mbj.com';
+        DealerAccount.Mobile__c ='0435488899';
+        insert DealerAccount;
+        lead = new Participating_Dealer__c (Dealer__c =DealerAccount.Id );
+        insert Lead;
+       Group grp=new Group();
+        grp.name=DealerAccount.Name;
+        insert grp;
+        
+        Dealer_List_Member__c dl = new Dealer_List_Member__c();
+         dl.Participating_Dealer__c=lead.id;
+         test.starttest();
+         insert dl;
+         dlList.add(dl);
+         
+         DealerListMemberHelperJP dj = new DealerListMemberHelperJP();
+         DealerListMemberHelperJP.afterInsertEvent(dlList);
+         test.stoptest();
+    }    
 }

@@ -31,7 +31,7 @@ global without sharing class stouchPersonDetails {
         leadMaps.put('Purchase_Time__c',(leads==null || String.ISBlank(leads.Purchase_Time__c))?' ':leads.Purchase_Time__c);
         leadMaps.put('Owner', (leads==null || String.ISBlank(Users.get(leads.OwnerId).FederationIdentifier))?' ':Users.get(leads.OwnerId).FederationIdentifier);
         leadMaps.put('OwnerName', (leads==null || String.ISBlank(Users.get(leads.OwnerId).Lastname))?' ':Users.get(leads.OwnerId).Lastname);
-        leadMaps.put('DealerID', (leads==null || String.ISBlank(leads.Assigned_dealer__c))?' ':leads.Assigned_dealer__c);
+        leadMaps.put('DealerID', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_ND_Code__c))?' ':leads.Assigned_dealer__r.Dealer_ND_Code__c);
         leadMaps.put('Dealer_GC_Code__c', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_GC_Code__c))?' ':leads.Assigned_dealer__r.Dealer_GC_Code__c);
         leadMaps.put('Dealer_GS_Code__c', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_GS_Code__c))?' ':leads.Assigned_dealer__r.Dealer_GS_Code__c);
         leadMaps.put('MBK_Lead_Data_Source', (leads==null || String.ISBlank(leads.MBK_Lead_DataSource__c))?' ':leads.MBK_Lead_DataSource__c);
@@ -56,7 +56,7 @@ global without sharing class stouchPersonDetails {
                      MBK_Data_Source__c,(select id,Name,Dealer_Lead_status__c,Lead_Type__c,Source_Campaign__c,
                      Lead_Priority__c,Interested_Vehicle_Note__c,Re_visit__c,Preferred_Contact_Time__c,Preferred_Contact_Date__c,
                      Current_Vehicle_1_Text__c,Current_Vehicle_2_Text__c,Test_Drive_Date__c,Dealer_Comments__c,
-                     LastModifiedDate,Customer_Type__c,Purchase_Time__c,OwnerId,Assigned_dealer__c,Assigned_dealer__r.Dealer_GC_Code__c,
+                     LastModifiedDate,Customer_Type__c,Purchase_Time__c,OwnerId,Assigned_dealer__c,Assigned_dealer__r.Dealer_GC_Code__c,Assigned_dealer__r.Dealer_ND_Code__c,
                      Assigned_dealer__r.Dealer_GS_Code__c,MBK_Lead_DataSource__c,Trade_in_Vehicle_Text2__c from Lead_Contact__r where CAC_Lead_Status__c != 'Lost(CAC)' or(Lost_CAC_Date_Time__c>=:date.valueOf(fromDate) and Lost_CAC_Date_Time__c<=:date.valueOf(toDate))) 
                      from Account where ucid__c=:ucid limit 1];
         Account acc2=[select id,(select id,fromRole__r.Company_Name__c,fromRole__r.Ucid__c from Account_Links__r where RecordTypeid=:contactToContactRecordTypeId order by lastmodifieddate desc limit 1) from Account where ucid__c=:ucid limit 1];
@@ -86,10 +86,10 @@ global without sharing class stouchPersonDetails {
             personDetails.put('Address_Type__c', String.ISBlank(acc.Addresses__r[0].Address_Type__c)?' ':acc.Addresses__r[0].Address_Type__c);
             personDetails.put('PersonMailingAddressline2', String.ISBlank(acc.Addresses__r[0].Address_Line_2__c)?' ':acc.Addresses__r[0].Address_Line_2__c);
         }
-        personDetails.put('Personal_Information_Third_Party_Release__c',acc.Personal_Information_Third_Party_Release__c);
-        personDetails.put('Personal_Agreement__c', acc.Personal_Agreement__c);
-        personDetails.put('Personal_Abroad_Agreement__c', acc.Personal_Abroad_Agreement__c);
-        personDetails.put('Personal_Agreement_commit__c', acc.Agreement_to_commit_info_processing__c);
+        personDetails.put('Personal_Information_Third_Party_Release__c',String.ISBlank(acc.Personal_Information_Third_Party_Release__c)?' ':acc.Personal_Information_Third_Party_Release__c);
+        personDetails.put('Personal_Agreement__c', String.ISBlank(acc.Personal_Agreement__c)?' ':acc.Personal_Agreement__c);
+        personDetails.put('Personal_Abroad_Agreement__c', String.ISBlank(acc.Personal_Abroad_Agreement__c)?' ':acc.Personal_Abroad_Agreement__c);
+        personDetails.put('Agreement_to_commit_info_processing__c', String.ISBlank(acc.Agreement_to_commit_info_processing__c)?' ':acc.Agreement_to_commit_info_processing__c);
         
         personDetails.put('Owner', ' ');
         personDetails.put('RetailerID',' ');

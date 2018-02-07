@@ -21,7 +21,7 @@ public with sharing class SendToMyMercController {
     public Id vehRelType;
     public Boolean result; 
     public string emai3;
-    public string mobile3;
+    public string mobile3{get;set;}
     public String FinalEmail{get;set;}
     public ID VIDs;
     public string myMercId{get;set;}
@@ -30,7 +30,7 @@ public with sharing class SendToMyMercController {
     public Vehicle_Relationship__c lstVinfo{get;set;}
     public boolean displayPopup {get; set;} 
     public static User usr = new user();
-    public String emailRegEx = '[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+';
+   // public String emailRegEx = '[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+';
      public map<string,string> labelNvalue=new map<string,string>(); 
     public SendToMyMercController(ApexPages.StandardController controller) {
         vehpageid = ApexPages.currentPage().getParameters().get('id');
@@ -94,6 +94,7 @@ public with sharing class SendToMyMercController {
             if(String.isNotBlank(eachVRelationships.Retail_Contact__r.Portal_Email__c) && eachVRelationships.Retail_Contact__r.system__c== 'My Mercedes')
             {
                 emai3= eachVRelationships.Retail_Contact__r.Portal_Email__c;
+                 mobile3=eachVRelationships.Contact__r.Mobile_3__c;
             }
             else
             {
@@ -167,11 +168,11 @@ public with sharing class SendToMyMercController {
                     System.debug('nonselectaccountreason'+obj.accountid+'reason'+obj.optoutreason);
                     accIdReasonMap.put(obj.AccountId,obj.OptOutReason);     
                 }
-                if( (Obj.PortalEmail == NULL || String.isBlank(Obj.PortalEmail))  && (Obj.loginmobile == NULL  || string.isBlank(Obj.loginmobile))){
+                if( Obj.isSelect == true && (Obj.PortalEmail == NULL || String.isBlank(Obj.PortalEmail))  && (Obj.loginmobile == NULL  || string.isBlank(Obj.loginmobile))){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_MyMercedes_Email_Id_or_Login_Mobile));
             return null;
         }
-         if(!string.isBlank(Obj.loginmobile) && Obj.loginmobile!=null && ( !Obj.loginmobile.startsWith('010') && !Obj.loginmobile.startsWith('020') &&  !Obj.loginmobile.startsWith('030')  &&  !Obj.loginmobile.startsWith('040')  &&  !Obj.loginmobile.startsWith('050')  && !Obj.loginmobile.startsWith('060')  && !Obj.loginmobile.startsWith('070')  &&  !Obj.loginmobile.startsWith('080')))
+         if(!string.isBlank(Obj.loginmobile) && Obj.loginmobile!=null && ( !Obj.loginmobile.startsWith('010') && !Obj.loginmobile.startsWith('020') &&  !Obj.loginmobile.startsWith('030')  &&  !Obj.loginmobile.startsWith('040')  &&  !Obj.loginmobile.startsWith('050')  && !Obj.loginmobile.startsWith('060')  && !Obj.loginmobile.startsWith('070')  &&  !Obj.loginmobile.startsWith('080') && !Obj.loginmobile.startsWith('090')))
         {
         ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please Input Proper Number'));
             return null;
@@ -184,7 +185,7 @@ public with sharing class SendToMyMercController {
         system.debug('&&*&*&*&*&*&&&&&&&& mobile3update'+mobile3update);
         
         if(!string.isBlank(Obj.PortalEmail) ){// && (!Obj.PortalEmail.endsWith('.com') || !Obj.PortalEmail.contains('@'));
-            //String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
+          String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
             
             String CharSplit = Obj.PortalEmail.substringBefore('@');
             System.debug('+++++Split+++++++++++'+CharSplit );
