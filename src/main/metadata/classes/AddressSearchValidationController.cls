@@ -2849,7 +2849,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                string querytxt='select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
+                string querytxt='select id,firstname,UCID__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
                 querytxt=querytxt.replace('<Search>',label.SearchKey); 
                 set<String> valueSet = new set<String>();
                 for(Integer i=0; i<set_accounts.size(); i++){
@@ -2860,6 +2860,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
                 for(account acc :database.query(querytxt)){
+					if(acc.Recordtype.name == 'Person Account' || acc.Recordtype.name == 'Company')
                     DedupAccountList.add(acc);
                 }
                 last=false;     

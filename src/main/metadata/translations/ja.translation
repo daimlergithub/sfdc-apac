@@ -1960,6 +1960,10 @@
     <customLabels>
         <label>Eメール(自宅）</label>
         <name>Home_Email</name>
+    </customLabels>	
+    <customLabels>
+        <label>Mercedes me携帯電話</label>
+        <name>Mobile_3</name>
     </customLabels>
     <customLabels>
         <label>電話番号(固定）</label>
@@ -2420,6 +2424,10 @@
 	<customLabels>
         <label>選択したリードが統合先となり左側に表示されます。</label>
         <name>Please_Select_only_one_as_a_Master</name>
+    </customLabels> 
+	<customLabels>
+        <label>新車中古車区分</label>
+        <name>New_Used</name>
     </customLabels> 
 		<customLabels>
         <label>エラーが発生しました。検索条件を追加・変更して再度実行してください</label>

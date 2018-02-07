@@ -497,9 +497,12 @@
                         <apex:inputField value="{!vehicle.MOT_Expired_Date__c}"/>
                          <apex:inputField value="{!vehicle.Related_contact__c}"/>&nbsp;
                          <apex:inputField value="{!vehicle.Related_From__c}"/>
-                        <apex:inputField value="{!vehicle.Related_To__c}"/> 
-                        <apex:inputField value="{!vehicle.New_Used__c}"/> 
-                        <apex:inputField value="{!vehicle.Finance_Method__c}"/>   
+                        <apex:inputField value="{!vehicle.Related_To__c}"/>
+                        <apex:selectList value="{!selectedNewUsed}" multiselect="false" size="1" label="{!$Label.New_Used}"  rendered="{!marketcheck =='JP'}">
+                        <apex:selectOptions value="{!newusedOptions}"/>
+                        </apex:selectList> 
+                       <apex:inputField value="{!vehicle.New_Used__c}" rendered="{!marketcheck !='JP'}"/> 
+                        <apex:inputField value="{!vehicle.Finance_Method__c}" rendered="{!marketcheck !='JP'}"/>  
                     </apex:pageBlockSection>
                 </span>
                  <apex:pageBlockButtons >

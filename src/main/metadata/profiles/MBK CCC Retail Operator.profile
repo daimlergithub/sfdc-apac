@@ -2667,6 +2667,11 @@
         <field>Account.Person_Agree_Test_Driving_Optional__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Targeted_Advert_Info_Optional_STCCC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.General_Personal_Information_Optional__c</field>

@@ -16616,6 +16616,11 @@
         <field>OB_Task_Handing__c.By_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
+		   <fieldPermissions>
+        <editable>false</editable>
+        <field>OB_Task_Handing__c.By_Account__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>OB_Task_Handing__c.CSR__c</field>

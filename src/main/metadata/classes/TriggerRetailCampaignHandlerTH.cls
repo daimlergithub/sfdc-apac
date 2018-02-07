@@ -18,7 +18,9 @@ public class TriggerRetailCampaignHandlerTH implements TriggerHandlerIf
     }
     
      if (Trigger.isbefore)
-        { 
+        { if(trigger.isinsert){
+        RetailCampaignHelperTH.changeDealerAccount(Trigger.new);
+        }
             if(trigger.isupdate||trigger.isinsert){
             RetailCampaignHelperTH.UpdateDealerEmail(Trigger.new);
             }
