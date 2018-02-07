@@ -2,6 +2,8 @@
 public class CampaignMembersCustomHelperJPTest
 {
  public static Account accobj;
+ public static Account DealerAccount;
+ public static User usr;
   public static Contact contobj;
   public static Campaign camobj;
   public static Retail_Campaign__c campobj;
@@ -19,10 +21,28 @@ public class CampaignMembersCustomHelperJPTest
   static void createTestData() {  
  
       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-            insert updatecustomsettings;
+           // insert updatecustomsettings;
+           Trigger__c TriggerCampaignMember=new Trigger__c(Name='CampaignMemberAfterTrigger',Trigger_Name__c='CampaignMemberAfterTrigger',Trigger_Handler__c='CampaignMemberAfterTriggerHandler',update__c=True,insert__c=true,delete__c=False,after__c=true,before__c=False,enabled__c=False,Market__c='JP');
+        insert TriggerCampaignMember; 
+             Trigger__c TriggerCampaign=new Trigger__c(Name='TriggerCampaign',Trigger_Name__c='TriggerCampaign',Trigger_Handler__c='TriggerCampaignTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
+     insert TriggerCampaign; 
+             DealerAccount= new Account();
+        DealerAccount.RecordtypeId=DealerAccRecordTypeId;
+        DealerAccount.Name='Test Person 1st';
+        DealerAccount.Type='Personal';
+        DealerAccount.Status__c='Active';
+         DealerAccount.Dealer_GC_Code__c='12345';
+        DealerAccount.Province__c='Province1';
+        DealerAccount.City__c='Test';
+        DealerAccount.Email__c='test@mbj.com';
+        DealerAccount.Mobile__c ='0435488899';
+        insert DealerAccount;
+        Group grp=new Group();
+        grp.name=DealerAccount.Name;
+        insert grp;
     accobj = new Account();
-    accobj.FirstName = 'testaccount';
-    accobj.lastName = 'testaccount';
+    accobj.FirstName = 'メル';
+    accobj.lastName = '新潟';
     accobj.Email__c = 'Test@test.com';
     accobj.RecordTypeId = personAccRecordTypeId;
     //accobj.Name = 'testaccount';
@@ -30,6 +50,33 @@ public class CampaignMembersCustomHelperJPTest
     accobj.MBK_Data_Source__c='Email';
     accobj.Mobile__c = '00000009642';
     insert accobj;
+    
+   Contact   con = new Contact(AccountId = DealerAccount.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
+        insert con;
+        
+        //create user  
+        User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+        System.runAs (thisUser) {
+        usr = new User(
+            Username = System.now().millisecond() + 'testDaimlerUser212121@Daimler-test.com',
+            FirstName = 'firstname',
+            ProfileId = DealerDelegatedAdmin.Id,            
+            Alias = 'test123',
+            Email = 'test12345@test.com',
+            EmailEncodingKey = 'UTF-8',
+            LastName = 'McTesty',
+            Market__c = 'JP',
+            CommunityNickname = System.now().millisecond() + 'test12345',
+            TimeZoneSidKey = 'America/Los_Angeles',
+            LocaleSidKey = 'en_US',
+            LanguageLocaleKey = 'en_US',
+            ContactId=con.id
+        );
+        
+        insert usr;}
+        
+        
+        
     system.debug('$$$$$$$$$$$$'+accobj);
     system.debug('$$$$$$$$$$$$'+accobj.id);
     
@@ -75,7 +122,7 @@ public class CampaignMembersCustomHelperJPTest
       CampaignMembersCustomHelperJP cth = new CampaignMembersCustomHelperJP(); 
       CampaignMembersCustomHelperJP.afterUpdateOperation(oldMap,newMap,newList); 
       CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection (newList);   
-      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newMap);
+      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newList);
     test.stoptest();
    
   }
@@ -94,7 +141,7 @@ public class CampaignMembersCustomHelperJPTest
       CampaignMembersCustomHelperJP cth = new CampaignMembersCustomHelperJP(); 
       CampaignMembersCustomHelperJP.afterUpdateOperation(oldMap,newMap,newList); 
       CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection (newList);   
-      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newMap);
+      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newList);
     test.stoptest();
    
   }
@@ -114,7 +161,7 @@ public class CampaignMembersCustomHelperJPTest
       CampaignMembersCustomHelperJP cth = new CampaignMembersCustomHelperJP(); 
       CampaignMembersCustomHelperJP.afterUpdateOperation(oldMap,newMap,newList); 
       CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection (newList);   
-      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newMap);
+      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newList);
     test.stoptest();
    
   }
@@ -134,7 +181,7 @@ public class CampaignMembersCustomHelperJPTest
       CampaignMembersCustomHelperJP cth = new CampaignMembersCustomHelperJP(); 
       CampaignMembersCustomHelperJP.afterUpdateOperation(oldMap,newMap,newList); 
       CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection (newList);   
-      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newMap);
+      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newList);
     test.stoptest();
    
   }
@@ -154,7 +201,7 @@ public class CampaignMembersCustomHelperJPTest
       CampaignMembersCustomHelperJP cth = new CampaignMembersCustomHelperJP(); 
       CampaignMembersCustomHelperJP.afterUpdateOperation(oldMap,newMap,newList); 
       CampaignMembersCustomHelperJP.updateCampaignMemberStatusResponseCollection (newList);   
-      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newMap);
+      CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(newList);
     test.stoptest();
    
   }
@@ -201,6 +248,7 @@ public class CampaignMembersCustomHelperJPTest
                   //  cm.add(cm);
     
     list<Campaign_Member__c> listcampaignmem=new list<Campaign_Member__c>();
+    list<Segmentation_Criteria__c>scList = new list<Segmentation_Criteria__c>();
     Campaign_Member__c cm1=new Campaign_Member__c();
     cm1.Campaign_ID__c=camobj1.id;
     cm1.Status__c = 'Ready';
@@ -222,10 +270,22 @@ public class CampaignMembersCustomHelperJPTest
     
     cm3.Contact_Id__c=accobj.id;
     listcampaignmem.add(cm3);
+   
+    
+    Campaign_Member__c cm4=new Campaign_Member__c();
+    cm4.Campaign_ID__c=camobj1.id;
+    cm4.Retail_Campaign_Id__c=campobj.id;
+    cm4.Status__c = 'Ready';
+    cm4.MD__c='JP';
+    cm4.Preferred_Dealer__c=DealerAccount.id;
+    cm3.Contact_Id__c=accobj.id;
+     listcampaignmem.add(cm4);
     insert listcampaignmem;
     
-    
-     
+    Segmentation_Criteria__c sc = new Segmentation_Criteria__c();
+    sc.ownerid=usr.id;
+    scList.add(sc);
+    insert scList;
      
     test.startTest();     
       CampaignMembersCustomHelperJP cth = new CampaignMembersCustomHelperJP(); 
@@ -235,6 +295,7 @@ public class CampaignMembersCustomHelperJPTest
       CampaignMembersCustomHelperJP.beforeDeleteOperation(listcampaignmem);
       CampaignMembersCustomHelperJP.CmSharingForDealer(listcampaignmem);
       CampaignMembersCustomHelperJP.addSalesCampaignMember(listcampaignmem);
+      CampaignMembersCustomHelperJP.SegmentationSharingForDealer(scList);
     test.stoptest();
    }
   
