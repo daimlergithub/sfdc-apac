@@ -73,10 +73,14 @@ JIRA NO             :    SFDCJP-1026
     
     
   }
-  Batch_EmailNotification   batcher = New Batch_EmailNotification(sid);
-       Database.executeBatch(batcher, 50);
+  if(!System.isFuture() && !System.isBatch()){
+     Batch_EmailNotification   batcher = New Batch_EmailNotification(sid);
+           Database.executeBatch(batcher, 50);
+       }
+   }
+
    
-   } 
+    
    /* End Of SFDCJP-1026 */
    
    
