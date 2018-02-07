@@ -25,7 +25,7 @@ public class UpdatecampaignmemwithrefreshTest {
     public static Id perAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id ContractRtlTskRecordType= Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Contract').getRecordTypeId();
     public static Id VRRecordTypeId=Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
-    
+    public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     @isTest
     public static void testmethodRefreshcampaignmemberFin(){
       createData();
@@ -52,12 +52,17 @@ public class UpdatecampaignmemwithrefreshTest {
     }
     
     public static void createData(){
+    
+    Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342',Dealer_Sales_Manager_Email__c='test1@gmail.com');
+     insert dealer;
+     
         // ParentCampaign 
          objParentCamp =new Campaign(Name='Finance test'
                                  ,Campaign_Execution_Channels__c = 'eMail'
                               ,StartDate = System.today()
                                  ,EndDate = System.today() +60
                                  ,Status = 'Draft'
+                                 ,Driven_Type__c = 'Joint'
                                  ,Campaign_Type__c ='Finance'
                                  ,recordTypeId = parentCampRecordTypeId    
                                  );
@@ -67,6 +72,7 @@ public class UpdatecampaignmemwithrefreshTest {
                               ,StartDate = System.today()
                                  ,EndDate = System.today() +60
                                  ,Status = 'Draft'
+                                 ,Driven_Type__c = 'WholeSale'
                                  ,Campaign_Type__c ='Sales'
                                  ,recordTypeId = parentCampRecordTypeId    
                                  );
@@ -97,7 +103,8 @@ public class UpdatecampaignmemwithrefreshTest {
         
         //Campaign Member
         objCampMember = new Campaign_Member__c(Campaign_ID__c =objChildCamp.Id,Contact_Id__c=perAcc.Id,Status__c='Ready'
-                                              ,Contract__c=objRtltask.Id,Address__c=perAccAddress2.Id,Vehicle_Relationship__c=testVR.Id
+                                              ,Contract__c=objRtltask.Id,Address__c=perAccAddress2.Id,Vehicle_Relationship__c=testVR.Id,Preferred_Dealer__c = dealer.id,
+                                              Vehicle__c = testVehicleMB.id
                                               );       
         insert objCampMember;
         objCampMember1 = new Campaign_Member__c(Campaign_ID__c =objChildCamp.Id,Contact_Id__c=perAcc.Id,Status__c='Ready'
@@ -105,7 +112,7 @@ public class UpdatecampaignmemwithrefreshTest {
                                               );       
         insert objCampMember1;
         objCampMember2 = new Campaign_Member__c(Campaign_ID__c =objChildCamp2.Id,Contact_Id__c=perAcc.Id,Status__c='Ready'
-                                              ,Contract__c=objRtltask.Id,Address__c=perAccAddress2.Id,Vehicle_Relationship__c=testVR.Id
+                                              ,Contract__c=objRtltask.Id,Address__c=perAccAddress2.Id,Vehicle_Relationship__c=testVR.Id,Vehicle__c = testVehicleMB.id
                                               );       
         insert objCampMember2;
         objCampMember3 = new Campaign_Member__c(Campaign_ID__c =objChildCamp2.Id,Contact_Id__c=perAcc.Id,Status__c='Ready'
@@ -113,6 +120,10 @@ public class UpdatecampaignmemwithrefreshTest {
                                               );       
         insert objCampMember3;
         
+        Account_Link__c acclnk = new Account_Link__c(Name = 'test', toRole__c = perAcc.id, fromrole__c = Dealer.id, Recordtypeid = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId());
+        insert acclnk;
+        Account_Link__c acclnk1 = new Account_Link__c(Name = 'test', toRole__c = perAcc.id,Vehicle__c = testVehicleMB.id, fromrole__c = Dealer.id, Recordtypeid = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Vehicle External Link').getRecordTypeId());
+        insert acclnk1;
     }
     static void createRetailCampaignData(){
         retailParentCampFin =new Retail_Campaign__c(Name='Finance',Campaign_Type__c='Finance');
