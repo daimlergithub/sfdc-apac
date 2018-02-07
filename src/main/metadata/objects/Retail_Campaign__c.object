@@ -15926,12 +15926,10 @@ $Profile.Name != 'IntegrationAPI'
 	   <validationRules>
         <fullName>Start_Date_can_not_be_less_than_Today</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(if(AND(MD__c=='MY',$Permission.MYDealer),true,false),
-Start_Date__c &lt; TODAY(),
-if( RecordType.Name='Campaign Execution'&amp;&amp;ischanged(Start_Date__c),true,
-if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISChanged(Start_Date__c),true,false))))</errorConditionFormula>
+        <errorConditionFormula>AND(if(AND(MD__c=='MY',$Permission.MYDealer),true,false),Start_Date__c &lt; TODAY(),if( RecordType.Name='Campaign Execution'&amp;&amp;ischanged(Start_Date__c),true,if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISChanged(Start_Date__c),true,false))))</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Start Date can not be less than Today</errorMessage>
+		<description>Start Date can not be less than Today</description>
     </validationRules>
 	<validationRules>
         <fullName>Start_Date_can_not_be_equal_to_Today</fullName>
