@@ -989,6 +989,7 @@ public class AddressSearchValidationController
       Editmode=true;
       companyrectype = false;
       personrectype= false;
+      AddressDetails = '';
         pageRef = new PageReference('/apex/AddressSearchValidation');
         return PageRef;
        
@@ -2073,7 +2074,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }
-             //   show = true;
+           //     show = true;
                 if(response.CustomerIdentificationResponseMessage ==null && market != System.Label.KR)
                 {                                 
                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
@@ -3197,11 +3198,11 @@ public pagereference saveAccountTH()
                         recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');}
                     else if (recordType == 'Person Account'){
                         recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');}
-					else
-					{
-						ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select valid record type'));
-						return false;
-					}
+                    else
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select valid record type'));
+                        return false;
+                    }
                     objAccount.RecordTypeId = recordTypeId; 
                                          
                       if

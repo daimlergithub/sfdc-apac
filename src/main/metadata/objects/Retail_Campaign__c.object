@@ -15609,6 +15609,7 @@ false)</errorConditionFormula>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
         <errorMessage>If Auto Segmentation Check box is checked then Segmentation Criteria is Required</errorMessage>
+		<description>If Auto Segmentation Check box is checked then Segmentation Criteria is Required</description>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_Update_Monthly</fullName>
@@ -15718,11 +15719,12 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>Campaign End date can't past date and can't be less than start date</errorMessage>
     </validationRules>
 	<validationRules>
-        <fullName>Start_date_error_when_status_completed	</fullName>
+        <fullName>Start_date_error_when_status_completed</fullName>
         <active>true</active>
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),if(AND(MD__c=='MY',$Permission.MYDealer),true,false),(IF( ISCHANGED( Start_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>You cant change Start Date once Retail Campaign status Completed</errorMessage>
+		<description>You cant change Start Date once Retail Campaign status Completed</description>
     </validationRules>
     <validationRules>
         <fullName>Feedback_Mandatory_Actual_End_Date</fullName>
@@ -15840,10 +15842,10 @@ ISPICKVAL(Child_Campaign_Status__c, 'Response collection') ,ISPICKVAL(Child_Camp
 
 ),
 OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),
-$Profile.Name != 'IntegrationAPI',
-RecordType.DeveloperName = 'Retail_Execution_Campaign' 
-)</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Retail_Execution_Campaign' )
+</errorConditionFormula>
         <errorMessage>If campaign execution is 'Completed' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution' or 'Response collection'</errorMessage>
+		<description>If campaign execution is 'Completed' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution' or 'Response collection'</description>
     </validationRules>
     <validationRules>
         <fullName>Retail_Cam_Status_From_Execution</fullName>
@@ -15853,11 +15855,9 @@ OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'),
 ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
 ISPICKVAL(Child_Campaign_Status__c, '')
 ),
-OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), 
-$Profile.Name != 'IntegrationAPI',
-RecordType.DeveloperName = 'Retail_Execution_Campaign' 
-)</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), $Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Retail_Execution_Campaign')</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Execution' to 'Planning or Segmentation''</errorMessage>
+		<description>Status cannot be changed from 'Execution' to 'Planning or Segmentation''</description>
     </validationRules>
     <validationRules>
         <fullName>Retail_Cam_Status_From_Response</fullName>
@@ -15870,11 +15870,9 @@ ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
 ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
 ISPICKVAL(Child_Campaign_Status__c, '')
 ),
-OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), 
-$Profile.Name != 'IntegrationAPI',
-RecordType.DeveloperName = 'Retail_Execution_Campaign' 
-)</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), $Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Retail_Execution_Campaign')</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Execution'</errorMessage>
+		<description>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Execution'</description>
     </validationRules>
     <validationRules>
         <fullName>Retail_Campaign_Status_Completed</fullName>
@@ -15882,6 +15880,7 @@ RecordType.DeveloperName = 'Retail_Execution_Campaign'
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Close_Date__c</errorDisplayField>
         <errorMessage>Retail Campaign status Completed you cant change Close Date</errorMessage>
+		<description>Retail Campaign status Completed you cant change Close Date</description>
     </validationRules>
     <validationRules>
         <fullName>Retail_Candidate_must_match_the_MBSmart</fullName>
@@ -15922,6 +15921,7 @@ $Profile.Name != 'IntegrationAPI'
         <active>true</active>
         <errorConditionFormula>AND(ISCHANGED( Total_Retail_Campaign_Members__c ),OR( RecordType.Name = 'Planning &amp; Design Campaign',RecordType.Name = 'Campaign Execution'),$Profile.Name != 'IntegrationAPI',(Segmentation_Date__c>today()),if(AND(MD__c=='MY',$Permission.MYDealer),true,false))</errorConditionFormula>
         <errorMessage>You can't add Campaign member once the segmentation date is reached</errorMessage>
+		<description>You can't add Campaign member once the segmentation date is reached</description>
     </validationRules>
 	   <validationRules>
         <fullName>Start_Date_can_not_be_less_than_Today</fullName>
@@ -15947,6 +15947,7 @@ if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISC
         <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c='TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(IF( ISCHANGED( Start_Date__c) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Status is ongoing you can not change Start date</errorMessage>
+		<description>Status is ongoing you can not change Start date</description>
     </validationRules>
     <validationRules>
         <fullName>TH_Close_date_should_be_greater_than_seg</fullName>
@@ -15962,6 +15963,7 @@ ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed
 OR(ISBLANK(Actual_Period_End_Date__c ),ISBLANK( Actual_Period_Start_Date__c)),$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>Actual Period End Date&amp; Actual Period Start Date field is mandatory when Submit for Feedback.</errorMessage>
+		<description>Actual Period End Date&amp; Actual Period Start Date field is mandatory when Submit for Feedback.</description>
     </validationRules>
     <validationRules>
         <fullName>TH_Feedback_Mandatory_Actual_Start_Date</fullName>
@@ -15973,6 +15975,7 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Actual_Period_Start_Date__c</errorDisplayField>
         <errorMessage>Actual Period End Date field is mandatory when Submit for Feedback</errorMessage>
+		<description>Actual Period End Date field is mandatory when Submit for Feedback</description>
     </validationRules>
     <validationRules>
         <fullName>TH_Parent_Campaign_Status_cant_Edit</fullName>
@@ -16004,6 +16007,7 @@ $Profile.Name != 'IntegrationAPI'
         <active>true</active>
         <errorConditionFormula>( isnew()&amp;&amp;NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp;Parent_Campaign1__r.Close_Date__c &lt;today()&amp;&amp;OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)))</errorConditionFormula>
         <errorMessage>Parent campaign already reached close date so You can't create child campaigns</errorMessage>
+		<description>Parent campaign already reached close date so You can't create child campaigns</description>
     </validationRules>
     <validationRules>
         <fullName>TH_actualstart_and_end_should_be_future</fullName>
@@ -16022,6 +16026,7 @@ $Profile.Name != 'IntegrationAPI'
         <active>true</active>
         <errorConditionFormula>AND(OR(MD__c ='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), isPickval(Parent_Campaign1__r.Status__c,'Completed'))</errorConditionFormula>
         <errorMessage>You Can't Create child campaigns for the Completed Campaigns</errorMessage>
+		<description>You Can't Create child campaigns for the Completed Campaigns</description>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application</fullName>

@@ -2,8 +2,9 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <encodingKey>ISO-8859-1</encodingKey>
-    <name>TH_SegmentationgEmail Notification to dealers</name>
+    <name>MBMY Segmentation Email Notification to dealers</name>
     <style>none</style>
     <subject>Campaign notification on Execution Date</subject>
+	<description>MBMY Segmentation Email Notification to dealers</description>
     <type>text</type>
 </EmailTemplate>
