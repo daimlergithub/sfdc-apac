@@ -7,6 +7,8 @@ public class AddressSearchValidationControllerTest
     public static Account personAcc1;
     public static Address__C addressobj ;
     public static user usr;
+    public static User user1;
+    public static User user_Obj; 
     
     public static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static string strPerson=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
@@ -28,6 +30,7 @@ public class AddressSearchValidationControllerTest
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
         JPAcccontroller.LanguageSelected='English';
+        //JPAcccontroller.market='TH';
         JPAcccontroller.province='chittoor';
         JPAcccontroller.district='chittoor';
         JPAcccontroller.subdistrict='chittoor';
@@ -45,6 +48,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.selectedRecordType = 'Company';
         test.startTest();
         JPAcccontroller.saveAccount();
+        system.assertEquals(false,JPAcccontroller.AutoFill);
         JPAcccontroller.objAccount = objAccount;
        // JPAccontroller.objAccount.id=null;
         JPAcccontroller.saveAccount();
@@ -83,6 +87,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.objPersonAccount = personAcc;
         JPAcccontroller.recordType = '012280000000f0p';
         JPAcccontroller.selectedRecordType = 'Company';
+         system.assertEquals(true,JPAcccontroller.Address_Validated_Flag);    
         test.startTest();
         //JPAcccontroller.saveAccount();
         JPAcccontroller.objAccount = objAccount;
@@ -101,6 +106,7 @@ public class AddressSearchValidationControllerTest
         //objAccount = TestClassHelper.CreateAccount(US.Market__c,'FirstName','LastName');
             //insert objAccount;
         createTestData();
+        test.startTest();
         ApexPages.currentPage().getParameters().put('recordType','Person Account');
         ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
         AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
@@ -109,6 +115,8 @@ public class AddressSearchValidationControllerTest
        JPAcccontroller.LanguageSelected='telugu';
         JPAcccontroller.province='chittoor';
         JPAcccontroller.district='chittoor';
+        JPAcccontroller.market='TH';
+        JPAcccontroller.generateCDMEndPointURL();
         JPAcccontroller.getAddressOptions();
         JPAcccontroller.LoadProvince();
         JPAcccontroller.LoadDistrict();
@@ -119,10 +127,15 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.objPersonAccount = objAccount;
         JPAcccontroller.recordType = '012280000000f14AAA';
         JPAcccontroller.selectedRecordType = 'Person Account';
-        test.startTest();
+        //test.startTest();
         JPAcccontroller.saveAccount();
         JPAcccontroller.objPersonAccount = personAcc1;
         JPAcccontroller.saveAccount();
+        JPAcccontroller.onLineDedupSwitchTH();
+        //JPAcccontroller.saveAccountTH();
+       // JPAcccontroller.SelectedAddress();
+        JPAcccontroller.validatephonenumber('9898989898');
+         system.assertEquals(true,JPAcccontroller.Address_Validated_Flag);
         test.stopTest();  
            
     //}
@@ -153,6 +166,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.onLineDeduplicationTH();
         test.startTest();
         JPAcccontroller.saveAccount();
+        system.assertEquals(false,JPAcccontroller.AutoFill);
         JPAcccontroller.objAccount = objAccount;
         JPAcccontroller.saveAccount();
         test.stopTest();
@@ -173,6 +187,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.selectedRecordType = 'Person Account';
         test.startTest();
         JPAcccontroller.saveAccount();
+         system.assertEquals(false,JPAcccontroller.AutoFill);
         JPAcccontroller.objPersonAccount = personAcc1;
         JPAcccontroller.saveAccount();
         test.stopTest();  
@@ -226,6 +241,8 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.AddressSearchbyZipCode();
         //JPAcccontroller.validateAddressByZipCode();
         JPAcccontroller.saveAccount();
+        JPAcccontroller.canceljp();
+        JPAcccontroller.AutoFillAddress();
         test.stopTest();
         system.assertNotEquals(null, personAcc.id);
     }
@@ -233,6 +250,7 @@ public class AddressSearchValidationControllerTest
     static testmethod void AddressSearchValidationControllerTest5()
     {
         createTestData();
+        system.runAs(user1){ 
         addressobj.ZipCode__c = '8989812';
        // addressobj.ZipCode__c = '89812';
         update addressobj;
@@ -271,22 +289,37 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.AddressSearchbyZipCode();
         //JPAcccontroller.validateAddressByZipCode();
         JPAcccontroller.saveAccount();
+        system.assertEquals(true,JPAcccontroller.Address_Validated_Flag);    
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
+        }
     }
    
     static void createTestData(){
+      Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        
+       user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                          LocaleSidKey='ja_JP', ProfileId = p1.Id, Market__c='TH',
+                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user1 );
+       user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                          LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='TH',
+                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user_Obj );
+    system.runAs(user1){    
     List<RegionMasterInfo__c> rm= new List<RegionMasterInfo__c>();
         RegionMasterInfo__c rg=new RegionMasterInfo__c();
         rg.Province__c='Province1';
-        rg.ZipCode__c='05245756';
+        rg.ZipCode__c='24575';
         rg.Language__c='English';
         rg.District__c='bans';
         rg.Sub_DIstrict__c='subdist';
         rm.add(rg);
          RegionMasterInfo__c rg1=new RegionMasterInfo__c();
         rg1.Province__c='chittoor';
-        rg1.ZipCode__c='05245756';
+        rg1.ZipCode__c='45756';
         rg1.Language__c='English';
         rg1.District__c='chittoor';
         rg1.Sub_DIstrict__c='chittoor';
@@ -296,16 +329,20 @@ public class AddressSearchValidationControllerTest
         objAccount.RecordtypeId= companyAccRecordTypeId;
         objAccount.Name='Test Person 1st';
         objAccount.Status__c='Active';
+        //objAccount.LastName='刈乾冠寒刊勘';
         objAccount.Province__c='Province1';
         objAccount.City__c='Test';
+        objAccount.Email__c='abcf@hji.com';
+        //objAccount.ID_Type__c='National ID';
+        //objAccount.ID_Number__c='1234567891234';
         objAccount.Commercial_Reg_No__c='adfgrt';
         User us=[select market__c from user where id=:UserInfo.getUserId()];
          if(us.market__c=='TH'||us.market__c=='KR'){
-        objAccount.ZipCode__c = '14287';
+        objAccount.ZipCode__c = '42875';
       
         }
         else{
-        objAccount.ZipCode__c = '1004287';
+        objAccount.ZipCode__c = '14287';
         }
         
         objAccount.Email__c='test@mbj.com';  
@@ -325,6 +362,8 @@ public class AddressSearchValidationControllerTest
         objAccount1 = new Account();
         objAccount1.RecordtypeId= companyAccRecordTypeId;
         objAccount1.Name='Test Person 1st';
+        //objAccount1.ID_Type__c='National ID';
+        //objAccount1.ID_Number__c='1234567891234';
         try{insert objAccount1;}
       catch(DMLException e)
         {
@@ -338,13 +377,14 @@ public class AddressSearchValidationControllerTest
         personAcc.Status__c='Active';
         personAcc.Province__c='Province1';
         personAcc.City__c='Test';
-        
+        //personAcc.ID_Type__c='National ID';
+        //personAcc.ID_Number__c='1234567891234';
         if(us.market__c=='TH'||us.market__c=='KR'){
-        personAcc.ZipCode__c = '14287';
+        personAcc.ZipCode__c = '42877';
         
         }
         else {
-        personAcc.ZipCode__c = '1004287';
+        personAcc.ZipCode__c = '14287';
         }
         personAcc.Email__c='test@mbj.com';
         //personAcc.Mobile__c='4444-4444';
@@ -360,6 +400,8 @@ public class AddressSearchValidationControllerTest
         personAcc1 = new Account();
         personAcc1.RecordtypeId= strPerson;
         personAcc1.LastName='Test Person 2nd';
+        //personAcc1.ID_Type__c='National ID';
+        //personAcc1.ID_Number__c='1234567891234';
         try{insert personAcc1;}
         catch(DMLException e){
             
@@ -376,13 +418,14 @@ public class AddressSearchValidationControllerTest
         addressobj.Address_Line_2__c = 'line 2';
         addressobj.Block__c = 'Block';
         addressobj.Customer__c = objAccount.id;
-        addressobj.ZipCode__c = '1040041';
+        addressobj.ZipCode__c = '14941';
         addressobj.Province__c ='Fukushima';
         addressobj.TitleOfHonor__c = 'To Person';
+        addressobj.Market__c='TH';
         
         insert addressobj;
        
-        
+    }
         
     }
     
@@ -390,6 +433,7 @@ public class AddressSearchValidationControllerTest
     static testmethod void AddressSearchValidationControllerTest6()
     {
         createTestData();
+        system.runAs(user1){ 
         addressobj.city__c = 'test city';
         addressobj.District__c = 'test district';
         update addressobj;
@@ -406,6 +450,8 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.selectedRecordType = 'Company';
         JPAcccontroller.RecordType = 'Company';
         JPAcccontroller.getAddressOptions();
+        JPAcccontroller.validateAddressByZipCode();
+        JPAcccontroller.getMobileAreacodeItems();
         
         JPAcccontroller.market = 'JP';
         JPAcccontroller.getAddressOptions();
@@ -421,11 +467,12 @@ public class AddressSearchValidationControllerTest
         
         test.stopTest();
         system.assertNotEquals(null, objAccount.id);
-        
+        }
     }
     
     static testmethod void AddressSearchValidationControllerTest7(){
         createTestData();
+        system.runAs(user1){ 
         addressobj.city__c = 'test city';
         addressobj.District__c = 'test district';
         update addressobj;        
@@ -458,7 +505,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.onLineDeduplication();
         test.stopTest();
         system.assertNotEquals(null, objAccount.id);
-        
+        }
     }
   //SN20170515
   /*
@@ -509,11 +556,8 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.objAccount.id=null; 
          JPAcccontroller.addresspicklist = 'Home';
        JPAcccontroller.saveAccountTH();
-       
-       
-       
-       
-        JPAcccontroller.saveAccountTH();
+       system.assertEquals('TH',JPAcccontroller.market);   
+       //JPAcccontroller.saveAccountTH();
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
         
@@ -582,7 +626,7 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.Addressobj.Address_Line_1__c='12345';
          JPAcccontroller.Addressobj.Address_Line_2__c='12345';
        //  JPAccountroller.Addressobj.Address_Line_1__c='test';
-         
+         JPAcccontroller.ShowHideFields();
          JPAcccontroller.saveAccountTH();
     JPAcccontroller.saveAccountTH();      
         test.stopTest();
@@ -610,18 +654,21 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.objAccount.Work_Phone__c=null; 
          JPAcccontroller.objAccount.Home_Phone_2__c=null; 
          JPAcccontroller.objAccount.Phone=null; 
-         JPAcccontroller.objAccount.Email__c=null; 
+         JPAcccontroller.objAccount.Email__c='abcd@def.com'; 
          
         JPAcccontroller.RecordType = 'Company';
+         JPAcccontroller.saveAccount();
        
         test.startTest();      
           Test.setMock(WebServiceMock.class, new WSMockAddressValidationRespAddrSucess ());  
     //jpAcccontroller.onLineDeduplicationTH();
          JPAcccontroller.AddressObj.ZipCode__c='1234523';
          JPAcccontroller.objPersonAccount.lastname = 'Company'; 
+         JPAcccontroller.AutoFill=true;
          jpAcccontroller.AddressSearchbyZipCode();
           JPAcccontroller.market = 'JP';
           jpAcccontroller.ValidateAddressSearchCallout(addressobj);
+         
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
         
@@ -645,15 +692,16 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.objAccount.Email__c=null; 
          
         JPAcccontroller.RecordType = 'Company';
-       
+       JPAcccontroller.saveAccount();
         test.startTest();      
           Test.setMock(WebServiceMock.class, new WSMockAddressValidationResponseFailure ());  
     //jpAcccontroller.onLineDeduplicationTH();
          JPAcccontroller.AddressObj.ZipCode__c='1234523';
          JPAcccontroller.objPersonAccount.lastname = 'Company'; 
-         jpAcccontroller.AddressSearchbyZipCode();
+         jpAcccontroller.AddressSearchbyZipCode(); 
          JPAcccontroller.AddressObj.ZipCode__c='1234523';
          JPAcccontroller.market = 'TH';
+         //JPAcccontroller.AutoFill=true;
          JPAcccontroller.validateAddressByZipCode();
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
@@ -690,7 +738,7 @@ public class AddressSearchValidationControllerTest
         JPAcccontroller.objAccount = personAcc;
         JPAcccontroller.hmphoneNumber='88888888';
         JPAcccontroller.wkphoneNumber='88888888';
-        JPAcccontroller.mbphoneNumber='888888889';
+        JPAcccontroller.mbphoneNumber='+6618888888899';
         JPAcccontroller.faxphoneNumber='258';
         insert personAcc;
          
@@ -1020,6 +1068,7 @@ public class AddressSearchValidationControllerTest
             
             personAcc.UCID__c='12345';
             personAcc.market__c='MY';
+            test.startTest();    
             ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
             AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
             JPAcccontroller.market='MY';
@@ -1095,6 +1144,7 @@ public class AddressSearchValidationControllerTest
             JPAcccontroller1.addressobj.Province__c ='Fukushima';
             JPAcccontroller1.addressobj.District__c ='Fukushima';
             JPAcccontroller1.saveAccountMY();
+            test.stopTest();    
            }
        }
         static testmethod void testPagination(){
@@ -1117,7 +1167,7 @@ public class AddressSearchValidationControllerTest
                 personAcc.market__c='MY';
                 acclist.add(personAcc);
             }
-            
+            test.startTest();
             ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
             AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
             JPAcccontroller.market='MY';
@@ -1131,6 +1181,8 @@ public class AddressSearchValidationControllerTest
             JPAcccontroller.next();
             JPAcccontroller.previous();
             JPAcccontroller.last();
+            system.assertEquals(false,JPAcccontroller.AutoFill);     
+            test.stopTest();    
             }
             
             
@@ -1154,6 +1206,7 @@ public class AddressSearchValidationControllerTest
             
             personAcc.UCID__c='12345';
             personAcc.market__c='MY';
+             test.startTest();   
             ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
             AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
             JPAcccontroller.market='MY';
@@ -1187,6 +1240,7 @@ public class AddressSearchValidationControllerTest
             JPAcccontroller.hmCountryCode='+65';
             JPAcccontroller.wkCountryCode='+65';
             JPAcccontroller.checkcountrycode();
+            JPAcccontroller.ShowHideFields();
             
             JPAcccontroller.saveAccountMY();        
             
@@ -1230,6 +1284,8 @@ public class AddressSearchValidationControllerTest
             JPAcccontroller1.addressobj.Province__c ='Fukushima';
             JPAcccontroller1.addressobj.District__c ='Fukushima';
             JPAcccontroller1.saveAccountMY();
+            system.assertEquals(false,JPAcccontroller.AutoFill); 
+           test.stopTest();     
            }
        }
 }
