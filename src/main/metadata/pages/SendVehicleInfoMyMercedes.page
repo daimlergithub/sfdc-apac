@@ -5,24 +5,6 @@
 ----------------------------------------------------------------------------------->
 
 <apex:page standardController="Vehicle__c" extensions="SendToMyMercController">
- <script type="text/javascript">
-   function CustAlrtMsg()
-   {
-    
-   if('{!loginmobile}' =='')
-   {
-   if(!confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S}'));
-   }
-   else
-   {
-   if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}'));
-   }
-   }
-   
-    
-   
-}
-</script>
     <apex:form >
         <apex:pageMessages ></apex:pageMessages>
         <apex:pageblock title="{!$Label.Customer_My_Merc_Interface_Customer}" id="blc">
@@ -34,7 +16,7 @@
              <apex:OutputLabel > {!$Label.Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login} </apex:OutputLabel> <br/><br/>
                                                             
             <apex:pageBlockButtons location="bottom">
-      <apex:commandButton action="{!Submit}" value="{!$Label.Send_Information}" onclick="CustAlrtMsg()"/>  
+      <apex:commandButton action="{!Submit}" value="{!$Label.Send_Information}" Onclick="if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};"/>  
       <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}"/>
             </apex:pageBlockButtons>
             <apex:pageblocksection title="{!$Label.Select_Your_Prefered_Email_Id_For_Customer}" columns="1">   
