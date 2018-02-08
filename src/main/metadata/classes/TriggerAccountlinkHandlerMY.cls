@@ -3,12 +3,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
         if (TriggerRecursiveCheck.AccountLinkCheck) {
            TriggerRecursiveCheck.AccountLinkRecursiveCheck();
-           Set < ID > acclids = new Set < ID > ();
-            List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new];
-            for (Account_Link__c accrec: acclinkr) {
-                if (String.isnotblank(accrec.toRole__r.UCID__c))
-                    acclids.add(accrec.id);
-            }
+           
     
             AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
        
@@ -18,16 +13,15 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
                     acchelper.afterInsertEventShareRetailCopy(Trigger.new);
                     acchelper.afterInsertEventShareAccount(Trigger.new);
                 }
-                if (Trigger.isInsert && acclids.size() > 0) {
-                    CDMInformatica_Services.createAccountLink(acclids, Label.MY, Label.InsertContext);
+                if (Trigger.isInsert  && !System.isFuture()) {
+                   acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.InsertContext);
                 }
             }
 
-            if (Trigger.isAfter && Trigger.isupdate) {  
-                if (TriggerRecursiveCheck.run2 && acclids.size() > 0) {
+            if (Trigger.isAfter && Trigger.isupdate && !System.isFuture()) {  
+                if (TriggerRecursiveCheck.run2 ) {
                     TriggerRecursiveCheck.runOnce2();
-                    CDMInformatica_Services.createAccountLink(acclids, Label.MY, Label.UpdateContext);
-                    
+                    acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext);                    
                 }
                 if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){ 
                     acchelper.addressupdateRT(trigger.new, (Map < Id, Account_Link__c > ) trigger.oldMap);

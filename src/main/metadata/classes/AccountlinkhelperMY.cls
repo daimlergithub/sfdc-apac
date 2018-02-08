@@ -21,4 +21,8 @@ public class AccountlinkhelperMY{
     public  void RevokeApexSharingAfterUpdate(List<Account_Link__c> newacclinkmap,Map<Id, Account_Link__c> oldacclinkmap,List<Account_Link__c> oldrec){
         alb.RevokeApexSharingAfterUpdate(newacclinkmap,oldacclinkmap,oldrec);
     }
+	
+	public void InvokeCDMAccountlinkContaxt(List<Account_link__C> acclinklist,String Market,string context ){
+        AccountLinkHelperBase.CDMAccountlinkContaxt(acclinklist,market,context );
+    }
 }
