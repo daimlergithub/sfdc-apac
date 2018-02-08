@@ -222,6 +222,12 @@ public class AddressDisplayInlineEditControllerTest
     
    public static void init()
     {    
+        Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator' limit 1];
+       User user_Obj = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
+       //insert user_Obj;
+       DMLManagerService.insertAsSystem(user_Obj);
+       system.runAs(user_Obj)
+   {
         // Fetch Profile Id
         Id sysAdminProfileId = [SELECT Id FROM Profile WHERE Name = 'System Administrator' limit 1].ID;
         
@@ -237,7 +243,7 @@ public class AddressDisplayInlineEditControllerTest
                                         , ProfileId = sysAdminProfileId
                                         , TimeZoneSidKey='America/Los_Angeles'
                                         , Market__c = 'JP'
-                                        , UserName='sysAdmin1@mbj.daimler-apac.com.asiadev1');
+                                        , UserName='sysAdmin1@mbj.daimler-apac.com.asiadev1'+String.valueof(DateTime.now().getTime()));
         userList.add(sysAdminUser1);
 
         sysAdminUser2 = new User ( Alias = 'sysA2'
@@ -250,7 +256,7 @@ public class AddressDisplayInlineEditControllerTest
                                         , ProfileId = sysAdminProfileId
                                         , TimeZoneSidKey='America/Los_Angeles'
                                         , Market__c = 'KR'
-                                        , UserName='sysAdmin2@mbj.daimler-apac.com.asiadev1');
+                                        , UserName='sysAdmin2@mbj.daimler-apac.com.asiadev1'+String.valueof(DateTime.now().getTime()));
         userList.add(sysAdminUser2);
         insert userList;
 
@@ -322,7 +328,7 @@ public class AddressDisplayInlineEditControllerTest
     insert RMObj;
     
     }
-    
+    }
   /**    
      * @Description : For creation of Account and Address record
      * @author      : Sanjay
@@ -726,7 +732,11 @@ public class AddressDisplayInlineEditControllerTest
      //system.RunAs(sysAdminUser1){
        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
       objAddressDisplayInlineEditController.addressobj.Foreign_Nationals__c=true ;
+      objAddressDisplayInlineEditController.market='MY';   
       objAddressDisplayInlineEditController.ShowHideFields(); 
+      objAddressDisplayInlineEditController.updateHidefields();
+      objAddressDisplayInlineEditController.SaveAddressMY();
+      objAddressDisplayInlineEditController.AutoFillAddress();
       //objAddressDisplayInlineEditController.SelectedAddress();
       //system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
      // }
@@ -742,6 +752,7 @@ public class AddressDisplayInlineEditControllerTest
     test.startTest();
      //system.RunAs(sysAdminUser1){
        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+      objAddressDisplayInlineEditController.market='TH';  
       objAddressDisplayInlineEditController.addressobj.Foreign_Nationals__c=false ;
       objAddressDisplayInlineEditController.ShowHideFields(); 
       //objAddressDisplayInlineEditController.SelectedAddress();
