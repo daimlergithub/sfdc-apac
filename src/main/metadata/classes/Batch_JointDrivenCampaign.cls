@@ -1,8 +1,9 @@
-global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>{
+global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Database.stateful{
     global final String campaignId;
     global final Set<Id> campid;
     global final List<Campaign> NewCamList;
     global final List<Campaign> ParentCamList;
+    global  final List<Retail_Campaign__c> retailCampaign = New List<Retail_Campaign__c>();
     
     global Batch_JointDrivenCampaign (set<id> exeId, List<Campaign> camList,List<Campaign> parentList){
     
@@ -57,7 +58,7 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>{
             newChildRetail.Campaign_Execution_Channels__c = 'DM';
             
             ret.add(newChildRetail);
-            
+            retailCampaign.add(newChildRetail);
          }
          } 
          }
@@ -127,6 +128,19 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>{
     }
     
     global void finish(Database.BatchableContext BC){
+    
+     Set<id> retailId = New Set<id>();
+       Map<Id,Retail_Campaign__c> maplist = New Map<Id,Retail_Campaign__c>();
+       For(Retail_Campaign__c remain : retailCampaign){
+       
+          retailId.add(remain.id);
+          maplist.put(remain.Dealer_Name__c,remain);
+       
+       }   
+     Batch_CampaignmemberInsertion   batcher = new Batch_CampaignmemberInsertion (maplist,campid);
+            Database.executeBatch(batcher, 10);  
+    
+    
     
     }
 

@@ -157,6 +157,26 @@
         <template>unfiled$public/TH_Email_Notifiacation_Execution_Date_reaches</template>
     </alerts>
     <alerts>
+        <fullName>Send_Notification_to_Dealer_MY</fullName>
+        <description>Send Notification to Dealer MY</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBMY_Email_Template/MBMY_SegmentationEmail_Notification_to_dealers</template>
+    </alerts>
+	<alerts>
+        <fullName>Send_Email_Notification_to_Owner_MY</fullName>
+        <description>Send Email Notification to Owner MY</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBMY_Email_Template/MBMY_Email_Notification_Execution_Date_reaches</template>
+    </alerts>
+	<alerts>
         <fullName>Send_Notification_to_Dealer</fullName>
         <description>Send Notification to Dealer</description>
         <protected>false</protected>
@@ -432,7 +452,7 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
-                <name>Send_Email_Notification_Owner</name>
+                <name>Send_Email_Notification_to_Owner_MY</name>
                 <type>Alert</type>
             </actions>
             <actions>
@@ -445,7 +465,7 @@
         </workflowTimeTriggers>
         <workflowTimeTriggers>
             <actions>
-                <name>Send_Notification_to_Dealer</name>
+                <name>Send_Notification_to_Dealer_MY</name>
                 <type>Alert</type>
             </actions>
             <actions>

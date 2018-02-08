@@ -71,7 +71,7 @@ global class stouchCompanyDetails {
         personDetails.put('Address_Type__c', ' ');
         if(acc.Addresses__r.size()!=0){
             personDetails.put('CompanyPostCode', String.ISBlank(acc.Addresses__r[0].Zipcode__c)?' ':acc.Addresses__r[0].Zipcode__c);
-            personDetails.put('PersonMailingState', String.ISBlank(acc.Addresses__r[0].Province__c)?' ':acc.Addresses__r[0].Province__c);
+            personDetails.put('CompanyMailingState', String.ISBlank(acc.Addresses__r[0].Province__c)?' ':acc.Addresses__r[0].Province__c);
             personDetails.put('CompanyMailingCity', String.ISBlank(acc.Addresses__r[0].City__c)?' ':acc.Addresses__r[0].City__c);
             personDetails.put('CompanyMailingAddress', String.ISBlank(acc.Addresses__r[0].Address_Line_1__c)?' ':acc.Addresses__r[0].Address_Line_1__c);
             personDetails.put('CompanyTown', String.ISBlank(acc.Addresses__r[0].District__c)?' ':acc.Addresses__r[0].District__c);
@@ -92,7 +92,7 @@ global class stouchCompanyDetails {
         personDetails.put('Personal_Information_Third_Party_Release__c',String.ISBlank(acc.Personal_Information_Third_Party_Release__c)?' ':acc.Personal_Information_Third_Party_Release__c);
         personDetails.put('Personal_Agreement__c', String.ISBlank(acc.Personal_Agreement__c)?' ':acc.Personal_Agreement__c);
         personDetails.put('Personal_Abroad_Agreement__c', String.ISBlank(acc.Personal_Abroad_Agreement__c)?' ':acc.Personal_Abroad_Agreement__c);
-        personDetails.put('Agreement_to_commit_info_processing__c', String.ISBlank(acc.Agreement_to_commit_info_processing__c)?' ':acc.Agreement_to_commit_info_processing__c);
+        personDetails.put('Personal_Agreement_commit__c', String.ISBlank(acc.Agreement_to_commit_info_processing__c)?' ':acc.Agreement_to_commit_info_processing__c);
         
         personDetails.put('CompanyMobile', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c.remove('-'));
         personDetails.put('CompanyEmail', String.ISBlank(acc.Email__c)?' ':acc.Email__c);

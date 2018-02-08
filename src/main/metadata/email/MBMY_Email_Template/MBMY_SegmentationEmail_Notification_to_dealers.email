@@ -1,0 +1,17 @@
+Mercedes Benz Shop
+
+Dear {!Retail_Campaign__c.OwnerFullName},
+
+The following campaign implementation day came Please Start Adding campaign Members.
+
+Dealer’s Link:
+{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
+
+MBTH’s Link:
+{!Retail_Campaign__c.Link} 
+
+Best Regards,
+Marketing Team 
+Mercedes-Benz Malaysia
+
+If you are not the addressee, please inform us immediately that you have received this e-mail by mistake, and delete it. We thank you for your support.
