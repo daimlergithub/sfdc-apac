@@ -232,11 +232,11 @@
                 <field>First_Contact_Customer_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Test_Drive_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Order_Placed_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -262,11 +262,11 @@
                 <field>Test_Drive_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Qualified_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Order_Placed_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
@@ -278,7 +278,7 @@
                 <field>Lost_Dealer_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Visited_Showroom_Date_Time__c</field>
             </layoutItems>
             <layoutItems>

@@ -15,14 +15,25 @@ global class Batch_CampaignmemberInsertion implements Database.Batchable<sObject
     
     global void execute(Database.BatchableContext BC, List<Campaign_Member__c> scope){
     List<Campaign_Member__c > retailMem = New List<Campaign_Member__c >();
+    Map<id,id> MapMainList = New Map<Id,id>();
+    List<Retail_Campaign__c> rett = [Select id,Dealer_Name__c,Parent_Campaign__c From Retail_Campaign__c Where Parent_Campaign__c =: Campid];
     
+    For(Retail_Campaign__c retmain : rett){
+    
+    
+   MapMainList.put(retmain.Dealer_Name__c , retmain.id);
+    
+    }
     For(Campaign_Member__c camo : scope){
     
     if(camo.Status__c !='Removed'){ 
-                 
+                 system.debug('++++++++++++++++'+Maplist.size());
                  Campaign_Member__c newCamRetail = new Campaign_Member__c();
-                
-                 newCamRetail.Retail_Campaign_Id__c =Maplist.get(camo.Preferred_Dealer__c).id;
+                if(MapMainList.get(camo.Preferred_Dealer__c) != null){
+                 newCamRetail.Retail_Campaign_Id__c =MapMainList.get(camo.Preferred_Dealer__c);
+                 }
+                 
+                 system.debug('++++++++++===='+MapMainList.get(camo.Preferred_Dealer__c));
                  newCamRetail.Status__c = camo.Status__c;
                  newCamRetail.Preferred_Dealer__c = camo.Preferred_Dealer__c;
                  newCamRetail.contact_Id__c = camo.contact_Id__c;

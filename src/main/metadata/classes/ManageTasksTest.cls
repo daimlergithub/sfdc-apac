@@ -10,13 +10,21 @@ public static List<task> tasklist;
 
   public static Id OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
   public static Id eDMTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
+  public static User user1;  
 static testmethod void testgetoldstatuses(){
+     Profile p1 = [select id,name from profile WHERE Name='System Administrator'];     
+     user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='ko', 
+                          LocaleSidKey='ko', ProfileId = p1.Id, Market__c='MY',
+                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user1 );
+    system.runAs(user1){
     Account accobj = new Account();
     accobj.RecordTypeId = DealerRecordTypeId ;
     accobj.Name = 'testaccount'; 
     accobj.MBK_Data_Source__c='Email';
     accobj.Mobile__c = '00000009642';
-    accobj.ZipCode__c= '1002347';    
+    accobj.ZipCode__c= '100234';    
     insert accobj;
     system.debug('$$$$$$$$$$$$'+accobj);
     system.debug('$$$$$$$$$$$$'+accobj.id);
@@ -51,18 +59,21 @@ static testmethod void testgetoldstatuses(){
     taskobj.Activity_Status__c='Successful';
     taskobj.Generate_QC__c = true;
     taskobj.whatId = camobj.Id;
+    taskobj.MD__c='KR';
     Task taskobj1 = new Task();
     taskobj1.RecordTypeId = eDMTaskRecordTypeId ;
     taskobj1.Status='open';
     taskobj1.Activity_Status__c='Successful';
     taskobj1.Generate_QC__c = true;
     taskobj1.whatId = camobj.Id;
+    taskobj1.MD__c='KR';
     tasklist = new List<task>();
     tasklist.add(taskobj);
     tasklist.add(taskobj1);
-    
-        
+    insert tasklist;
+        test.startTest();
         ApexPages.StandardController objSc = new ApexPages.StandardController(taskobj);
+        ApexPages.currentPage().getParameters().put('campid',camobj.id);  
         ManageTasks KRcontroller= new ManageTasks(objSc);
         ManageTasks.TaskInfo wrapper = new ManageTasks.TaskInfo(taskobj);
        
@@ -76,9 +87,11 @@ static testmethod void testgetoldstatuses(){
        ti1.add(accRec);
         }*/
 
-
+        system.assertEquals(false,KRcontroller.showuser);       
         PageReference pRef = Page.ManageTasks;
         pRef.getParameters().put('id', a.Id);
+         KRcontroller.oldstatus='시작됨';
+        KRcontroller.newstatus='전체';
          KRcontroller.dropDown();
         KRcontroller.getoldstatuses();
         
@@ -86,29 +99,33 @@ static testmethod void testgetoldstatuses(){
         KRcontroller.getChangingstatus();
          KRcontroller.getUsers();
         KRcontroller.Changestatus();
+        // system.assertNotEquals(null,KRcontroller.UserList);
          ApexPages.StandardController objSc1 = new ApexPages.StandardController(taskobj);
         ManageTasks KRcontroller1= new ManageTasks(objSc1);
-        
+        KRcontroller1.oldstatus='종결됨';
+        KRcontroller1.newstatus='시작됨';
+         KRcontroller1.dropDown();
+        KRcontroller1.getChangingstatus();
         KRcontroller1.Changestatus();
         KRcontroller1.userinput='es';
         KRcontroller1.Usersearch();
         KRcontroller1.getUsers();
+        system.assertEquals('Closed',KRcontroller1.oldstatus);        
         KRcontroller.getstatusval();
-      
-}
-static testmethod void testdropDown(){
-/*objTask=new Task();
-ApexPages.StandardController objSc = new ApexPages.StandardController(objTask);
-        ManageTasks KRcontroller= new ManageTasks(objSc);
-        Campaign a = new Campaign(Name = 'TestAccount');
-        insert a;
+        ManageTasks.MonkCotact('abcd@def.com');
+       KRcontroller.notifyTaskOwner(tasklist);
+        ManageTasks KRcontroller2= new ManageTasks(objSc1);
+        KRcontroller2.oldstatus='취소됨';
+        KRcontroller2.newstatus='취소됨';
+         KRcontroller2.dropDown();
+        KRcontroller2.getChangingstatus();
+        KRcontroller2.Changestatus();
+        system.assertEquals('Cancelled',KRcontroller2.oldstatus);   
         
-        PageReference pRef = Page.ManageTasks;
-        pRef.getParameters().put('id', a.Id);
-    
-        KRcontroller.dropDown();*/
-
+        test.stopTest();
+    }
 }
+
 
 
 }
