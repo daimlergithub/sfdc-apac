@@ -989,6 +989,7 @@ public class AddressSearchValidationController
       Editmode=true;
       companyrectype = false;
       personrectype= false;
+      AddressDetails = '';
         pageRef = new PageReference('/apex/AddressSearchValidation');
         return PageRef;
        
@@ -1218,7 +1219,7 @@ EP/Tolerant for Validation.
             {
                 System.debug('^^^^^^^^^^^^^^^^^^^^^^^'+addresspicklist);
                  System.debug('^^^^^^^^^^^^^^^^^^^^^^^'+String.isblank(AddressObj.Address_Type__c));
-               AddressObj.Address_Type__c.addError('Address Type is required.');
+               AddressObj.Address_Type__c.addError(Label.Address_Type_is_required);
             }
             else if((AddressObj.market__c !='JP') && market == System.Label.JP )
             {
@@ -1709,9 +1710,11 @@ If the user is Saving  same address which matches the fields returned by toleran
        
         System.debug('***************** objPersonAccount.Acquisition_Objective_Method__c'+objPersonAccount.Acquisition_Objective_Method__c);
         System.debug('***************** recordType'+recordType);
+         System.debug('***************** recordType'+market);
          System.debug('***************** recordType'+System.Label.JP+market);
          System.debug('***************** recordType'+objPersonAccount.Allow_Data_Sharing2__c);
          System.debug('***************** recordType'+objPersonAccount.Data_Source__c);
+         System.debug('***************** recordType'+TouchPoint);
         
         if(objPersonAccount.PersonBirthdate !=null)
         {
@@ -1773,7 +1776,7 @@ If the user is Saving  same address which matches the fields returned by toleran
            objPersonAccount.Status__c.addError(Label.If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer); 
              
         }
-        else if(recordType == 'Person Account'  && market == System.Label.JP && (objPersonAccount.Acquisition_Objective_Method__c == null || String.isBlank(objPersonAccount.Acquisition_Objective_Method__c) ) && objPersonAccount.Allow_Data_Sharing2__c=='Yes'  && (objPersonAccount.Data_Source__c=='Dealer Outlet' || TouchPoint=='Dealer Outlet'))
+        else if(recordType == 'Person Account'  && market == System.Label.JP && (objPersonAccount.Acquisition_Objective_Method__c == null || String.isBlank(objPersonAccount.Acquisition_Objective_Method__c) ) && objPersonAccount.Allow_Data_Sharing2__c=='Yes'  && (objPersonAccount.Data_Source__c=='Dealer Outlet' || TouchPoint=='Dealer Outlet' || TouchPoint=='販売店'))
         { 
             objPersonAccount.Acquisition_Objective_Method__c.addError(Label.Please_select_Acquisition_Objective_Method);  
         }
@@ -2071,7 +2074,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }
-             //   show = true;
+           //     show = true;
                 if(response.CustomerIdentificationResponseMessage ==null && market != System.Label.KR)
                 {                                 
                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
@@ -2849,7 +2852,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                string querytxt='select id,firstname,UCID__c,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
+                string querytxt='select id,firstname,UCID__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
                 querytxt=querytxt.replace('<Search>',label.SearchKey); 
                 set<String> valueSet = new set<String>();
                 for(Integer i=0; i<set_accounts.size(); i++){
@@ -2860,6 +2863,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
                 for(account acc :database.query(querytxt)){
+                    if(acc.Recordtype.name == 'Person Account' || acc.Recordtype.name == 'Company')
                     DedupAccountList.add(acc);
                 }
                 last=false;     
@@ -3190,10 +3194,15 @@ public pagereference saveAccountTH()
               
          try
             {                    
-                    if(recordType == 'Company')               
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+                    if(recordType == 'Company') {              
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');}
+                    else if (recordType == 'Person Account'){
+                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');}
                     else
-                        recordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select valid record type'));
+                        return false;
+                    }
                     objAccount.RecordTypeId = recordTypeId; 
                                          
                       if

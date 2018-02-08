@@ -2975,7 +2975,15 @@
         <enabled>false</enabled>
     </classAccesses>
 	<classAccesses>
+        <apexClass>stouchCompanyDetails</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
         <apexClass>stouchCompanySearch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>stouchPersonDetails</apexClass>
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
@@ -3027,6 +3035,16 @@
         <enabled>true</enabled>
 </classAccesses>
     <custom>true</custom>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Related_Company2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Related_Company3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Message__c</field>
@@ -13992,6 +14010,11 @@
         <field>DM_Material__c.IncreaseStockAmount__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>DM_Material__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Material__c.Label_Printing_Name__c</field>
@@ -14085,6 +14108,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Address_TH__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.isTestRunning__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14577,6 +14605,11 @@
         <field>Dealer_Locator__c.Inactive__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Dealer_Locator__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_Locator__c.Last_Usage_Flag__c</field>
@@ -14695,6 +14728,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Duplicate_Merge_Info__c.Transaction_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Duplicate_Retail_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Duplicate_Merge_Info__c.Master_Retail_Customer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18497,6 +18540,11 @@
         <field>OB_Task_Handing__c.By_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
+		   <fieldPermissions>
+        <editable>true</editable>
+        <field>OB_Task_Handing__c.By_Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>OB_Task_Handing__c.CSR__c</field>
@@ -20442,6 +20490,11 @@
         <field>Recall__c.Estimated_Working_Hours__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Recall__c.MD__c</field>
@@ -20530,6 +20583,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Rejected_Duplicate_Log__c.Duplicate_Reason_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Rejected_Duplicate_Log__c.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -20982,7 +21040,7 @@
         <field>Retail_Campaign__c.IsAutoSegmentationExecuted__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Labor_Turn_over__c</field>
         <readable>true</readable>
@@ -21600,6 +21658,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.migr_sourceid__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22700,6 +22763,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Problem_Actual_Detail__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.isTestRunning__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -24587,6 +24655,11 @@
         <field>Survey_Question__c.Choices__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.isTestRunning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.MD__c</field>
@@ -25107,7 +25180,7 @@
         <field>Task.Email_Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	 <fieldPermissions>
         <editable>true</editable>
         <field>Task.End_call_time__c</field>
         <readable>true</readable>

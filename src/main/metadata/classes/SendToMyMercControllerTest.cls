@@ -44,11 +44,11 @@ ApexPages.currentPage().getParameters().put('recordID', vehicalrelobj.Id);
 ApexPages.currentPage().getParameters().put('recordID', vehicalrelobj1.Id);
 sendmerobj.showPopup();
 sendmerobj.Submit();
-//SendToMyMercController.AccountWrapper accwrapins= new SendToMyMercController.AccountWrapper (vehicalrelobj.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj.Id,true,true);
+//SendToMyMercController.AccountWrapper accwrapins= new SendToMyMercController.AccountWrapper (vehicalrelobj.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj.Id,true,true,'0109090909009');
 sendmerobj1.showPopup();
-SendToMyMercController.AccountWrapper accwrapins= new SendToMyMercController.AccountWrapper (vehicalrelobj.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj.Id,true);
-//SendToMyMercController.AccountWrapper accwrapins1= new SendToMyMercController.AccountWrapper (vehicalrelobj1.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj1.Id,true);
-SendToMyMercController.AccountWrapper accwrapins1= new SendToMyMercController.AccountWrapper (vehicalrelobj1.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,null,true);
+SendToMyMercController.AccountWrapper accwrapins= new SendToMyMercController.AccountWrapper (vehicalrelobj.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj.Id,true,'0109090909009');
+//SendToMyMercController.AccountWrapper accwrapins1= new SendToMyMercController.AccountWrapper (vehicalrelobj1.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,vehicalrelobj1.Id,true,'0109090909009');
+SendToMyMercController.AccountWrapper accwrapins1= new SendToMyMercController.AccountWrapper (vehicalrelobj1.Id,'Testemail@test.com','TestAccount','testee','test22','test33','test44','test55',acc.Id,null,true,'0109090909009');
 
 accwrapins.isSelect = true;
 accwrapins1.isSelect = false;

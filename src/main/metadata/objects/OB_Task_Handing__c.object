@@ -135,6 +135,14 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+	    <fields>
+        <fullName>By_Account__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>By Account</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>CSR__c</fullName>
         <externalId>false</externalId>

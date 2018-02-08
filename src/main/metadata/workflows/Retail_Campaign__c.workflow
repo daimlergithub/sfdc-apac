@@ -66,6 +66,17 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/MBTH_Retail_Campaign_Email_Notification_to_the_Dealer</template>
     </alerts>
+	<alerts>
+        <fullName>MBMY_Email_Notification_to_Dealers</fullName>
+        <description>MBMY_Email Notification to Dealers</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Dealer_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBMY_Email_Template/MBMY_Retail_Campaign_Planning_And_Design_Notification_to_Dealers</template>
+    </alerts>
     <alerts>
         <fullName>MBTH_Intial_Submission_Action_Retail_campaign</fullName>
         <description>MBTH_Intial Submission Action_Retail_campaign</description>
@@ -146,6 +157,26 @@
         <template>unfiled$public/TH_Email_Notifiacation_Execution_Date_reaches</template>
     </alerts>
     <alerts>
+        <fullName>Send_Notification_to_Dealer_MY</fullName>
+        <description>Send Notification to Dealer MY</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBMY_Email_Template/MBMY_SegmentationEmail_Notification_to_dealers</template>
+    </alerts>
+	<alerts>
+        <fullName>Send_Email_Notification_to_Owner_MY</fullName>
+        <description>Send Email Notification to Owner MY</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>MBMY_Email_Template/MBMY_Email_Notification_Execution_Date_reaches</template>
+    </alerts>
+	<alerts>
         <fullName>Send_Notification_to_Dealer</fullName>
         <description>Send Notification to Dealer</description>
         <protected>false</protected>
@@ -421,7 +452,7 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
-                <name>Send_Email_Notification_Owner</name>
+                <name>Send_Email_Notification_to_Owner_MY</name>
                 <type>Alert</type>
             </actions>
             <actions>
@@ -434,7 +465,7 @@
         </workflowTimeTriggers>
         <workflowTimeTriggers>
             <actions>
-                <name>Send_Notification_to_Dealer</name>
+                <name>Send_Notification_to_Dealer_MY</name>
                 <type>Alert</type>
             </actions>
             <actions>
@@ -442,14 +473,23 @@
                 <type>FieldUpdate</type>
             </actions>
             <offsetFromField>Retail_Campaign__c.Segmentation_Date__c</offsetFromField>
-            <timeLength>0</timeLength>
+			<timeLength>0</timeLength>
+			<workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+		</workflowTimeTriggers>
+		<workflowTimeTriggers>
+			<actions>
+			<name>Update_Status_to_Completed</name>
+			<type>FieldUpdate</type>
+			</actions>
+			<offsetFromField>Retail_Campaign__c.Execution_End_Date__c</offsetFromField>
+			<timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Retail Execution Start Date Notification To Owner</fullName>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.Record_Type_Name__c</field>
             <operation>equals</operation>
@@ -464,11 +504,6 @@
             <field>Retail_Campaign__c.MD__c</field>
             <operation>equals</operation>
             <value>JP</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Retail_Campaign__c.MD__c</field>
-            <operation>equals</operation>
-            <value>MY</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -557,6 +592,16 @@
         </actions>
         <active>true</active>
         <formula>Dealer_Email__c !=null&amp;&amp; MD__c ==&apos;TH&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	<rules>
+        <fullName>MBMY_send Email Notification to the Dealer	</fullName>
+        <actions>
+            <name>MBMY_Email_Notification_to_Dealers</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <formula>Dealer_Email__c !=null&amp;&amp; MD__c ==&apos;MY&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

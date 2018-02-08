@@ -671,7 +671,9 @@
         }
         
         public void setSoql(){
-        String market='TH';
+        //String market='TH';
+			//SB2018---added line 676 by Sushma for querying current user's market
+            String market=[Select market__c from user where id=:UserInfo.getUserId()][0].market__c;
             //accountSoql = 'SELECT Id, Name, Market__c,PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
             accountSoql = 'SELECT Id, Name, Market__c,PersonHomePhone, PersonMobilePhone,Individual_Home_Phone__c, Mobile__c, Email__c,(select id,toRole__c,Sales_Representative__c,Retail_Sales_Consultant__c,fromRole__c,Selling_Dealer__c from Account_Links__r WHERE RecordTypeId = \''+retailPesonRecType + '\'), Phone, PersonEmail,Status__c,Vehicle_Amount__c,Interest_Model__c from Account WHERE md__C=\''+market+'\' AND RecordTypeId =\'' + personAccntRecTypId + '\' AND ';
            // vehicleRelSoql = 'Select Contact__c,Vehicle_ID__c,Car_Relation__c,End_Date__c,Vehicle_ID__r.FirstRegistrationDate__c,Vehicle_ID__r.Class__c,Vehicle_ID__r.Car_Model__r.Model_Name__c,Vehicle_ID__r.Model_Description__c,New_Used__c From Vehicle_Relationship__c where Contact__r.RecordTypeId =\'' + personAccntRecTypId + '\' AND Car_Relation__c = \''+parCampType+'\' AND ';

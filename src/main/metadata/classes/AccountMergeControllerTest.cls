@@ -20,7 +20,13 @@ public class AccountMergeControllerTest {
 
     //creating records for Master and Slave Account
     public static void init()
-    {      
+    {   UserRole portalRole1 = [Select Id From UserRole Where name='Call Center' Limit 1];           
+        Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        User user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com',
+                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US',UserRoleId = portalRole1.Id, 
+                          LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='JP',
+                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true); 
+        system.runAs(user_Obj){       
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
         
@@ -30,13 +36,22 @@ public class AccountMergeControllerTest {
                               Last_Successful_Call_Office_Phone__c = System.today(),MBK_Data_Source__c='Email',Mobile__c = '00000009642',DMS_Address__c = 'dmsaddress2');
                               
         
-        System.runAs(new User(Id = UserInfo.getUserId())){
+        
             user = (User)UtilTestData.createUser('Central', UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED);
-        }                         
+         
+      }                    
     }   
     
     public static testMethod void testAccountMergeController() {
         init();
+        Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        
+       User user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                          LocaleSidKey='ja_JP', ProfileId = p1.Id, Market__c='JP',
+                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user1 );  
+    system.runas(user1){  
         list<Account> lstAccToInsert = new list<Account>();
         
          
@@ -71,59 +86,25 @@ public class AccountMergeControllerTest {
             objAccountController.selectAll();
             system.assertEquals(objAccountController.selectAllParam,System.Label.slave);
             objAccountController.previous(); 
+            objAccountController.populateAddressWrappers();
+           objAccountController.getParameter('abcd');
+        List<String> strList=objAccountController.fieldAPIList1;
         Test.stopTest();  
         list<Rejected_Duplicate_Log__c> lstLogsCreated = [select id from Rejected_Duplicate_Log__c];
-        system.assert(lstLogsCreated.size() > 0 );           
+        system.assert(lstLogsCreated.size() > 0 );   
+     }        
     } 
     
-   /* public static testMethod void testAccountMergeControllerdealer() {
-      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-        insert updatecustomsettings;
-        
-         Account objMasterdeal= new Account(RecordTypeId=dealerRecordtypeid,Name='Master',MBK_Data_Source__c='Email',Mobile__c='00000009842');
-            
-         Account objSlavedealer = new Account(RecordTypeId=dealerRecordtypeid,Name='Slave',MBK_Data_Source__c='Email',Mobile__c='00000009842');
-         
-        System.runAs(new User(Id = UserInfo.getUserId())){
-            user = (User)UtilTestData.createUser('Central', UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED);
-        list<Account> lstAccToInsert = new list<Account>();
-        lstAccToInsert.add(objMasterdeal);
-        lstAccToInsert.add(objSlavedealer);
-        insert lstAccToInsert;
-        
-        //Use the PageReference Apex class to instantiate a page
-        PageReference pageRef = Page.SelectSlaveAccount; 
-        Test.setCurrentPage(pageRef);
-        ApexPages.currentPage().getParameters().put('id',objMasterdeal.id);
-        ApexPages.currentPage().getParameters().put('selectedSlaveAccount',objSlavedealer.id);
-        ApexPages.currentPage().getParameters().put('selectedMasterAccount',objMasterdeal.id);
-       
-        //Instantiate and construct the controller class.     
-        AccountMergeController objAccountController = new AccountMergeController(); 
-        Test.startTest(); 
-            for(AccountMergeController.Accountwrapper objAccWr : objAccountController.AccountwrapperList) {
-                if(objAccWr.acc.Id == objSlave.Id){
-                    objAccWr.selected = TRUE;
-                }
-            }
-            objAccountController.displayAdds = true;
-            objAccountController.processSelected();
-            objAccountController.rejectDup();
-            objAccountController.mergeAccount();
-            objAccountController.selectAllParam = System.Label.master;
-            objAccountController.selectAll();
-            system.assertEquals(objAccountController.selectAllParam,System.Label.master);
-            objAccountController.selectAllParam = System.Label.slave;
-            //objAccountController.selectAll();
-            system.assertEquals(objAccountController.selectAllParam,System.Label.slave);
-            objAccountController.previous(); 
-            objAccountController.populateAddressWrappers();
-        Test.stopTest(); 
-        list<Rejected_Duplicate_Log__c> lstLogsCreated = [select id from Rejected_Duplicate_Log__c];
-        system.assert(lstLogsCreated.size() > 0 );           
-    } 
-} */
+  
 public static testMethod void testAccountMergeControllerCompany() {
+       Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        
+       User user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                          EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                          LocaleSidKey='ja_JP', ProfileId = p1.Id, Market__c='JP',
+                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user1 );  
+    system.runas(user1){      
       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
         insert updatecustomsettings;
         
@@ -143,7 +124,7 @@ public static testMethod void testAccountMergeControllerCompany() {
                                 Primary_Email__c = 'Email2',
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
-                                
+                                DUPNumber__c='101',
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        
       
@@ -155,7 +136,7 @@ public static testMethod void testAccountMergeControllerCompany() {
                                 Phone = '0801801010',
                                 Area_code__c = '0101',
                                 MD__c = 'JP',
-                                name = 'tes company name',
+                                name = 'tes company name1',
                                 //Salutation = 'Unknown',      
                                 Province__c = 'Shanghai',
                                 ZipCode__c= '1003465',
@@ -164,12 +145,12 @@ public static testMethod void testAccountMergeControllerCompany() {
                                 Primary_Email__c = 'Email2',
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
-                                
+                                DUPNumber__c='101',
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
                                 
         
          
-        System.runAs(new User(Id = UserInfo.getUserId())){
+       // System.runAs(new User(Id = UserInfo.getUserId())){
             user = (User)UtilTestData.createUser('Central', UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED);
         list<Account> lstAccToInsert = new list<Account>();
         lstAccToInsert.add(objMastercom);
@@ -201,14 +182,14 @@ public static testMethod void testAccountMergeControllerCompany() {
         AccountMergeController objAccountController = new AccountMergeController(); 
         Test.startTest(); 
             for(AccountMergeController.Accountwrapper objAccWr : objAccountController.AccountwrapperList) {
-                if(objAccWr.acc.Id == objSlave.Id){
+                if(objAccWr.acc.Id == objSlavecom.Id){
                     objAccWr.selected = TRUE;
                 }
             }
             objAccountController.selectedAddress = 'test';
             objAccountController.processSelected();
             objAccountController.rejectDup();
-            
+           // objAccountController.mergeAccount();
             objAccountController.displayAddress();
            
             objAccountController.selectAllParam = System.Label.master;
@@ -219,6 +200,11 @@ public static testMethod void testAccountMergeControllerCompany() {
             system.assertEquals(objAccountController.selectAllParam,System.Label.slave);
             objAccountController.previous(); 
             objAccountController.getaddtype();
+            objAccountController.rejectDup();
+            AccountMergeController.addrs=objSlavecom.Id;
+            AccountMergeController.addrs1=objSlavecom.Id;
+            //List<AccountMergeController.Accountwrapper> li = objAccountController.AddWrapList ;
+           // Integer a=objAccountController.AddWrapList.size();
             //objAccountController.fieldAPIList1;
         Test.stopTest();  
              

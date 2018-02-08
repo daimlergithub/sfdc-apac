@@ -1834,7 +1834,7 @@
         <name>First_Name_Native_should_not_be_null</name>
     </customLabels>
 	<customLabels>
-        <label>/名は必ず20文字以下で入力して下さい。</label>
+        <label>名は必ず20文字以下で入力して下さい。</label>
         <name>First_Name_should_be_less_than_or_equal_to_40_letters</name>
     </customLabels>
     <customLabels>
@@ -1960,6 +1960,10 @@
     <customLabels>
         <label>Eメール(自宅）</label>
         <name>Home_Email</name>
+    </customLabels>	
+    <customLabels>
+        <label>Mercedes me携帯電話</label>
+        <name>Mobile_3</name>
     </customLabels>
     <customLabels>
         <label>電話番号(固定）</label>
@@ -2420,6 +2424,10 @@
 	<customLabels>
         <label>選択したリードが統合先となり左側に表示されます。</label>
         <name>Please_Select_only_one_as_a_Master</name>
+    </customLabels> 
+	<customLabels>
+        <label>新車中古車区分</label>
+        <name>New_Used</name>
     </customLabels> 
 		<customLabels>
         <label>エラーが発生しました。検索条件を追加・変更して再度実行してください</label>
@@ -4517,7 +4525,7 @@
         <name>Satisfaction_towards_this_event</name>
     </customLabels>
     <customLabels>
-        <label>保存</label>
+        <label>名寄せ候補確認／保存</label>
         <name>Save_Button</name>
     </customLabels>
     <customLabels>

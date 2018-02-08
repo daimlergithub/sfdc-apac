@@ -33,10 +33,10 @@ global without sharing class stouchCompanySearch {
             AccountIds.add(ac.toRole__c);
         }
         
-        Map<Id,Account> Accounts= new map<Id,Account>([select id,(select toRole__r.MBK_Data_Source__c,toRole__r.PersonBirthdate,toRole__r.LastName,toRole__r.Mobile__c,toRole__r.Email__c,toRole__r.UCID__c,RecordTypeid,toRole__r.Ownerid from Account_Links1__r where RecordTypeid=:contactToContactRecordTypeId limit 3) from Account where id in :AccountIds]);
+        Map<Id,Account> Accounts= new map<Id,Account>([select id,(select toRole__r.MBK_Data_Source__c,OwnerId,toRole__r.PersonBirthdate,toRole__r.LastName,toRole__r.Mobile__c,toRole__r.Email__c,toRole__r.UCID__c,RecordTypeid,toRole__r.Ownerid from Account_Links1__r where RecordTypeid=:contactToContactRecordTypeId limit 3) from Account where id in :AccountIds]);
         for(Account acc:Accounts.values()){
             for(Account_link__c alc:acc.Account_Links1__r){
-                userIds.add(alc.toRole__r.OwnerId);
+                userIds.add(alc.OwnerId);
             }
         }
         Map<Id,User> users=new map<Id,User>([select id,federationIdentifier from user where id in :userIds]);
@@ -71,7 +71,7 @@ global without sharing class stouchCompanySearch {
                 if(al.toRole__r.PersonBirthdate==null)
                     personResults.put('Birthdate', ' ');
                 personResults.put('PersonEmail', string.ISBlank(al.toRole__r.Email__c)?' ':al.toRole__r.Email__c);
-                personResults.put('Owner', string.ISBlank(users.get(al.toRole__r.Ownerid).federationIdentifier)?' ':users.get(al.toRole__r.Ownerid).federationIdentifier);
+                personResults.put('Owner', string.ISBlank(users.get(al.Ownerid).federationIdentifier)?' ':users.get(al.Ownerid).federationIdentifier);
                 contacts.add(personResults);
             }
             

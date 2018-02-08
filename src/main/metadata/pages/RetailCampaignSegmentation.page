@@ -65,6 +65,61 @@
             }
         } 
         
+         function CallSOQL() 
+        {
+       
+              document.getElementById('retail1').value='Retail_Postal_OptOut__c';
+                document.getElementById('crie').value=false;
+                document.getElementById('vrfiletr').value='End_Date__c'; 
+                showCriteria(document.getElementById('vrfiletr'));
+                document.getElementById('vrcfilter').value='Service_Dealer__c';
+                document.getElementById('selectop').value='Equals';
+                document.getElementById('vrif').value='{!accnames}';
+                
+                 
+                addEmptyFilterItem('VehicleRetailcopyTable', 'AND', false); 
+               
+        
+        }
+        function CallSOQL1() 
+        {
+       document.getElementById('vrcfilter').value='LastWorkDate__c';
+        document.getElementById('VehicleRetailcopyTableDateInput2').value='01/01/2018';
+                document.getElementById('dynamicId11').value='01/31/2018';
+                showCriteria(document.getElementById('vrcfilter'));
+                
+                
+                
+        }
+        
+        function selecttemplate2()
+        {
+              document.getElementById('retail1').value='Selling_Dealer__c';
+               showCriteria(document.getElementById('retail1'));
+               document.getElementById('selectoptionretailcopy').value='Equals';
+                document.getElementById('crie').value='{!accnames}'; 
+                document.getElementById('vrfiletr').value='End_Date__c'; 
+                showCriteria(document.getElementById('vrfiletr'));
+                document.getElementById('vfilter').value='Car_Model__r.Model_Name__c';
+                document.getElementById('vfilteroperater').value='Include';
+                document.getElementById('vfilterc').value='Eクラス';
+        }
+        
+         function selecttemplate3()
+        {
+         document.getElementById('retail1').value='Retail_OptOutContact_Reason__c';
+                document.getElementById('selectoptionretailcopy').value='Exclude';
+                document.getElementById('crie').value='Product Info (Aftersales)';
+                document.getElementById('vrcfilter').value='Service_Dealer__c';
+                document.getElementById('selectop').value='Equals';
+                document.getElementById('vrif').value='{!accnames}';
+                document.getElementById('contractrel').value='Product_Name__c';
+                showCriteria(document.getElementById('contractrel'));
+                document.getElementById('contractop').value='Equals';
+                document.getElementById('page:form:block:cfselect').value='Maintenance Plus';
+        
+        }
+        
         // Removes a filter item.
         function removeFilterItem(row){
             var jQueryRow = $(row);
@@ -582,6 +637,11 @@
         <div id="responseErrors"></div>
         <apex:pageMessages />
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
+        <apex:pageBlock >
+         <input type="button" value="Select Template 1" onClick="CallSOQL()"/> Description 1  <br></br> <br></br>
+         <input type="button" value="Select Template 2" onClick="selecttemplate2()"/> Description 2  <br></br> <br></br>
+         <input type="button" value="Select Template 3" onClick="selecttemplate3()"/>  Description 3  <br></br> <br></br>
+         </apex:pageBlock>
         <apex:pageBlock id="block">
             <div id="filterBody" style="margin:10px;">
               
@@ -677,7 +737,7 @@
                         <tr id="firstAccountLinkRow">
                             <td>{!$Label.AccountRetailCopy}</td>
                             <td>
-                                <select onchange="showCriteria(this);"> 
+                                <select onchange="showCriteria(this);" id="retail1"> 
                                     <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
                                     <option value="Retail_Sales_Consultant__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}</option>
                                     <option value="Selling_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}</option>
@@ -691,7 +751,7 @@
                                 </select>
                             </td>
                             <td><span class="notDate">
-                                <select style="display:block;">
+                                <select style="display:block;" id="selectoptionretailcopy">
                                     <option value="Equals">{!$Label.Equals}</option>
                                     <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
@@ -702,7 +762,7 @@
                             </td>
                             <td class="criteria">
                                
-                                <input class="inputText" type="text" style="display:block;"/>
+                                <input class="inputText" type="text" style="display:block;" id="crie"/>
                                <!-- <apex:inputField value="{!AlkRec.Sales_Representative__c}" styleClass="Sales_Representative__c"/>-->                        
                                <!--<apex:inputField value="{!AlkRec.Retail_OptOutContact_Reason__c}" styleClass="Retail_OptOutContact_Reason__c"/> -->
                               <apex:selectList styleClass="Retail_Sales_Sanction__c" size="1" multiselect="false">
@@ -814,7 +874,7 @@
                         <tr id="firstVehicleRow">
                             <td>{!$ObjectType.Vehicle__c.Label}</td>
                             <td>
-                                <select onchange="showCriteria(this);"> 
+                                <select onchange="showCriteria(this);" id="vfilter"> 
                                    <option value="Car_Model__r.Model_Name__c">{!$ObjectType.Car_Model__c.Fields.Model_Name__c.Label}</option>                                                                     
                                    <option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>   
                                    <option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>                                                                     
@@ -825,7 +885,7 @@
                                 </select>
                             </td>
                             <td><span class="notDate">
-                                <select style="display:block;">
+                                <select style="display:block;" id="vfilteroperater">
                                     <option value="Equals">{!$Label.Equals}</option>
                                     <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
@@ -835,7 +895,7 @@
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
-                                <input class="inputText" type="text" style="display:block;"/>
+                                <input class="inputText" type="text" style="display:block;" id="vfilterc"/>
                                 <apex:inputField value="{!recall.Status__c}" styleClass="Status__c"/>                             
                                  <input class="dateInput" id="vehicleTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
@@ -871,27 +931,31 @@
                         <tr id="firstVehicleRelationRow">
                             <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
                             <td>
-                                <select onchange="showCriteria(this);"> 
-                                    <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>
+                                <select onchange="showCriteria(this);" id="vrfiletr"> 
+                              <!--  <option value="Market__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Market__c.Label}</option> -->
+                                 <option value="New_Used__c">{!$ObjectType.Vehicle_Relationship__c.Fields.New_Used__c.Label}</option>  
                                     <option value="End_Date__c">{!$ObjectType.Vehicle_Relationship__c.Fields.End_Date__c.Label}</option>    
                                     <!--<option value="Last_Service_Dealer__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Last_Service_Dealer__c.Label}</option>-->
                                    <option value="Customer_Type__c">{!$ObjectType.Vehicle_Relationship__c.Fields.Customer_Type__c.Label}</option>                                                                 
                                </select>
                             </td>
-                            <td><span class="notDate">
-                                <select style="display:block;">
+                            <td><span class="notDate" id="vr1from">
+                                <select style="display:block;" id="cr">
                                     <option value="Equals">{!$Label.Equals}</option>
                                     <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
                                     <option value="Less Than">{!$Label.Less_Than}</option>
                                     <option value="Exclude">{!$Label.Exclude}</option>
                                 </select></span>
-                                <span class="forDate"><center style="display:none;">From</center></span>
+                                <span class="forDate" id="vrfrom"><center style="display:none;" id="vrfrom1">From</center></span>
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
                                   <apex:inputField value="{!vehicleRel.New_Used__c}" styleClass="New_Used__c" style="display:block;"/> 
-                                 <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/> 
+                            <!--    <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>  -->
+                                    <apex:selectList styleClass="Customer_Type__c" size="1" multiselect="false" >
+                                    <apex:selectOptions value="{!Democarflag}"></apex:selectOptions>
+                                </apex:selectList>
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/> 
                             </td>
@@ -925,20 +989,20 @@
                         <tr id="firstVehicleRetailcopyRow">
                             <td>{!$ObjectType.Vehicle_Relationship__c.Label}</td>
                             <td>
-                                <select onchange="showCriteria(this);">                                                                     
+                                <select onchange="showCriteria(this);" id="vrcfilter">    
+                                   <option value="LastWorkDate__c">{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}</option>                                                                 
                                     <option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>
                                     <option value="Service_Advisor__c">{!$ObjectType.Account_Link__c.Fields.Service_Advisor__c.Label}</option>
                                     <option value="LastServiceDate__c">{!$Label.Last_Service_Date}</option>                              
                                     <option value="NextServiceDate__c">{!$ObjectType.Account_Link__c.Fields.NextServiceDate__c.Label}</option>
                                     <option value="NextInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.NextInspectionDate__c.Label}</option>
                                     <option value="CurrentMileage__c">{!$ObjectType.Account_Link__c.Fields.CurrentMileage__c.Label}</option> 
-                                    <option value="Service_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}</option> 
-                                    <option value="LastWorkDate__c">{!$ObjectType.Account_Link__c.Fields.LastWorkDate__c.Label}</option>
+                                    <option value="Service_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Service_Dealer__c.Label}</option>                                    
                                     <option value="LastInspectionDate__c">{!$ObjectType.Account_Link__c.Fields.LastInspectionDate__c.Label}</option>
                                 </select>
                             </td>
                             <td><span class="notDate">
-                                <select style="display:block;">
+                                <select style="display:block;" id="selectop">
                                    <option value="Equals">{!$Label.Equals}</option>
                                    <option value="Include">{!$Label.Include}</option>
                                    <option value="Greater Than">{!$Label.Greater_Than}</option>
@@ -948,7 +1012,7 @@
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
-                                  <input class="inputText" type="text" style="display:block;"/>
+                                  <input class="inputText" type="text" style="display:block;" id="vrif"/>
                                  <input class="dateInput" id="VrTableDateInput12" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                             </td>
@@ -1040,9 +1104,9 @@
                         <tr id="firstContractrelatedRow">
                             <td>{!$ObjectType.Retail_Task__c.Label}</td>
                             <td>
-                                <select onchange="showCriteria(this);"> 
-                                    <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>
+                                <select onchange="showCriteria(this);" id="contractrel"> 
                                     <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>
+                                    <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>                                    
                                     <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
                                       <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option> 
@@ -1050,7 +1114,7 @@
                                 </select>
                             </td>
                             <td><span class="notDate">
-                                <select style="display:block;">
+                                <select style="display:block;" id="contractop">
                                    <option value="Equals">{!$Label.Equals}</option>
                                    <option value="Include">{!$Label.Include}</option>
                                     <option value="Greater Than">{!$Label.Greater_Than}</option>
@@ -1060,14 +1124,14 @@
                                 <span class="forDate"><center style="display:none;">From</center></span>
                             </td>
                             <td class="criteria">
-                                <input class="inputText" Type="text"/>
-                              
+                                <input class="inputText" Type="text" id="contractip"/>
+                              <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false" id="cfselect">
+                                    <apex:selectOptions value="{!RetailProductName}" ></apex:selectOptions>
+                                </apex:selectList>
                                 <apex:selectList styleClass="Type__c" size="1" multiselect="false" style="display:block;">
                                     <apex:selectOptions value="{!RetailTaskType}"></apex:selectOptions>
                                 </apex:selectList>
-                              <apex:selectList styleClass="Product_Name__c" size="1" multiselect="false">
-                                    <apex:selectOptions value="{!RetailProductName}"></apex:selectOptions>
-                                </apex:selectList>
+                              
                                 <!--<apex:inputField value="{!RatilTask.Type__c}" styleClass="Type__c"/>-->
                                 <apex:inputField value="{!RatilTask.Duration__c}" styleClass="Duration__c"/> 
                                 <apex:selectList styleClass="Status__c" size="1" multiselect="false">
@@ -1156,7 +1220,7 @@
         </apex:outputPanel>
             
             <apex:outputPanel layout="block" id="searchingResult">
-			
+            
                 <apex:commandButton value="{!$Label.Search_Customer}" action="{!searchAccount}" reRender="searchingResult, accounts,noMatches,addToCampaign,saveCriteria" status="loadingStatus"
                     onclick="if(!sendFilterToServer()) return false;" />
                     
@@ -1322,4 +1386,4 @@
             </apex:outputPanel>
         </apex:pageBlock>
     </apex:form>
-</apex:page>
+</apex:page>                                     

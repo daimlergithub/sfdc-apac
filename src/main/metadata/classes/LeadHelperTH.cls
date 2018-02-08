@@ -281,4 +281,15 @@ public without sharing class LeadHelperTH {
         }
 
     }
+    public static void changeDealerAccount(List<Lead__C> triggernew){
+        Map<id,User> usrmap=RetailCampaignHelperTH.getDealerAccount(triggernew);
+        system.debug('dhanu1234344'+usrmap);
+        for(Lead__c re:triggernew){
+         if(re.ownerid!=null&&usrmap.get(re.ownerid)!=null&&(usrmap.get(re.ownerid)).contact!=null){
+             re.Assigned_Dealer__c=(usrmap.get(re.ownerid)).contact.accountid;
+             system.debug('dhanu1234344dfdfdd'+re.Assigned_Dealer__c);
+         }
+       
+     }
+}
 }

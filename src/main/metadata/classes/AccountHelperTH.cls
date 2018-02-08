@@ -753,11 +753,16 @@ public class AccountHelperTH{
             {
                 insert insertAcclnkList;
             }
-            
-            if(usr != null)
+            Set<String> grpNameLst=new Set<String>();
+            for(Account accObj:accLst)
             {
-        String grpName='TH'+usr.Contact.Account.Dealer_ND_Code__c;
-                dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:grpName];
+                String grpName='TH'+accObj.Dealer_ND_Code__c;
+                grpNameLst.add(grpName);
+            }
+            
+            if(grpNameLst != null && grpNameLst.size()>0)
+            {
+                dealergrpList = [select id ,DeveloperName ,Name from Group where Name IN :grpNameLst];
             }
             
             if(!dealergrpList.isEmpty() && dealergrpList != null)
@@ -767,20 +772,24 @@ public class AccountHelperTH{
                    dealerGroupMap.put(g.Name, g.Id);
                 }
             }
-            
+            //sharing only dealer accounts, other accounts sharing is done in accountLinkHelperTH class
             for(Account shareacc : accLst)
             {
-                String grpName='TH'+usr.Contact.Account.Dealer_ND_Code__c; 
-                if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(grpName) != null)                                  
+                if(shareacc.RecordTypeId==dealer_RecordTypeId)
                 {
-                    AccountShare accshr = new AccountShare();
-                    accshr.AccountId = shareacc.Id;
-                    accshr.AccountAccessLevel = 'Edit';
-                    accshr.CaseAccessLevel = 'None';
-                    accshr.OpportunityAccessLevel = 'None';
-                    accshr.UserOrGroupId = dealerGroupMap.get(grpName);
-                    insertAccshList.add(accshr);
+                    String grpName='TH'+shareacc.Dealer_ND_Code__c; 
+                    if(dealerGroupMap.get(grpName)!=null && !dealerGroupMap.isEmpty() && dealerGroupMap.get(grpName) != null)                                  
+                    {
+                        AccountShare accshr = new AccountShare();
+                        accshr.AccountId = shareacc.Id;
+                        accshr.AccountAccessLevel = 'Edit';
+                        accshr.CaseAccessLevel = 'Read';
+                        accshr.OpportunityAccessLevel = 'None';
+                        accshr.UserOrGroupId = dealerGroupMap.get(grpName);
+                        insertAccshList.add(accshr);
+                    }
                 }
+                
             }
              
             if(!insertAccshList.isEmpty() && insertAccshList != null)

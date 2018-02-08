@@ -5,16 +5,64 @@
 ------------------------------------------------>
 
 <apex:page standardController="Account" extensions="CustomerMymercInterfaceController" >
+
+ <script>
+   function MyjavaFunction(){
+   
+    
+         if(!loginmobile == ''){
+            alert({!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S});
+         } 
+         else
+            alert({!$Label.Did_You_Get_Agreement_From_Customer}); 
+   }
+  </script> 
+  
+  <script>
+   function MyjavaFunction(ReceiveInputID){
+   
+   alert(ReceiveInputID);
+    var inputValue = document.getElementById(ReceiveInputID).value;
+         if(inputValue == ''){
+            alert({!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S});
+         } 
+         else
+            alert({!$Label.Did_You_Get_Agreement_From_Customer}); 
+   }
+  </script> 
+  <script>
+function confirmRemoveAll() { 
+    
+    if(Newpopup ==true)<
+    {
+    if(confirm('Are you sure?')) {
+      
+    } 
+    
+    else
+    alert('venky');
+    return false;
+    }
+   
+}
+</script>
+ 
     <apex:form >
             <apex:pagemessages ></apex:pagemessages>
-
-        <apex:pageBlock title="{!$Label.Customer_My_Mercedes_Interface_Customer}" id="a">
-           <!-- <apex:OutputLabel > {!$Label.Did_You_Get_Agreement_From_Customer} </apex:OutputLabel> -->
+ <apex:outputText value="{!loginmobile}"></apex:outputText>
+        <apex:pageBlock title="{!$Label.Customer_My_Mercedes_Interface_Customer}" id="a"><br/>
+         <apex:OutputLabel > {!$Label.Please_set_all_information_received_from_a_customer} </apex:OutputLabel> <br/>
+             <apex:OutputLabel > {!$Label.Login_Mobile_is_a_mandatory_for_Concierge_Service} </apex:OutputLabel> <br/>
+             <apex:OutputLabel > {!$Label.What_information_a_user_can_use_for_login_will_depend_on_input_information} </apex:OutputLabel> <br/>
+             <apex:OutputLabel > {!$Label.Login_Email_A_customer_will_be_able_to_use_the_email_for_login} </apex:OutputLabel> <br/>
+             <apex:OutputLabel > {!$Label.Login_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login} </apex:OutputLabel> <br/>
+             <apex:OutputLabel > {!$Label.Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login} </apex:OutputLabel> <br/><br/>
+         
                 <apex:pageblockButtons location="bottom">
-                     <apex:commandButton action="{!mymercnew}" value="{!$Label.MyMercedes_New_Registration}" disabled="{!MyMercVar}" Onclick="if(!confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S}')){return false};"/>
-                     <apex:commandButton action="{!savepop}" value="{!$Label.MyMercedes_Email_ID_Edit}" disabled="{!MyMercEmailVar}"   Onclick="if(!confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S}')){return false};"/><!-- oncomplete="myfunction();"/>-->
-                     <apex:commandButton action="{!createContractSector}" value="{!$Label.Create_ContactSector}" disabled="{!ContactSectorvar}" Onclick="if(!confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S}')){return false};"/>
-                 <apex:commandButton action="{!MercedesmeDeletion}" value="{!$Label.Mercedes_me_Deletion}" disabled="{!ContactSectorvar}" Onclick="if(!confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S}')){return false};"/>  
+               <apex:commandButton action="{!mymercnew}" value="{!$Label.MyMercedes_New_Registration}" disabled="{!MyMercVar}" onclick="(if(!loginmobile=='',if(!confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S}')){return false};,if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}')){return false};))" />
+                <apex:commandButton action="{!savepop}" value="{!$Label.MyMercedes_Email_ID_Edit}" disabled="{!MyMercEmailVar}"   Onclick="if(!confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S}')){return false};"/><!-- oncomplete="myfunction();"/>-->
+                <apex:commandButton action="{!createContractSector}" value="{!$Label.Create_ContactSector}" disabled="{!ContactSectorvar}" Onclick="if(!confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S}')){return false};"/>
+                 <apex:commandButton action="{!MercedesmeDeletion}" value="{!$Label.Mercedes_me_Deletion}" disabled="{!loginmobileButton}" Onclick="if(!confirm('Are you sure to delete this account?')){return false};"/>  
 
                      <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}"/>
                 </apex:pageblockButtons>
@@ -27,10 +75,11 @@
                         <apex:inputText value="{!MyMercEmail}" rendered="{!IF(myMercId == null, true, false)}" />
                         <apex:outputText value="{!MyMercEmail}" rendered="{!IF(myMercId != null, true, false)}" />
                         </apex:column>
-                         <apex:column headerValue="{!$Label.Login_Mobile}">
-                         <apex:inputText value="{!MyMercEmail}" rendered="{!IF(myMercId == null, true, false)}" />
-                        <apex:outputText value="{!MyMercEmail}" rendered="{!IF(myMercId != null, true, false)}" />
-                        </apex:column>
+                        <apex:column headerValue="{!$Label.Login_Mobile}">
+                         <apex:inputText id="inptid" value="{!loginmobile}" rendered="{!IF(myMercId == null, true, false)}" />
+                        <apex:outputText value="{!loginmobile}" rendered="{!IF(myMercId != null, true, false)}" />
+                        </apex:column> 
+                       
                         <apex:column >
                             <apex:commandLink value="{!$Label.Emails}" action="{!showPopup}" >
                                  <apex:param name="recordID" value="{!ac.ID}"/>
