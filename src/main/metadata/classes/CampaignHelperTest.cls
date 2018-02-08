@@ -1162,9 +1162,18 @@
    @isTest static void testEmail()
      {   
         User thisUser = [ select Id,ContactId from User where Id = :UserInfo.getUserId() ];
+         Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342',Dealer_Sales_Manager_Email__c='test1@gmail.com');
+     insert dealer;
+      Contact ct = new Contact(Accountid=dealer.id,Federation_ID__c='D8OKYANA',LastName='nag');
+        insert ct;
+        
+
     System.runAs(thisUser){
-     
-       Profile profile1 = [Select Id from Profile where name = 'System Administrator'];
+      // UserRole portalRole = [Select Id From UserRole Where PortalType = 'None' Limit 1];
+
+      UserRole r = new UserRole(portalaccountid=dealer.id,name='acme23 Partner User',portaltype='partner');
+        //  insert r;
+       Profile profile1 = [Select Id from Profile where name = 'Japan Dealer Sales Manager'];
             User portalAccountOwner1 = new User(
                 ProfileId = profile1.Id,
                 Username = System.now().millisecond() + 'test234@test.com',
@@ -1175,7 +1184,9 @@
                 Lastname='Wayne',
                 LanguageLocaleKey='en_US',
                 LocaleSidKey='en_US',
-                TimeZoneSidKey='America/Chicago'
+                TimeZoneSidKey='America/Chicago',
+                contactId=ct.id
+                
             );
             insert portalAccountOwner1;
            preparedTestData(); 
@@ -1183,8 +1194,7 @@
         Test.StartTest();
        listcampaigns=new List<Campaign>();
      //Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-     Account dealer = new Account(RecordTypeId=dealerRecordtypeid,Name='acme23',MBK_Data_Source__c='Email',Mobile__c='010-5423-6342',Dealer_Sales_Manager_Email__c='test1@gmail.com');
-     insert dealer;
+    
         Contact contact = new Contact(
             AccountId = dealer.Id, 
             LastName = 'b', 
@@ -1322,6 +1332,7 @@
     camobj2.Campaign_Execution_Channels__c='eMail';
     camobj2.Name = 'camptest1';
     camobj2.Type = 'Other';
+    camobj2.Parentid = top8.id;
     camobj2.StartDate = System.today();
     camobj2.EndDate = System.today()+30;
     camobj2.Execution_Type__c= 'eMail';

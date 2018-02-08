@@ -150,10 +150,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Approver__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Event_Type__c</field>
             </layoutItems>
             <layoutItems>
@@ -183,6 +179,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Ad_Location__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

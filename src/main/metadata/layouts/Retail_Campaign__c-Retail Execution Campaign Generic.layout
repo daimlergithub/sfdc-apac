@@ -162,6 +162,10 @@
                 <behavior>Edit</behavior>
                 <field>Feedback_Comments__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Market__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Email__c</field>
@@ -201,10 +205,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Brand__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Approver__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

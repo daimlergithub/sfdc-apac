@@ -431,10 +431,10 @@
                   <apex:inputField value="{!objPersonAccount.Agreement_to_commit_info_processing__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
                   <apex:inputField value="{!objPersonAccount.Personal_Information_Third_Party_Release__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
                   <apex:inputField value="{!objPersonAccount.Personal_Abroad_Agreement__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>-->
-				<apex:inputField value="{!objPersonAccount.General_Personal_Info_Mandatory__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
-                  <apex:inputField value="{!objPersonAccount.Person_Info_Custom_Service_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" />
-                  <apex:inputField value="{!objPersonAccount.Person_Agree_Test_Driving_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" />
-                  <apex:inputField value="{!objPersonAccount.Targeted_Advertising_Info_Optional__c}"  rendered="{!if(Market =='KR',True,false)}" style="width:80px" />				  
+                <apex:inputField value="{!objPersonAccount.General_Personal_Info_Mandatory__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
+                  <apex:inputField value="{!objPersonAccount.Person_Info_Custom_Service_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
+                  <apex:inputField value="{!objPersonAccount.Person_Agree_Test_Driving_Optional__c}" rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>
+                  <apex:inputField value="{!objPersonAccount.Targeted_Advert_Info_Optional_STCCC__c}"  rendered="{!if(Market =='KR',True,false)}" style="width:80px" required="true"/>                
                   <!--MD Changes added by Santosh Mohanty-->
                   <!--<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>-->
                     <apex:pageBlockSectionItem >
@@ -1283,7 +1283,7 @@
                        <!-- <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}"  rendered="{!if(Market =='JP',True,false)}"  status="actStatusId"/> -->
                     </apex:outputPanel>     
                     <apex:outputPanel >
-                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}" rendered="{!if(And(market=='JP',Editmode) ,True,false)}" rerender="redirectPanel,msgs,AddrJPKRPBS1,PersonAccBlock3,PersonAccBlock2,PB1,form,companyBlock1"   status="actStatusId"/>
+                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}" rendered="{!if(And(market=='JP',Editmode) ,True,false)}" rerender="redirectPanel,msgs,cnfm,AddrJPKRPBS1,PersonAccBlock3,PersonAccBlock2,PB1,form,companyBlock1"   status="actStatusId"/>
                     </apex:outputPanel> 
                         <apex:outputPanel >
                     <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(And(market=='JP',Readonly) ,True,false)}" status="actStatusId"/>
@@ -1347,7 +1347,7 @@
     </apex:pageBlock>  
         </div>
         <div>
-            <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!show}"  >
+            <apex:pageBlock title="{!$Label.Confirmed_Match}" id ="cnfm"   rendered="{!if(And(market=='JP',Readonly,show) ,True,false)}" >
                 <!--PR20170918--Start-- Modified for Thailand(Will be modified shortly)-->
                 <!--<apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF((market == 'TH' || market == 'JP'), true, false)}">-->
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">
@@ -1373,8 +1373,8 @@
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
                     </apex:Column>
-                     <apex:Column headerValue="{!$Label.Address_for_Address_data}">               
-                        <apex:outputtext value="{!AddressDetails}"/>
+                     <apex:Column headerValue="{!$Label.Address_for_Address_data}" >               
+                        <apex:outputtext value="{!AddressDetails}" />
                     </apex:Column>                     
                 </apex:PageBlockTable>
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF(market == 'KR', true, false)}">
@@ -1396,13 +1396,41 @@
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
                     </apex:Column>
-                     <apex:Column headerValue="{!$Label.Address_for_Address_data}">                    
+                     <apex:Column headerValue="{!$Label.Address_for_Address_data}" >                    
                         <apex:outputtext value="{!AddressDetails}"/>
                     </apex:Column>
                 </apex:PageBlockTable> 
-                </apex:PageBlock>                
-                <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!CompanyConfirmedMatch}"  >
-                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" >
+                </apex:PageBlock>    
+                      <!--      <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!if(And(market=='JP',Readonly,show) ,True,false)}"  >
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">              
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">  
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId ==null}">  
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.LastName}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
+                        <apex:outputField value="{!cr.firstName}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                        <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
+                        <apex:outputField value="{!cr.Mobile__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$Label.Address_for_Address_data}">               
+                        <apex:outputtext value="{!AddressDetails}"/>
+                    </apex:Column>                     
+                </apex:PageBlockTable>
+                </apex:PageBlock>      -->        
+                <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!if(And(market=='JP',Readonly,CompanyConfirmedMatch) ,True,false)}"  >
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">
                      
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId !=null}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.Name}</apex:outputLink>    
@@ -1410,14 +1438,44 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId ==null}">  
                         <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.Name}</apex:outputLink>    
                     </apex:Column> 
-                  <!--  <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
                         <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
                     </apex:Column>
                     
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
                     </apex:Column>
-                     -->
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                    
+                        <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     <apex:Column headerValue="{!$Label.Address_for_Address_data}" >                    
+                        <apex:outputtext value="{!AddressDetails}"/>
+                    </apex:Column>                     
+                </apex:PageBlockTable>               
+            </apex:PageBlock> 
+               <!--             <apex:pageBlock title="{!$Label.Confirmed_Match}"  rendered="{!if(And(market=='JP',Readonly,CompanyConfirmedMatch) ,True,false)}">
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">
+                     
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId !=null}">  
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.Name}</apex:outputLink>    
+                    </apex:Column>
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId ==null}">  
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.Name}</apex:outputLink>    
+                    </apex:Column> 
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                        <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>
+                    
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                        <apex:outputField value="{!cr.VIN__c}"/>
+                    </apex:Column>
+                     
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}">                    
                         <apex:outputField value="{!cr.Individual_Home_Phone__c}"/>
                     </apex:Column>
@@ -1431,7 +1489,7 @@
                         <apex:outputtext value="{!AddressDetails}"/>
                     </apex:Column>                     
                 </apex:PageBlockTable>               
-            </apex:PageBlock>
+            </apex:PageBlock>  -->
             
              <!--SN20170907 - Added Block for Malaysia-->       
                  <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!IF(( displayAccList.size!=0 && $Permission.MYGeneric), true, false)}" id="frm">     
