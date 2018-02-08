@@ -1,8 +1,8 @@
 public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
 
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
-        if (TriggerRecursiveCheck.run) {
-           TriggerRecursiveCheck.runOnce();
+        if (TriggerRecursiveCheck.AccountLinkCheck) {
+           TriggerRecursiveCheck.AccountLinkRecursiveCheck();
            Set < ID > acclids = new Set < ID > ();
             List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new];
             for (Account_Link__c accrec: acclinkr) {

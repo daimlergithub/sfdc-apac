@@ -2882,6 +2882,15 @@ Holds National ID or Passport No. of wholesale Account</description>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
         <label>Retail Related Company 3</label>
+		 <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account_Link__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Retail Company</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
         <referenceTo>Account_Link__c</referenceTo>
         <relationshipLabel>Account Link</relationshipLabel>
         <relationshipName>Account_Link3</relationshipName>

@@ -1,6 +1,7 @@
 public Class TriggerRecursiveCheck{
     public static boolean run = true;
     public static boolean run2 = true;
+	public static boolean AccountLinkCheck=true;
     public static boolean runOnce(){
         if(run){
             run=false;
@@ -17,6 +18,15 @@ public Class TriggerRecursiveCheck{
         }
         else{
             return run2;
+        }
+    }
+	 public static boolean AccountLinkRecursiveCheck(){
+        if(AccountLinkCheck){
+            AccountLinkCheck=false;
+            return true;
+        }
+        else{
+            return AccountLinkCheck;
         }
     }
 }
