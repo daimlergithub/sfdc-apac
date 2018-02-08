@@ -217,4 +217,13 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
          }
        
      }
+	 public static void CDMAccountlinkContaxt(List<Account_Link__c> allist,string market,string Context){
+					Set < ID > acclids = new Set < ID > ();
+					List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c,recordTypeID from Account_Link__c where id IN: allist];
+					    for (Account_Link__c accrec: acclinkr) {
+						if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accPerson_RecordTypeId || accrec.recordTypeID==accCompany_RecordTypeId))
+							acclids.add(accrec.id);
+					}
+                   if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
+	 }
 }
