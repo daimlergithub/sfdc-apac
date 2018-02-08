@@ -33,7 +33,7 @@ public ConsolidationContorller(){
     {
     
          Batch_Consolidation   batcher12 = new Batch_Consolidation(camId);
-            Database.executeBatch(batcher12, 50);  
+            Database.executeBatch(batcher12, 20);  
        
        PageReference nextPage = new PageReference('/' +camId );
         return nextPage;
