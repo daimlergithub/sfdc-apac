@@ -473,7 +473,16 @@
                 <type>FieldUpdate</type>
             </actions>
             <offsetFromField>Retail_Campaign__c.Segmentation_Date__c</offsetFromField>
-            <timeLength>0</timeLength>
+			<timeLength>0</timeLength>
+			<workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+		</workflowTimeTriggers>
+		<workflowTimeTriggers>
+			<actions>
+			<name>Update_Status_to_Completed</name>
+			<type>FieldUpdate</type>
+			</actions>
+			<offsetFromField>Retail_Campaign__c.Execution_End_Date__c</offsetFromField>
+			<timeLength>0</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
