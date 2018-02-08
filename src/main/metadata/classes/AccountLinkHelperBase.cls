@@ -130,7 +130,44 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
         }
     }
             
- } 
+ }
+ //SB2018-02-08
+ public static void addressupdateRT(List<Account_Link__c> alinks,Map<id,Account_Link__c> oldals)
+        {
+            List<Account_Link__c> accupdatelst = new List<Account_Link__c>();
+            Set<Id>addid= new Set<Id>();
+            for(Account_Link__c al: alinks)
+            {
+                if(al.Retail_Address_Reference__c != oldals.get(al.Id).Retail_Address_Reference__c && al.Retail_Address_Reference__c!= null)
+                {
+                    addid.add(al.Retail_Address_Reference__c);
+                }
+            }
+            Map<id,Address__c> addMap =new Map<id,Address__c>([select id,name,createddate, LastModifiedDate, Customer__c,Address_Code__c,Address_Last_Modified_Date__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,Address_Line_3__c,Address_Type__c,Address_Type_Last_Modified_Date__c,Block__c,Block_Native__c,City__c,City_Native__c,Company_Name__c,Company_Name_Native__c,Country__c,Created_By_EP_Transaction__c,Delivery_Point_ID__c,Foreign_Nationals__c,FS_Hardcopy_Last_Modified_By__c,FS_Hardcopy_Last_Modified_Date__c,FS_Opt_In_Hardcopy__c,HouseNumber__c,isTestRunning__c,Language__c,Hardcopy_Last_Modified_By__c,Hardcopy_Last_Modified_Date__c,Market__c,MD__c,Opt_In_Hardcopy__c,ZipCode__c,Province__c,Province_Native__c,Preferred__c,Source_System__c,Status__c,Sub_District__c,TitleOfHonor__c,To_Be_Deleted__c,District__c,District_Native__c,Temp_Address__c,Temp_ZipCode__c,Updated_By_EP_Transactions__c from Address__c where id in : addid]);
+            
+            
+            for(Account_Link__c al: alinks)
+            {
+                if(al.Retail_Address_Reference__c != oldals.get(al.Id).Retail_Address_Reference__c && al.Retail_Address_Reference__c!= null  && addMap.containskey(al.Retail_Address_Reference__c))
+                {
+                    Account_Link__c alclone = new Account_Link__c(id=al.id);
+                    alclone.Retail_Province__c = addMap.get(al.Retail_Address_Reference__c).Province__c;
+                    alclone.Retail_City__c = addMap.get(al.Retail_Address_Reference__c).District__c;
+                    //alclone.Retail_Distinct__c = addMap.get(al.Retail_Address_Reference__c).District__c;
+                    alclone.Retail_Address_Line_1__c = addMap.get(al.Retail_Address_Reference__c).Address_Line_1__c;
+                    alclone.Retail_Address_Line_2__c = addMap.get(al.Retail_Address_Reference__c).Address_Line_2__c;
+                    alclone.Retail_Address_Line_3__c = addMap.get(al.Retail_Address_Reference__c).Address_Line_3__c;
+                    alclone.Retail_Address_Type__c = addMap.get(al.Retail_Address_Reference__c).Address_Type__c;
+                    alclone.Retail_ZipCode__c = addMap.get(al.Retail_Address_Reference__c).ZipCode__c;
+                    alclone.Retail_Address_CreatedDate__c = date.newinstance(addMap.get(al.Retail_Address_Reference__c).CreatedDate.year(), addMap.get(al.Retail_Address_Reference__c).CreatedDate.month(), addMap.get(al.Retail_Address_Reference__c).CreatedDate.day());
+                    alclone.Retail_Address_LastModifiedDate__c = date.newinstance(addMap.get(al.Retail_Address_Reference__c).LastModifiedDate.year(), addMap.get(al.Retail_Address_Reference__c).LastModifiedDate.month(), addMap.get(al.Retail_Address_Reference__c).LastModifiedDate.day());
+                    accupdatelst.add(alclone);
+                }
+            }
+            if(accupdatelst.size() > 0)
+            update accupdatelst;
+            
+        } 
  /*public  void afterInsertEventShareIndividualCustomerExternalLink(List<Account_link__C> acclinklist){
      List<Account_link__C> acclink=[select id,toRole__c,fromRole__c,fromRole__r.Dealer_ND_Code__c  from Account_link__c  where toRole__c!=null or fromrole__c!=null];
      
