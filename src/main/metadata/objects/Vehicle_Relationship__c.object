@@ -7529,11 +7529,20 @@ NOT(ISBLANK(PRIORVALUE(Contact__c))),NOT(ISNEW()),ISCHANGED(Contact__c))</errorC
     <validationRules>
         <fullName>End_Reason_Required</fullName>
         <active>true</active>
-        <description>"End date is not null
-AND End reason is null"</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c)=='MY',$Permission.MYGeneric)))</errorConditionFormula>
+        <description>End date is not null
+AND End reason is null.</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c) = 'MY',$Permission.MYGeneric)))</errorConditionFormula>
         <errorDisplayField>End_Reason__c</errorDisplayField>
-        <errorMessage>Once end date has been set for the vehicle relationship, the end reason must be entered.</errorMessage>
+        <errorMessage>End Date cannot be before Start date.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>End_Date_cannot_be_before_Start_Date_MY</fullName>
+        <active>true</active>
+        <description>End Date cannot be before Start date.</description>
+        <errorConditionFormula>AND(!ISNEW(), ISCHANGED(End_Date__c), NOT(ISNULL(End_Date__c)), End_Date__c &lt; Start_Date__c, UPPER(MD__c)=='MY', $Permission.MYGeneric)
+		</errorConditionFormula>
+        <errorDisplayField>End_Date__c</errorDisplayField>
+        <errorMessage>End Date cannot be before Start date.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>New_Complaint</fullName>

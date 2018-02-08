@@ -27,8 +27,10 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
                 if (TriggerRecursiveCheck.run2 && acclids.size() > 0) {
                     TriggerRecursiveCheck.runOnce2();
                     CDMInformatica_Services.createAccountLink(acclids, Label.MY, Label.UpdateContext);
+                    
                 }
                 if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){ 
+                    acchelper.addressupdateRT(trigger.new, (Map < Id, Account_Link__c > ) trigger.oldMap);
                     acchelper.RevokeApexSharingAfterUpdate(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap, Trigger.Old);
                 }
             }

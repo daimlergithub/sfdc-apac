@@ -19632,6 +19632,15 @@ Invisible on UI."</description>
         <trackHistory>true</trackHistory>
         <type>Phone</type>
     </fields>
+	<fields>
+        <fullName>YA_CustomerIDList__c</fullName>
+        <externalId>false</externalId>
+        <label>YA CustomerIDList</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>ZipCode__c</fullName>
         <description>/* 
