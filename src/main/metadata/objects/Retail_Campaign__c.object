@@ -15741,13 +15741,10 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Feedback_Mandatory_Actual_Expense</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(  
-ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
-ISBLANK( Actual_Expense__c ), 
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
+        <errorConditionFormula>AND( ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), ISBLANK( Actual_Expense__c ), $Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>Actual_Expense__c</errorDisplayField>
         <errorMessage>Actual Expense field is mandatory when Submit for Feedback.</errorMessage>
+		<description>Actual Expense field is mandatory when Submit for Feedback.</description>
     </validationRules>
     <validationRules>
         <fullName>Feedback_Mandatory_Actual_Order</fullName>
@@ -15774,13 +15771,10 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Feedback_Mandatory_Feedback_Comments</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(  
-ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
-ISBLANK( Feedback_Comments__c ),
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
+        <errorConditionFormula>AND( ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), ISBLANK( Feedback_Comments__c ), $Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>Feedback_Comments__c</errorDisplayField>
         <errorMessage>Feedback Comments field is mandatory when Submit for Feedback.</errorMessage>
+		<description>Feedback Comments field is mandatory when Submit for Feedback.</description>
     </validationRules>
     <validationRules>
         <fullName>Min_Car_Age_is_less_than_the_Max_Car_Age</fullName>
@@ -16006,7 +16000,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>TH_You_cant_Create_child_Campaign</fullName>
         <active>true</active>
-        <errorConditionFormula>( isnew()&amp;&amp;NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp;Parent_Campaign1__r.Close_Date__c &lt;today()&amp;&amp;OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)))</errorConditionFormula>
+        <errorConditionFormula>( isnew() &amp;&amp; NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp; Parent_Campaign1__r.Close_Date__c &lt;today() &amp;&amp; OR(MD__c='TH', if( AND(MD__c=='MY', $Permission.MYDealer),true,false) ) )</errorConditionFormula>
         <errorMessage>Parent campaign already reached close date so You can't create child campaigns</errorMessage>
 		<description>Parent campaign already reached close date so You can't create child campaigns</description>
     </validationRules>
@@ -16025,16 +16019,14 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>TH_you_cant_Add_childcampaings_for_close</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(MD__c ='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), isPickval(Parent_Campaign1__r.Status__c,'Completed'))</errorConditionFormula>
+        <errorConditionFormula>AND( OR(MD__c ='TH', if( AND(MD__c=='MY', $Permission.MYDealer),true,false) ), isPickval(Parent_Campaign1__r.Status__c,'Completed') )</errorConditionFormula>
         <errorMessage>You Can't Create child campaigns for the Completed Campaigns</errorMessage>
 		<description>You Can't Create child campaigns for the Completed Campaigns</description>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
-NOT(OR(ISPICKVAL( Apply_Status__c , 'Planned'), ISPICKVAL( Apply_Status__c , 'Need Modify'))), 
-OR(ISCHANGED(Name),
+        <errorConditionFormula>AND( NOT(OR(ISPICKVAL( Apply_Status__c , 'Planned'), ISPICKVAL( Apply_Status__c , 'Need Modify'))), OR(ISCHANGED(Name),
        ISCHANGED(Driven__c),
 	   ISCHANGED(Ad_Location__c),
 	   ISCHANGED(Ad_Type__c),
@@ -16072,10 +16064,10 @@ OR(ISCHANGED(Name),
 	   ISCHANGED(Site__c),
 	   ISCHANGED(Site_Area__c),
 	   ISCHANGED(Yearly_TA__c)),
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
+	   $Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>You can't update Retail Campaign information with current apply status.</errorMessage>
+		<description>You can't update Retail Campaign information with current apply status.</description>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application_Feedback</fullName>

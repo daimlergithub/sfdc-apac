@@ -12,7 +12,7 @@ private class   CustomerMymercInterfaceControllerTest{
                 emailencodingkey='UTF-8', lastname='Testing123', languagelocalekey='en_US',
                 localesidkey='en_US', profileid = p.id, country='United States',IsActive =true,
                 ContactId = con.Id,
-                timezonesidkey='America/Los_Angeles', username='tester123@noemail.com');
+                timezonesidkey='America/Los_Angeles', username=System.now().millisecond() + 'tester123@noemail.com');
        
         insert user;
         Account_Link__c acclinkobj = new Account_Link__c(toRole__c = ac.Id,System__c = 'My Mercedes',Primary__c = True,Portal_Email__c = 'Testporteal@test.com');
