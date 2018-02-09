@@ -15,6 +15,8 @@ Public class AccountLinkHelperBase{
     public static Id C2C_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Contact2Contact');
     public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+	public static Id accRetailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
+    public static Id accRetailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
 
 /**
 * It will validate the duplicate c2c
@@ -118,9 +120,9 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                 AccountShare thisAccountShare = new AccountShare(); //a new empty AccountShare object
                 thisAccountShare.userorgroupid = groupRec.id;
                 thisAccountShare.accountid = acct;
-                thisAccountShare.accountaccesslevel = 'READ';
+                thisAccountShare.accountaccesslevel = 'Edit';
                 thisAccountShare.RowCause = Schema.AccountShare.RowCause.Manual;
-                thisAccountShare.OpportunityAccessLevel='Read';
+                thisAccountShare.OpportunityAccessLevel='None';
                 AccountShareList.add(thisAccountShare);
             }
         }
@@ -164,8 +166,8 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                     accupdatelst.add(alclone);
                 }
             }
-            if(accupdatelst.size() > 0)
-            update accupdatelst;
+            //if(accupdatelst.size() > 0)
+           // update accupdatelst;
             
         } 
  /*public  void afterInsertEventShareIndividualCustomerExternalLink(List<Account_link__C> acclinklist){
@@ -217,4 +219,27 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
          }
        
      }
+	 public static void CDMAccountlinkContaxt(List<Account_Link__c> allist,string market,string Context){
+					Set < ID > acclids = new Set < ID > ();
+					List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c,fromRole__r.Dealer_Rollout_Status__c,recordTypeID from Account_Link__c where id IN: allist];
+					    for (Account_Link__c accrec: acclinkr) {
+						if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId) && (string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false))
+							acclids.add(accrec.id);
+					}
+                   if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
+	 }
+	 
+	 public static void CDMAccountlinkContextGroup(List<Account_Link__c> allist,string market,string Context){
+					Set < ID > acclids = new Set < ID > ();
+					Set<string>  MagicNumber= new set <string>();
+					List < Account_Link__c > acclinkr = [Select Id,Retail_DMS_Customer_ID__c ,toRole__r.UCID__c,recordTypeID,fromRole__r.Dealer_Rollout_Status__c from Account_Link__c where id IN: allist];
+					for (Account_Link__c accrec: acclinkr) {
+						   if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId)&&(string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false) && (string.isnotblank(accrec.Retail_DMS_Customer_ID__c)?MagicNumber.contains(accrec.Retail_DMS_Customer_ID__c)?false:true:true))
+							{
+							MagicNumber.add(accrec.Retail_DMS_Customer_ID__c);
+							acclids.add(accrec.id);
+							}
+					}
+                   if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
+	 }
 }

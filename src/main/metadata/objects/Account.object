@@ -7710,18 +7710,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Done</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>In_Progress</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>none</fullName>
