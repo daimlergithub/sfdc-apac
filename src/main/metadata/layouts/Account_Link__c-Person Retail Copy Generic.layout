@@ -59,15 +59,15 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
 			<layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_DMS_Customer_ID__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_UCID__c</field>
             </layoutItems>
             
@@ -115,19 +115,19 @@
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Mobile__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Individual_Home_Phone__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Work_Phone__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Email__c</field>
             </layoutItems>
             <layoutItems>
@@ -328,10 +328,6 @@
                 <behavior>Readonly</behavior>
                 <field>Last_Modified_User_Type__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Market__c</field>
-            </layoutItems>
 			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_CreatedDate__c</field>
@@ -339,6 +335,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_LastModifiedDate__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
