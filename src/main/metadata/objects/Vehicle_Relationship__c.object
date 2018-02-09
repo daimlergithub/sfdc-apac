@@ -7533,7 +7533,7 @@ NOT(ISBLANK(PRIORVALUE(Contact__c))),NOT(ISNEW()),ISCHANGED(Contact__c))</errorC
 AND End reason is null.</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c) = 'MY',$Permission.MYGeneric)))</errorConditionFormula>
         <errorDisplayField>End_Reason__c</errorDisplayField>
-        <errorMessage>End Date cannot be before Start date.</errorMessage>
+        <errorMessage>End Reason is mandatory, if End Date is selected.</errorMessage>
     </validationRules>
 	<validationRules>
         <fullName>End_Date_cannot_be_before_Start_Date_MY</fullName>
