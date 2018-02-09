@@ -28431,7 +28431,7 @@
         <layout>Car_Model_Attribute__c-Car Model Attribute Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Car_Model__c-Car Model Layout</layout>
+        <layout>Car_Model__c-Car Model Dealer Generic Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
@@ -29211,7 +29211,7 @@
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout</layout>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-Dealer Retail Generic</layout>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -29223,7 +29223,7 @@
         <recordType>Vehicle__c.Competitor</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MBTH MB Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-MB Vehicle Layout - Dealer Generic</layout>
         <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -30996,14 +30996,14 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
