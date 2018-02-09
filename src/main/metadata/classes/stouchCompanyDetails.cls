@@ -18,14 +18,18 @@ global class stouchCompanyDetails {
         leadMaps.put('LeadPriority', (leads==null || String.ISBlank(leads.Lead_Priority__c))?' ':leads.Lead_Priority__c);
         leadMaps.put('Interested_Vehicle_Note__c', (leads==null || String.ISBlank(leads.Interested_Vehicle_Note__c))?' ':leads.Interested_Vehicle_Note__c);
         leadMaps.put('Re_visit__c', (leads==null || String.ISBlank(String.valueOf(leads.Re_visit__c)))?' ':(Object)leads.Re_visit__c);
-        leadMaps.put('Preferred_Contact_Time__c', (leads==null || String.ISBlank(String.valueOf(leads.Preferred_Contact_Time__c)))?' ':(Object)leads.Preferred_Contact_Time__c);
+        leadMaps.put('Preferred_Contact_Time__c',' ');
+        if(leads!=null && leads.Preferred_Contact_Time__c!=null)
+            leadMaps.put('Preferred_Contact_Time__c', leads.Preferred_Contact_Time__c.format('yyyy-MM-dd\'T\'hh:mm:ss\'Z\'','GMT'));
         leadMaps.put('Preferred_Contact_Date__c', (leads==null || String.ISBlank(leads.Preferred_Contact_Date__c))?' ':leads.Preferred_Contact_Date__c);
         leadMaps.put('Current_Vehicle_1_Text__c', (leads==null || String.ISBlank(leads.Current_Vehicle_1_Text__c))?' ':leads.Current_Vehicle_1_Text__c);
         leadMaps.put('Current_Vehicle_2_Text__c', (leads==null || String.ISBlank(leads.Current_Vehicle_2_Text__c))?' ':leads.Current_Vehicle_2_Text__c);
         leadMaps.put('Trade_in_Vehicle_Text2__c', (leads==null || String.ISBlank(leads.Trade_in_Vehicle_Text2__c))?' ':leads.Trade_in_Vehicle_Text2__c);
         leadMaps.put('Visited_Showroom_Date__c', (leads==null || String.ISBlank(String.valueOf(leads.Visited_Showroom_Date__c)))?' ':(Object)leads.Visited_Showroom_Date__c);
         leadMaps.put('Dealer_Comments__c', (leads==null || String.ISBlank(leads.Dealer_Comments__c))?' ':leads.Dealer_Comments__c);
-        leadMaps.put('LastModifiedDate', (leads==null || String.ISBlank(String.valueOf(leads.LastModifiedDate)))?' ':(Object)leads.LastModifiedDate);
+        leadMaps.put('LastModifiedDate',' ');
+        if(leads!=null)
+            leadMaps.put('LastModifiedDate', leads.LastModifiedDate.format('yyyy-MM-dd\'T\'hh:mm:ss\'Z\'','GMT'));
         leadMaps.put('Customer_Type__c',(leads==null || String.ISBlank(leads.Customer_Type__c))?' ':leads.Customer_Type__c);
         leadMaps.put('Purchase_Time__c',(leads==null || String.ISBlank(leads.Purchase_Time__c))?' ':leads.Purchase_Time__c);
         leadMaps.put('DealerID', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_ND_Code__c))?' ':leads.Assigned_dealer__r.Dealer_ND_Code__c);

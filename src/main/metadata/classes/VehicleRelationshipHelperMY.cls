@@ -10,7 +10,7 @@
    
 */
 public with sharing class VehicleRelationshipHelperMY{  
-
+    public static final String Market = System.Label.MarketMY;
     Public static void OnAfterInsert(List<Vehicle_Relationship__c> vehicleRelNewRecords){
         VehicleRelationshipHelperBase.OnAfterInsert(vehicleRelNewRecords);
     } 
@@ -33,5 +33,10 @@ public with sharing class VehicleRelationshipHelperMY{
 
     Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds,Set<Id> contactIdofVehicleRelationship){
         VehicleRelationshipHelperBase.createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
-    }    
+    }
+    /*Start - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */
+    public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relationship__c> vehicleRellist,boolean isinsertcontext){
+        VehicleRelationshipHelperBase.afterInsertUpdateSharerecordsWithDealers(vehicleRellist, isinsertcontext, Market);
+    }
+    /*End - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */
 }

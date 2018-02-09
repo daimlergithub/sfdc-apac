@@ -14,7 +14,15 @@ public class AccountlinkhelperMY{
         alb.afterInsertEventShareAccount(acclinklist);
     }
     
+    public void addressupdateRT(List<Account_Link__c> alinks,Map<id,Account_Link__c> oldals){
+        AccountLinkHelperBase.addressupdateRT(alinks,oldals);
+    }
+        
     public  void RevokeApexSharingAfterUpdate(List<Account_Link__c> newacclinkmap,Map<Id, Account_Link__c> oldacclinkmap,List<Account_Link__c> oldrec){
         alb.RevokeApexSharingAfterUpdate(newacclinkmap,oldacclinkmap,oldrec);
+    }
+	
+	public void InvokeCDMAccountlinkContaxt(List<Account_link__C> acclinklist,String Market,string context ){
+        AccountLinkHelperBase.CDMAccountlinkContaxt(acclinklist,market,context );
     }
 }
