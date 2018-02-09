@@ -166,8 +166,12 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                     accupdatelst.add(alclone);
                 }
             }
-            //if(accupdatelst.size() > 0)
-           // update accupdatelst;
+			try{
+				if(accupdatelst.size() > 0)
+				update accupdatelst;
+		   }
+		   catch(Exception e){
+		   }
             
         } 
  /*public  void afterInsertEventShareIndividualCustomerExternalLink(List<Account_link__C> acclinklist){
