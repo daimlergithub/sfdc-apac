@@ -23,6 +23,6 @@ public class AccountlinkhelperMY{
     }
 	
 	public void InvokeCDMAccountlinkContaxt(List<Account_link__C> acclinklist,String Market,string context ){
-        AccountLinkHelperBase.CDMAccountlinkContaxt(acclinklist,market,context );
+        AccountLinkHelperBase.CDMAccountlinkContextGroup(acclinklist,market,context );
     }
 }
