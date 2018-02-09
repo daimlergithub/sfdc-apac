@@ -10,7 +10,7 @@ public with Sharing class DealerPickerControllerGeneric {
     List<campaignShare> campaignToShare=new List<campaignShare>();
     public DealerPickerControllerGeneric(){
     campaignId=ApexPages.currentPage().getParameters().get('CampaignId');//'a160l000000LgYf';//= 
-    system.debug('&&&&&&&'+campaignId);
+    //system.debug('&&&&&&&'+campaignId);
        dealerList =new List<Account>();
         accessonRetailcamp=new List<Retail_Campaign__Share>();
         dealerList=[select id,Name,Dealer_Nd_code__c,Dealer_Gc_code__C,Dealer_Lead_Gate_Keeper__c,Mobile__c from Account where RecordTypeId=:dealerAccount and MD__c=:market and Dealer_Nd_code__c!=''];
@@ -84,7 +84,7 @@ public with Sharing class DealerPickerControllerGeneric {
             sharerec=shareRetailcampaignRecords();
             sharerec.UserOrGroupId=gp.id;
             retailcampaignstosharewithdealergroups.add(sharerec);
-            system.debug('@@@@'+retailcampaignstosharewithdealergroups.size());
+            //system.debug('@@@@'+retailcampaignstosharewithdealergroups.size());
             if(camp.Relevant_Central_Campaign__c!=null){
             CampaignShare campShare=new CampaignShare();
             campShare.UserOrGroupId=gp.id;
@@ -120,13 +120,13 @@ public with Sharing class DealerPickerControllerGeneric {
     public void sendEmailNotificationtoDealerMY(Set<Group> groupnames, Set<String> dealerndcode){
          Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
          String commubaseurl='';
-         boolean flag1;        
+         boolean flag;        
          String communityName='Dealer Community MB Malaysia';    //market specific community name
          List<Network>  myNetwork = [SELECT Id,Name FROM Network];
          retcamp=[select name,id,ownerid from Retail_Campaign__C where id =:campaignID];
          for(Network net:myNetwork){
                if(net.name==communityName){
-               flag1=true;
+               flag=true;
                commubaseurl=Network.getLoginUrl(net.id)+'/'+campaignId;
                break;
            }
