@@ -1567,6 +1567,11 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.MC_Connect_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Message__c</field>
         <readable>true</readable>
