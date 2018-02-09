@@ -1840,7 +1840,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         { 
             objPersonAccount.LastName.addError(Label.Last_Name_should_be_of_2_byte_characters);
         }
-         else if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.lastName != NULL && objPersonAccount.lastName.length() >=41 ))
+        else if(recordType == 'Person Account'  &&  market == System.Label.JP && (objPersonAccount.lastName != NULL && objPersonAccount.lastName.length() >41 ))
         { 
              objPersonAccount.LastName.addError(Label.Last_Name_should_be_less_than_or_equal_to_40_letters);
         }
