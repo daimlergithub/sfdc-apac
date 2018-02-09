@@ -332,6 +332,19 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Contact__c</fields>
+        <fields>Status__c</fields>
+        <fields>Expected_DM_Material1__c</fields>
+        <fields>Status1__c</fields>
+        <fields>Expected_DM_Material2__c</fields>
+        <fields>Status2__c</fields>
+        <fields>Expected_DM_Material3__c</fields>
+        <fields>Status3__c</fields>
+        <fields>Sent_Date__c</fields>
+        <relatedList>DM_Request__c.Case_Number__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Contact__c</fields>
         <fields>Dealer_Lead_Status__c</fields>

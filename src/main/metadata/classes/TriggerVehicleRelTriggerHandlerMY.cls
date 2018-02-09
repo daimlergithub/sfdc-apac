@@ -16,11 +16,13 @@ public class TriggerVehicleRelTriggerHandlerMY implements TriggerHandlerIf{
                UtilVehicleRelationship.updatemarket(Trigger.New);
             }
             if(trigger.isAfter && (trigger.isInsert)){
-                VehicleRelationshipHelperMY.OnAfterInsert(Trigger.new);          
+                VehicleRelationshipHelperMY.OnAfterInsert(Trigger.new);
+                VehicleRelationshipHelperMY.afterInsertUpdateSharerecordsWithDealers(Trigger.New,true);    /*Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */                
             }
             if(trigger.isAfter && Trigger.isUpdate){
                 Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
-                VehicleRelationshipHelperMY.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);         
+                VehicleRelationshipHelperMY.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+                VehicleRelationshipHelperMY.afterInsertUpdateSharerecordsWithDealers(Trigger.New,false);   /*Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */
             } 
             if(trigger.isAfter && Trigger.isDelete) {
                 VehicleRelationshipHelperMY.OnAfterDelete(Trigger.old);
@@ -32,10 +34,12 @@ public class TriggerVehicleRelTriggerHandlerMY implements TriggerHandlerIf{
         if(!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0 && vehicleNewList[0].MD__c == Label.MY){
             if(trigger.isAfter && (trigger.isInsert)){
                 VehicleRelationshipHelperMY.OnAfterInsert(Trigger.new);
+                VehicleRelationshipHelperMY.afterInsertUpdateSharerecordsWithDealers(Trigger.New,true);       /*Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */             
             }
             if(trigger.isAfter && Trigger.isUpdate) {
                 Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
                 VehicleRelationshipHelperMY.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+                VehicleRelationshipHelperMY.afterInsertUpdateSharerecordsWithDealers(Trigger.New,false);     /*Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */               
             }    
             if(trigger.isAfter && Trigger.isDelete) {
                 VehicleRelationshipHelperMY.OnAfterDelete(Trigger.old);

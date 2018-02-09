@@ -206,7 +206,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>NextInspectionDate__c</field>
             </layoutItems>
             <layoutItems>
@@ -214,7 +214,7 @@
                 <field>LastServiceDate__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>InsuranceExpiryDate__c</field>
             </layoutItems>
             <layoutItems>
