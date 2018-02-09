@@ -2522,8 +2522,16 @@
         <name>Logic_Error</name>
     </customLabels>
 	 <customLabels>
+        <label>ログインメールアドレス：お客様がメールアドレスを用いてログインできるようになります。(お客様には登録メールが送信されます)</label>
+        <name>Login_Email_A_customer_will_be_able_to_use_the_email_for_login</name>
+    </customLabels>
+	 <customLabels>
         <label>ログイン携帯電話</label>
         <name>Login_Mobile</name>
+    </customLabels>
+	 <customLabels>
+        <label>「ログイン携帯電話」が必須となります。</label>
+        <name>Login_Mobile_is_a_mandatory_for_Concierge_Service</name>
     </customLabels>
     <customLabels>
         <label>参照</label>
@@ -3215,6 +3223,10 @@
     <customLabels>
         <label>マスタとスレーブは複数選択できません。</label>
         <name>Please_select_only_one_slave_and_one_Master_Record</name>
+    </customLabels>
+	 <customLabels>
+        <label>お客様からご提供頂いた情報に関しては全て入力を行ってください。</label>
+        <name>Please_set_all_information_received_from_a_customer</name>
     </customLabels>
     <customLabels>
         <label>次ページの「処理依頼事項」、および「申立内容・状況」をご確認の上、対応をお願いいたします。</label>
@@ -5271,6 +5283,10 @@
 	<customLabels>
         <label>送信失敗</label>
         <name>Web_service_callout_failed</name>
+    </customLabels>
+	<customLabels>
+        <label>入力された情報によってお客様がログインに使用できる値が異なります。</label>
+        <name>What_information_a_user_can_use_for_login_will_depend_on_input_information</name>
     </customLabels>
     <customLabels>
         <label><!-- Which activity would you like to join in the future? / Your suggestions --></label>
