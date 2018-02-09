@@ -1,24 +1,21 @@
 public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
 
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
-        
-           
-    
+      
             AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
        
             if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
-					if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
-						acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.MY,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
-						acchelper.afterInsertEventShareRetailCopy(Trigger.new);
-						acchelper.afterInsertEventShareAccount(Trigger.new);
-					}
-					if (Trigger.isInsert) {
-					   acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.InsertContext);
-					}
-				
+                if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+                    acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.MY,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
+                    acchelper.afterInsertEventShareRetailCopy(Trigger.new);
+                    acchelper.afterInsertEventShareAccount(Trigger.new);
+                }
+                if (Trigger.isInsert  && !System.isFuture()) {
+                   acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.InsertContext);
+                }
             }
 
-            if (Trigger.isAfter && Trigger.isupdate ) {  
+            if (Trigger.isAfter && Trigger.isupdate && !System.isFuture()) {  
                 if (TriggerRecursiveCheck.run2 ) {
                     TriggerRecursiveCheck.runOnce2();
                     acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext);                    

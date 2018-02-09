@@ -602,7 +602,7 @@ public class AccountHelperBase{
                                     acclnk.Retail_Address_Line_1__c = add.Address_Line_1__c;
                                 }
                                 if(add.Address_Line_2__c != null && add.Address_Line_2__c != ''){
-                                    acclnk.Retail_Address_Line_1__c = add.Address_Line_2__c;
+                                    acclnk.Retail_Address_Line_2__c = add.Address_Line_2__c;
                                 }
 								if(add.Address_Line_3__c != null && add.Address_Line_3__c != ''){
                                     acclnk.Retail_Address_Line_3__c = add.Address_Line_3__c;
@@ -611,7 +611,7 @@ public class AccountHelperBase{
                                     acclnk.Retail_ZipCode__c = add.ZipCode__c;
                                 }
                                 if(add.City__c != null && add.City__c != ''){
-                                    acclnk.Retail_City__c = add.City__c;
+                                    acclnk.Retail_City__c = add.District__c;
                                 }
                                 if(add.District__c != null && add.District__c != ''){
                                     acclnk.Retail_Distinct__c = add.District__c+' '+add.Block__c;
