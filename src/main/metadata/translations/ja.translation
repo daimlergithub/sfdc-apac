@@ -2533,6 +2533,10 @@
         <label>「ログイン携帯電話」が必須となります。</label>
         <name>Login_Mobile_is_a_mandatory_for_Concierge_Service</name>
     </customLabels>
+	 <customLabels>
+        <label>ログインメールアドレス & ログイン携帯電話：お客様が携帯電話番号を用いてログインできるようになります。(お客様には登録SMSが送信されます)メールアドレスはMercedes me内に登録されますが、ログインにはご利用できません。</label>
+        <name>Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login</name>
+    </customLabels>
     <customLabels>
         <label>参照</label>
         <name>Lookup_Button</name>
