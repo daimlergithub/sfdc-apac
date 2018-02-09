@@ -166,8 +166,8 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                     accupdatelst.add(alclone);
                 }
             }
-            if(accupdatelst.size() > 0)
-            update accupdatelst;
+            //if(accupdatelst.size() > 0)
+           // update accupdatelst;
             
         } 
  /*public  void afterInsertEventShareIndividualCustomerExternalLink(List<Account_link__C> acclinklist){
@@ -223,23 +223,23 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
 					Set < ID > acclids = new Set < ID > ();
 					List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c,fromRole__r.Dealer_Rollout_Status__c,recordTypeID from Account_Link__c where id IN: allist];
 					    for (Account_Link__c accrec: acclinkr) {
-						if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accPerson_RecordTypeId || accrec.recordTypeID==accCompany_RecordTypeId) && (string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false))
+						if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId) && (string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false))
 							acclids.add(accrec.id);
 					}
                    if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
 	 }
 	 
-/*	 public static void CDMAccountlinkContextGroup(List<Account_Link__c> allist,string market,string Context){
+	 public static void CDMAccountlinkContextGroup(List<Account_Link__c> allist,string market,string Context){
 					Set < ID > acclids = new Set < ID > ();
 					Set<string>  MagicNumber= new set <string>();
 					List < Account_Link__c > acclinkr = [Select Id,Retail_DMS_Customer_ID__c ,toRole__r.UCID__c,recordTypeID,fromRole__r.Dealer_Rollout_Status__c from Account_Link__c where id IN: allist];
 					for (Account_Link__c accrec: acclinkr) {
-						if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId) && (string.isnotblank(accrec.Retail_DMS_Customer_ID__c?(((MagicNumber.contains(accrec.Retail_DMS_Customer_ID__c))?false:true):true))) && (string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false))
+						   if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId)&&(string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false) && (string.isnotblank(accrec.Retail_DMS_Customer_ID__c)?MagicNumber.contains(accrec.Retail_DMS_Customer_ID__c)?false:true:true))
 							{
 							MagicNumber.add(accrec.Retail_DMS_Customer_ID__c);
 							acclids.add(accrec.id);
 							}
 					}
                    if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
-	 }*/
+	 }
 }
