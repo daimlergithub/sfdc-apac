@@ -1,3 +1,6 @@
+/* Purpose: Trigger helper class for Retail Campaign for Malaysia
+Create BY: Sushma */
+
 public class RetailCampaignHelperMY{
     
     public Static boolean booleanCampaignUpdate=true;
@@ -5,11 +8,11 @@ public class RetailCampaignHelperMY{
     public static String getCommunityURLforMY(){
         String communityName='Dealer Community Malaysia';
         String commubaseurl='';
-        boolean flag1;
+        boolean flag;
         List<Network>  myNetwork = [SELECT Id,Name FROM Network];
         for(Network net:myNetwork){
            if(net.name==communityName){
-           flag1=true;
+           flag=true;
            commubaseurl=Network.getLoginUrl(net.id);
            break;
            }

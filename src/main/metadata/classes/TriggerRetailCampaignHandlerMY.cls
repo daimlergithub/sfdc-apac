@@ -1,3 +1,6 @@
+/* Purpose: Trigger handler class for Retail Campaign for Malaysia
+Create BY: Sushma */
+
 public class TriggerRetailCampaignHandlerMY implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
@@ -6,14 +9,7 @@ public class TriggerRetailCampaignHandlerMY implements TriggerHandlerIf
     
             if(RetailCampaignHelperMY.booleanCampaignUpdate==true){
                RetailCampaignHelperMY.booleanCampaignUpdate=false;
-               rethelper.parentCampaingStatusChange(Trigger.new,Trigger.Isinsert);
-               
-               //This will  continue as part of Dealers communities setup
-               //RetailCampaignHelperMY.sharerecordswithDealers(trigger.new);
-               /*if(trigger.isupdate){
-                  RetailCampaignHelperMY.RevokeRecordaccesstoDealers(Trigger.new,(Map<Id,Retail_Campaign__C>)Trigger.oldmap,Trigger.Old);
-               }*/
-               
+               rethelper.parentCampaingStatusChange(Trigger.new,Trigger.Isinsert);                                         
              }
     }
     
