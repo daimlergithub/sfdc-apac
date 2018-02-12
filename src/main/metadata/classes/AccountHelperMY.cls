@@ -34,8 +34,8 @@ public class AccountHelperMY{
         AccountHelperBase.updateMarketingFields(listNewAccounts);
     }
 	
-    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate){
-        AccountHelperBase.updatePrimaryAddressdisplay(listNewAccounts,isUpdate);
+    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate,Map<id,account>accountOldMap ){
+        AccountHelperBase.updatePrimaryAddressdisplay(listNewAccounts,isUpdate,accountOldMap);
     } 
     
     public static void updateOnDoNotCall(list<Account> listNewAccounts){

@@ -39,7 +39,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
             AccountHelperBase.updatemarket(Trigger.New);
             if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                 AccountHelperMy.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-                AccountHelperMy.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
+                AccountHelperMy.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
                 
                 AccounthelperMy.updateOnDoNotCall(Trigger.new);
                 AccountHelperMy.updateOnPostalOptout(Trigger.new);
@@ -116,12 +116,12 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         
         if(isBefore && isUpdate){
             AccountHelperMY.updateAccountFieldsBeforeIntUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-            AccountHelperMY.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
-            AccountHelperMY.updateOnDoNotCall(Trigger.new);
-            AccountHelperMY.updateOnPostalOptout(Trigger.new);
-            AccountHelperMY.updateOnEmailOptout(Trigger.new);
+            AccountHelperMY.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
+           // AccountHelperMY.updateOnDoNotCall(Trigger.new);
+            //AccountHelperMY.updateOnPostalOptout(Trigger.new);
+           // AccountHelperMY.updateOnEmailOptout(Trigger.new);
             AccountHelperMY.updateAgeRange(Trigger.new);
-            AccountHelperMY.activeContracts(Trigger.new);
+         //   AccountHelperMY.activeContracts(Trigger.new);
             }
 			
 			/*	

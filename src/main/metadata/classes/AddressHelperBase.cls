@@ -17,12 +17,14 @@ public without sharing class AddressHelperBase {
         Set<Id> AccIdSet = new Set<Id>();
         map<Id,Account> updateAccntMap = new map<Id,Account>();
         list<Account> updateAccntList = new list<Account>();
+		List<Account> accList= new List<account>();
         for(Address__c addr : listNewAddress){
             if(addr.preferred__c)
-                AccIdSet.add(addr.Customer__c);
+                if(string.isnotblank(addr.Customer__c)) AccIdSet.add(addr.Customer__c);
+				if(string.isnotblank(addr.Customer__c)) acclist.add(new account(id=addr.Customer__c));
         } 
         if(AccIdSet!=null && !AccIdSet.isEmpty()){
-            List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet Limit 10];     
+           // List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet Limit 10];     
             if(accList!=null && !accList.isEmpty()){
                 for(Account acc : accList){  
                     for(Address__c addr : listNewAddress){
@@ -31,6 +33,8 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c = addr.Address_Line_1__c;
                             if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
                                 acc.Primary_Address__c +=' '+ addr.Address_Line_2__c;
+							 if(addr.Address_Line_3__c!=null && addr.Address_Line_3__c!='')  
+                                acc.Primary_Address__c +=' '+ addr.Address_Line_3__c;
                             if(addr.District__c!=null && addr.District__c!='')
                                 acc.Primary_Address__c +=' '+ addr.District__c;
                             if(addr.Province__c!=null && addr.Province__c!='')
@@ -39,6 +43,7 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c +=' '+ addr.Country__c;
                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
                                 acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
+								acc.Primary_Address_Display__c=acc.Primary_Address__c;							  
                             updateAccntMap.put(acc.Id, acc);
                         }
                     } 
@@ -95,22 +100,43 @@ public without sharing class AddressHelperBase {
     //@Description: update Primary_Address_Display__c field on account on update of address
     public static void updatePrimaryAddressOnAccount(map<ID,Address__c> newMap){
         set<id> accountId = new set<id>();  
-        list<Account> accountList = new list<Account>();
+        Map<id,Account> accountList = new Map<id,Account>();
+		Map<id,id> PreferredMap= new Map<id,id>();
         //get the related accountIds
         for(Address__c add:newMap.values()){
             accountId.add(add.Customer__c);
+			if(add.preferred__c) PreferredMap.put(add.customer__c,add.id);
         } 
-        for(Account acc:[select id,Primary_Address_Reference__c from Account where id IN:accountId]){
-            if((acc.Primary_Address_Reference__c!=null)&&(newMap.containsKey(acc.Primary_Address_Reference__c))){
+        for(Account acc:[select id,Primary_Address_Reference__c,Primary_Address_Display__c,Primary_Address__c from Account where id IN:accountId]){
+            if(((acc.Primary_Address_Reference__c!=null)&&(newMap.containsKey(acc.Primary_Address_Reference__c))) || PreferredMap.containsKey(acc.id)){
                 if(newMap.get(acc.Primary_Address_Reference__c).Customer__c==acc.id){
-                    Address__c add = newMap.get(acc.Primary_Address_Reference__c);
-                    acc.Primary_Address_Display__c=add.Province__c+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c;
-                    accountList.add(acc);
+                    Address__c addr = PreferredMap.containsKey(acc.id)?  newMap.get(PreferredMap.get(acc.id)):newMap.get(acc.Primary_Address_Reference__c);
+                    //acc.Primary_Address_Display__c=add.ZipCode__c+add.Province__c+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c+add.Address_Line_3__c;
+					//acc.Primary_Address__c=acc.Primary_Address_Display__c
+							if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
+                                acc.Primary_Address__c = addr.Address_Line_1__c;
+                            if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
+                                acc.Primary_Address__c +=' '+ addr.Address_Line_2__c;
+							if(addr.Address_Line_3__c!=null && addr.Address_Line_3__c!='')  
+                                acc.Primary_Address__c +=' '+ addr.Address_Line_3__c;
+                            if(addr.District__c!=null && addr.District__c!='')
+                                acc.Primary_Address__c +=' '+ addr.District__c;
+                            if(addr.Province__c!=null && addr.Province__c!='')
+                                acc.Primary_Address__c +=' '+ addr.Province__c;
+                            if(addr.Country__c!=null && addr.Country__c!='')
+                                acc.Primary_Address__c +=' '+ addr.Country__c;
+                            if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
+                                acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
+								acc.Primary_Address_Display__c=acc.Primary_Address__c;		
+							accountList.put(acc.id,acc);
                 }
             }
-        }
+			
+        } 
+		
+		
         if(!accountList.isEmpty()||accountList!=null){
-            DMLManagerService.updateAsSystem(accountList);  
+            DMLManagerService.updateAsSystem(accountList.values());  
             //update accountList; 
         }
     }
