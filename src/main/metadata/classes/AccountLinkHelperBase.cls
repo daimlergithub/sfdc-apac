@@ -269,7 +269,7 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
 					for (Account_Link__c accrec: acclinkr) {
 						   if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId)&&(string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false) && (string.isnotblank(accrec.Retail_DMS_Customer_ID__c)?MagicNumber.contains(accrec.Retail_DMS_Customer_ID__c)?false:true:true))
 							{
-							MagicNumber.add(accrec.Retail_DMS_Customer_ID__c);
+							if(string.isnotblank(accrec.Retail_DMS_Customer_ID__c)) MagicNumber.add(accrec.Retail_DMS_Customer_ID__c);
 							acclids.add(accrec.id);
 							}
 					}
