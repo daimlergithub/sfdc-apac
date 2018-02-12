@@ -11260,4 +11260,11 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>rug userName Extension</shortDescription>
         <value>@rugcollaboration.daimler.com</value>
     </labels>
+	<labels>
+		<fullName>HonoraryCommunityPermissionSet</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>HonoraryCommunityPermissionSet</shortDescription>
+		<value>Honorary_Member_PermissionSet</value>
+	</labels>
 </CustomLabels>
