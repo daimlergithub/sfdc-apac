@@ -89,10 +89,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBMY_Call_Center_Console</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>MBMY_Data_Management</application>
         <visible>false</visible>
     </applicationVisibilities>
