@@ -99,6 +99,10 @@
                 <behavior>Edit</behavior>
                 <field>Vehicle__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Copy__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>UsVIN__c</field>
@@ -157,6 +161,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle_Relationship__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_External_Link__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
