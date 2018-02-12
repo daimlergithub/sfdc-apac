@@ -20,6 +20,7 @@ public with sharing class VehicleEditExtension {
     public String compModel{get;set;}
     public PageReference nextPage;
     public static Id vehicleId;
+    public String marketcheck{get;set;}
     public String recrdType {get;set;} 
     private ApexPages.StandardController stdController;
     public String type {get;set;}
@@ -44,6 +45,7 @@ public with sharing class VehicleEditExtension {
            
             vehicle =[SELECT id,Market__c,Name,UsVIN__c,Brand__c,EuroVIN__c,Competitor_Brand__c,Competitor_Model__c,Model_Description__c,New_Used__c,Related_contact__c,Finance_Method__c,Related_From__c,Related_To__c,Portal_Vehicle_ID__c,InsuranceExpiryDate__c,MOT_Expired_Date__c,Vehicle_Role__c,FirstRegistrationDate__c,Transmission__c,RegistrationNo__c,System_Data_Source__c,VehicleStatus__c,ProductionDate__c,NextServiceDate__c,NextInspectionDate__c,recordtypeid,recordtype.name,Class__c,Model__c,Range__c,Modification_Package__c,Vehicle_Group__c,BaumusterEx__c,OptionCode__c,Colour__c,EngineNumber__c,Trim__c,CurrentMileage__c,CylinderCapacity__c,Fuel__c,Height__c,Length__c,Width__c,Weight__c,ModelYear__c,National_Model__c,VehicleAge__c,Product_Model__c,Category_Code__c FROM Vehicle__c Where id =:vehicleId limit 1];
             system.debug('vehicleeeeeeeeee'+vehicle);
+            marketcheck = vehicle.market__c;
             recrdType=vehicle.recordtype.name;
             if(recrdType == 'MB'){
             type='Own Sellable';
@@ -96,7 +98,7 @@ public with sharing class VehicleEditExtension {
         List<SelectOption> options = new List<SelectOption>();
         set<string> brandit=new set<string>();
         System.debug('^&^&^&^&^&^&^&'+type);
-         for (Car_Model__c m :[Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type])
+         for (Car_Model__c m :[Select toLabel(Brand__c),Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type])
          {
           
           brandit.add(m.Brand__c); 
@@ -123,7 +125,7 @@ public with sharing class VehicleEditExtension {
         if(brand!=null){
         
          options.add(new SelectOption('',''));
-         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Brand__c=:brand] )
+         for (Car_Model__c m : [Select toLabel(Brand__c),Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Brand__c=:brand] )
          {
           brandit.add(m.Series__c); 
          }
@@ -165,7 +167,7 @@ public with sharing class VehicleEditExtension {
           
            System.debug('**************'+type);
             System.debug('**************'+model);
-         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Name=:model] )
+         for (Car_Model__c m : [Select toLabel(Brand__c),Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Name=:model] )
          {
           system.debug('m'+m);
           if(m.Range__c!=null){

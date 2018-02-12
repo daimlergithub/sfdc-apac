@@ -34,7 +34,7 @@ public without sharing class StarRatingController {
         try{ 
             List<IdeasVoting__c> ideasVotingList=new list<IdeasVoting__c>();
             ideasVotingList = [select id,rating__c from IdeasVoting__c where Ideas__c=:fId and Likeuser__c=:userinfo.getUserId() limit 1];
-			if(ideasVotingList.size()>0){
+            if(ideasVotingList.size()>0){
                 numRating =Integer.valueOf(ideasVotingList[0].Rating__c);
             }
             else{
@@ -60,17 +60,18 @@ public without sharing class StarRatingController {
         if(groupedResults.size()>0 && integer.valueOf(groupedResults[0].get('score'))==null){
              return 0;
         }else if(groupedResults.size()>0){                           
-        	return integer.valueOf(groupedResults[0].get('score'));
+            return integer.valueOf(groupedResults[0].get('score'));
         }
         return 0;
     }
     @AuraEnabled
     public static boolean getRatingEnableValue(Id ideaID) { 
         boolean iconValue=true;
-        String honoraryPfid =[select Id,name from profile where name=:Label.Rug_CommunityuserProfile].id;          
-        if(honoraryPfid==userinfo.getProfileId() && honoraryPfid != null ){          
+        String honoraryPfid =[select Id,name from profile where name=:Label.Rug_CommunityuserProfile].id;  
+        list<PermissionSetAssignment> honoraryPset=[SELECT AssigneeId,PermissionSet.name FROM PermissionSetAssignment WHERE AssigneeId = :userinfo.getUserId() AND PermissionSet.name = :Label.HonoraryCommunityPermissionSet];           
+		if(honoraryPfid==userinfo.getProfileId() && honoraryPfid != null || honoraryPset.size()>0){          
             iconValue=false; 
-		}
+        }       
         return iconValue;
     }
 }
