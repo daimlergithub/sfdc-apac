@@ -53,6 +53,10 @@
                 <behavior>Edit</behavior>
                 <field>Qualified_Date_Time__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Campaign_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -99,6 +103,10 @@
                 <behavior>Edit</behavior>
                 <field>Purchased_CAC_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_Campaign__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -120,7 +128,7 @@
                 <behavior>Edit</behavior>
                 <field>Sales_Consultant__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Additional_Service__c</field>
             </layoutItems>
@@ -134,7 +142,7 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Lead_Status__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>
             </layoutItems>
@@ -334,7 +342,6 @@
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
