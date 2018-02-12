@@ -164,7 +164,7 @@
             </layoutItems>
 			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>Vehicle_External_Link__c</field>
+                <field>Vehicle_ExternalLink__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
