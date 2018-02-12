@@ -1924,6 +1924,7 @@ Modify Reason:
                 <fullName>Price List</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart manual</fullName>
@@ -1938,11 +1939,13 @@ Modify Reason:
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Journals and magazines</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Entrance Ticket</fullName>
@@ -1962,9 +1965,46 @@ Modify Reason:
                 <fullName>Others</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>Invitation Letter/Card</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>Souvenir/Gifts</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>Handbook</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Welcome Pack</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Voucher</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Loyalty card</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Random Act of Kindness</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+		
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
