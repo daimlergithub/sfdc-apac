@@ -22722,6 +22722,7 @@ alert('{!$Label.Send_to_spo_translate}');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/25.0/integration.js")} 
 
 if('{!User.Market__c}' != 'JP')
 {
