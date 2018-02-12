@@ -6,7 +6,7 @@ public class DMRequestHelperTHTest {
     private static DM_Request__c dmr;
     private static DM_Material__c Material;
     private static Address__c address1;
-    private static User usr;
+    private static User usr=TestUtils.createAdminUser();
     private static profile ProfileAdmin = [select Id from Profile where Name = 'System Administrator'];
     public static Map<Id, Address__c> newmap = new Map<Id, Address__c>();
     public static List<Address__c> addresslist = new List<Address__c>();
@@ -23,9 +23,9 @@ public class DMRequestHelperTHTest {
         cs.Name = 'CalloutValues';
         insert cs;
         Profile taskprofile = [select id from profile where Name = 'System Administrator' limit 1];
-        User user = new User(LastName = 'User', country = 'Australia', firstName = 'BCI', ProfileId = taskprofile.Id, Alias = 'Taskain1', EmailEncodingKey = 'UTF-8', TimeZoneSidKey = 'America/New_York', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US', Email = 'Ibtesamuddin_Mtest@infosys.com', UserName = 'sam@test.com.dev01' + String.valueof(DateTime.now().getTime()), Market__c = 'TH');
-        insert user;
-        System.runas(user) {
+        //User user = new User(LastName = 'User', country = 'Australia', firstName = 'BCI', ProfileId = taskprofile.Id, Alias = 'Taskain1', EmailEncodingKey = 'UTF-8', TimeZoneSidKey = 'America/New_York', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US', Email = 'Ibtesamuddin_Mtest@infosys.com', UserName = 'sam@test.com.dev01' + String.valueof(DateTime.now().getTime()), Market__c = 'TH');
+        //insert user;
+        System.runas(usr) {
             Profile profileCAC = [select Id from Profile where Name =: 'IntegrationAPI'];
             usr = new User();
             usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
@@ -90,6 +90,7 @@ public class DMRequestHelperTHTest {
     }
 
     public static testMethod void UpdateDMRequestTest() {
+     system.runAs(usr) {
         createTestData();
         createDMRequest();
         test.startTest();
@@ -98,6 +99,7 @@ public class DMRequestHelperTHTest {
         test.stopTest();
         dmr = [select District__c from DM_Request__c where id =: dmr.id];
         system.assertEquals(dmr.District__c, 'test');
+        }
     }
     public static testMethod void updateStatusTest(){
         createTestData();

@@ -8,8 +8,7 @@ public class RetailCampaignHelperTHTest {
     private static Contact contactObj;
     private static Trigger__c casetrigger;
     private static List<Retail_campaign__c> retcamplst=new List<Retail_campaign__c>();
-    private static User user1;
-    private static User user2;
+    private static User user1=TestUtils.createAdminUser();
     public static retail_Campaign__c retailcampaign;
     Private static String dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
     public Static boolean booleanCampaignUpdate=true;
@@ -18,81 +17,74 @@ public class RetailCampaignHelperTHTest {
     public static void createtestdata(){
       casetrigger=new Trigger__C(name='TriggerRetailCampaignTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='TriggerRetailCampaignHandlerTH',Trigger_Name__c='RetailCampaignTrigger',update__c=true);
       insert casetrigger;
-     Profile p1 = [select id from profile where Name='System Administrator' limit 1];
-     profile p2=[select id from profile where Name='Thailand Dealer Delegate Admin'];
-     user1 = new User(LastName='User',Market__c='TH',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
-     insert user1;
      dealer1 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='1235');
       insert dealer1;
         Contact dealerContact = new Contact(FirstName = 'Test',Md__c='TH', Lastname = 'Amit', AccountId = dealer1.Id, Email = 'test@test.com');
-        insert dealerContact;
-     user2 = new User(LastName='GEORGE',contactid=dealerContact.id,country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
-    insert user2;
-  
+        insert dealerContact;  
      dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', Md__c='TH',Individual_Home_Phone__c='+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='12345');
         insert dealer;
         retailcampaign=new Retail_Campaign__C(Dealer_Name__c=dealer1.id,name='test123',recordtypeid=planningRecordId,start_date__c=system.today()+1,close_Date__C=system.today()+4);
         insert retailcampaign;
     }
 static testMethod void updateRetailCampaignEmail() {
-    test.starttest();
-     createtestdata();
-    system.runAs(user2){
+     
+    system.runAs(user1){ test.starttest();
+        createtestdata();
         Retail_Campaign__C retailcampaign1=new Retail_Campaign__C(Dealer_Name__c=dealer1.id,name='test123',recordtypeid=planningRecordId,start_date__c=system.today()+1,close_Date__C=system.today()+3);
         insert retailcampaign1;
-    ret.name='test';
-    ret.Start_Date__c=system.today()+1;
-    ret.Close_Date__c=System.today()+1;
-    ret.Dealer_Name__c=null;
-    ret.recordtypeid=executionRecordId;
-        ret.Parent_Campaign1__c=retailcampaign1.id;
+      ret.name='test';
+      ret.Start_Date__c=system.today()+1;
+      ret.Close_Date__c=System.today()+2;
+      ret.Dealer_Name__c=null;
+      ret.recordtypeid=executionRecordId;
+      ret.Child_Campaign_Status__c='Planning';
+        insert ret;      
+         ret.Dealer_Name__c=dealer1.id;
         ret.Child_Campaign_Status__c='Planning';
-    insert ret;        
-       ret.Dealer_Name__c=dealer1.id;
         update ret;
-    test.stopTest();
+     test.stopTest();
 }
-        }
-
-           
+         }
+   
     static testMethod void revokeRetailCampaignAccess() {
-    test.starttest();
-        createtestdata();
-        system.runAs(user1){
+   
+       
+        system.runAs(user1){ 
+             test.starttest();
+            createtestdata();
         retailcampaign.Dealer_Name__c=null;            
     update retailcampaign;  
-    test.stopTest();
+   test.stopTest();
         }
         }
     static testMethod void DeletChildsandParents() {
-        test.starttest();
-        createtestdata();
         system.runAs(user1){
+            test.starttest();
+            createtestdata();
             Retail_campaign__c retcampchild=new Retail_Campaign__C(Dealer_Name__c=dealer.id,name='test123',recordtypeid=executionRecordId,start_date__c=system.today()+2,close_Date__C=system.today()+2,Parent_Campaign1__c=retailcampaign.id);
             insert retcampchild;
            delete retailcampaign;
-    test.stopTest();
+      test.stopTest();
    
     } 
     }
     
     static testMethod void parentCampaignStatusChange_Test()
     {
-        Test.startTest();
-        createtestdata();
        List<Group> groupLst=new List<Group>();
         groupLst.add(new Group(Name='1235'));
         insert groupLst;
-        System.runAs(user2)
-        {
+        System.runAs(user1)
+        { Test.startTest();
+            createtestdata();
             Retail_campaign__c retcampchild=new Retail_Campaign__C(name='test123',recordtypeid=executionRecordId,start_date__c=system.today()+2,close_Date__C=system.today()+2);
             insert retcampchild;
          List<Retail_campaign__c> lstRetailCampaign=new List<Retail_campaign__c>();
          lstRetailCampaign.add(retcampchild);
             
          RetailCampaignHelperTH.parentCampaingStatusChange(lstRetailCampaign, true);
-        
-        }
         test.stopTest();
+        }
+        
     }
 }
