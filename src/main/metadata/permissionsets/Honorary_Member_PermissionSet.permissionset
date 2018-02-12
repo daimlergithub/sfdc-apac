@@ -5,10 +5,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>BBQ</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>Call_Center_Console_Generic</application>
         <visible>false</visible>
     </applicationVisibilities>
