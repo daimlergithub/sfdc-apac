@@ -278,7 +278,7 @@
         <label>Lead Processing Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Accepted_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
@@ -297,7 +297,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Assigned_Date_Time__c</field>
             </layoutItems>
             <layoutItems>

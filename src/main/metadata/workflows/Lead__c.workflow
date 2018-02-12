@@ -1995,6 +1995,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <formula>AND( Assigned_Dealer__c &lt;&gt;null,MD__c='TH',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	<rules>
+        <fullName>Update Dealer Accepted datetime Generic</fullName>
+        <actions>
+            <name>update_dealer_assigned_date_time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(CAC_Lead_Status__c,"Accepted") ,MD__c='MY',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads'))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>MBTH_Update first contact customer datetime</fullName>
         <actions>

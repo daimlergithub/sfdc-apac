@@ -12,8 +12,11 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
             if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
                 if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                     acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.MY,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
-                    acchelper.afterInsertEventShareRetailCopy(Trigger.new);
-                    acchelper.afterInsertEventShareAccount(Trigger.new);
+                   
+				   if(Trigger.isInsert){
+						acchelper.afterInsertEventShareRetailCopy(Trigger.new);
+						acchelper.afterInsertEventShareAccount(Trigger.new);
+					}
 					
                 }
                 if (Trigger.isInsert  && !System.isFuture()) {
@@ -27,7 +30,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
                     acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext);                    
                 }
                 if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){ 
-                    acchelper.addressupdateRT(trigger.new, (Map < Id, Account_Link__c > ) trigger.oldMap);
+                   
                     acchelper.RevokeApexSharingAfterUpdate(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap, Trigger.Old);
                 }
             }
