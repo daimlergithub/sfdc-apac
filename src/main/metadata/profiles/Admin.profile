@@ -27672,6 +27672,11 @@
         <field>Vehicle__c.isTestRunning__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.MC_Connect_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.last_update_changed_by__c</field>

@@ -32,7 +32,9 @@ public class RetailCampaignHelperBase{
             else{
                 retcamprec.addError('The child Records are still running so you can not delete the Campaign');
             }
+			if (parentRecordsToDelete.size()>0){
             childstodelete.addall([select id from Retail_campaign__c where Parent_Campaign1__c IN:parentRecordsToDelete]);
+			}
             DMLManagerService.deleteAsUser(childstodelete);
         }
     }

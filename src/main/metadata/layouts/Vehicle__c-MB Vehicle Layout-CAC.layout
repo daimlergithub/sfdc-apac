@@ -103,6 +103,10 @@
                 <behavior>Edit</behavior>
                 <field>AMG__c</field>
             </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MC_Connect_Flag__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
