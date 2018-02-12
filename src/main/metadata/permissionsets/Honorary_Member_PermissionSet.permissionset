@@ -26783,11 +26783,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Vehicle__c.Cost_Centre_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Vehicle__c.Created_By_EP_Transaction__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -26929,11 +26924,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.Length__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Vehicle__c.ListPrice__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
