@@ -1,215 +1,48 @@
-/*
-    Type:      class
-    Purpose:   Test class for taskHelperTH
-    Create By: Bhushan
-    Created Date :2/4/2016
-*/
-
 @isTest
 public class TaskHelperTHTest {
-    public static Profile taskprofile;
-    public static User userTask;
-    private static Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
-    private static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();
-    private static Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
-    private static Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
-    private static Id templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-    public static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-    private static Account personAccount;
-    private static Account testPersonAccount;
-    private static Task taskObj;
-    public static Campaign cmpAs;
-    public static Case aCase;
-    public static string acme = 'Acme';
-    public static String Unknown = 'Unknown';
-    
-    @isTest
-    public static void testCopyCampaignName() {
-        User user1 = TestUtils.createAdminUser();
-        System.runas(user1){
-            createTestData();
-            //Gets Task record type ids
-            String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();           
-            Test.startTest();
-            //Inserts test data
-            Account acc = new Account(LastName = acme,FirstName = 'Firstname2',Salutation = Unknown, Area_Code__c = '0102',Phone = '0123456789', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau2.com',Email2__c = 'testemail2@test2.com',Home_Phone_2__c = '098765132');
-            insert acc;
-            Campaign cam1 = new Campaign(Name = 'acmeCam1');
-            insert cam1;
-            Campaign cam2 = new Campaign(Name = 'acmeCam2');
-            insert cam2;
-            Task task = new Task(Subject = acme,QC_Quantity__c=2,RecordTypeId = IBTaskRecordTypeId, WhatId = cam1.Id);
-            insert task;
-            List<Task> tasks = new List<Task>();
-            task.WhatId = cam2.Id;
-            update task;
-            Task taskcam2 = new Task(Subject = acme,QC_Quantity__c=2,RecordTypeId = OBTaskRecordTypeId, WhatId = cam2.Id);
-            insert taskcam2;
-            tasks.add(task);
-            tasks.add(taskcam2);
-            Map<Id, Task> TaskMap = new Map<Id, Task>(); 
-            TaskMap.put(task.id, task);
-            TaskMap.put(taskcam2.id, taskcam2);
-            Test.stopTest();
-            system.assertEquals(acc.LastName,acme);
-            system.assert(cam1.id!=null);
-        }
-    }
-        
-    static testmethod void testTaskFailBlacklistTrigger_Insert(){
-        User user1 = TestUtils.createAdminUser(); 
-        System.runas(user1){
-            createTestData();
-            taskObj=createTask('Open');
-            Test.startTest(); 
-            taskObj.recordtypeId = schema.SObjectType.task.getRecordTypeInfosByName().get('eDM').getRecordTypeId();                            
-            insert taskObj;
-            taskObj.WhatId = personAccount.id;
-            //changes ends
-            List<Task> tasks = new List<Task>();
-            tasks.add(taskObj);
-            Map<Id, Task> taskmap = new Map<Id, Task>();
-            taskmap.put(taskObj.id, taskObj);
-            TaskHelperTH.TaskFailBlacklist(tasks, taskMap, true, false);
-            TaskHelperTH.updateAccountMobile(tasks);
-            Test.stopTest();
-            list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:taskObj.WhoId limit 1];
-            system.assertEquals(false,lst[0].Is_Blacklist__c);
-        }    
-    }
-    
-    static testmethod void testTaskFailBlacklistTrigger_Update()
-    {
-      User user1 = TestUtils.createAdminUser();
-         
-        System.runas(user1){
-            createTestData();
-            
-            taskObj=createTask('Sent');
-            Test.startTest();                                    
-            insert taskObj;
-            Task taskObj2=createTask('Open');
-            insert taskObj2;
-            taskObj2.Activity_Status__c='Fail-Blacklist';
-            try{
-                update taskObj2;
-            }catch(Exception e){
-                system.assert(e.getmessage().contains('FIELD_CUSTOM'));
-            }
-            Test.stopTest();
-     }   
-    }
-    
-    
-   
-    
-    static testmethod void testcreateSMSTaskAfterIBCall()
-    { Test.startTest(); 
-      User user1 = TestUtils.createAdminUser();
-         
-        System.runas(user1){
-            createTestData();
-            
-            Template__c temp1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                                Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR');
-            insert temp1;
-            Template__c temp2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                                Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR Smart');
-            insert temp2;
-            Template__c temp3 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                                Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR MB');
-            insert temp3;
-            
-            
-            list<task> lstTask= new List<task>();
-            Task testSMSTask;
-            for(integer i=0;i<5;i++)
-            {
-                testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
-                                       WhoId=testPersonAccount.PersonContactId,
-                                       Activity_Status__c = 'Sent',SMSTemplateID__c=temp1.id
-                                      );
-                insert testSMSTask;                        
-            }
-            
-            lstTask.add(testSMSTask);
-            map<id,Task> mapTask = new map<id,Task>();
-            mapTask.put(testSMSTask.id, testSMSTask);
-            
-            TaskHelperTH.updateCampaignMemberStatus(lstTask,mapTask,false,true);
-            Test.stopTest();
-            system.assertNotEquals(null, lstTask);
-   } }
-    
-    
-        
-    static void createTestData()
-    {
-   
+   public static User user1 = TestUtils.createAdminUser();
+    public static ID personid=RecordTypeAccessService.getRecordTypeId('Account','Person Account');
+    public static id obcallid=RecordTypeAccessService.getRecordTypeId('Task','OB Call');
+    public static id edmid=RecordTypeAccessService.getRecordTypeId('Task','eDM');
+	public static List<account> acc=new List<Account>();
+    public static List<contact> con=new List<contact>();
+    public static List<Lead__C> ledlst=new List<Lead__C>();
+    public static List<dm_Request__C> dmlst=new List<Dm_request__c>();
+    public static List<Task> taskList=new List<Task>();
+    public static List<sobject> listofre=new List<Sobject>();
+    public static void createTestData(){
         List<Trigger__c> updatecustomsettings =  UtilCustomSettingTH.customSettingDetails();
         insert updatecustomsettings;
-        
-        personAccount = new Account(LastName='TEST ACC',
-                                    FirstName = 'FirstName',
-                                    Salutation = 'Unknown',
-                                    Type='Company',
-                                    Preferred_Phone__c='Mobile phone',
-                                    Mobile__c='+66585858589',
-                                    Status__c='VIP',
-                                    Province__c='Shanghai',
-                                    City__c='Baoshan district',
-                                    //   ZipCode__c='09152',
-                                    PersonMobilePhone = '1301111111',
-                                    PersonOtherPhone = '1301111122',
-                                    RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '0987655413'
-                                   ); 
-        personAccount.Is_Blacklist__c = false;
-        CDM_EP_Switch__c csm= new CDM_EP_Switch__c();
-        csm.Name='Switch';
-        csm.EP__c=true;
-        csm.CDM__c=true;
-        insert csm;
-        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
-        cs.DEFAULT_CALLOUT_TIME__c='1000';
-        cs.MAX_CALLOUT_TIME__c='5000';
-        cs.Name='CalloutValues';
-        insert cs;
-        SystemSettingsDFW__c ss=new SystemSettingsDFW__c();
-        ss.Log_Purge__c=10;
-        insert ss;
-        
-        insert(personAccount);    
-        testPersonAccount = [Select Id,RecordTypeId, PersonContactId From Account Where Id = :personAccount.Id]; 
-        cmpAs = new Campaign();
-        cmpAs.RecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
-        cmpAs.IsActive = true;
-        cmpAs.Name = 'cmpAs';
-        cmpAs.Status = 'Started'; 
-        cmpAs.StartDate = System.today();
-        cmpAs.EndDate = System.today();
-        
-        insert cmpAs;
-        
-        aCase = new Case(
-            Subject = 'XX',
-            AccountId = personAccount.Id,
-            Case_Class__c = 'Pre-Sales',
-            Car_Type__c = 'Dealer contact method',
-            Case_SubType__c = 'Dealership Contacts',
-            
-            Status = 'Open'
-        );
-        insert aCase;
-        
-    }    
-    static Task createTask(String activityStatus)
-    {
-   
-      Task testSMSTask = new Task(Subject='SMS TEST',
-                                    WhoId=testPersonAccount.PersonContactId,
-                                    Activity_Status__c=activityStatus ,
-                                  whatid=cmpAs.id
-                                    );
-       return testSMSTask;                             
-   }
+        con.add(new contact(firstname='dhanamjaya',lastname='damaragunta'));
+        insert con;
+        acc.add(new Account(RecordTypeId=personid,firstname='dhanamjaya',email__c='dhdjfd@gmail.com',primary_phone__c='Mobile',lastname='damaragunta',mobile__c='989898989'));
+        acc.add(new Account(RecordTypeId=personid,firstname='dhanamjaya',email__c='dhdjfd@gmail.com',primary_phone__c='Home phone',lastname='damaragunta',individual_Home_Phone__c='98988989'));
+		acc.add(new Account(RecordTypeId=personid,firstname='dhanamjaya',email__c='dhdjfd@gmail.com',primary_phone__c='Work Phone',lastname='damaragunta',Work_Phone__c='98988989'));
+        insert acc;
+        for(Account ac:acc){
+        listofre.add(new Lead__C(Contact__c=ac.id));
+        listofre.add(new DM_request__c(Customer_Name__c=ac.id));
+        taskList.add(new Task(whoid=ac.PersonContactId,RecordTypeId=obcallid,Activity_Status__c='busy'));
+        taskList.add(new Task(whoid=ac.PersonContactId,RecordTypeId=edmid,Activity_Status__c='busy'));
+        taskList.add(new Task(whoid=con[0].id,RecordTypeId=edmid,Activity_Status__c='busy'));
+        }insert listofre;
+        for(sobject s:listofre){
+            taskList.add(new Task(whatid=s.id,RecordTypeId=obcallid,Activity_Status__c='busy'));
+            taskList.add(new Task(whatid=s.id,RecordTypeId=edmid,Activity_Status__c='busy')); 
+            taskList.add(new Task(whatid=s.id,RecordTypeId=obcallid,Activity_Status__c='busy'));
+            taskList.add(new Task(whatid=s.id,RecordTypeId=edmid,Activity_Status__c='busy'));          
+        }
+        insert tasklist;
+    }
+    @isTest
+    public static void updateAccountMobiletest(){
+        system.runAs(user1){
+            Test.startTest();
+            createTestData();
+            for(Task t:taskList)
+                t.activity_Status__C='rejected';     
+            update taskList;
+            Test.stopTest();
+        }     
+    }
 }
