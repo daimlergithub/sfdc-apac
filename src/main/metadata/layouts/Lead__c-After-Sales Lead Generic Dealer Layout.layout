@@ -62,10 +62,9 @@
                 <behavior>Edit</behavior>
                 <field>Lost_Situation__c</field>
             </layoutItems>
-           
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
@@ -93,7 +92,14 @@
                 <behavior>Edit</behavior>
                 <field>Lost_To__c</field>
             </layoutItems>
-           
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_Campaign__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Campaign_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -111,7 +117,7 @@
                 <behavior>Edit</behavior>
                 <field>Customer_Preferred_Rep__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Comments__c</field>
             </layoutItems>
@@ -121,7 +127,7 @@
                 <behavior>Edit</behavior>
                 <field>Assigned_Dealer_by_Rule__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_Additional_Service__c</field>
             </layoutItems>
@@ -427,7 +433,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ServiceProgram_Proposal_Date__c</field>
-            </layoutItems>			
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Test_Drive_Date__c</field>
@@ -443,8 +449,6 @@
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-    
-   
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -455,15 +459,15 @@
                 <behavior>Readonly</behavior>
                 <field>Accepted_Date_Time__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Order_Placed_Date_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Purchased_Date_Time__c</field>
-            </layoutItems>			
-         </layoutColumns>
+            </layoutItems>
+        </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -480,7 +484,7 @@
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-	 <layoutSections>
+    <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
