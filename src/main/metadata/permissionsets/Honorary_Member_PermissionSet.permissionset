@@ -28645,10 +28645,6 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Duplicate_Merge_Info__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>EP_Export_Notification__c</tab>
         <visibility>None</visibility>
     </tabSettings>
