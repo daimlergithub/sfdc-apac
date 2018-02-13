@@ -258,7 +258,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
     }
     public static Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     // Get all the Dealer Account with Same GC Code -
-    private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
+   @TestVisible  private static Map<Id, Set<Id>> getAllDealerAccountWithSameGCCode(Set<Id> dealerAccountIdSet) {
         
         List<Account> dealerAccList = [select Id, Dealer_GC_Code__c from Account where Id =: dealerAccountIdSet AND RecordTypeId =: Dealer_RecordTypeId ];
         Map<String, Id> gcCodeToDealerAccIdMap = new Map<String, Id>();
@@ -283,7 +283,7 @@ public static void afterInsertEvent(List<DM_Request__c> newList){
     }
     
     
-    private static List<DM_Request__Share> createDealerAccountSharing(Map<Id, List<Id>> mapDmrequest){
+   @TestVisible  private static List<DM_Request__Share> createDealerAccountSharing(Map<Id, List<Id>> mapDmrequest){
     // START: Adding Similar GC Code related Account To Map which is sharing already.
         Set<Id> dealerAccIdSet = new Set<Id>();
         for(Id dealerAccId : mapDmrequest.keySet()) {
