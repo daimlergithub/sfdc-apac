@@ -19,12 +19,13 @@ public without sharing class AddressHelperBase {
         list<Account> updateAccntList = new list<Account>();
 		List<Account> accList= new List<account>();
         for(Address__c addr : listNewAddress){
-            if(addr.preferred__c)
+            if(addr.preferred__c){
                 if(string.isnotblank(addr.Customer__c)) AccIdSet.add(addr.Customer__c);
 				if(string.isnotblank(addr.Customer__c)) acclist.add(new account(id=addr.Customer__c));
+				}
         } 
         if(AccIdSet!=null && !AccIdSet.isEmpty()){
-           // List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet Limit 10];     
+           // List<Account> accList = [select id,Primary_Address__c,Primary_Address_Reference__c from Account where id in : AccIdSet Limit 10];     
             if(accList!=null && !accList.isEmpty()){
                 for(Account acc : accList){  
                     for(Address__c addr : listNewAddress){
@@ -43,7 +44,8 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c +=' '+ addr.Country__c;
                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
                                 acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
-								acc.Primary_Address_Display__c=acc.Primary_Address__c;							  
+								acc.Primary_Address_Display__c=acc.Primary_Address__c;	
+								acc.Primary_Address_Reference__c= addr.id;
                             updateAccntMap.put(acc.Id, acc);
                         }
                     } 
@@ -127,7 +129,8 @@ public without sharing class AddressHelperBase {
                                 acc.Primary_Address__c +=' '+ addr.Country__c;
                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
                                 acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
-								acc.Primary_Address_Display__c=acc.Primary_Address__c;		
+								acc.Primary_Address_Display__c=acc.Primary_Address__c;	
+								acc.Primary_Address_Reference__c=addr.id;
 							accountList.put(acc.id,acc);
                 }
             }

@@ -166,7 +166,7 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
             
             for(Account_Link__c al: alinks)
             {
-                if((al.Retail_Address_Reference__c != oldals.get(al.Id).Retail_Address_Reference__c && al.Retail_Address_Reference__c!= null  && addMap.containskey(al.Retail_Address_Reference__c )) || ((!TriggerRecursiveCheck.ALAddressCheck) && addMap.containskey(al.Retail_Address_Reference__c )))
+                if((al.Retail_Address_Reference__c != oldals.get(al.Id).Retail_Address_Reference__c && al.Retail_Address_Reference__c!= null  && addMap.containskey(al.Retail_Address_Reference__c )))
                 {
                   /*  Account_Link__c alclone = new Account_Link__c(id=al.id);
                     alclone.Retail_Province__c = addMap.get(al.Retail_Address_Reference__c).Province__c;
