@@ -57,6 +57,8 @@ PermissionSetAssignment psa = new PermissionSetAssignment();
     insert psa;       
    }
     user1 = UtilTestData.createPersornaUser(ps, p1);
+    user1.market__c='MY';
+    insert user1;
        System.runAs (user1) {  
         account= new Account();
         account.Phone='09844650654';
