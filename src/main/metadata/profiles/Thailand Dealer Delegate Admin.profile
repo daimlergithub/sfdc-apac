@@ -10762,7 +10762,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Complaint_Creator_Department__c</field>
         <readable>true</readable>
     </fieldPermissions>
