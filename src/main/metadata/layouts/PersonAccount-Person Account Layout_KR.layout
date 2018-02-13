@@ -7,6 +7,7 @@
     <customButtons>New_MB_Complaint</customButtons>
     <customButtons>Merge</customButtons>
     <customButtons>View_Retail_Copies</customButtons>
+	<customButtons>Recall_Check</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
