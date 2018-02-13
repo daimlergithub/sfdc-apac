@@ -32217,10 +32217,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Duplicate_Merge_Info__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>EP_Export_Notification__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
