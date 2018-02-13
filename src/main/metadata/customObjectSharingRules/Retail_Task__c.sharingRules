@@ -128,6 +128,20 @@
         <description>Share Contract Read/Write with CAC users</description>
         <name>Share Read/Write with CAC users</name>
     </criteriaBasedRules>
+	    <criteriaBasedRules>
+        <fullName>Share_Retail_Task_c_to_Tracking_User_MBJ</fullName>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Retail_Task__c to Tracking User-MBJ</description>
+        <name>Share Retail_Task__c to Tracking User-MBJ</name>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_readonly_retail_task_to_CAC</fullName>
         <sharedTo>
