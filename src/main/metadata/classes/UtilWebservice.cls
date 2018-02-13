@@ -84,6 +84,47 @@ webservice static void LeadIfnoSendToAL(String LeadId,String DealerID,String Acc
       System.debug('%^%%^%^%^% response'+response); 
        return src;
     }
+	//Recall Check SFDCKR-1719
+    webservice static string RecallNotify(String DealerID,String VehicleId)
+    {  
+    User  Usr = [SELECT Market__c, Id,profile.name,Alias FROM User WHERE Id = : UserInfo.getUserId()];
+        String Usecase; 
+    crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort sendport=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationPort();
+    crmasiaDaimlerApacComSfdcnotificatio.SARIRecallNotificationRequestMessageType  request=new crmasiaDaimlerApacComSfdcnotificatio.SARIRecallNotificationRequestMessageType ();
+     crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
+    
+      String OrganizationId = UserInfo.getOrganizationId();
+         String MarketDiscriminator= Usr.Market__c;
+        if(usr.profile.name=='IntegrationAPI' && usr.Alias=='iinf' ){
+            List<Account> dealracc=[select id,md__c from Account where id=:DealerID];
+            if(!dealracc.isEmpty())
+                MarketDiscriminator=dealracc[0].md__c;
+        }
+          String src;
+          try
+          {
+      src=sendport.SARIRecallNotification(OrganizationId,MarketDiscriminator,Usecase,VehicleId,DealerId);
+      }
+      
+      
+       Catch(Exception e)
+           {
+          
+           String erre=e.getmessage();
+            String[] errMessage = erre.split('webservice.WebServiceFault');          
+            String errMessaget = errMessage[0];
+            String errMessageText = errMessage[1];
+               
+               src=errMessageText;   
+          
+          }
+          
+      System.debug('%^%%^%^%^% response'+response); 
+       return src;
+    }
+    
+    
+    //End of Recall
    /* Public static crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType AccountIfnoSendToJPOS(String CustomerID,String AddressId,String DealerID)
     {  
     User  Usr = [SELECT Market__c, Id FROM User WHERE Id = : UserInfo.getUserId()]; 
