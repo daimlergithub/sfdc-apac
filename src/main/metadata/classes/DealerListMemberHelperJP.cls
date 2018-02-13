@@ -9,9 +9,12 @@ public class DealerListMemberHelperJP
         Map<string,list<string>> dealeraccntMap = new Map<string,list<string>>();
         List<Group>groupList = new List<Group>();
         Map<string,id>assigngroupMap = new Map<string,id>();
-        for(Dealer_List_Member__c dl:newList)
+        if(newList !=null)
+        {
+         for(Dealer_List_Member__c dl:newList)
         {
             recordIds.add(dl.id);  
+        }
         }
         if(recordIds != null){
              newDLMList = [Select id,name,Participating_Dealer__c,Participating_Dealer__r.Dealer__r.name,Participating_Dealer__r.Dealer__r.Dealer_GC_Code__c  from Dealer_List_Member__c where ID IN:recordIds]; 
