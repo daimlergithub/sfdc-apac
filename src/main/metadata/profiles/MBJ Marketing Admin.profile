@@ -3324,10 +3324,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>caseHelperTHTest99</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>caseShareBatch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
