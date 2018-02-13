@@ -285,7 +285,7 @@ public class CaseHelperTH {
             }
         }
     }
-    public void updatedeadine(
+    /*public void updatedeadine(
     case Caserec, Integer hours) {
         Integer daystoadd = 0;
         DateTime dt = System.now();
@@ -308,7 +308,7 @@ public class CaseHelperTH {
         if (caserec.deadline__c == null) {
             caserec.deadline__c = System.now() + daystoadd;
         }
-    }
+    }*/
 
     //Update Case Creator field with the CreatedBy value
     public void updateCaseCreator(List < Case > lst_Cases) {
@@ -544,7 +544,7 @@ public class CaseHelperTH {
                     mails.add(EmailMessage.createSingleEmailMessage(caseObj.OwnerId, templateId, caseObj.Id));
                 }
             }
-            if (mails != null && mails.size() > 0)
+            if (mails != null && mails.size() > 0 && !test.isRunningTest())
                 Messaging.sendEmail(mails);
         }
     }
