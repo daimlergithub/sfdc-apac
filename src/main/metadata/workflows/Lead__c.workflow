@@ -1583,11 +1583,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>(1 OR 2) AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1612,11 +1617,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND (2 OR 6) AND (5 OR 3)) OR (1 AND 4 AND 3)</booleanFilter>
+        <booleanFilter>((1 or 2) AND (3 OR 7) AND (6 OR 4)) OR (2 AND 5 AND 4)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1656,11 +1666,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>1 AND 3 AND (2 OR 4)</booleanFilter>
+        <booleanFilter>(1 or 2)  AND 4 AND (3 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1690,11 +1705,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND (2 OR 5) AND (3 OR 4)</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 6) AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1729,11 +1749,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 3 AND (2 OR 4)</booleanFilter>
+        <booleanFilter>(1 OR 2) AND 4 AND (3 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1764,11 +1789,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND ( 3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>(1 or 2) AND 3 AND ( 4 OR 5 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1836,6 +1866,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
+		 <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
@@ -1845,6 +1876,11 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1860,11 +1896,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 4) AND 5</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1953,11 +1994,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 4) AND 5</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1984,11 +2030,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 4 OR 5) AND 6</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -2039,7 +2090,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>(1 OR 2) AND 3 AND (4 OR 5)</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 4) AND (5 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -2051,6 +2102,11 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <value>Sales Leads</value>
         </criteriaItems>
         <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+		<criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
