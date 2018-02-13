@@ -18,6 +18,20 @@
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>CAC Complaint share to Hanxue</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Share_Case_to_Tracking_User_MBJ</fullName>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Share Case to Tracking User - MBJ</description>
+        <name>Share Case to Tracking User - MBJ</name>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>CAC_Inquiry_share_to_Hanxue</fullName>
         <sharedTo>
