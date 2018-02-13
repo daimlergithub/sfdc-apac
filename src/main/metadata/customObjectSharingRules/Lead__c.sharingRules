@@ -101,6 +101,20 @@
         <description>sharing all the Thailand Leads records to all the Thailand Users with read and edit access</description>
         <name>TH_Sharing Leads to All other TH users</name>
     </criteriaBasedRules>
+	 <criteriaBasedRules>
+        <fullName>Share_Leads_c_to_Tracking_User_MBJ</fullName>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Leads__c to Tracking User-MBJ</description>
+        <name>Share Leads__c to Tracking User-MBJ</name>
+    </criteriaBasedRules>
 	<criteriaBasedRules>
         <fullName>MY_Sharing_Leads_to_All_other_MY_users</fullName>
         <sharedTo>
