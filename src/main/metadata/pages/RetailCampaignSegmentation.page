@@ -71,7 +71,9 @@
               document.getElementById('retail1').value='Retail_Postal_OptOut__c';
                 document.getElementById('crie').value=false;
                 document.getElementById('vrfiletr').value='End_Date__c'; 
+                
                 showCriteria(document.getElementById('vrfiletr'));
+                document.getElementById('VrTableDateInput1').value='null'; 
                 document.getElementById('vrcfilter').value='Service_Dealer__c';
                 document.getElementById('selectop').value='Equals';
                 document.getElementById('vrif').value='{!accnames}';
@@ -96,6 +98,7 @@
         {
               document.getElementById('retail1').value='Selling_Dealer__c';
                showCriteria(document.getElementById('retail1'));
+               addEmptyFilterItem('AccountRetailCopyTable', 'AND', false);
                document.getElementById('selectoptionretailcopy').value='Equals';
                 document.getElementById('crie').value='{!accnames}'; 
                 document.getElementById('vrfiletr').value='End_Date__c'; 
@@ -739,11 +742,12 @@
                             <td>
                                 <select onchange="showCriteria(this);" id="retail1"> 
                                     <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
+                                    <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
                                     <option value="Retail_Sales_Consultant__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}</option>
                                     <option value="Selling_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}</option>
                                     <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
                                     <option value="Retail_Sales_Sanction__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Sanction__c.Label}</option>
-                                    <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
+                                    
                                     <option value="Retail_Phone_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Phone_OptOut__c.Label}</option>
                                     <option value="Retail_Fax_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Fax_OptOut__c.Label}</option>
                                     <option value="Retail_Email_OptOut__c">{!$Label.Retail_Email_OptOut}</option>
@@ -1105,12 +1109,13 @@
                             <td>{!$ObjectType.Retail_Task__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);" id="contractrel"> 
+                                <option value="EndDate__c">{!$ObjectType.Retail_Task__c.Fields.EndDate__c.Label}</option> 
                                     <option value="Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Product_Name__c.Label}</option>
                                     <option value="Type__c">{!$ObjectType.Retail_Task__c.Fields.Type__c.Label}</option>                                    
                                     <option value="Finance_Product_Name__c">{!$ObjectType.Retail_Task__c.Fields.Finance_Product_Name__c.Label}</option>                                  
                                       <option value="Duration__c">{!$ObjectType.Retail_Task__c.Fields.Duration__c.Label}</option>
                                       <option value="Status__c">{!$ObjectType.Retail_Task__c.Fields.Status__c.Label}</option> 
-                                      <option value="EndDate__c">{!$ObjectType.Retail_Task__c.Fields.EndDate__c.Label}</option>                               
+                                                                    
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -1386,4 +1391,4 @@
             </apex:outputPanel>
         </apex:pageBlock>
     </apex:form>
-</apex:page>                                     
+</apex:page>
