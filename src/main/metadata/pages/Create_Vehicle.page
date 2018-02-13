@@ -460,7 +460,7 @@
                                              </table>
                                             </div>
                                   </apex:pageBlockSectionItem>
-                                   <apex:pageBlockSectionItem rendered="{!marketcheck !='JP'}">
+                                   <apex:pageBlockSectionItem >
                                          <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Range__c.Label}" />
                                          <select id="rangeItems1" style="width:174px" ng-blur="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-change="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-model="selectedRange" ng-options="range for range in ranges track by range"/>                          
                                    </apex:pageBlockSectionItem>      

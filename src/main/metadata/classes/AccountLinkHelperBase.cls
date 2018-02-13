@@ -15,7 +15,7 @@ Public class AccountLinkHelperBase{
     public static Id C2C_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Contact2Contact');
     public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
-	public static Id accRetailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
+    public static Id accRetailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Person');
     public static Id accRetailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c','Retail Company');
 
 /**
@@ -80,10 +80,11 @@ Public class AccountLinkHelperBase{
         for(Account_link__c acclinkrec:Acclink){
             if(acclinkrec.fromRole__r.Dealer_GC_Code__c !=null){
                 AcclinkMap.put(acclinkrec,acclinkrec.fromRole__r.Dealer_nd_Code__c);
-                system.debug('%%%'+acclinkmap);
+                
             }
             
         }
+        if(AcclinkMap.size()>0){
         for(Group groupRec : [select Id, Name, Type from Group where Name IN: AcclinkMap.values()]){
             for(Account_link__c alk:Acclink){
                 if(alk.Retail_Delete_Flag__c==false){
@@ -95,7 +96,7 @@ Public class AccountLinkHelperBase{
                     accshare.add(alshare);        
                 }
             }
-            
+         }    
         }
         if(accshare.size()>0){
             Database.insert(accshare, false);
@@ -138,21 +139,36 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
         {
             List<Account_Link__c> accupdatelst = new List<Account_Link__c>();
             Set<Id>addid= new Set<Id>();
+            set<id>AccID= new set<id>();
+            Map<id,id> accALMap = new map<id,id>();
             for(Account_Link__c al: alinks)
             {
-                if(al.Retail_Address_Reference__c != oldals.get(al.Id).Retail_Address_Reference__c && al.Retail_Address_Reference__c!= null)
+                if( (al.Retail_Address_Reference__c != oldals.get(al.Id).Retail_Address_Reference__c && al.Retail_Address_Reference__c!= null))
                 {
                     addid.add(al.Retail_Address_Reference__c);
                 }
+                if((!TriggerRecursiveCheck.ALAddressCheck)  && (al.recordTypeID==accRetailPerson_RecordTypeId || al.recordTypeID==accRetailCompany_RecordTypeId)){
+                    if(string.isnotblank(al.torole__c)){ AccID.add(al.torole__c);
+                    accALMap.put(al.id,al.torole__c);
+                    }
+                }
             }
+            if(AccID.size()>0){
+                for(account a:[select id, Primary_Address_Reference__c from account where id in :AccID]){
+                    if(string.isnotblank(a.Primary_Address_Reference__c)) addid.add(a.Primary_Address_Reference__c);
+                }           
+            }
+            
+            if(addid.size()>0){
+            
             Map<id,Address__c> addMap =new Map<id,Address__c>([select id,name,createddate, LastModifiedDate, Customer__c,Address_Code__c,Address_Last_Modified_Date__c,Address_Line_1__c,Address_Line_1_Native__c,Address_Line_2__c,Address_Line_2_Native__c,Address_Line_3__c,Address_Type__c,Address_Type_Last_Modified_Date__c,Block__c,Block_Native__c,City__c,City_Native__c,Company_Name__c,Company_Name_Native__c,Country__c,Created_By_EP_Transaction__c,Delivery_Point_ID__c,Foreign_Nationals__c,FS_Hardcopy_Last_Modified_By__c,FS_Hardcopy_Last_Modified_Date__c,FS_Opt_In_Hardcopy__c,HouseNumber__c,isTestRunning__c,Language__c,Hardcopy_Last_Modified_By__c,Hardcopy_Last_Modified_Date__c,Market__c,MD__c,Opt_In_Hardcopy__c,ZipCode__c,Province__c,Province_Native__c,Preferred__c,Source_System__c,Status__c,Sub_District__c,TitleOfHonor__c,To_Be_Deleted__c,District__c,District_Native__c,Temp_Address__c,Temp_ZipCode__c,Updated_By_EP_Transactions__c from Address__c where id in : addid]);
             
             
             for(Account_Link__c al: alinks)
             {
-                if(al.Retail_Address_Reference__c != oldals.get(al.Id).Retail_Address_Reference__c && al.Retail_Address_Reference__c!= null  && addMap.containskey(al.Retail_Address_Reference__c))
+                if((al.Retail_Address_Reference__c != oldals.get(al.Id).Retail_Address_Reference__c && al.Retail_Address_Reference__c!= null  && addMap.containskey(al.Retail_Address_Reference__c )) || ((!TriggerRecursiveCheck.ALAddressCheck) && addMap.containskey(al.Retail_Address_Reference__c )))
                 {
-                    Account_Link__c alclone = new Account_Link__c(id=al.id);
+                  /*  Account_Link__c alclone = new Account_Link__c(id=al.id);
                     alclone.Retail_Province__c = addMap.get(al.Retail_Address_Reference__c).Province__c;
                     alclone.Retail_City__c = addMap.get(al.Retail_Address_Reference__c).District__c;
                     //alclone.Retail_Distinct__c = addMap.get(al.Retail_Address_Reference__c).District__c;
@@ -164,16 +180,27 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                     alclone.Retail_Address_CreatedDate__c = date.newinstance(addMap.get(al.Retail_Address_Reference__c).CreatedDate.year(), addMap.get(al.Retail_Address_Reference__c).CreatedDate.month(), addMap.get(al.Retail_Address_Reference__c).CreatedDate.day());
                     alclone.Retail_Address_LastModifiedDate__c = date.newinstance(addMap.get(al.Retail_Address_Reference__c).LastModifiedDate.year(), addMap.get(al.Retail_Address_Reference__c).LastModifiedDate.month(), addMap.get(al.Retail_Address_Reference__c).LastModifiedDate.day());
                     accupdatelst.add(alclone);
+                    */
+                     al.Retail_Address_Type__c = addMap.get(al.Retail_Address_Reference__c).Address_Type__c;
+                    al.Retail_Province__c =(addMap.get(al.Retail_Address_Reference__c).Province__c !=null ?(addMap.get(al.Retail_Address_Reference__c).Province__c): '') ;
+                    al.Retail_City__c = (addMap.get(al.Retail_Address_Reference__c).District__c != null ? addMap.get(al.Retail_Address_Reference__c).District__c:'').left(35);
+                    al.Retail_Distinct__c = ((addMap.get(al.Retail_Address_Reference__c).District__c!=null ? addMap.get(al.Retail_Address_Reference__c).District__c : '')+' '+(addMap.get(al.Retail_Address_Reference__c).Block__c!= null ?addMap.get(al.Retail_Address_Reference__c).Block__c : '')).left(35);
+                    al.Retail_Address_Line_1__c = ((addMap.get(al.Retail_Address_Reference__c).Address_Line_1__c)!=null?addMap.get(al.Retail_Address_Reference__c).Address_Line_1__c:'').left(35);
+                    al.Retail_Address_Line_2__c = ((addMap.get(al.Retail_Address_Reference__c).Address_Line_2__c)!=null?addMap.get(al.Retail_Address_Reference__c).Address_Line_2__c:'').left(35);
+                    al.Retail_Address_Line_3__c = ((addMap.get(al.Retail_Address_Reference__c).Address_Line_3__c)!=null?addMap.get(al.Retail_Address_Reference__c).Address_Line_3__c:'').left(35);
+                    al.Retail_ZipCode__c = (addMap.get(al.Retail_Address_Reference__c).ZipCode__c!=null ? addMap.get(al.Retail_Address_Reference__c).ZipCode__c : '' );
+                    al.Retail_Address_CreatedDate__c = Date.ValueOf(addMap.get(al.Retail_Address_Reference__c).CreatedDate);
+                    al.Retail_Address_LastModifiedDate__c = Date.ValueOf(addMap.get(al.Retail_Address_Reference__c).LastModifiedDate);
                 }
             }
-			try{
-				if(accupdatelst.size() > 0)
-				update accupdatelst;
-		   }
-		   catch(Exception e){
-		   }
+        }
+            
             
         } 
+        
+
+        
+        
  /*public  void afterInsertEventShareIndividualCustomerExternalLink(List<Account_link__C> acclinklist){
      List<Account_link__C> acclink=[select id,toRole__c,fromRole__c,fromRole__r.Dealer_ND_Code__c  from Account_link__c  where toRole__c!=null or fromrole__c!=null];
      
@@ -189,25 +216,26 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
          List<AccountShare> accsharedelete=new List<AccountShare>();
          set<String> gname=new Set<String>();
          for(Account_Link__c acl:Oldrec){
-                 if(((Account_Link__C)Trigger.newMap.get(acl.id)).fromRole__c!=((Account_Link__C)Trigger.OldMap.get(acl.id)).fromRole__c){
+                 if(((Account_Link__C)Trigger.newMap.get(acl.id)).fromRole__c!=((Account_Link__C)Trigger.OldMap.get(acl.id)).fromRole__c &&(acl.recordtypeid==AccountLink_RetailPersonRecordTypeId||acl.recordtypeid==AccountLink_RetailCompanyRecordTypeId) ){
                      deleteSharingRec.add(acl.fromrole__C);
                      recordstoDelete.add(acl.id);
                  }             
             }
-        for(Account acc:[select id,Dealer_ND_Code__c from Account where id IN:deleteSharingRec]){
-            gname.add(acc.Dealer_ND_Code__C);
-            
-        }
         if(deleteSharingRec.size()>0){
-            List<Group> groupList = [select Id, Name, Type from Group where Name IN: gname];
-            delAlk= [SELECT Id, ParentId FROM Account_Link__Share WHERE ParentId IN: recordstoDelete AND UserOrGroupId IN :groupList];
+            for(Account acc:[select id,Dealer_ND_Code__c from Account where id IN:deleteSharingRec]){
+                if(string.isnotblank(acc.Dealer_ND_Code__c)) gname.add(acc.Dealer_ND_Code__C);
+                
+            }
+       
+            //  List<Group> groupList = [select Id, Name, Type from Group where Name IN: gname];
+          if(gname.size()>0)  delAlk= [SELECT Id, ParentId FROM Account_Link__Share WHERE ParentId IN: recordstoDelete AND UserOrGroupId IN :gname];
          }
          if(delAlk.size()>0){
              Database.delete(delAlk, false);
          }
          
          for(Account_Link__c alk:newacclinkmap){
-             if(alk.Retail_Dealer_CompanyCode__c==null &&(alk.recordtypeid==AccountLink_RetailPersonRecordTypeId||alk.recordtypeid==AccountLink_RetailCompanyRecordTypeId) ){
+             if(alk.Retail_Dealer_CompanyCode__c==null &&(alk.recordtypeid==AccountLink_RetailPersonRecordTypeId||alk.recordtypeid==AccountLink_RetailCompanyRecordTypeId)){
                  acclink.add(alk);
                  accountIds.add(alk.torole__c);
              }
@@ -223,27 +251,43 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
          }
        
      }
-	 public static void CDMAccountlinkContaxt(List<Account_Link__c> allist,string market,string Context){
-					Set < ID > acclids = new Set < ID > ();
-					List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c,fromRole__r.Dealer_Rollout_Status__c,recordTypeID from Account_Link__c where id IN: allist];
-					    for (Account_Link__c accrec: acclinkr) {
-						if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId) && (string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false))
-							acclids.add(accrec.id);
-					}
+     public static void CDMAccountlinkContaxt(List<Account_Link__c> allist,string market,string Context){
+                    Set < ID > acclids = new Set < ID > ();
+                    set<ID> accLinkId= new set<ID>();
+                     for (Account_Link__c accrec: allist) {
+                         if ( (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId)){
+                            if(string.isnotblank(accrec.id)) accLinkId.add(accrec.id);
+                         }
+                     }
+                     if(accLinkId.size()>0){
+                        List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c,fromRole__r.Dealer_Rollout_Status__c,recordTypeID from Account_Link__c where id IN: accLinkId];
+                            for (Account_Link__c accrec: acclinkr) {
+                            if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId) && (string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false))
+                                acclids.add(accrec.id);
+                        }
+                       if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
+                      }
+     }
+     
+     public static void CDMAccountlinkContextGroup(List<Account_Link__c> allist,string market,string Context){
+                    Set < ID > acclids = new Set < ID > ();
+                    Set<string>  MagicNumber= new set <string>();
+                    set<ID> accLinkId= new set<ID>();
+                     for (Account_Link__c accrec: allist) {
+                         if ( (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId)){
+                            if(string.isnotblank(accrec.id)) accLinkId.add(accrec.id);
+                         }
+                     }
+                    if(accLinkId.size()>0){
+                    List < Account_Link__c > acclinkr = [Select Id,Retail_DMS_Customer_ID__c ,toRole__r.UCID__c,recordTypeID,fromRole__r.Dealer_Rollout_Status__c from Account_Link__c where id IN: allist];
+                    for (Account_Link__c accrec: acclinkr) {
+                           if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId)&&(string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false) && (string.isnotblank(accrec.Retail_DMS_Customer_ID__c)?MagicNumber.contains(accrec.Retail_DMS_Customer_ID__c)?false:true:true))
+                            {
+                            if(string.isnotblank(accrec.Retail_DMS_Customer_ID__c)) MagicNumber.add(accrec.Retail_DMS_Customer_ID__c);
+                            acclids.add(accrec.id);
+                            }
+                    }
                    if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
-	 }
-	 
-	 public static void CDMAccountlinkContextGroup(List<Account_Link__c> allist,string market,string Context){
-					Set < ID > acclids = new Set < ID > ();
-					Set<string>  MagicNumber= new set <string>();
-					List < Account_Link__c > acclinkr = [Select Id,Retail_DMS_Customer_ID__c ,toRole__r.UCID__c,recordTypeID,fromRole__r.Dealer_Rollout_Status__c from Account_Link__c where id IN: allist];
-					for (Account_Link__c accrec: acclinkr) {
-						   if (String.isnotblank(accrec.toRole__r.UCID__c) && (accrec.recordTypeID==accRetailPerson_RecordTypeId || accrec.recordTypeID==accRetailCompany_RecordTypeId)&&(string.isnotblank(accrec.fromRole__r.Dealer_Rollout_Status__c)?(accrec.fromRole__r.Dealer_Rollout_Status__c=='Done'):false) && (string.isnotblank(accrec.Retail_DMS_Customer_ID__c)?MagicNumber.contains(accrec.Retail_DMS_Customer_ID__c)?false:true:true))
-							{
-							MagicNumber.add(accrec.Retail_DMS_Customer_ID__c);
-							acclids.add(accrec.id);
-							}
-					}
-                   if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
-	 }
+                   }
+     }
 }

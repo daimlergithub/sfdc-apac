@@ -989,6 +989,11 @@
 				<controllingFieldValues>JP</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1934,6 +1939,11 @@
 				<controllingFieldValues>MY</controllingFieldValues>
 				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			 <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+				<controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Sales_quarter</fullName>
                 <default>false</default>
@@ -2121,7 +2131,6 @@
                 <default>false</default>
 				<controllingFieldValues>JP</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>OB Call</fullName>
@@ -2157,19 +2166,16 @@
             <picklistValues>
                 <fullName>IB call</fullName>
                 <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Social media</fullName>
                 <default>false</default>
 				<controllingFieldValues>MY</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
@@ -2709,7 +2715,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>MY</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
+            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>

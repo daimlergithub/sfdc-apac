@@ -697,7 +697,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Retail Address CreatedDate</stringValue>
+                    <stringValue>Address CreatedDate</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -727,7 +727,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Retail Address LastModifiedDate</stringValue>
+                    <stringValue>Address LastModifiedDate</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -757,7 +757,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Retail Address Line 1</stringValue>
+                    <stringValue>Address Line 1</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -787,7 +787,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Retail Address Line 2</stringValue>
+                    <stringValue>Address Line 2</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -817,7 +817,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Retail City</stringValue>
+                    <stringValue>City</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -847,7 +847,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Retail Distinct</stringValue>
+                    <stringValue>Distinct</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -877,7 +877,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Retail Province</stringValue>
+                    <stringValue>Province</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -907,7 +907,7 @@
             <processMetadataValues>
                 <name>leftHandSideLabel</name>
                 <value>
-                    <stringValue>Retail ZipCode</stringValue>
+                    <stringValue>ZipCode</stringValue>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
