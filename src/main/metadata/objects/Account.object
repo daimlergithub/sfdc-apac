@@ -63368,9 +63368,9 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
         <masterLabel>Recall Check</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix & "/soap/ajax/33.0/apex.js")} 
-{!REQUIRESCRIPT($Site.Prefix & "/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT($Site.Prefix & "/support/console/30.0/integration.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
 var VRquery= sforce.connection.query("Select Id,Name,Contact__c,Selling_Dealer__c,Owner_Dealer__c,Vehicle_ID__c,Status_1__c From Vehicle_Relationship__c where Contact__c = '{!Account.Id}' and {!Vehicle_Relationship__c.RecordTypeId} = '012280000006I65' order by LastModifiedDate desc limit 1"); 
 
