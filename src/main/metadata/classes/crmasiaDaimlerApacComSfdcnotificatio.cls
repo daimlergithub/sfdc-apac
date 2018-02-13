@@ -154,14 +154,14 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
             return response_x.TransactionId;
         }
 		public String SARIRecallNotification(String Organization,String MarketDiscriminator,String Usecase,String VehicleId,String DealerId) {
-            NewcrmasiaDaimlerApacComSfdcNot.SARIRecallNotificationRequestMessageType request_x = new NewcrmasiaDaimlerApacComSfdcNot.SARIRecallNotificationRequestMessageType();
+            crmasiaDaimlerApacComSfdcnotificatio.SARIRecallNotificationRequestMessageType request_x = new crmasiaDaimlerApacComSfdcnotificatio.SARIRecallNotificationRequestMessageType();
             request_x.Organization = Organization;
             request_x.MarketDiscriminator = MarketDiscriminator;
             request_x.Usecase = Usecase;
             request_x.VehicleId = VehicleId;
             request_x.DealerId = DealerId;
-            NewcrmasiaDaimlerApacComSfdcNot.SFDCNotificationResponseMessageType response_x;
-            Map<String, NewcrmasiaDaimlerApacComSfdcNot.SFDCNotificationResponseMessageType> response_map_x = new Map<String, NewcrmasiaDaimlerApacComSfdcNot.SFDCNotificationResponseMessageType>();
+            crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response_x;
+            Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType> response_map_x = new Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType>();
             response_map_x.put('response_x', response_x);
             WebServiceCallout.invoke(
               this,
@@ -173,7 +173,7 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
               'SARIRecallNotificationRequest',
               'http://crmasia.daimler-apac.com/SFDCNotification_1.0',
               'SFDCNotificationResponse',
-              'NewcrmasiaDaimlerApacComSfdcNot.SFDCNotificationResponseMessageType'}
+              'crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType'}
             );
             response_x = response_map_x.get('response_x');
             return response_x.TransactionId;

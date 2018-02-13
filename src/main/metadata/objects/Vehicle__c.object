@@ -22780,9 +22780,9 @@ var userprofile = '{!$Profile.Name}';
 
 alert(userprofile);
 
-if('{!User.Market__c}' == 'KR' && userprofile != 'Korea Call Center'){ 
+if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile != 'Korea Call Center'){ 
 alert('This feature is available only for Call Center users'); 
-}else if('{!User.Market__c}' == 'KR' && userprofile == 'Korea Call Center' && dealercc != null)
+}else if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile == 'Korea Call Center' &amp;&amp; dealercc != null)
 {
 
 var resultMsg=sforce.apex.execute("UtilWebservice","RecallNotify",{DealerID:"dealercc",VehicleId:"vehicleid"}); 
