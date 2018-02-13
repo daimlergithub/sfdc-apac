@@ -251,11 +251,11 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
         for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId &&vehicleRellist[i].md__c==Market && vehicleRellist[i].Owner_Dealer__c != null&& vehicleRellist[i].Owner_Dealer_ND_Code__c!=null;i++){
             //if user type is power partner then share only with the dealers under particular Account
             if(vehicleRellist[i].createdby.usertype=='PowerPartner'){
-                String grpName=Market+vehicleRellist[i].createdby.Dealer_ND_Code__c;
+                String grpName=vehicleRellist[i].createdby.Dealer_ND_Code__c;
                 vrseditaccesswithdealers.put(vehicleRellist[i].id,grpName);
             }
             else{
-                String grpName=Market+vehicleRellist[i].Owner_Dealer_ND_Code__c;
+                String grpName=vehicleRellist[i].Owner_Dealer_ND_Code__c;
                 vrs.put(vehicleRellist[i].id,grpName);
                 if(vehicleRellist[i].Contact__c!=null){
                      accs.put(vehicleRellist[i].Contact__c,grpName);
@@ -271,7 +271,7 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
     else{
         //if old value is null and new value is there then share with new dealer
         for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId&&vehicleRellist[i].md__c==Market;i++){
-            String grpName=Market+vehicleRellist[i].Owner_Dealer_ND_Code__c;
+            String grpName=vehicleRellist[i].Owner_Dealer_ND_Code__c;
             if(((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&&trigger.oldmap!=null&&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
                 vrs.put(vehicleRellist[i].id,grpName);
                 if(vehicleRellist[i].Contact__c!=null){
@@ -293,7 +293,7 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
                         if(vehicleRellist[i].Vehicle_ID__c!=null){
                              vehicl.put(vehicleRellist[i].Vehicle_ID__c,grpName);
                             }
-                         String oldGgrpName=Market+((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
+                         String oldGgrpName=((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
                         vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
                         if(vehicleRellist[i].Contact__c!=null){
                             accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
@@ -304,7 +304,7 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
   
             }//if trigger.old is there and trigger.new is null then revoke vehicle,VR,Account access from dealers
             else if(trigger.oldMap!=null &&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&& ((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
-                 String oldGrpName=Market+((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
+                 String oldGrpName=((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
                  vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGrpName);
                  if(vehicleRellist[i].Contact__c!=null){
                     accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Contact__c,oldGrpName);

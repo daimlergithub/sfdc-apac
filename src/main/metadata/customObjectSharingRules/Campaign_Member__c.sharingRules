@@ -31,4 +31,18 @@
         <accessLevel>Edit</accessLevel>
         <name>MBJ Campaign Member Share</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Share_Campaign_Member_c_to_Tracking_User_MBJ</fullName>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Campaign_Member__c to Tracking User-MBJ</description>
+        <name>Share Campaign_Member__c to Tracking User-MBJ</name>
+    </criteriaBasedRules>
 </CustomObjectSharingRules>

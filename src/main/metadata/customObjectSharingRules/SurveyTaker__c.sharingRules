@@ -32,6 +32,20 @@
         <accessLevel>Edit</accessLevel>
         <name>MBK Survey Taken Sharing Rule</name>
     </criteriaBasedRules>
+	 <criteriaBasedRules>
+        <fullName>Share_SurveyTaker_c_to_Tracking_User_MBJ</fullName>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share SurveyTaker__c to Tracking User-MBJ</description>
+        <name>Share SurveyTaker__c to Tracking User-MBJ</name>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>TH_Survey_taken_sharing_to_other_Th_users</fullName>
         <sharedTo>
