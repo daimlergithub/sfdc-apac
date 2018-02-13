@@ -1844,10 +1844,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ShareALLRecordsToNewUserBatchMY</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ShareALLRecordsToNewUserBatchTH</apexClass>
         <enabled>false</enabled>
     </classAccesses>
