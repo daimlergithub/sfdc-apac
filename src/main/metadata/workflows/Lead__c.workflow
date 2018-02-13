@@ -475,6 +475,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Aftersales_VIN_field_population</fullName>
+        <field>AfterSales_VIN__c</field>
+        <formula>Purchased_Vehicle__r.EuroVIN__c</formula>
+        <name>Aftersales VIN field population</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Dealer_Lead_Status_update</fullName>
         <field>Dealer_Lead_Status__c</field>
@@ -925,6 +934,24 @@ Purchased_CAC_Date_Time__c
         <field>Lead_Lost_Date_Time__c</field>
         <formula>Now()</formula>
         <name>Update Lost DateTime field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Dealer_Comment</fullName>
+        <field>Dealer_comment__c</field>
+        <formula>MID(Dealer_Comments__c, 0, 50)</formula>
+        <name>UUpdate Dealer Comment</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Dealer_DMS_Comments</fullName>
+        <field>Dealer_DMS_Comments__c</field>
+        <formula>MID(Dealer_Comments__c, 0, 50)</formula>
+        <name>Update Dealer DMS Comments</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -2410,6 +2437,32 @@ Modify Reason:
         </actions>
         <active>true</active>
         <formula>AND(ISCHANGED( Lead_Latest_Phase__c ), MD__c = 'JP', OR(ISPICKVAL(Lead_Latest_Phase__c, 'Order Confirmed'),ISPICKVAL(Lead_Latest_Phase__c, 'Confirmation')),  RecordType.Name = 'Sales Leads')</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Aftersales VIN populated after Purchased Vehicle population</fullName>
+        <actions>
+            <name>Aftersales_VIN_field_population</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+		<description>Aftersales VIN populated after Purchased Vehicle is populated</description>
+        <formula>AND(ISCHANGED(Purchased_Vehicle__c), NOT(ISNULL(Purchased_Vehicle__c)),RecordType.Name = 'Aftersales Leads', MD__c = 'MY')</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Populate Dealer Comments MY</fullName>
+        <actions>
+            <name>Update_Dealer_DMS_Comments</name>
+            <type>FieldUpdate</type>
+        </actions>
+		<actions>
+            <name>Update_Dealer_Comment</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+		<description>Populate Dealer Comments MY</description>
+        <formula>AND(ISCHANGED(Dealer_Comments__c), NOT(ISNULL(Dealer_Comments__c)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

@@ -158,6 +158,10 @@
                 <behavior>Readonly</behavior>
                 <field>UCID__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AfterSales_VIN__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
