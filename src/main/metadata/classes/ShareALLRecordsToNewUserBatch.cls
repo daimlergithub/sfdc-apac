@@ -6,13 +6,13 @@ global Map<String,Id> dealerCodeGrpIdMap;
 global Set<String> dealerCodeLst;
 Global string market;
 
-global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,string market){
+global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,string md){
     sobjectName = sobjectNameStr;
     List<User> usrLst=[Select Id,contact.account.Dealer_Nd_code__c from User where Id IN:userIdLst];
     dealerCodeGrpIdMap=new Map<String,Id>();
     Set<String> grpNamesLst=new Set<String>();
     dealerCodeLst=new Set<String>();
-	market=this.market;
+	market=md;
     for(User usr:usrLst)
     {
         String grpName=usr.contact.account.Dealer_Nd_code__c;
@@ -45,28 +45,28 @@ global Database.QueryLocator start(Database.BatchableContext BC)
         if ('Account_Link__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c');
             condition.add('Account_Link__c');
-            condition.add('Md__c='+market);
+            condition.add('Md__c=:market');
             condition.add('toRole__c!=null');
         } else if ('Lead__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Assigned_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Lead__c');
-            condition.add('Md__c='+market);
+            condition.add('Md__c=:market');
             condition.add('Assigned_Dealer__c!=null and Assigned_Dealer__r.Dealer_ND_Code__c IN:dealerCodeLst');
         } else if ('Case'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Case_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Case');
-            condition.add('Md__c='+market);
+            condition.add('Md__c=:market');
             condition.add('Case_Dealer__c!=null and Case_Dealer__r.Dealer_ND_Code__c IN:dealerCodeLst');
         }else if('Vehicle_Relationship__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Owner_Dealer_ND_Code__c,Vehicle_ID__c,Vehicle_ID__r.Car_Model__c');
             condition.add('Vehicle_Relationship__c');
-            condition.add('Md__c='+market);
+            condition.add('Md__c=:market');
             condition.add('Owner_Dealer__c!=null and Owner_Dealer_ND_Code__c IN:dealerCodeLst');
           
         }else if('User'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Dealer_ND_Code__c');
             condition.add('User');
-            condition.add('Market__c='+market);
+            condition.add('Market__c=:market');
             condition.add('Dealer_ND_Code__c!=null and Dealer_ND_Code__c IN:dealerCodeLst');
           
         }
