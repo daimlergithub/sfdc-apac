@@ -37,6 +37,20 @@
         <accessLevel>Edit</accessLevel>
         <name>MBK Vehicle Relationship Sharing Rule</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Share_Vehicle_Relationship_c_to_Tracking_User_MBJ</fullName>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Vehicle_Relationship__c to Tracking User-MBJ</description>
+        <name>Share Vehicle_Relationship__c to Tracking User-MBJ</name>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>MBMY_Vehicle_Relationship_Sharing_Rule</fullName>
         <sharedTo>
