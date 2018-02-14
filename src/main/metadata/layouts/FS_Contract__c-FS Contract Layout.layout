@@ -337,14 +337,7 @@
         <fields>NAME</fields>
         <relatedList>Asset_Invoice__c.FS_Contract__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>CASES.CASE_NUMBER</fields>
-        <fields>CASES.SUBJECT</fields>
-        <fields>CASES.CREATED_DATE</fields>
-        <fields>CASES.PRIORITY</fields>
-        <fields>CASES.STATUS</fields>
-        <relatedList>Case.FS_Contract__c</relatedList>
-    </relatedLists>
+    
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Rental_OverDue__c.FS_Contract__c</relatedList>
