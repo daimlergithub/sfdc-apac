@@ -36,7 +36,7 @@ public with sharing class CustomerMymercInterfaceController {
     public User usr = new user();
      public static Id AccountLink_IndividualCustomerRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
     public CustomerMymercInterfaceController(ApexPages.StandardController controller) {
-        usr = [Select Id,name,contact.AccountId,ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
+        usr = [Select Id,name,contact.AccountId,User_Type__c,ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
         MyMercVar = false;
         MyMercEmailVar = false;
         RegOutlet  = 'No';
@@ -81,7 +81,7 @@ public with sharing class CustomerMymercInterfaceController {
                           System.debug('^^^^^^^^^^^^^^^^^^^^&&&&&&&&&&'+loginmobileButton);
                           
                     
-                     if( acc.toRole__c !=null && acc.RecordtypeId == AccountLink_IndividualCustomerRecordTypeId && acc.System__c == 'My Mercedes' && acc.Primary__c ==true)
+                     if( acc.toRole__c !=null && acc.RecordtypeId == AccountLink_IndividualCustomerRecordTypeId && acc.System__c == 'My Mercedes' && acc.Primary__c ==true && usr.User_Type__c !='Dealer')
             {
             System.debug('^^^^^^^^^^^^^^^^^^^^&&&&&&&&&&'+loginmobileButton);
             loginmobileButton=false;

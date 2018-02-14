@@ -629,6 +629,7 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.ShowHideFields();
          JPAcccontroller.saveAccountTH();
     JPAcccontroller.saveAccountTH();      
+      system.assertEquals(false,JPAcccontroller.Address_Validated_Flag);  
         test.stopTest();
       }
     
@@ -668,7 +669,7 @@ public class AddressSearchValidationControllerTest
          jpAcccontroller.AddressSearchbyZipCode();
           JPAcccontroller.market = 'JP';
           jpAcccontroller.ValidateAddressSearchCallout(addressobj);
-         
+          system.assertEquals(true,JPAcccontroller.Address_Validated_Flag);
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
         
@@ -703,6 +704,7 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.market = 'TH';
          //JPAcccontroller.AutoFill=true;
          JPAcccontroller.validateAddressByZipCode();
+          system.assertEquals(false,JPAcccontroller.Address_Validated_Flag);
         test.stopTest();
         //system.assertNotEquals(null, objAccount.id);
         
@@ -947,6 +949,7 @@ public class AddressSearchValidationControllerTest
             JPAcccontroller1.wkCountryCode='+60';
             JPAcccontroller1.checkcountrycode();
             JPAcccontroller1.saveAccountMY();
+             system.assertEquals(false,JPAcccontroller.Address_Validated_Flag);    
                }
        }
         
@@ -1045,6 +1048,7 @@ public class AddressSearchValidationControllerTest
             JPAcccontroller1.addressobj.ZipCode__c = '104031';
             JPAcccontroller1.addressobj.Province__c ='Fukushima';
             JPAcccontroller1.addressobj.District__c ='Fukushima';
+             system.assertEquals(false,JPAcccontroller.Address_Validated_Flag);    
             JPAcccontroller1.saveAccountMY();
            }
        }
@@ -1144,6 +1148,7 @@ public class AddressSearchValidationControllerTest
             JPAcccontroller1.addressobj.Province__c ='Fukushima';
             JPAcccontroller1.addressobj.District__c ='Fukushima';
             JPAcccontroller1.saveAccountMY();
+            system.assertEquals(false,JPAcccontroller.AutoFill);     
             test.stopTest();    
            }
        }
