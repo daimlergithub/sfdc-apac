@@ -27768,7 +27768,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle__c.Grey_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>

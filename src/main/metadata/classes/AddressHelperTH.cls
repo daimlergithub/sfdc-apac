@@ -14,55 +14,58 @@ public with sharing class AddressHelperTH {
         * @return     : void
         * @see:       : AddressHelperTH
         */
-  public static void updateAddressOnAccount(list<Address__c> listNewAddress){           
-    Set<Id> AccIdSet = new Set<Id>();
-    map<Id,Account> updateAccntMap = new map<Id,Account>();
-    list<Account> updateAccntList = new list<Account>();
-    for(Address__c addr : listNewAddress){
-          if(addr.preferred__c)
-              AccIdSet.add(addr.Customer__c);
-    } 
-     if(AccIdSet!=null && !AccIdSet.isEmpty())
-     {
-          List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet Limit 10];     
-          if(accList!=null && !accList.isEmpty())
-          {
-              for(Account acc : accList)
-              {  
-                   for(Address__c addr : listNewAddress)
-                   {
-                        if(acc.Id==addr.Customer__c)
-                        {
-                             if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
-                                  acc.Primary_Address__c = addr.Address_Line_1__c;
-                             if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
-                                  acc.Primary_Address__c +=' '+ addr.Address_Line_2__c;
-                             if(addr.Sub_District__c!=null && addr.Sub_District__c!='')
-                                  acc.Primary_Address__c +=' '+ addr.Sub_District__c;
-                             if(addr.District__c!=null && addr.District__c!='')
-                                  acc.Primary_Address__c +=' '+ addr.District__c;
-                             if(addr.Province__c!=null && addr.Province__c!='')
-                                  acc.Primary_Address__c +=' '+ addr.Province__c;
-                             if(addr.Country__c!=null && addr.Country__c!='')
-                                  acc.Primary_Address__c +=' '+ addr.Country__c;
-                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
-                                  acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
-                           updateAccntMap.put(acc.Id, acc);
-                        }
-                   } 
-                  if(updateAccntMap.containsKey(acc.Id) && acc.Id != null)
-                    {
-                        updateAccntList.add(updateAccntMap.get(acc.Id));
-                    }
-              }                 
-          }
-      }
-        if(updateAccntList != null && !updateAccntList.isEmpty())  
-        {
-             update updateAccntList;
-        }
-     
-    } 
+	  public static void updateAddressOnAccount(list<Address__c> listNewAddress){           
+		Set<Id> AccIdSet = new Set<Id>();
+		map<Id,Account> updateAccntMap = new map<Id,Account>();
+		list<Account> updateAccntList = new list<Account>();
+		List < Account > accList = new List < account > ();
+		for(Address__c addr : listNewAddress){
+			  if(addr.preferred__c){
+			   if (string.isnotblank(addr.Customer__c)) AccIdSet.add(addr.Customer__c); 
+			   if (string.isnotblank(addr.Customer__c)) acclist.add(new account(id = addr.Customer__c));
+			  }
+		} 
+		 if(AccIdSet!=null && !AccIdSet.isEmpty())
+		 {
+			  //List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet Limit 10];     
+			  if(accList!=null && !accList.isEmpty())
+			  {
+				  for(Account acc : accList)
+				  {  
+					   for(Address__c addr : listNewAddress)
+					   {
+							if(acc.Id==addr.Customer__c)
+							{
+								 if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
+									  acc.Primary_Address__c = addr.Address_Line_1__c;
+								 if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
+									  acc.Primary_Address__c +=' '+ addr.Address_Line_2__c;
+								 if(addr.Sub_District__c!=null && addr.Sub_District__c!='')
+									  acc.Primary_Address__c +=' '+ addr.Sub_District__c;
+								 if(addr.District__c!=null && addr.District__c!='')
+									  acc.Primary_Address__c +=' '+ addr.District__c;
+								 if(addr.Province__c!=null && addr.Province__c!='')
+									  acc.Primary_Address__c +=' '+ addr.Province__c;
+								 if(addr.Country__c!=null && addr.Country__c!='')
+									  acc.Primary_Address__c +=' '+ addr.Country__c;
+								 if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
+									  acc.Primary_Address__c +=' '+ addr.ZipCode__c;                            
+							   updateAccntMap.put(acc.Id, acc);
+							}
+					   } 
+					  if(updateAccntMap.containsKey(acc.Id) && acc.Id != null)
+						{
+							updateAccntList.add(updateAccntMap.get(acc.Id));
+						}
+				  }                 
+			  }
+		  }
+			if(updateAccntList != null && !updateAccntList.isEmpty())  
+			{
+				 update updateAccntList;
+			}
+		 
+		} 
     
     /**             
         * @Description: Gives arror message if we try to enter Address with same  Address_Type__c for an account

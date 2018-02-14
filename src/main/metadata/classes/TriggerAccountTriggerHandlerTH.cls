@@ -19,7 +19,7 @@
 
 public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     public static boolean firstRun = true;
-    User usr = [Select Id,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()];
+    
     list<Account> ListAccOld = (list<Account>)trigger.old;
     list<Account> ListAccNew = (list<Account>)trigger.new;
     string serializedObject;
@@ -46,26 +46,20 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             AccountHelperTH.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperTH.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate);
             
-            AccounthelperTH.updateOnDoNotCall(Trigger.new);
-            AccountHelperTH.updateOnPostalOptout(Trigger.new);
-
+            AccounthelperTH.updateOnDoNotCall(Trigger.new); 
+            //AccountHelperTH.updateOnPostalOptout(Trigger.new);
             AccountHelperTH.updateOnEmailOptout(Trigger.new);
-            AccountHelperTH.updateAgeRange(Trigger.new);
-            AccountHelperTH.activeContracts(Trigger.new);
+            AccountHelperTH.updateAgeRange(Trigger.new); 
+            //AccountHelperTH.activeContracts(Trigger.new);
            // AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
         {
-            if(switchto!=null&&switchto.EP__c==true){
-            serializedObject=json.serialize(ListAccNew);
-            AccountHelperTH.createUCID(Trigger.new,trigger.isInsert);
-            serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
-            AccountHelperTH.entityNotifyUpdate('INSERT',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);}
-            if(switchto!=null && switchto.CDM__c==true){
+             if(switchto!=null && switchto.CDM__c==true){
                 set<ID> accids=new set<ID>();
-                List<Account>acc=[Select Id from Account where id IN:trigger.new];
-                for(Account accrec:acc){
+                
+                for(Account accrec:(List<Account>)trigger.new){
                     accids.add(accrec.id);
                 }
                 //CDMInformatica_Services.createCustomerCDM(accids);
@@ -79,11 +73,11 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-            if(switchto!=null && switchto.EP__c==true){
+            /*if(switchto!=null && switchto.EP__c==true){
             serializedObject=json.serialize(ListAccNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AccountHelperTH.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
-            AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);}
+            AccountHelperTH.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);}*/
             if(switchto!=null && switchto.CDM__c==true){
             Set<ID> accids=new Set<ID>();
             List<Account>acc=[Select Id from Account where id IN:trigger.new];
@@ -96,6 +90,11 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             CDMInformatica_Services.createCustomerCDM(accids,'TH','update');
             //firstRun=false;
             }
+            }
+            AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
+            if(AccountHelperTH.consentHistoryCodeCalled){
+                AccountHelperTH.UpdateConsentHistory((Map<Id,Account>)Trigger.oldMap,Trigger.New);
+                AccountHelperTH.consentHistoryCodeCalled = false;
             }
         }
            
@@ -114,22 +113,14 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         
     
     
-      /*
-        # Description:Calling UpdateRetailCopy to update the retail Copy when related account(Account 1) is updated.       
-        # Date: 02/20/2017
-        # Author : Mohammed Touseef Ahmed
-        */
-        if(isAfter && isUpdate && Usr.Profile.Name != 'IntegrationAPI'){
-            AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
-        }
-        
         /*** This is used for updating the Document Consent History related to ticket SFDCTH-509 ***/
-        if(isAfter && isUpdate){
+        /*if(isAfter && isUpdate){
+            AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
             if(AccountHelperTH.consentHistoryCodeCalled){
                 AccountHelperTH.UpdateConsentHistory((Map<Id,Account>)Trigger.oldMap,Trigger.New);
                 AccountHelperTH.consentHistoryCodeCalled = false;
             }
-        }
+        }*/
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
