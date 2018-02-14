@@ -19,7 +19,7 @@ function CustAlrtMsg()
     {
         document.getElementById('page:form:hid').value = true;
     }
-     else
+   if(answer ==false)
     {
        document.getElementById('page:form:hid').value = false;
    }
@@ -34,7 +34,7 @@ function CustAlrtMsg()
     
     <apex:form id="form">
     <apex:inputHidden value="{!cancelpop}" id="hid"/>
-            <apex:pagemessages ></apex:pagemessages>
+               <apex:pagemessages ></apex:pagemessages>
               <apex:outputText value="{!loginmobile}"></apex:outputText>
         <apex:pageBlock title="{!$Label.Customer_My_Mercedes_Interface_Customer}" id="a"><br/>
              <apex:OutputLabel > {!$Label.Please_set_all_information_received_from_a_customer} </apex:OutputLabel> <br/>

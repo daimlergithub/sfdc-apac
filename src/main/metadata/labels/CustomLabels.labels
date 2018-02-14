@@ -32,6 +32,14 @@
         <value>vehicle Details</value>
     </labels> 
 	<labels>
+        <fullName>vehicle_Read_Only</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReadOnly fields details</shortDescription>
+        <value>ReadOnly fields details</value>
+    </labels> 
+	<labels>
         <fullName>Lost</fullName>
         <language>en_US</language>
         <protected>false</protected>

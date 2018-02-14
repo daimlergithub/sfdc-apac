@@ -2438,8 +2438,12 @@
         <name>Matched_records_are_too_much_please_add_more_criteria</name>
     </customLabels> 
 	<customLabels>
-        <label>興味車両等（マスタの値が反映され、右側は削除されます）</label>
+        <label>選択不可項目(マスタの値が反映される、または自動計算される項目)</label>
         <name>vehicle_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>選択不可項目(マスタの値が反映される、または自動計算される項目)</label>
+        <name>vehicle_Read_Only</name>
     </customLabels>
 	<customLabels>
         <label>興味車両：マスタ</label>

@@ -229,7 +229,7 @@
                 </table>
             </apex:outputpanel>
             
-             <apex:pageblock id="Readonly" title="ReadOnly fields details" >
+             <apex:pageblock id="Readonly"  title="{!$Label.vehicle_Read_Only}" >
         
         <apex:panelGrid columns="2" width="1000px">
                 <apex:pageblocksection columns="1" >
