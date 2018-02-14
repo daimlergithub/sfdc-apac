@@ -44,6 +44,7 @@ public with sharing class CustomerMymercInterfaceController {
          MyMercEmailVar = true;
         loginmobileButton=true;
         Newpopup=false;
+        cancelpop =true;
         RecordType rec = [select id from RecordType where sObjecttype = 'Account_Link__c' AND Name = 'ContactSector' limit 1];
         ContactSector = rec.Id;
         aclsize = new list<Account_Link__c>();
@@ -123,21 +124,20 @@ public with sharing class CustomerMymercInterfaceController {
        pagereference pr = new pagereference ('/'+Accid);
        pr.setRedirect(true);
        return pr;
-         }
-         else
-         {
-             Account_Link__c acc = new Account_Link__c ();
+      }
+      else
+       {
+         Account_Link__c acc = new Account_Link__c ();
          acc.RecordtypeId = ContactSector;
          acc.Status__c = 'My Shops';
          acc.toRole__c = Accid;
          acc.name= '販売店関係情報';
          if(acc != null)
          insert acc;
-       pagereference pr = new pagereference ('/'+Accid);
-       pr.setRedirect(true);
-       return pr;
-             
-         }
+         pagereference pr = new pagereference ('/'+Accid);
+         pr.setRedirect(true);
+         return pr;
+        }
      }
  
      public void closePopup()
@@ -287,19 +287,32 @@ public with sharing class CustomerMymercInterfaceController {
              accont.Portal_Apply_User__c = userinfo.getUserid();
              update accont;
          } */
+                     
+         System.debug('^&^&^&^&^&^&^&^&^&^'+cancelpop);
          if(cancelpop == true)
          {
          pagereference pr = new pagereference ('/'+Accid);
          pr.setRedirect(true);
          return pr;
-         }else
+         }
+         if(cancelpop == false)
          {
+          System.debug('^&^&^&^&^&^&^&^&^&^'+cancelpop);
+        pagereference pr = new pagereference ('/apex/CustomerMymercInterface?id='+Accid);
+         pr.setRedirect(true);
+         return pr;
+         }
+         else 
+         {
+          System.debug('^&^&^&^&^&^&^&^&^&^'+cancelpop);
          pagereference pr = new pagereference ('/apex/CustomerMymercInterface?id='+Accid);
          pr.setRedirect(true);
          return pr;
          }
          
-     }
+         
+         
+       }
      
     public pagereference saveAndReturn(){
         pagereference pr = new pagereference ('/'+Account.id);
