@@ -10597,7 +10597,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Case_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15622,7 +15622,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Assigned_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
