@@ -1767,9 +1767,17 @@ If the user is Saving  same address which matches the fields returned by toleran
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.Account_Name_is_mandatory));
         }
-        else if((recordType == 'Person Account' ||   recordType == 'Company') && market == System.Label.JP && (objPersonAccount.Market__c !='JP' ))
+        else if((recordType == 'Person Account' ||   recordType == 'Company') && market == System.Label.JP && (objPersonAccount.Market__c !='JP' || objAccount.Market__c !='JP'))
         {
-              objPersonAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only); 
+              if(objPersonAccount.Market__c !=null)
+           {
+            objPersonAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only); 
+            }
+              
+              if(objAccount.Market__c !=null)
+              {              
+               objAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only);
+              }
         }
         else if((recordType == 'Person Account'  ||   recordType == 'Company') && market == System.Label.JP && (objPersonAccount.Status__c  =='Customer'  || objAccount.Status__c  =='Customer'))
         { 

@@ -2426,6 +2426,10 @@
         <name>Please_Select_only_one_as_a_Master</name>
     </customLabels> 
 	<customLabels>
+        <label>Mercedes me退会処理を実施しますか？</label>
+        <name>Are_you_sure_to_delete_this_account_mym</name>
+    </customLabels> 
+	<customLabels>
         <label>新車中古車区分</label>
         <name>New_Used</name>
     </customLabels> 
