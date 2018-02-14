@@ -63372,7 +63372,7 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 {!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 
-var VRquery= sforce.connection.query("Select Id,Name,Contact__c,Selling_Dealer__c,Owner_Dealer__c,Vehicle_ID__c,Status_1__c From Vehicle_Relationship__c where Contact__c = '{!Account.Id}' and {!Vehicle_Relationship__c.RecordTypeId} = '012280000006I65' order by LastModifiedDate desc limit 1"); 
+var VRquery= sforce.connection.query("Select Id,Name,Contact__c,Selling_Dealer__c,Owner_Dealer__c,Vehicle_ID__c,Status_1__c From Vehicle_Relationship__c where Contact__c = '{!Account.Id}' and RecordType.Name = 'Vehicle Relationship' order by LastModifiedDate desc limit 1"); 
 
 alert(VRquery); 
 
