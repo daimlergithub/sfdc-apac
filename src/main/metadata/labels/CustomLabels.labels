@@ -8867,6 +8867,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Save Button</shortDescription>
         <value>Save</value>
     </labels>
+	<labels>
+        <fullName>Save_Button_JP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button</shortDescription>
+        <value>Save</value>
+    </labels>
     <labels>
         <fullName>Save_Filter</fullName>
         <language>en_US</language>
