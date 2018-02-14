@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
      <criteriaBasedRules>
+        <fullName>Allow_Data_Sharing_is_No_also_Record_Visible_only_to_Japan_IT_Department_Users</fullName>
+        <sharedTo>
+            <group>Japan_IT_Department_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>Allow Data Sharing is No also Record Visible only to Japan IT Department Users</name>
+        <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    </criteriaBasedRules>
+	 <criteriaBasedRules>
         <fullName>Company_account_and_person_account_should_be_shared_with_all_the_people_for_MY</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
