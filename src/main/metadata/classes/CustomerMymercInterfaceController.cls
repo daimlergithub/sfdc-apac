@@ -36,7 +36,7 @@ public with sharing class CustomerMymercInterfaceController {
     public User usr = new user();
      public static Id AccountLink_IndividualCustomerRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
     public CustomerMymercInterfaceController(ApexPages.StandardController controller) {
-        usr = [Select Id,name,contact.AccountId,ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
+        usr = [Select Id,name,contact.AccountId,User_Type__c,ProfileId from User WHERE ID =: UserInfo.getUserId() ];//Changes by Lokesh
         MyMercVar = false;
         MyMercEmailVar = false;
         RegOutlet  = 'No';
@@ -44,6 +44,7 @@ public with sharing class CustomerMymercInterfaceController {
          MyMercEmailVar = true;
         loginmobileButton=true;
         Newpopup=false;
+        cancelpop =true;
         RecordType rec = [select id from RecordType where sObjecttype = 'Account_Link__c' AND Name = 'ContactSector' limit 1];
         ContactSector = rec.Id;
         aclsize = new list<Account_Link__c>();
@@ -80,7 +81,7 @@ public with sharing class CustomerMymercInterfaceController {
                           System.debug('^^^^^^^^^^^^^^^^^^^^&&&&&&&&&&'+loginmobileButton);
                           
                     
-                     if( acc.toRole__c !=null && acc.RecordtypeId == AccountLink_IndividualCustomerRecordTypeId && acc.System__c == 'My Mercedes' && acc.Primary__c ==true)
+                     if( acc.toRole__c !=null && acc.RecordtypeId == AccountLink_IndividualCustomerRecordTypeId && acc.System__c == 'My Mercedes' && acc.Primary__c ==true && usr.User_Type__c !='Dealer')
             {
             System.debug('^^^^^^^^^^^^^^^^^^^^&&&&&&&&&&'+loginmobileButton);
             loginmobileButton=false;
@@ -123,21 +124,20 @@ public with sharing class CustomerMymercInterfaceController {
        pagereference pr = new pagereference ('/'+Accid);
        pr.setRedirect(true);
        return pr;
-         }
-         else
-         {
-             Account_Link__c acc = new Account_Link__c ();
+      }
+      else
+       {
+         Account_Link__c acc = new Account_Link__c ();
          acc.RecordtypeId = ContactSector;
          acc.Status__c = 'My Shops';
          acc.toRole__c = Accid;
          acc.name= '販売店関係情報';
          if(acc != null)
          insert acc;
-       pagereference pr = new pagereference ('/'+Accid);
-       pr.setRedirect(true);
-       return pr;
-             
-         }
+         pagereference pr = new pagereference ('/'+Accid);
+         pr.setRedirect(true);
+         return pr;
+        }
      }
  
      public void closePopup()
@@ -287,19 +287,32 @@ public with sharing class CustomerMymercInterfaceController {
              accont.Portal_Apply_User__c = userinfo.getUserid();
              update accont;
          } */
+                     
+         System.debug('^&^&^&^&^&^&^&^&^&^'+cancelpop);
          if(cancelpop == true)
          {
          pagereference pr = new pagereference ('/'+Accid);
          pr.setRedirect(true);
          return pr;
-         }else
+         }
+         if(cancelpop == false)
          {
+          System.debug('^&^&^&^&^&^&^&^&^&^'+cancelpop);
+        pagereference pr = new pagereference ('/apex/CustomerMymercInterface?id='+Accid);
+         pr.setRedirect(true);
+         return pr;
+         }
+         else 
+         {
+          System.debug('^&^&^&^&^&^&^&^&^&^'+cancelpop);
          pagereference pr = new pagereference ('/apex/CustomerMymercInterface?id='+Accid);
          pr.setRedirect(true);
          return pr;
          }
          
-     }
+         
+         
+       }
      
     public pagereference saveAndReturn(){
         pagereference pr = new pagereference ('/'+Account.id);

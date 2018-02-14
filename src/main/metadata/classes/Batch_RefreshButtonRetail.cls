@@ -87,14 +87,26 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
             
             mapAccLinks.put(accMainlink.Vehicle__c,accMainlink);
         }
-        if(!acclink.isempty() && acclink.size()>0){
+        if((!acclink.isempty() && acclink.size()>0) && (!mapAccLinks.isempty() && mapAccLinks.size()>0)){
         for(Campaign_Member__c camp : scope){
-            camp.NextInspectionDate__c = mapAccLinks.get(camp.Vehicle__c).NextInspectionDate__c;
-            camp.NextServiceDate__c = mapAccLinks.get(camp.Vehicle__c).NextServiceDate__c;
-            camp.LastInspectionDate__c = mapAccLinks.get(camp.Vehicle__c).LastInspectionDate__c;
-            camp.LastServiceDate__c = mapAccLinks.get(camp.Vehicle__c).LastServiceDate__c;
+            if(mapAccLinks.get(camp.Vehicle__c).NextInspectionDate__c != null){
+                camp.NextInspectionDate__c = mapAccLinks.get(camp.Vehicle__c).NextInspectionDate__c;
+            }
+            if(mapAccLinks.get(camp.Vehicle__c).NextServiceDate__c != null){
+                camp.NextServiceDate__c = mapAccLinks.get(camp.Vehicle__c).NextServiceDate__c;
+            }
+            if(mapAccLinks.get(camp.Vehicle__c).LastInspectionDate__c != null){
+                camp.LastInspectionDate__c = mapAccLinks.get(camp.Vehicle__c).LastInspectionDate__c;
+            }
+            if(mapAccLinks.get(camp.Vehicle__c).LastServiceDate__c != null){
+                camp.LastServiceDate__c = mapAccLinks.get(camp.Vehicle__c).LastServiceDate__c;
+            }
+            if(mapAccLinks.get(camp.Vehicle__c).LastWorkDate__c != null){
             camp.LastWorkDate__c = mapAccLinks.get(camp.Vehicle__c).LastWorkDate__c;
+            }
+            if(mapAccLinks.get(camp.Vehicle__c).Service_Advisor__c != null){
             camp.Service_Advisor__c = mapAccLinks.get(camp.Vehicle__c).Service_Advisor__c;
+            }
             camp.Vehicle_ExternalLink__c = mapAccLinks.get(camp.Vehicle__c).Id;
             membertoupdate.put(camp.id,camp);
         }
@@ -106,23 +118,22 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
                 mapAccSalesLinks.put(acc.toRole__c,acc);
                 
             }
+        if(!mapAccSalesLinks.isempty() && mapAccSalesLinks.size()>0){
         for(Campaign_Member__c retcamp : scope){
-            retcamp.Sales_Consultant__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c;
-            membertoupdate.put(retcamp.id,retcamp);
+            if(mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c != null) { 
+                retcamp.Sales_Consultant__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c;
+            }
+            
             if(retcamp.Contact_Id__c !=null)
             {
              retcamp.Retail_Copy__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Id;
             }
-           
+         membertoupdate.put(retcamp.id,retcamp);  
+        }
         }
         }
         update membertoupdate.values();
     }
-    
-     
-    
-        
-    
     
     global void finish(Database.BatchableContext BC){
        
