@@ -235,22 +235,6 @@
         <name>External Agency View Dealers</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
-	<criteriaBasedRules>
-        <fullName>If_Allow_Data_Sharing_is_No_also_Record_Visible_to_MBJ_IT_Department_Users</fullName>
-        <sharedTo>
-            <role>MBJ_IT_Department</role>
-        </sharedTo>
-        <criteriaItems>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
-        <accountAccessLevel>Edit</accountAccessLevel>
-        <caseAccessLevel>Edit</caseAccessLevel>
-        <contactAccessLevel>Edit</contactAccessLevel>
-        <name>If Allow Data Sharing is No also Record Visible to MBJ IT Department Users</name>
-        <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>JP_MarketAccount_Readable_to_MBJ_IT_Dept</fullName>
         <sharedTo>
