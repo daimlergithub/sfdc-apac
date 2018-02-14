@@ -16,7 +16,7 @@
         <value>Please Select only one as a Master</value>
     </labels> 
 	<labels>
-        <fullName>Are_you_sure_to_delete_this_account</fullName>
+        <fullName>Are_you_sure_to_delete_this_account_mym</fullName>
         <categories>Merge Lead</categories>
         <language>en_US</language>
         <protected>false</protected>

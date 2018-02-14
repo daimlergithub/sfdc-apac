@@ -2427,7 +2427,7 @@
     </customLabels> 
 	<customLabels>
         <label>Mercedes me退会処理を実施しますか？</label>
-        <name>Are_you_sure_to_delete_this_account</name>
+        <name>Are_you_sure_to_delete_this_account_mym</name>
     </customLabels> 
 	<customLabels>
         <label>新車中古車区分</label>
