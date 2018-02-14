@@ -32,7 +32,11 @@ public class AccountHelperMYTest {
             Contract cont = TestUtils.createContract(Acc.ID);
             AccountHelperMY.activeContracts(List2) ;
             
-            AccountHelperMY.updatePrimaryAddressdisplay(List3,true);
+            Map<Id, Account> m1=new Map<id, Account>();
+            Account a1=list3[0];
+            m1.put(a1.id,a1);
+            
+            AccountHelperMY.updatePrimaryAddressdisplay(List3,true,m1);
             //updateAccountFieldsBeforeInsertInt
             AccountHelperMY.updateAccountFieldsBeforeInsertInt(list3,true);
             AccountHelperMY.createUpdateCDMUCID('abcd','MY',list3);
@@ -73,7 +77,7 @@ public class AccountHelperMYTest {
 * calculateAgeRange*/
     
     static testMethod void testAccAssignment1_1() {
-		
+        
        User user2 = TestUtils.createAfterSalesManagerMY();
         Account acc1;Account acc2;
         contact con ;
@@ -96,14 +100,16 @@ public class AccountHelperMYTest {
             list<Account> list3=new list<Account>();
             list3.add(acc2);
             list3.add(acc1);
-            
+            Map<Id, Account> m=new Map<id, Account>();
+            Account a=list3[0];
+            m.put(a.id,a);
             AccountHelperMY.updateAccountFieldsBeforeInsert(list2,True);
             AccountHelperMY.updateOnDoNotCall(List2);
             AccountHelperMY.updateOnPostalOptout(List2);
             AccountHelperMY.updateOnEmailOptout(List2);
             AccountHelperMY.updateAgeRange(List2);
             AccountHelperMY.activeContracts(List2);
-            AccountHelperMY.updatePrimaryAddressdisplay(List2,true);
+            AccountHelperMY.updatePrimaryAddressdisplay(List2,true,m);
             try{
                 AccountHelperMY.CreateRetailCopy(list3,true,false);
             }catch(Exception e){}
@@ -134,32 +140,4 @@ public class AccountHelperMYTest {
             test.stopTest();
         }
     }
-										   
-																																 
-																		 
-														   
-							  
-							 
-																			
-			
-									   
-										  
-													 
-						
-														
-										 
-														   
-
-															   
-																   
-																						  
-									  
-										  
-																 
-							 
-																   
-															   
-																	
-																			   
-							
 }

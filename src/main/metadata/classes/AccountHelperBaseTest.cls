@@ -39,17 +39,22 @@ public class AccountHelperBaseTest {
             Contract cont = TestUtils.createContract(Acc.ID);
             AccountHelperBase.activeContracts(List2);
             
-            AccountHelperBase.updatePrimaryAddressdisplay(List3,true);
+            Map<Id, Account> m1=new Map<id, Account>();
+            Account a1=list3[0];
+            m1.put(a1.id,a1);
+            
+            
+            AccountHelperBase.updatePrimaryAddressdisplay(List3,true,m1);
             AccountHelperBase.updateMarketingFields(list2);
             AccountHelperBase.updateAccountFieldsBeforeInsertInt(list2,True);
             AccountHelperBase.updatemarket(list2);
             AccountHelperBase.createUpdateCDMUCID('abcd', 'MY',list2 );
             AccountHelperBase.entityNotifyUpdate('abcd','MY','MY','abcd');
-           AccountHelperBase.validate('12345678', 1234, 'abcd', 9, 4);
-            
+            AccountHelperBase.validate('12345678', 1234, 'abcd', 9, 4);
             Map<Id, Account> m=new Map<id, Account>();
             Account a=list2[0];
             m.put(a.id,a);
+            
             AccountHelperBase.UpdateConsentHistory(m,list2);
             //AccountHelperBase.updateAccountFieldsBeforeIntUpdate();
             AccountHelperBase.updateAccountFieldsBeforeUpdate(list2, m, true);

@@ -34,7 +34,7 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf{
 			}
         }
         
-        if(isBefore && isInsert){     
+        if(isAfter && isInsert){     
 			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){		
 				AddressHelperMY.updateAddressOnAccount(trigger.new);
 			}
@@ -45,7 +45,7 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf{
                
 			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){		
 				 AddressHelperMY.updatemarket(Trigger.New);
-				AddressHelperMY.updateAddressOnAccount(trigger.new);
+				//AddressHelperMY.updateAddressOnAccount(trigger.new);
 			}
         }
 
@@ -66,14 +66,6 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf{
 				}
 			}
         }
-        if(isafter && isupdate){
-			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
-				if(TriggerRecursiveCheck.run){
-					TriggerRecursiveCheck.runOnce();
-					AddressHelperMY.updateAddressCDM(Trigger.Old,Label.MY,Label.UpdateContext);
-				}
-			}
-		}
     }
 
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){                

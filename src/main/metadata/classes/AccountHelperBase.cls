@@ -593,7 +593,7 @@ public class AccountHelperBase{
                     acclnk.Retail_UCID__c = retailacc.UCID__c;
                     
                     //mapping the address fields
-                 /*   if(!addressList.isEmpty() && addressList != null){
+                    if(!addressList.isEmpty() && addressList != null){
                         for(Address__c add : addressList){
                             if(add.Customer__c == retailacc.Id){
                                 acclnk.Retail_Address_Reference__c = add.Id;
@@ -627,7 +627,7 @@ public class AccountHelperBase{
                                 acclnk.Retail_Province__c = acclnk.Retail_Province__c.replaceAll(regexForNullValue,nullValue);
                             }
                         }
-                    }*/
+                    }
 					
                     insertAcclnkList.add(acclnk);
                 }
@@ -685,7 +685,7 @@ public class AccountHelperBase{
         toRole__r.Foundation_Date__c, toRole__r.Website, toRole__r.Primary_Address_Reference__r.CreatedDate,toRole__r.Title__c,toRole__r.Preferred_Contact_Method__c,
         toRole__r.Primary_Address_Reference__r.LastModifiedDate,toRole__r.MBTH_Nationality__c,toRole__r.Preferred_Radio_Station__c,toRole__r.Personal_Agreement__c,/*toRole__r.MBTH_Mercede__c,*/
         toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c,toRole__r.PersonHasOptedOutOfEmail,
-		torole__r.PersonHasOptedOutOfFax,torole__r.PersonDoNotCall,torole__r.Postal_Opt_Out__c,
+		torole__r.PersonHasOptedOutOfFax,torole__r.PersonDoNotCall,torole__r.Postal_Opt_Out__c,Retail_Address_Reference__c,
         torole__r.Visit_Opt_Out__c,fromRole__r.Dealer_Rollout_Status__c	
         from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany ) and fromRole__r.Dealer_Rollout_Status__c='Done' ];
         
@@ -773,8 +773,8 @@ public class AccountHelperBase{
                     acclnk.Retail_Abroad_Agreement__c = acclnk.toRole__r.Personal_Abroad_Agreement__c;
                     acclnk.Retail_Agreement_Info_Processing__c = acclnk.toRole__r.Agreement_to_commit_info_processing__c;
 					if(acclnk.toRole__r.Foundation_Date__c != null){
-								acclnk.Retail_Foundation_Month__c = String.valueOf(acclnk.toRole__r.Foundation_Date__c.year()) + (String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month())) :String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month())) ;
-							}			
+						acclnk.Retail_Foundation_Month__c = String.valueOf(acclnk.toRole__r.Foundation_Date__c.year()) + (String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month())) :String.ValueOf(acclnk.toRole__r.Foundation_Date__c.month())) ;
+					}			
 	
             }//End if for Company record type
             
@@ -786,14 +786,15 @@ public class AccountHelperBase{
             
             
             //Checking Null for sales Address 
-            if(acclnk.toRole__r.Primary_Address_Reference__c != null){ 
+            if((acclnk.toRole__r.Primary_Address_Reference__c != null &&  string.isnotblank(acclnk.Retail_Address_Reference__c) && acclnk.toRole__r.Primary_Address_Reference__c ==acclnk.Retail_Address_Reference__c) || ((!TriggerRecursiveCheck.ALAddressCheck) && acclnk.toRole__r.Primary_Address_Reference__c != null  &&  string.isblank(acclnk.Retail_Address_Reference__c))){
+				acclnk.Retail_Address_Reference__c=acclnk.toRole__r.Primary_Address_Reference__c;
                 acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
                 acclnk.Retail_Province__c = (acclnk.toRole__r.Primary_Address_Reference__r.Province__c !=null ?acclnk.toRole__r.Primary_Address_Reference__r.Province__c: '' );
-                acclnk.Retail_City__c = (acclnk.toRole__r.Primary_Address_Reference__r.City__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.City__c:'').left(17);
+                acclnk.Retail_City__c = (acclnk.toRole__r.Primary_Address_Reference__r.District__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.District__c:'').left(35);
                 acclnk.Retail_Distinct__c = ((acclnk.toRole__r.Primary_Address_Reference__r.District__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.District__c : '')+' '+(acclnk.toRole__r.Primary_Address_Reference__r.Block__c!= null ?acclnk.toRole__r.Primary_Address_Reference__r.Block__c : '')).left(17);
-                acclnk.Retail_Address_Line_1__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c:'').left(17);
-                acclnk.Retail_Address_Line_2__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c:'').left(17);
-				acclnk.Retail_Address_Line_3__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_3__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_3__c:'').left(17);
+                acclnk.Retail_Address_Line_1__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_1__c:'').left(35);
+                acclnk.Retail_Address_Line_2__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_2__c:'').left(35);
+				acclnk.Retail_Address_Line_3__c = ((acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_3__c)!=null?acclnk.toRole__r.Primary_Address_Reference__r.Address_Line_3__c:'').left(35);
                 acclnk.Retail_ZipCode__c = (acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c!=null ? acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c : '' );
                 acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
                 acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);

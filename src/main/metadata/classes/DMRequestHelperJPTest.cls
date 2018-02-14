@@ -12,10 +12,12 @@ public class DMRequestHelperJPTest {
     public static List<Address__c> addresslist =new List<Address__c>();
      public Static Account objAccount;
   public static Account objAccount2;  
+  public static Set<Id> dealerAccountIdSet; 
   public static Account objAccount3; 
   public Static Account DealerAccount;
   public Static Account DealerAccount1;
   public static Account_Link__c AccLink;
+  public static Map<Id, List<Id>> mapDmrequest=new Map<Id, List<Id>>();
   public static  Group grp;
    public static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
   public static String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -26,7 +28,7 @@ public class DMRequestHelperJPTest {
         
         Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerJP',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='JP');
         upsert TriggerAddress;
-        
+        dealerAccountIdSet=new set<Id>();
       Profile taskprofile = [select id from profile where Name='System Administrator' limit 1];
         User user = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='sam@test.com.dev01',Market__c = 'JP');
         insert user;
@@ -50,6 +52,7 @@ public class DMRequestHelperJPTest {
         account= new Account();
         account.Phone='09844650654';
         account.Email__c = 'testemail@test.com';
+        account.Market__c='JP';
         account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account); 
         
         address=new Address__c();
@@ -62,6 +65,7 @@ public class DMRequestHelperJPTest {
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
         address.Customer__c=account.id;
+        address.Market__c='JP';
         insert address;  
         
         address1=new Address__c();
@@ -74,6 +78,7 @@ public class DMRequestHelperJPTest {
         address1.Address_Line_1__c='testaddress';
         address1.Address_Line_2__c='testaddress';
         address1.Customer__c=account.id;
+        address1.Market__c='JP';
         insert address1; 
         
          DealerAccount= new Account();
@@ -85,9 +90,11 @@ public class DMRequestHelperJPTest {
         DealerAccount.City__c='Test';
         DealerAccount.Email__c='test@mbj.com';
         DealerAccount.Mobile__c ='0435488899';
+        DealerAccount.Market__c='JP';
         
         
         insert DealerAccount; 
+        dealerAccountIdSet.add(DealerAccount.id);
         
          objAccount= new Account();
         objAccount.RecordtypeId=personAccRecordTypeId;
@@ -102,13 +109,14 @@ public class DMRequestHelperJPTest {
         objAccount.Phone = '08022420181';
         objAccount.Main_Dealer__c = DealerAccount.id;
         objAccount.Customer_Lifecycle_Phase__c = 'Care';
-        
+        objAccount.Market__c='JP';
+        objAccount.Md__c='JP';
         insert objAccount;
         
         AccLink = new Account_Link__c();
         AccLink.fromRole__c = DealerAccount.id;
         AccLink.toRole__c = objAccount.id;        
-        
+        AccLink.Market__c='JP';
         insert AccLink; 
         grp=new Group();
         grp.name=DealerAccount.Name;
@@ -123,11 +131,13 @@ public class DMRequestHelperJPTest {
         system.runAs(usr){
             Material = new DM_Material__c();
             Material.Name='testname';
+            Material.Market__c='JP';
             insert Material;
 
             dmr = new  DM_Request__c();
             dmr.Status__c='to be sent'; 
             dmr.Customer_Name__c=account.id;
+             dmr.view_by_all__c=true;
             dmr.Sending_Address__c='Home';
             dmr.TitleOfHonor__c = 'To Person';
             dmr.Status2__c='Success';
@@ -136,6 +146,8 @@ public class DMRequestHelperJPTest {
             dmr.Expected_DM_Material3__c=Material.id;
             dmr.Status1__c='Success';
             dmr.Status3__c='Success';
+            dmr.Market__c ='JP';
+            dmr.isTestRunning__c=true;
             dmr.Sent_Date__c=system.today().addDays(-10);
             insert dmr;
         }
@@ -152,8 +164,12 @@ public class DMRequestHelperJPTest {
         //start test
         test.startTest();
         dmr.Sending_Address__c='Other Address 1';
+         dmr.market__c='JP';
         update dmr;        
         test.stopTest();
+        DMRequestHelperJP dmp=new DMRequestHelperJP();
+        DMRequestHelperJP.getAllDealerAccountWithSameGCCode(dealerAccountIdSet);
+        DMRequestHelperJP.createDealerAccountSharing(mapDmrequest);
         //verify test
         dmr=[select Province__c  from DM_Request__c where id=:dmr.id];
        // system.assertEquals(dmr.Province__c, null);           
@@ -197,6 +213,7 @@ public class DMRequestHelperJPTest {
         DM_Request__c dmr1 = new  DM_Request__c();  
         dmr1.Status__c='to be sent'; 
         dmr1.Customer_Name__c=account.id;
+        
          insert dmr1;
         dmr1.Customer_Name__c=objAccount.id;
         dmr1.view_by_all__c=true;

@@ -12,15 +12,16 @@ public static Persona__c persona_Obj;
 static testMethod void testAccAssignment() {
     Profile p1 = [select id, name from profile where Name='System Administrator' limit 1];
     user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
-			  EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
-			  LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
-			  TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
-	
+              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='',
+              TimeZoneSidKey='America/Los_Angeles', 
+              UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true, Active__c=true);
+    insert user1;
     System.runAs (user1) {
         PermissionSet ps = new PermissionSet();
-			ps.Name = 'Test';
-			ps.Label = 'Test';
-			insert ps;
+            ps.Name = 'Test';
+            ps.Label = 'Test';
+            insert ps;
     
         CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
 
@@ -29,26 +30,27 @@ static testMethod void testAccAssignment() {
         sea.SetupEntityId = cps.id;
         insert sea;
         CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
-		cs.DEFAULT_CALLOUT_TIME__c='1000';
-		cs.MAX_CALLOUT_TIME__c='5000';
-		cs.Name='CalloutValues';
-		insert cs;
-		
+        cs.DEFAULT_CALLOUT_TIME__c='1000';
+        cs.MAX_CALLOUT_TIME__c='5000';
+        cs.Name='CalloutValues';
+        insert cs;
+        
         SystemSettingsDFW__c sysSet = new SystemSettingsDFW__c();
-		sysSet.Debug__c =true;
-		sysSet.Error__c = true;
-		sysSet.Info__c= true;
-		sysSet.Warning__c = true;
-		sysSet.Log_Purge__c =10;
-		sysSet.Name=p1.Name;
-		DMLManagerService.insertAsSystem(sysSet);
+        sysSet.Debug__c =true;
+        sysSet.Error__c = true;
+        sysSet.Info__c= true;
+        sysSet.Warning__c = true;
+        sysSet.Log_Purge__c =10;
+        sysSet.Name=p1.Name;
+        DMLManagerService.insertAsSystem(sysSet);
         
         user2 = UtilTestData.createPersornaUser(ps, p1);
+        insert user2;
     }
         System.runAs (user2) {
-		Trigger__c leadtrigger=new Trigger__c(name='TriggerLeadMY',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='MY',Trigger_Handler__c='LeadTriggerHandlerMY',Trigger_Name__c='TriggerLead',update__c=true);
-		insert leadtrigger;
-		test.starttest();
+        Trigger__c leadtrigger=new Trigger__c(name='TriggerLeadMY',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='MY',Trigger_Handler__c='LeadTriggerHandlerMY',Trigger_Name__c='TriggerLead',update__c=true);
+        insert leadtrigger;
+        test.starttest();
         set<id> accid=new set<id>();
         Account dealer = new Account();
         dealer.Dealer_Alternate_Name__c = 'Test Alternate';
@@ -60,7 +62,7 @@ static testMethod void testAccAssignment() {
         dealer.Star_Elite_Account_Owner__c = user1.Id;
         dealer.Smart_Account_Owner__c = user1.Id;
         dealer.Dealer_Lead_System__c = 'salesforce';
-        dealer.Dealer_Lead_Gate_Keeper__c = user1.id;
+        dealer.Dealer_Lead_Gate_Keeper__c = user2.id;
         dealer.Allow_Data_Sharing__c = 'yes';
         dealer.Province__c = 'jiangsu';
         dealer.City__c = 'nanjing';
@@ -72,8 +74,10 @@ static testMethod void testAccAssignment() {
         dealer.Status__c = '0=contac1';
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'EAST';
+        dealer.Dealer_Active__c = True;
         insert dealer;
         system.assertEquals(dealer.id,[select id from account where id=:dealer.id limit 1].id);
+    
        
         Account dealer1 = new Account();
         dealer1.Dealer_Alternate_Name__c = 'Test Alternate';
@@ -97,9 +101,10 @@ static testMethod void testAccAssignment() {
         dealer1.Status__c = '0=contac1';
         dealer1.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer1.Dealer_Region__c = 'EAST';
+        dealer.Dealer_Active__c = True;
         insert dealer1;
         system.assertNotEquals([select id from account where id=:dealer1.id limit 1].id,[select id from account where id=:dealer.id limit 1].id);
-       
+    
         
         Account perAcc= new Account();
         perAcc.Allow_Data_Sharing__c = 'yes'; 
@@ -116,9 +121,9 @@ static testMethod void testAccAssignment() {
         perAcc.RecordTypeId =Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         perAcc.Dealer_Lead_Gate_Keeper__c = user1.Id;
         perAcc.Area_Code__c = '030';
-       
+    
         insert perAcc;
-
+   
         accid.add(perAcc.id);
         
         
@@ -141,12 +146,14 @@ static testMethod void testAccAssignment() {
         lead.Received_Date_Time__c=system.today();
         lead.Accepted_Date_Time__c=system.today();
         lead.RecordTypeId=salesRecordTypeId;
-        lead.Assigned_Dealer__c = dealer.id;
+        //lead.Assigned_Dealer__c = dealer.id;
+
         insert lead;
+        
         lead.Assigned_Dealer__c = null;
         update lead;
-        lead.Assigned_Dealer__c = dealer1.Id;
-        update lead;
+        //lead.Assigned_Dealer__c = dealer1.Id;
+        //update lead;
         
         test.stoptest();
           

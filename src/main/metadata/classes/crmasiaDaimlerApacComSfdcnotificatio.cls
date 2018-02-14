@@ -78,6 +78,20 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0','true','false'};
         private String[] field_order_type_info = new String[]{'Organization','MarketDiscriminator','CustomerId','AddressId','UserId'};
     }
+	public class SARIRecallNotificationRequestMessageType {
+        public String Organization;
+        public String MarketDiscriminator;
+        public String Usecase;
+        public String VehicleId;
+        public String DealerId;
+        private String[] Organization_type_info = new String[]{'Organization','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] MarketDiscriminator_type_info = new String[]{'MarketDiscriminator','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] Usecase_type_info = new String[]{'Usecase','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] VehicleId_type_info = new String[]{'VehicleId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] DealerId_type_info = new String[]{'DealerId','http://crmasia.daimler-apac.com/SFDCNotification_1.0',null,'1','1','false'};
+        private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/SFDCNotification_1.0','true','false'};
+        private String[] field_order_type_info = new String[]{'Organization','MarketDiscriminator','Usecase','VehicleId','DealerId'};
+    }
     public class SFDCNotificationPort {
         public String endpoint_x = UtilCustomSettings.getWebserviceUrl('EPUrlSfdcNotification');
         public Map<String,String> inputHttpHeaders_x;
@@ -132,6 +146,31 @@ public class crmasiaDaimlerApacComSfdcnotificatio {
               '',
               'http://crmasia.daimler-apac.com/SFDCNotification_1.0',
               'SARICustomerNotificationRequest',
+              'http://crmasia.daimler-apac.com/SFDCNotification_1.0',
+              'SFDCNotificationResponse',
+              'crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType'}
+            );
+            response_x = response_map_x.get('response_x');
+            return response_x.TransactionId;
+        }
+		public String SARIRecallNotification(String Organization,String MarketDiscriminator,String Usecase,String VehicleId,String DealerId) {
+            crmasiaDaimlerApacComSfdcnotificatio.SARIRecallNotificationRequestMessageType request_x = new crmasiaDaimlerApacComSfdcnotificatio.SARIRecallNotificationRequestMessageType();
+            request_x.Organization = Organization;
+            request_x.MarketDiscriminator = MarketDiscriminator;
+            request_x.Usecase = Usecase;
+            request_x.VehicleId = VehicleId;
+            request_x.DealerId = DealerId;
+            crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response_x;
+            Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType> response_map_x = new Map<String, crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType>();
+            response_map_x.put('response_x', response_x);
+            WebServiceCallout.invoke(
+              this,
+              request_x,
+              response_map_x,
+              new String[]{endpoint_x,
+              '',
+              'http://crmasia.daimler-apac.com/SFDCNotification_1.0',
+              'SARIRecallNotificationRequest',
               'http://crmasia.daimler-apac.com/SFDCNotification_1.0',
               'SFDCNotificationResponse',
               'crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType'}

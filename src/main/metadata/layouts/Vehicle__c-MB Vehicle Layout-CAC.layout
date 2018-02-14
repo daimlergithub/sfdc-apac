@@ -5,6 +5,7 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Change_Contact_Target</customButtons>
     <customButtons>TerminateVehicleRelationships</customButtons>
+	<customButtons>Recall_Check</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
