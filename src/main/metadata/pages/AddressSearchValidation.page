@@ -1283,10 +1283,10 @@
                        <!-- <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}"  rendered="{!if(Market =='JP',True,false)}"  status="actStatusId"/> -->
                     </apex:outputPanel>     
                     <apex:outputPanel >
-                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button}" rendered="{!if(And(market=='JP',Editmode) ,True,false)}" rerender="redirectPanel,msgs,cnfm,AddrJPKRPBS1,PersonAccBlock3,PersonAccBlock2,PB1,form,companyBlock1"   status="actStatusId"/>
+                        <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button_JP}" rendered="{!if(And(market=='JP',Editmode) ,True,false)}" rerender="redirectPanel,msgs,cnfm,AddrJPKRPBS1,PersonAccBlock3,PersonAccBlock2,PB1,form,companyBlock1"   status="actStatusId"/>
                     </apex:outputPanel> 
                         <apex:outputPanel >
-                    <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(And(market=='JP',Readonly) ,True,false)}" status="actStatusId"/>
+                    <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button_JP}" rendered="{!if(And(market=='JP',Readonly) ,True,false)}" status="actStatusId"/>
                     </apex:outputPanel>    
 
                     <apex:outputPanel id="redirectPanel">                  

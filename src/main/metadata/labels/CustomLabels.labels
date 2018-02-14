@@ -16,6 +16,14 @@
         <value>Please Select only one as a Master</value>
     </labels> 
 	<labels>
+        <fullName>Are_you_sure_to_delete_this_account_mym</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mym page</shortDescription>
+        <value>Are you sure to delete this account?</value>
+    </labels> 
+	<labels>
         <fullName>New_Used</fullName>
         <categories>New Used</categories>
         <language>en_US</language>
@@ -8862,6 +8870,13 @@ To develop service Transfer permission, assess the service of the staff and the 
     </labels>
     <labels>
         <fullName>Save_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button</shortDescription>
+        <value>Save</value>
+    </labels>
+	<labels>
+        <fullName>Save_Button_JP</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Save Button</shortDescription>
