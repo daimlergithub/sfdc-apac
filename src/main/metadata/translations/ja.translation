@@ -4553,8 +4553,12 @@
         <name>Satisfaction_towards_this_event</name>
     </customLabels>
     <customLabels>
-        <label>名寄せ候補確認／保存</label>
+        <label>保存</label>
         <name>Save_Button</name>
+    </customLabels>
+	<customLabels>
+        <label>名寄せ候補確認／保存</label>
+        <name>Save_Button_JP</name>
     </customLabels>
     <customLabels>
         <label><!-- Save Filter --></label>
