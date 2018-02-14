@@ -32,6 +32,14 @@
         <value>vehicle Details</value>
     </labels> 
 	<labels>
+        <fullName>vehicle_Read_Only</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReadOnly fields details</shortDescription>
+        <value>ReadOnly fields details</value>
+    </labels> 
+	<labels>
         <fullName>Lost</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -8859,6 +8867,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Save Button</shortDescription>
         <value>Save</value>
     </labels>
+	<labels>
+        <fullName>Save_Button_JP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button</shortDescription>
+        <value>Save</value>
+    </labels>
     <labels>
         <fullName>Save_Filter</fullName>
         <language>en_US</language>
@@ -11260,4 +11275,11 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>rug userName Extension</shortDescription>
         <value>@rugcollaboration.daimler.com</value>
     </labels>
+	<labels>
+		<fullName>HonoraryCommunityPermissionSet</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>HonoraryCommunityPermissionSet</shortDescription>
+		<value>Honorary_Member_PermissionSet</value>
+	</labels>
 </CustomLabels>

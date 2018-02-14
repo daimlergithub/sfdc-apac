@@ -94,6 +94,8 @@ static testmethod void testgetoldstatuses(){
         KRcontroller.newstatus='전체';
          KRcontroller.dropDown();
         KRcontroller.getoldstatuses();
+        KRcontroller.oldstatus='전체';
+        KRcontroller.newstatus='시작됨';
         
          KRcontroller.dropDown();
         KRcontroller.getChangingstatus();
@@ -104,7 +106,7 @@ static testmethod void testgetoldstatuses(){
         ManageTasks KRcontroller1= new ManageTasks(objSc1);
         KRcontroller1.oldstatus='종결됨';
         KRcontroller1.newstatus='시작됨';
-         KRcontroller1.dropDown();
+        KRcontroller1.dropDown();
         KRcontroller1.getChangingstatus();
         KRcontroller1.Changestatus();
         KRcontroller1.userinput='es';
@@ -119,8 +121,16 @@ static testmethod void testgetoldstatuses(){
         KRcontroller2.newstatus='취소됨';
          KRcontroller2.dropDown();
         KRcontroller2.getChangingstatus();
+        
         KRcontroller2.Changestatus();
         system.assertEquals('Cancelled',KRcontroller2.oldstatus);   
+        KRcontroller2.oldstatus='Open';
+        KRcontroller2.newstatus='전체';
+        KRcontroller2.Changestatus();
+        KRcontroller2.getChangingstatus();
+        KRcontroller2.newstatus='Closed';
+        KRcontroller2.oldstatus='종결됨';
+        KRcontroller2.Changestatus();
         
         test.stopTest();
     }

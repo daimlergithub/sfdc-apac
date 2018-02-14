@@ -475,6 +475,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Aftersales_VIN_field_population</fullName>
+        <field>AfterSales_VIN__c</field>
+        <formula>Purchased_Vehicle__r.EuroVIN__c</formula>
+        <name>Aftersales VIN field population</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Dealer_Lead_Status_update</fullName>
         <field>Dealer_Lead_Status__c</field>
@@ -925,6 +934,24 @@ Purchased_CAC_Date_Time__c
         <field>Lead_Lost_Date_Time__c</field>
         <formula>Now()</formula>
         <name>Update Lost DateTime field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Dealer_Comment</fullName>
+        <field>Dealer_comment__c</field>
+        <formula>MID(Dealer_Comments__c, 0, 50)</formula>
+        <name>UUpdate Dealer Comment</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Dealer_DMS_Comments</fullName>
+        <field>Dealer_DMS_Comments__c</field>
+        <formula>MID(Dealer_Comments__c, 0, 50)</formula>
+        <name>Update Dealer DMS Comments</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -1556,11 +1583,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <booleanFilter>(1 OR 2) AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1585,11 +1617,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND (2 OR 6) AND (5 OR 3)) OR (1 AND 4 AND 3)</booleanFilter>
+        <booleanFilter>((1 or 2) AND (3 OR 7) AND (6 OR 4)) OR (2 AND 5 AND 4)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1629,11 +1666,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>1 AND 3 AND (2 OR 4)</booleanFilter>
+        <booleanFilter>(1 or 2)  AND 4 AND (3 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1663,11 +1705,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND (2 OR 5) AND (3 OR 4)</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 6) AND (4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1702,11 +1749,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 3 AND (2 OR 4)</booleanFilter>
+        <booleanFilter>(1 OR 2) AND 4 AND (3 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		 <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1737,11 +1789,16 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND ( 3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>(1 or 2) AND 3 AND ( 4 OR 5 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1809,6 +1866,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
+		 <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
             <operation>equals</operation>
@@ -1818,6 +1876,11 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1833,11 +1896,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 4) AND 5</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1926,11 +1994,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 4) AND 5</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1957,11 +2030,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 4 OR 5) AND 6</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
         </criteriaItems>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -1995,6 +2073,16 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <formula>AND( Assigned_Dealer__c &lt;&gt;null,MD__c='TH',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	<rules>
+        <fullName>Update Dealer Accepted datetime Generic</fullName>
+        <actions>
+            <name>update_dealer_assigned_date_time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(ISPICKVAL(CAC_Lead_Status__c,"Accepted") ,MD__c='MY',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads'))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>MBTH_Update first contact customer datetime</fullName>
         <actions>
@@ -2002,7 +2090,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>false</active>
-        <booleanFilter>(1 OR 2) AND 3 AND (4 OR 5)</booleanFilter>
+        <booleanFilter>(1 OR 2) AND (3 OR 4) AND (5 OR 6)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -2014,6 +2102,11 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <value>Sales Leads</value>
         </criteriaItems>
         <criteriaItems>
+            <field>Lead__c.MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+		<criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
@@ -2400,6 +2493,32 @@ Modify Reason:
         </actions>
         <active>true</active>
         <formula>AND(ISCHANGED( Lead_Latest_Phase__c ), MD__c = 'JP', OR(ISPICKVAL(Lead_Latest_Phase__c, 'Order Confirmed'),ISPICKVAL(Lead_Latest_Phase__c, 'Confirmation')),  RecordType.Name = 'Sales Leads')</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Aftersales VIN populated after Purchased Vehicle population</fullName>
+        <actions>
+            <name>Aftersales_VIN_field_population</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+		<description>Aftersales VIN populated after Purchased Vehicle is populated</description>
+        <formula>AND(ISCHANGED(Purchased_Vehicle__c), NOT(ISNULL(Purchased_Vehicle__c)),RecordType.Name = 'Aftersales Leads', MD__c = 'MY')</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Populate Dealer Comments MY</fullName>
+        <actions>
+            <name>Update_Dealer_DMS_Comments</name>
+            <type>FieldUpdate</type>
+        </actions>
+		<actions>
+            <name>Update_Dealer_Comment</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+		<description>Populate Dealer Comments MY</description>
+        <formula>AND(ISCHANGED(Dealer_Comments__c), NOT(ISNULL(Dealer_Comments__c)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

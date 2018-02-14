@@ -10597,7 +10597,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Case_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10762,7 +10762,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Complaint_Creator_Department__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11072,9 +11072,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.Description</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -15622,7 +15622,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Assigned_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -27952,7 +27952,7 @@
         <recordType>Vehicle__c.Self_Registered</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-MBTH MB Vehicle Layout-CAC</layout>
+        <layout>Vehicle__c-MBTH Vehicle Product Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Product</recordType>
     </layoutAssignments>
     <layoutAssignments>

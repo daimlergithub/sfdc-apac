@@ -5,6 +5,7 @@
     <customButtons>Send_to_SPO</customButtons>
     <customButtons>Change_Contact_Target</customButtons>
     <customButtons>TerminateVehicleRelationships</customButtons>
+	<customButtons>Recall_Check</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
     <excludeButtons>Clone</excludeButtons>
@@ -102,6 +103,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>AMG__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MC_Connect_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

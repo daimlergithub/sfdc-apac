@@ -26311,7 +26311,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Grey_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -26973,6 +26973,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.AMG__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.MC_Connect_Flag__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

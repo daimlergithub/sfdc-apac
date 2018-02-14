@@ -2441,6 +2441,11 @@
         <readable>True</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.MC_Connect_Flag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>True</editable>
         <field>Vehicle_Relationship__c.Market__c</field>
         <readable>True</readable>
@@ -27277,7 +27282,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.OB_Call</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

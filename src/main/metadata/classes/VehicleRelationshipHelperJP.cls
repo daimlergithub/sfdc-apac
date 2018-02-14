@@ -636,6 +636,9 @@ public with sharing class VehicleRelationshipHelperJP
                             vels.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
                             vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
                         }
+                        if(vels.vehicle_address_picklist__c == '' || vels.vehicle_address_picklist__c == null){
+                        vels.Vehicle_Address_Display__c = '';
+                        }
                     }
                 }                   
                 Updatelist.add(Vels);

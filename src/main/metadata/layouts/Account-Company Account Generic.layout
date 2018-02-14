@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Create_Retail_Copy_MY</customButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -67,7 +70,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
@@ -83,7 +86,6 @@
                 <behavior>Edit</behavior>
                 <field>Website</field>
             </layoutItems>
-            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>UCID__c</field>
@@ -197,8 +199,8 @@
                 <field>CreatedById</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>MD__c</field>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -214,14 +216,9 @@
                 <behavior>Readonly</behavior>
                 <field>Old_UCID__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Market__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-  
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -263,6 +260,17 @@
         <fields>Retail_Email_OptOut__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>UsVIN__c</fields>
+        <fields>Brand__c</fields>
+        <fields>Range__c</fields>
+        <fields>Car_Model__c</fields>
+        <fields>FirstRegistrationDate__c</fields>
+        <fields>Colour__c</fields>
+        <relatedList>Vehicle__c.Related_contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
@@ -370,7 +378,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000IxM5</masterLabel>
+        <masterLabel>00h28000006XT9E</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -1840,7 +1840,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         { 
             objPersonAccount.LastName.addError(Label.Last_Name_should_be_of_2_byte_characters);
         }
-         else if(recordType == 'Person Account'  && Userinfo.getUserType() != 'PowerPartner' && market == System.Label.JP && (objPersonAccount.lastName != NULL && objPersonAccount.lastName.length() >=41 ))
+        else if(recordType == 'Person Account'  &&  market == System.Label.JP && (objPersonAccount.lastName != NULL && objPersonAccount.lastName.length() >41 ))
         { 
              objPersonAccount.LastName.addError(Label.Last_Name_should_be_less_than_or_equal_to_40_letters);
         }
@@ -3156,7 +3156,7 @@ public pagereference saveAccountTH()
                           
                     objAccount.RecordTypeId = recordTypeId;         
                     ValidateAddressMY();        
-                           
+                            
                     if(Validation == False)     
                     {       
                         refreshPage = true; 
@@ -3164,11 +3164,12 @@ public pagereference saveAccountTH()
                         {           
                             AddressObj.Customer__c = objAccount.id; 
                             AddressObj.Preferred__c=true; 
+							TriggerRecursiveCheck.AccountLinkAddressCheck();
                             DMLManagerService.insertAsSystem(AddressObj);                              
                             //insert AddressObj; 
-              Account acc=new Account(Id=objAccount.Id);
-                            acc.Primary_Address_Reference__c=AddressObj.Id;
-                            DMLManagerService.updateAsSystem(acc);              
+							//Account acc=new Account(Id=objAccount.Id);
+                           // acc.Primary_Address_Reference__c=AddressObj.Id;
+                           // DMLManagerService.updateAsSystem(acc);              
                             PageReference pageRef = new PageReference('/'+objAccount.Id);       
                             return PageRef;     
                         }       

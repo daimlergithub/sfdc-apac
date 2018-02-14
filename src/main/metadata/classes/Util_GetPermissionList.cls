@@ -28,13 +28,32 @@ public without sharing class Util_GetPermissionList {
              flag1=true;
              profileName=[Select Id,Name from Profile where Id =: userinfo.getProfileId()].Name;
           }
-    
+     
+  public class UserPermissionDetails
+  { String Uid {get;set;}
+    String Umarket {get;set;}
+    String  Upersona{get;set;}
+    String UFAM{get;set;}
+    List<String> UpermissionSetIds{get;set;}
+    Set<String> UCustomPermissions{get;set;}
+    //User u{get;set;}
+  }  
+  
+   public class MarketPermissionDetails
+  { String Mmarket {get;set;}
+    String  Mpersona{get;set;}
+    String MFAM{get;set;}
+    List<String> MpermissionSetIds{get;set;}
+    Set<String> MCustomPermissions{get;set;}
+    //User u{get;set;}
+  }  
+
     
     //Method to be invoked from other classes to check permisson on user , It will return true for Integration users
     public static Boolean checkAccessOnUser(String permissionToCheck )
     {  if(flag)
        { flag=false;
-         u =[Select id, market__c from user where id=:UserInfo.getUserId()] ;
+         u =[Select id, market__c ,Persona_Assigned__c from user where id=:UserInfo.getUserId()] ;
          UserPermissionMapFinal=Util_GetPermissionList.getUserPermissions(new List<User>{u});
          
        }
@@ -57,42 +76,101 @@ public without sharing class Util_GetPermissionList {
     
     //get all custompermissions assigned to user
     Public static Map<String,Set<String>> getUserPermissions(List<User> ulist)
-    {   UserPermissionMap=new Map<String,Set<String>>();
+    {   
+        
+        UserPermissionMap=new Map<String,Set<String>>();
      try{
-         for(User u : ulist) 
-        {  Set<String>UserPermissions=new Set<String>();
-           User u1= [Select Persona_Assigned__c from User where id=:u.id ];
-           String personaAssigned=u1.Persona_Assigned__c;
-         
-           if(personaAssigned != null )
-           {
-            List<Persona__c> personaList = new List<Persona__c>();
-            //fetch details from persona assigned to User 
-            personaList=[Select Functionality_Access__c,Functionality_Access__r.PermissionSet_Ids__c, PersonaName__c from Persona__c where PersonaName__c =: personaAssigned ];
-            if(personaList.size()>0)
-           {
-           Persona__c maj=personaList[0];
-              
-           List<String> UpermissionSetIDs= new List<String>();
-           if(maj.Functionality_Access__r.PermissionSet_Ids__c != null)
-           {
-            UpermissionSetIDs=maj.Functionality_Access__r.PermissionSet_Ids__c.split(';');
-            List<CustomPermission> Ucustompermissions=new List<CustomPermission>();
-            Ucustompermissions=[SELECT  DeveloperName FROM CustomPermission where id IN (SELECT SetupEntityId from SetupEntityAccess WHERE SetupEntityType='CustomPermission' AND ParentId In : UpermissionSetIDs ) ];
-            if(Ucustompermissions.size()>0)
+         List<UserPermissionDetails> updetList = new List<UserPermissionDetails>();
+         for(User u : ulist)
+         {
+            if(u.Persona_Assigned__c != null)
             {
-                for(CustomPermission cp:Ucustompermissions)
-              {
-                UserPermissions.add(cp.DeveloperName);
-              } 
-            }    
-          }
-        }
-         if(UserPermissions.size()>0) UserPermissionMap.put(u.id, UserPermissions);
-      }
-     }
+              UserPermissionDetails updet= new UserPermissionDetails();
+              updet.Uid=u.id;
+              updet.Umarket=u.Market__c;  
+              updet.Upersona=u.Persona_Assigned__c;    
+              updetList.add(updet);  
+            }
+         }
+         if(updetList!= null && updetList.size()>0)
+         {   
+             Set<String> personaSet = new Set<String>();
+             for(UserPermissionDetails upd : updetList)
+             {
+                 personaSet.add(upd.Upersona);
+             }
+             List<Persona__c> personaList = new List<Persona__c>();
+             personaList=[Select Functionality_Access__c,Functionality_Access__r.PermissionSet_Ids__c,PersonaName__c from Persona__c where PersonaName__c in : personaSet];
+             Set<String> PSSet=new Set<String>();
+             for(persona__c p: personaList)
+             {
+                 PSSet.addAll(p.Functionality_Access__r.PermissionSet_Ids__c.split(';'));
+             }
+            List<SetupEntityAccess> SEList = new list<SetupEntityAccess>();
+            SEList=[SELECT SetupEntityId,ParentId from SetupEntityAccess WHERE SetupEntityType='CustomPermission' AND ParentId In : PSSet]; 
+            Set<String> SEIds = new Set<String>();
+            for(SetupEntityAccess s : SEList)
+            {
+                SEIds.add(s.SetupEntityId) ;
+                 
+            }
+            List<CustomPermission> Ucustompermissions=new List<CustomPermission>(); 
+            Ucustompermissions=[SELECT  id,DeveloperName FROM CustomPermission where id in : SEIds];
+            Map<String, Set<String>> PSCPMap = new Map<String, Set<String>>();
+            for(String p : PSSet)
+            {   
+              Set<String> cps = new Set<String>();  
+                for(SetupEntityAccess sea : SEList)
+                {
+                    if(sea.ParentId == p)
+                    {
+                       for(CustomPermission cp : Ucustompermissions)
+                       {
+                        
+                        if(cp.id==sea.SetupEntityId)
+                        {
+                            cps.add(cp.DeveloperName);
+                            
+                        } 
+                       }
+                      PSCPMap.put(sea.ParentId,cps);          
+                    }
+                      
+                }
+              
+            }
+             for(UserPermissionDetails upd : updetList)
+             {
+                 for(persona__c p : personaList) 
+                 {
+                     if(p.PersonaName__c == upd.Upersona)
+                     { 
+                         upd.UFAM=p.Functionality_Access__c;
+                         upd.UpermissionSetIds= p.Functionality_Access__r.PermissionSet_Ids__c.split(';');
+                         upd.UCustomPermissions = new Set<String>();
+                         for( String up : upd.UpermissionSetIds)
+                         {
+                            if(PSCPMap.get(up) != null)
+                            upd.UCustomPermissions.addAll(PSCPMap.get(up));    
+                         }
+                         
+                         
+                     }
+                 }
+                
+             }
+         }
+      for(UserPermissionDetails upd : updetList)
+             {
+                 UserPermissionMap.put(upd.Uid,upd.UCustomPermissions );
+                 
+             }
+                  
+        
+     //system.debug('++++++++++++'+updetList);    
      }catch(Exception e)
      {
+         system.debug(e.getMessage() );
          CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
      }
      
@@ -105,36 +183,92 @@ public without sharing class Util_GetPermissionList {
     {
       MarketPermissionMap=new Map<String,Set<String>>();
       Set<String>MarketPermissions;  
-      for(String MD:MDList)
-      {
-       MarketPermissions = new Set<String>();    
-       String recmkt=MD;
-       List<Persona__c> personaList = new LIst<Persona__c>();
-       //fetch details from  Integration persona of record's market  
-       personaList=[Select Functionality_Access__c,Functionality_Access__r.PermissionSet_Ids__c, PersonaName__c from Persona__c where PersonaName__c like '%Integration%' and Market_Access__r.Market_Code__c =: recmkt ];
-       if(personaList.size()>0)
-       {
-          Persona__c maj=personaList[0];
+      try{
+         List<MarketPermissionDetails> mdetList = new List<MarketPermissionDetails>();
          
-          List<String> UpermissionSetIDs= new List<String>();
-          if(maj.Functionality_Access__r.PermissionSet_Ids__c != null)
-           {
-            UpermissionSetIDs=maj.Functionality_Access__r.PermissionSet_Ids__c.split(';');
-            List<CustomPermission> Ucustompermissions=new List<CustomPermission>();
-            Ucustompermissions=[SELECT  DeveloperName FROM CustomPermission where id IN (SELECT SetupEntityId from SetupEntityAccess WHERE SetupEntityType='CustomPermission' AND ParentId In : UpermissionSetIDs ) ];
-            if(Ucustompermissions.size()>0)
-            {
-                 for(CustomPermission cp:Ucustompermissions)
-               {
-                MarketPermissions.add(cp.DeveloperName);
-               }
+             List<Persona__c> personaList = new List<Persona__c>();
+             personaList=[Select Functionality_Access__c,Functionality_Access__r.PermissionSet_Ids__c,Market_Access__r.Market_Code__c, PersonaName__c from Persona__c where PersonaName__c like '%Integration%' and Market_Access__r.Market_Code__c in: MDList ];
+             
+             for(Persona__c p : personaList)
+             {
+              MarketPermissionDetails mdet= new MarketPermissionDetails();
+              mdet.Mmarket=p.Market_Access__r.Market_Code__c;
+              mdet.Mpersona=p.PersonaName__c;
+              mdet.MFAM=p.Functionality_Access__c;   
+              mdet.MpermissionSetIds =p.Functionality_Access__r.PermissionSet_Ids__c.split(';');
+              mdetList.add(mdet);  
             }
-              
-          }
-        }
-       if(MarketPermissions.size()>0) MarketPermissionMap.put(MD, MarketPermissions);
+             Set<String> PSSet=new Set<String>();
+             for(persona__c p: personaList)
+             {
+                 PSSet.addAll(p.Functionality_Access__r.PermissionSet_Ids__c.split(';'));
+             }
+            List<SetupEntityAccess> SEList = new list<SetupEntityAccess>();
+            SEList=[SELECT SetupEntityId,ParentId from SetupEntityAccess WHERE SetupEntityType='CustomPermission' AND ParentId In : PSSet]; 
+            Set<String> SEIds = new Set<String>();
+            for(SetupEntityAccess s : SEList)
+            {
+                SEIds.add(s.SetupEntityId) ;
+                 
+            } 
+          List<CustomPermission> Ucustompermissions=new List<CustomPermission>(); 
+          Ucustompermissions=[SELECT  id,DeveloperName FROM CustomPermission where id in : SEIds];
+          
+          Map<String, Set<String>> PSCPMap = new Map<String, Set<String>>();
+            for(String p : PSSet)
+            {   
+              Set<String> cps = new Set<String>();  
+                for(SetupEntityAccess sea : SEList)
+                {
+                    if(sea.ParentId == p)
+                    {
+                       for(CustomPermission cp : Ucustompermissions)
+                       {
+                        
+                        if(cp.id==sea.SetupEntityId)
+                        {
+                            cps.add(cp.DeveloperName);
+                            
+                        } 
+                       }
+                      PSCPMap.put(sea.ParentId,cps);          
+                    }
+                      
+                }
+            }
+          
+          for(MarketPermissionDetails mpd : mdetList)
+             {
+                 for(persona__c p1 : personaList) 
+                 {
+                     if(p1.PersonaName__c == mpd.Mpersona)
+                     { 
+                         //system.debug('@@@@@@'+upd.UpermissionSetIds);
+                         //system.debug('%%%%%'+PSCPMap);
+                         mpd.MCustomPermissions = new Set<String>();
+                         for( String up : mpd.MpermissionSetIds)
+                         {
+                            if(PSCPMap.get(up) != null)
+                            mpd.MCustomPermissions.addAll(PSCPMap.get(up));    
+                         }
+                     }
+                 }
+             }
+      //system.debug(mdetList);   
+      for(MarketPermissionDetails mpd : mdetList)
+             {
+                 MarketPermissionMap.put(mpd.Mmarket ,mpd.MCustomPermissions );
+                 
+             } 
+          
+          
+      }catch(Exception e)
+      {
+         // system.debug(e.getMessage() );
+         CustomLogUtil.CustomLoggingEntry('Error Occured' + e.getmessage() +'-- '+e.getlinenumber());
       }
-      
+        
+        system.debug('HHH*******'+MarketPermissionMap);
         return MarketPermissionMap;
     }
     

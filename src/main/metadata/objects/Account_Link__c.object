@@ -226,7 +226,7 @@
         <fullName>RetailDealer_ND_Code__c</fullName>
         <externalId>false</externalId>
         <formula>fromRole__r.Dealer_ND_Code__c</formula>
-        <label>RetailDealer ND Code</label>
+        <label>Dealer ND Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -786,7 +786,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_Abroad_Agreement__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Abroad Agreement</label>
+        <label>Abroad Agreement</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -818,7 +818,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Address_CreatedDate__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Address CreatedDate</label>
+        <label>Address CreatedDate</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -828,7 +828,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Address_LastModifiedDate__c</fullName>
         <description>Readyonly</description>
         <externalId>false</externalId>
-        <label>Retail Address LastModifiedDate</label>
+        <label>Address LastModifiedDate</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -838,7 +838,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Address_Line_1__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Address Line 1</label>
+        <label>Address Line 1</label>
         <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -850,7 +850,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Address_Line_2__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Address Line 2</label>
+        <label>Address Line 2</label>
         <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -861,7 +861,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_Address_Line_3__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Address Line 3</label>
+        <label>Address Line 3</label>
         <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -874,7 +874,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Address Reference</label>
+        <label>Address Reference</label>
 		<lookupFilter>		
             <active>true</active>		
             <filterItems>		
@@ -896,7 +896,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Address_Type__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Address Type</label>
+        <label>Address Type</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -949,7 +949,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_Agreement_Info_Processing__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Agreement info processing</label>
+        <label>Agreement info processing</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -980,7 +980,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_Agreement__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Agreement</label>
+        <label>Agreement</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1014,7 +1014,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Allow_Data_Sharing__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Allow Data Sharing</label>
+        <label>Allow Data Sharing</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1047,7 +1047,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_Business_Type__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Business Type</label>
+        <label>Business Type</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1076,7 +1076,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_City__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail City</label>
+        <label>City</label>
         <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1088,7 +1088,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Comments__c</fullName>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
-        <label>Retail Comments</label>
+        <label>Comments</label>
         <length>3200</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1099,7 +1099,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Commercial_Reg_No__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Commercial Reg No</label>
+        <label>Commercial Reg No</label>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1110,7 +1110,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
 	<fields>
         <fullName>Retail_Company_Mobile__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Company Mobile</label>
+        <label>Company Mobile</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1122,7 +1122,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Company_Name_Native1__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Company Name Native</label>
+        <label>Company Name Native</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1134,7 +1134,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Company_Name__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Company Name</label>
+        <label>Company Name</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1146,7 +1146,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Company_Other_Phone__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Company Other Phone</label>
+        <label>Company Other Phone</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1158,7 +1158,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Company_Phone__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Company Phone</label>
+        <label>Company Phone</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1170,7 +1170,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Complaint_Amount__c</fullName>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
-        <label>Retail Complaing Amount</label>
+        <label>Complaing Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -1182,7 +1182,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_Consent_Form_Serial_No__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Consent Form Serial No</label>
+        <label>Consent Form Serial No</label>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1193,7 +1193,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_Contact_Method__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Contact Method</label>
+        <label>Contact Method</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1222,7 +1222,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Country__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Country</label>
+        <label>Country</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1261,7 +1261,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_CreatedDate__c</fullName>
         <externalId>false</externalId>
-        <label>Retail CreatedDate</label>
+        <label>CreatedDate</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1270,7 +1270,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_CustomerType__c</fullName>
         <externalId>false</externalId>
-        <label>Retail CustomerType</label>
+        <label>CustomerType</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1304,7 +1304,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_DMS_Customer_ID__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail DMS Customer ID</label>
+        <label>DMS Customer ID</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1329,7 +1329,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <externalId>false</externalId>
         <formula>fromRole__r.Company_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Retail Dealer Company</label>
+        <label>Dealer Company</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1341,7 +1341,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <defaultValue>false</defaultValue>
 		<description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Delete Flag</label>
+        <label>Delete Flag</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1350,7 +1350,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Distinct__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail District</label>
+        <label>District</label>
         <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1363,7 +1363,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <defaultValue>false</defaultValue>
         <description>Readyonly</description>
         <externalId>false</externalId>
-        <label>Retail Duplicate Flag</label>
+        <label>Duplicate Flag</label>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1372,7 +1372,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Email_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Retail Email OptOut</label>
+        <label>Email OptOut</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1381,7 +1381,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Email__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Email</label>
+        <label>Email</label>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1393,7 +1393,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Fax_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Retail Fax OptOut</label>
+        <label>Fax OptOut</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1402,7 +1402,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Fax__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Fax</label>
+        <label>Fax</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1413,7 +1413,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_FirstName_Native__c</fullName>
         <externalId>false</externalId>
-        <label>Retail FirstName Native</label>
+        <label>FirstName Native</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1424,7 +1424,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_FirstName__c</fullName>
         <externalId>false</externalId>
-        <label>Retail FirstName</label>
+        <label>FirstName</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1435,7 +1435,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_First_Consent_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Retail First Consent Date</label>
+        <label>First Consent Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1444,7 +1444,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_First_Consent_User__c</fullName>
         <externalId>false</externalId>
-        <label>Retail First Consent User</label>
+        <label>First Consent User</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1456,7 +1456,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Foundation_Month__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Foundation Month</label>
+        <label>Foundation Month</label>
         <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1468,7 +1468,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Full_Name_Native__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Full Name Native</label>
+        <label>Full Name Native</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1479,7 +1479,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
     <fields>
         <fullName>Retail_Full_Name_Title__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Full Name Title</label>
+        <label>Full Name Title</label>
         <length>140</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1491,7 +1491,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Full_Name__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Full Name</label>
+        <label>Full Name</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1503,7 +1503,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <fullName>Retail_Gender__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Gender</label>
+        <label>Gender</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1540,7 +1540,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <description>Used by Thailand.
 Holds National ID or Passport No. of wholesale Account</description>
         <externalId>false</externalId>
-        <label>Retail ID Number</label>
+        <label>ID Number</label>
         <length>18</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1552,7 +1552,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>RetailID_Number__c</fullName>
         <externalId>false</externalId>
         <formula>toRole__r.ID_Number__c</formula>
-        <label>RetailID Number</label>
+        <label>ID Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1562,7 +1562,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
 		<fullName>Retail_ID_Type__c</fullName>
         <externalId>false</externalId>
-        <label>Retail ID Type</label>
+        <label>ID Type</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1609,7 +1609,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>RetailID_Type__c</fullName>
         <externalId>false</externalId>
         <formula>text(toRole__r.ID_Type__c)</formula>
-        <label>RetailID Type</label>
+        <label>ID Type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1620,7 +1620,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Individual_Home_Phone__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Individual Home Phone</label>
+        <label>Individual Home Phone</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1632,7 +1632,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Industry__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Industry</label>
+        <label>Industry</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -1981,7 +1981,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Information_Third_Party_Release__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Information Third Party Release</label>
+        <label>Information Third Party Release</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2012,7 +2012,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_LastModifiedDate__c</fullName>
         <externalId>false</externalId>
-        <label>Retail LastModifiedDate</label>
+        <label>LastModifiedDate</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2021,7 +2021,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_LastName_Native__c</fullName>
         <externalId>false</externalId>
-        <label>Retail LastName Native</label>
+        <label>LastName Native</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2032,7 +2032,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_LastName__c</fullName>
         <externalId>false</externalId>
-        <label>Retail LastName</label>
+        <label>LastName</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2043,7 +2043,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_List_of_Events__c</fullName>
         <externalId>false</externalId>
-        <label>Retail List of Events</label>
+        <label>List of Events</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2130,7 +2130,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Mobile__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Mobile</label>
+        <label>Mobile</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2142,7 +2142,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Occupation__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail Occupation</label>
+        <label>Occupation</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2330,7 +2330,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_OptOutContact_Reason__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Denied Activities</label>
+        <label>Denied Activities</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2424,7 +2424,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Opt_In_Mobile__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Retail Opt In Mobile</label>
+        <label>Opt In Mobile</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -2433,7 +2433,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_PersonBirthdate__c</fullName>
         <description>Read Only</description>
         <externalId>false</externalId>
-        <label>Retail PersonBirthdate</label>
+        <label>PersonBirthdate</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2443,7 +2443,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Phone_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Retail Phone OptOut</label>
+        <label>Phone OptOut</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -2452,7 +2452,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Position__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Position</label>
+        <label>Position</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2464,7 +2464,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Postal_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Retail Postal OptOut</label>
+        <label>Postal OptOut</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -2472,7 +2472,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Prefered_Radiostation__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Prefered Radiostation</label>
+        <label>Prefered Radiostation</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2484,7 +2484,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Preferred_Contact_Method__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Preferred Contact Method</label>
+        <label>Preferred Contact Method</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2531,7 +2531,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Preferred_Language__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Preferred Language</label>
+        <label>Preferred Language</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2662,7 +2662,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Primary_Phone__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Primary Phone</label>
+        <label>Primary Phone</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2709,7 +2709,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Province__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Province</label>
+        <label>Province</label>
         <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2720,7 +2720,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Race__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Race</label>
+        <label>Race</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2834,7 +2834,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
-        <label>Retail Related Company</label>
+        <label>Related Company</label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
@@ -2857,7 +2857,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
-        <label>Retail Related Company 2</label>
+        <label>Related Company 2</label>
         <lookupFilter>
             <active>true</active>
             <filterItems>
@@ -2881,7 +2881,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
-        <label>Retail Related Company 3</label>
+        <label>Related Company 3</label>
 		 <lookupFilter>
             <active>true</active>
             <filterItems>
@@ -2903,7 +2903,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Responsible__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Responsible</label>
+        <label>Responsible</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2916,7 +2916,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
-        <label>Retail Sales Consultant</label>
+        <label>Sales Consultant</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Account_Link2</relationshipName>
         <required>false</required>
@@ -2928,7 +2928,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Sales_Sanction_Comment__c</fullName>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
-        <label>Retail Sales Sanction Comments</label>
+        <label>Sales Sanction Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2938,7 +2938,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Sales_Sanction__c</fullName>
         <description>Editable only by Dealer</description>
         <externalId>false</externalId>
-        <label>Retail Sales Sanction</label>
+        <label>Sales Sanction</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -2981,7 +2981,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Salutation__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Salutation</label>
+        <label>Salutation</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2993,7 +2993,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Special_Care__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Special Care</label>
+        <label>Special Care</label>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3005,7 +3005,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Special_Needs_Class__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Special Needs Class</label>
+        <label>Special Needs Class</label>
         <picklist>
             <controllingField>Market__c</controllingField>
             <picklistValues>
@@ -3048,7 +3048,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Sub_District__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Sub District</label>
+        <label>Sub District</label>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3059,7 +3059,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_UCID__c</fullName>
         <externalId>false</externalId>
-        <label>Retail UCID</label>
+        <label>UCID</label>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3070,7 +3070,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Updated_Consent_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Updated Consent Date</label>
+        <label>Updated Consent Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3079,7 +3079,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>Retail_Updated_Consent_User__c</fullName>
         <externalId>false</externalId>
-        <label>Retail Updated Consent User</label>
+        <label>Updated Consent User</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3091,7 +3091,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Vat_No__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail VAT No.</label>
+        <label>VAT No.</label>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3103,7 +3103,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Visit_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Retail Visit OptOut</label>
+        <label>Visit OptOut</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -3112,7 +3112,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_WebSite__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Web Site</label>
+        <label>Web Site</label>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3124,7 +3124,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_Work_Phone__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail Work Phone</label>
+        <label>Work Phone</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3136,7 +3136,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>Retail_ZipCode__c</fullName>
         <description>Readonly</description>
         <externalId>false</externalId>
-        <label>Retail ZipCode</label>
+        <label>ZipCode</label>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3706,7 +3706,7 @@ Holds National ID or Passport No. of wholesale Account</description>
     <fields>
         <fullName>System__c</fullName>
         <externalId>false</externalId>
-        <label>Mercedes Me Portal</label>
+        <label>System</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3839,6 +3839,106 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+	  <fields>
+        <fullName>General_Personal_Info_Mandatory__c</fullName>
+        <externalId>false</externalId>
+        <label>General Personal Info (Mandatory)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	 <fields>
+        <fullName>Person_Agree_Test_Driving_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>Person Agree Test Driving (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	  <fields>
+        <fullName>Person_Info_Custom_Service_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>Person Info Custom Service (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	 <fields>
+        <fullName>Targeted_Advert_Info_Optional_STCC__c</fullName>
+        <externalId>false</externalId>
+        <label>Targeted Advert Info(Optional) STCC</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <label>Account Link</label>
     <listViews>

@@ -1,9 +1,11 @@
-//Created By: Sushma
-//Date: 01/02/2018
+/* Purpose: Generic class hosting code to be executed in Batch class
+   Date: 01/02/2018
+   Created By: Sushma */
+
 global class Batch_AutoSegmentation_Generic{
     
     Date todaydate=DATE.TODAY();
-    Boolean flag1=false;
+    Boolean flag=false;
     String communitybaseurl;
     
     //method hosting the logic to return query for start method of batch class
@@ -13,7 +15,7 @@ global class Batch_AutoSegmentation_Generic{
         List<Network>  myNetwork = [SELECT Id,Name FROM Network];
                for(Network net:myNetwork){
                    if(net.name==communityName){
-                   flag1=true;
+                   flag=true;
                    communitybaseurl=Network.getLoginUrl(net.id)+'/';
                    break;
                    }
@@ -61,7 +63,7 @@ global class Batch_AutoSegmentation_Generic{
                emailBodyStr = emailBodyStr +'Number Of Campaign Members Added sucessfully  :';
                emailBodyStr = emailBodyStr + campmember.size()+'  \n'  ;
                emailBodyStr = emailBodyStr + '\n Retail Campaign Name is '+retcampaign.Name+'  \n' ;
-               if(flag1){
+               if(flag){
                emailBodyStr+='\n For Communities:\n'+communitybaseurl+retcampaign.id;
                }
                else{
