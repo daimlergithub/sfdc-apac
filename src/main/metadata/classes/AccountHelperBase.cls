@@ -783,7 +783,7 @@ public class AccountHelperBase{
             acclnk.Retail_Fax__c = acclnk.toRole__r.Fax;
             acclnk.Retail_Allow_Data_Sharing__c = acclnk.toRole__r.Allow_Data_Sharing2__c;
             acclnk.Retail_UCID__c=acclnk.toRole__r.UCID__c;  
-            
+            system.debug(acclnk.toRole__r.Primary_Address_Reference__c+'--'+string.isnotblank(acclnk.Retail_Address_Reference__c)+'--'+acclnk.Retail_Address_Reference__c+'-'+TriggerRecursiveCheck.ALAddressCheck+'---');
             
             //Checking Null for sales Address 
             if((acclnk.toRole__r.Primary_Address_Reference__c != null &&  string.isnotblank(acclnk.Retail_Address_Reference__c) && acclnk.toRole__r.Primary_Address_Reference__c ==acclnk.Retail_Address_Reference__c) || ((!TriggerRecursiveCheck.ALAddressCheck) && acclnk.toRole__r.Primary_Address_Reference__c != null  &&  string.isblank(acclnk.Retail_Address_Reference__c))){

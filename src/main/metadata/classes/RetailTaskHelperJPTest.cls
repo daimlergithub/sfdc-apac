@@ -92,7 +92,9 @@ public class RetailTaskHelperJPTest
     lead1 = new Retail_Task__c();
     lead1.MD__c = 'KR';
     lead1.Account__c = objAccount.id;
-    lead1.Supporting_Dealer__c = DealerAccount.id;        
+    lead1.Supporting_Dealer__c = DealerAccount.id;
+    lead1.Related_Contact__c=objAccount2.id;
+    lead1.RecordTypeId =Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();  
     insert lead1;  
        
     lead2 = new Retail_Task__c();
