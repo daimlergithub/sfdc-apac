@@ -12,9 +12,10 @@ public with sharing class SendToMyMercController {
     public list<Vehicle_Relationship__c> Vehupdate;
     public list<Vehicle_Relationship__c> AccVehupdate;
     public boolean VisibleInMerc{get;set;}
+    public boolean cancelTrue{get;set;}
     public set<Id> accset;
     public set<Id> Vehset;
-    public id vehpageid;
+    public id vehpageid{get;set;}
     public Id IndividualCustomerExternaLink;
     public Id AccCom;
     public Id Person;
@@ -43,6 +44,7 @@ public with sharing class SendToMyMercController {
         vehRelType = vehRelRecType.Id;
         accountRelatedData();
         loginmobileButton=true;
+        cancelTrue=false;
     }
     
     private List<AccountWrapper> accountRelatedData(){ 
@@ -328,9 +330,7 @@ public with sharing class SendToMyMercController {
                  pr.setRedirect(true);
             }
         }
-        else if(emptyMail){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.Please_enter_My_Merc_Email_Id_for_Selected_Account));
-        }
+        
         else if(reason){
             ApexPages.addmessage(new apexpages.message(Apexpages.severity.warning,Label.Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account));
         }
@@ -347,7 +347,6 @@ public with sharing class SendToMyMercController {
         public String personalEmail {get;set;}
         public string loginmobile{get;set;}
         public boolean isSelect{get;set;}
-         
         public boolean isVisible{get;set;}
         public Id AccountId {set;get;}
         public ID VID{get;set;}
