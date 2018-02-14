@@ -42,11 +42,9 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
                 AccountHelperMy.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
                 
                 AccounthelperMy.updateOnDoNotCall(Trigger.new);
-                AccountHelperMy.updateOnPostalOptout(Trigger.new);
-
                 AccountHelperMY.updateOnEmailOptout(Trigger.new);
                 AccountHelperMY.updateAgeRange(Trigger.new);
-                AccountHelperMY.activeContracts(Trigger.new);        
+                    
             }           
         }
         //New Code Block Added on 9/21/2016

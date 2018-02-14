@@ -68,6 +68,7 @@ public with sharing class VehicleRelationshipHelperTH
     }
     //else part will work in after insert context
     else{
+		sobj=new List<sobject>();
         //if old value is null and new value is there then share with new dealer
         for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId&&vehicleRellist[i].md__c==System.Label.MarketTH;i++){
             String grpName='TH'+vehicleRellist[i].Owner_Dealer_ND_Code__c;

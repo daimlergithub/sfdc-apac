@@ -5,10 +5,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>BBQ</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>Call_Center_Console_Generic</application>
         <visible>false</visible>
     </applicationVisibilities>
@@ -90,10 +86,6 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBMY_Call_Center</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>MBMY_Call_Center_Console</application>
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -181,35 +173,7 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__Insights</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningSalesConsole</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__LightningService</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Marketing</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__Platform</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Sales</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Service</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__ServiceConsole</application>
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
@@ -606,18 +570,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Batch_insertDealer</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BbqTaskCreationHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BbqTaskCreationHelper</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BbqTaskCreationHelperCustomSettings</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1978,10 +1930,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ShareALLRecordsToNewUserBatch</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ShareALLRecordsToNewUserBatchMY</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

@@ -13,7 +13,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
         if(trigger.isinsert && trigger.isbefore){
             if(CaseHelperTH.booleanCampaignUpdate){
             system.debug('*****************case1');
-                CaseHelperTH.booleanCampaignUpdate=false;
+                //CaseHelperTH.booleanCampaignUpdate=false;
                 caseHelperTHd.countRepeatComplaintCase(trigger.new,true);
                 caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true);

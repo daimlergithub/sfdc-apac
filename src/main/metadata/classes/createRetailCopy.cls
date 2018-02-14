@@ -241,18 +241,16 @@ public without sharing class createRetailCopy {
                         // if market is MY
                         if (accList.MD__c == 'MY') {
                             if (SelectedAdd[0] != null) {                               
-                                newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
-                                newAlk.Retail_City__c = SelectedAdd[0].District__c ;
-                                newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
-                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
-                                newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
-                                newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
-                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
-                                newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
-                           
+                               newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                                newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
+                                newAlk.Retail_City__c = (SelectedAdd[0].District__c != null ?SelectedAdd[0].District__c:'').left(35);
+                                newAlk.Retail_Distinct__c = ((SelectedAdd[0].District__c!=null ?SelectedAdd[0].District__c : '')+' '+(SelectedAdd[0].Block__c!= null ?SelectedAdd[0].Block__c : '')).left(35);
+                                newAlk.Retail_Address_Line_1__c = ((SelectedAdd[0].Address_Line_1__c)!=null?SelectedAdd[0].Address_Line_1__c:'').left(35);
+                                newAlk.Retail_Address_Line_2__c = ((SelectedAdd[0].Address_Line_2__c)!=null?SelectedAdd[0].Address_Line_2__c:'').left(35);
+                                newAlk.Retail_Address_Line_3__c = ((SelectedAdd[0].Address_Line_3__c)!=null?SelectedAdd[0].Address_Line_3__c:'').left(35);
+                                newAlk.Retail_ZipCode__c = (SelectedAdd[0].ZipCode__c!=null ? SelectedAdd[0].ZipCode__c : '' );
+                                newAlk.Retail_Address_CreatedDate__c = Date.ValueOf(SelectedAdd[0].CreatedDate);
+                                newAlk.Retail_Address_LastModifiedDate__c = Date.ValueOf(SelectedAdd[0].LastModifiedDate);
                             }                           
                               
                             newAlk.Retail_Salutation__c = acclist.Title__c;
@@ -364,19 +362,17 @@ public without sharing class createRetailCopy {
                         }
                         //if market is MY
                         if (accList.MD__c == 'MY') {
-						if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {                               
-                                newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
-                                newAlk.Retail_City__c = SelectedAdd[0].District__c ;
-                                newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;
-                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
-                                newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
-                                newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
-                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
-                                newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
-                           
+                        if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {                               
+                               newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                                newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
+                                newAlk.Retail_City__c = (SelectedAdd[0].District__c != null ? SelectedAdd[0].District__c:'').left(35);
+                                newAlk.Retail_Distinct__c = ((SelectedAdd[0].District__c!=null ? SelectedAdd[0].District__c : '')+' '+(SelectedAdd[0].Block__c!= null ?SelectedAdd[0].Block__c : '')).left(35);
+                                newAlk.Retail_Address_Line_1__c = ((SelectedAdd[0].Address_Line_1__c)!=null?SelectedAdd[0].Address_Line_1__c:'').left(35);
+                                newAlk.Retail_Address_Line_2__c = ((SelectedAdd[0].Address_Line_2__c)!=null?SelectedAdd[0].Address_Line_2__c:'').left(35);
+                                newAlk.Retail_Address_Line_3__c = ((SelectedAdd[0].Address_Line_3__c)!=null?SelectedAdd[0].Address_Line_3__c:'').left(35);
+                                newAlk.Retail_ZipCode__c = (SelectedAdd[0].ZipCode__c!=null ? SelectedAdd[0].ZipCode__c : '' );
+                                newAlk.Retail_Address_CreatedDate__c = Date.ValueOf(SelectedAdd[0].CreatedDate);
+                                newAlk.Retail_Address_LastModifiedDate__c = Date.ValueOf(SelectedAdd[0].LastModifiedDate);
                             }                           
                           
                             newAlk.Retail_UCID__c = accList.UCID__c;
@@ -518,34 +514,19 @@ public without sharing class createRetailCopy {
                     }
                     // if market is MY
                         if (accList.MD__c == 'MY') {
-                             if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {                        
-                              newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
-                                newAlk.Retail_City__c = SelectedAdd[0].District__c ;
-                                newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
-                                /*newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;*/
-                                Integer line1_length = SelectedAdd[0].Address_Line_1__c.length();
-                                Integer line2_length = SelectedAdd[0].Address_Line_2__c.length();
-                                Integer line3_length = SelectedAdd[0].Address_Line_3__c.length();
-                                if(line1_length>35 )
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c.substring(0,35);
-                                else if(line1_length<35)
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c.substring(0,line1_length);
-                                if(line2_length>35 )
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c.substring(0,35);
-                                else if(line2_length<35)
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c.substring(0,line2_length);
-                                if(line3_length>35 )
-                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c.substring(0,35);
-                                else if(line3_length<35)
-                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c.substring(0,line3_length);
+                             if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {   
                                 newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
-                                newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
-                                newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
-                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
-                                newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
-                           
+                                newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
+                                newAlk.Retail_City__c = (SelectedAdd[0].District__c != null ?SelectedAdd[0].District__c:'').left(35);
+                                newAlk.Retail_Distinct__c = ((SelectedAdd[0].District__c!=null ?SelectedAdd[0].District__c : '')+' '+(SelectedAdd[0].Block__c!= null ?SelectedAdd[0].Block__c : '')).left(35);
+                                newAlk.Retail_Address_Line_1__c = ((SelectedAdd[0].Address_Line_1__c)!=null?SelectedAdd[0].Address_Line_1__c:'').left(35);
+                                newAlk.Retail_Address_Line_2__c = ((SelectedAdd[0].Address_Line_2__c)!=null?SelectedAdd[0].Address_Line_2__c:'').left(35);
+                                newAlk.Retail_Address_Line_3__c = ((SelectedAdd[0].Address_Line_3__c)!=null?SelectedAdd[0].Address_Line_3__c:'').left(35);
+                                newAlk.Retail_ZipCode__c = (SelectedAdd[0].ZipCode__c!=null ? SelectedAdd[0].ZipCode__c : '' );
+                                newAlk.Retail_Address_CreatedDate__c = Date.ValueOf(SelectedAdd[0].CreatedDate);
+                                newAlk.Retail_Address_LastModifiedDate__c = Date.ValueOf(SelectedAdd[0].LastModifiedDate);
+                                                
+                                
                             }                           
                              newAlk.Retail_Salutation__c = acclist.Title__c;
                             newAlk.Retail_Country__c = acclist.country__c;
@@ -658,35 +639,18 @@ public without sharing class createRetailCopy {
                     // if market is MY
                         if (accList.MD__c == 'MY') {
                             if (SelectedAdd[0] != null) {                               
-                                newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
-                                newAlk.Retail_City__c = SelectedAdd[0].District__c ;
-                                newAlk.Retail_Distinct__c = SelectedAdd[0].District__c+' '+SelectedAdd[0].Block__c;
-                                /*newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
-                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c;*/
-                                Integer line1_length = SelectedAdd[0].Address_Line_1__c.length();
-                                Integer line2_length = SelectedAdd[0].Address_Line_2__c.length();
-                                Integer line3_length = SelectedAdd[0].Address_Line_3__c.length();
-                                if(line1_length>35 )
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c.substring(0,35);
-                                else if(line1_length<35)
-                                newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c.substring(0,line1_length);
-                                if(line2_length>35 )
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c.substring(0,35);
-                                else if(line2_length<35)
-                                newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c.substring(0,line2_length);
-                                if(line3_length>35 )
-                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c.substring(0,35);
-                                else if(line3_length<35)
-                                newAlk.Retail_Address_Line_3__c = SelectedAdd[0].Address_Line_3__c.substring(0,line3_length);
-                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
-                                newAlk.Retail_ZipCode__c = SelectedAdd[0].ZipCode__c;
-                                newAlk.Retail_Country__c = SelectedAdd[0].Country__c;
-                                newAlk.Retail_Address_CreatedDate__c = date.newinstance(SelectedAdd[0].CreatedDate.year(), SelectedAdd[0].CreatedDate.month(), SelectedAdd[0].CreatedDate.day());
-                                newAlk.Retail_Address_LastModifiedDate__c = date.newinstance(SelectedAdd[0].LastModifiedDate.year(), SelectedAdd[0].LastModifiedDate.month(), SelectedAdd[0].LastModifiedDate.day());
-                           
+                               newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
+                                newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
+                                newAlk.Retail_City__c = (SelectedAdd[0].District__c != null ? SelectedAdd[0].District__c:'').left(35);
+                                newAlk.Retail_Distinct__c = ((SelectedAdd[0].District__c!=null ? SelectedAdd[0].District__c : '')+' '+(SelectedAdd[0].Block__c!= null ?SelectedAdd[0].Block__c : '')).left(35);
+                                newAlk.Retail_Address_Line_1__c = ((SelectedAdd[0].Address_Line_1__c)!=null?SelectedAdd[0].Address_Line_1__c:'').left(35);
+                                newAlk.Retail_Address_Line_2__c = ((SelectedAdd[0].Address_Line_2__c)!=null?SelectedAdd[0].Address_Line_2__c:'').left(35);
+                                newAlk.Retail_Address_Line_3__c = ((SelectedAdd[0].Address_Line_3__c)!=null?SelectedAdd[0].Address_Line_3__c:'').left(35);
+                                newAlk.Retail_ZipCode__c = (SelectedAdd[0].ZipCode__c!=null ? SelectedAdd[0].ZipCode__c : '' );
+                                newAlk.Retail_Address_CreatedDate__c = Date.ValueOf(SelectedAdd[0].CreatedDate);
+                                newAlk.Retail_Address_LastModifiedDate__c = Date.ValueOf(SelectedAdd[0].LastModifiedDate);
                             }                           
-                               newAlk.Retail_UCID__c = accList.UCID__c;
+                            newAlk.Retail_UCID__c = accList.UCID__c;
                             newAlk.Retail_Country__c = acclist.country__c;
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;

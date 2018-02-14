@@ -18711,6 +18711,76 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
 				<default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Tan Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Tan Sri Dato</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Tan Sri Datuk</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Dato Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Puan Sri Datin Seri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tan Sri Dato</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tengku</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Datuk Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Dato Ir</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Puan Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Prof. Datin Paduka Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tan Sri Dato Ir</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tan Sri Datuk Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tan Sri Dato Seri Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -63288,6 +63358,59 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 } 
 else { 
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Recall_Check</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Recall Check</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+
+var VRquery= sforce.connection.query("Select Id,Name,Contact__c,Selling_Dealer__c,Owner_Dealer__c,Vehicle_ID__c,Status_1__c From Vehicle_Relationship__c where Contact__c = '{!Account.Id}' and {!Vehicle_Relationship__c.RecordTypeId} = '012280000006I65' order by LastModifiedDate desc limit 1"); 
+
+alert(VRquery); 
+
+var vrRec = VRquery.getArray("records"); 
+
+alert(vrRec); 
+var dealercc= vrRec[0].Selling_Dealer__c; 
+alert(dealercc); 
+
+var dealerrt= vrRec[0].Owner_Dealer__c; 
+alert(dealerrt); 
+var vehicleid=vrRec[0].Vehicle_ID__c; 
+alert(vehicleid); 
+var userprofile = '{!$Profile.Name}'; 
+
+alert(userprofile); 
+
+if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile != 'Korea Call Center'){ 
+alert('This feature is available only for Call Center users'); 
+}else if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile == 'Korea Call Center' &amp;&amp; dealercc != null) 
+{ 
+
+var resultMsg=sforce.apex.execute("UtilWebservice","RecallNotify",{DealerID:"dealercc",VehicleId:"vehicleid"}); 
+if(resultMsg!=null) 
+{ 
+var alrt = '{!JSENCODE('Recall done Successfully')}'; 
+alert(alrt); 
+
+} 
+else 
+{ 
+var alrt = '{!JSENCODE($Label.Web_service_callout_failed)}'; 
+alert(alrt); 
+} 
+
+}else 
+{ 
+alert('This button is for korea users'); 
 }</url>
     </webLinks>
 </CustomObject>
