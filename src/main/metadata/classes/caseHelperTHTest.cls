@@ -1,146 +1,82 @@
 @isTest
 public with sharing class caseHelperTHTest{
 final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
-final static Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
-public List<Id> tmpCaseIds = new List<Id>();
-public List<Account> updateAccount = new List<Account>();
-public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
-public static Account personAcc;
-public static Account dealerAccount;
-public static Account dealerAccount2;
-static void init( ){
-Trigger__C casetrigger=new Trigger__C(name='TriggerCaseTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseTriggerHandlerTH',Trigger_Name__c='CaseTrigger',update__c=true);
-insert casetrigger;
-User runUser = [select Id from User Where Id =: UserInfo.getUserId()];
-        User usr=new User();
-        System.runAs ( runUser ) {               
-                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
-                usr.ProfileId=UtilTestData.getProfileId('CAC Data Manager');
-                usr.UserRoleId=UtilTestData.getUserRoleId('Dealer User');
-                usr.LastName = 'TestCreateUser';
-                usr.Email = 'test001@daimler.com.full';
-                usr.Alias = 'test1';
-                usr.TimeZoneSidKey = 'Asia/Shanghai';
-                usr.EmailEncodingKey = 'UTF-8';
-                usr.LanguageLocaleKey = 'en_US';
-                usr.localesidkey='en_US';
-                usr.isActive = true;
-                Database.insert(usr); 
-               
+    final static Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+    public List<Id> tmpCaseIds = new List<Id>();
+    public Static List<Account> insertAccount = new List<Account>();
+    public Static List<Account> updateAccounts = new List<Account>();
+    public Static List<Address__c> insertAddress = new List<Address__c>();
+    public Static List<Case> insertCases = new List<case>();
+    public Map<Id, List<Id>> accountCaseMap = new Map<Id, List<Id>>();
+    public static Account personAcc;
+    public static Account personAcc2;
+    public static Account dealerAccount1;
+    public static Account dealerAccount2;
+    public static User user1= TestUtils.createAdminUser();
+    public static Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id recordTypeAccDealerObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    public static Id recordTypeAccCompanyAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    public static Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
+    public static void createtestData(){
+        Trigger__C casetrigger=new Trigger__C(name='TriggerCaseTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseTriggerHandlerTH',Trigger_Name__c='CaseTrigger',update__c=true);
+    insert casetrigger;
+        Group gr=new Group(Name='12345');
+        insert gr;
+        EmailTemplate et1 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_1st_Reminder_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');
+		EmailTemplate et2 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_2nd_Reminder_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');        
+		EmailTemplate et3 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_escalated_to_MBTH_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');                
+        Insert new List<EmailTemplate>{et1,et2,et3};
+        
+        personAcc = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
+    	insertAccount.add(personAcc);
+        Account accObj1 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);
+        insertAccount.add(accObj1);
+        Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);
+        insertAccount.add(accObj2);
+        //personAcc2 = new Account(Primary_Address_Reference__c=objAddress.Id,RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
+    //insert personAcc2;
+    Account accObj3 = new Account(RecordTypeId = recordTypeAccCompanyAccountObjId ,Name = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
+        insertAccount.add(accObj3);
+        insert insertAccount;
+        address__c objAddress=new Address__C(Customer__c=insertAccount[0].id,Province__c='ACT',Address_Type__c = 'Home',ZipCode__c ='1234567',MD__c = 'TH');
+        insertAddress.add(objAddress);
+        address__c objAddress2=new Address__C(Customer__c=insertAccount[3].id,Province__c='ACT',Address_Type__c = 'Home',ZipCode__c ='1234567',MD__c = 'TH');
+         insertAddress.add(objAddress2);
+        insert objAddress;
+        personAcc.Primary_Address_Reference__c=objAddress.Id;
+        accObj3.Primary_Address_Reference__c=objAddress2.Id;
+        updateAccounts.add(personAcc);
+        updateAccounts.add(accObj3);
+        update updateAccounts;
+       
+        
+        Case c1 = new Case(Subject='testing',accountid=insertAccount[0].id,Recordtypeid=MBRecordtypeid,MD__c='TH');
+         insertCases.add(c1);
+        Case c2 = new Case(Subject='testing',accountid=insertAccount[3].id,Recordtypeid=MBRecordtypeid,MD__c='TH',Case_Dealer__c=insertAccount[1].Id);
+         insertCases.add(c2);
+        Case c3 = new Case(Subject='testing',accountid=insertAccount[0].id,Recordtypeid=MBRecordtypeid,MD__c='TH',Case_Dealer__c=insertAccount[1].Id);
+         insertCases.add(c3);
+        insert insertCases;
+        insertCases.clear();
+        Case c4 = new Case(Subject='testing',parentId=c1.id,Case_RepeatCause__c='2=Others',accountid=insertAccount[0].id,Recordtypeid=MBRecordtypeid,MD__c='TH');
+        insertCases.add(c4);
+        Case c5 = new Case(Subject='testing',parentId=c1.id,Case_RepeatCause__c='2=Others',accountid=insertAccount[0].id,Recordtypeid=caseMBComplaintRec_Id,MD__c='TH');
+        insertCases.add(c5);
+        insert insertCases;
+        insertCases.clear();
+        //CaseHelperTH.booleanCampaignUpdate=true;
+        c3.Case_Dealer__c=accObj2.Id;
+        c3.MBTH_1st_Reminder__c=true;
+        c3.MBTH_2nd_Reminder__c=true;
+        c3.MBTH_Escalated_to_MBTH__c=true;   
+        c2.Case_Dealer__c=null;
+        insertCases.add(c3);
+        insertCases.add(c2);
+        update insertCases;
+    }
+    private static testmethod void caseHelperTHTestMethod(){
+        system.runAs(user1){
+            createtestData();
         }
-   List<Account> accLst=new List<Account>();     
-   personAcc = new Account(Dealer_Default_Flag__c=false,
-                           Dealer_DMS_SR_Code__c='test code 2',
-                           Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                           City__c='Beijing',
-                           Gender__c = 'Male',
-                           Phone = '0801801110',
-                           Area_code__c = '0101',
-                           MD__c = 'TH',
-                           LastName = 'galaxy11',
-                           FirstName = 'First Name1',
-                           Salutation = 'Unknown1',      
-                           Province__c = 'Shanghai',
-                           ZipCode__c= '12347',
-                           Dealer_nd_code__c='465798',
-                           Mobile2__c = '035456232678',
-                           Primary_Email__c = 'Email1',
-                           Primary_Fax__c = 'FAX2',
-                           Primary_Phone__c ='Other2',
-                           RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
-                           
-        
-		accLst.add(personAcc);
-		dealerAccount =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId(), Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='1235');
-     
-    accLst.add(dealerAccount);
-    dealerAccount2 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId(), Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='123565');
-      
-     accLst.add(dealerAccount2);
-    insert accLst;
-}
-@isTest
-public static void calculateCaseAmountTest(){
-init();
- List<case> caselist = new List<case>();
- 		
-    	Case c1 = new Case();
-         c1.Subject='testing';
-         c1.accountid=personAcc.id;
-        c1.Recordtypeid=MBRecordtypeid ;
-         c1.MD__c='TH';
-         insert c1;
-    	
-         
-         Case c3 = new Case();
-         c3.Subject='testing';
-        c3.parentId=c1.id;
-        c3.Case_RepeatCause__c='2=Others';
-         c3.accountid=personAcc.id;
-        c3.Recordtypeid=MBRecordtypeid ;
-         c3.MD__c='TH';
-         
-        insert c3;
-         Case c2 = new Case();
-          c2.Subject='testing';
-         c2.accountid=personAcc.id;
-        c2.Recordtypeid=MBRecordtypeid ;
-         c2.MD__c='KR';
-         insert c2;
-         caselist.add(c1);
-    	caselist.add(c2);
-    	caselist.add(c3);
-    List<String> alpha=new list<String>{'A','B','C','D','E'};
-        for(String s:alpha){
-            Case c4 = new Case();
-            c4.Subject='testing';
-            c4.accountid=personAcc.id;
-            c4.Recordtypeid=caseINquiryId ;
-            c4.MD__c='TH';
-            c4.Priority=s;
-            insert c4;
-			caselist.add(c4);            
-        }
-
-
-
-    CaseHelperTH cht = new CaseHelperTH();
-    cht.calculateComplaintAmount(caselist);
-    cht.countRepeatComplaintCase(caselist,true);
-    cht.updateCaseDeadLineAmount(caselist);      
-         system.assertequals([select id from case where id=:c1.id].size(),1);
-         delete c1;
-         system.assertequals([select id from case where id=:c1.id].size(),0);
-         undelete c1;
-         system.assertequals([select id from case where id=:c1.id].size(),1);
-
-}
-    static testMethod void ShareRecordswithDealers_Test()
-    {
-        init();
-        Test.startTest();
-        
-        List<Group> groupLst=new List<Group>();
-        groupLst.add(new Group(Name='123565'));
-        insert groupLst;
-        
-        Case testCaseObj = new Case();
-         testCaseObj.Subject='testing';
-         testCaseObj.accountid=personAcc.id;
-        testCaseObj.Recordtypeid=MBRecordtypeid ;
-         testCaseObj.MD__c='TH';
-        testCaseObj.Case_Dealer__c=dealerAccount.Id;
-         insert testCaseObj;
-        
-        testCaseObj.Case_Dealer__c=null;
-        update testCaseObj;
-        
-        testCaseObj.Case_Dealer__c=dealerAccount2.Id;
-        update testCaseObj;
-        
-        testCaseObj.Case_Dealer__c=dealerAccount.Id;
-        update testCaseObj;
-        
-        Test.stopTest();
     }
 }
