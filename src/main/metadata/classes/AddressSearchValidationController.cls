@@ -3156,7 +3156,7 @@ public pagereference saveAccountTH()
                           
                     objAccount.RecordTypeId = recordTypeId;         
                     ValidateAddressMY();        
-                           
+                            
                     if(Validation == False)     
                     {       
                         refreshPage = true; 

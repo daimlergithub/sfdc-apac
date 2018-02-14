@@ -76,6 +76,15 @@ Private Static recall__C recall;
                  insert rcobj1;
                  rc = new Retail_Campaign__c(Name = 'testCampaign',RecordTypeId=segmentationRTId ,Campaign_Execution_Channels__c ='DM',Segmentation_Base__c='Customer',Parent_Campaign1__c=rcobj1.id);
                 insert rc;
+                Date todaydate=System.today();
+                 Vehicle__c vehicles = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200',
+                  EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',
+                  Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'),Purchase_Month__c ='02',Purchase_Year__c='2004',RegistrationNo__c ='787878');
+                  insert vehicles;  
+                Vehicle_Relationship__c vRel = new Vehicle_Relationship__c(Recall__c = FALSE, Car_Relation__c = 'User', RecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId());
+                vRel.Contact__c = customer.id;
+                vRel.Vehicle_ID__c = vehicles.id;
+                insert vRel;  
                 
                 String filterString = '[{"name":"Filter One", "content":{"Customer":[{"field":"PersonBirthdate","operation":"Equals","criteria":"11","logic":"AND","bracket":false},{"field":"Occupation__c","operation":"Equals","criteria":"Office Staff","logic":"","bracket":false},{"field":"PersonEmail","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Retail_Interested_Vehicle_Class__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Retail_Interested_Vehicle_Class__c","operation":"Not Equals","criteria":"33","logic":"","bracket":false}]}},{"name":"filter two", "content":{"Customer":[{"field":"FileName__c","operation":"Less Than","criteria":"11","logic":"AND","bracket":false},{"field":"Hobby__c","operation":"Not Equals","criteria":"22","logic":"","bracket":false}],"Interest":[{"field":"Lead_Source__c","operation":"Greater Than","criteria":"44","logic":"AND","bracket":false},{"field":"Lead_Type__c","operation":"Greater Than","criteria":"33","logic":"","bracket":false}],"Vehicle":[{"field":"Baumuster__c","operation":"Equals","criteria":"11","logic":"AND","bracket":true},{"field":"Baumuster__c","operation":"Not Equals","criteria":"22","logic":"AND","bracket":false},{"field":"Baumuster__c","operation":"Equals","criteria":"33","logic":"","bracket":false}]}}]';
                 
@@ -83,12 +92,20 @@ Private Static recall__C recall;
                 retailCampaignSegmentation.getParameters().put('id',rc.id);
                 Test.setCurrentPage(retailCampaignSegmentation);
                 SegmentationCriteriaController extension = new SegmentationCriteriaController();
-                
+               // extension.vehicleRel=vRel;
+               // extension.segmentationBase='Vehicle';
                  //filterOptions = extension.filterOptions;
                 // hobbyOptions = extension.hobbyOptions;
                 // leadDesiredServiceOptions = extension.leadDesiredServiceOptions;
                // leadAdditionalServiceOptions = extension.leadAdditionalServiceOptions;                
                 //leadClassOptions=extension.leadClassOptions;
+                extension.curRetCamp=rc;
+                extension.selectedValueSales='abcd';
+                extension.selectedValue='abcd';
+                extension.totalrecords=7;
+                extension.noOfRecords=10;
+                extension.contact=con;
+                
                 RetailSalesSanction =extension.RetailSalesSanction;
                 getItems =extension.getItems();
                 //VehicleClassOptions=extension.VehicleClassOptions;
@@ -162,6 +179,7 @@ Private Static recall__C recall;
             
             extension.searchAccount();
             extension.getSelectedRecords();
+            extension.selectall() ;
        }
        else
        {

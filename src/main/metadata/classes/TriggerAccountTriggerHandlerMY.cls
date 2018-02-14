@@ -39,7 +39,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
             AccountHelperBase.updatemarket(Trigger.New);
             if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                 AccountHelperMy.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-                AccountHelperMy.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
+              //  AccountHelperMy.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
                 
                 AccounthelperMy.updateOnDoNotCall(Trigger.new);
                 AccountHelperMY.updateOnEmailOptout(Trigger.new);

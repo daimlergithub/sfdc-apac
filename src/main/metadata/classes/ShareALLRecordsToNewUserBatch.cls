@@ -43,7 +43,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
         String query = 'SELECT {0} FROM {1} WHERE {2} and {3}';
          List<String> condition = new List<String>();
         if ('Account_Link__c'.equalsIgnoreCase(sobjectName)){
-            condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c');
+            condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c,fromRole__c,fromRole__r.recordTypeID,recordTypeID');
             condition.add('Account_Link__c');
             condition.add('Md__c=:market');
             condition.add('toRole__c!=null');
