@@ -176,7 +176,7 @@ public with sharing class SendToMyMercController {
         }
          if(!string.isBlank(Obj.loginmobile) && Obj.loginmobile!=null && ( !Obj.loginmobile.startsWith('010') && !Obj.loginmobile.startsWith('020') &&  !Obj.loginmobile.startsWith('030')  &&  !Obj.loginmobile.startsWith('040')  &&  !Obj.loginmobile.startsWith('050')  && !Obj.loginmobile.startsWith('060')  && !Obj.loginmobile.startsWith('070')  &&  !Obj.loginmobile.startsWith('080') && !Obj.loginmobile.startsWith('090')))
         {
-        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please Input Proper Number'));
+        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_Proper_Number));
             return null;
         }
         if(Obj.loginmobile !=null && !string.isBlank(Obj.loginmobile))

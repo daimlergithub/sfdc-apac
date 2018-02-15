@@ -10936,6 +10936,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>please enter valid Email</shortDescription>
         <value>please enter valid Email</value>
     </labels>
+	<labels>
+        <fullName>Please_Input_Proper_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>please input proper number</shortDescription>
+        <value>please input proper number</value>
+    </labels>
     <labels>
         <fullName>please_input_My_Mercedes_Email_Id</fullName>
         <language>en_US</language>
