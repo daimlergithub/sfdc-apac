@@ -17752,6 +17752,11 @@
         <field>Lead__c.Override_Overdue__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Others__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Parts_Required__c</field>
