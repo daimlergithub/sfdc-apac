@@ -6387,27 +6387,27 @@
         <readable>true</readable>
     </fieldPermissions>
 	 <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Personal_Abroad_Agreement_KR__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Agreement_to_commit_info_processing_KR__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	 <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Personal_Information_Third_Party_KR__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Personal_Agreement_KR__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Object__mdt.Cooperative_society_TL__c</field>
         <readable>false</readable>
     </fieldPermissions>
