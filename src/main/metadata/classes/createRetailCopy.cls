@@ -12,7 +12,7 @@ public without sharing class createRetailCopy {
         get;
         set;
     }
-    public List < Address__c > ListAddress {
+    public List < Address__c > ListAddress { 
         set;
         get;
     }
@@ -240,7 +240,7 @@ public without sharing class createRetailCopy {
                         }
                         // if market is MY
                         if (accList.MD__c == 'MY') {
-                            if (SelectedAdd[0] != null) {                               
+                            if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {                             
                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
                                 newAlk.Retail_City__c = (SelectedAdd[0].District__c != null ?SelectedAdd[0].District__c:'').left(35);
@@ -638,7 +638,7 @@ public without sharing class createRetailCopy {
                     }
                     // if market is MY
                         if (accList.MD__c == 'MY') {
-                            if (SelectedAdd[0] != null) {                               
+                           if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {                              
                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
                                 newAlk.Retail_City__c = (SelectedAdd[0].District__c != null ? SelectedAdd[0].District__c:'').left(35);
