@@ -271,19 +271,19 @@
         <label>CCC Consent (old)</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Personal_Agreement_KR__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Personal_Information_Third_Party_KR__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Agreement_to_commit_info_processing_KR__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Personal_Abroad_Agreement_KR__c</field>
             </layoutItems>
         </layoutColumns>
