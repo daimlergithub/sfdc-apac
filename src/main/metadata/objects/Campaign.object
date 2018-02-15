@@ -125,6 +125,15 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Activate_for_retail_campaign__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used by TH market. It will be used for activating campaign without creating execution campaign.</description>
+        <externalId>false</externalId>
+        <label>Activate for retail campaign</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>ActualCost</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1320,6 +1329,16 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <label>Create Unique Code</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Created_User__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(CreatedById=$User.Id,'True','False')</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created User</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>DM_Material__c</fullName>

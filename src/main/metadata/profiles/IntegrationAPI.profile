@@ -4888,6 +4888,11 @@
         <field>Account_Link__c.To_Be_Deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.UCID2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.End_Date__c</field>
@@ -5848,6 +5853,11 @@
         <field>Campaign.ATL_BTL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Activate_for_retail_campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.ActualCost</field>
@@ -6021,6 +6031,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Create_Unique_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Created_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
