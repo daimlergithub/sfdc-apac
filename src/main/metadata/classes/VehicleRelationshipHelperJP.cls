@@ -308,8 +308,7 @@ public with sharing class VehicleRelationshipHelperJP
         for(Vehicle_Relationship__c vr:listVehicleRelationship){      
           Account_Link__c accLink=new Account_Link__c();  
             system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+ExistingAccLink);
-            system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+ExistingAccLink.size());
-            system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+mapOfContact.get(vr.Vehicle_ID__c).Contact__c);
+            system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+ExistingAccLink.size()); 
             if(ExistingAccLink !=null && ExistingAccLink.size() >0)
             {
                  for(Account_Link__c alk:ExistingAccLink)

@@ -677,7 +677,15 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 if(retailCompanyupdate != Null && acclnk.RecordTypeId != RetailCompany){
                     system.debug('acc Id >> :'+acclnk.id);
                     acclnk.Retail_Related_Company__c = retailCompanyupdate .id;
-                }           
+                }
+				acclnk.General_Personal_Info_Mandatory__c= acclnk.toRole__r.General_Personal_Info_Mandatory__c;
+                acclnk.Person_Agree_Test_Driving_Optional__c= acclnk.toRole__r.Person_Agree_Test_Driving_Optional__c;
+                acclnk.Person_Info_Custom_Service_Optional__c= acclnk.toRole__r.Person_Info_Custom_Service_Optional__c;
+                acclnk.Targeted_Advert_Info_Optional_STCC__c= acclnk.toRole__r.Targeted_Advert_Info_Optional_STCCC__c;
+                acclnk.Personal_Agreement_KR__c= acclnk.toRole__r.Personal_Agreement__c;
+                acclnk.Personal_Information_Third_Party_KR__c= acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
+                acclnk.Agreement_to_commit_info_processing_KR__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;
+                acclnk.Personal_Abroad_Agreement_KR__c= acclnk.toRole__r.Personal_Abroad_Agreement__c; 				
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company' && acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done')
