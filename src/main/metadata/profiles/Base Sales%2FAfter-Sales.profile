@@ -3674,7 +3674,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Service_Codes__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4809,7 +4809,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Postal_Opt_Out__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4979,7 +4979,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Province__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5134,7 +5134,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Retail_Email__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19238,7 +19238,7 @@
         <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Retail_Campaign__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -25,14 +25,4 @@
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-    <rules>
-        <fullName>chatter_answers_num_subscriptions_above_limit_wf</fullName>
-        <actions>
-            <name>X01Ri0000000TXpP</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <formula>NOT(ISPICKVAL(Priority,&apos;high&apos;)) &amp;&amp; ISBLANK(BestReplyId) &amp;&amp; NumSubscriptions &gt;= 20</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
 </Workflow>

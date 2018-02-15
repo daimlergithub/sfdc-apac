@@ -20,13 +20,14 @@ public class LeadUtil {
      public static boolean  createAccountLinkRecord= true;
     public static boolean updatingleadAccountDetails= true;
     public static boolean createContactToContactAccounlink =true;
-	public static boolean updateprimaryAddressAccounlink =true;
+    public static boolean updateprimaryAddressAccounlink =true;
     public static boolean SharingReuleissue =true;
     public static boolean isupdated=true;
-	public static boolean updateCustomerStageMethod=true;
-	public static boolean CaseWithDealers=true;	
+    public static boolean updateCustomerStageMethod=true;
+    public static boolean CaseWithDealers=true; 
     public static boolean Share2contactInsert=true;
     public static boolean Share2contactUpdate=true;
-	public static boolean convert2leads=true;
-	public static boolean recurssionchecksendmaillead = true;
+    public static boolean convert2leads=true;
+    public static boolean recurssionchecksendmaillead = true;
+    public static boolean testadd=true;
 }

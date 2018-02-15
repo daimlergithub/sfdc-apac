@@ -512,19 +512,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>MBTH_Update_Lost_CAC_Date_Time</fullName>
-        <field>Lost_CAC_Date_Time__c</field>
-        <formula>IF ( 
-ISBLANK(Lost_CAC_Date_Time__c), 
-NOW(), 
-Lost_CAC_Date_Time__c
-)</formula>
-        <name>MBTH_Update Lost(CAC) Date Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>MBTH_Update_Lost_Dealer_Date_Time</fullName>
         <field>Lost_Dealer_Date_Time__c</field>
         <formula>IF(ISBLANK(Lost_Dealer_Date_Time__c),NOW(),Lost_Dealer_Date_Time__c)</formula>
