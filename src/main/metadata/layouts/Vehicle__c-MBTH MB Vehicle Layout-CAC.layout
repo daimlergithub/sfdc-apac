@@ -39,6 +39,10 @@
                 <behavior>Edit</behavior>
                 <field>Model__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Model_Description__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>FirstRegistrationDate__c</field>
@@ -209,7 +213,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Warranty_End_Date__c</field>
+                <field>Extended_Warranty_Start_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Latest_Invoice_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -225,9 +233,13 @@
                 <behavior>Edit</behavior>
                 <field>InsuranceExpiryDate__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Latest_Invoice_Date__c</field>
+                <field>Warranty_End_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Extended_Warranty_End_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
