@@ -1454,7 +1454,7 @@ Purchased_Date_Time__c
             <name>Send_Email_to_Finance_lead_managers</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>When Important lead checkbox being true, workflow rule should trigger i.e. If Dealer is updating some of the lead fields like "Desired Lead Service, Lead Status, Dealer Lead Status, First contacted customer date, purchased date, dealer comments, interes</description>
         <formula>AND( MBTH_Important_Lead__c ==true,RecordType.Name='Finance SalesLeads',OR(ISCHANGED(Dealer_Lead_Status__c),ISCHANGED(Purchased_Date__c),ISCHANGED(Dealer_Comments__c),ISCHANGED(Interested_Vehicle_Class__c),ISCHANGED(Interested_Vehicle_Model__c),ISCHANGED(Test_Drive_Date__c),ISCHANGED(	Interested_Vehicle_Brand__c),ISCHANGED(Lead_Desired_Service__c),ISCHANGED(First_Contact_Customer_Date__c)),MD__c='TH')</formula>
         <triggerType>onAllChanges</triggerType>
