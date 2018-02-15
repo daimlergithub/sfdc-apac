@@ -25574,7 +25574,7 @@
         <recordType>Task.DM</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-General Task Layout</layout>
+        <layout>Task-General Task Layout JP</layout>
         <recordType>Task.General_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>

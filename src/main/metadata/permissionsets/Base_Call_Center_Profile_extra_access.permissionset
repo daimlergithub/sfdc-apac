@@ -2574,6 +2574,18 @@
     </customPermissions>
 	<customPermissions>
         <enabled>true</enabled>
+        <name>AccCDM</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>AccountLinkAL</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>LeadAL</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
         <name>MYRetail</name>
     </customPermissions>
 	<customPermissions>
