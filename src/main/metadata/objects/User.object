@@ -570,7 +570,7 @@
 	<fields>
         <fullName>User_Profile__c</fullName>
         <externalId>false</externalId>
-        <formula>Profile.DeveloperName</formula>
+        <formula>Profile.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>User Profile</label>
         <required>false</required>
