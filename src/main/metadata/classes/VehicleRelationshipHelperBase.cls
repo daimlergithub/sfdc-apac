@@ -137,8 +137,9 @@ public with sharing class VehicleRelationshipHelperBase{
     */
     Public static void updateVehicleAmount(Set<Id> ContactIds){                   
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
-        IgnoredAccounts();     
-        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=Null AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
+        IgnoredAccounts();   
+		Date todayDate = Date.today() ;  
+        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND (End_Date__c=Null OR End_Date__c>=:todayDate) AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  
                 setVehicleIds.add(vr.Vehicle_ID__c);              

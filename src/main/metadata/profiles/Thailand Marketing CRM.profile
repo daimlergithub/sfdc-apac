@@ -17525,6 +17525,11 @@
         <field>Lead__c.Selling_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Sent_to_Autoline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.ServiceProgram_Proposal_Date__c</field>
@@ -26578,6 +26583,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.EuroVIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Extended_Warranty_End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Extended_Warranty_Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

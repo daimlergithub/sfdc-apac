@@ -1682,21 +1682,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void onLineDeduplication(){ 
   //  Readonly= true;  
    //    Editmode=false; 
-               if(market == Label.JP){
-    if(recordType == 'Person Account'){
-    personrectype = true;
 
-    }
-   
-    if(recordType == 'Company'){
-   system.debug ('+++++++++companyrectype'+companyrectype );
-    companyrectype = true;
-
-   system.debug ('+++++++++companyrectype'+companyrectype );
-    
-    }
-    
-    }
         String Doblebyte='[^ -~¡-ß]*';
         String KanaChar='[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*';
         Boolean result;
@@ -1767,9 +1753,17 @@ If the user is Saving  same address which matches the fields returned by toleran
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.Account_Name_is_mandatory));
         }
-        else if((recordType == 'Person Account' ||   recordType == 'Company') && market == System.Label.JP && (objPersonAccount.Market__c !='JP' ))
+        else if((recordType == 'Person Account' ||   recordType == 'Company') && market == System.Label.JP && (objPersonAccount.Market__c !='JP' || objAccount.Market__c !='JP'))
         {
-              objPersonAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only); 
+              if(objPersonAccount.Market__c !=null)
+           {
+            objPersonAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only); 
+            }
+              
+              if(objAccount.Market__c !=null)
+              {              
+               objAccount.Market__c.addError(Label.You_are_allowed_to_create_record_for_your_home_market_only);
+              }
         }
         else if((recordType == 'Person Account'  ||   recordType == 'Company') && market == System.Label.JP && (objPersonAccount.Status__c  =='Customer'  || objAccount.Status__c  =='Customer'))
         { 
@@ -2312,6 +2306,21 @@ If the user is Saving  same address which matches the fields returned by toleran
         }    
             Readonly= true;  
        Editmode=false;    
+                      if(market == Label.JP){
+    if(recordType == 'Person Account'){
+    personrectype = true;
+
+    }
+   
+    if(recordType == 'Company'){
+   system.debug ('+++++++++companyrectype'+companyrectype );
+    companyrectype = true;
+
+   system.debug ('+++++++++companyrectype'+companyrectype );
+    
+    }
+    
+    }
        // firstsave = true;       
        // secondsave = false;         
     }
@@ -3164,10 +3173,10 @@ public pagereference saveAccountTH()
                         {           
                             AddressObj.Customer__c = objAccount.id; 
                             AddressObj.Preferred__c=true; 
-							TriggerRecursiveCheck.AccountLinkAddressCheck();
+                            TriggerRecursiveCheck.AccountLinkAddressCheck();
                             DMLManagerService.insertAsSystem(AddressObj);                              
                             //insert AddressObj; 
-							//Account acc=new Account(Id=objAccount.Id);
+                            //Account acc=new Account(Id=objAccount.Id);
                            // acc.Primary_Address_Reference__c=AddressObj.Id;
                            // DMLManagerService.updateAsSystem(acc);              
                             PageReference pageRef = new PageReference('/'+objAccount.Id);       
@@ -3416,7 +3425,6 @@ public pagereference saveAccountTH()
      
          if(AddressObj.Address_Type__c != null && 
             (AddressObj.Address_Line_1__c==null ||
-            AddressObj.Address_Line_2__c==null ||           
             province==null ||
             district==null ||
             subdistrict==null ||
@@ -3472,20 +3480,20 @@ public pagereference saveAccountTH()
                         Validation = TRUE;                        
                     }
                    
-                    if(addressobj.Address_Line_2__c == null )
+                    /*if(addressobj.Address_Line_2__c == null )
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.')); 
                         Validation = TRUE;                        
                     }
                     else
-                    {                   
+                    {*/                   
                     
-                        if(addressobj.Address_Line_2__c.length()>100)
-                        {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
-                            Validation = true;                      
-                        }
-                    }
+					if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+					{
+						ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+						Validation = true;                      
+					}
+                    //}
                     
             }
             catch (exception e)

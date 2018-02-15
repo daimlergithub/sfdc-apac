@@ -16,6 +16,14 @@
         <value>Please Select only one as a Master</value>
     </labels> 
 	<labels>
+        <fullName>Are_you_sure_to_delete_this_account_mym</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mym page</shortDescription>
+        <value>Are you sure to delete this account?</value>
+    </labels> 
+	<labels>
         <fullName>New_Used</fullName>
         <categories>New Used</categories>
         <language>en_US</language>
@@ -8867,6 +8875,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Save Button</shortDescription>
         <value>Save</value>
     </labels>
+	<labels>
+        <fullName>Save_Button_JP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button</shortDescription>
+        <value>Save</value>
+    </labels>
     <labels>
         <fullName>Save_Filter</fullName>
         <language>en_US</language>
@@ -10920,6 +10935,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>please enter valid Email</shortDescription>
         <value>please enter valid Email</value>
+    </labels>
+	<labels>
+        <fullName>Please_Input_Proper_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>please input proper number</shortDescription>
+        <value>please input proper number</value>
     </labels>
     <labels>
         <fullName>please_input_My_Mercedes_Email_Id</fullName>

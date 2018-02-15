@@ -211,7 +211,7 @@ public with sharing class CustomerMymercInterfaceController {
       }
       if(!string.isBlank(loginmobile) && loginmobile!=null && ( !loginmobile.startsWith('010') && !loginmobile.startsWith('020') &&  !loginmobile.startsWith('030')  &&  !loginmobile.startsWith('040')  &&  !loginmobile.startsWith('050')  && !loginmobile.startsWith('060')  && !loginmobile.startsWith('070')  &&  !loginmobile.startsWith('080') &&  !loginmobile.startsWith('090')))
         {
-        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please Input Proper Number'));
+        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_Proper_Number));
             return null;
         }
         
@@ -270,8 +270,11 @@ public with sharing class CustomerMymercInterfaceController {
                      accont.Main_Dealer__c = usr.contact.AccountId;
                  }
                  
-                 update accont;
+                 if(cancelpop == true && accont !=null)
+                 {
+                  update accont;
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,Label.Records_Updated));
+                 }
              
             
         }
