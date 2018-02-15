@@ -214,14 +214,15 @@ public with sharing class SendToMyMercController {
             }  
         }
         
-                if(obj.isSelect == true && String.isBlank(Obj.PortalEmail)){
+                if(obj.isSelect == true && (String.isBlank(Obj.PortalEmail) && string.isBlank(Obj.loginmobile))) {
                     emptyMail = true;
                 }
-                else if(obj.isSelect == true && !String.isBlank(Obj.PortalEmail)){
+                else if(obj.isSelect == true && (!String.isBlank(Obj.PortalEmail) || !string.isBlank(Obj.loginmobile))){
                    if(String.isBlank(obj.vehicleRelationship) && userinfo.getUserType()=='PowerPartner'){
                        accountMainDealer.add(obj.AccountId);
                        system.debug('acctmaindealer'+accountmaindealer);
                    }
+                    emptyMail = false;
                     Vehset.add(obj.VehRelId);
                     visiblemap.put(obj.AccountId,obj.isVisible);
                     accset.add(obj.AccountId);                       
@@ -229,6 +230,9 @@ public with sharing class SendToMyMercController {
                 }
             }  
         }
+          system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$accset'+accset);
+          system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$accsetReason'+Reason);
+        system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$emptyMail'+emptyMail);
         if(Reason == false && emptyMail == false){
             System.debug('accIdReasonMap'+accIdReasonMap);
             if(accIdReasonMap != NULL && !accIdReasonMap.isEmpty()){
@@ -248,6 +252,7 @@ public with sharing class SendToMyMercController {
                     AccVehfinal.add(eachVr);    
                 }   
             }
+            system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$accset'+accset);
             if(accset !=null && !accset.isEmpty() ){
                 for(Account eachAcc : [select id,Allow_Data_Sharing2__c,Data_Source__C,Portal_Apply_Status__c,Main_Dealer__c,recordtypeid,Email3__c,FirstName_Native_1__c,PersonBirthdate,FirstName ,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
                     for(Account_link__c accLink : eachAcc.Account_Links__r){
