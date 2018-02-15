@@ -14,9 +14,9 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     /* Creation of users for different roles  - Begin */
     // Admin User Creation
      public static User createAdminUser(){   
-      UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH'];            
+      //UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH'];            
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        User u = new User(LastName='User',country='Australia',UserRoleId = role.id,firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'TH');
+        User u = new User(LastName='User',country='Australia',/*UserRoleId = role.id*/firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'TH');
         insert u;
         return u;
     }
