@@ -10,6 +10,7 @@
 function CustAlrtMsg()
 {
    var valu=document.getElementById('page:form:a:pbs:pbt:0:inptid').value;
+   var emailval=document.getElementById('page:form:a:pbs:pbt:0:inputemailid').value;
     if(valu == '')
     {
 
@@ -26,8 +27,16 @@ function CustAlrtMsg()
   }
    else if(valu != '')
     {
-       if(!confirm('{!$Label.Did_You_Get_Agreement_From_Customer}'));
-       {return false;}
+      
+        var answer1=confirm('{!$Label.Did_You_Get_Agreement_From_Customer}');
+    if(answer1 ==true)
+    {
+        document.getElementById('page:form:hid').value = true;
+    }
+   if(answer1 ==false)
+    {
+       document.getElementById('page:form:hid').value = false;
+   }
     }
  }
   </script>
@@ -58,7 +67,7 @@ function CustAlrtMsg()
                         <apex:column value="{!ac.toRole__c}" headerValue="{!$Label.AccountName}"/>
                         <apex:column headerValue="{!$Label.My_Mercedes_ID}" value="{!myMercId}"/>
                         <apex:column headerValue="{!$Label.My_Mercedes_Email_Id}">
-                        <apex:inputText value="{!MyMercEmail}" rendered="{!IF(myMercId == null, true, false)}" />
+                        <apex:inputText id="inputemailid" value="{!MyMercEmail}" rendered="{!IF(myMercId == null, true, false)}" />
                         <apex:outputText value="{!MyMercEmail}" rendered="{!IF(myMercId != null, true, false)}" />
                         </apex:column>
                         <apex:column headerValue="{!$Label.Login_Mobile}" id="inputid">

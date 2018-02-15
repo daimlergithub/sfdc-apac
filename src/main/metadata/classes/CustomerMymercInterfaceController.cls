@@ -270,8 +270,11 @@ public with sharing class CustomerMymercInterfaceController {
                      accont.Main_Dealer__c = usr.contact.AccountId;
                  }
                  
-                 update accont;
+                 if(cancelpop == true && accont !=null)
+                 {
+                  update accont;
                  ApexPages.addmessage(new ApexPages.message(ApexPages.severity.INFO,Label.Records_Updated));
+                 }
              
             
         }
