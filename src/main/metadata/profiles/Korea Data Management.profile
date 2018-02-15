@@ -6407,7 +6407,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Object__mdt.Cooperative_society_TL__c</field>
         <readable>false</readable>
     </fieldPermissions>
