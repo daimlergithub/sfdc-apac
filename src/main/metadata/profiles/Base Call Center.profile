@@ -2602,6 +2602,11 @@
         <readable>True</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Others__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>True</editable>
         <field>CampaignMember.Market__c</field>
         <readable>True</readable>
@@ -4964,7 +4969,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Province__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5119,7 +5124,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Retail_Email__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5754,7 +5759,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.MD__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19223,9 +19228,9 @@
         <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Retail_Campaign__c.Market__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -26815,7 +26820,7 @@
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Retail_Campaign__c</object>
@@ -28032,9 +28037,9 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Retail_Campaign__c.Retail_Parent_Campaign</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -28301,7 +28306,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Campaign__c</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Task__c</tab>
@@ -28507,6 +28512,14 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>AllowUniversalSearch</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>ScheduleJob</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>ScheduleReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

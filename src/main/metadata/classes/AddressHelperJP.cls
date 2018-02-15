@@ -200,7 +200,7 @@ public with sharing class AddressHelperJP {
         } 
         
         
-        system.debug('Class' + accountId);
+        system.debug('Class-----------' + accountId);
          string regexForNullValue ='null';
             string nullValue ='';                            
             String province;
@@ -261,8 +261,8 @@ public with sharing class AddressHelperJP {
     @created by  : Lokesh M
     @created date: Mar 31st, 2017
     */
-    public static void afterInsetAddressUpdateRetailPerson(List<Address__c> addList)
-    {
+    public static void afterInsetAddressUpdateRetailPerson(List<Address__c> addList) {
+        if(Leadutil.testadd=true) {
         //Checking the user profile is dealer 
         if(userinfo.getUserType()=='PowerPartner'){
             System.debug('AddressHelerpJp.afterInsetAddressUpdateRetailPerson method fired');
@@ -360,6 +360,8 @@ public with sharing class AddressHelperJP {
                 }
             }
         }
+      }  
+      Leadutil.testadd=false;
     }
     
     
@@ -410,8 +412,8 @@ public with sharing class AddressHelperJP {
               {
                   for(Vehicle_Relationship__c vr:listVr)
                   {
-				   if(vr.vehicle_address__c == add.id)
-				  {
+                   if(vr.vehicle_address__c == add.id)
+                  {
                       if(   add.Address_Type__c == '')
                       {
                             vr.vehicle_address_picklist__c = '';
@@ -498,8 +500,8 @@ public with sharing class AddressHelperJP {
         
     }
     
-	
-	  /*    
+    
+      /*    
   Added By      : venky
   Created date  : 08/16/2017
  Descrption     : This method will execute for Integration User and MBJ User.
