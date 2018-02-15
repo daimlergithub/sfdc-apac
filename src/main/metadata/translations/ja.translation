@@ -2538,7 +2538,7 @@
         <name>Login_Mobile</name>
     </customLabels>
 	 <customLabels>
-        <label>「ログイン携帯電話」が必須となります。</label>
+        <label>コンシェルジュサービスのご利用には「ログイン携帯電話」が必須となります。</label>
         <name>Login_Mobile_is_a_mandatory_for_Concierge_Service</name>
     </customLabels>
 	 <customLabels>
@@ -2546,7 +2546,7 @@
         <name>Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login</name>
     </customLabels>
 	<customLabels>
-        <label>お客様からご提供頂いた情報に関しては全て入力を行ってください。 コンシェルジュサービスのご利用には「ログイン携帯電話」が必須となります。</label>
+        <label>お客様から入会申込書を受領した場合のみ、実施してください。　コンシェルジュサービスのご利用には「ログイン携帯電話」が必須となります。</label>
         <name>Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S</name>
     </customLabels>
 	<customLabels>
@@ -2742,7 +2742,7 @@
         <name>My_Merc_Id</name>
     </customLabels>
 	<customLabels>
-        <label>Mercedes me Eメール</label>
+        <label>ログインメールアドレス</label>
         <name>My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
@@ -5584,6 +5584,14 @@
 	<customLabels>
         <label>正しいEメールを入力してください。</label>
         <name>please_enter_valid_Email</name>
+    </customLabels>
+	<customLabels>
+        <label>正しい携帯電話番号を入力してください。</label>
+        <name>Please_Input_Proper_Number</name>
+    </customLabels>
+	<customLabels>
+        <label>ログインメールアドレスまたはログイン携帯電話を入力してください。</label>
+        <name>Please_Input_MyMercedes_Email_Id_or_Login_Mobile</name>
     </customLabels>
     <customLabels>
         <label>Mercedes me Eメールを入力してください。</label>

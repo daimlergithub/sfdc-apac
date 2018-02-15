@@ -3424,7 +3424,6 @@ public pagereference saveAccountTH()
      
          if(AddressObj.Address_Type__c != null && 
             (AddressObj.Address_Line_1__c==null ||
-            AddressObj.Address_Line_2__c==null ||           
             province==null ||
             district==null ||
             subdistrict==null ||
@@ -3480,20 +3479,20 @@ public pagereference saveAccountTH()
                         Validation = TRUE;                        
                     }
                    
-                    if(addressobj.Address_Line_2__c == null )
+                    /*if(addressobj.Address_Line_2__c == null )
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.')); 
                         Validation = TRUE;                        
                     }
                     else
-                    {                   
+                    {*/                   
                     
-                        if(addressobj.Address_Line_2__c.length()>100)
-                        {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
-                            Validation = true;                      
-                        }
-                    }
+					if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+					{
+						ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+						Validation = true;                      
+					}
+                    //}
                     
             }
             catch (exception e)
