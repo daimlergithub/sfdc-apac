@@ -2734,7 +2734,7 @@
         <name>MyShop_Phone</name>
     </customLabels>
 	<customLabels>
-        <label>Mercedes me Eメール</label>
+        <label>ログインメールアドレス</label>
         <name>My_Merc_Email_Id</name>
     </customLabels>
     <customLabels>

@@ -23,7 +23,7 @@ public class CampaignBouncebackStatusBatchTHTest {
         
         Retail_Campaign__c rcobj1=new Retail_Campaign__c();
         rcobj1.Name='Test Campaign1';
-        rcobj1.Child_Campaign_Status__c='Segmentation';
+        rcobj1.Child_Campaign_Status__c='Planning';
         rcobj1.Status__c='Draft';
         rcobj1.Close_Date__c=system.today()+1;
         rcobj1.Execution_Start_Date__c=system.today()+1;
@@ -36,10 +36,9 @@ public class CampaignBouncebackStatusBatchTHTest {
         rcobj1.md__c='TH';
         insert rcobj1;
         
-        Campaign_Member__c cmr=new Campaign_Member__c();
-        cmr.Status__c='Executed';
-        cmr.Retail_Campaign_Id__c=rcobj1.id;
-        cmr.Contact_Id__c=accobj.id;
+        List<Campaign_Member__c> cmr=new List<Campaign_Member__c>();
+        cmr.add(new Campaign_member__c(Status__c='Execution',Retail_Campaign_Id__c=rcobj1.id,Contact_Id__c=accobj.id));
+        cmr.add(new Campaign_member__c(Status__c='Execution',Retail_Campaign_Id__c=rcobj1.id,Contact_Id__c=accobj.id));
         insert cmr;
         CampaignBouncebackStatusBatchUpdateTH cbsbut=new CampaignBouncebackStatusBatchUpdateTH();
         //Database.executeBatch(cbsbut);

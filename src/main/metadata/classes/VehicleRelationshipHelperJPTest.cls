@@ -11,7 +11,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
        public static Lead__c leadObj;
        public static List<Lead__c> leadlst;
        static List<Vehicle_Relationship__c> vrlst;
-        public static User user1= TestUtils.createAdminUser();
+        //public static User user1= TestUtils.createAdminUser();
        public static void createTestData(Date startDate, Date endDate){ 
            
            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsKernel.customSettingDetails();
@@ -63,25 +63,25 @@ public with sharing class VehicleRelationshipHelperJPTest{
        public static testMethod void validateOverlappingVehicleRelationship_test(){
        
            creatTestData();
-           Test.startTest();
+           //Test.startTest();
               
                VehicleRelationshipHelperJP vrjpObj = new VehicleRelationshipHelperJP();
                //VehicleRelationshipHelperJP cls = new VehicleRelationshipHelperJP();
            //cls.validateOverlappingVehicleRelationshiponInsert(new List<Vehicle_Relationship__c>{vehicle_relationship});
                system.assertNotEquals(vrjpObj ,null);
-           Test.stopTest();
+           //Test.stopTest();
        
        }
        public static testMethod void OnAfterInsert_test(){
            creatTestData();
-           Test.startTest();
+           //Test.startTest();
                VehicleRelationshipHelperJP.OnAfterInsert(vrlst);
                 system.assertNotEquals(vrlst,null);
-           Test.stopTest();
+           //Test.stopTest();
        }
         public static testMethod void OnAfterUpdate_test(){
            creatTestData();
-           Test.startTest();
+//           Test.startTest();
                vrlst.get(0).Car_Relation__c = 'Self-registered';
                vrlst.get(0).Owner_Relation__c = 'Friend';
                update vrlst.get(0);
@@ -94,20 +94,22 @@ public with sharing class VehicleRelationshipHelperJPTest{
                vrlstold.put(vrlst.get(0).Id,vrlst.get(0));
                VehicleRelationshipHelperJP.OnAfterUpdate(vrlstnew,vrlstold);
                system.assertNotEquals(vrlstold,null);
-           Test.stopTest();
+           //Test.stopTest();
        }
         public static testMethod void OnAfterDelete_test(){
            creatTestData();
            Id recordTypeAccObjId1 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
           Account accObj1 = new Account(RecordTypeId = recordTypeAccObjId1,Name = 'ＭＡＹＢＡＣＨ販売店車両%');
           insert accObj1;
-           Test.startTest();
+           //Test.startTest();
                VehicleRelationshipHelperJP.IgnoredAccounts();
                VehicleRelationshipHelperJP.OnAfterDelete(vrlst);
                system.assertNotEquals(vrlst,null);
-           Test.stopTest();
+           //Test.stopTest();
        }
        public static void creatTestData(){
+            
+            Test.StartTest();
             accList = new List<Account>();
             Id recordTypeAccObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
             accObj = new Account(RecordTypeId = recordTypeAccObjId,Name = 'Mercedez');
@@ -128,6 +130,8 @@ public with sharing class VehicleRelationshipHelperJPTest{
             vehicleRelationshipObj = new Vehicle_Relationship__c( Car_Relation__c ='Purchaser',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(1).Id,Purchase_Date__c=system.today(),Contact__c =accList.get(2).Id,Validity__c ='Yes',End_Date__c = system.today().addDays(1),Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data');
             vrlst.add(vehicleRelationshipObj);
             insert vrlst;
+            Test.StopTest();
+            
             
        
        }
@@ -167,7 +171,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            oldMap.put(listCampaign.id, listCampaign);
            vehicleRelationshipObj1.Car_Relation__c='Purchaser';
            update vehicleRelationshipObj1;
-           Test.startTest();
+           //Test.startTest();
                VehicleRelationshipHelperJP.updatePortalApplyStatus(listcampaigns,oldMap);
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                
@@ -185,7 +189,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
                
                VehicleRelationshipHelperJP.updateOnVehicleRelation(listcampaigns,oldMap,true,false);
                system.assertNotEquals('ggg',listcampaigns[0].Car_Relation__c);
-           Test.stopTest();
+           //Test.stopTest();
        }
        
        public static testMethod void beforeupdateEventAddressTest(){

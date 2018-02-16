@@ -23,12 +23,12 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
         Group gr=new Group(Name='12345');
         insert gr;
         EmailTemplate et1 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_1st_Reminder_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');
-		EmailTemplate et2 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_2nd_Reminder_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');        
-		EmailTemplate et3 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_escalated_to_MBTH_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');                
-        Insert new List<EmailTemplate>{et1,et2,et3};
+    EmailTemplate et2 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_2nd_Reminder_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');        
+    EmailTemplate et3 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_escalated_to_MBTH_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');                
+        //Insert new List<EmailTemplate>{et1,et2,et3};
         
         personAcc = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
-    	insertAccount.add(personAcc);
+      insertAccount.add(personAcc);
         Account accObj1 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);
         insertAccount.add(accObj1);
         Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);

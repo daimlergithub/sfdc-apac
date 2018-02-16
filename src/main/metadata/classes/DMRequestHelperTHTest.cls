@@ -102,9 +102,9 @@ public class DMRequestHelperTHTest {
         }
     }
     public static testMethod void updateStatusTest(){
-        createTestData();
-        createDMRequest();
-        system.runAs(usr){
+       system.runAs(usr){
+            createTestData();
+            createDMRequest();
             DM_Request__c dmr1 = new DM_Request__c();
             dmr1.Status__c = 'to be sent';
             dmr1.Customer_Name__c = account.id;

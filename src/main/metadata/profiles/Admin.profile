@@ -17752,6 +17752,11 @@
         <field>Lead__c.Override_Overdue__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Others__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Parts_Required__c</field>
@@ -18350,6 +18355,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Selling_Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Sent_to_Autoline__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -26761,6 +26771,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User.User_Role__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>User.User_Profile__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

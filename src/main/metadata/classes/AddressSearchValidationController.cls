@@ -1682,21 +1682,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void onLineDeduplication(){ 
   //  Readonly= true;  
    //    Editmode=false; 
-               if(market == Label.JP){
-    if(recordType == 'Person Account'){
-    personrectype = true;
 
-    }
-   
-    if(recordType == 'Company'){
-   system.debug ('+++++++++companyrectype'+companyrectype );
-    companyrectype = true;
-
-   system.debug ('+++++++++companyrectype'+companyrectype );
-    
-    }
-    
-    }
         String Doblebyte='[^ -~¡-ß]*';
         String KanaChar='[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*';
         Boolean result;
@@ -2320,6 +2306,21 @@ If the user is Saving  same address which matches the fields returned by toleran
         }    
             Readonly= true;  
        Editmode=false;    
+                      if(market == Label.JP){
+    if(recordType == 'Person Account'){
+    personrectype = true;
+
+    }
+   
+    if(recordType == 'Company'){
+   system.debug ('+++++++++companyrectype'+companyrectype );
+    companyrectype = true;
+
+   system.debug ('+++++++++companyrectype'+companyrectype );
+    
+    }
+    
+    }
        // firstsave = true;       
        // secondsave = false;         
     }
@@ -3172,10 +3173,10 @@ public pagereference saveAccountTH()
                         {           
                             AddressObj.Customer__c = objAccount.id; 
                             AddressObj.Preferred__c=true; 
-							TriggerRecursiveCheck.AccountLinkAddressCheck();
+                            TriggerRecursiveCheck.AccountLinkAddressCheck();
                             DMLManagerService.insertAsSystem(AddressObj);                              
                             //insert AddressObj; 
-							//Account acc=new Account(Id=objAccount.Id);
+                            //Account acc=new Account(Id=objAccount.Id);
                            // acc.Primary_Address_Reference__c=AddressObj.Id;
                            // DMLManagerService.updateAsSystem(acc);              
                             PageReference pageRef = new PageReference('/'+objAccount.Id);       
