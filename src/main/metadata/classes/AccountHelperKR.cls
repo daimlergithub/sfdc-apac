@@ -596,7 +596,7 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                                                  toRole__r.Sales_Sanction__c,toRole__r.PersonDoNotCall,toRole__r.Visit_Opt_Out__c,toRole__r.Personal_Agreement__c,
                                                  toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.Agreement_to_commit_info_processing__c,
                                                  toRole__r.Complaint_Amount__c,toRole__r.Preferred_Contact_Method__c,toRole__r.Job__c,toRole__r.Company_Name__c,toRole__r.PersonMobilePhone,
-                                                 toRole__r.Primary_Address_Reference__c,fromRole__r.Dealer_Rollout_Status__c, Retail_Address_Reference__r.LastModifiedDate, Retail_Address_Reference__r.CreatedDate
+                                                 toRole__r.Primary_Address_Reference__c,fromRole__r.Dealer_Rollout_Status__c, Retail_Address_Reference__r.LastModifiedDate, Retail_Address_Reference__r.CreatedDate,toRole__r.Personal_Info_Third_Party_Release_CC_Old__c,toRole__r.Personal_Abroad_Agreement_CC_Old__c,toRole__r.Agreement_to_commit_info_proces_CC_Old__c,toRole__r.Personal_Agreement_CC_Old__c
                                                  from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         
         System.debug('Accountlinklist------>'+Accountlinklist  );
@@ -682,10 +682,10 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Person_Agree_Test_Driving_Optional__c= acclnk.toRole__r.Person_Agree_Test_Driving_Optional__c;
                 acclnk.Person_Info_Custom_Service_Optional__c= acclnk.toRole__r.Person_Info_Custom_Service_Optional__c;
                 acclnk.Targeted_Advert_Info_Optional_STCC__c= acclnk.toRole__r.Targeted_Advert_Info_Optional_STCCC__c;
-                acclnk.Personal_Agreement_KR__c= acclnk.toRole__r.Personal_Agreement__c;
-                acclnk.Personal_Information_Third_Party_KR__c= acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
-                acclnk.Agreement_to_commit_info_processing_KR__c=acclnk.toRole__r.Agreement_to_commit_info_processing__c;
-                acclnk.Personal_Abroad_Agreement_KR__c= acclnk.toRole__r.Personal_Abroad_Agreement__c; 				
+                acclnk.Personal_Agreement_KR__c= acclnk.toRole__r.Personal_Agreement_CC_Old__c;
+                acclnk.Personal_Information_Third_Party_KR__c= acclnk.toRole__r.Personal_Info_Third_Party_Release_CC_Old__c;
+                acclnk.Agreement_to_commit_info_processing_KR__c=acclnk.toRole__r.Agreement_to_commit_info_proces_CC_Old__c;
+                acclnk.Personal_Abroad_Agreement_KR__c= acclnk.toRole__r.Personal_Abroad_Agreement_CC_Old__c; 				
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company' && acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done')

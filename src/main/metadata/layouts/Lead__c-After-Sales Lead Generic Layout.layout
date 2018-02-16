@@ -58,10 +58,6 @@
                 <behavior>Edit</behavior>
                 <field>Lost_Situation__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>MD__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
