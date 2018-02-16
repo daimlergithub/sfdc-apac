@@ -6,18 +6,18 @@ Related JIRA     : SFDCJP-2100,SFDCJP-2000
 
 public with sharing class CustomerMymercInterfaceController {
     
-    public list<Account_Link__c> acclist{get;set;}    
+    //public list<Account_Link__c> acclist{get;set;}    
     public Id Accid{get;set;}
     public id IndividualCustomerExternaLink;
     public id ContactSector;
     public list<Account_Link__c> accl{get;set;}
-    public Account_Link__c AclinkPop{get;set;}
+   // public Account_Link__c AclinkPop{get;set;}
     public list<Account_Link__c> aclsize;
     public Static account accont{get;set;}
     public boolean result;
     public boolean displayPopup{get;set;}
     public boolean cancelpop{get;set;}
-    public boolean oldpopup{get;set;}
+   // public boolean oldpopup{get;set;}
     public boolean Newpopup{get;set;}
     public string myMercId{get;set;}
     public string MyMercEmail{get;set;}
@@ -27,8 +27,8 @@ public with sharing class CustomerMymercInterfaceController {
     public boolean MyMercEmailVar{get;set;}
     public boolean ContactSectorvar{get;set;}
     public boolean loginmobileButton{get;set;}
-    public string returnvalue{get;set;}
-    public String FinalEmail{get;set;}
+   // public string returnvalue{get;set;}
+   // public String FinalEmail{get;set;}
     public String AcId;
     public String aclId;
     public String emailRegEx = '[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+';
@@ -324,3 +324,5 @@ public with sharing class CustomerMymercInterfaceController {
     }
     
 }
+
+                                             
