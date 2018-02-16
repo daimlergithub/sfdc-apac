@@ -35,7 +35,11 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>OwnerId</field>
-            </layoutItems>	
+            </layoutItems>				
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Priority</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
@@ -69,10 +73,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SentTime__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Priority</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
