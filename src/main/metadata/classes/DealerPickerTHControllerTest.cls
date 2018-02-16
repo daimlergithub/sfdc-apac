@@ -19,7 +19,7 @@ public class DealerPickerTHControllerTest {
         insert parentCamp;
         rcobj1=new Retail_Campaign__c(Relevant_Central_Campaign__c = parentCamp.id,IsAutoSegmentationExecuted__c = false,Segmentation_Criteria__c = scb.id,Auto_Segmentation__c = true,RecordTypeId=camIdExec,Execution_Type__c='eMail',Segmentation_Date__c=system.today(),Execution_Start_Date__c=system.today()+1,Name='Test Campaign1',Child_Campaign_Status__c='Segmentation',Status__c='Draft',Close_Date__c=system.today()+1);
         insert rcobj1;
-        grp = new Group(Name='12345');
+        grp = new Group(Name='TH12345');
         insert grp;
     }
     public static testmethod void testCancel(){
