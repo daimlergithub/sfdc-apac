@@ -35,7 +35,7 @@ static testMethod void testAccAssignment() {
            RecordTypeId=contacttocontactid,Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female'));
 			listcampaigns1.add(new Account_Link__c(Name='new al',Md__c='TH',toRole__c=acc[0].id,fromrole__c=acc[1].id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
             RecordTypeId=contacttocontactid,Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female'));
-            listcampaigns1.add(new Account_Link__c(Name='new al',Md__c='TH',toRole__c=acc[0].id,fromrole__c=acc[0].id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+            listcampaigns1.add(new Account_Link__c(Name='new al',Md__c='TH',toRole__c=acc[0].id,fromrole__c=acc[1].id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
             RecordTypeId=contacttocontactid,Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female'));
            insert listcampaigns1;
             List<Account_Link__c> updatelst=new List<Account_Link__c>();
