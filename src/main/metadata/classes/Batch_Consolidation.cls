@@ -97,9 +97,9 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
              camInsert.Status__c ='Ready';
              camInsert.List_Maitenence_Retail_CM_Flag__c = true;
              camInsert.Contact_Id__c = dlistMem.NewAccount__c;
-             if(DupeChecker == true){
+             //if(DupeChecker == true){
              camInsert.Preferred_Dealer__c = dlistMem.Participating_Dealer__r.Dealer__c; 
-             }
+             //}
               if(!dupliCheck.contains(dlistMem.NewAccount__c ))
               {
                   
