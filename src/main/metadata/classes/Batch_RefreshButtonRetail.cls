@@ -89,6 +89,7 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
         }
         if((!acclink.isempty() && acclink.size()>0) && (!mapAccLinks.isempty() && mapAccLinks.size()>0)){
         for(Campaign_Member__c camp : scope){
+           if(camp.Vehicle__c != null){
             if(mapAccLinks.get(camp.Vehicle__c).NextInspectionDate__c != null){
                 camp.NextInspectionDate__c = mapAccLinks.get(camp.Vehicle__c).NextInspectionDate__c;
             }
@@ -109,30 +110,53 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
             }
             camp.Vehicle_ExternalLink__c = mapAccLinks.get(camp.Vehicle__c).Id;
             membertoupdate.put(camp.id,camp);
+            }
         }
         }
         Map<Id,Account_Link__c> mapAccSalesLinks = New Map<Id,Account_Link__c>();
-        List<Account_Link__c> Personacclink = [select Id, Name, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc];
+        List<Account_Link__c> Personacclink = [select Id, Name, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false AND Retail_Sales_Consultant__c != null AND toRole__c != null  order by LastModifiedDate desc];
         if(!Personacclink.isempty() && Personacclink.size()>0){
             for(Account_Link__c acc :Personacclink){
-                mapAccSalesLinks.put(acc.toRole__c,acc);
+               if(acc.Retail_Sales_Consultant__c != null){
+               /* if(!mapAccSalesLinks.containskey(acc.toRole__c))
+                {
+                mapAccSalesLinks.put(acc.toRole__c,new Account_Link__c());
+                }
+                else
+                {
+                 mapAccSalesLinks.put(acc.toRole__c,acc);
+                }*/
+                  mapAccSalesLinks.put(acc.toRole__c,acc);
+                }
                 
             }
-        if(!mapAccSalesLinks.isempty() && mapAccSalesLinks.size()>0){
+//            System.debug('^&^&^&^&^&^&^&'+mapAccSalesLinks);
+        if(!mapAccSalesLinks.isempty() && mapAccSalesLinks.size()>0 && mapAccSalesLinks!= null){
         for(Campaign_Member__c retcamp : scope){
-            if(mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c != null) { 
-                retcamp.Sales_Consultant__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c;
+//        System.debug('*************** Map'+ mapAccSalesLinks);
+       
+//        System.debug('**************** Second'+ mapAccSalesLinks.get(retcamp.Contact_Id__c));
+//        System.debug('**************** Third'+ retcamp.Contact_Id__c);
+//         System.debug('************************* Firsrt'+ mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c);
+           if(retcamp.Contact_Id__c != null){
+           if(mapAccSalesLinks.get(retcamp.Contact_Id__c) != null){
+           if(mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c != null) {
+                           retcamp.Sales_Consultant__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c;
+            }
+            retcamp.Retail_Copy__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Id;
             }
             
-            if(retcamp.Contact_Id__c !=null)
-            {
-             retcamp.Retail_Copy__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Id;
             }
+            
+            //if(retcamp.Contact_Id__c !=null)
+        //{
+        //retcamp.Retail_Copy__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Id;
+         //  }
          membertoupdate.put(retcamp.id,retcamp);  
-        }
-        }
-        }
-        update membertoupdate.values();
+       }
+       }
+       }
+        database.update (membertoupdate.values(),false);
     }
     
     global void finish(Database.BatchableContext BC){
