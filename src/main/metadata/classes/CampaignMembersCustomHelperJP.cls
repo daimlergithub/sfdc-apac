@@ -108,29 +108,45 @@ public  class CampaignMembersCustomHelperJP {
         Map<Id,String> UserMap = New Map<Id,String>();
         Set<String> dealerCode = New Set<String>();
         Set<String> accountName = New Set<String>();
+        Set<Id> sid = New Set<Id>();
         List<Campaign_Member__Share> RetailCampaignShare = New List<Campaign_Member__Share>();
-        List<User> UserList;
+        List<Account> Accountlist;
+        set<id> uid =new set<id>();
         
-                for(Campaign_Member__c RetMem : newList)
+               For(Campaign_Member__c  cam : newList){
+               
+               
+                   uid.add(cam.id);
+               
+               }
+               
+               List<Campaign_Member__c> camlist =[Select id,Retail_Campaign_Id__r.dealer_name__c From Campaign_Member__c Where id =:uid];
+               
+               
+                for(Campaign_Member__c RetMem : camlist)
                 {
                     If( RetMem.Retail_Campaign_Id__r.dealer_name__c != null)
                     {                     
                      recordIds.add(RetMem.Id);
-                    }           
+                     sid.add(RetMem.Retail_Campaign_Id__r.dealer_name__c);
+                     system.debug('+++++++'+'Working');
+                    }     
+                    
+                    system.debug('+++++++'+'Working123');      
                 }
         
                  if(recordIds != null)
                  {
-                    UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
+                    AccountList =[select id,Dealer_GC_Code__c From Account Where Id =: sid];
                  }
                     
                     
-                for(User u : UserList){
+                for(Account u : AccountList){
                     
-                    If(u.ContactId != null){    
-                        UserMap.put(u.id,u.Dealer_GC_Code__c);  
+                        
+                          
                         dealerCode.add(u.Dealer_GC_Code__c);
-                    }   
+                       
                 }
                 List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
                 for(Account acc :dealerAccList){
@@ -250,7 +266,7 @@ insert campMemShareList;
                     set_CampaignMemberId.add(vc.id);
                     set_CustomerId.add(vc.contact_Id__c);
             }
-           if( vc.Retail_Campaign_Id__r.dealer_name__c != null && vc.Retail_Campaign_Id__c != null)
+         /*  if( vc.Retail_Campaign_Id__r.dealer_name__c != null && vc.Retail_Campaign_Id__c != null)
             {
              
                     if(!mapCheckingType.containsKey(vc.Retail_Campaign_Id__r.dealer_name__c))
@@ -260,7 +276,7 @@ insert campMemShareList;
                     mapCheckingType.get(vc.Retail_Campaign_Id__r.dealer_name__c).add(vc.Id);
                     //set_CampaignMemberId.add(vc.id);
                    set_CampaignMemberId.add(vc.id);
-            }
+            }*/
             if(vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c != null  )
             {
                

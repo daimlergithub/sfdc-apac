@@ -10,7 +10,7 @@ global class Updatecampaignmemwithrefresh{
    
     
     Batch_RefreshButton batcher = new Batch_RefreshButton(camid);
-                Database.executeBatch(batcher, 50);
+                Database.executeBatch(batcher, 1);
     
     }
     
