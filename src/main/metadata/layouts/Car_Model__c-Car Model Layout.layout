@@ -100,10 +100,7 @@
                 <behavior>Edit</behavior>
                 <field>Brand_Native__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_SubGroup__c</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Body_Type__c</field>
@@ -138,10 +135,7 @@
                 <behavior>Edit</behavior>
                 <field>Vehicle_Group__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_SubSubGroup__c</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Model_Native__c</field>

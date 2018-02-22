@@ -21,7 +21,7 @@ public with sharing class VehicleRelationshipHelperJP
     public static Id vehicleRelationship_VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
     
 
-    
+   public static Id AlkC2cRecordTypeId =Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
         
     Public static void IgnoredAccounts(){
     for(Account acc:[select id from Account Where Name Like :ignoredAccount]){
@@ -132,7 +132,8 @@ public with sharing class VehicleRelationshipHelperJP
                 ContactIdsforValidity.add(vr.Contact__c); 
           }
         }  
-         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);        
+         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);    
+         updateVehicleAmount(ContactIds);  //Uncommented as per 40249407    
          createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
          updateAccountstatus(ContactIdsforValidity);
     } 
@@ -163,12 +164,15 @@ public with sharing class VehicleRelationshipHelperJP
                         }
                     }
                 }   
-           
+           System.debug('^&&^&^&^&^&^&^&^&^&^&^'+VehicleIds);
+            System.debug('^&&^&^&^&^&^&^&^&^&^&^VehicleRelationshipIds'+VehicleRelationshipIds);
+            System.debug('^&&^&^&^&^&^&^&^&^&^&^contactIdofVehicleRelationship'+contactIdofVehicleRelationship);
             if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
                ContactIdsforValidity.add(vr.Contact__c); 
             }  
         }                          
         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);
+        updateVehicleAmount(ContactIds); //Uncommented as per CISM 40249407
         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);    
         updateAccountstatus(ContactIdsforValidity);   
     } 
@@ -184,7 +188,8 @@ public with sharing class VehicleRelationshipHelperJP
                 VehicleIds.add(vr.Vehicle_ID__c);
             }  
         }                 
-         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);           
+         //this line is commenting as per SFDCJP-1599 ---- updateVehicleAmount(ContactIds);    
+         updateVehicleAmount(ContactIds); //Uncommented as per CISM 40249407       
     } 
     
     Public static void updateAccountstatus(Set<Id> ContactIds){
@@ -210,6 +215,10 @@ public with sharing class VehicleRelationshipHelperJP
                        the functionality to count the amount of vehicle in its entirity to all the cases,
                        until we enable it again at some point in future.
        Commented by : Lokesh M
+       
+       */
+       
+       //Activating again as per CISM 40249407
        
     Public static void updateVehicleAmount(Set<Id> ContactIds){           
         system.debug('ContactIds>>>>'+ContactIds.size());      
@@ -248,12 +257,17 @@ public with sharing class VehicleRelationshipHelperJP
         if(!vehicleAmountToUpdate.isEmpty())
             update vehicleAmountToUpdate;         
     }  
-        */
+        
         
         
     //Create Account Link   
     Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds,Set<Id> contactIdofVehicleRelationship){ 
-        Set<Id> ContactIds=new Set<Id>();        
+        Set<Id> ContactIds=new Set<Id>();
+    Set<Id> FromRoleID=new Set<Id>();   
+        Set<Id> ToRoleID=new Set<Id>();   
+         System.debug('^&&^&^&^&^&^&^&^&^&^&^'+VehicleIds);
+            System.debug('^&&^&^&^&^&^&^&^&^&^&^'+VehicleRelationshipIds);
+        System.debug('^&&^&^&^&^&^&^&^&^&^&^'+contactIdofVehicleRelationship);
         Map<Id,Vehicle_Relationship__c> mapOfContact=new Map<Id,Vehicle_Relationship__c>();
         IgnoredAccounts();      
         List<Vehicle_Relationship__c> lstVehicleRelationship=[select Id,Contact__c,Owner_Relation__c,Vehicle_ID__c,Start_Date__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c Where Vehicle_ID__c IN :VehicleIds AND Car_Relation__c='Purchaser' /*AND Contact__c IN : contactIdofVehicleRelationship*/ AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000];
@@ -261,13 +275,91 @@ public with sharing class VehicleRelationshipHelperJP
             if((vr.Vehicle_ID__c!=Null && vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.End_Date__c==Null || vr.End_Date__c>=system.today())){
                 mapOfContact.put(vr.Vehicle_ID__c,vr);
             }
-        }      
+        }    
+        System.debug('^&&^&^&^&^&^&^&^&^&^&^ mapOfContact'+mapOfContact);
+        System.debug('^&&^&^&^&^&^&^&^&^&^&^ mapOfContact'+mapOfContact.keyset());
+        System.debug('^&&^&^&^&^&^&^&^&^&^&^ mapOfContact'+mapOfContact.values());
         List<Account_Link__c> lstAccLink=new List<Account_Link__c>();
+        List<Account_Link__c> ExistingAccLink=new List<Account_Link__c>();
         List<Vehicle_Relationship__c> listVehicleRelationship=[Select Id,contact__c,Vehicle_ID__c,Owner_Relation__c from Vehicle_Relationship__c Where Id IN :VehicleRelationshipIds AND Contact__c IN : contactIdofVehicleRelationship AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000];
+      
         system.debug('<<<<<<<'+listVehicleRelationship);
-        for(Vehicle_Relationship__c vr:listVehicleRelationship){       
-                Account_Link__c accLink=new Account_Link__c();
-                accLink.Active__c=true;
+        if(listVehicleRelationship !=null)
+        {
+            for(Vehicle_Relationship__c vrs:listVehicleRelationship)
+            {
+                if(vrs.Vehicle_ID__c != null && (!mapOfContact.isEmpty()) && mapOfContact.get(vrs.Vehicle_ID__c).Contact__c != null) 
+                {
+                   fromroleId.add(mapOfContact.get(vrs.Vehicle_ID__c).Contact__c);
+                    ToRoleId.add(vrs.Contact__c);
+                }
+            }
+            system.debug('<<<<<<<'+ToRoleId);
+              system.debug('<<<<@@@@@@@@@@@@@<<<'+fromroleId);
+            if(fromroleId!=null && ToRoleId !=null)
+            {
+                 ExistingAccLink=[Select  id,fromRole__c,toRole__c from Account_link__c where fromRole__c=:fromroleId and toRole__c=:ToRoleId and recordtypeId=:AlkC2cRecordTypeId];
+            }
+            
+        }
+         system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+ExistingAccLink);
+         system.debug('<<ExistingAccLinklistVehicleRelationshiplistVehicleRelationship'+listVehicleRelationship);
+        
+        for(Vehicle_Relationship__c vr:listVehicleRelationship){      
+          Account_Link__c accLink=new Account_Link__c();  
+            system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+ExistingAccLink);
+            system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+ExistingAccLink.size()); 
+            if(ExistingAccLink !=null && ExistingAccLink.size() >0)
+            {
+                 for(Account_Link__c alk:ExistingAccLink)
+                {
+                    if(vr.Vehicle_ID__c != null && (!mapOfContact.isEmpty()) && mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null &&  alk.fromRole__c == mapOfContact.get(vr.Vehicle_ID__c).Contact__c   && alk.toRole__c==vr.Contact__c ) 
+                    {
+                          
+                    }
+                    else
+                    {
+                         accLink.Active__c=true;
+                accLink.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+                                 
+                if(vr.Vehicle_ID__c != null && (!mapOfContact.isEmpty()) && mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null) 
+                {
+                   accLink.fromRole__c = mapOfContact.get(vr.Vehicle_ID__c).Contact__c;
+                }
+                accLink.toRole__c=vr.Contact__c;           
+                accLink.Role2__c=vr.Owner_Relation__c;
+                
+                if(vr.Owner_Relation__c=='Grand Parent'){
+                    accLink.Role__c='Grand Child';
+                }
+                else if(vr.Owner_Relation__c=='Parent'){
+                    accLink.Role__c='Child';
+                }
+                else if(vr.Owner_Relation__c=='Child'){
+                    accLink.Role__c='Parent';
+                }
+                else if(vr.Owner_Relation__c=='Grand Child'){
+                    accLink.Role__c='Grand Parent';
+                }    
+                else if(vr.Owner_Relation__c=='Employee'){
+                    accLink.Role__c='Manager';
+                } 
+                else if(vr.Owner_Relation__c=='Manager'){
+                    accLink.Role__c='Employee';
+                } 
+                else{
+                    accLink.Role__c=vr.Owner_Relation__c;
+                } 
+                         lstAccLink.add(accLink);
+                        
+                    }
+                }
+            }
+           system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+ExistingAccLink);
+            system.debug('<<ExistingAccLink<<@@@@@@@@@@@@@<<<'+ExistingAccLink.size());
+               if(ExistingAccLink.size() ==0)
+               {
+                    accLink.Active__c=true;
                 accLink.RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
                                  
                 if(vr.Vehicle_ID__c != null && (!mapOfContact.isEmpty()) && mapOfContact.get(vr.Vehicle_ID__c).Contact__c != null) 
@@ -300,10 +392,18 @@ public with sharing class VehicleRelationshipHelperJP
                 } 
                 
                 lstAccLink.add(accLink);
+                   
+               }
+               
             }try{
        
           if(!lstAccLink.isEmpty())  
-        insert lstAccLink;      
+          {
+              Database.insert(lstAccLink,false);              
+                         
+              
+          }
+           
    }
    catch(exception e){
    system.debug(e.getmessage()); }
@@ -468,7 +568,7 @@ public with sharing class VehicleRelationshipHelperJP
                     for( Address__c add : addr.values())
                     {
                         system.debug('+++++++++++++ add '+add );
-						//  Comment as part of changes related to SFDCJP-2804
+            //  Comment as part of changes related to SFDCJP-2804
                       /*  if( vels.vehicle_address_picklist__c == Null  || vels.vehicle_address_picklist__c == '')
                         {
                             
@@ -534,6 +634,9 @@ public with sharing class VehicleRelationshipHelperJP
                             //   vels.Vehicle_Address_Display__c  =add.ZipCode__c +' '   +add.Province__c+' ' +add.Province_Native__c + ' '+add.City__c +' ' +add.City_Native__c+' ' + add.District__c+' ' +add.District_Native__c+' ' +add.Block__c+' '+add.Block_Native__c+' ' +add.Address_Line_1__c+' ' +add.Address_Line_1_Native__c+ ' ' + add.Address_Line_2__c+' '+add.Address_Line_2_Native__c+'  '+add.Company_Name__c+ '    '+add.Company_Name_Native__c+' ' +add.Status__c +' ' +add.Temp_ZipCode__c+' ' + add.Temp_Address__c ;
                             vels.Vehicle_Address_Display__c  = province + add.City__c + add.District__c +add.Block__c+ add.Address_Line_1__c + ' ' + add.Address_Line_2__c ;                          
                             vels.Vehicle_Address_Display__c  =vels.Vehicle_Address_Display__c.replaceAll(regexForNullValue,nullValue);
+                        }
+                        if(vels.vehicle_address_picklist__c == '' || vels.vehicle_address_picklist__c == null){
+                        vels.Vehicle_Address_Display__c = '';
                         }
                     }
                 }                   

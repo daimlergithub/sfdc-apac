@@ -164,13 +164,13 @@
                             </apex:actionFunction>
                             <td style="width:20%"></td>
                             <td style="width:40%">
-                                <apex:outputLink target="_blank" value="/{!master.Id}">{!master.Name}
+                                <apex:outputLink target="_blank" value="/{!masterids}">{!master.Name}
                                 </apex:outputLink> 
                                 <a href="javascript:setEntityValues('master'); selectAll('master');">{!$Label.Select_All}</a>
                             </td>
                             
                             <td style="width:40%">
-                                <apex:outputLink target="_blank" value="/{!slave.Id}">{!slave.Name}
+                                <apex:outputLink target="_blank" value="/{!slaveids}">{!slave.Name}
                                 </apex:outputLink>  
                                 <a href="javascript:setEntityValues('{!$Label.slave}'); selectAll('{!$Label.slave}');">{!$Label.Select_All}</a>
                             </td>
@@ -229,7 +229,7 @@
                 </table>
             </apex:outputpanel>
             
-             <apex:pageblock id="Readonly" title="ReadOnly fields details" >
+             <apex:pageblock id="Readonly"  title="{!$Label.vehicle_Read_Only}" >
         
         <apex:panelGrid columns="2" width="1000px">
                 <apex:pageblocksection columns="1" >

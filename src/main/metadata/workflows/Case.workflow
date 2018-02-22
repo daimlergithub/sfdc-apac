@@ -268,6 +268,10 @@
         <fullName>Deadline_Notification_to_Owner_before_1_hourTH</fullName>
         <description>Deadline Notification to Owner before 1 hourTH</description>
         <protected>false</protected>
+		 <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
         <recipients>
             <type>owner</type>
         </recipients>
@@ -278,6 +282,10 @@
         <fullName>Deadline_Notification_to_Owner_before_1_hour_TH</fullName>
         <description>Deadline Notification to Owner before 1 hour TH</description>
         <protected>false</protected>
+		 <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
         <recipients>
             <type>owner</type>
         </recipients>
@@ -409,6 +417,15 @@
         <name>Approval Update</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_EuroVIN</fullName>
+        <field>EuroVIN__c</field>
+        <formula>Vehicle__r.EuroVIN__c</formula>
+        <name>Update EuroVIN</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -933,6 +950,24 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
+	   <fieldUpdates>
+        <fullName>UpdateOwnerManager</fullName>
+        <field>Case_Owner_manager__c</field>
+        <formula>Owner:User.Manager.Email</formula>
+        <name>UpdateOwnerManager</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateOwnerManager1</fullName>
+        <field>Case_Owner_manager__c</field>
+        <formula>Owner:User.Manager.Email</formula>
+        <name>UpdateOwnerManager1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_ApprovalSubmit_Date</fullName>
         <description>Update Approval_Submit_Date__C  with System.today()</description>
@@ -985,6 +1020,15 @@
         <field>Complaint_Creator_Department__c</field>
         <literalValue>CAC</literalValue>
         <name>Update Complaint Creator Department toCA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Creator_Department_To_MBTH</fullName>
+        <field>Complaint_Creator_Department__c</field>
+        <literalValue>MBTH</literalValue>
+        <name>Update Creator Department To MBTH</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -1280,6 +1324,16 @@
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
+	<rules>
+        <fullName>Auto Populate Eurovin TH</fullName>
+        <actions>
+            <name>Update_EuroVIN</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Vehicle__c  &lt;&gt; null&amp;&amp; MD__c =&apos;TH&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Case Deadline %3A Dealer Notification KR after 72 Hour</fullName>
         <active>false</active>
@@ -1553,7 +1607,11 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification TH</fullName>
-        <active>true</active>
+		 <actions>
+            <name>UpdateOwnerManager1</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
         <formula>AND( 
      MD__c = &apos;TH&apos;,
@@ -1578,7 +1636,11 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification TH 2 - Dealer</fullName>
-        <active>true</active>
+		 <actions>
+            <name>UpdateOwnerManager</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
         <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners</description>
         <formula>AND( 
      MD__c = &apos;TH&apos;,
@@ -2332,14 +2394,14 @@
         <description>When a MB Complaint created by CAC, Update Complaint Creator Department To CAC.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-    <rules>
+	<rules>
         <fullName>Case%3A Update Complaint Creator Department To Dealer</fullName>
         <actions>
             <name>Update_Creator_Department_to_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND 3) OR (1 AND 2 AND 4 AND 5)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3) OR ((1 OR 6) AND 5  AND 4)</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -2362,8 +2424,13 @@
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
             <operation>equals</operation>
-            <value>Thailand System Admin</value>
+            <value>Inquiry</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>
@@ -2375,7 +2442,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND (2 OR 3 OR 4) AND (5 OR 6)</booleanFilter>
+        <booleanFilter>1 AND (2 OR 3 ) AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -2392,19 +2459,9 @@
             <value>System Administrator</value>
         </criteriaItems>
         <criteriaItems>
-            <field>User.ProfileId</field>
-            <operation>startsWith</operation>
-            <value>Thailand</value>
-        </criteriaItems>
-        <criteriaItems>
             <field>Case.MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
         </criteriaItems>
         <description>When a MB Complaint created by RO/CO,  Update Complaint Creator Department To RO/CO.</description>
         <triggerType>onCreateOnly</triggerType>
@@ -2719,6 +2776,31 @@ RecordType.Name=&apos;MB Complaint&apos;
             <value>Dealer</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Complaint Creator Department To MBTH</fullName>
+        <actions>
+            <name>Update_Creator_Department_To_MBTH</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Case.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>Thailand</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>notContain</operation>
+            <value>Dealer</value>
+        </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>

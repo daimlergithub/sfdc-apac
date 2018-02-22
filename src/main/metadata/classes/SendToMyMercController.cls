@@ -12,20 +12,26 @@ public with sharing class SendToMyMercController {
     public list<Vehicle_Relationship__c> Vehupdate;
     public list<Vehicle_Relationship__c> AccVehupdate;
     public boolean VisibleInMerc{get;set;}
+    public boolean cancelTrue{get;set;}
     public set<Id> accset;
     public set<Id> Vehset;
-    public id vehpageid;
+    public id vehpageid{get;set;}
     public Id IndividualCustomerExternaLink;
     public Id AccCom;
     public Id Person;
     public Id vehRelType;
     public Boolean result; 
     public string emai3;
+    public string mobile3{get;set;}
     public String FinalEmail{get;set;}
     public ID VIDs;
+    public string myMercId{get;set;}
+   // public string loginmobile{get;set;}
+     public boolean loginmobileButton{get;set;}
     public Vehicle_Relationship__c lstVinfo{get;set;}
     public boolean displayPopup {get; set;} 
     public static User usr = new user();
+   // public String emailRegEx = '[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]+';
      public map<string,string> labelNvalue=new map<string,string>(); 
     public SendToMyMercController(ApexPages.StandardController controller) {
         vehpageid = ApexPages.currentPage().getParameters().get('id');
@@ -37,6 +43,8 @@ public with sharing class SendToMyMercController {
         RecordType vehRelRecType = [select id,name from RecordType where sObjecttype = 'vehicle_relationship__c' AND Name = 'Vehicle Relationship'];
         vehRelType = vehRelRecType.Id;
         accountRelatedData();
+        loginmobileButton=true;
+        cancelTrue=false;
     }
     
     private List<AccountWrapper> accountRelatedData(){ 
@@ -44,7 +52,7 @@ public with sharing class SendToMyMercController {
         Set<ID> setAccountID = new Set<ID>();
         Map<ID,String> mapAccount = new Map<Id,String>();
         Map<ID,string> accountLinkId = new Map<Id,string>();
-        List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Contact__c,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null AND RecordtypeId =: vehRelType];
+        List<Vehicle_Relationship__c> lstVehicle_Relationship = [SELECT Id,Contact__c,Retail_Contact__r.toRole__c,Retail_Contact__r.system__c,Contact__r.Email__c,Contact__r.Mobile_3__c,Retail_Contact__r.Portal_Email__c ,Retail_Contact__r.Primary__c,Retail_Contact__r.RecordtypeId,Car_Relation__c,Retail_Contact__r.Name,Contact__r.email2__c, Contact__r.Name,Contact__r.Opt_Out_Portal_Reason__c,Contact__r.Email3__c,Portal_Visiblity__c FROM Vehicle_Relationship__c where Vehicle_ID__c=:vehicleRecord.ID AND End_Date__c = null AND RecordtypeId =: vehRelType];
         System.debug('========vR'+lstVehicle_Relationship);
           Schema.DescribeFieldResult fieldResult = Vehicle_Relationship__c.Car_Relation__c.getDescribe();
          List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
@@ -56,10 +64,16 @@ public with sharing class SendToMyMercController {
         for(Vehicle_Relationship__c vch:lstVehicle_Relationship){
             setAccountID.add(vch.Contact__c);
         }
-        for(Account eachAccount:[SELECT Id,Name,(SELECT Id,name,toRole__c From Account_Links__r where RecordtypeId =: IndividualCustomerExternaLink AND System__c = 'My Mercedes' AND Primary__c = True) from Account where ID IN:setAccountID] ){
+        for(Account eachAccount:[SELECT Id,Mobile_3__c,Name,(SELECT Id,name,toRole__c,System__c,Primary__c From Account_Links__r where RecordtypeId =: IndividualCustomerExternaLink AND System__c = 'My Mercedes' AND Primary__c = True) from Account where ID IN:setAccountID] ){
             for(Account_Link__c eachLink : eachAccount.Account_Links__r){
                 if( eachLink.toRole__c== eachAccount.Id )
+                {
                     accountLinkId.put(eachAccount.ID,eachLink.name);
+                  }
+                  if(eachLink.System__c == 'My Mercedes'){
+                    myMercId = eachAccount.name;
+                    }
+             
                 system.debug('!!!'+accountLinkId);
             }
             
@@ -82,22 +96,25 @@ public with sharing class SendToMyMercController {
             if(String.isNotBlank(eachVRelationships.Retail_Contact__r.Portal_Email__c) && eachVRelationships.Retail_Contact__r.system__c== 'My Mercedes')
             {
                 emai3= eachVRelationships.Retail_Contact__r.Portal_Email__c;
+                 mobile3=eachVRelationships.Contact__r.Mobile_3__c;
             }
             else
             {
                 emai3= eachVRelationships.Contact__r.Email3__c;
+                mobile3=eachVRelationships.Contact__r.Mobile_3__c;
             }
+             
             if(eachVRelationships.Retail_Contact__r.RecordtypeId == IndividualCustomerExternaLink && eachVRelationships.Retail_Contact__r.Primary__c == true && eachVRelationships.Retail_Contact__r.toRole__c == eachVRelationships.Contact__c && eachVRelationships.Retail_Contact__r.system__c == 'My Mercedes')
             {
                 if(!uniqueids.contains(eachVRelationships.Contact__c)) {
-                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,eachVRelationships.Retail_Contact__r.Name,eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,eachVRelationships.Portal_Visiblity__c));
+                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,eachVRelationships.Retail_Contact__r.Name,eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,eachVRelationships.Portal_Visiblity__c,mobile3));
                     system.debug('-----'+accountCarmap.get(eachVRelationships.Contact__c));
                     uniqueids.add(eachVRelationships.Contact__c);
                 }
             }
             else{
                 if(!uniqueids.contains(eachVRelationships.Contact__c)) {
-                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,accountLinkId.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,eachVRelationships.Portal_Visiblity__c));
+                    lstAccountWrapper.add(new AccountWrapper(eachVRelationships.ID,emai3,eachVRelationships.Contact__r.Email__c,eachVRelationships.Contact__r.Name,accountLinkId.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.email2__c,accountCarmap.get(eachVRelationships.Contact__c),eachVRelationships.Contact__r.Opt_Out_Portal_Reason__c,eachVRelationships.Contact__c,eachVRelationships.Id,eachVRelationships.Portal_Visiblity__c,mobile3));
                     uniqueids.add(eachVRelationships.Contact__c);
                 }
             }
@@ -125,6 +142,7 @@ public with sharing class SendToMyMercController {
     
     public pagereference Submit(){
         map<id,string> email3update = new map<id,string>();
+         map<id,string> mobile3update = new map<id,string>();
         map<id,boolean> visiblemap = new map<id,boolean>();
         Map<Id,Account> myMercAcc = new Map<Id,Account>();
         Map<Id,Account> nonMyMercAcc = new Map<Id,Account>();
@@ -152,14 +170,59 @@ public with sharing class SendToMyMercController {
                     System.debug('nonselectaccountreason'+obj.accountid+'reason'+obj.optoutreason);
                     accIdReasonMap.put(obj.AccountId,obj.OptOutReason);     
                 }
-                if(obj.isSelect == true && String.isBlank(Obj.PortalEmail)){
+                if( Obj.isSelect == true && (Obj.PortalEmail == NULL || String.isBlank(Obj.PortalEmail))  && (Obj.loginmobile == NULL  || string.isBlank(Obj.loginmobile))){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_MyMercedes_Email_Id_or_Login_Mobile));
+            return null;
+        }
+         if(!string.isBlank(Obj.loginmobile) && Obj.loginmobile!=null && ( !Obj.loginmobile.startsWith('010') && !Obj.loginmobile.startsWith('020') &&  !Obj.loginmobile.startsWith('030')  &&  !Obj.loginmobile.startsWith('040')  &&  !Obj.loginmobile.startsWith('050')  && !Obj.loginmobile.startsWith('060')  && !Obj.loginmobile.startsWith('070')  &&  !Obj.loginmobile.startsWith('080') && !Obj.loginmobile.startsWith('090')))
+        {
+        ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_Proper_Number));
+            return null;
+        }
+        if(Obj.loginmobile !=null && !string.isBlank(Obj.loginmobile))
+        {
+        mobile3update.put(obj.AccountId,obj.loginmobile);
+          
+        }
+        system.debug('&&*&*&*&*&*&&&&&&&& mobile3update'+mobile3update);
+        
+        if(!string.isBlank(Obj.PortalEmail) ){// && (!Obj.PortalEmail.endsWith('.com') || !Obj.PortalEmail.contains('@'));
+          String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
+            
+            String CharSplit = Obj.PortalEmail.substringBefore('@');
+            System.debug('+++++Split+++++++++++'+CharSplit );
+            
+            Integer result = CharSplit.length();
+            System.debug('+++++++result +++++++++++'+result);
+            
+            Boolean dotCheck = CharSplit.startsWith('.'); 
+            System.debug('+++++++dotCheck+++++++++++'+dotCheck);   
+            
+                     
+            if(result > 64 || dotCheck == true || Obj.PortalEmail.contains('.@')  || Obj.PortalEmail.contains('@.') || Obj.PortalEmail.contains('..')  || Obj.PortalEmail.length() >80){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
+                return null;
+            
+            }
+            Pattern MyPatternn = Pattern.compile(emailRegex);
+            Matcher MyMatcher = MyPatternn.matcher(Obj.PortalEmail);
+            
+           
+            if (!MyMatcher.matches() ){ 
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
+                return null;    
+            }  
+        }
+        
+                if(obj.isSelect == true && (String.isBlank(Obj.PortalEmail) && string.isBlank(Obj.loginmobile))) {
                     emptyMail = true;
                 }
-                else if(obj.isSelect == true && !String.isBlank(Obj.PortalEmail)){
+                else if(obj.isSelect == true && (!String.isBlank(Obj.PortalEmail) || !string.isBlank(Obj.loginmobile))){
                    if(String.isBlank(obj.vehicleRelationship) && userinfo.getUserType()=='PowerPartner'){
                        accountMainDealer.add(obj.AccountId);
                        system.debug('acctmaindealer'+accountmaindealer);
                    }
+                    emptyMail = false;
                     Vehset.add(obj.VehRelId);
                     visiblemap.put(obj.AccountId,obj.isVisible);
                     accset.add(obj.AccountId);                       
@@ -167,6 +230,9 @@ public with sharing class SendToMyMercController {
                 }
             }  
         }
+          system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$accset'+accset);
+          system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$accsetReason'+Reason);
+        system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$emptyMail'+emptyMail);
         if(Reason == false && emptyMail == false){
             System.debug('accIdReasonMap'+accIdReasonMap);
             if(accIdReasonMap != NULL && !accIdReasonMap.isEmpty()){
@@ -186,6 +252,7 @@ public with sharing class SendToMyMercController {
                     AccVehfinal.add(eachVr);    
                 }   
             }
+            system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$accset'+accset);
             if(accset !=null && !accset.isEmpty() ){
                 for(Account eachAcc : [select id,Allow_Data_Sharing2__c,Data_Source__C,Portal_Apply_Status__c,Main_Dealer__c,recordtypeid,Email3__c,FirstName_Native_1__c,PersonBirthdate,FirstName ,Gender__c ,LastName_Native_1__c,(SELECT Id,name,toRole__c,Portal_Email__c,System__c,RecordtypeId,Primary__c From Account_Links__r),Portal_Apply_Date__c,Portal_Apply_User__c  from account where Id In: accset]){
                     for(Account_link__c accLink : eachAcc.Account_Links__r){
@@ -210,7 +277,7 @@ public with sharing class SendToMyMercController {
                     usr = [Select Id,name,contact.AccountId from User WHERE ID = :UserInfo.getUserId() ];
                     for(Account acc : myMercAcc.values()){
                         acc.Email3__c = email3update.get(acc.Id);
-                        
+                         acc.Mobile_3__c=mobile3update.get(acc.id);
                         idAccLinkMap.get(acc.Id).Portal_Email__C = email3update.get(acc.Id);
                         
                         accfinal.put(acc.Id, acc);
@@ -232,6 +299,7 @@ public with sharing class SendToMyMercController {
                         acct.Portal_Apply_Date__c = System.today();
                         acct.Portal_Apply_User__c = userinfo.getUserId();
                         acct.Email3__c = email3update.get(acct.Id);
+                        acct.Mobile_3__c=mobile3update.get(acct.id);
                         accfinal.put(acct.Id,acct);
                     }
                     AccVehupdate = [select Portal_Apply_Status__c,Portal_Apply_User__c,Contact__c,Portal_Apply_Date__c from Vehicle_Relationship__c where Contact__c =: accset AND End_Date__c = Null AND RecordtypeId =: vehRelType];
@@ -251,6 +319,7 @@ public with sharing class SendToMyMercController {
                 }
                 
             }
+            system.debug('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'+accfinal);
             if(personBirthdate){
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.SendToMyMercedesJPUserErr));    
             }        
@@ -266,9 +335,7 @@ public with sharing class SendToMyMercController {
                  pr.setRedirect(true);
             }
         }
-        else if(emptyMail){
-            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.Please_enter_My_Merc_Email_Id_for_Selected_Account));
-        }
+        
         else if(reason){
             ApexPages.addmessage(new apexpages.message(Apexpages.severity.warning,Label.Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account));
         }
@@ -283,12 +350,13 @@ public with sharing class SendToMyMercController {
         public String OptOutReason{get;set;}
         public String PortalEmail {get;set;}
         public String personalEmail {get;set;}
+        public string loginmobile{get;set;}
         public boolean isSelect{get;set;}
         public boolean isVisible{get;set;}
         public Id AccountId {set;get;}
         public ID VID{get;set;}
         public Id VehRelId;
-        public AccountWrapper(Id VIDVar,String PortalEmailVar,String personalEmailVar,String accountDataVar,String vehicleRelationshipVar,String accountLinkVar,string carrel,string reson,Id accid,Id vehid,boolean isMyMercVis){
+        public AccountWrapper(Id VIDVar,String PortalEmailVar,String personalEmailVar,String accountDataVar,String vehicleRelationshipVar,String accountLinkVar,string carrel,string reson,Id accid,Id vehid,boolean isMyMercVis,string loginmobile){
             accountData = accountDataVar;
             vehicleRelationship = vehicleRelationshipVar;
             accountLink = accountLinkVar;
@@ -302,6 +370,7 @@ public with sharing class SendToMyMercController {
             accountLink = accountLinkVar;
             PortalEmail = PortalEmailVar;
             VID = VIDVar;  
+            loginmobile=loginmobile;
         }
     }    
 }

@@ -550,6 +550,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Comment__c</fullName>
+        <externalId>false</externalId>
+        <label>Comment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>Comments__c</fullName>
         <externalId>false</externalId>
@@ -2594,7 +2603,7 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"</description>
         <externalId>false</externalId>
         <inlineHelpText>Defines vehicle being new or used</inlineHelpText>
-        <label>New Used</label>
+        <label>New/Used</label>
         <picklist>
             <picklistValues>
                 <fullName>New</fullName>
@@ -2825,6 +2834,29 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Past_Selling_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Past Selling Dealer</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select the proper Dealer account.</errorMessage>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Vehicle Relationship (Past Selling Dealer)</relationshipLabel>
+        <relationshipName>Vehicle_Relationship4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Performance__c</fullName>
@@ -5267,6 +5299,34 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Picklist</type>
     </fields>
     <label>Vehicle Relationship</label>
+	<listViews>
+        <fullName>All_MBTH_Vehicle_Relationships</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Vehicle_ID__c</columns>
+        <columns>Euro_Vin__c</columns>
+        <columns>Car_Relation__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Registration_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Vehicle_Relationship__c.Vehicle_Relationship</value>
+        </filters>
+        <label>All MBTH Vehicle Relationships</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>MBK_New_Vehicle_Relationship</fullName>
         <columns>NAME</columns>
@@ -7469,11 +7529,20 @@ NOT(ISBLANK(PRIORVALUE(Contact__c))),NOT(ISNEW()),ISCHANGED(Contact__c))</errorC
     <validationRules>
         <fullName>End_Reason_Required</fullName>
         <active>true</active>
-        <description>"End date is not null
-AND End reason is null"</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c)=='MY',$Permission.MYGeneric)))</errorConditionFormula>
+        <description>End date is not null
+AND End reason is null.</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c) = 'MY',$Permission.MYGeneric)))</errorConditionFormula>
         <errorDisplayField>End_Reason__c</errorDisplayField>
-        <errorMessage>Once end date has been set for the vehicle relationship, the end reason must be entered.</errorMessage>
+        <errorMessage>End Reason is mandatory, if End Date is selected.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>End_Date_cannot_be_before_Start_Date_MY</fullName>
+        <active>true</active>
+        <description>End Date cannot be before Start date.</description>
+        <errorConditionFormula>AND(!ISNEW(), ISCHANGED(End_Date__c), NOT(ISNULL(End_Date__c)), End_Date__c &lt; Start_Date__c, UPPER(MD__c)=='MY', $Permission.MYGeneric)
+		</errorConditionFormula>
+        <errorDisplayField>End_Date__c</errorDisplayField>
+        <errorMessage>End Date cannot be before Start date.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>New_Complaint</fullName>

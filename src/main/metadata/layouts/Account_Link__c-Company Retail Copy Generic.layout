@@ -3,6 +3,8 @@
     <customButtons>Send_To_AutoLine</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+	<excludeButtons>Clone</excludeButtons>
+	<excludeButtons>Share</excludeButtons>									  
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -14,13 +16,9 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-			<layoutItems>
-                <behavior>Readonly</behavior>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Retail_Company_Name__c</field>
-            </layoutItems>
-			<layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_DMS_Customer_ID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -35,7 +33,7 @@
                 <field>Retail_Fax_OptOut__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Primary_Phone__c</field>
             </layoutItems>
             <layoutItems>
@@ -47,18 +45,24 @@
                 <field>Retail_Comments__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Sales_Sanction__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Readonly</behavior>
+                <field>Retail_DMS_Customer_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_UCID__c</field>
+            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Company_Name_Native1__c</field>
@@ -79,9 +83,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Consultant__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction_Comment__c</field>
@@ -113,31 +115,35 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_Province__c</field>
+                <field>Retail_Distinct__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Distinct__c</field>
+                <behavior>Edit</behavior>
+                <field>Retail_Address_Line_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Address_Line_2__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Address_CreatedDate__c</field>
+                <behavior>Edit</behavior>
+                <field>Retail_Address_Line_3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Industry__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Commercial_Reg_No__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Vat_No__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_Agreement__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -151,19 +157,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Retail_Province__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Retail_City__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Address_Line_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Address_Line_3__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Address_LastModifiedDate__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -172,6 +170,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_WebSite__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_Address_CreatedDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_Address_LastModifiedDate__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -183,7 +189,7 @@
         <label>System Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>fromRole__c</field>
             </layoutItems>
             <layoutItems>
@@ -198,10 +204,18 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_CreatedDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_LastModifiedDate__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>toRole__c</field>
             </layoutItems>
             <layoutItems>
@@ -209,7 +223,7 @@
                 <field>Retail_Dealer_CompanyCode__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
@@ -239,7 +253,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000IzN5</masterLabel>
+        <masterLabel>00h5D000000Ikem</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

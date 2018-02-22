@@ -1,0 +1,26 @@
+Global class JSON2ApexStouch {
+    public String RecordCount;
+	public List<Person> O_customerdetails=new List<Person>();
+    public class Person{
+        public string LastName;
+        public string PersonMobilePhone;
+        public string PersonEmail;
+        public string Personal_UCID;
+        public string Owner;
+        public string MBK_Data_Source;
+        public String Birthdate;
+        public Person(Account_link__c acclink,String federationIdentifier){
+            this.LastName=string.ISBlank(acclink.Retail_LastName__c)? ' ' : acclink.Retail_LastName__c;
+            this.PersonMobilePhone=string.ISBlank(acclink.Retail_Mobile__c)? ' ' : acclink.Retail_Mobile__c.remove('-');
+            this.PersonEmail=string.ISBlank(acclink.Retail_Email__c)? ' '  : acclink.Retail_Email__c;
+            this.Personal_UCID=string.ISBlank(acclink.Retail_UCID__c)? ' '  : acclink.Retail_UCID__c;
+            this.Owner=string.ISBlank(federationIdentifier)? ' '  : federationIdentifier;
+            this.MBK_Data_Source=string.ISBlank(acclink.toRole__r.MBK_Data_Source__c)? ' '  : acclink.toRole__r.MBK_Data_Source__c;
+            //this.Birthdate=acclink.Retail_PersonBirthdate__c;
+            if(acclink.Retail_PersonBirthdate__c==null)
+            	this.Birthdate=' ';
+        	else
+           		this.Birthdate=string.valueOf(acclink.Retail_PersonBirthdate__c);
+        }
+    }
+}

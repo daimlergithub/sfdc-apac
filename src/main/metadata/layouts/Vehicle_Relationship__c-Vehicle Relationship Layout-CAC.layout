@@ -44,6 +44,10 @@
                 <behavior>Edit</behavior>
                 <field>Magazine__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Past_Selling_Dealer__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Grey_Vehicle__c</field>
@@ -81,6 +85,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Source_Lead__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Comment__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

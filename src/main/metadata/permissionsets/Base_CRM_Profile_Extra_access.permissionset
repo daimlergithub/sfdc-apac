@@ -2572,7 +2572,47 @@
         <enabled>true</enabled>
         <name>CreateRetailCopy</name>
     </customPermissions>
-    <customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>AccCDM</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>AccountLinkAL</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>LeadAL</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>MYRetail</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>addressupdateRT</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>CDMAccountlinkContext</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>CDMAccountlinkContextGroup</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>createAccountLink</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>createUpdateCDMUCID</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>LeadShareRecordswithDealers</name>
+    </customPermissions>
+	<customPermissions>
         <enabled>true</enabled>
         <name>ExportNotification</name>
     </customPermissions>
@@ -5245,7 +5285,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Special_Care__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -13840,12 +13880,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Check_In_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Check_Out_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -13910,7 +13950,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Contact_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14475,12 +14515,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Invoice_Amount__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Invoice_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14490,7 +14530,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Invoice_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14560,12 +14600,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Job_Card_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Job_Card_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14865,7 +14905,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Network_Registration_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14935,12 +14975,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Order_Confirmation_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Order_No__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -14950,12 +14990,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Order_Placed_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Order_Print_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15173,14 +15213,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Quotation_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Quotation_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15190,17 +15230,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Quotation_Number_History__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Quotation_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Quotation_Print_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15450,7 +15490,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Registration_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15930,12 +15970,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.WIP_Created_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.WIP_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25041,7 +25081,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyOnlyRelatedList</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailCopyViewAreaForDealerUser</apexPage>

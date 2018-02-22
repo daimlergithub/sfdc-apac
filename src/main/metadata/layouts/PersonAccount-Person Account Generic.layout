@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Create_Retail_Copy</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <customButtons>Create_Retail_Copy_MY</customButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>EnableCustomerPortalUser</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
-	<excludeButtons>Share</excludeButtons>
     <excludeButtons>ViewCustomerPortalUser</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -17,21 +14,13 @@
         <editHeading>false</editHeading>
         <label>Fields</label>
         <layoutColumns>
-			<layoutItems>
-				<behavior>Edit</behavior>
-                <field>title__c</field>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Title__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>LastName_Native_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>FirstName_Native_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -71,20 +60,12 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PersonDoNotCall</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>PersonHasOptedOutOfEmail</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Old_UCID__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -113,6 +94,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Personal_Agreement__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Special_Care__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -228,7 +213,7 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Language__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Newspaper__c</field>
             </layoutItems>
@@ -254,7 +239,7 @@
                 <behavior>Edit</behavior>
                 <field>Occupation__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Job__c</field>
             </layoutItems>
@@ -285,10 +270,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
-                <behavior>Readonly</behavior>
-                <field>MD__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Market__c</field>
@@ -332,6 +313,7 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>System__c</fields>
@@ -342,7 +324,6 @@
         <fields>Retail_Email_OptOut__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -358,6 +339,18 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>UsVIN__c</fields>
+        <fields>Brand__c</fields>
+        <fields>Range__c</fields>
+        <fields>Car_Model__c</fields>
+        <fields>FirstRegistrationDate__c</fields>
+        <fields>Colour__c</fields>
+        <relatedList>Vehicle__c.Related_contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
         <fields>UsVIN__c</fields>
         <fields>Car_Relation__c</fields>
         <fields>Vehicle_Model__c</fields>
@@ -367,7 +360,6 @@
         <fields>Registration_Number__c</fields>
         <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
@@ -379,7 +371,7 @@
         <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
-	 <relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Lead_Desired_Service__c</fields>
@@ -395,6 +387,7 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Product_Name__c</fields>
@@ -406,7 +399,6 @@
         <fields>ApplicationDate__c</fields>
         <fields>ContractNumber__c</fields>
         <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
@@ -463,7 +455,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000IxM7</masterLabel>
+        <masterLabel>00h28000006XT9G</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

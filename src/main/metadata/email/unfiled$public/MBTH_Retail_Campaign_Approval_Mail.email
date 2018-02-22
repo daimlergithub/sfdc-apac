@@ -5,12 +5,9 @@ Dear Dealer,
 Dealer’s Link:
 {!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id}
 
-MBTH’s Link:
-{!Retail_Campaign__c.Link}
-
 
 Best Regards, 
  {!Retail_Campaign__c.Approver__c}
-Mercedes-Benz Retail 
+Mercedes-Benz Thailand
 
 If you are not the addressee, please inform us immediately that you have received this e-mail by mistake, and delete it. We thank you for your support.

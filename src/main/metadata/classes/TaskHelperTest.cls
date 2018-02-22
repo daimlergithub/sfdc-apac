@@ -16,6 +16,8 @@ private class TaskHelperTest {
     private static Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
     private static Id templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     public static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
+    public static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
+    public static String SalesLeadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
     
     
   private static Account personAccount;
@@ -404,4 +406,174 @@ private class TaskHelperTest {
                                     );
        return testSMSTask;                             
     }
+
+    @isTest
+    public static void testUpdateNameAndUCIDforLead()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Lead__c lead = new Lead__c(Contact__c =acc.Id, MD__c='JP');
+        insert lead;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = lead.Id, MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        TaskHelper.UpdateNameAndUCID(tasks, null, true, false);
+        Account accresult = [Select Name, UCID__c from Account where Id = :acc.Id];
+        system.assertEquals(accresult.Name,task.CustomerName__c);
+        system.assertEquals(accresult.UCID__c, task.DUP_Number__c);
+    }
+
+    @isTest
+    public static void testUpdateNameAndUCIDforLeadnotGeneralTask()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Lead__c lead = new Lead__c(Contact__c =acc.Id, MD__c='JP');
+        insert lead;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = IBTaskRecordTypeId, WhatId = lead.Id, MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        TaskHelper.UpdateNameAndUCID(tasks, null, true, false);
+        Account accresult = [Select Name, UCID__c from Account where Id = :acc.Id];
+        system.assertEquals(Null,task.CustomerName__c);
+        system.assertEquals(Null, task.DUP_Number__c);
+    }
+
+    @isTest
+    public static void testUpdateNameAndUCIDforLeadUpdate()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Lead__c lead = new Lead__c(Contact__c =acc.Id, MD__c='JP');
+        insert lead;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = lead.Id, MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        Task task2 = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = acc.Id, MD__c='JP');
+        insert task2;
+        Map<Id, Task> taskMap = new Map<Id, Task>();
+        taskMap.put(task.Id, task2);
+        TaskHelper.UpdateNameAndUCID(tasks, taskMap, false, true);
+        Account accresult = [Select Name, UCID__c from Account where Id = :acc.Id];
+        system.assertEquals(accresult.Name,task.CustomerName__c);
+        system.assertEquals(accresult.UCID__c, task.DUP_Number__c);
+    }    
+    
+    @isTest
+    public static void testUpdateNameAndUCIDforCase()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Case ca = new Case(AccountId =acc.Id, MD__c='JP', Subject = 'test1');
+        insert ca;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = ca.Id, MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        TaskHelper.UpdateNameAndUCID(tasks, null, true, false);
+        Account accresult = [Select Name, UCID__c from Account where Id = :acc.Id];
+        system.assertEquals(accresult.Name,task.CustomerName__c);
+        system.assertEquals(accresult.UCID__c, task.DUP_Number__c);
+    }
+
+    @isTest
+    public static void testUpdateNameAndUCIDforCaseUpdate()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Case ca = new Case(AccountId =acc.Id, MD__c='JP', Subject = 'test1');
+        insert ca;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = ca.Id, MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        Task task2 = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = acc.Id, MD__c='JP');
+        insert task2;
+        Map<Id, Task> taskMap = new Map<Id, Task>();
+        taskMap.put(task.Id, task2);
+        TaskHelper.UpdateNameAndUCID(tasks, taskMap, false, true);
+        Account accresult = [Select Name, UCID__c from Account where Id = :acc.Id];
+        system.assertEquals(accresult.Name,task.CustomerName__c);
+        system.assertEquals(accresult.UCID__c, task.DUP_Number__c);
+    }    
+    
+    
+    @isTest
+    public static void testUpdateNameAndUCIDforAccountLink()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Account_Link__c al = new Account_Link__c(toRole__c =acc.Id, MD__c='JP');
+        insert al;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = al.Id, MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        TaskHelper.UpdateNameAndUCID(tasks, null, true, false);
+        Account accresult = [Select Name, UCID__c from Account where Id = :acc.Id];
+        system.assertEquals(accresult.Name,task.CustomerName__c);
+        system.assertEquals(accresult.UCID__c, task.DUP_Number__c);
+    }
+    
+    @isTest
+    public static void testUpdateNameAndUCIDforAccountLinkUpdate()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Account_Link__c al = new Account_Link__c(toRole__c =acc.Id, MD__c='JP');
+        insert al;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = al.Id, MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        Task task2 = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = acc.Id, MD__c='JP');
+        insert task2;
+        Map<Id, Task> taskMap = new Map<Id, Task>();
+        taskMap.put(task.Id, task2);
+        TaskHelper.UpdateNameAndUCID(tasks, taskMap, false, true);
+        Account accresult = [Select Name, UCID__c from Account where Id = :acc.Id];
+        system.assertEquals(accresult.Name,task.CustomerName__c);
+        system.assertEquals(accresult.UCID__c, task.DUP_Number__c);
+    }    
+
+    @isTest
+    public static void testUpdateNameAndUCIDforAccountLinkUpdateNotGeneralTask()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Account_Link__c al = new Account_Link__c(toRole__c =acc.Id, MD__c='JP');
+        insert al;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = IBTaskRecordTypeId, WhatId = al.Id, MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        Task task2 = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id, MD__c='JP');
+        insert task2;
+        Map<Id, Task> taskMap = new Map<Id, Task>();
+        taskMap.put(task.Id, task2);
+        TaskHelper.UpdateNameAndUCID(tasks, taskMap, false, true);
+        Account accresult = [Select Name, UCID__c from Account where Id = :acc.Id];
+        system.assertEquals(Null,task.CustomerName__c);
+        system.assertEquals(Null, task.DUP_Number__c);
+    }    
+    
+    @isTest
+    public static void testUpdateLinkedLeadsHandover()
+    {
+        //Inserts test data
+        Account acc = new Account(LastName = '姓',FirstName = '名前', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Mobile__c='00012345678', MD__c='JP', UCID__c='UCIDTEST1');
+        insert acc;
+        Lead__c lead = new Lead__c(Contact__c =acc.Id, RecordTypeId = SalesLeadRecordTypeId, MD__c='JP');
+        insert lead;        
+        Task task = new Task(Subject = 'NameAndUCIDTest1', RecordTypeId = GeneralTaskRecordTypeId, WhatId = lead.Id, intention_status__c='Handover', Activity_Date__c = Date.newInstance(2017, 12, 25), Status='Closed', MD__c='JP');        
+        List<Task> tasks = new List<Task>();
+        tasks.add(task);
+        TaskHelper.UpdateLinkedLeads(tasks, null, true, false);
+        Lead__c leadresult = [Select Handover_Date__c from Lead__c where Id = :lead.Id];
+        system.assertEquals(leadresult.Handover_Date__c,task.Activity_Date__c);
+    }
+    
 }

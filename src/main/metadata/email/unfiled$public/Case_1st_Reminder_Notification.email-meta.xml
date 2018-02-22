@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>41.0</apiVersion>
+    <available>true</available>
+    <description>1st reminder notification is sent to case owner once user checks the 1st reminder checkbox.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Case 1st Reminder Notification</name>
+    <style>none</style>
+    <subject>Case First Reminder notification. Case No. :</subject>
+    <type>visualforce</type>
+</EmailTemplate>

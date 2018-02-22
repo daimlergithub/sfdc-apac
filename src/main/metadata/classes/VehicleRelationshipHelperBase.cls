@@ -17,6 +17,12 @@ public with sharing class VehicleRelationshipHelperBase{
     Public String[] ignoredAccounts = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
     Public Static String[] ignoredAccount = new String[]{'ＭＡＹＢＡＣＨ販売店車両%','ＭＢＰＣ販売店車両%','ＳＭＡＲＴ販売店車両%','ＳＬＲ販売店車両%'};
     Public Static Set<Id> setIgnoredAccounts=new Set<Id>();     
+    public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Vehicle_Relationship__c','Vehicle Relationship Retail');
+    public static Id dealeraccrecid = RecordTypeAccessService.getRecordTypeId('Account','Dealer');
+    public static List<sobject> sobj=new List<sobject>();
+    public static List<sobject> sobjtorevokeaccess=new List<sobject>();
+    public static set<string> gpnamesset=new Set<string>();
+    
     Public static void IgnoredAccounts(){
         for(Account acc:[select id from Account Where Name Like :ignoredAccount]){
             setIgnoredAccounts.add(acc.Id);
@@ -131,8 +137,9 @@ public with sharing class VehicleRelationshipHelperBase{
     */
     Public static void updateVehicleAmount(Set<Id> ContactIds){                   
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
-        IgnoredAccounts();     
-        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND End_Date__c=Null AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
+        IgnoredAccounts();   
+		Date todayDate = Date.today() ;  
+        for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND (End_Date__c=Null OR End_Date__c>=:todayDate) AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  
                 setVehicleIds.add(vr.Vehicle_ID__c);              
@@ -162,7 +169,12 @@ public with sharing class VehicleRelationshipHelperBase{
             } 
         }
         if(!vehicleAmountToUpdate.isEmpty())
-            DMLManagerService.updateAsSystem(vehicleAmountToUpdate);
+            try{
+                DMLManagerService.updateAsSystem(vehicleAmountToUpdate);
+            }
+            catch(Exception e){
+                System.debug('Couldn\'t able to update the vehicle amount' + e.getMessage());
+            }
     }  
 
     /*
@@ -218,4 +230,145 @@ public with sharing class VehicleRelationshipHelperBase{
         if(!lstAccLink.isEmpty())
             DMLManagerService.insertAsSystem(lstAccLink);    
     }    
+ /*Start - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */   
+     //This method wil share Vehicle Relationship,vehicle,account records to the dealers depends on the Owner Dealer Field once record type is 'Vehicle Relationship Retail'
+ //This method also will revoke access once Owner Dealer got changed
+public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relationship__c> vehicleRellist,boolean isinsertcontext, String Market){
+      List<Vehicle_Relationship__share> vehicleshare=new List<Vehicle_Relationship__share>();
+      List<Accountshare> accshare=new List<Accountshare>();
+      List<Vehicle__Share> vehiclestoshare=new List<Vehicle__share>();
+      set<String> dealerNdcodesset=new set<String>();
+      Map<id,String> vrs=new Map<id,String>();
+      Map<id,String> accs=new Map<id,String>();
+      Map<id,String> vehicl=new Map<id,String>();
+      Map<id,String> vrseditaccesswithdealers=new Map<id,String>();
+      Map<id,String> accseditaccesswithdealers=new Map<id,String>();
+      Map<id,String> vehicleditaccesswithdealers=new Map<id,String>();
+      Map<id,String> vrsrevokeaccess=new Map<id,String>();
+      Map<id,String> accsrevokeaccess=new Map<id,String>();
+      Map<id,String> vehiclerevokeaccess=new Map<id,String>();
+     //This if part will work in After insert context
+     if(isinsertcontext){
+        for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId &&vehicleRellist[i].md__c==Market && vehicleRellist[i].Owner_Dealer__c != null&& vehicleRellist[i].Owner_Dealer_ND_Code__c!=null;i++){
+            //if user type is power partner then share only with the dealers under particular Account
+            if(vehicleRellist[i].createdby.usertype=='PowerPartner'){
+                String grpName=vehicleRellist[i].createdby.Dealer_ND_Code__c;
+                vrseditaccesswithdealers.put(vehicleRellist[i].id,grpName);
+            }
+            else{
+                String grpName=vehicleRellist[i].Owner_Dealer_ND_Code__c;
+                vrs.put(vehicleRellist[i].id,grpName);
+                if(vehicleRellist[i].Contact__c!=null){
+                     accs.put(vehicleRellist[i].Contact__c,grpName);
+                 }
+                if(vehicleRellist[i].Vehicle_ID__c!=null){
+                    vehicl.put(vehicleRellist[i].Vehicle_ID__c,grpName);
+                }
+                
+            }
+        }
+    }
+    //else part will work in after insert context
+    else{
+        //if old value is null and new value is there then share with new dealer
+        for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId&&vehicleRellist[i].md__c==Market;i++){
+            String grpName=vehicleRellist[i].Owner_Dealer_ND_Code__c;
+            if(((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&&trigger.oldmap!=null&&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
+                vrs.put(vehicleRellist[i].id,grpName);
+                if(vehicleRellist[i].Contact__c!=null){
+                     accs.put(vehicleRellist[i].Contact__c,grpName);
+                 }
+                if(vehicleRellist[i].Vehicle_ID__c!=null){
+                    vehicl.put(vehicleRellist[i].Vehicle_ID__c,grpName);
+                }
+            }
+            //if old dealer is not same as new dealer then revoke the access from the old dealer and give the access to the new dealer
+             else if(((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null
+                         &&trigger.oldMap!=null &&((Vehicle_Relationship__c)trigger.oldMap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&&
+                        ((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c
+                       ){
+                        vrs.put(vehicleRellist[i].id,grpName);
+                        if(vehicleRellist[i].Contact__c!=null){
+                            accs.put(vehicleRellist[i].Contact__c,grpName);
+                         }
+                        if(vehicleRellist[i].Vehicle_ID__c!=null){
+                             vehicl.put(vehicleRellist[i].Vehicle_ID__c,grpName);
+                            }
+                         String oldGgrpName=((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
+                        vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
+                        if(vehicleRellist[i].Contact__c!=null){
+                            accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
+                         }
+                        if(vehicleRellist[i].Vehicle_ID__c!=null){
+                            vehiclerevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
+                        }
+  
+            }//if trigger.old is there and trigger.new is null then revoke vehicle,VR,Account access from dealers
+            else if(trigger.oldMap!=null &&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&& ((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
+                 String oldGrpName=((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
+                 vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGrpName);
+                 if(vehicleRellist[i].Contact__c!=null){
+                    accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Contact__c,oldGrpName);
+                 }
+                if(vehicleRellist[i].Vehicle_ID__c!=null){
+                    vehiclerevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Vehicle_ID__c,oldGrpName);
+                }
+            }
+            
+        }
+    }
+    Map<id,AccountShare> accalredayhaveaccess=new Map<id,AccountShare>([select id, AccountAccessLevel, userOrgroupid from AccountShare  where Accountid IN:accs.keyset() and userOrgroupid IN: accs.values()]);
+    if(vrs.size()>0){
+        for(Group gp:[select id,name from Group where name IN :vrs.values()]){
+            for(ID veh:vrs.keyset()){
+                if(gp.name==vrs.get(veh)){
+                    vehicleshare.add(new Vehicle_Relationship__Share(parentid=veh,userorgroupid=gp.id,AccessLevel='EDIT',RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual));
+                }
+            }
+            //give edit access to the internal users
+            for(Id idsh:vrseditaccesswithdealers.keyset()){
+                if(gp.name==vrseditaccesswithdealers.get(idsh)){
+                    vehicleshare.add(new Vehicle_Relationship__Share(parentid=idsh,userorgroupid=gp.id,AccessLevel='EDIT',RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual));
+                }
+            }
+            for(ID ac:accs.keyset()){
+                if(gp.name==accs.get(ac)&&!accalredayhaveaccess.containsKey(ac)){
+                accshare.add(new AccountShare(Accountid=ac,AccountAccessLevel='READ',OpportunityAccessLevel='None',CaseAccessLevel='None',UserOrGroupId=gp.id,RowCause=Schema.Accountshare.RowCause.Manual));
+            }
+            }
+            for(ID ve:vehicl.keyset()){
+                if(gp.name==vehicl.get(ve)){
+                vehiclestoshare.add(new Vehicle__share(parentid=ve,AccessLevel='READ',UserOrGroupId=gp.id,RowCause=Schema.Vehicle__share.RowCause.Manual));
+            }
+            }
+            
+        }
+    }
+    if(vehicleshare.size()>0){
+        sobj.addall((List<sObject>)(vehicleshare));//vehicle relationships
+    }
+    if(accshare.size()>0){
+        sobj.addAll((List<sObject>)(accshare));
+    }
+    if(vehiclestoshare.size()>0){
+        sobj.addall((List<sObject>)(vehiclestoshare));
+    }
+    if(sobj.size()>0){
+        Database.insert(sobj);
+    }
+    gpnamesset.addall(vrsrevokeaccess.values());
+    gpnamesset.addall(accsrevokeaccess.values());
+    //gpnamesset.addall(vehiclerevokeaccess.values());
+    if(gpnamesset.size()>0){
+        List<group> gp=[select id from group where name in:gpnamesset ];
+        sobjtorevokeaccess.addall((List<Sobject>)([select id from Vehicle_relationship__share where parentid  IN :vrsrevokeaccess.keyset() and Userorgroupid IN :gp]));
+        sobjtorevokeaccess.addall((List<Sobject>)([select id from Accountshare where accountid IN :accsrevokeaccess.keyset() and Userorgroupid IN : gp]));
+        //sobjtorevokeaccess.addall((List<Sobject>)([select id from Vehicle__share where parentid IN :vehiclerevokeaccess.keyset() and Userorgroupid IN :gp]));
+        //Database.delete([select id from Vehicle_relationship__share where parentid IN :vrsrevokeaccess.keyset() and Userorgroupid IN:gp /*:vrsrevokeaccess.values()*/ ]);
+       //Database.delete([select id from Accountshare where accountid IN :accsrevokeaccess.keyset() and Userorgroupid IN : gp/*accsrevokeaccess.values()*/ ]);
+        //Database.delete([select id from Vehicle__share where parentid IN :vehiclerevokeaccess.keyset() and Userorgroupid IN :gp/*vehiclerevokeaccess.values()*/ ]);
+       Database.delete(sobjtorevokeaccess);
+    }
+  }
+  /*End - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */  
 }

@@ -123,6 +123,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Activate_for_retail_campaign__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used by TH market. It will be used for activating campaign without creating execution campaign.</description>
+        <externalId>false</externalId>
+        <label>Activate for retail campaign</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ActualCost</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -4722,6 +4731,33 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <role>IT_Manager</role>
         </sharedTo>
     </listViews>
+	<listViews>
+        <fullName>All_MBTH_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.RECORDTYPE</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.ACTIVE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Campaign.Campaign_Executiono,Campaign.Planning_Design_Campaign</value>
+        </filters>
+        <label>All MBTH Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>CentralASCampaignRecord1</fullName>
         <columns>CAMPAIGN.NAME</columns>
@@ -4838,7 +4874,7 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <operation>equals</operation>
             <value>True</value>
         </filters>
-        <label>My Campaigns</label>
+        <label>My Created Campaigns</label>
         <language>en_US</language>
 		<sharedTo>
             <roleAndSubordinates>MBTH</roleAndSubordinates>
@@ -23784,7 +23820,7 @@ OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH') &amp;&amp; $Prof
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type =  CAS/Central Marketing campaign</description>
         <errorConditionFormula>(OR(ISPICKVAL( Status , 'Planned'),ISPICKVAL( Status , 'Draft'))) &amp;&amp; IsActive &amp;&amp; RecordType.DeveloperName = "Planning_Design_Campaign"&amp;&amp;
-UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; !Activate_for_retail_campaign__c</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>You can't activate a not started CAS/Central Marketing campaign.</errorMessage>
     </validationRules>
@@ -24031,7 +24067,7 @@ window.open("/apex/Consolidation_List?Id={!Campaign.Id}");
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 }
 else
 {
@@ -24040,13 +24076,13 @@ else
 		javascript:sforce.console.getEnclosingPrimaryTabId( 
 		function openPrimaryTab(result) 
 		{ 	
-		sforce.console.openPrimaryTab(result.id,'/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		sforce.console.openPrimaryTab(result.id,'/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 		}
 		)
 	}
 	else
 	{	
-	window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	window.open('/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 	}
 }</url>
     </webLinks>
@@ -24102,7 +24138,7 @@ alert('something has gone wrong please contact your Administrator');
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 }
 else
 {
@@ -24111,13 +24147,13 @@ else
 		javascript:sforce.console.getEnclosingPrimaryTabId( 
 		function openPrimaryTab(result) 
 		{
-		sforce.console.openPrimaryTab(result.id,'/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}');
+		sforce.console.openPrimaryTab(result.id,'/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}',true, '{!$Label.New_Campaign}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 		}
 		)
 	}
 	else
 	{
-	window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+	window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_WHOLESALE_TO_DEALER_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 	}
 }</url>
     </webLinks>
@@ -24716,6 +24752,3 @@ window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;
 }</url>
     </webLinks>
 </CustomObject>
-
-
-

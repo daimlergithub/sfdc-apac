@@ -1,11 +1,6 @@
 public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
         Set < ID > acclids = new Set < ID > ();
-        List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new];
-        for (Account_Link__c accrec: acclinkr) {
-            if (accrec.toRole__r.UCID__c != '')
-                acclids.add(accrec.id);
-        }
 
         AccountLinkHelperTH acchelper = new AccountLinkHelperTH();
         /* Data Migration Explicit Fix - Santosh Mohanty */
@@ -13,7 +8,14 @@ public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
             AccountLinkHelper.updatemarket(Trigger.New);
         }
         if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
-            System.debug('hello');
+            System.debug('check if went inside');
+            List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new AND fromRole__r.Dealer_Rollout_Status__c = 'Done'];
+            for (Account_Link__c accrec: acclinkr) {
+                if (String.isnotblank(accrec.toRole__r.UCID__c))
+                    acclids.add(accrec.id);
+            }
+
+
             acchelper.afterInsertEventShareRetailCopy(Trigger.new);
             acchelper.afterInsertEventShareAccount(Trigger.new);
             if (Trigger.isInsert && acclids.size() > 0) {
@@ -22,18 +24,24 @@ public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
                     CDMInformatica_Services.createAccountLink(acclids, 'TH', 'insert');
                 }
             }
-        }
+            
+            if (Trigger.isupdate) {
+                if (TriggerRecursiveCheck.AccountLinkCheck ) 
+                {
+                    TriggerRecursiveCheck.AccountLinkRecursiveCheck();
+                    Map < Id, Account_Link__c > oldmap = (Map < Id, Account_Link__c > ) Trigger.oldmap;
+                    AccountlinkhelperTH.ExportNotificationTH(Trigger.new, oldmap);
+                    AccountlinkhelperTH.addressupdateRT(Trigger.new, oldmap);
+                    if (TriggerRecursiveCheck.run2 && acclids.size() > 0) {
+                        TriggerRecursiveCheck.runOnce2();
+                        CDMInformatica_Services.createAccountLink(acclids, 'TH', 'update');
+                    }
 
-        if (Trigger.isAfter && Trigger.isupdate) {
-            Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            AccountlinkhelperTH.ExportNotificationTH(Trigger.new,oldmap);
-            if (TriggerRecursiveCheck.run2 && acclids.size() > 0) {
-                TriggerRecursiveCheck.runOnce2();
-                CDMInformatica_Services.createAccountLink(acclids, 'TH', 'update');
+                    acchelper.RevokeApexSharingAfterUpdate(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap, Trigger.Old);
+                }
             }
-
-            acchelper.RevokeApexSharingAfterUpdate(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap, Trigger.Old);
         }
+
     }
     public void handleIntegrationTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
         // Implementation to addedd as required in market

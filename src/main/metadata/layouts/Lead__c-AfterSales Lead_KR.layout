@@ -20,6 +20,10 @@
                 <behavior>Edit</behavior>
                 <field>Lost_Dealer_Date__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lost_Dealer_Date_Time__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lead_DataSource__c</field>

@@ -2,6 +2,13 @@
     <apex:form >
         <apex:pageBlock title="Related Dealer view for Loan">
             <apex:pageBlockSection columns="2">
+              <apex:pageBlockSectionItem >                
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Finance_Contractor__c.Label}"/>
+                        <apex:outputField value="{!displayLoan.Finance_Contractor__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >                
+                         
+              </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Account__c.Label}"/>
                         <apex:outputField value="{!displayLoan.Account__c}"/>  
@@ -796,3 +803,4 @@
         </apex:pageBlock>
     </apex:form>
 </apex:page>
+                           

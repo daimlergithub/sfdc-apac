@@ -182,7 +182,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Contact Method</label>
+        <label>Contact Method and Customer Consent (Old)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -211,10 +211,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Agreement_Info_Processing__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Consent_Form_Serial_No__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -253,7 +249,42 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Customer Consent (2017)</label>
+        <label>CCC Consent (old)</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Agreement_KR__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Information_Third_Party_KR__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Agreement_to_commit_info_processing_KR__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Personal_Abroad_Agreement_KR__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Agreement_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Expiration_Date__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+	<layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Customer Consent (new)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -296,11 +327,23 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Marketing Consent</label>
-        <layoutColumns>
+        <label>SalesTouch &amp; CCC Consent (new)</label>
+         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>General_Personal_Info_Sales_Marketing__c</field>
+                <behavior>Edit</behavior>
+                <field>General_Personal_Info_Mandatory__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Person_Agree_Test_Driving_Optional__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Person_Info_Custom_Service_Optional__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Targeted_Advert_Info_Optional_STCC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

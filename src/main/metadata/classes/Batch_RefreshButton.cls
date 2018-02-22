@@ -8,7 +8,7 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([select id,Name,Vehicle__c ,Address__r.Name,Finance_Address__c,Preferred_Dealer__c,Preferred_Dealer__r.Dealer_GC_Code__c,Campaign_ID__r.Parent.Driven_Type__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.District__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Contract__r.Contractor_Address1_Native__c , Contract__r.Contractor_Address3_Native__c,Campaign_ID__c,Vehicle_Relationship__r.vehicle_address__r.name,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Contract__r.Contractor_Address1__c,Contract__r.Contractor_Address3__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Vehicle__r.NextInspectionDate__c,Vehicle__r.LastWorkDate__c,Vehicle__r.LastServiceDate__c,Vehicle__r.LastInspectionDate__c,Vehicle__r.NextServiceDate__c,Address__r.District__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c from campaign_Member__c WHERE Campaign_ID__c =: query ] );
+        return Database.getQueryLocator([select id,Name,Vehicle__c ,Retail_Copy__c,Vehicle_ExternalLink__c,Address__r.Name,Finance_Address__c,Preferred_Dealer__c,Preferred_Dealer__r.Dealer_GC_Code__c,Campaign_ID__r.Parent.Driven_Type__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.District__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Contract__r.Contractor_Address1_Native__c , Contract__r.Contractor_Address3_Native__c,Campaign_ID__c,Vehicle_Relationship__r.vehicle_address__r.name,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Contract__r.Contractor_Address1__c,Contract__r.Contractor_Address3__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Vehicle__r.NextInspectionDate__c,Vehicle__r.LastWorkDate__c,Vehicle__r.LastServiceDate__c,Vehicle__r.LastInspectionDate__c,Vehicle__r.NextServiceDate__c,Address__r.District__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c from campaign_Member__c WHERE Campaign_ID__c =: query] );
     }
     
     global void execute(Database.BatchableContext BC, List<Campaign_Member__C> scope){
@@ -101,13 +101,13 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
         }
          membertoupdate.put(mem.id,mem);
         Map<Id,Account_Link__c> mapAccLinks = New Map<Id,Account_Link__c>(); 
-        List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c,Vehicle__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: Jointvehicle AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer order by LastModifiedDate desc];
+        List<Account_Link__c> acclink = [select Id, Name, NextInspectionDate__c,Vehicle__c, NextServiceDate__c, LastWorkDate__c,LastInspectionDate__c, LastServiceDate__c, Service_Advisor__c,fromRole__r.Dealer_GC_Code__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Vehicle_External_Link' AND Vehicle__c IN: Jointvehicle AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer order by LastModifiedDate desc LIMIT 1];
         for(Account_Link__c accMainlink : acclink){
             
             mapAccLinks.put(accMainlink.Vehicle__c,accMainlink);
         }
         
-        
+        System.debug('+++++++++acclink++++++++++++'+acclink);
         if(!acclink.isEmpty() && acclink.size()>0){
         for(Campaign_Member__c camp : scope){
           for(Account_Link__c acc : acclink ){
@@ -119,6 +119,7 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             camp.LastServiceDate__c = acc.LastServiceDate__c;
             camp.LastWorkDate__c = acc.LastWorkDate__c;
             camp.Service_Advisor__c = acc.Service_Advisor__c;
+            camp.Vehicle_ExternalLink__c = acc.Id;
            // membertoupdate.add(camp);
             membertoupdate.put(camp.id,camp);
             }
@@ -128,8 +129,9 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             
         }
          Map<Id,Account_Link__c> mapAccSalesLinks = New Map<Id,Account_Link__c>();
-          List<Account_Link__c> Personacclink = [select Id, Name,Vehicle__c , Retail_Sales_Consultant__c,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc];
+          List<Account_Link__c> Personacclink = [select Id, Name,Vehicle__c , Retail_Sales_Consultant__c,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc LIMIT 1];
        
+         System.debug('+++++++++Personacclink++++++++++++'+Personacclink );
         if(!Personacclink.isempty()&&Personacclink.size()>0){
         for(Account_Link__c acc :Personacclink){
         
@@ -138,8 +140,10 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             }
             for(Campaign_Member__c retcamp : scope){
             for(Account_Link__c acc : Personacclink  ){
+           
             if(retcamp.Contact_Id__c == acc.toRole__c && retcamp .Preferred_Dealer__r.Dealer_GC_Code__c  == acc.fromRole__r.Dealer_GC_Code__c  ){
             retcamp.Sales_Consultant__c = acc.Retail_Sales_Consultant__c;
+             retcamp.Retail_Copy__c = acc.Id;
             //membertoupdate.add(retcamp);
             membertoupdate.put(retcamp.id,retcamp);
             }
@@ -150,7 +154,8 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
         
         
         //update membertoupdate;
-        update membertoupdate.values();
+        database.update(membertoupdate.values(), false);
+        //update membertoupdate.values();
         //upsert membertoupdate.values();
     
         

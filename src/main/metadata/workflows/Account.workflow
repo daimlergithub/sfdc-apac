@@ -123,7 +123,7 @@
     <fieldUpdates>
         <fullName>Sales_Tel_Display_field_auto_populate_Co</fullName>
         <field>Primary_Phone_Display__c</field>
-        <formula>IF(Mobile__c!=NULL,Mobile__c,IF(Individual_Home_Phone__c!=NULL,Individual_Home_Phone__c,Work_Phone__c))</formula>
+        <formula>IF(Mobile__c!=NULL,Mobile__c,IF(Individual_Home_Phone__c!=NULL,Individual_Home_Phone__c,IF(Work_Phone__c!=NULL,Work_Phone__c,Work_Phone_2__c)))</formula>
         <name>&apos;Sales Tel Display&apos; field auto populate</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -361,6 +361,26 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>MBMY_Race_to_Special_Care</fullName>
+        <field>Special_Care__c</field>
+        <formula>TEXT(Race__c)</formula>
+        <name>MBMY Account Race to Special Care</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<rules>
+        <fullName>MBMY_Copy Race to Special Care</fullName>
+        <actions>
+            <name>MBMY_Race_to_Special_Care</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>To Copy race to special care for MY Market</description>
+        <formula>AND(Special_Care__c != TEXT(Race__c), MD__c == &apos;MY&apos;,$Profile.Name != &apos;IntegrationAPI&apos;,$Permission.MYGeneric, RecordType.Name == 'Person Account'  )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
     <rules>
         <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number</fullName>
         <actions>
@@ -384,7 +404,7 @@
             <operation>equals</operation>
             <value>Person Account</value>
         </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onCreateOnly</triggerType>e>
     </rules>
     <rules>
         <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number for Person Account Record Type</fullName>
@@ -734,7 +754,7 @@ ISCHANGED(Main_Dealer__c)
         <active>true</active>
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for TH</description>
         <formula>ISPICKVAL($User.Market__c,&apos;TH&apos;)</formula>
-        <triggerType>onAllChanges</triggerType>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Work Phone Checkbox autopopulate</fullName>

@@ -16,12 +16,36 @@
         <value>Please Select only one as a Master</value>
     </labels> 
 	<labels>
+        <fullName>Are_you_sure_to_delete_this_account_mym</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mym page</shortDescription>
+        <value>Are you sure to delete this account?</value>
+    </labels> 
+	<labels>
+        <fullName>New_Used</fullName>
+        <categories>New Used</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Used</shortDescription>
+        <value>New Used</value>
+    </labels> 
+	<labels>
         <fullName>vehicle_Details</fullName>
         <categories>Merge Lead</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Lead Merge vehicle</shortDescription>
         <value>vehicle Details</value>
+    </labels> 
+	<labels>
+        <fullName>vehicle_Read_Only</fullName>
+        <categories>Merge Lead</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReadOnly fields details</shortDescription>
+        <value>ReadOnly fields details</value>
     </labels> 
 	<labels>
         <fullName>Lost</fullName>
@@ -480,6 +504,20 @@
         <shortDescription>Address Information</shortDescription>
         <value>Address Information</value>
     </labels>
+	<labels>
+        <fullName>Address_Line_1_should_be_less_than_or_equal_to_50_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 1 should be less than or equal to 50 letters</shortDescription>
+        <value>Address Line 1 should be less than or equal to 50 letters</value>
+    </labels>
+    <labels>
+        <fullName>Address_Line_2_should_be_less_than_or_equal_to_50_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Line 2 should be less than or equal to 50 letters</shortDescription>
+        <value>Address Line 2 should be less than or equal to 50 letters</value>
+    </labels>
     <labels>
         <fullName>Address_PrintPDF</fullName>
         <language>en_US</language>
@@ -508,6 +546,13 @@
         <protected>false</protected>
         <shortDescription>Address Type</shortDescription>
         <value>Address Type</value>
+    </labels>
+	<labels>
+        <fullName>Address_Type_is_required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Type is required</shortDescription>
+        <value>Address Type is required</value>
     </labels>
     <labels>
         <fullName>Address_fields_not_null</fullName>
@@ -671,6 +716,13 @@
         <protected>false</protected>
         <shortDescription>Announcement</shortDescription>
         <value>Announcements</value>
+    </labels>
+	<labels>
+        <fullName>Are_you_sure_to_delete_this_account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure to delete this account?</shortDescription>
+        <value>Are you sure to delete this account?</value>
     </labels>
     <labels>
         <fullName>Are_you_sure_want_to_send_information_to_Auto_Line_interface</fullName>
@@ -857,6 +909,20 @@
         <protected>false</protected>
         <shortDescription>Birthdate</shortDescription>
         <value>Birthdate</value>
+    </labels>
+	<labels>
+        <fullName>Birthdate_is_not_allowed_to_be_later_than_today_or_earlier_than_150_years</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Birthdate is not allowed to be later than today or earlier than 150 years</shortDescription>
+        <value>Birthdate is not allowed to be later than today or earlier than 150 years.</value>
+    </labels>
+    <labels>
+        <fullName>Block_should_be_less_than_or_equal_to_12_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Block should be less than or equal to 12 letters</shortDescription>
+        <value>Block should be less than or equal to 12 letters</value>
     </labels>
     <labels>
         <fullName>Brand</fullName>
@@ -1921,6 +1987,20 @@
         <shortDescription>City native should not be null</shortDescription>
         <value>City native should not be null</value>
     </labels>
+	<labels>
+        <fullName>City_should_be_less_than_or_equal_to_12_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City should be less than or equal to 12 letters</shortDescription>
+        <value>City should be less than or equal to 12 letters</value>
+    </labels>
+    <labels>
+        <fullName>City_should_be_less_than_or_equal_to_18_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City should be less than or equal to 18 letters</shortDescription>
+        <value>City should be less than or equal to 18 letters</value>
+    </labels>
     <labels>
         <fullName>City_should_not_be_null</fullName>
         <language>en_US</language>
@@ -2068,6 +2148,13 @@
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Company Name Department Title</value>
+    </labels>
+	<labels>
+        <fullName>Company_Name_should_be_less_than_or_equal_to_40_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Name should be less than or equal to 40 letters</shortDescription>
+        <value>Company Name should be less than or equal to 40 letters.</value>
     </labels>
     <labels>
         <fullName>Compared_Vehicle_Brand</fullName>
@@ -2772,6 +2859,22 @@
         <value>Please check　New customer related information distribution notification .</value>
     </labels>
     <labels>
+        <fullName>Email_Case_CustomerInfo</fullName>
+        <categories>Email, Case, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_CustomerInfo</shortDescription>
+        <value>This is information from customer calling in or customer opinion or related information.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Case_Numberof</fullName>
+        <categories>Email, Case, Dealer</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Email_Case_Numberof</shortDescription>
+        <value>Number of Cases: 1 Case</value>
+    </labels>
+    <labels>
         <fullName>Email_Case_Record</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3184,6 +3287,13 @@ please contact the number below.</value>
         <shortDescription>Estimate Number History</shortDescription>
         <value>Estimate Number History</value>
     </labels>
+	<labels>
+        <fullName>EuroVIN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EuroVIN of vehicles</shortDescription>
+        <value>EuroVIN</value>
+    </labels>
     <labels>
         <fullName>Event_Type</fullName>
         <categories>Retail Campaign Calendar</categories>
@@ -3351,6 +3461,13 @@ please contact the number below.</value>
         <shortDescription>Finance Proposal</shortDescription>
         <value>Finance Proposal</value>
     </labels>
+	 <labels>
+        <fullName>Handover</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Handover</shortDescription>
+        <value>Handover</value>
+    </labels>
     <labels>
         <fullName>First</fullName>
         <language>en_US</language>
@@ -3379,12 +3496,33 @@ please contact the number below.</value>
         <shortDescription>First Estimate Print</shortDescription>
         <value>First Estimate Print</value>
     </labels>
+	<labels>
+        <fullName>First_Name_Native_should_be_KANA_Chaarcters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Name Native should be KANA Chaarcters</shortDescription>
+        <value>First Name Native should be KANA Characters.</value>
+    </labels>
     <labels>
         <fullName>First_Name_Native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>First Name Native should not be null</shortDescription>
         <value>First Name Native should not be null</value>
+    </labels>
+	<labels>
+        <fullName>First_Name_should_be_less_than_or_equal_to_40_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Name should be less than or equal to 40 letters</shortDescription>
+        <value>First Name should be less than or equal to 40 letters.</value>
+    </labels>
+    <labels>
+        <fullName>First_Name_should_be_of_2_byte_characters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Name should be of 2 byte characters</shortDescription>
+        <value>First Name should be of 2 byte characters.</value>
     </labels>
     <labels>
         <fullName>First_Name_should_not_be_null</fullName>
@@ -3592,6 +3730,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Home Email</shortDescription>
         <value>Home Email</value>
+    </labels>	
+    <labels>
+        <fullName>Mobile_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile 3</shortDescription>
+        <value>Mobile 3</value>
     </labels>
     <labels>
         <fullName>Home_Phone</fullName>
@@ -3606,6 +3751,27 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>S5 Home Phone 2</shortDescription>
         <value>Home Phone 2</value>
+    </labels>
+	<labels>
+        <fullName>Home_Phone_2_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone 2 should be less than or equal to 11 digits</shortDescription>
+        <value>Home Phone 2 should be less than or equal to 11 digits.</value>
+    </labels>
+    <labels>
+        <fullName>Home_Phone_2_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone 2 should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Home Phone 2 should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Home_Phone_2_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone 2 should start with &quot;0&quot;</shortDescription>
+        <value>Home Phone 2 should start with &quot;0&quot;</value>
     </labels>
     <labels>
         <fullName>Home_Type</fullName>
@@ -3685,6 +3851,27 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Individual Customer</shortDescription>
         <value>Individual Customer</value>
+    </labels>
+	<labels>
+        <fullName>Individual_Home_Phone_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Home Phone should be less than or equal to 11 digits</shortDescription>
+        <value>Individual Home Phone  should be less than or equal to 11 digits.</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Home_Phone_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone 2 should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>IndividualHome Phone 2 should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Individual_Home_Phone_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Home Phone should start with &quot;0&quot;</shortDescription>
+        <value>Individual Home Phone should start with &quot;0&quot;</value>
     </labels>
     <labels>
         <fullName>InformaticaError</fullName>
@@ -4313,12 +4500,33 @@ please contact the number below.</value>
         <shortDescription>Last Modified Date</shortDescription>
         <value>Last Modified Date</value>
     </labels>
+	<labels>
+        <fullName>Last_Name_Native_should_be_KANA_Characters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Name Native should be KANA Characters</shortDescription>
+        <value>Last Name Native should be KANA Characters</value>
+    </labels>
     <labels>
         <fullName>Last_Name_Native_should_not_be_null</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Last Name Native should not be null</shortDescription>
         <value>Last Name Native should not be null</value>
+    </labels>
+	<labels>
+        <fullName>Last_Name_should_be_less_than_or_equal_to_40_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Name should be less than or equal to 40 letters</shortDescription>
+        <value>Last Name should be less than or equal to 40 letters</value>
+    </labels>
+    <labels>
+        <fullName>Last_Name_should_be_of_2_byte_characters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Name should be of 2 byte characters</shortDescription>
+        <value>Last Name should be of 2 byte characters.</value>
     </labels>
     <labels>
         <fullName>Last_Name_should_not_be_null</fullName>
@@ -4434,6 +4642,15 @@ please contact the number below.</value>
         <shortDescription>Lead to be Merged</shortDescription>
         <value>Lead to be Merged</value>
     </labels>
+	<labels>
+        <fullName>LeademailNotificationTH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeademailNotificationTH</shortDescription>
+        <value>Hi, 
+
+Below Lead is Assigned to you kindly click on below link for Lead details.</value>
+    </labels>
     <labels>
         <fullName>Leagl_Owner</fullName>
         <language>en_US</language>
@@ -4476,6 +4693,13 @@ please contact the number below.</value>
         <shortDescription>Logic Error</shortDescription>
         <value>Error: The logic is wrong.</value>
     </labels>
+	 <labels>
+        <fullName>Login_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Mobile</shortDescription>
+        <value>Login Mobile</value>
+    </labels>
     <labels>
         <fullName>Lookup_Button</fullName>
         <language>en_US</language>
@@ -4483,7 +4707,7 @@ please contact the number below.</value>
         <shortDescription>Lookup Button</shortDescription>
         <value>Lookup</value>
     </labels>
-    <labels>
+	<labels>
         <fullName>MBF_Authentication_Section</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5026,6 +5250,13 @@ please contact the number below.</value>
         <shortDescription>Memo</shortDescription>
         <value>Memo</value>
     </labels>
+	 <labels>
+        <fullName>Mercedes_me_Deletion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mercedes me Deletion</shortDescription>
+        <value>Mercedes me Deletion</value>
+    </labels>
     <labels>
         <fullName>Merge</fullName>
         <language>en_US</language>
@@ -5086,6 +5317,48 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Label for Mobile fields which are referenced in VF pages</shortDescription>
         <value>Mobile</value>
+    </labels>
+	<labels>
+        <fullName>Mobile_2_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile 2 should be less than or equal to 11 digits</shortDescription>
+        <value>Mobile 2 should be less than or equal to 11 digits</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_2_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile 2 should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Mobile 2 should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_2_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile 2 should start with &quot;0&quot;</shortDescription>
+        <value>Mobile 2 should start with &quot;0&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile should be less than or equal to 11 digits</shortDescription>
+        <value>Mobile should be less than or equal to 11 digits</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Mobile should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Mobile_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mobile should start with &quot;0&quot;</shortDescription>
+        <value>Mobile should start with &quot;0&quot;</value>
     </labels>
     <labels>
         <fullName>Model</fullName>
@@ -5170,6 +5443,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>NA</shortDescription>
         <value>N.A.</value>
+    </labels>
+	<labels>
+        <fullName>Name_should_be_less_than_or_equal_to_40_letters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name should be less than or equal to 40 letters</shortDescription>
+        <value>Name should be less than or equal to 40 letters.</value>
     </labels>
     <labels>
         <fullName>National_ID</fullName>
@@ -5884,6 +6164,27 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>PhoneService</shortDescription>
         <value>Phone (Service)</value>
     </labels>
+	<labels>
+        <fullName>Phone_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone should be less than or equal to 11 digits</shortDescription>
+        <value>Phone should be less than or equal to 11 digits</value>
+    </labels>
+    <labels>
+        <fullName>Phone_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Phone should not include &quot;-&quot; or &quot;+&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Phone_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone should start with &quot;0&quot;</shortDescription>
+        <value>Phone should start with &quot;0&quot;</value>
+    </labels>
     <labels>
         <fullName>Planned_Purchase_Time</fullName>
         <language>en_US</language>
@@ -5905,6 +6206,49 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please Input Closed</shortDescription>
         <value>Please input Expected Closed date</value>
     </labels>
+	  <labels>
+        <fullName>Please_set_all_information_received_from_a_customer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please set all information received from a customer</shortDescription>
+        <value>Please set all information received from a customer</value>
+    </labels>
+	 <labels>
+        <fullName>Login_Mobile_is_a_mandatory_for_Concierge_Service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Mobile is a mandatory for Concierge Service</shortDescription>
+        <value>Login Mobile is a mandatory for Concierge Service</value>
+    </labels>
+	 <labels>
+        <fullName>What_information_a_user_can_use_for_login_will_depend_on_input_information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>What information a user can use for login, will depend on input information</shortDescription>
+        <value>What information a user can use for login, will depend on input information</value>
+    </labels>
+	<labels>
+        <fullName>Login_Email_A_customer_will_be_able_to_use_the_email_for_login</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Email: A customer will be able to use the email for login</shortDescription>
+        <value>Login Email: A customer will be able to use the email for login</value>
+    </labels>
+	 <labels>
+        <fullName>Login_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Mobile: A customer will be able to use the mobile for login</shortDescription>
+        <value>Login Mobile: A customer will be able to use the mobile for login</value>
+    </labels>
+	<labels>
+        <fullName>Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Login Email &amp; Mobile: A customer will be able to use the mobile for login</shortDescription>
+        <value>Login Email &amp; Mobile: A customer will be able to use the mobile for login</value>
+    </labels>
+	
     <labels>
         <fullName>Please_Input_Registration</fullName>
         <language>en_US</language>
@@ -5961,6 +6305,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Please enter My Merc Email Id for Selected Account</shortDescription>
         <value>Please enter My Merc Email Id for Selected Account.</value>
     </labels>
+	<labels>
+        <fullName>Please_enter_Value_for_Details_of_Acquisition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Value for Details of Acquisition</shortDescription>
+        <value>Please enter Value for Details of Acquisition.</value>
+    </labels>
     <labels>
         <fullName>Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account</fullName>
         <language>en_US</language>
@@ -6009,6 +6360,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Please enter value for Company Name Native2</shortDescription>
         <value>Please enter value for Company Name Native2</value>
+    </labels>
+	<labels>
+        <fullName>Please_select_Acquisition_Objective_Method</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select Acquisition Objective &amp; Method</shortDescription>
+        <value>Please select Acquisition Objective &amp; Method</value>
     </labels>
     <labels>
         <fullName>Please_select_Address</fullName>
@@ -7581,7 +7939,7 @@ We would like to thank you that you chose our brand.  May I confirm your persona
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>S5 Q2.1 E P1</shortDescription>
-        <value>Your First name is สมหญิง พุ่มทอง</value>
+        <value>Your First name is</value>
     </labels>
     <labels>
         <fullName>S5_Q2_1_E_P2</fullName>
@@ -8512,6 +8870,13 @@ To develop service Transfer permission, assess the service of the staff and the 
     </labels>
     <labels>
         <fullName>Save_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button</shortDescription>
+        <value>Save</value>
+    </labels>
+	<labels>
+        <fullName>Save_Button_JP</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Save Button</shortDescription>
@@ -9993,6 +10358,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Why</shortDescription>
         <value>Why</value>
     </labels>
+	<labels>
+        <fullName>WorkPhone_should_start_with_0</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkPhone should start with &quot;0&quot;</shortDescription>
+        <value>WorkPhone should start with &quot;0&quot;</value>
+    </labels>
     <labels>
         <fullName>Work_Fax</fullName>
         <language>en_US</language>
@@ -10013,6 +10385,48 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Work Phone</shortDescription>
         <value>Work Phone</value>
+    </labels>
+	 <labels>
+        <fullName>Work_Phone_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone 2</shortDescription>
+        <value>Work Phone 2</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Company_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Phone</shortDescription>
+        <value>Retail Company Phone</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Company_Other_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Other Phone</shortDescription>
+        <value>Retail Company Other Phone</value>
+    </labels>
+	<labels>
+        <fullName>Retail_Company_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Company Mobile</shortDescription>
+        <value>Retail Company Mobile</value>
+    </labels>
+	<labels>
+        <fullName>Work_Phone_should_be_less_than_or_equal_to_11_digits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone should be less than or equal to 11 digits</shortDescription>
+        <value>Work Phone should be less than or equal to 11 digits</value>
+    </labels>
+    <labels>
+        <fullName>Work_Phone_should_not_include_or</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone should not include &quot;-&quot; or &quot;+&quot;</shortDescription>
+        <value>Work Phone should not include &quot;-&quot; or &quot;+&quot;</value>
     </labels>
     <labels>
         <fullName>Would_you_recommend_your_family_or_friends_join_this_event_in_the_future</fullName>
@@ -10220,6 +10634,20 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Yes Thai Can talk</shortDescription>
         <value>ใช่ และ สะดวกคุย</value>
     </labels>
+	<labels>
+        <fullName>You_are_allowed_to_create_Address_record_for_your_home_market_only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You are allowed to create Address record for your home market only</shortDescription>
+        <value>if Address__c.Market__c value is not &apos;JP&apos;,if Address__c.Market__c value is not &apos;JP&apos;.</value>
+    </labels>
+    <labels>
+        <fullName>You_are_allowed_to_create_record_for_your_home_market_only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You are allowed to create record for your home market only</shortDescription>
+        <value>if Account.Market__c value is not &apos;JP&apos;,You are allowed to create record for your home market only.</value>
+    </labels>
     <labels>
         <fullName>You_cannot_Delete_CaseComment</fullName>
         <language>en_US</language>
@@ -10268,6 +10696,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Zipcode</shortDescription>
         <value>七七七七七七七</value>
+    </labels>
+	<labels>
+        <fullName>Zipcode_is_not_7_digits_long</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zipcode is not 7 digits long</shortDescription>
+        <value>Zipcode is not 7 digits long</value>
     </labels>
     <labels>
         <fullName>Zipcode_not_found</fullName>
@@ -10501,12 +10936,40 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>please enter valid Email</shortDescription>
         <value>please enter valid Email</value>
     </labels>
+	<labels>
+        <fullName>Please_Input_Proper_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>please input proper number</shortDescription>
+        <value>please input proper number</value>
+    </labels>
     <labels>
         <fullName>please_input_My_Mercedes_Email_Id</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>please input &quot;My Mercedes Email Id&quot;</shortDescription>
         <value>please input &quot;My Mercedes Email Id&quot;</value>
+    </labels>
+	  <labels>
+        <fullName>Please_Input_MyMercedes_Email_Id_or_Login_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please input &quot;My Mercedes Email Id&quot; or &quot;Login Mobile&quot;</shortDescription>
+        <value>Please input &quot;My Mercedes Email Id&quot; or &quot;Login Mobile&quot;</value>
+    </labels>
+	 <labels>
+        <fullName>Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Did you Get Agreement From Customer? Login Mobile is a mandatory for Concierge S</shortDescription>
+        <value>Did you Get Agreement From Customer?Login Mobile is a mandatory for Concierge Service</value>
+    </labels>
+	 <labels>
+        <fullName>Please_input_proper_Mobile_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please input proper Mobile number</shortDescription>
+        <value>Please input proper Mobile number</value>
     </labels>
     <labels>
         <fullName>purchased_vehicle_related_information</fullName>
@@ -10827,4 +11290,11 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>rug userName Extension</shortDescription>
         <value>@rugcollaboration.daimler.com</value>
     </labels>
+	<labels>
+		<fullName>HonoraryCommunityPermissionSet</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>HonoraryCommunityPermissionSet</shortDescription>
+		<value>Honorary_Member_PermissionSet</value>
+	</labels>
 </CustomLabels>

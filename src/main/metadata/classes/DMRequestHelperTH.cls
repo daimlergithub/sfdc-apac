@@ -4,11 +4,13 @@
 * Created Date : 2017-03-08
 */
 public with sharing class  DMRequestHelperTH {
-    
+    public static Set<id> accids=new set<id>();
+     public static Set<id> campids=new set<id>();
     //common method for updating address fields in DM request.
     public static void updateAddressInDMRequest(List<DM_Request__c> triggerNew)
     {
         set<id> CustomerId = new set<id>();  
+        
         Map<id,map<string,Address__c>> addressMap =new Map<id,map<string,Address__c>>();
         Map<string,Address__c> admap =new Map<string,Address__c>();
   
@@ -145,4 +147,31 @@ public with sharing class  DMRequestHelperTH {
         }
     
      }
+      public static void updateCampaignMemberStatus(Map<ID,DM_Request__c> triggerNew)
+    {
+    List<CampaignMember> campmember=new List<CampaignMember>();
+        List<CampaignMember> campmemberupdate=new List<CampaignMember>();
+        List<DM_Request__c> dmrtoiterate=[select id,Customer_Name__r.id,Status__c,Customer_Name__r.personcontactid,Campaign__r.id from DM_Request__c where id in :triggernew.keyset() and md__c='TH'];
+        for(DM_Request__c dmr:dmrtoiterate){
+            if(dmr.Customer_Name__c!=null){
+                accids.add(dmr.Customer_Name__r.personcontactid);
+                if(dmr.Campaign__c!=null)
+                    campids.add(dmr.campaign__r.id);
+            }
+        }
+        if(campids.size()>0)
+           campmember=[select id,Contactid,campaignid,MBTH_Status__c from CampaignMember where campaignid in : campids];
+        for(DM_Request__c dm:dmrtoiterate){
+            for(CampaignMember c:campmember){
+                if(dm.campaign__r.id==c.campaignid&&dm.Customer_Name__r.personcontactid==c.contactid){
+                String status=dm.Status__c=='Open'?'Open':dm.Status__c=='Sent'?'Sent':dm.Status__c=='Returned'||dm.Status__c=='Rejected'?'FAILED/NO RESPONSE':c.MBTH_Status__c;
+                    c.MBTH_Status__c=status;
+                    campmemberupdate.add(c);
+                   break; 
+                }  
+        }      
+    }
+      if(campmemberupdate.size()>0)
+            update campmemberupdate;
+    }
   }

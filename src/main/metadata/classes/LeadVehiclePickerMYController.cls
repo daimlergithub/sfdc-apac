@@ -8,7 +8,7 @@
 ** Date:  16/03/2017
 **/
 
-global with sharing class LeadVehiclePickerMYController {
+global without sharing class LeadVehiclePickerMYController {
     
     public String currentRecordId {get;set;}
     public Lead__c lead_Vehicles {get; set;}
@@ -48,9 +48,10 @@ global with sharing class LeadVehiclePickerMYController {
         //profileName = userinfo.getprofilename();
         profile p = [select Name from profile where id =:userinfo.getprofileId()];
         disableButtons = true;
-        if(p.Name.contains('Dealer')){
+        //Added by - Laqshay Arora Test Case- Commented the following condition at line 51-53 for enabling the buttons on the VF page.
+       /* if(p.Name.contains('Dealer')){
             disableButtons = false;
-        }
+        }*/
         currentRecordId  = controller.getId();
        
         Set<Id> lead_VehicleIds;
@@ -89,7 +90,7 @@ global with sharing class LeadVehiclePickerMYController {
                 vehicleIds.add(leadOwnerVehiclesRelationships[i].Vehicle_Id__c);
             }
             if(!vehicleIds.isEmpty()){
-                leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, UsVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
+                leadOwnerVehicles = [Select Brand__c, Class__c, Model_Description__c, EuroVIN__c From Vehicle__c Where Id IN :vehicleIds AND MD__c = :usr.Market__c];
             }
             
             if (lead_Vehicles != null) {
@@ -362,7 +363,7 @@ global with sharing class LeadVehiclePickerMYController {
         Set<Id> allVehicleIds = new Set<Id>();
         
         if ((vehicle_type.equalsIgnoreCase(utilConst.INTERESTED_VEHICLE) ||vehicle_type.equalsIgnoreCase(utilConst.PURCHASED_VEHICLE))){
-            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where UsVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
+            vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
         }
         else{
             Lead__c leadAcc = [Select Contact__c from Lead__c where Id =: searchAttributes.get('RecordId') AND MD__c = :usr.Market__c LIMIT 50000];
@@ -388,7 +389,7 @@ global with sharing class LeadVehiclePickerMYController {
                 vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :defaultVehicleIds AND MD__c = :usr.Market__c LIMIT 50000];
             }
             else{
-                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND UsVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
+                vehicle = [Select Brand__c, Class__c, Model__c from Vehicle__c Where Id IN :allVehicleIds AND EuroVIN__c =:vin_number AND MD__c = :usr.Market__c LIMIT 50000];
             }                 
         }
         return vehicle;

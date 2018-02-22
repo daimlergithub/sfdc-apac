@@ -7,169 +7,126 @@
 
 @isTest
 public class TriggerAddressTriggerHandlerMYTest{
-
-//SB2017
-    /*
-      Name:Sushma Bharti
-      Description:Added to setup test data for MY
-      Modified Date: 2017-09-13
-  */
-  
-@testSetup
-    static void setupTestData(){
+private static Account account;
+    private static Address__c address,address2;
+    private static List<Address__c> addressList=new List<Address__c>();
+    public static PermissionSet ps;
+    public static User user1;
     
-    Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
-       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
-       insert user1;
-       System.runAs (user1) {  
+    public static testMethod void testTriggerAddressTriggerHandlerMYTest1(){
+       //create test data
+       Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator' limit 1];
+       User user_Obj = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
+       //insert user_Obj;
+       DMLManagerService.insertAsSystem(user_Obj);
+       system.runAs(user_Obj)
+   {
+     
+        Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAddress',Trigger_Name__c='TriggerAddress',Trigger_Handler__c='TriggerAddressTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
+        upsert TriggerAddress;
+        
+        CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+         cs.DEFAULT_CALLOUT_TIME__c='1000';
+         cs.MAX_CALLOUT_TIME__c='5000';
+         cs.Name='CalloutValues';
+         insert cs;
+        
+         
+        SystemSettingsDFW__c sysSet = new SystemSettingsDFW__c();
+        sysSet.Debug__c =true;
+        sysSet.Error__c = true;
+        sysSet.Info__c= true;
+        sysSet.Warning__c = true;
+        sysSet.Log_Purge__c =10;
+        sysSet.Name=p1.Name;
+        DMLManagerService.insertAsSystem(sysSet);
        
-    List<String> AccountFields=new List<String>();
-    AccountFields.add('Lastname');
-    AccountFields.add('Individual_Home_Phone__c');
-    AccountFields.add('Work_Phone__c');
-    AccountFields.add('fax');
-    AccountFields.add('Mobile__c');
-    AccountFields.add('MD__c');
-    List<Account> AccountFieldsList=DataFactoryServices.createRecords('Account',AccountFields,'',1);
-    AccountFieldsList[0].Lastname='Lastname1';
-    AccountFieldsList[0].Individual_Home_Phone__c='+6003123654789';
-    AccountFieldsList[0].Work_Phone__c='+60825634789541';
-    AccountFieldsList[0].fax='+60827896541';
-    AccountFieldsList[0].Mobile__c='+609856321478';
-    AccountFieldsList[0].MD__c='MY';
-    AccountFieldsList[0].email__c='abc@xyz.com';
-    insert AccountFieldsList;
-    List<String> AddressFields=new List<String>();
-    AddressFields.add('Address_Line_1__c');
-    AddressFields.add('Address_Line_2__c');
-    AddressFields.add('Address_Line_3__c');
-    AddressFields.add('Address_Type__c');
-    AddressFields.add('City__c');
-    AddressFields.add('Province__c');
-    AddressFields.add('MD__c');
-    List<Address__c> AddressFieldsList=DataFactoryServices.createRecords('Address__c',AddressFields,'A',1);
-    AddressFieldsList[0].Address_Line_1__c='Lastname1';
-    AddressFieldsList[0].Address_Line_2__c='+6003123654789';
-    AddressFieldsList[0].Address_Line_3__c='+60825634789541';
-    AddressFieldsList[0].Address_Type__c='Home';
-    AddressFieldsList[0].Province__c='+609856321478';
-    AddressFieldsList[0].City__c='+609856321478';
-    AddressFieldsList[0].MD__c='MY';
-    AddressFieldsList[0].ZipCode__c='12345';
-    AddressFieldsList[0].Customer__c=AccountFieldsList[0].id;  
-    AddressFieldsList[0].Market__c= 'MY';
-    //AddressFieldsList[0].preferred__c=True; 
-    insert AddressFieldsList;
-    //AddressFieldsList[0].Address_Type__c='business';
-    //update AddressFieldsList;
-    }
-   } 
-
- //SB2017
-    /*
-      Name:Sushma Bharti
-      Description:Added to update the code coverage of the method for MY
-      Modified Date: 2017-09-13
-  */  
-    static testMethod void testAccAssignment() {
-    
-        try{                        
-              TriggerAddressTriggerHandlerMY td=new TriggerAddressTriggerHandlerMY(); 
-              td.handleTrigger(True,false,True,false,false);
-           }    
-         catch(Exception e)
-         {
-             //System.debug('Testing failed due to ' + e.getMessage());
-         }
-     }
-
- //SB2017
-    /*
-      Name:Sushma Bharti
-      Description:Added to update the code coverage of the method for MY
-      Modified Date: 2017-09-13
-  */     
-     static testMethod void testAccAssignment2() {
-    Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
-       User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sa1m@usgboral.com.dev01'+String.valueof(DateTime.now().getTime()));
-       insert user1;
-       System.runAs (user1) {  
-        try{          
-              List<Address__c> Addressobj  =  [SELECT Address_Type__c from Address__c];
-              Addressobj[0].Address_Type__c='business';
-              update Addressobj;
-              map<id,address__c> newmap=new  map<id,address__c>();
-              newmap.put(Addressobj[0].id,Addressobj[0]);
-              AddressHelperTH ad=new AddressHelperTH(); 
-              TriggerAddressTriggerHandlerMY td=new TriggerAddressTriggerHandlerMY(); 
-              system.debug('@@');
-              td.handleTrigger(false,True,false,false,true);
-              system.debug('##');
-           }    
-         catch(Exception e)
-         {
-         }
-         }
-     }
-
- //SB2017
-    /*
-      Name:Sushma Bharti
-      Description:Added to update the code coverage of the method for MY
-      Modified Date: 2017-09-13
-  */         
-     static testMethod void testAccAssignment3() {
-    
-        try{          
-              List<Address__c> Addressobj  =  [SELECT Address_Type__c from Address__c];
-              delete Addressobj[0];
-              AddressHelperTH ad=new AddressHelperTH(); 
-              TriggerAddressTriggerHandlerMY td=new TriggerAddressTriggerHandlerMY(); 
-              system.debug('@@');
-              td.handleTrigger(false,false,false,true,true);
-              system.debug('##');
-           }    
-         catch(Exception e)
-         {
-         }
-     }
-     
-      //SB2017
-    /*
-      Name:Sushma Bharti
-      Description:Added to update the code coverage of the method for MY
-      Modified Date: 2017-09-13
-  */
-     
-     static testMethod void testAccAssignment4() {
-           TriggerAddressTriggerHandlerMY td=new TriggerAddressTriggerHandlerMY();
-           td.handleIntegrationTrigger(false,false,false,true,true);
-     } 
-     
- //SB2017
-    /*
-      Name:Sushma Bharti
-      Description:Added to update the code coverage of the method for MY
-      Modified Date: 2017-09-13
-  */
-    static testMethod void testAccAssignment5() {
-    
-        try{              
-              List<Address__c> Addressobj  =  [SELECT Address_Type__c,preferred__c from Address__c];
-              Addressobj[0].Address_Type__c='business';
-              Addressobj[0].preferred__c=true;
-              update Addressobj;
-              map<id,address__c> newmap=new  map<id,address__c>();
-              newmap.put(Addressobj[0].id,Addressobj[0]);
-              AddressHelperTH ad=new AddressHelperTH(); 
-              TriggerAddressTriggerHandlerMY td=new TriggerAddressTriggerHandlerMY(); 
-              system.debug('@@');
-              td.handleTrigger(true,True,true,false,false);
-              system.debug('##');
-           }    
-         catch(Exception e)
-         {
-         }
-     }
-     
+     ps = new PermissionSet();
+     ps.Name = 'Test1';
+     ps.Label = 'Test77';
+    insert ps;  
+  CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
+system.debug('harshit@@@@'+cps);    
+SetupEntityAccess sea = new SetupEntityAccess();
+sea.ParentId = ps.Id;
+sea.SetupEntityId = cps.id;
+insert sea;           
+PermissionSetAssignment psa = new PermissionSetAssignment();
+    psa.AssigneeId = user_Obj.id;
+    psa.PermissionSetId = ps.Id;
+    insert psa;       
    }
+    user1 = UtilTestData.createPersornaUser(ps, p1);
+    user1.market__c='MY';
+    insert user1;
+       System.runAs (user1) {  
+        account= new Account();
+        account.Phone='09844650654';
+        account.FirstName = 'Test';        
+        account.MBK_Data_Source__c ='Email';
+        account.Data_Source__c  = 'Test4';
+        account.Dealer_Rollout_Status__c = 'Done';
+        account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
+        
+      
+        address=new Address__c();
+        address.Address_Type__c='Home';
+        address.Province__c='test1';
+        address.City__c='bangalore';
+        address.District__c='test2';
+        address.Block__c='test3';
+        address.Address_Line_1__c='testaddress1';
+        address.Address_Line_2__c='testaddress2';
+        address.Customer__c=account.id;
+        address.TitleOfHonor__c = 'To Person'; 
+        address.Preferred__c = true;
+        address.country__c = 'Malaysia';
+        address.ZipCode__c = '12345';
+        addressList.add(address);
+        DMLManagerService.insertAsSystem(addressList);
+        //insert address;
+        
+        address2=new Address__c();
+        address2.Address_Type__c='Home';
+        address2.Province__c='test1';
+        address2.City__c='bangalore';
+        address2.District__c='test2';
+        address2.Block__c='test3';
+        address2.Address_Line_1__c='testaddress1';
+        address2.Address_Line_2__c='testaddress2';
+        address2.Customer__c=account.id;
+        address2.TitleOfHonor__c = 'To Person'; 
+        address2.Preferred__c = true;
+        address2.country__c = 'Malaysia';
+        address2.ZipCode__c = '12345';
+        string MarketDiscriminator='MY'; 
+        string updateType='';
+        try{
+            insert address2;
+        }catch(Exception e){}
+        
+        account.Primary_Address_Reference__c=address.id;
+        update account;
+        map<id,Address__c> addressOldMap=new map<id,Address__c>();
+        addressOldMap.put(address.id,address);
+        test.startTest();
+        TriggerRecursiveCheck.run = true;
+        
+        try{
+        // update address;
+         AddressHelperMY.updateAddressOnAccount(addressList);
+         AddressHelperBase.updatemarket(addressList); 
+         AddressHelperMY.updatePrimaryAddressOnAccount(addressOldMap);
+         AddressHelperMY.validateSameAddressType(addressList,addressOldMap,true,true);
+         addressList[0].Address_Type__c='Business';
+         DMLManagerService.updateAsSystem(addressList);
+         AddressHelperMY.updateAccountonDeletion(addressList);
+         AddressHelperMY.updateAddressCDM(addressList,MarketDiscriminator,updateType);
+          system.assertNotEquals(null, addressList[0].id);
+         delete address;
+        }catch(Exception e){}
+        test.stopTest();
+        account = [select Primary_Address_Display__c from Account where id =:address.Customer__c ] ;
+       }
+       }
+}

@@ -139,6 +139,15 @@
         <label>Vehicle Details</label>
     </fieldSets>
 	<fields>
+        <fullName>MC_Connect_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Mc Connect Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
         <fullName>isTestRunning__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -2439,6 +2448,24 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_EuroVIN
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Extended_Warranty_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Extended Warranty End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Extended_Warranty_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Extended Warranty Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>FinanceExpiryDate__c</fullName>
@@ -6369,6 +6396,15 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>YA_Vehicle_Magic_No__c</fullName>
+        <externalId>false</externalId>
+        <label>YA Vehicle Magic No</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>last_update_changed_by__c</fullName>
         <externalId>false</externalId>
@@ -6390,6 +6426,36 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>DateTime</type>
     </fields>
     <label>Vehicle</label>
+	<listViews>
+        <fullName>All_MBTH_Vehicles</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>EuroVIN__c</columns>
+        <columns>RegistrationNo__c</columns>
+        <columns>Car_Model__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Class__c</columns>
+        <columns>Colour__c</columns>
+        <columns>Range__c</columns>
+        <columns>FirstRegistrationDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Vehicle__c.Competitor,Vehicle__c.MB,Vehicle__c.Vehicle_Product</value>
+        </filters>
+        <label>All MBTH Vehicles</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All_Vehicles</fullName>
         <columns>NAME</columns>
@@ -22656,6 +22722,7 @@ alert('{!$Label.Send_to_spo_translate}');
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/25.0/integration.js")} 
 
 if('{!User.Market__c}' != 'JP')
 {
@@ -22683,5 +22750,58 @@ alert("{!$Label.ChangeContacttarget}");
 }
 }</url>
     </webLinks>
-	
+	<webLinks>
+        <fullName>Recall_Check</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Recall Check</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!requireScript("/soap/ajax/13.0/apex.js")}
+
+var VRquery= sforce.connection.query("Select Id,Name,Contact__c,Selling_Dealer__c,Owner_Dealer__c,Vehicle_ID__c,Status_1__c From Vehicle_Relationship__c where Vehicle_ID__c = '{!Vehicle__c.Id}' and RecordType.Name = 'Vehicle Relationship' order by LastModifiedDate desc limit 1"); 
+
+alert(VRquery);
+
+var vrRec = VRquery.getArray("records");
+
+alert(vrRec);
+var dealercc= vrRec[0].Selling_Dealer__c;
+alert(dealercc);
+
+var dealerrt= vrRec[0].Owner_Dealer__c;
+alert(dealerrt);
+var vehicleid=vrRec[0].Vehicle_ID__c;
+alert(vehicleid);
+var userprofile = '{!$Profile.Name}';
+
+alert(userprofile);
+
+if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile != 'Korea Call Center'){ 
+alert('This feature is available only for Call Center users'); 
+}else if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile == 'Korea Call Center' &amp;&amp; dealercc != null)
+{
+
+var resultMsg=sforce.apex.execute("UtilWebservice","RecallNotify",{DealerID:"dealercc",VehicleId:"vehicleid"}); 
+if(resultMsg!=null) 
+{ 
+var alrt = '{!JSENCODE('Recall done Successfully')}'; 
+alert(alrt); 
+
+} 
+else 
+{ 
+var alrt = '{!JSENCODE($Label.Web_service_callout_failed)}'; 
+alert(alrt); 
+} 
+
+}else
+{
+alert('This button is for korea users');
+}</url>
+    </webLinks>
 </CustomObject>

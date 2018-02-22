@@ -473,7 +473,7 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Add_Preferred_Dealer__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -761,25 +761,34 @@
         <externalId>false</externalId>
         <label>Campaign Execution Channels</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DM</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>OB</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DM Magazine</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -826,21 +835,29 @@
         <externalId>false</externalId>
         <label>Campaign Sub Type</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>After Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales and After Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales -&gt; Crosspoint</fullName>
@@ -853,14 +870,20 @@
             <picklistValues>
                 <fullName>Marketing Event</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CRM/CSR</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -875,33 +898,41 @@
         <externalId>false</externalId>
         <label>Campaign Type</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Parts Cross Promotion</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Idle Hour Promotion</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Product Promotion</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance Promotion</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Maintenance Promotion</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Familiarization workshop for new vehicle owners</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>VEP(Seasonal Check)</fullName>
@@ -910,38 +941,58 @@
             <picklistValues>
                 <fullName>Used-car buy-back/Trade-in</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Customer Acquisition</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Promotion on Technical accessories and collections</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>POM/Advertisement</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Marketing Survey</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>After Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1596,7 +1647,7 @@
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
-	<fields>
+    <fields>
         <fullName>CommunityURL__c</fullName>
         <externalId>false</externalId>
         <label>CommunityURL</label>
@@ -1821,169 +1872,227 @@
         <externalId>false</externalId>
         <label>Event Type</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Road Show</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Test Drive</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Auto Show</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Festival</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Car Launch</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Joint Event</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Showroom Event</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sports Marketing</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Charity</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Prints relevant</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_quarter</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_central DM</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_new model target</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_fair</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_others</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales_catalogue response</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance_cross point</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance_maturity</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance_insurance</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_MOT</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_Mcare Inspection</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_inspections (After 4years)</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_service program</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_new car six month inspections</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_accessory</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Aftersales_collection</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_motor show</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_participatory</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_display</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event_othres</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Connection/me</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>loyalty_magazine</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>loyalty_guift</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_NCBS</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_SSI</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_CSI</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_CLI</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_Model</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>survey_MBF CSI</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2016,21 +2125,31 @@
         <externalId>false</externalId>
         <label>Execution Type</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>OB Call</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>DM</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
@@ -2047,14 +2166,17 @@
             <picklistValues>
                 <fullName>IB call</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Social media</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2269,21 +2391,29 @@
         <externalId>false</externalId>
         <label>Approval Status</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Approved</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Rejected</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Submitted</fullName>
                 <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Needs to Modify</fullName>
                 <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2294,9 +2424,7 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'),'TH','NA')))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'),'TH',IF(ISPICKVAL($User.Market__c, 'MY'),'MY','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -2551,6 +2679,48 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
@@ -3565,17 +3735,23 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <externalId>false</externalId>
         <label>Segmentation Base</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Customer</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Contract</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -4374,6 +4550,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>migr_sourceid__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>true</externalId>
@@ -4455,6 +4640,34 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>zh_CN</language>
+    </listViews>
+    <listViews>
+        <fullName>All_MBTH_Retail_Campaigns</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Parent_Campaign1__c</columns>
+        <columns>Y_Status__c</columns>
+        <columns>Child_Campaign_Status__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Close_Date__c</columns>
+        <columns>Campaign_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Retail_Campaign__c.Retail_Execution_Campaign,Retail_Campaign__c.Retail_Parent_Campaign</value>
+        </filters>
+        <label>All MBTH Retail Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Retail_MB_Best_Practice</fullName>
@@ -5367,6 +5580,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -6268,6 +6508,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>New Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7177,6 +7444,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -8082,6 +8376,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -8247,7 +8568,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <recordTypes>
         <fullName>Retail_Execution_Campaign</fullName>
         <active>true</active>
-        <description>子キャンペーン作成時に使用</description>
+        <description>Used when creating a child campaign</description>
         <label>Campaign Execution</label>
         <picklistValues>
             <picklist>Activity_Type__c</picklist>
@@ -8939,6 +9260,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charity</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Connection%2Fme</fullName>
                 <default>false</default>
             </values>
@@ -8963,6 +9292,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
+                <fullName>Festival</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Finance_cross point</fullName>
                 <default>false</default>
             </values>
@@ -8972,6 +9305,30 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prints relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Show</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8996,6 +9353,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9150,6 +9519,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>New Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10051,6 +10447,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>New Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10960,6 +11383,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -11125,7 +11575,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
     <recordTypes>
         <fullName>Retail_Parent_Campaign</fullName>
         <active>true</active>
-        <description>親キャンペーン作成時に使用</description>
+        <description>Used when creating parent campaign</description>
         <label>Planning &amp; Design Campaign</label>
         <picklistValues>
             <picklist>Activity_Type__c</picklist>
@@ -11293,6 +11743,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
+                <fullName>CRM%2FCSR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -11302,14 +11760,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Sales and After Sales</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CRM/CSR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Marketing Event</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11956,6 +12406,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charity</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Connection%2Fme</fullName>
                 <default>false</default>
             </values>
@@ -11980,6 +12438,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
                 <default>false</default>
             </values>
             <values>
+                <fullName>Festival</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Finance_cross point</fullName>
                 <default>false</default>
             </values>
@@ -11989,6 +12451,30 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Finance_maturity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prints relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Show</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12013,6 +12499,18 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>Sales_quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Showroom Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12131,6 +12629,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>New Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13343,6 +13868,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -14244,6 +14796,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
             <values>
                 <fullName>New Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15153,6 +15732,33 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
                 <fullName>Broadcast</fullName>
@@ -15362,8 +15968,16 @@ false)</errorConditionFormula>
     <validationRules>
         <fullName>Auto_Segmentation_Criteria</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),OR(MD__c = 'JP',MD__c = 'TH'),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
+        <description>If Auto Segmentation Check box is checked then Segmentation Criteria is Required</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),( Auto_Segmentation__c = TRUE),OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(ISBLANK(Segmentation_Criteria__c ) ))</errorConditionFormula>
         <errorMessage>If Auto Segmentation Check box is checked then Segmentation Criteria is Required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cant_add_members_once_segmentation_reach</fullName>
+        <active>true</active>
+        <description>You can't add Campaign member once the segmentation date is reached</description>
+        <errorConditionFormula>AND(ISCHANGED( Total_Retail_Campaign_Members__c ),OR( RecordType.Name = 'Planning &amp; Design Campaign',RecordType.Name = 'Campaign Execution'),$Profile.Name != 'IntegrationAPI',(Segmentation_Date__c&gt;today()),if(AND(MD__c=='MY',$Permission.MYDealer),true,false))</errorConditionFormula>
+        <errorMessage>You can't add Campaign member once the segmentation date is reached</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_Update_Monthly</fullName>
@@ -15486,11 +16100,8 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Feedback_Mandatory_Actual_Expense</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(  
-ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
-ISBLANK( Actual_Expense__c ), 
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
+        <description>Actual Expense field is mandatory when Submit for Feedback.</description>
+        <errorConditionFormula>AND( ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), ISBLANK( Actual_Expense__c ), $Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>Actual_Expense__c</errorDisplayField>
         <errorMessage>Actual Expense field is mandatory when Submit for Feedback.</errorMessage>
     </validationRules>
@@ -15519,11 +16130,8 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Feedback_Mandatory_Feedback_Comments</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(  
-ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
-ISBLANK( Feedback_Comments__c ),
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
+        <description>Feedback Comments field is mandatory when Submit for Feedback.</description>
+        <errorConditionFormula>AND( ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), ISBLANK( Feedback_Comments__c ), $Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>Feedback_Comments__c</errorDisplayField>
         <errorMessage>Feedback Comments field is mandatory when Submit for Feedback.</errorMessage>
     </validationRules>
@@ -15578,6 +16186,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Retail_Cam_Status_From_Completed</fullName>
         <active>true</active>
+        <description>If campaign execution is 'Completed' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution' or 'Response collection'</description>
         <errorConditionFormula>AND( 
 ISPICKVAL(
 PRIORVALUE(Child_Campaign_Status__c),'Completed'),
@@ -15587,29 +16196,26 @@ ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
 ISPICKVAL(Child_Campaign_Status__c, 'Response collection') ,ISPICKVAL(Child_Campaign_Status__c, '')
 
 ),
-OR(MD__c = 'JP',MD__c = 'TH'),
-$Profile.Name != 'IntegrationAPI',
-RecordType.DeveloperName = 'Retail_Execution_Campaign' 
-)</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),
+$Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Retail_Execution_Campaign' )</errorConditionFormula>
         <errorMessage>If campaign execution is 'Completed' then it can' t be changed to 'Planning' or 'Segmentation' or 'Execution' or 'Response collection'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Cam_Status_From_Execution</fullName>
         <active>true</active>
+        <description>Status cannot be changed from 'Execution' to 'Planning or Segmentation''</description>
         <errorConditionFormula>AND( ISPICKVAL(PRIORVALUE(Child_Campaign_Status__c),'Execution'),
 OR(ISPICKVAL(Child_Campaign_Status__c, 'Planning'), 
 ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
 ISPICKVAL(Child_Campaign_Status__c, '')
 ),
-OR(MD__c = 'JP',MD__c = 'TH'), 
-$Profile.Name != 'IntegrationAPI',
-RecordType.DeveloperName = 'Retail_Execution_Campaign' 
-)</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), $Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Retail_Execution_Campaign')</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Execution' to 'Planning or Segmentation''</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Cam_Status_From_Response</fullName>
         <active>true</active>
+        <description>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Execution'</description>
         <errorConditionFormula>AND( 
 ISPICKVAL(
 PRIORVALUE(Child_Campaign_Status__c),'Response collection'),
@@ -15618,16 +16224,22 @@ ISPICKVAL(Child_Campaign_Status__c, 'Segmentation'),
 ISPICKVAL(Child_Campaign_Status__c, 'Execution'),
 ISPICKVAL(Child_Campaign_Status__c, '')
 ),
-OR(MD__c = 'JP',MD__c = 'TH'), 
-$Profile.Name != 'IntegrationAPI',
-RecordType.DeveloperName = 'Retail_Execution_Campaign' 
-)</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), $Profile.Name != 'IntegrationAPI',RecordType.DeveloperName = 'Retail_Execution_Campaign')</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Response Collection' to 'Planning or Segmentation or Execution'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Retail_Campaign_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Retail Campaign  should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Campaign_Status_Completed</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c = 'TH'),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <description>Retail Campaign status Completed you cant change Close Date</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(IF( ISCHANGED( Close_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Close_Date__c</errorDisplayField>
         <errorMessage>Retail Campaign status Completed you cant change Close Date</errorMessage>
     </validationRules>
@@ -15647,6 +16259,14 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>The Brand of Retail Candidate should match the Brand of MB/smart Best Practice.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Retailcampaign_Market_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Market field of Retail Campaign should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Site_Cost_plus_Gift_Expense_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -15661,7 +16281,7 @@ $Profile.Name != 'IntegrationAPI'
         <fullName>Start_Date_And_End_date</fullName>
         <active>true</active>
         <description>Start Date And End date validations On Parent Campaign</description>
-        <errorConditionFormula>AND(MD__c='TH',(IF(NOT(Close_Date__c &gt;=Start_Date__c), true,false)))</errorConditionFormula>
+        <errorConditionFormula>AND(OR(MD__c='TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(IF(NOT(Close_Date__c &gt;=Start_Date__c), true,false)))</errorConditionFormula>
         <errorDisplayField>Close_Date__c</errorDisplayField>
         <errorMessage>Close  Date should be greater than Start Date</errorMessage>
     </validationRules>
@@ -15676,9 +16296,26 @@ if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISC
         <errorMessage>Start Date can not be less than Today</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Start_Date_can_not_be_less_than_Today</fullName>
+        <active>true</active>
+        <description>Start Date can not be less than Today</description>
+        <errorConditionFormula>AND(if(AND(MD__c=='MY',$Permission.MYDealer),true,false),Start_Date__c &lt; TODAY(),if( RecordType.Name='Campaign Execution'&amp;&amp;ischanged(Start_Date__c),true,if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISChanged(Start_Date__c),true,false))))</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>Start Date can not be less than Today</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_date_error_when_status_completed</fullName>
+        <active>true</active>
+        <description>You cant change Start Date once Retail Campaign status Completed</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),if(AND(MD__c=='MY',$Permission.MYDealer),true,false),(IF( ISCHANGED( Start_Date__c ) , IF( ISPICKVAL(Status__c, 'Completed') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>You cant change Start Date once Retail Campaign status Completed</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Status_is_Ongoing_cant_change_Start_Date</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c='TH'),(IF( ISCHANGED( Start_Date__c) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
+        <description>Status is ongoing you can not change Start date</description>
+        <errorConditionFormula>AND(($Profile.Name != 'IntegrationAPI'),OR( MD__c = 'JP',MD__c='TH', if(AND(MD__c=='MY',$Permission.MYDealer),true,false)),(IF( ISCHANGED( Start_Date__c) , IF( ISPICKVAL(Status__c, 'Ongoing') , true, false), false)),RecordType.DeveloperName = 'Retail_Parent_Campaign')</errorConditionFormula>
         <errorDisplayField>Start_Date__c</errorDisplayField>
         <errorMessage>Status is ongoing you can not change Start date</errorMessage>
     </validationRules>
@@ -15691,7 +16328,8 @@ if(RecordType.Name='Planning &amp; Design Campaign'&amp;&amp;isNew(),true,if(ISC
     <validationRules>
         <fullName>TH_Feedback_Mandatory_Actual_End_Date</fullName>
         <active>false</active>
-        <errorConditionFormula>AND(MD__c='TH', 
+        <description>Actual Period End Date&amp; Actual Period Start Date field is mandatory when Submit for Feedback.</description>
+        <errorConditionFormula>AND(OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), 
 ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), 
 OR(ISBLANK(Actual_Period_End_Date__c ),ISBLANK( Actual_Period_Start_Date__c)),$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
@@ -15700,7 +16338,8 @@ OR(ISBLANK(Actual_Period_End_Date__c ),ISBLANK( Actual_Period_Start_Date__c)),$P
     <validationRules>
         <fullName>TH_Feedback_Mandatory_Actual_Start_Date</fullName>
         <active>false</active>
-        <errorConditionFormula>AND( MD__c ='TH', 
+        <description>Actual Period End Date field is mandatory when Submit for Feedback</description>
+        <errorConditionFormula>AND( OR(MD__c ='TH',if(AND(MD__c=='MY',$Permission.MYDealer),true,false)), 
 ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'), 
 ISBLANK( Actual_Period_Start_Date__c), 
 $Profile.Name != 'IntegrationAPI' 
@@ -15736,7 +16375,8 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>TH_You_cant_Create_child_Campaign</fullName>
         <active>true</active>
-        <errorConditionFormula>( isnew()&amp;&amp;NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp;Parent_Campaign1__r.Close_Date__c &lt;today()&amp;&amp;MD__c='TH')</errorConditionFormula>
+        <description>Parent campaign already reached close date so You can't create child campaigns</description>
+        <errorConditionFormula>( isnew() &amp;&amp; NOT(ISBLANK(Parent_Campaign1__c)) &amp;&amp; Parent_Campaign1__r.Close_Date__c &lt;today() &amp;&amp; OR(MD__c='TH', if( AND(MD__c=='MY', $Permission.MYDealer),true,false) ) )</errorConditionFormula>
         <errorMessage>Parent campaign already reached close date so You can't create child campaigns</errorMessage>
     </validationRules>
     <validationRules>
@@ -15754,15 +16394,15 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>TH_you_cant_Add_childcampaings_for_close</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(MD__c ='TH', isPickval(Parent_Campaign1__r.Status__c,'Completed'))</errorConditionFormula>
+        <description>You Can't Create child campaigns for the Completed Campaigns</description>
+        <errorConditionFormula>AND( OR(MD__c ='TH', if( AND(MD__c=='MY', $Permission.MYDealer),true,false) ), isPickval(Parent_Campaign1__r.Status__c,'Completed') )</errorConditionFormula>
         <errorMessage>You Can't Create child campaigns for the Completed Campaigns</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
-NOT(OR(ISPICKVAL( Apply_Status__c , 'Planned'), ISPICKVAL( Apply_Status__c , 'Need Modify'))), 
-OR(ISCHANGED(Name),
+        <description>You can't update Retail Campaign information with current apply status.</description>
+        <errorConditionFormula>AND( NOT(OR(ISPICKVAL( Apply_Status__c , 'Planned'), ISPICKVAL( Apply_Status__c , 'Need Modify'))), OR(ISCHANGED(Name),
        ISCHANGED(Driven__c),
 	   ISCHANGED(Ad_Location__c),
 	   ISCHANGED(Ad_Type__c),
@@ -15800,8 +16440,7 @@ OR(ISCHANGED(Name),
 	   ISCHANGED(Site__c),
 	   ISCHANGED(Site_Area__c),
 	   ISCHANGED(Yearly_TA__c)),
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
+	   $Profile.Name != 'IntegrationAPI' )</errorConditionFormula>
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>You can't update Retail Campaign information with current apply status.</errorMessage>
     </validationRules>
@@ -15833,9 +16472,12 @@ var accid = records[0].Market__c;
 if(accid=='TH'){ 
 window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 }
+else if(accid=='{!$Label.MarketMY}')
+ {  window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_NEW_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_NEW_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
+ }
 else
  { 
- window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
+ window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
  }</url>
     </webLinks>
     <webLinks>
@@ -15964,20 +16606,27 @@ alert('The event has yet to be published or has been closed.');
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/xdomain/xdomain.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "xdomain/xdomain.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/41.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "support/console/41.0/integration.js")} 
 if({!Campaign.IsActive}){
 if('{!Campaign.MD__c}' == 'TH') {
-window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!Campaign.Description}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!Campaign.Name}&amp;ent={!Retail_Campaign__c.Id}');
-
-
-
+window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;ent={!Retail_Campaign__c.Id}');
 }
 }
 else{
-alert('kindly Activate The Campaign');
-
+if (confirm('To create Retail Campaign, related WS Campaign needs to be activated. Do you want to Proceed ?'))
+{
+if('{!Campaign.Id}'!=null &amp;&amp; '{!Campaign.Id}'!='' &amp;&amp; '{!Campaign.Id}'!='undefined')
+{
+var campaignObj = new sforce.SObject("Campaign");
+campaignObj.id="{!Campaign.Id}";
+campaignObj.Activate_for_retail_campaign__c=true;
+campaignObj.IsActive=true;
+result = sforce.connection.update([campaignObj]);
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;00N2800000IkqaO={!Campaign.Description}&amp;00N2800000Ikqad={!Campaign.Status}&amp;CF00N2800000A9Cpq={!Campaign.Name}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!Campaign.Name}&amp;ent={!Retail_Campaign__c.Id}',"_self";
+}
+}
 }</url>
     </webLinks>
     <webLinks>
@@ -16208,6 +16857,78 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // ---- END ----</url>
     </webLinks>
     <webLinks>
+        <fullName>OPR_Label_Print</fullName>
+        <availability>online</availability>
+        <description>OPROARTS</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>[OPR]Label Print</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+// 
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
+
+
+// ---- BEGIN ---- 
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
+{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
+
+var tpArray = (function () { 
+var dmTemplate= sforce.connection.query("SELECT id,DM_Template__r.Type__c FROM Retail_Campaign__c WHERE ID ='{!Retail_Campaign__c.Id}' LIMIT 1"); 
+records = dmTemplate.getArray("records"); 
+var dmmaterial_type = records[0].DM_Template__r.Type__c; 
+switch(dmmaterial_type){ 
+case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
+case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
+case 'smart manual': return 'p03_DirectMailPrint';brak; 
+case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
+case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
+case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
+case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting';brak; 
+} 
+}()); 
+
+OPROARTS.Live.fF.action({ 
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
+// このパラメータを省略することはできません。 
+tp:tpArray, 
+
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
+fe:false, 
+
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+createsAttach:false, 
+
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
+// - taskSubject: 活動履歴の件名 
+// - taskComment: 活動履歴のコメント 
+// 無指定の場合は、システムの初期値が適用されます。 
+createsTask:false, 
+
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
+title:'', 
+
+// objectId: 帳票オブジェクトのIDを指定します。 
+objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
+
+// OPROARTS Live - Force.com API に必要な諸パラメータです。 
+// このパラメータを編集しないでください。 
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
+}).url("https://benz.pd.oproarts.com/liveffb/action").opr(); 
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
+// ---- END ----</url>
+    </webLinks>
+    <webLinks>
         <fullName>Refresh</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -16253,10 +16974,11 @@ if(CampStatus != 'Planning' &amp;&amp; CampStatus != 'Segmentation') {
 alert('You cannot create campaign members for this campaign status');
 }else
 {
-var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
-if(marketusr) {
+var marketusr="{!TEXT($User.Market__c)}"; 
+if(marketusr=='TH'||marketusr=='{!$Label.MarketMY}') { 
 window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation_TH?id={!Retail_Campaign__c.Id}");
-}else{
+}
+else{
 window.open("{!URLFOR($Site.Prefix)}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}");
 }
 }</url>
@@ -16275,6 +16997,22 @@ var marketusr={!ISPICKVAL($User.Market__c , "TH")};
 if(marketusr)
 { 
 window.open("{!URLFOR($Site.Prefix)}/apex/DealerPickerTH?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Share_To_Dealers</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ShareToDealers</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var marketusr={!ISPICKVAL($User.Market__c , "MY")}; 
+if(marketusr)
+{ 
+window.open("{!URLFOR($Site.Prefix)}/apex/DealerPicker?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -16714,7 +17452,4 @@ navigateToUrl('/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Ret
 alert('Application status error.'); 
 }</url>
     </webLinks>
-	
 </CustomObject>
-
-

@@ -2526,7 +2526,7 @@
                 <fullName>Insurance Proposal</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Needs Check</fullName>
                 <default>false</default>
             </values>
@@ -2552,6 +2552,10 @@
             </values>
             <values>
                 <fullName>Visited</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Handover</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6094,6 +6098,22 @@
                 <fullName>wrong number</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>not started</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>invalid data</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>reservation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Successful</fullName>
+                <default>false</default>
+            </values>
 		</picklistValues>
         <picklistValues>
             <picklist>Call_Category__c</picklist>
@@ -6916,6 +6936,18 @@
             </values>
             <values>
                 <fullName>wrong number</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>not started</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>need call back</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>invalid call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13289,11 +13321,11 @@ window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_AFTERSALES_REC
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 if('{!User.ContactId}' !='') 
 {
-var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+var myWindow = window.open("{!URLFOR($Site.Prefix)}/apex/ManageTasks?campid={!Campaign.Id}", "_blank","scrollbars=yes,resizable=yes,top=250,left=500,width=1000,height=700");
 }
 else if('{!User.ContactId}' =='') 
 {
-var myWindow = window.open("/apex/ManageTasks?campid={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");
+var myWindow = window.open("/apex/ManageTasks?campid={!Campaign.Id}", "_blank","scrollbars=yes,resizable=yes,top=250,left=500,width=1000,height=700");
 }</url>
     </webLinks>
     <webLinks>
@@ -13730,6 +13762,48 @@ if('{!Task.What}'.indexOf('a1b') == 0) {
  } else { 
   window.open('/{!Task.What}', "", "width = 800,height = 600"); 
  }
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>SubmitSurvey</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>SubmitSurvey</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")}
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")}
+var market = '{!Task.MD__c}';
+var redirectUrl = '/apex/SubmitSurveyKR?tskid={!Task.Id}';
+if(market == 'KR'){
+if('{!User.ContactId}' ==''){
+if (sforce.console.isInConsole()) {
+sforce.console.getEnclosingTabId(function(enclosingResult){
+sforce.console.getEnclosingPrimaryTabId(function(primaryResult){
+sforce.console.openSubtab(primaryResult.id, redirectUrl, true, '', null);
+});
+});
+
+
+}
+else
+{
+window.open('/apex/SubmitSurveyKR?tskid={!Task.Id}');
+}
+
+}
+else {
+if('{!User.ContactId}' !='')
+{
+window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?tskid={!Task.Id}");
+}
+}
+}
+else
+{
+alert("{!$Label.Check_DuplicatesErrorMsg}");
 }</url>
     </webLinks>
 </CustomObject>

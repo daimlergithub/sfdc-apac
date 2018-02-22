@@ -9,6 +9,8 @@ public without sharing class createRetailCopyKR {
     public Id did{get;set;} 
     public  Boolean ShowHideError{set;get;}
     public List<Account_Link__c> Accountlinklist{get;set;}
+	public List<Account_Link__c> AccountlinkComplist{get;set;}
+    public List<Account_Link__c> AccountlinkC2Clist{get;set;}
     public User  Usr{get;set;} 
     public List<Account> accc{set;get;}
     public  Id DealeAccId{get;set;}
@@ -20,7 +22,8 @@ public without sharing class createRetailCopyKR {
     public List<Account> Dealeracc{set;get;}
     public static Id alkPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     public static Id alkCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-    public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static Id AccountLink_Contact2ContactRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId();
+	public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public String MarketDiscriminator;
     public boolean showAddress{get;set;}
@@ -163,7 +166,11 @@ public without sharing class createRetailCopyKR {
                  System.debug('CurrentUsr %%%%%%%' + CurrentUsr);
                  if (accList.RecordtypeId == accPerson_RecordTypeId) {
                      Accountlinklist = [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkPerson_RecordTypeId AND Retail_Delete_Flag__c = false];
-                 }
+                 AccountlinkC2Clist = [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE  toRole__c =: AccId AND RecordTypeID =: AccountLink_Contact2ContactRecordTypeId AND Retail_Delete_Flag__c = false limit 1];
+                     if(AccountlinkC2Clist!=null && AccountlinkC2Clist.size() > 0){
+                      AccountlinkComplist = [select id, fromRole__c, toRole__c,Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c=:account.Main_Dealer__c AND toRole__c =: AccountlinkC2Clist[0].fromRole__c  AND RecordTypeID =: alkCompany_RecordTypeId AND Retail_Delete_Flag__c = false];
+                      }
+				}
                  if (accList.RecordtypeId == accCompany_RecordTypeId) {
                      Accountlinklist = [select id, fromRole__c, toRole__c, Retail_Delete_Flag__c from Account_Link__c WHERE fromRole__c =: account.Main_Dealer__c and toRole__c =: AccId AND RecordTypeID =: alkCompany_RecordTypeId AND Retail_Delete_Flag__c = false];
                  }
@@ -180,6 +187,11 @@ public without sharing class createRetailCopyKR {
                         
                          newAlk.fromRole__c = account.Main_Dealer__c;
                          newAlk.RecordTypeId = alkPerson_RecordTypeId;
+						 if(AccountlinkComplist!=null && !AccountlinkComplist.isEmpty()){
+                             for(Account_Link__c acLink : AccountlinkComplist){
+                             newAlk.Retail_Related_Company__c=acLink.Id;
+                            }
+                         }
                          if(displaAddress.size()>0){
                              newAlk.Retail_Address_Type__c = displaAddress.size()>0 ? displaAddress[0].Address_Type__c:'';
                              newAlk.Retail_ZipCode__c = displaAddress.size()>0 ? displaAddress[0].ZipCode__c:'';

@@ -48,6 +48,18 @@ JIRA NO             :    SFDCJP-1036 & 1041
             };
         }
     </script>
+    <script>
+    function disableOnSubmit(input) {
+        setTimeout('disableAfterTimeout(\'' + input.id + '\');', 50);
+    }
+    function disableAfterTimeout(id) {
+        var toDisable = document.getElementById( id );
+        toDisable.disabled = 'disabled';
+        // Use the Salesforce CSS style to make the button appear disabled
+        toDisable.className = 'btnDisabled';
+        toDisable.value = "Saving..."
+    }
+</script>
     <apex:form id="frm">
         <apex:pageBlock title="{!$Label.Convert_Lead}" id="block">
             <!--  <apex:outputText value="{!leadRT}">{!$Label.CL_Lead_Record_Type}</apex:outputText> -->
@@ -75,7 +87,12 @@ JIRA NO             :    SFDCJP-1036 & 1041
                 <apex:selectList id="chooseRecordtype" value="{!recordtypevalue}" size="1" label="Select Recordtype">
                     <apex:selectOptions Value="{!items}"  /><br/>
                 </apex:selectList>
-                <apex:commandButton value="Next" action="{!convertToLead}" rerender="out" status="status"/> 
+                <apex:commandButton id="save" value="Next" action="{!convertToLead}" status="actStatusId" onclick="disableOnSubmit(this);" />
+                <apex:actionStatus id="actStatusId" style="align:center;">
+                <apex:facet name="start" >
+                  <img src="/img/loading.gif" />                   
+                </apex:facet>
+            </apex:actionStatus> 
             </apex:outputPanel>
         </apex:outputPanel>
     </apex:form>

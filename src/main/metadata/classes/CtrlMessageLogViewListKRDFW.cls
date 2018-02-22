@@ -13,6 +13,7 @@ public with sharing class CtrlMessageLogViewListKRDFW {
 	public Integer LogsSize {get;set;}
 	public String sortField = 'LastModifiedDate';  // default sort column
 	public String baseUrl{get;set;}
+	public Boolean isPartner{get;set;}
 	private String sApplySOQL = ''; 
 	private Boolean notSort;
 	// the current sort direction. defaults to ascending
@@ -38,6 +39,7 @@ public with sharing class CtrlMessageLogViewListKRDFW {
 	public CtrlMessageLogViewListKRDFW(){
 		baseUrl = 'https://'+URL.getSalesforceBaseUrl().getHost();
 		notSort = false;
+		isPartner = getIsParnter();
 		LogsSize = 100;
 		NoOfRecords = 0;		
 		sApplySOQL = ' SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, IsModify__c, '  
@@ -48,6 +50,11 @@ public with sharing class CtrlMessageLogViewListKRDFW {
 		toggleSort();									
 	}
 	
+	private Boolean getIsParnter(){
+		User user = [SELECT Id, AccountId FROM User WHERE Id =: userinfo.getuserid()];
+		if(user.AccountId == null) return false;
+		else return true;
+	}
  	// MBK_Message_Logs pagging
     public List<MBK_Messages__c> getMessageLogs(){
     	List<MBK_Messages__c> lList = new List<MBK_Messages__c>();

@@ -2,7 +2,7 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <description>Change Complaint Assignment To Dealer GateKeeperNotification(US-CC-008)</description>
-    <encodingKey>ISO-8859-1</encodingKey>
+    <encodingKey>UTF-8</encodingKey>
     <name>Change Complaint Assignment To Dealer GateKeeper Notification2</name>
     <style>none</style>
     <subject>Case No. {!Case.CaseNumber}, Subject :{!Case.Subject}</subject>

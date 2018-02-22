@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CallHighlightAction</actionName>
@@ -4719,8 +4719,12 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
@@ -7706,18 +7710,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Done</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>In_Progress</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>none</fullName>
@@ -10082,6 +10089,106 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
         <fullName>General_Personal_Information_Mandatory__c</fullName>
         <externalId>false</externalId>
         <label>General Personal Information (Mandatory)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>General_Personal_Info_Mandatory__c</fullName>
+        <externalId>false</externalId>
+        <label>General Personal Info (Mandatory)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Targeted_Advert_Info_Optional_STCCC__c</fullName>
+        <externalId>false</externalId>
+        <label>Targeted Advert Info (Optional) STCCC</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Person_Info_Custom_Service_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>Person Info Custom Service (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Person_Agree_Test_Driving_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>Person Agree Test Driving (Optional)</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -12762,6 +12869,11 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>MBFSK</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -13846,9 +13958,9 @@ Function: After a suspect account is rejected or merged, master account id shoul
 	<fields>
         <fullName>Message__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
-HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
-HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
+        <formula>IF(BEGINS($Profile.Name, 'MBK'), 
+HYPERLINK('/MBKorea/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank') , 
+HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</formula>
         <label>Message</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -16398,32 +16510,26 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Mail(Private)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Mail(Business)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mobile E-Mail(Private)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mobile E-Mail(Business)</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other E-Mail</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -18605,6 +18711,76 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
 				<default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Tan Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Tan Sri Dato</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Tan Sri Datuk</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Dato Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Puan Sri Datin Seri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tan Sri Dato</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tengku</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Datuk Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Dato Ir</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Puan Sri</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Y. Bhg. Prof. Datin Paduka Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tan Sri Dato Ir</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tan Sri Datuk Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Tan Sri Dato Seri Dr</fullName>
+				<default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -19379,6 +19555,24 @@ Invisible on UI."</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Work_Phone_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Phone 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+	<fields>
+        <fullName>Work_Phone2_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Work Phone2 Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Work_Phone_Last_Modified_By2__c</fullName>
         <externalId>false</externalId>
@@ -19510,6 +19704,15 @@ Invisible on UI."</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Phone</type>
+    </fields>
+	<fields>
+        <fullName>YA_CustomerIDList__c</fullName>
+        <externalId>false</externalId>
+        <label>YA CustomerIDList</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>ZipCode__c</fullName>
@@ -19659,6 +19862,61 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo/>
     </listViews>
+	<listViews>
+        <fullName>All_MBTH_Customer_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.RECORDTYPE</columns>
+        <columns>UCID__c</columns>
+        <columns>ID_Type__c</columns>
+        <columns>ID_Number__c</columns>
+        <columns>Commercial_Reg_No__c</columns>
+        <columns>Primary_Address_Reference__c</columns>
+        <columns>Primary_Address_Display__c</columns>
+        <columns>Primary_Phone__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <columns>ACCOUNT.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Company,PersonAccount.PersonAccount</value>
+        </filters>
+        <label>All MBTH Customer Accounts</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>THUsers</group>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_MBTH_Dealers</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Dealer_ND_Code__c</columns>
+        <columns>Dealer_GC_Code__c</columns>
+        <columns>Dealer_GS_Code__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Dealer</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <label>All MBTH Dealers</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All_dealers_MBK</fullName>
         <columns>ACCOUNT.NAME</columns>
@@ -19744,50 +20002,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <sharedTo>
             <role>MBK_Management</role>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBTH_Dealer</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Dealer</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </filters>
-        <label>MBTH Dealer</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBTH_Dealer1</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Dealer</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </filters>
-        <label>MBTH Active Dealer</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -20727,6 +20941,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Dealers</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Dealer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23993,6 +24211,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFSK</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -60633,7 +60855,7 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <fullName>AtleastOneContact_TH</fullName>
         <active>true</active>
         <description>Please Enter Atleast one contact Information</description>
-        <errorConditionFormula>IF( AND(ISBLANK(Mobile__c),MD__c = 'TH',$Profile.Name !='IntegrationAPI',ISBLANK(Work_Phone__c),ISBLANK(Individual_Home_Phone__c),( OR(ISNULL(Email__c),ISBLANK(Email__c)) )) , true, false)</errorConditionFormula>
+        <errorConditionFormula>IF( AND(ISBLANK(Mobile__c),MD__c = 'TH',RecordType.DeveloperName!='Dealer',$Profile.Name !='IntegrationAPI',ISBLANK(Work_Phone__c),ISBLANK(Individual_Home_Phone__c),( OR(ISNULL(Email__c),ISBLANK(Email__c)) )) , true, false)</errorConditionFormula>
         <errorMessage>Please Enter Atleast one contact Information</errorMessage>
     </validationRules>
     <validationRules>
@@ -60652,7 +60874,7 @@ $Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__
         <fullName>Brahcn_name_Native</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',MD__c = 'JP',RecordType.Name = 'Dealer',
- OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー]*"))))</errorConditionFormula>
+ OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*"))))</errorConditionFormula>
         <errorDisplayField>Branch_name_Native__c</errorDisplayField>
         <errorMessage>Branch name native should not be single byte and should be ""Kana"" characters.</errorMessage>
     </validationRules>
@@ -61745,7 +61967,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>Phone_Required_for_Sales_TEL</fullName>
         <active>true</active>
         <description>When Mobile is selected for picklist field Sales TEL, then field value Mobile is required.</description>
-        <errorConditionFormula>AND(OR(AND(ISPICKVAL(Primary_Phone__c,'Mobile'),ISBLANK(Mobile__c)),AND(ISPICKVAL(Primary_Phone__c,'Home Phone'),ISBLANK(Individual_Home_Phone__c)),AND(ISPICKVAL(Primary_Phone__c,'Work Phone'),ISBLANK(Work_Phone__c))),MD__c = 'TH',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(OR(AND(ISPICKVAL(Primary_Phone__c,'Mobile'),ISBLANK(Mobile__c)),AND(ISPICKVAL(Primary_Phone__c,'Home Phone'),ISBLANK(Individual_Home_Phone__c)),AND(ISPICKVAL(Primary_Phone__c,'Work Phone'),ISBLANK(Work_Phone__c))),MD__c = 'TH', RecordType.DeveloperName!='Dealer' ,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>No value entered in Phone field for selected value in Sales Tel</errorMessage>
     </validationRules>
     <validationRules>
@@ -61824,6 +62046,53 @@ IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NO
         <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
         <errorDisplayField>Website</errorDisplayField>
         <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
+    </validationRules>
+	   <validationRules>
+        <fullName>WorkPhone2_Format_KR</fullName>
+        <active>true</active>
+        <description>Work Phone 2 must be in any of the following formats : 
+	1.	0x-xxx-xxxx
+	2.  0x-xxxx-xxxx
+	2.	0xx-xxx-xxxx
+	3.	0xx-xxxx-xxxx
+	4.  blank-xxxx-xxxx</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'KR',
+NOT(ISBLANK(Work_Phone_2__c)),
+NOT(
+OR(
+REGEX(Work_Phone_2__c, "[02]{2}-[0-9]{4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[051]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[053]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[032]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[062]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[042]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[052]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[044]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[031]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[033]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[043]{3}-[0-9]{3,4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[041]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[063]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[061]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[054]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[055]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}"),
+REGEX(Work_Phone_2__c, "0[0-9]{1}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{1}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{2}-[0-9]{3}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "0[0-9]{2}-[0-9]{4}-[0-9]{4}"), 
+REGEX(Work_Phone_2__c, "[0-9]{4}-[0-9]{4}") 
+)
+)
+)</errorConditionFormula>
+        <errorMessage>Work Phone 2 must be in any of the following formats : 
+			1.	0x-xxx-xxxx
+			2.  0x-xxxx-xxxx
+			2.	0xx-xxx-xxxx
+			3.	0xx-xxxx-xxxx
+			4.  blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validation_on_Salutation_and_Gender</fullName>
@@ -61929,7 +62198,7 @@ REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{8}"),
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{9}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{10}")), 
 OR(REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{7}"), 
-REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{2}[0-9]{6}"),
+REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{6}"),
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{8}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{9}"), 
 REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{1}[0-9]{10}"))))), 
@@ -62154,6 +62423,23 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <openType>replace</openType>
         <page>createRetailCopyKRButton</page>
         <protected>false</protected>
+    </webLinks>
+	<webLinks>
+        <fullName>Create_Retail_Copy_MY</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Retail Copy</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if({!$Permission.MYDealer}) 
+{ 
+alert("{!$Label.Retail_copy_is_already_present}"); 
+} 
+		else 
+		{ 
+		window.open('apex/Retailcopybutton?scontrolCaching=1&amp;id={!Account.Id}'); 
+		}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Vehicle</fullName>
@@ -63072,6 +63358,60 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 } 
 else { 
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>Recall_Check</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Recall Check</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!requireScript("/soap/ajax/13.0/apex.js")}
+
+var VRquery= sforce.connection.query("Select Id,Name,Contact__c,Selling_Dealer__c,Owner_Dealer__c,Vehicle_ID__c,Status_1__c From Vehicle_Relationship__c where Contact__c = '{!Account.Id}' and RecordType.Name = 'Vehicle Relationship' order by LastModifiedDate desc limit 1"); 
+
+alert(VRquery); 
+
+var vrRec = VRquery.getArray("records"); 
+
+alert(vrRec); 
+var dealercc= vrRec[0].Selling_Dealer__c; 
+alert(dealercc); 
+
+var dealerrt= vrRec[0].Owner_Dealer__c; 
+alert(dealerrt); 
+var vehicleid=vrRec[0].Vehicle_ID__c; 
+alert(vehicleid); 
+var userprofile = '{!$Profile.Name}'; 
+
+alert(userprofile); 
+
+if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile != 'Korea Call Center'){ 
+alert('This feature is available only for Call Center users'); 
+}else if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile == 'Korea Call Center' &amp;&amp; dealercc != null) 
+{ 
+
+var resultMsg=sforce.apex.execute("UtilWebservice","RecallNotify",{DealerID:"dealercc",VehicleId:"vehicleid"}); 
+if(resultMsg!=null) 
+{ 
+var alrt = '{!JSENCODE('Recall done Successfully')}'; 
+alert(alrt); 
+
+} 
+else 
+{ 
+var alrt = '{!JSENCODE($Label.Web_service_callout_failed)}'; 
+alert(alrt); 
+} 
+
+}else 
+{ 
+alert('This button is for korea users'); 
 }</url>
     </webLinks>
 </CustomObject>

@@ -1252,6 +1252,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Retail_Copy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Retail Copy</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Campaign Members</relationshipLabel>
+        <relationshipName>Campaign_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Retail_Task__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1482,6 +1494,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Vehicle_ExternalLink__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Vehicle ExternalLink</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Campaign Members (Vehicle ExternalLink)</relationshipLabel>
+        <relationshipName>Campaign_Members1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Vehicle_Relationship__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1621,31 +1645,18 @@ openLookup('/_ui/common/data/LookupPage?lkpr={!Account.Id}&amp;lktp=701&amp;enab
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
 {!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
-
 
 var aid="{!Account.Id}"; 
-if(aid != '') { 
-if(typeof(srcUp) == 'function') { 
-
-if (sforce.console.isInConsole()) 
-{ 
-srcUp('/apex/ConvertToDMRequest?Id={!Account.Id}&amp;isdtp=vw'); 
-} 
-else 
+if(aid != '') 
 { 
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!Account.Id}") 
-} 
-} 
-} 
-else if (sforce.console.isInConsole()) 
-{ 
-srcUp('/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}&amp;isdtp=vw'); 
 } 
 else 
 { 
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}") 
-}</url>
+}
+
+</url>
     </webLinks>
     <webLinks>
         <fullName>Convert_To_DM_Request1</fullName>
@@ -1681,37 +1692,23 @@ else
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/26.0/connection.js")} 
+var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+if(marketusr){ 
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}")
+}else{ 
 
-
-
-var aid="{!Account.Id}"; 
-if(aid != '') 
-{ 
-if(typeof(srcUp) == 'function') 
-{ 
-
-if (sforce.console.isInConsole()) 
-{ 
-srcUp('/apex/ConvertToTask?CampaignId={!Account.Id}&amp;isdtp=vw'); 
-} 
-else 
-{ 
-window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!Account.Id}") 
-} 
-} 
-} 
-
-else if(sforce.console.isInConsole()) 
-{ 
-srcUp('/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}&amp;isdtp=vw'); 
-} 
-else 
-{ 
-window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}") 
-}</url>
+ var aid="{!Account.Id}";
+if(aid != '')
+{
+  window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!Account.Id}")
+}
+else
+{
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}")
+}
+}
+</url>
     </webLinks>
     <webLinks>
         <fullName>Convert_To_Task1</fullName>
@@ -1769,36 +1766,21 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 
-
-
-
-var aid = "{!Account.Id}"; 
-if(aid != '') 
-{ 
-if (sforce.console.isInConsole()) 
-{ 
-if(typeof(srcUp) == 'function') 
-{ 
-srcUp('/apex/ConvertToLead?CampaignId={!Account.Id}&amp;isdtp=vw'); 
-} 
-else 
-{ 
-window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!Account.Id}"); 
-} 
-} 
-} 
-
-else if (sforce.console.isInConsole()) 
-{ 
-srcUp('/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}&amp;isdtp=vw'); 
-} 
-
-else 
-{ 
-window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}"); 
+var marketusr={!ISPICKVAL($User.Market__c , "TH")};
+if(marketusr){
+ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}");
+}else{
+ var aid = "{!Account.Id}";
+if(aid != '')
+{
+  window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!Account.Id}");
+}
+else
+{
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}");
+}
 }</url>
     </webLinks>
     <webLinks>

@@ -42,7 +42,7 @@ public class CampaignHelper {
     }
 }
     
- /***********************************************************************************
+/***********************************************************************************
 Created By          :    Abhishekh Dasepalle   
 Created Date        :    30.01.2017
 Company             :    NTT Data,Inc.
@@ -73,50 +73,14 @@ JIRA NO             :    SFDCJP-1026
     
     
   }
-  EmailTemplate templateId = [Select id from EmailTemplate where name = 'ListMaintenanceNotification'];
-  List<Campaign> CamList = [Select id,Name,Parent.Campaign_Type__c,(Select id,Dealer__c,Dealer__r.Dealer_Sales_Manager_Email__c,Dealer__r.Dealer_Aftersales_Manager_Email__c,Dealer__r.Name,ownerId from Participating_Dealers__r) from Campaign Where Id =:sid];
-  System.Debug('++++++++++'+CamList );
-  
-        For(Campaign c : CamList){
-  
-     For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
-          
-          
-             DealerIds.add(parDealer.Dealer__c);
-             ParticipateIds.add(ParDealer.Id);
-          
-           }
-           }
-         
-         If(DealerIds.size() >0){
-          List<User> UseList = [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:DealerIds AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ]; 
-          For(Campaign c : CamList){
-          For(Participating_Dealer__c parDealer : c.Participating_Dealers__r){
-          For(User u : UseList  )
-          { 
-          
-          If(u.contact.AccountId == parDealer.Dealer__c){
-         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-         mail.saveAsActivity = false;
-         mail.setTargetObjectId(u.Id);
-       
-         mail.setWhatId(parDealer.Id);
-        
-         mail.setTemplateID(templateId.Id); 
-         mail.setUseSignature(false);
-         mail.setSaveAsActivity(false);
-              
-       mails.add(mail); 
-      }     
+  if(!System.isFuture() && !System.isBatch()){
+     Batch_EmailNotification   batcher = New Batch_EmailNotification(sid);
+           Database.executeBatch(batcher, 50);
+       }
    }
-       
-         
-    }}
-     Messaging.sendEmail(mails);
-  
-   } 
+
    
-   } 
+    
    /* End Of SFDCJP-1026 */
    
    
@@ -1379,14 +1343,14 @@ system.debug('i am here');
            {
           if(u.MBK_Partner_Roles__c == 'Sales Consultant') {
         system.debug('Team Leader' +u.MBK_Reporting_Partner_User__c);
-            if(u.MBK_Reporting_Partner_User__c!=null && u.MBK_Reporting_Partner_User__c!='') {
+            if(u.MBK_Reporting_Partner_User__c!=null) {
                 CampaignShare shareRec = new CampaignShare();
                 shareRec.CampaignId = cams.Id;
                 shareRec.UserOrGroupId  = u.MBK_Reporting_Partner_User__c;
                 shareRec.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec);
             }
-            if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null && u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!='') {
+            if(u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c!=null) {
                 CampaignShare shareRec1 = new CampaignShare();
                 shareRec1.CampaignId = cams.Id;
                 shareRec1.UserOrGroupId  = u.MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c;

@@ -108,6 +108,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Relevant_Central_Campaign__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Contact_Telephone__c</field>
             </layoutItems>
             <layoutItems>
@@ -126,7 +130,7 @@
                 <behavior>Edit</behavior>
                 <field>RetailCampaignCarModelText__c</field>
             </layoutItems>
-        </layoutColumns>
+           </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -179,6 +183,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Ad_Location__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

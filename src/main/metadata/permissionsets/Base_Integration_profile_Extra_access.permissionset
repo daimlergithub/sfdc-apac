@@ -2572,6 +2572,46 @@
         <enabled>true</enabled>
         <name>CreateRetailCopy</name>
     </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>AccCDM</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>AccountLinkAL</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>LeadAL</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>MYRetail</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>addressupdateRT</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>CDMAccountlinkContext</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>CDMAccountlinkContextGroup</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>createAccountLink</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>createUpdateCDMUCID</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>LeadShareRecordswithDealers</name>
+    </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
         <name>ExportNotification</name>
@@ -5245,7 +5285,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Special_Care__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

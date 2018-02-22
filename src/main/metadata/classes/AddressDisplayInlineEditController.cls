@@ -341,10 +341,19 @@ public class AddressDisplayInlineEditController {
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
                    
-                    if(market=='TH')
-                       region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
-                    else  if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
-                       region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+                    List<RegionMasterInfo__c>rmilist = new List<RegionMasterInfo__c>();
+				   
+                    if(market=='TH'){
+                       rmilist=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+					   if(!rmilist.isEmpty()){
+						region = rmilist[0];
+					}}
+                    else  if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+						 rmilist=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
+					   if(!rmilist.isEmpty()){
+						region = rmilist[0];
+					}
+					   }
                     else
                         LanguageSelected='English';
                        

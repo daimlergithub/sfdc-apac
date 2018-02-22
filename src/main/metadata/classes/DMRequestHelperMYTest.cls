@@ -31,7 +31,7 @@ public class DMRequestHelperMYTest {
         upsert TriggerAddress;
 
         Profile taskprofile = [select id, Name from profile where Name='System Administrator' limit 1];
-        User user = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='sam@test.com.dev01',Market__c = 'MY');
+        User user = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=taskprofile.Id,Alias='Taskain1',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_Mtest@infosys.com',UserName='sa2222222m@test.com.dev01',Market__c = 'MY');
         insert user;
         System.runas(user){       
             Profile profileCAC = [select Id from Profile where Name = :Label.IntProfileName];
@@ -48,7 +48,7 @@ public class DMRequestHelperMYTest {
             usr.localesidkey='en_US';
             usr.isActive = true;
             usr.Market__C='MY';    
-			insert usr;
+      insert usr;
 
             SystemSettingsDFW__c sysSet = new SystemSettingsDFW__c();
             sysSet.Debug__c =true;
@@ -120,13 +120,15 @@ public class DMRequestHelperMYTest {
         createDMRequest();
         
         //start test
+    system.runAs(usr){
         test.startTest();
         dmr.Sending_Address__c='Other Address 1';
         update dmr;        
         test.stopTest();
         //verify test
         dmr=[select Province__c  from DM_Request__c where id=:dmr.id];
-        system.assertEquals(dmr.Province__c, null);           
+        system.assertEquals(dmr.Province__c, null);        
+    }    
         
     }
     public static testMethod void updateStatusTest(){

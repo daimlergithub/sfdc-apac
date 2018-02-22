@@ -8,9 +8,10 @@ global class Updatecampaignmemwithrefresh{
   static User usr = [Select id, LanguageLocaleKey,Dealer_GC_Code__c,Market__c,ProfileId,Profile.Name from User WHERE ID = : UserInfo.getUserId()]; 
     webservice static void Refreshcampaignmember(String camid){
    
-    
+    if(!Test.isRunningTest()){
     Batch_RefreshButton batcher = new Batch_RefreshButton(camid);
-                Database.executeBatch(batcher, 200);
+                Database.executeBatch(batcher, 1);
+                }
     
     }
     
@@ -19,7 +20,7 @@ global class Updatecampaignmemwithrefresh{
     
    
    Batch_RefreshButtonRetail batcher = new Batch_RefreshButtonRetail (retcamid);
-                Database.executeBatch(batcher, 200);
+                Database.executeBatch(batcher, 50);
    
     }
     

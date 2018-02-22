@@ -108,29 +108,45 @@ public  class CampaignMembersCustomHelperJP {
         Map<Id,String> UserMap = New Map<Id,String>();
         Set<String> dealerCode = New Set<String>();
         Set<String> accountName = New Set<String>();
+        Set<Id> sid = New Set<Id>();
         List<Campaign_Member__Share> RetailCampaignShare = New List<Campaign_Member__Share>();
-        List<User> UserList;
+        List<Account> Accountlist;
+        set<id> uid =new set<id>();
         
-                for(Campaign_Member__c RetMem : newList)
+               For(Campaign_Member__c  cam : newList){
+               
+               
+                   uid.add(cam.id);
+               
+               }
+               
+               List<Campaign_Member__c> camlist =[Select id,Retail_Campaign_Id__r.dealer_name__c From Campaign_Member__c Where id =:uid];
+               
+               
+                for(Campaign_Member__c RetMem : camlist)
                 {
                     If( RetMem.Retail_Campaign_Id__r.dealer_name__c != null)
                     {                     
                      recordIds.add(RetMem.Id);
-                    }           
+                     sid.add(RetMem.Retail_Campaign_Id__r.dealer_name__c);
+                     system.debug('+++++++'+'Working');
+                    }     
+                    
+                    system.debug('+++++++'+'Working123');      
                 }
         
                  if(recordIds != null)
                  {
-                    UserList =[select id,Contact.Id,Dealer_GC_Code__c From User Where Id =: UserInfo.getUserId()];
+                    AccountList =[select id,Dealer_GC_Code__c From Account Where Id =: sid];
                  }
                     
                     
-                for(User u : UserList){
+                for(Account u : AccountList){
                     
-                    If(u.ContactId != null){    
-                        UserMap.put(u.id,u.Dealer_GC_Code__c);  
+                        
+                          
                         dealerCode.add(u.Dealer_GC_Code__c);
-                    }   
+                       
                 }
                 List<Account> dealerAccList = [select Name,Dealer_GC_Code__c from Account where Dealer_GC_Code__c =:dealerCode AND RecordtypeId=:da];
                 for(Account acc :dealerAccList){
@@ -250,7 +266,7 @@ insert campMemShareList;
                     set_CampaignMemberId.add(vc.id);
                     set_CustomerId.add(vc.contact_Id__c);
             }
-           if( vc.Retail_Campaign_Id__r.dealer_name__c != null && vc.Retail_Campaign_Id__c != null)
+         /*  if( vc.Retail_Campaign_Id__r.dealer_name__c != null && vc.Retail_Campaign_Id__c != null)
             {
              
                     if(!mapCheckingType.containsKey(vc.Retail_Campaign_Id__r.dealer_name__c))
@@ -260,7 +276,7 @@ insert campMemShareList;
                     mapCheckingType.get(vc.Retail_Campaign_Id__r.dealer_name__c).add(vc.Id);
                     //set_CampaignMemberId.add(vc.id);
                    set_CampaignMemberId.add(vc.id);
-            }
+            }*/
             if(vc.Campaign_ID__r.Share_Campaign_Participation_Flag__c == true && vc.Preferred_Dealer__c != null  )
             {
                
@@ -418,7 +434,9 @@ insert campMemShareList;
         Set<Id> DealerAccId=new Set<Id>();
         Set<Id> VrID=new Set<Id>();
         system.debug('%^%^%^%^^%^%^% mapCheckingType'+mapCheckingType);
-        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where toRole__c=:mapCheckingType.keySet() Or fromRole__c=:mapCheckingType.keySet()];
+        system.debug('++++++++++++++'+mapCheckingType.keySet());
+        system.debug('++++++++++++++'+mapCheckingType.keySet().size());
+        ListAlk = [select id,fromRole__c,toRole__c from Account_Link__c where fromRole__c=:mapCheckingType.keySet() LIMIT 1000];
          system.debug('%^%^%^%^^%^%^% ListAlk '+ListAlk );
         for(Account_Link__c alk:ListAlk) {
             DealerAccId.add(alk.fromRole__c);
@@ -587,14 +605,14 @@ insert campMemShareList;
                     and retail campaign status to 'Response collection'
        date     : 15th Mar, 2017
      */
-    public static void afterUpdateCampaignMembers(Map<Id,Campaign_Member__c> afterCampMembers){
+    public static void afterUpdateCampaignMembers(List<Campaign_Member__c> afterCampMembers){
         Set<Id> parentRetailCampIds = new Set<Id>();
         Set<String> campaignMemberStatusSet = new Set<String>{'Bounced', 'Responded','Not Responded'};
-        for(Campaign_Member__c campMem : [SELECT Status__c, Campaign_Id__c, Retail_Campaign_Id__c FROM Campaign_Member__c WHERE ID IN: afterCampMembers.keySet()]){
-            if(campaignMemberStatusSet.contains(campMem.Status__c)){
+        for(Campaign_Member__c campMem : afterCampMembers ){
+            
                 if(campMem.Retail_Campaign_Id__c != null)
                     parentRetailCampIds.add(campMem.Retail_Campaign_Id__c);
-            }            
+                       
         }
 
         List<Retail_Campaign__c> listRetCamp = new List<Retail_Campaign__c>();

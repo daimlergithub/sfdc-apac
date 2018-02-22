@@ -296,7 +296,7 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
           for(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:reCampaign.Dealer_Name__r.id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
           
           {
-          
+          system.debug('@@@@@EmailNotification'+u.Id);
          Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         mail.saveAsActivity = false;
         mail.setTargetObjectId(u.Id);
@@ -540,8 +540,9 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
     
       //List<Campaign> camList =[Select id,Name,Consolidated_List_Completed__c,Set_List_Maintenance_Flag__c ,(Select Id,Name,Retail_Campaign__c From Participating_Dealers__r) From Campaign Where Id =: sid ];
       
-      List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,Consolidated_List_Completed__c,(Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c    From  Campaign_Members1__r ) From Campaign Where Id =: sid ];
+      List<Campaign> caMemList =[Select id,Name,Set_List_Maintenance_Flag__c,Consolidated_List_Completed__c From Campaign Where Id =: sid  ];
       
+      List<Campaign_Member__c> Cammelist = [Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c From Campaign_Member__c Where Campaign_id__c =:sid AND Preferred_Dealer__c =: OwnerSid LIMIT 9000];
       List<Retail_Campaign__c> retList = [Select id,OwnerId,Dealer_Name__c From Retail_Campaign__c Where Id =: retailId];
       
       //List<User> UseList = [Select id,Accountid,Dealer_Name__c From User Where id =: OwnerSid];
@@ -556,7 +557,7 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
               
                 
               
-              For(Campaign_Member__c camo : caMem.Campaign_Members1__r){
+              For(Campaign_Member__c camo : Cammelist ){
                  
                  if(camo.Status__c !='Removed'&& retail.Dealer_Name__c == camo.Preferred_Dealer__c){ 
                  //system.debug('++++++++++++++'+u.Accountid );
@@ -580,16 +581,10 @@ if(isInsert && rect.Parent_Campaign__c == null && rect.RecordTypeId == childCamp
             
         }  
         if(retailMem.size() >0 && !retailMem.isEmpty()){
-            insert retailMem;   
+            //insert retailMem;   
             
             } 
                     
-    
-    
-    
-    
-    
-    
     
     
     

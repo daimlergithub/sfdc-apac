@@ -36,11 +36,11 @@
                 <field>Retail_Comments__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Preferred_Language__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Special_Needs_Class__c</field>
             </layoutItems>
         </layoutColumns>
@@ -78,11 +78,11 @@
                 <field>Retail_Sales_Sanction_Comment__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Special_Care__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_Position__c</field>
             </layoutItems>
         </layoutColumns>
@@ -143,10 +143,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_WebSite__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Race__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -263,8 +259,12 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedDate__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_Duplicate_Flag__c</field>
+            </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>System__c</field>
             </layoutItems>
         </layoutColumns>
@@ -276,10 +276,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Delete_Flag__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -298,6 +294,9 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+	<relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>

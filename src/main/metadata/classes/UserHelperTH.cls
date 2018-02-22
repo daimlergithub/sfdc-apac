@@ -9,7 +9,8 @@ public class UserHelperTH{
         {
             triggerUserIdLst.add(usr.Id);
         }
-        List<User> userLst=[select Id,ContactId,Contact.Account.Dealer_Nd_code__c,Market__c from User where Id IN:triggerUserIdLst];
+        List<User> userLst=[select Id,ContactId,Contact.Account.Dealer_Nd_code__c,Market__c,UserType from User where Id IN:triggerUserIdLst];
+        List<Group> grpLst=[select Id,Name from Group where Name='THUsers'];
         for(User usr:userLst)
         {System.debug('---'+usr.ContactId+'--'+usr.Contact.Account.Dealer_Nd_code__c+'---'+usr.Market__c);
             //user who have dealer code and market is TH
@@ -19,6 +20,7 @@ public class UserHelperTH{
                 THDealerCodesLst.add(dealerCode);
                 usersWithDNClst.add(usr);
                 userIdLst.add(usr.Id);
+                addUsersToTHUserGrp(userIdLst,grpLst);
             }
         }
         System.debug('userIdLst--'+userIdLst);
@@ -61,6 +63,7 @@ public class UserHelperTH{
              FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Lead__c')));
           FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Case')));
           FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Vehicle_Relationship__c')));
+          FlexQueue.moveJobToEnd(Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'User')));
          }
       else
         {
@@ -68,11 +71,30 @@ public class UserHelperTH{
             Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Lead__c'));
             Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Case'));
             Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'Vehicle_Relationship__c'));
+            Database.Executebatch(new ShareALLRecordsToNewUserBatchTH(userIdLst,'User'));
         }
             
         
         }
     }
+    
+    //add TH Dealer users to THUsers public group
+    public static void addUsersToTHUserGrp(List<Id> userIdLst,List<Group> THUserGroup)
+    {
+        if(userIdLst!=null && userIdLst.size()>0 && THUserGroup!=null && THUserGroup.size()>0)
+        {
+            List<GroupMember> grpMemberLst=new List<GroupMember>();
+            for(Id userId:userIdLst)
+            {
+                grpMemberLst.add(new GroupMember(GroupId=THUserGroup[0].Id,UserOrGroupId = userId));
+            }
+            if(grpMemberLst!=null && grpMemberLst.size()>0)
+            {
+                DMLManagerService.insertassystem(grpMemberLst);
+            }
+        }
+    }
+    
     public static void createGroup(List<User> usersWOGrp)
     {
         List<Group> grpLst=new List<Group>();

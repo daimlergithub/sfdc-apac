@@ -1187,7 +1187,7 @@ public with sharing class UserHelper {
     
     
   /**    
-     * @Description : invokes another class permission handler which is used to assign permisson set to user based on persona assignment
+     * @Description : invokes another class permission handler which is used to assign permisson set to updated user based on persona assignment
      * @author      : Harshit Kabra 
      * @Date        : 6-September-2017
      * @param       : list of new users
@@ -1199,6 +1199,21 @@ public with sharing class UserHelper {
            MRC_PermissionHandler mrcp=new MRC_PermissionHandler();
            mrcp.assignMarketBasedPermisionSetsToUsers((List<User>)usersList);
     }
+    
+  /**    
+     * @Description : invokes another class permission handler which is used to assign permisson set to newly created user based on persona assignment
+     * @author      : Harshit Kabra 
+     * @Date        : 17-January-2018
+     * @param       : list of new users
+     * @see         : UserTriggerHandler(UserHelper.InvokePermissionHandlerForUserCreation)
+    **/    
+    
+    public static void InvokePermissionHandlerForUserCreation(list<user> usersList)
+    {
+           MRC_PermissionHandler mrcp=new MRC_PermissionHandler();
+           mrcp.assignMarketBasedPermisionSetsToUsersCreated((List<User>)usersList);
+    }   
+    
     
 	//---------------------------- Case/Lead Owner Update - SFDCKR-964 ----------------------------
     // Added By - Sreenivasareddy 
@@ -1274,5 +1289,101 @@ public with sharing class UserHelper {
         }
         update ldli;
     }
+	public static void AddITDeptUsertoGroup(list<User> usersList,map<id,User> userOldMap,boolean isInsert,boolean isUpdate)
+{
+    set<id> userid = new set<id>();
+    set<id> userProfileid = new set<id>();
+    set<id> upuserid = new set<id>();
+    set<id> upuserProfileid = new set<id>();
+    
+   system.debug('******usersList'+usersList);
+   
+    if(Trigger.isInsert)
+    {
+        system.debug('******usersList'+usersList);
+        for (User ui:usersList)
+        {
+            system.debug('******usersList'+usersList);
+            if( ui.isActive == true && ui.Market__c == 'JP')
+            {
+                userid.add(ui.id);
+                userProfileid.add(ui.ProfileId);
+            }
+        }
+    system.debug('******userid'+userid);
+    system.debug('******userProfileid'+userProfileid);
+    }
+    
+    
+    Group g=[select Id from Group Where Name='Japan IT Department Users'];
+    system.debug('******'+g);
+    
+    List<User> users=[select id,isActive,ProfileId,Profile.Name from user where isActive = true and id IN: userid and ProfileId IN: userProfileid and Profile.Name = 'Japan IT Department'];
+    system.debug('******users'+users);
+
+    List<GroupMember> listGroupMember =new List<GroupMember>();
+    
+    for (User user : users) 
+  {
+   GroupMember gm= new GroupMember(); 
+   gm.GroupId=g.id;
+   gm.UserOrGroupId = user.id;
+   listGroupMember.add(gm);
+   } 
+   system.debug('******listGroupMember'+listGroupMember);
+
+   
+    if(listGroupMember.size() > 0)
+    {
+    insert listGroupMember;
+    }
+    
+     if(Trigger.isUpdate)
+    {
+        system.debug('******usersList'+usersList);
+        for (User u:usersList)
+        {
+           system.debug('******usersList'+usersList);
+            if( u.ProfileId != userOldMap.get(u.Id).ProfileId && u.isActive == true && u.Market__c == 'JP')
+            {
+                upuserid.add(u.id);
+                upuserProfileid.add(u.ProfileId);
+            }
+        }
+        system.debug('******upuserid'+upuserid);
+        system.debug('******upuserProfileid'+upuserProfileid);
+    }
+    
+   List<GroupMember> uplistGroupMember =new List<GroupMember>(); 
+   set<id> remuserid= new set<id>();
+    
+    List<User> upusers=[select id,isActive,ProfileId,Profile.Name from user where isActive = true and id IN: upuserid and ProfileId IN: upuserProfileid];
+    system.debug('******upusers'+upusers);
+    
+    for (User user1 : upusers) 
+    {
+    if(user1.Profile.Name != 'Japan IT Department')
+    {
+    remuserid.add(user1.id);
+    }
+    else if(user1.Profile.Name == 'Japan IT Department')
+    {
+   GroupMember gm= new GroupMember(); 
+   gm.GroupId=g.id;
+   gm.UserOrGroupId = user1.id;
+   uplistGroupMember.add(gm);
+   } 
+   }
+   system.debug('******uplistGroupMember'+uplistGroupMember);
+   
+   if(uplistGroupMember.size() > 0)
+    {
+    insert uplistGroupMember;
+    }
+
+   List<GroupMember> remlistGroupMember =[select id from GroupMember where GroupId =:g.id and UserOrGroupId in : remuserid];
+
+    delete remlistGroupMember;
+}
 
 }

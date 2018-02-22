@@ -15611,6 +15611,11 @@
         <field>Retail_Campaign__c.M_YearlyTA__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Campaign__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Campaign__c.Max_Car_Age__c</field>
@@ -19779,6 +19784,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>User.User_Role__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>User.User_Profile__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

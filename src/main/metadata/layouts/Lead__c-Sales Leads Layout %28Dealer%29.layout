@@ -293,7 +293,8 @@
                 <field>Quotation_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Quotation_Model_History__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

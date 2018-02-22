@@ -152,6 +152,10 @@
         <label>お知らせ</label>
         <name>Announcements</name>
     </customLabels>
+	 <customLabels>
+        <label>本当に削除してよろしいですか？</label>
+        <name>Are_you_sure_to_delete_this_account</name>
+    </customLabels>
 	<customLabels>
         <label>保有情報</label>
         <name>Registration_Information</name>
@@ -288,6 +292,14 @@
         <label>住所情報　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください。</label>
         <name>Address_Information_SPO</name>
     </customLabels>
+	<customLabels>
+        <label>住所1は必ず50文字以下で入力して下さい。</label>
+        <name>Address_Line_1_should_be_less_than_or_equal_to_50_letters</name>
+    </customLabels>
+    <customLabels>
+        <label>住所2は必ず50文字以下で入力して下さい。</label>
+        <name>Address_Line_2_should_be_less_than_or_equal_to_50_letters</name>
+    </customLabels>
     <customLabels>
         <label>住所〒</label>
         <name>Address_PrintPDF</name>
@@ -303,6 +315,10 @@
     <customLabels>
         <label>住所区分</label>
         <name>Address_Type</name>
+    </customLabels>
+	<customLabels>
+        <label>住所区分を入力して下さい。</label>
+        <name>Address_Type_is_required</name>
     </customLabels>
     <customLabels>
         <label>郵便番号検索時は、郵便番号以外の住所項目は入力しないでください。</label>
@@ -479,6 +495,14 @@
     <customLabels>
         <label>生年月日</label>
         <name>Birthdate</name>
+    </customLabels>
+	<customLabels>
+        <label>生年月日は過去日で入力して下さい。</label>
+        <name>Birthdate_is_not_allowed_to_be_later_than_today_or_earlier_than_150_years</name>
+    </customLabels>
+    <customLabels>
+        <label>字名・丁目は必ず12文字以下で入力して下さい。</label>
+        <name>Block_should_be_less_than_or_equal_to_12_letters</name>
     </customLabels>
     <customLabels>
         <label>メーカー</label>
@@ -996,6 +1020,14 @@
         <label>市区郡町村（カナ）を設定してください。</label>
         <name>City_native_should_not_be_null</name>
     </customLabels>
+	<customLabels>
+        <label>市区郡町村は必ず12 文字以下で入力して下さい。</label>
+        <name>City_should_be_less_than_or_equal_to_12_letters</name>
+    </customLabels>
+    <customLabels>
+        <label>大字・通称名は必ず18 文字以下で入力して下さい。</label>
+        <name>City_should_be_less_than_or_equal_to_18_letters</name>
+    </customLabels>
     <customLabels>
         <label>市区郡町村（カナ）を設定してください。</label>
         <name>City_should_not_be_null</name>
@@ -1071,6 +1103,10 @@
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Company_Name_Department_Title</name>
+    </customLabels>
+	<customLabels>
+        <label>法人格含む法人名は必ず40文字以下で入力して下さい。</label>
+        <name>Company_Name_should_be_less_than_or_equal_to_40_letters</name>
     </customLabels>
     <customLabels>
         <label>比較検討車メーカー</label>
@@ -1457,19 +1493,27 @@
         <name>Email_Assignment</name>
     </customLabels>
     <customLabels>
-        <label>【ご確認ください】　新規お客様関連情報展開のお知らせ</label>
+        <label>統合顧客管理システム　貴店へのケース展開のお知らせ</label>
         <name>Email_Case</name>
+    </customLabels>
+    <customLabels>
+        <label>お客様からの入電内容、ご意見、お客様情報変更等のお客様関連情報になります。</label>
+        <name>Email_Case_CustomerInfo</name>
+    </customLabels>
+    <customLabels>
+        <label>ケース展開：　1件</label>
+        <name>Email_Case_Numberof</name>
     </customLabels>
     <customLabels>
         <label>■ケース</label>
         <name>Email_Case_Record</name>
     </customLabels>
     <customLabels>
-        <label>ご対応をお願いいたします。 ※情報の取り扱いにご注意下さい。</label>
+        <label>下記URLからケースをご確認いただき、今後のご対応にご活用ください。</label>
         <name>Email_Case_Respond</name>
     </customLabels>
     <customLabels>
-        <label>お客様関連情報(入電内容、アンケートにおけるご意見、お客様情報変更、等)を展開いたします。</label>
+        <label>、統合顧客管理システムにて貴店へケースを展開いたしましたのでお知らせいたします。</label>
         <name>Email_Case_information</name>
     </customLabels>
     <customLabels>
@@ -1611,7 +1655,7 @@
         <name>Email_Manager</name>
     </customLabels>
     <customLabels>
-        <label>ご協力ありがとうございます。</label>
+        <label>どうぞよろしくお願い申し上げます。</label>
         <name>Email_Thankyou</name>
     </customLabels>
     <customLabels>
@@ -1619,7 +1663,7 @@
         <name>Email_salesActivities</name>
     </customLabels>
     <customLabels>
-        <label>*ケース情報を確認するには、Salesforceにログインする必要があります。</label>
+        <label>※ケースのご確認には、統合顧客管理システムへのログインが必要となります。</label>
         <name>Email_salesforcelogin</name>
     </customLabels>
 	<customLabels>
@@ -1782,8 +1826,20 @@
         <name>First_Estimate_Print</name>
     </customLabels>
 	<customLabels>
+        <label>名（カナ）はカタカナで入力してください。</label>
+        <name>First_Name_Native_should_be_KANA_Chaarcters</name>
+    </customLabels>
+	<customLabels>
         <label>名（カナ）を設定してください。</label>
         <name>First_Name_Native_should_not_be_null</name>
+    </customLabels>
+	<customLabels>
+        <label>名は必ず20文字以下で入力して下さい。</label>
+        <name>First_Name_should_be_less_than_or_equal_to_40_letters</name>
+    </customLabels>
+    <customLabels>
+        <label>エラー「名」は全角文字で入力してください。</label>
+        <name>First_Name_should_be_of_2_byte_characters</name>
     </customLabels>
     <customLabels>
         <label>名を設定してください。</label>
@@ -1877,6 +1933,10 @@
         <label>納車</label>
         <name>Hand_Over</name>
     </customLabels>
+	 <customLabels>
+        <label>納車</label>
+        <name>Handover</name>
+    </customLabels>
     <customLabels>
         <label><!-- Has Attended Campaign --></label>
         <name>Has_Attended_Campaign</name>
@@ -1900,6 +1960,10 @@
     <customLabels>
         <label>Eメール(自宅）</label>
         <name>Home_Email</name>
+    </customLabels>	
+    <customLabels>
+        <label>Mercedes me携帯電話</label>
+        <name>Mobile_3</name>
     </customLabels>
     <customLabels>
         <label>電話番号(固定）</label>
@@ -1908,6 +1972,18 @@
     <customLabels>
         <label><!-- S5 Home Phone 2 --></label>
         <name>Home_Phone_2</name>
+    </customLabels>
+	<customLabels>
+        <label>その他電話番号1は必ず11桁以下で入力して下さい。</label>
+        <name>Home_Phone_2_should_be_less_than_or_equal_to_11_digits</name>
+    </customLabels>
+    <customLabels>
+        <label>その他電話番号1には「-」、「+」を入力しないで下さい。</label>
+        <name>Home_Phone_2_should_not_include_or</name>
+    </customLabels>
+    <customLabels>
+        <label>その他電話番号1は必ず「0」から始まる値を入力して下さい。</label>
+        <name>Home_Phone_2_should_start_with_0</name>
     </customLabels>
     <customLabels>
         <label>住居の形態・車庫</label>
@@ -1942,8 +2018,24 @@
         <name>If_yes_within_which_period_do_you_plan_to_purchase</name>
     </customLabels>
 	<customLabels>
+        <label>国設定は変更できません。</label>
+        <name>If_customer_has_no_vehicle_relationship_Status_must_not_be_Customer</name>
+    </customLabels>
+	<customLabels>
         <label>個人</label>
         <name>Individual_Customer</name>
+    </customLabels>
+	<customLabels>
+        <label>自宅電話は必ず11桁以下で入力して下さい。</label>
+        <name>Individual_Home_Phone_should_be_less_than_or_equal_to_11_digits</name>
+    </customLabels>
+    <customLabels>
+        <label>自宅電話には「-」、「+」を入力しないで下さい。</label>
+        <name>Individual_Home_Phone_should_not_include_or</name>
+    </customLabels>
+    <customLabels>
+        <label>自宅電話は必ず「0」から始まる値を入力して下さい。</label>
+        <name>Individual_Home_Phone_should_start_with_0</name>
     </customLabels>
     <customLabels>
         <label>*販売店/社内関係部門への情報展開</label>
@@ -2278,8 +2370,20 @@
         <name>Last_Modified_Date</name>
     </customLabels>
 	<customLabels>
+        <label>姓（カナ）はカタカナで入力してください。</label>
+        <name>Last_Name_Native_should_be_KANA_Characters</name>
+    </customLabels>
+	<customLabels>
         <label>姓（カナ）を設定してください。</label>
         <name>Last_Name_Native_should_not_be_null</name>
+    </customLabels>
+	<customLabels>
+        <label>姓は必ず40文字以下で入力して下さい。</label>
+        <name>Last_Name_should_be_less_than_or_equal_to_40_letters</name>
+    </customLabels>
+    <customLabels>
+        <label>エラー「姓」は全角文字で入力してください。</label>
+        <name>Last_Name_should_be_of_2_byte_characters</name>
     </customLabels>
     <customLabels>
         <label>姓を設定してください。</label>
@@ -2321,6 +2425,14 @@
         <label>選択したリードが統合先となり左側に表示されます。</label>
         <name>Please_Select_only_one_as_a_Master</name>
     </customLabels> 
+	<customLabels>
+        <label>Mercedes me退会処理を実施しますか？</label>
+        <name>Are_you_sure_to_delete_this_account_mym</name>
+    </customLabels> 
+	<customLabels>
+        <label>新車中古車区分</label>
+        <name>New_Used</name>
+    </customLabels> 
 		<customLabels>
         <label>エラーが発生しました。検索条件を追加・変更して再度実行してください</label>
         <name>Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition</name>
@@ -2330,8 +2442,12 @@
         <name>Matched_records_are_too_much_please_add_more_criteria</name>
     </customLabels> 
 	<customLabels>
-        <label>興味車両等（マスタの値が反映され、右側は削除されます）</label>
+        <label>選択不可項目(マスタの値が反映される、または自動計算される項目)</label>
         <name>vehicle_Details</name>
+    </customLabels>
+	<customLabels>
+        <label>選択不可項目(マスタの値が反映される、または自動計算される項目)</label>
+        <name>vehicle_Read_Only</name>
     </customLabels>
 	<customLabels>
         <label>興味車両：マスタ</label>
@@ -2412,6 +2528,30 @@
     <customLabels>
         <label><!-- Logic Error --></label>
         <name>Logic_Error</name>
+    </customLabels>
+	 <customLabels>
+        <label>ログインメールアドレス：お客様がメールアドレスを用いてログインできるようになります。(お客様には登録メールが送信されます)</label>
+        <name>Login_Email_A_customer_will_be_able_to_use_the_email_for_login</name>
+    </customLabels>
+	 <customLabels>
+        <label>ログイン携帯電話</label>
+        <name>Login_Mobile</name>
+    </customLabels>
+	 <customLabels>
+        <label>コンシェルジュサービスのご利用には「ログイン携帯電話」が必須となります。</label>
+        <name>Login_Mobile_is_a_mandatory_for_Concierge_Service</name>
+    </customLabels>
+	 <customLabels>
+        <label>ログインメールアドレス &amp; ログイン携帯電話：お客様が携帯電話番号を用いてログインできるようになります。(お客様には登録SMSが送信されます)メールアドレスはMercedes me内に登録されますが、ログインにはご利用できません。</label>
+        <name>Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login</name>
+    </customLabels>
+	<customLabels>
+        <label>お客様から入会申込書を受領した場合のみ、実施してください。　コンシェルジュサービスのご利用には「ログイン携帯電話」が必須となります。</label>
+        <name>Did_you_Get_Agreement_From_Customer_Login_Mobile_is_a_mandatory_for_Concierge_S</name>
+    </customLabels>
+	<customLabels>
+        <label>ログイン携帯電話：お客様が携帯電話番号を用いてログインできるようになります。(お客様には登録SMSが送信されます)</label>
+        <name>Login_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login</name>
     </customLabels>
     <customLabels>
         <label>参照</label>
@@ -2513,6 +2653,10 @@
         <label>コメント</label>
         <name>Memo</name>
     </customLabels>
+	<customLabels>
+        <label>Mercedes me退会処理</label>
+        <name>Mercedes_me_Deletion</name>
+    </customLabels>
     <customLabels>
         <label>統合</label>
         <name>Merge</name>
@@ -2545,6 +2689,30 @@
         <label>携帯電話</label>
         <name>Mobile</name>
     </customLabels>
+	<customLabels>
+        <label>勤務先携帯電話は必ず11桁以下で入力して下さい。</label>
+        <name>Mobile_2_should_be_less_than_or_equal_to_11_digits</name>
+    </customLabels>
+    <customLabels>
+        <label>勤務先携帯電話には「-」、「+」を入力しないで下さい。</label>
+        <name>Mobile_2_should_not_include_or</name>
+    </customLabels>
+    <customLabels>
+        <label>勤務先携帯電話は必ず「0」から始まる値を入力して下さい。</label>
+        <name>Mobile_2_should_start_with_0</name>
+    </customLabels>
+    <customLabels>
+        <label>携帯電話は必ず11桁以下で入力して下さい。</label>
+        <name>Mobile_should_be_less_than_or_equal_to_11_digits</name>
+    </customLabels>
+    <customLabels>
+        <label>携帯電話には「-」、「+」を入力しないで下さい。</label>
+        <name>Mobile_should_not_include_or</name>
+    </customLabels>
+    <customLabels>
+        <label>携帯電話は必ず「0」から始まる値を入力して下さい。</label>
+        <name>Mobile_should_start_with_0</name>
+    </customLabels>
     <customLabels>
         <label>モデル</label>
         <name>Model</name>
@@ -2566,7 +2734,7 @@
         <name>MyShop_Phone</name>
     </customLabels>
 	<customLabels>
-        <label>Mercedes me Eメール</label>
+        <label>ログインメールアドレス</label>
         <name>My_Merc_Email_Id</name>
     </customLabels>
     <customLabels>
@@ -2574,7 +2742,7 @@
         <name>My_Merc_Id</name>
     </customLabels>
 	<customLabels>
-        <label>Mercedes me Eメール</label>
+        <label>ログインメールアドレス</label>
         <name>My_Mercedes_Email_Id</name>
     </customLabels>
     <customLabels>
@@ -2628,6 +2796,10 @@
     <customLabels>
         <label><!-- Label used in Catalogue CSV --></label>
         <name>Near_Dealer_Phone3</name>
+    </customLabels>
+	<customLabels>
+        <label>アカウント名は必ず40文字以下で入力して下さい。</label>
+        <name>Name_should_be_less_than_or_equal_to_40_letters</name>
     </customLabels>
     <customLabels>
         <label>ニーズ把握</label>
@@ -2956,6 +3128,18 @@
 (サービス）</label>
         <name>PhoneService</name>
     </customLabels>
+	<customLabels>
+        <label>その他電話番号2は必ず11桁以下で入力して下さい。</label>
+        <name>Phone_should_be_less_than_or_equal_to_11_digits</name>
+    </customLabels>
+    <customLabels>
+        <label>その他電話番号2には「-」、「+」を入力しないで下さい。</label>
+        <name>Phone_should_not_include_or</name>
+    </customLabels>
+    <customLabels>
+        <label>その他電話番号2は必ず「0」から始まる値を入力して下さい。</label>
+        <name>Phone_should_start_with_0</name>
+    </customLabels>
     <customLabels>
         <label>ご購入予定</label>
         <name>Planned_Purchase_Time</name>
@@ -2996,6 +3180,10 @@
         <label>Mercedes me Eメールを入力してください。</label>
         <name>Please_enter_My_Merc_Email_Id_for_Selected_Account</name>
     </customLabels>
+	<customLabels>
+        <label>許諾の経緯がその他の場合は許諾の経緯（詳細）を入力してください。</label>
+        <name>Please_enter_Value_for_Details_of_Acquisition</name>
+    </customLabels>
     <customLabels>
         <label>登録拒否理由を入力してください。</label>
         <name>Please_enter_reason_for_Non_Selected_Non_MyMecedez_Account</name>
@@ -3024,6 +3212,10 @@
         <label>法人格除く法人名（カナ）を設定してください。</label>
         <name>Please_enter_value_for_Company_Name_Native2</name>
     </customLabels>
+	<customLabels>
+        <label>個人情報第三者提供の許諾は取得済みの場合は、許諾の経緯を入力してください。</label>
+        <name>Please_select_Acquisition_Objective_Method</name>
+    </customLabels>
     <customLabels>
         <label>アドレスを選択してください</label>
         <name>Please_select_Address</name>
@@ -3051,6 +3243,10 @@
     <customLabels>
         <label>マスタとスレーブは複数選択できません。</label>
         <name>Please_select_only_one_slave_and_one_Master_Record</name>
+    </customLabels>
+	 <customLabels>
+        <label>お客様からご提供頂いた情報に関しては全て入力を行ってください。</label>
+        <name>Please_set_all_information_received_from_a_customer</name>
     </customLabels>
     <customLabels>
         <label>次ページの「処理依頼事項」、および「申立内容・状況」をご確認の上、対応をお願いいたします。</label>
@@ -4364,6 +4560,10 @@
         <label>保存</label>
         <name>Save_Button</name>
     </customLabels>
+	<customLabels>
+        <label>名寄せ候補確認／保存</label>
+        <name>Save_Button_JP</name>
+    </customLabels>
     <customLabels>
         <label><!-- Save Filter --></label>
         <name>Save_Filter</name>
@@ -5108,6 +5308,10 @@
         <label>送信失敗</label>
         <name>Web_service_callout_failed</name>
     </customLabels>
+	<customLabels>
+        <label>入力された情報によってお客様がログインに使用できる値が異なります。</label>
+        <name>What_information_a_user_can_use_for_login_will_depend_on_input_information</name>
+    </customLabels>
     <customLabels>
         <label><!-- Which activity would you like to join in the future? / Your suggestions --></label>
         <name>Which_activity_would_you_like_to_join_in_the_future_Your_suggestions</name>
@@ -5120,6 +5324,10 @@
         <label>勤務先Fax</label>
         <name>Work_Fax</name>
     </customLabels>
+	<customLabels>
+        <label>勤務先電話は必ず「0」から始まる値を入力して下さい。</label>
+        <name>WorkPhone_should_start_with_0</name>
+    </customLabels>
     <customLabels>
         <label>勤務先携帯電話</label>
         <name>Work_Mobile</name>
@@ -5127,6 +5335,14 @@
     <customLabels>
         <label>勤務先電話</label>
         <name>Work_Phone</name>
+    </customLabels>
+	<customLabels>
+        <label>勤務先電話は必ず11桁以下で入力して下さい。</label>
+        <name>Work_Phone_should_be_less_than_or_equal_to_11_digits</name>
+    </customLabels>
+    <customLabels>
+        <label>勤務先電話には「-」、「+」を入力しないで下さい。</label>
+        <name>Work_Phone_should_not_include_or</name>
     </customLabels>
     <customLabels>
         <label><!-- Would you recommend your family or friends join this event in the future? --></label>
@@ -5229,6 +5445,14 @@
         <name>Yes_Thai</name>
     </customLabels>
 	<customLabels>
+        <label>国設定は変更できません。</label>
+        <name>You_are_allowed_to_create_Address_record_for_your_home_market_only</name>
+    </customLabels>
+    <customLabels>
+        <label>国設定は変更できません。</label>
+        <name>You_are_allowed_to_create_record_for_your_home_market_only</name>
+    </customLabels>
+	<customLabels>
         <label>名寄せ候補レコードはありません。</label>
         <name>You_should_have_aleast_one_master_and_one_slave_record_to_merge_the_duplicates</name>
     </customLabels>
@@ -5239,6 +5463,10 @@
     <customLabels>
         <label><!-- Zipcode --></label>
         <name>Zipcode</name>
+    </customLabels>
+	<customLabels>
+        <label>郵便番号は７桁で入力してください。</label>
+        <name>Zipcode_is_not_7_digits_long</name>
     </customLabels>
     <customLabels>
         <label>検索結果が0件でした。郵便番号を再度確認してください。</label>
@@ -5356,6 +5584,14 @@
 	<customLabels>
         <label>正しいEメールを入力してください。</label>
         <name>please_enter_valid_Email</name>
+    </customLabels>
+	<customLabels>
+        <label>正しい携帯電話番号を入力してください。</label>
+        <name>Please_Input_Proper_Number</name>
+    </customLabels>
+	<customLabels>
+        <label>ログインメールアドレスまたはログイン携帯電話を入力してください。</label>
+        <name>Please_Input_MyMercedes_Email_Id_or_Login_Mobile</name>
     </customLabels>
     <customLabels>
         <label>Mercedes me Eメールを入力してください。</label>

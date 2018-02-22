@@ -17,11 +17,12 @@ public class TriggerCampaignMembersCustomHandlerJP
                      // CampaignMembersCustomHelperJP.batchbounce(trigger.new);
                       CampaignMembersCustomHelperJP.addSalesCampaignMember(Trigger.new);
                       CampaignMembersCustomHelperJP.afterInsertSharing(Trigger.new);
-                      CampaignMembersCustomHelperJP.wholesaleCampaignSharing(Trigger.new); 
+                      CampaignMembersCustomHelperJP.wholesaleCampaignSharing(Trigger.new);
+                       CampaignMembersCustomHelperJP.CmSharingForDealer(Trigger.new);
         }
        if(Trigger.isAfter && Trigger.isUpdate) {
             CampaignMembersCustomHelperJP.afterUpdateOperation((Map<Id, Campaign_Member__c>)trigger.oldMap, (Map<Id, Campaign_Member__c>)trigger.newMap, (List<Campaign_Member__c>)trigger.new);
-            CampaignMembersCustomHelperJP.afterUpdateCampaignMembers((Map<Id,Campaign_Member__c>)trigger.newMap);
+            CampaignMembersCustomHelperJP.afterUpdateCampaignMembers(Trigger.New);
        }
        if(Trigger.isBefore && Trigger.isDelete) {
             CampaignMembersCustomHelperJP.beforeDeleteOperation((List<Campaign_Member__c>)trigger.old);

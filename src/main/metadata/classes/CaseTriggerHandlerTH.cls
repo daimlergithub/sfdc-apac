@@ -13,11 +13,13 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
         if(trigger.isinsert && trigger.isbefore){
             if(CaseHelperTH.booleanCampaignUpdate){
             system.debug('*****************case1');
-                CaseHelperTH.booleanCampaignUpdate=false;
+                //CaseHelperTH.booleanCampaignUpdate=false;
                 caseHelperTHd.countRepeatComplaintCase(trigger.new,true);
                 caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true);
-				caseHelperTHd.updateCaseCreator(trigger.new);
+        caseHelperTHd.updateCaseCreator(trigger.new);
+        caseHelperTHd.updatecommunityurl(Trigger.New);
+        CaseHelperTH.changeDealerAccount(Trigger.New);
             }
         }
         else if(trigger.isupdate &&trigger.isbefore){
@@ -25,6 +27,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 CaseHelperTH.booleanCampaignUpdate=false;
                 system.debug('*****************case2');
                 CaseHelperBase.updatemarket(Trigger.New);
+                caseHelperTHd.updatecommunityurl(Trigger.New);
              // caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false);
            }
@@ -35,16 +38,19 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                caseHelperTHd .calculateComplaintAmount(trigger.old);
             }
             else if (trigger.isInsert){
+            caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
                caseHelperTHd .calculateComplaintAmount(trigger.new); 
              
             }else if (trigger.isUpdate){
-               caseHelperTHd.calculateComplaintAmount(trigger.new);
-                 
+                caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
+                caseHelperTHd.calculateComplaintAmount(trigger.new);
+                CaseHelperTH.sendReminderEmail(Trigger.newMap,Trigger.oldMap);
             }
            
         }
         //share Record start
         if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){
+            
             CaseHelperTH.ShareRecordswithDealers(Trigger.new,Trigger.isupdate);
         }
         //share Record end

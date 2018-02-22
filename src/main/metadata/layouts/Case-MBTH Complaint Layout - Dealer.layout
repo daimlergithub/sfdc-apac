@@ -112,9 +112,17 @@
                 <behavior>Edit</behavior>
                 <field>MBTH_Related_Department__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MD__c</field>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MBTH_1st_Reminder__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MBTH_2nd_Reminder__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MBTH_Escalated_to_MBTH__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -187,7 +195,7 @@
                 <field>Customer_Request__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>MBTH_Case_Department__c</field>
             </layoutItems>
             <layoutItems>
@@ -270,10 +278,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>DescriptionOne__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>SendEmailToGateKeeper__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>

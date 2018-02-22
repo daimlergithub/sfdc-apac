@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Create_Retail_Copy</customButtons>
+    <customButtons>Create_Retail_Copy_MY</customButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -21,11 +24,11 @@
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
-				<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Status__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Data_Source__c</field>
             </layoutItems>
@@ -57,7 +60,6 @@
                 <behavior>Edit</behavior>
                 <field>Special_Mark_on_Account__c</field>
             </layoutItems>
-           
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Newspaper__c</field>
@@ -68,7 +70,11 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
@@ -79,10 +85,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Website</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -152,7 +154,7 @@
                 <behavior>Edit</behavior>
                 <field>Commercial_Reg_No__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vat_No__c</field>
             </layoutItems>
@@ -196,9 +198,9 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
-			<layoutItems>
-                <behavior>Readonly</behavior>
-                <field>MD__c</field>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -213,10 +215,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Old_UCID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -239,6 +237,7 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>System__c</fields>
@@ -249,7 +248,6 @@
         <fields>Retail_Email_OptOut__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -265,6 +263,18 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>UsVIN__c</fields>
+        <fields>Brand__c</fields>
+        <fields>Range__c</fields>
+        <fields>Car_Model__c</fields>
+        <fields>FirstRegistrationDate__c</fields>
+        <fields>Colour__c</fields>
+        <relatedList>Vehicle__c.Related_contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
         <fields>UsVIN__c</fields>
         <fields>Car_Relation__c</fields>
         <fields>Vehicle_Model__c</fields>
@@ -274,7 +284,6 @@
         <fields>Registration_Number__c</fields>
         <fields>Vehicle_ID__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
@@ -321,6 +330,7 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Product_Name__c</fields>
@@ -332,7 +342,6 @@
         <fields>ApplicationDate__c</fields>
         <fields>ContractNumber__c</fields>
         <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
-		<excludeButtons>New</excludeButtons>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -369,7 +378,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000IxM5</masterLabel>
+        <masterLabel>00h28000006XT9E</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

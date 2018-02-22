@@ -20,7 +20,7 @@ public class TriggerCampaignTriggerHandlerTH implements TriggerHandlerIf
           if(trigger.isBefore){
               CampaignHelperBase.updatemarket(Trigger.New);
            }
-          CampaignHelperTH.beforeUpdateEvents(Trigger.new,oldmap);
+          
         }
         if(trigger.isAfter && trigger.isInsert)
         {
@@ -32,6 +32,7 @@ public class TriggerCampaignTriggerHandlerTH implements TriggerHandlerIf
         if(trigger.isAfter && trigger.isUpdate)
         {
             CampaignHelperTH.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
+            CampaignHelperTH.beforeUpdateEvents(Trigger.new,oldmap);
         }
   }
         

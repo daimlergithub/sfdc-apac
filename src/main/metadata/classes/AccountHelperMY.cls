@@ -34,8 +34,8 @@ public class AccountHelperMY{
         AccountHelperBase.updateMarketingFields(listNewAccounts);
     }
 	
-    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate){
-        AccountHelperBase.updatePrimaryAddressdisplay(listNewAccounts,isUpdate);
+    public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boolean isUpdate,Map<id,account>accountOldMap ){
+        AccountHelperBase.updatePrimaryAddressdisplay(listNewAccounts,isUpdate,accountOldMap);
     } 
     
     public static void updateOnDoNotCall(list<Account> listNewAccounts){
@@ -79,6 +79,15 @@ public class AccountHelperMY{
         AccountHelperBase.updateRetailCopy(isUpdate,isinsert,isafter,accLst);    
     } 
     
+	/*
+                //Created By : Mohammed Touseef Ahmed
+                //Date: 01/09/2018
+                //Description: Create Account Link record in CDM as Retail Copy
+            
+    */
+    public static void createAccountLinkCDM(list<Account> listNewAccounts,map<id,Account> accountOldMap){
+        AccountHelperBase.DealerCommAccountlinkcreatecdm(listNewAccounts,accountOldMap);        
+    }
      @future(callout=true)
     public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject){
         AccountHelperBase.entityNotifyUpdate(updateType,sfdcId,MarketDiscriminator,serlializedObject);    
