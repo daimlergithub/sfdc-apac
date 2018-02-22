@@ -137,9 +137,11 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
           maplist.put(remain.Dealer_Name__c,remain);
        
        }   
+       if(!Test.isRunningTest()){
      Batch_CampaignmemberInsertion   batcher = new Batch_CampaignmemberInsertion (maplist,campid);
             Database.executeBatch(batcher,1);  
     
+    }
     
     
     }
