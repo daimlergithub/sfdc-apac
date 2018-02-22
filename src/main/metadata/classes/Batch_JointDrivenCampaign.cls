@@ -138,7 +138,7 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
        
        }   
      Batch_CampaignmemberInsertion   batcher = new Batch_CampaignmemberInsertion (maplist,campid);
-            Database.executeBatch(batcher, 10);  
+            Database.executeBatch(batcher,1);  
     
     
     
