@@ -1430,15 +1430,7 @@
     <classAccesses>
         <apexClass>LeadcustomClone_Test</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningSelfRegisterController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningSelfRegisterControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses> 
     <classAccesses>
         <apexClass>LoyalityManger</apexClass>
         <enabled>true</enabled>
