@@ -541,19 +541,19 @@ public class AddressDisplayInlineEditController {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sub_District__c is Mandatory.')); 
                 Validation = TRUE;                        
             }
-            if(addressobj.Address_Line_2__c == null )
+            /*if(addressobj.Address_Line_2__c == null )
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.')); 
                 Validation = TRUE;                        
             }
             else
-            {            
-                if(addressobj.Address_Line_2__c.length()>100)
-                {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
-                    Validation = true;                      
-                }
-            }
+            { */           
+			if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+			{
+				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+				Validation = true;                      
+			}
+            //}
             if(Validation == False){        
                 refreshPage = true; 
                 List<Address__c> addressLst=new List<Address__c>();
