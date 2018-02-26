@@ -2235,6 +2235,13 @@
         <value>Contact Id</value>
     </labels>
     <labels>
+        <fullName>Source_of_CM_Response</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Source of CM Response</shortDescription>
+        <value>Source of CM Response</value>
+    </labels>
+	<labels>
         <fullName>Contract_Number</fullName>
         <language>en_US</language>
         <protected>false</protected>

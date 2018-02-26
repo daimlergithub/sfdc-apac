@@ -5693,6 +5693,10 @@
         <label>契約番号</label>
         <name>Contract_Number</name>
     </customLabels>
+	 <customLabels>
+        <label>レスポンスメモ</label>
+        <name>Source_of_CM_Response</name>
+    </customLabels>
 	<customLabels>
         <label>車台番号</label>
         <name>UsVIN</name>
