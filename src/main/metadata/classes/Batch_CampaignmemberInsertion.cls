@@ -95,6 +95,12 @@ global class Batch_CampaignmemberInsertion implements Database.Batchable<sObject
                  {
                   newCamRetail.Vehicle_ExternalLink__c = camo.Vehicle_ExternalLink__c;
                  }
+				  if(camo.Contract__c !=null)
+                 {
+                  newCamRetail.Contract__c = camo.Contract__c;
+                 }
+				 
+				 
                 
                   retailMem.add(newCamRetail);   
      
