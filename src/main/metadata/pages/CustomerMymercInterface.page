@@ -44,11 +44,11 @@ function CustAlrtMsg()
     <apex:form id="form">
     <apex:inputHidden value="{!cancelpop}" id="hid"/>
                <apex:pagemessages ></apex:pagemessages>
-              <apex:outputText value="{!loginmobile}"></apex:outputText>
+        
         <apex:pageBlock title="{!$Label.Customer_My_Mercedes_Interface_Customer}" id="a"><br/>
              <apex:OutputLabel > {!$Label.Please_set_all_information_received_from_a_customer} </apex:OutputLabel> <br/>
              <apex:OutputLabel > {!$Label.Login_Mobile_is_a_mandatory_for_Concierge_Service} </apex:OutputLabel> <br/>
-             <apex:OutputLabel > {!$Label.What_information_a_user_can_use_for_login_will_depend_on_input_information} </apex:OutputLabel> <br/>
+             <apex:OutputLabel > {!$Label.What_information_a_user_can_use_for_login_will_depend_on_input_information} </apex:OutputLabel> <br/><br/>
              <apex:OutputLabel > {!$Label.Login_Email_A_customer_will_be_able_to_use_the_email_for_login} </apex:OutputLabel> <br/>
              <apex:OutputLabel > {!$Label.Login_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login} </apex:OutputLabel> <br/>
              <apex:OutputLabel > {!$Label.Login_Email_Mobile_A_customer_will_be_able_to_use_the_mobile_for_login} </apex:OutputLabel> <br/><br/>
