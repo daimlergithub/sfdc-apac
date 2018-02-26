@@ -15701,7 +15701,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.CAC_Lead_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16053,7 +16053,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Dealer_Lead_Status__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -17106,7 +17106,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Purchased_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
