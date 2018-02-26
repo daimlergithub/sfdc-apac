@@ -2482,7 +2482,7 @@
         <name>ch_Purchased_Vehicle_Details</name>
     </customLabels>
     <customLabels>
-        <label>&quot;左側のリードIDがマスターリードとなります。 両リードに値が入っている場合は、どちらを残すか選択してください。 ただし、興味車両等（画面下部）はマスターリードの値のみが残りますので、 興味車両等をご確認の上、リードIDにチェックを入れてマスターリードを選択してください。 なお、リードステータスが、受注・購入済・請求もしくは満了リード・クロスポイントリードは、自動的にマスターリードとなり、変更できません。&quot;</label>
+        <label>左側のリードIDがマスターリードとなります。 両リードに値が入っている場合は、どちらを残すか選択してください。 ただし、選択不可項目（画面下部）はマスターリードの値のみが残りますので、 選択不可項目をご確認の上、リードIDにチェックを入れてマスターリードを選択してください。 なお、リードステータスが、受注・購入済・請求の場合は自動的にマスターリードとなり、変更できません。</label>
         <name>Leadmergeupdated</name>
     </customLabels>
     <customLabels>
@@ -5692,6 +5692,10 @@
 	 <customLabels>
         <label>契約番号</label>
         <name>Contract_Number</name>
+    </customLabels>
+	 <customLabels>
+        <label>レスポンスメモ</label>
+        <name>Source_of_CM_Response</name>
     </customLabels>
 	<customLabels>
         <label>車台番号</label>

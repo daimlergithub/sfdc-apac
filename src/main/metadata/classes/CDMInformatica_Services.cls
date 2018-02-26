@@ -258,9 +258,9 @@ public Class CDMInformatica_Services extends CDMServices {
                 string body = '[';
                 for (integer i = 0; i < AftersalesLeadId.size(); i++) {
                     if (body.length() == 1)
-                        body = body + '{"attributes":{"type":"Account_link__c","url":"/services/data/v41.0/sobjects/Account_link__c/' + AftersalesLeadId[i] + '"},"Id":"' + AftersalesLeadId[i] + '"}';
+                        body = body + '{"attributes":{"type":"Lead__c","url":"/services/data/v41.0/sobjects/Lead__c/' + AftersalesLeadId[i] + '"},"Id":"' + AftersalesLeadId[i] + '"}';
                     else
-                        body = body + ',{"attributes":{"type":"Account_link__c","url":"/services/data/v41.0/sobjects/Account_link__c/' + AftersalesLeadId[i] + '"},"Id":"' + AftersalesLeadId[i] + '"}';
+                        body = body + ',{"attributes":{"type":"Lead__c","url":"/services/data/v41.0/sobjects/Lead__c/' + AftersalesLeadId[i] + '"},"Id":"' + AftersalesLeadId[i] + '"}';
                 }
                 body = body + ']';
                 System.debug('***#' + Endpoint + ' ' + headerCDM + ' ' + body);

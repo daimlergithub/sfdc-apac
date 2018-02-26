@@ -990,6 +990,8 @@ public class AddressSearchValidationController
       companyrectype = false;
       personrectype= false;
       AddressDetails = '';
+       System.debug('recordType*********'+recordType);
+        System.debug('selectedRecordType *********'+selectedRecordType);
         pageRef = new PageReference('/apex/AddressSearchValidation');
         return PageRef;
        
@@ -1001,6 +1003,8 @@ public class AddressSearchValidationController
     {
         resetPhoneAreacodes();
         selectedRecordType = recordType;       
+          System.debug('recordType*********'+recordType);
+        System.debug('selectedRecordType *********'+selectedRecordType);
    // Added by Venky changes related to SFDCJP-2505
     u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
       
@@ -1682,7 +1686,8 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void onLineDeduplication(){ 
   //  Readonly= true;  
    //    Editmode=false; 
-
+       boolean personacc;
+       boolean companyacc;
         String Doblebyte='[^ -~¡-ß]*';
         String KanaChar='[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*';
         Boolean result;
@@ -1916,15 +1921,37 @@ If the user is Saving  same address which matches the fields returned by toleran
            
             companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
             PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-            if(recordType !=null && recordType=='Company')
+           if(selectedRecordType =='Company')
+           {
+           companyacc  =true;
+           personacc =false;
+           
+            if(recordType !=null && recordType=='Company' && selectedRecordType =='Company' && personacc ==false && companyacc ==true)
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
+                objPersonAccount.Recordtypeid=null;
             }
+           }
+           
+            if(selectedRecordType =='Person Account')
+           {
+           companyacc  =false;
+           personacc =true;
             system.debug('recordType------------:'+recordType);
-            if(recordType !=null && recordType== 'Person Account')
+            if(recordType !=null && recordType== 'Person Account' && selectedRecordType =='Person Account' && personacc ==true && companyacc ==false)
             {             
                 objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
+                objAccount.Recordtypeid=null;
             }
+           }
+           
+           
+           
+            System.debug('@@@@@@@ recordType------------:'+recordType);
+              System.debug('@@@@@@@ objAccount.Recordtypeid   '+objAccount.Recordtypeid);
+                System.debug('@@@@@@@ objPersonAccount.Recordtypeid    '+objPersonAccount.Recordtypeid);
+                  System.debug('recordType*********'+recordType);
+        System.debug('selectedRecordType *********'+selectedRecordType);
             if(market == System.Label.KR)
             {
                   Editmode = false;
@@ -1974,13 +2001,13 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(AddressObj == NewAdd)
             {
-            if(objPersonAccount.LastName !=null)
+            if(objPersonAccount.LastName !=null && objPersonAccount.Recordtypeid !=null)
             {
             response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
             }
              
              //@Venky:Added Below if condition Changes related to SFDCJP-995
-             if(objAccount.Name !=null)
+             if(objAccount.Name !=null && objAccount.Recordtypeid !=null)
             {
              System.debug('objAccount &**&*&**&**&*&*'+objAccount );
             response =  UtilWebservice.validateCustomerDetails(objAccount); 
@@ -1991,6 +2018,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null && objPersonAccount.LastName !=null)
                 {
+                system.debug('@)((($(#><<>show'+show);
                 show = true;
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
                     {
@@ -2103,14 +2131,14 @@ If the user is Saving  same address which matches the fields returned by toleran
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
         }
-        if(objAccount.Name !=null) 
+        if(objAccount.Name !=null && objAccount.Recordtypeid !=null) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response >>'+response );
            
             companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
             PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-            if(recordType !=null && recordType=='Company')
+           /* if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
             }
@@ -2118,7 +2146,30 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(recordType !=null && recordType== 'Person Account')
             {             
                 objAccount.Recordtypeid=PersonAccountRecordTypeID ;
+            }*/
+             if(selectedRecordType =='Company')
+           {
+           companyacc  =true;
+           personacc =false;
+           
+            if(recordType !=null && recordType=='Company' && selectedRecordType =='Company' && personacc ==false && companyacc ==true)
+            {
+                objAccount.Recordtypeid=companyRecordTypeId;
+                objPersonAccount.Recordtypeid=null;
             }
+           }
+           
+            if(selectedRecordType =='Person Account')
+           {
+           companyacc  =false;
+           personacc =true;
+            system.debug('recordType------------:'+recordType);
+            if(recordType !=null && recordType== 'Person Account' && selectedRecordType =='Person Account' && personacc ==true && companyacc ==false)
+            {             
+                objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
+                objAccount.Recordtypeid=null;
+            }
+           }
             if(market == System.Label.KR)
             {
                 if(homePhoneAreaCodePart1!= '' && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')
@@ -2238,7 +2289,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                 //@Venky:Added Below if condition Changes related to SFDCJP-995
                 
                 if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null)
-                {                    
+                {  
+                system.debug('!@##$%$###$$$%CompanyConfirmedMatch'+CompanyConfirmedMatch);                  
                 CompanyConfirmedMatch=true;
                      
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
@@ -2434,6 +2486,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null && objAccount.LastName !=null)
                 {
+                system.debug('+++++++++>>>>>>show'+show);
                 show = true;
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
                     {
@@ -2637,7 +2690,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 
                 if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null)
-                {                    
+                {      
+                system.debug('!@##$%>>>>>>$%CompanyConfirmedMatch'+CompanyConfirmedMatch);                
                 CompanyConfirmedMatch=true;
                      
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
@@ -3488,11 +3542,11 @@ public pagereference saveAccountTH()
                     else
                     {*/                   
                     
-					if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
-					{
-						ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
-						Validation = true;                      
-					}
+                    if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+                        Validation = true;                      
+                    }
                     //}
                     
             }
