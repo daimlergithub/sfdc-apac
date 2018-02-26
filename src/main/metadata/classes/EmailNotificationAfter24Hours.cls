@@ -51,7 +51,7 @@ public class EmailNotificationAfter24Hours{
         message.setSaveAsActivity(false);
         String name=leadlist[0].name;
         String leadContact=(!String.isBlank(leadlist[0].contact__c)?leadlist[0].contact__r.name:'not selected');
-        String leadCreateddate=leadlist[0].createddate+'';
+         String  leadCreateddate= leadlist[0].CreatedDate.format('MM/dd/yyyy hh:mm:ss a');
         String dealercomm=leadlist[0].Dealer_DMS_Comments__c;
         String leadassigndealer=leadlist[0].assigned_dealer__r.name;
         String leadurl=URL.getSalesforceBaseUrl().toExternalForm()+'/'+leadList[0].id;
