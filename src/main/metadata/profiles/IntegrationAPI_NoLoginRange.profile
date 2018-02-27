@@ -22391,11 +22391,6 @@
         <field>SMS_Batch__c.Batch_Size__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>SMS_Batch__c.Campaign__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>SMS_Batch__c.Batch_Start__c</field>
