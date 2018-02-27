@@ -18356,11 +18356,6 @@
         <field>Persona__c.PersonaName__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Persona__c.Market_Access__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>PreOrder__c.ClosedDate__c</field>
