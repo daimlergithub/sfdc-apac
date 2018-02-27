@@ -2953,11 +2953,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Agreement_Date_for_Service_24h_Consent__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Agreement_to_commit_info_proces_CC_Old__c</field>
         <readable>true</readable>
     </fieldPermissions>
