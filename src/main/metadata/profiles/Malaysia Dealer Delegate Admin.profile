@@ -29637,6 +29637,10 @@
         <apexPage>ALKDeleteConformationpage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>VehiclePickerforCaseMY</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>false</enabled>
