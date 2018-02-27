@@ -266,13 +266,27 @@
     <fields>
         <fullName>General_Personal_InfoThirdParty_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.General_Personal_InfoThirdParty_Optional__c)</formula>
         <label>General Personal InfoThirdParty-Optional</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>General_Personal_Info_Sales_Marketing__c</fullName>
@@ -285,28 +299,56 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+      <fields>
         <fullName>General_Personal_Information_Mandatory__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.General_Personal_Information_Mandatory__c)</formula>
         <label>General Personal Information (Mandatory)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
-    <fields>
+     <fields>
         <fullName>General_Personal_Information_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.General_Personal_Information_Optional__c)</formula>
         <label>General Personal Information (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-	</fields>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Id__c</fullName>
         <externalId>false</externalId>
@@ -3717,13 +3759,27 @@ Holds National ID or Passport No. of wholesale Account</description>
 	<fields>
         <fullName>Targeted_Advertising_Info_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.Targeted_Advertising_Info_Optional__c)</formula>
         <label>Targeted Advertising Info (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>To_Be_Deleted__c</fullName>
@@ -3746,28 +3802,56 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+	   <fields>
         <fullName>Unique_Identification_Info_Mandatory__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.Unique_Identification_Info_Mandatory__c)</formula>
         <label>Unique Identification Info(Mandatory)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
-    <fields>
+      <fields>
         <fullName>Unique_Identity_Info_ThirdParty_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.Unique_Identity_Info_ThirdParty_Optional__c)</formula>
         <label>Unique Identity Info ThirdParty-Optional</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-		</fields>
+        <type>Picklist</type>
+    </fields>
 	 <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>
