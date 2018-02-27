@@ -8983,7 +8983,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
 	<fields>
         <fullName>Expiration_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date_for_CC_New__c)+10, Month(Agreement_Date_for_CC_New__c),Day(Agreement_Date_for_CC_New__c)-1)</formula>
+        <formula>TODAY()</formula>
         <label>Expiration Date for CC New</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
