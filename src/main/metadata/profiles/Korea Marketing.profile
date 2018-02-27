@@ -1214,11 +1214,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailtaskInlineEditController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RetailtaskInlineEditController_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RuishiWebService</apexClass>
@@ -28105,7 +28105,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailTask_inline_service_amount</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailTaskdealerviewForContract</apexPage>
