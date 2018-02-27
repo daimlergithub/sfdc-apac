@@ -18936,11 +18936,6 @@
         <field>QC_Result_Tracking__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>QC_Result_Tracking__c.QC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>QC__c.ADM_Comments__c</field>
