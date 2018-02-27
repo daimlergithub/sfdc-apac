@@ -4630,11 +4630,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Expiration_Date_for_CC_New__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Expiration_Date_for_CC_Old__c</field>
         <readable>false</readable>
     </fieldPermissions>
