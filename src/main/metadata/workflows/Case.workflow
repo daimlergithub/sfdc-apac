@@ -434,6 +434,15 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
+	<fieldUpdates>
+        <fullName>Update_Creator_Department_to_Dealer_MY</fullName>
+        <field>Complaint_Creator_Department__c</field>
+        <literalValue>Dealer</literalValue>
+        <name>Update Creator Department to Dealer MY</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Approval_Update</fullName>
         <field>Status</field>
@@ -2779,6 +2788,10 @@
     </rules>
     <rules>
         <fullName>Update Complaint Creator Department To Dealer MY</fullName>
+		<actions>
+            <name>Update_Creator_Department_to_Dealer_MY</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>false</active>
         <criteriaItems>
             <field>Case.MD__c</field>
@@ -2792,7 +2805,7 @@
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
-            <operation>startsWith</operation>
+            <operation>contains</operation>
             <value>Dealer</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
