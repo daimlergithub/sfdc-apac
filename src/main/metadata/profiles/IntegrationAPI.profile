@@ -862,6 +862,14 @@
         <apexClass>ConsolidationContorllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>Call_Batch_JointDrivenCampaign</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Call_Batch_JointDrivenCampaigntest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>ContactHelper</apexClass>
         <enabled>true</enabled>
