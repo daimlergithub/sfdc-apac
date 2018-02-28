@@ -19,6 +19,7 @@ public with sharing class CustomerMymercInterfaceController {
     public boolean cancelpop{get;set;}
    // public boolean oldpopup{get;set;}
     public boolean Newpopup{get;set;}
+     public boolean okcancelpop{get;set;}
     public string myMercId{get;set;}
     public string MyMercEmail{get;set;}
     public string RegOutlet{get;set;}
@@ -221,10 +222,10 @@ public with sharing class CustomerMymercInterfaceController {
             return null;
         }
         
-        if( (MyMercEmail == NULL || string.isBlank(MyMercEmail))  && (loginmobile == NULL  || string.isBlank(loginmobile))){
+       if( (MyMercEmail == NULL || string.isBlank(MyMercEmail))  && (loginmobile == NULL  || string.isBlank(loginmobile)) && okcancelpop ==true){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_MyMercedes_Email_Id_or_Login_Mobile));
             return null;
-        }
+          }
         else if(!string.isBlank(MyMercEmail) ){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@'));
             //String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
             
