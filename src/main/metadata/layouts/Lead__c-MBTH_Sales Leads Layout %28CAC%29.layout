@@ -252,7 +252,7 @@
                 <field>Order_Placed_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Purchase_Date__c</field>
             </layoutItems>
 			<layoutItems>
