@@ -19536,7 +19536,7 @@ Invisible on UI."</description>
         <unique>false</unique>
     </fields>
 	<fields>
-        <fullName>Withdrawal_Date_for_Marketing_Consent__c</fullName>
+        <fullName>Withdrawal_Date_for_Marketing_Consent__c</fullName> 
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(General_Personal_Info_Sales_Marketing__c,'Withdrawn'),TODAY(),null)</formula>
         <label>Withdrawal Date for Marketing Consent</label>
