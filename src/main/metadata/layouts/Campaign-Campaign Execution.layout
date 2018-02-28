@@ -4,6 +4,7 @@
     <customButtons>OPRO_DM_Print_OPR</customButtons>
     <customButtons>OPRO_DM_Print_PDF</customButtons>
     <customButtons>Consolidate_List_Maintenance</customButtons>
+	<customButtons>Retail_Campaign_Creation</customButtons>
     <customButtons>Add_Participating_Dealer</customButtons>
     <customButtons>Distribution_to_Dealer</customButtons>
     <excludeButtons>Submit</excludeButtons>
