@@ -2235,6 +2235,13 @@
         <value>Contact Id</value>
     </labels>
     <labels>
+        <fullName>Source_of_CM_Response</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Source of CM Response</shortDescription>
+        <value>Source of CM Response</value>
+    </labels>
+	<labels>
         <fullName>Contract_Number</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5052,6 +5059,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <protected>false</protected>
         <shortDescription>MYGeneric (This is used by MY Market for access check)</shortDescription>
         <value>MYGeneric</value>
+    </labels>
+	<labels>
+        <fullName>MYDealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYDealer (This is used by MY Market for dealer access check)</shortDescription>
+        <value>MYDealer</value>
     </labels>
     <labels>
         <fullName>MYPhoneCountryCode</fullName>

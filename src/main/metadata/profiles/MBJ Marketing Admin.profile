@@ -915,6 +915,14 @@
         <apexClass>ConsolidationContorller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>Call_Batch_JointDrivenCampaign</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Call_Batch_JointDrivenCampaigntest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>ConsolidationContorllerTest</apexClass>
         <enabled>true</enabled>
@@ -1430,15 +1438,7 @@
     <classAccesses>
         <apexClass>LeadcustomClone_Test</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningSelfRegisterController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>LightningSelfRegisterControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses> 
     <classAccesses>
         <apexClass>LoyalityManger</apexClass>
         <enabled>true</enabled>

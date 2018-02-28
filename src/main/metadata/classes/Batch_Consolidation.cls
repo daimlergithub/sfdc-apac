@@ -137,9 +137,9 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
      List<Campaign> parentCampaignList = [Select id,Name,Execution_Start_Date__c,Execution_End_Date__c,DM_Material__c,Segmentation_Date__c,Child_Campaign_Status__c,Response_Date__c,Execution_Type__c,Segmentation_Base__c,DM_Template__c,Final_List_Approved__c,Survey__c,Add_Sales_Staff__c,Add_Service_Staff__c,Add_Campaign_Member_ID__c,Campaign_Member_Sharing_Rule__c From Campaign Where id =:query];
       If(camList.size() >0 && !camList.isEmpty()){ 
      
-          
-        Batch_JointDrivenCampaign  batcher = new Batch_JointDrivenCampaign(aid, camList,parentCampaignList);
-            Database.executeBatch(batcher, 1);  
+          // Commented as part of changes related to JIRA 3317
+       // Batch_JointDrivenCampaign  batcher = new Batch_JointDrivenCampaign(aid, camList,parentCampaignList);
+           // Database.executeBatch(batcher, 1);  
             
             }  
     

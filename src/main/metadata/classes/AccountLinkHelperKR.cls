@@ -672,7 +672,7 @@ public class AccountLinkHelperKR
                     AccountShare AccountShareRecord = new AccountShare();
                     AccountShareRecord.AccountId= dealerRec.id;
                     AccountShareRecord.UserOrGroupId= groupRec.Id;
-                    AccountShareRecord.AccountAccessLevel= 'Read';
+                    AccountShareRecord.AccountAccessLevel= 'Edit'; // Made Read to Edit as per ticket SFDCKR-1721
                     AccountShareRecord.OpportunityAccessLevel= 'Edit';   
                     AccountShareRecord.RowCause='Manual';
                     AccountShareList.add(AccountShareRecord);
@@ -871,7 +871,8 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                                                     Primary_Address_Reference__r.Address_Line_1__c, Primary_Address_Reference__r.Address_Line_2__c, Primary_Address_Reference__r.ZipCode__c,Agreement_to_commit_info_processing__c,
                                                     Company_Name_Native_1__c, Commercial_Reg_No__c, Vat_No__c,PersonDoNotCall,Visit_Opt_Out__c,Job__c,Company_Name__c,Personal_Abroad_Agreement__c,
                                                     Foundation_Date__c, Website, Primary_Address_Reference__r.CreatedDate,UCID__c,Personal_Agreement__c,Personal_Information_Third_Party_Release__c,
-                                                    Primary_Address_Reference__r.LastModifiedDate,Postal_Opt_Out__c,Work_Phone_2__c,General_Personal_Info_Mandatory__c,Person_Agree_Test_Driving_Optional__c,Person_Info_Custom_Service_Optional__c,Targeted_Advert_Info_Optional_STCCC__c,Personal_Agreement_CC_Old__c,Personal_Info_Third_Party_Release_CC_Old__c,Agreement_to_commit_info_proces_CC_Old__c,Personal_Abroad_Agreement_CC_Old__c
+                                                    Primary_Address_Reference__r.LastModifiedDate,Postal_Opt_Out__c,Work_Phone_2__c,General_Personal_Info_Mandatory__c,Person_Agree_Test_Driving_Optional__c,Person_Info_Custom_Service_Optional__c,Targeted_Advert_Info_Optional_STCCC__c,Personal_Agreement_CC_Old__c,Personal_Info_Third_Party_Release_CC_Old__c,Agreement_to_commit_info_proces_CC_Old__c,Personal_Abroad_Agreement_CC_Old__c,Personal_Agreement_Service_24h__c,General_Personal_Information_Mandatory__c,Unique_Identification_Info_Mandatory__c,Unique_Identity_Info_ThirdParty_Optional__c,
+                                                    General_Personal_Information_Optional__c, General_Personal_InfoThirdParty_Optional__c,Targeted_Advertising_Info_Optional__c
                                                     from Account WHERE Id IN :AccountIds]);
         System.debug('Accountlinklist------>'+accountMap);
         //Account link iteration
@@ -933,6 +934,13 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                     acclnk.Personal_Information_Third_Party_KR__c= accountMap.get(acclnk.toRole__c).Personal_Info_Third_Party_Release_CC_Old__c;
                     acclnk.Agreement_to_commit_info_processing_KR__c= accountMap.get(acclnk.toRole__c).Agreement_to_commit_info_proces_CC_Old__c;
                     acclnk.Personal_Abroad_Agreement_KR__c= accountMap.get(acclnk.toRole__c).Personal_Abroad_Agreement_CC_Old__c;
+					acclnk.Personal_Agreement_Service_24h__c= accountMap.get(acclnk.toRole__c).Personal_Agreement_Service_24h__c;
+                    acclnk.General_Personal_Information_Mandatory__c= accountMap.get(acclnk.toRole__c).General_Personal_Information_Mandatory__c;
+                    acclnk.Unique_Identification_Info_Mandatory__c= accountMap.get(acclnk.toRole__c).Unique_Identification_Info_Mandatory__c;
+                    acclnk.Unique_Identity_Info_ThirdParty_Optional__c= accountMap.get(acclnk.toRole__c).Unique_Identity_Info_ThirdParty_Optional__c;
+                    acclnk.General_Personal_Information_Optional__c= accountMap.get(acclnk.toRole__c).General_Personal_Information_Optional__c;
+                    acclnk.General_Personal_InfoThirdParty_Optional__c= accountMap.get(acclnk.toRole__c).General_Personal_InfoThirdParty_Optional__c;
+                    acclnk.Targeted_Advertising_Info_Optional__c= accountMap.get(acclnk.toRole__c).Targeted_Advertising_Info_Optional__c;
                     //if(retailCompanyupdate != Null && acclnk.RecordTypeId != RetailCompany){                       
                         //acclnk.Retail_Related_Company__c = retailCompanyupdate .id;
                     //}           

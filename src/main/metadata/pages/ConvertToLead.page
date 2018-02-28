@@ -76,6 +76,7 @@ JIRA NO             :    SFDCJP-1036 & 1041
                    <apex:column value="{!cMember.campaignMember.Retail_Campaign_Id__c}" headerValue="{!$Label.Retail_Campaign_Id}"/>
                     <apex:column value="{!cMember.campaignMember.UsVIN__c}" headerValue="{!$Label.UsVIN}"/>
                      <apex:column value="{!cMember.campaignMember.Contract_Number__c}" headerValue="{!$Label.Contract_Number}"/>
+                      <apex:column value="{!cMember.campaignMember.Source_of_CM_Response__c}" headerValue="{!$Label.Source_of_CM_Response}"/>
             </apex:pageBlockTable>
             <apex:pageBlockButtons location="bottom">
                 <apex:commandButton action="{!showPopup}" value="{!$Label.Convert_To_Lead}" rerender="tstpopup"/>
@@ -99,3 +100,4 @@ JIRA NO             :    SFDCJP-1036 & 1041
         </apex:outputPanel>
     </apex:form>
 </apex:page>
+                             

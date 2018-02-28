@@ -11,6 +11,51 @@
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
+	<fieldUpdates>
+        <fullName>Agreement_Date_for_Marketing_Consent_fie</fullName>
+        <field>Agreement_Date_for_Marketing_Consent__c</field>
+        <formula>TODAY()</formula>
+        <name>Agreement Date for Marketing Consent fie</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Agreement_date_Update</fullName>
+        <field>Agreement_Date_for_Contact_Method__c</field>
+        <formula>Today()</formula>
+        <name>Agreement date Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Agreement_date_for_CC_New_field_update</fullName>
+        <field>Agreement_Date_for_CC_New__c</field>
+        <formula>TODAY()</formula>
+        <name>Agreement date for CC New field update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Agreement_date_for_CC_old_field_update</fullName>
+        <field>Agreement_Date_for_CC_Old__c</field>
+        <formula>TODAY()</formula>
+        <name>Agreement date for CC old field update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Agreement_date_service_24hfield_update</fullName>
+        <field>Agreement_Date_for_Service_24h_Consent__c</field>
+        <formula>TODAY()</formula>
+        <name>Agreement date service 24hfield update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Allow_Data_Sharing_to_NO_for_KR</fullName>
         <field>Allow_Data_Sharing2__c</field>
@@ -431,6 +476,56 @@
             <operation>equals</operation>
             <value>KR</value>
         </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Agreement date CC New field update</fullName>
+        <actions>
+            <name>Agreement_date_for_CC_New_field_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(NOT(ISPICKVAL(General_Personal_Information_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(General_Personal_Information_Optional__c ,&apos;&apos;)),NOT(ISPICKVAL( Unique_Identification_Info_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(General_Personal_InfoThirdParty_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Unique_Identity_Info_ThirdParty_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Targeted_Advertising_Info_Optional__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_CC_New__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Agreement date field update</fullName>
+        <actions>
+            <name>Agreement_date_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(NOT(ISPICKVAL(Personal_Agreement__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c ,&apos;&apos;)),NOT(ISPICKVAL( Agreement_to_commit_info_processing__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Abroad_Agreement__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Contact_Method__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Agreement date for CC old field update</fullName>
+        <actions>
+            <name>Agreement_date_for_CC_old_field_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(NOT(ISPICKVAL(Personal_Agreement_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Info_Third_Party_Release_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Agreement_to_commit_info_proces_CC_Old__c,&apos;&apos;)),NOT(ISPICKVAL(Personal_Abroad_Agreement_CC_Old__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_CC_Old__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Agreement date for marketing consent field update</fullName>
+        <actions>
+            <name>Agreement_Date_for_Marketing_Consent_fie</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(NOT(ISPICKVAL(General_Personal_Info_Mandatory__c,&apos;&apos;)),NOT(ISPICKVAL(Person_Agree_Test_Driving_Optional__c ,&apos;&apos;)),NOT(ISPICKVAL( Person_Info_Custom_Service_Optional__c,&apos;&apos;)),NOT(ISPICKVAL(Targeted_Advert_Info_Optional_STCCC__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Marketing_Consent__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Agreement date service 24h field update</fullName>
+        <actions>
+            <name>Agreement_date_service_24hfield_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(NOT(ISPICKVAL(Personal_Agreement_Service_24h__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Service_24h_Consent__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
