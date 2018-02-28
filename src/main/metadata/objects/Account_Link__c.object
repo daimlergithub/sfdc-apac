@@ -4174,7 +4174,7 @@ Holds National ID or Passport No. of wholesale Account</description>
 	<fields>
         <fullName>Agreement_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(NOT(ISPICKVAL(Personal_Agreement_KR__c,'')),NOT(ISPICKVAL(Personal_Information_Third_Party_KR__c,'')),NOT(ISPICKVAL(Agreement_to_commit_info_processing_KR__c,'')),NOT(ISPICKVAL(Personal_Abroad_Agreement_KR__c,''))),TODAY(),null)</formula>
+        <formula>toRole__r.Agreement_Date_for_CC_Old__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Agreement Date</label>
         <required>false</required>
@@ -4185,7 +4185,7 @@ Holds National ID or Passport No. of wholesale Account</description>
 	<fields>
         <fullName>Expiration_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date__c)+10, MONTH(Agreement_Date__c), DAY(Agreement_Date__c))</formula>
+        <formula>toRole__r.Expiration_Date_for_CC_Old__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Expiration Date</label>
         <required>false</required>
