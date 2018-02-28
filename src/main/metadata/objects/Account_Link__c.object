@@ -3256,7 +3256,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Husbandãƒ»Wife</fullName>
+                <fullName>Husband・Wife</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
