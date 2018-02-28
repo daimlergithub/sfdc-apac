@@ -137,6 +137,25 @@
         <accessLevel>Read</accessLevel>
         <name>TH_Vehicle_Readable_to_Thailand_Call_Centre</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MB_Vehicle_to_be_shared_with_all</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+		<description>Vehicle records of MB type to be shared with all WS and retail users for MY.</description>
+        <name>MB_Vehicle_to_be_shared_with_all</name>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Vehicle_Sharing_for_MBK</fullName>
         <sharedTo>
