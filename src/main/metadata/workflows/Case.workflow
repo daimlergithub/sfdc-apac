@@ -1621,7 +1621,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
