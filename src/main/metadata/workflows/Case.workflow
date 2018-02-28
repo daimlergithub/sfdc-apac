@@ -1736,7 +1736,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.Priority</field>
@@ -1902,7 +1902,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1940,7 +1940,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -2009,7 +2009,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -2079,7 +2079,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -2149,7 +2149,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -2638,23 +2638,7 @@
         </actions>
         <active>true</active>
         <description>This WF is created for Sending email to gate keeper for Thailand wholesale users</description>
-        <formula>AND( 
-  MD__c = &apos;TH&apos;,
-  ISPICKVAL( Owner:User.UserType,&apos;Standard&apos;),
-OR(
-  AND(
-      ISNEW(),
-      NOT(ISBLANK(Case_Dealer__c ))
-     ),  
-  AND(
-      ISCHANGED(Case_Dealer__c ),
-      NOT(ISBLANK(Case_Dealer__c ))
-     )
-   ), 
- OR(RecordType.Name=&apos;Inquiry&apos;,         
-    RecordType.Name=&apos;MB Complaint&apos;
-   ) 
- )</formula>
+        <formula>AND( MD__c = &apos;TH&apos;, ISPICKVAL( Owner:User.UserType,&apos;Standard&apos;), OR( AND( ISNEW(), NOT(ISBLANK(Case_Dealer__c )) ), AND( ISCHANGED(Case_Dealer__c ), NOT(ISBLANK(Case_Dealer__c )) ) ,ischanged(OwnerId)), OR(RecordType.Name=&apos;Inquiry&apos;, RecordType.Name=&apos;MB Complaint&apos; ), Case_Creator__r.Id &lt;&gt; OwnerId )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -2665,23 +2649,7 @@ OR(
         </actions>
         <active>true</active>
         <description>This WF is created for Sending email to gate keeper for Thailand dealer users.</description>
-        <formula>AND( 
-MD__c = &apos;TH&apos;, 
-ISPICKVAL( Owner:User.UserType,&apos;PowerPartner&apos;), 
-OR( 
-AND( 
-ISNEW(), 
-NOT(ISBLANK(Case_Dealer__c )) 
-), 
-AND( 
-ISCHANGED(Case_Dealer__c ), 
-NOT(ISBLANK(Case_Dealer__c )) 
-) 
-), 
-OR(RecordType.Name=&apos;Inquiry&apos;, 
-RecordType.Name=&apos;MB Complaint&apos; 
-) 
-)</formula>
+        <formula>AND( MD__c = &apos;TH&apos;, ISPICKVAL( Owner:User.UserType,&apos;PowerPartner&apos;), OR( AND( ISNEW(), NOT(ISBLANK(Case_Dealer__c )) ), AND( ISCHANGED(Case_Dealer__c ), NOT(ISBLANK(Case_Dealer__c )) ),ischanged(OwnerId) ), OR(RecordType.Name=&apos;Inquiry&apos;, RecordType.Name=&apos;MB Complaint&apos; ), Case_Creator__r.Id &lt;&gt; OwnerId )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
