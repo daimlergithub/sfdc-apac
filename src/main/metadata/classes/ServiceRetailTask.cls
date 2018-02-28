@@ -17,9 +17,16 @@ private integer counter=0;  //keeps track of the offset
     try
     {
         acc= ApexPages.currentPage().getParameters().get('id');
+        User loggedInUser=[Select id, market__c, contact.account.id from User where id=:UserInfo.getUserId()];
         if(acc!=null)
-        {
-            retlist=[Select Name,Related_Contact__r.Name,Service_Number__c,Service_Code__c,Service_Vehicle__c,Service_Date__c,Service_Details__c,Service_Date_In__c,Related_Contact2__c,Related_Contact3__c,Related_Contact4__c,Service_Date_Out__c,Service_Mileage__c,Service_Invoice_Number__c,Service_Vehicle__r.Name,Related_Lead__r.Name,Related_Contact2__r.Name,Related_Contact3__r.Name,Service_Vehicle_VIN__c,Related_Dealer__r.Name,Recordtype.Name from Retail_Task__c  where ( (Related_Contact__c=:acc) OR (Related_Contact2__c=:acc) OR (Related_Contact3__c=:acc) OR (Related_Contact4__c=:acc)) and Recordtype.name=:'Service'   ORDER BY Service_Date__c DESC limit :list_size offset :counter ];
+        {    
+            // if condition added for Dealer users of MY to have Access to all Retail Task (Service History) records of the Vehicle related to only that dealer
+            if(loggedInUser.market__c==Label.MarketMY && Util_GetPermissionList.checkAccessOnUser(Label.MYDealer)){
+                retlist=[Select Name,Related_Contact__r.Name,Service_Number__c,Service_Code__c,Service_Vehicle__c,Service_Date__c,Service_Details__c,Service_Date_In__c,Related_Contact2__c,Related_Contact3__c,Related_Contact4__c,Service_Date_Out__c,Service_Mileage__c,Service_Invoice_Number__c,Service_Vehicle__r.Name,Related_Lead__r.Name,Related_Contact2__r.Name,Related_Contact3__r.Name,Service_Vehicle_VIN__c,Related_Dealer__r.Name,Recordtype.Name from Retail_Task__c  where ( (Related_Contact__c=:acc) OR (Related_Contact2__c=:acc) OR (Related_Contact3__c=:acc) OR (Related_Contact4__c=:acc)) and Recordtype.name=:'Service' and Related_Dealer__c=:loggedInUser.contact.account.id  ORDER BY Service_Date__c DESC limit :list_size offset :counter ];
+            }
+            else{
+                retlist=[Select Name,Related_Contact__r.Name,Service_Number__c,Service_Code__c,Service_Vehicle__c,Service_Date__c,Service_Details__c,Service_Date_In__c,Related_Contact2__c,Related_Contact3__c,Related_Contact4__c,Service_Date_Out__c,Service_Mileage__c,Service_Invoice_Number__c,Service_Vehicle__r.Name,Related_Lead__r.Name,Related_Contact2__r.Name,Related_Contact3__r.Name,Service_Vehicle_VIN__c,Related_Dealer__r.Name,Recordtype.Name from Retail_Task__c  where ( (Related_Contact__c=:acc) OR (Related_Contact2__c=:acc) OR (Related_Contact3__c=:acc) OR (Related_Contact4__c=:acc)) and Recordtype.name=:'Service'   ORDER BY Service_Date__c DESC limit :list_size offset :counter ];
+            }
         }
         return retlist;
       } catch (QueryException e) {
@@ -94,5 +101,5 @@ public PageReference Beginning() { //user clicked beginning
       
       
    }
-   
+      
 }

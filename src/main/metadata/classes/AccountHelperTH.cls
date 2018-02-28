@@ -55,140 +55,199 @@ public class AccountHelperTH {
     }
 
 
-    public static String validate(string phonestring, integer num, String fields, integer len, integer digits) {
+    //Modified:    Mrinalini Chandra
+    public static String RemoveZeroes(string phonestring, integer num)
+    {
         integer i;
-        string phon = '';
-        for (i = num; i < phonestring.length(); i++) {
-            if (phonestring.substring(i, i + 1) == '0') {
+        string phon='';
+        for(i=num ; i < phonestring.length(); i++)
+        {
+            if(phonestring.substring(i,i+1) == '0')
+            {
                 continue;
-            } else {
-                phon = phonestring.substring(i);
-
+            }
+            else
+            {
+                phon=phonestring.substring(i);
                 break;
             }
         }
-        //outside for loop
-        //after removing zero's if phone size is less than 8 through error 
-        if (phon.length() < len) {
-            if (fields != 'Mobile') {
-                return fields + ' contain only Digits and ' + digits + '  Digits with format +66DDDDDDDD or it can be in the format of DDDDDDDD';
-            } else {
-                return fields + ' contain only Digits and ' + digits + '  Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
-            }
-
-        } else if (fields == 'Mobile' && !Pattern.matches('[0-9]{9}', phon)) {
-
-            return fields + ' Phone contain only Digits and ' + digits + ' Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
-        } else if (!Pattern.matches('[0-9]{8}', phon) && fields != 'Mobile') {
-            return fields + ' contain only Digits and ' + digits + ' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
-        } else {
-            return '+66' + phon;
-        }
-
+        return phon;
     }
-    public static void ValidatePhoneNumberonBeforeEvents(list < Account > listNewAccounts) {
-        String individualphone = '+66';
-        for (Account acc: listNewAccounts) {
-            if (acc.RecordTypeId != dealer_RecordTypeId && acc.md__c == 'TH') {
-                if (!(String.IsBlank(acc.Individual_Home_Phone__c)) && acc.Individual_Home_Phone__c.length() > 3) {
+    
+     //Modified:    Mrinalini Chandra
+     public static  String validate(string phonestring, integer num, String fields, integer len, integer digits)
+     {
+        string phon = '';
+        phon = RemoveZeroes(phonestring,num);
+                
+        //outside for loop
+        if(phonestring.startsWith('+66'))
+        {
+            if(phon.length()<len)
+            {
+                if(fields!='Mobile')
+                {
+                    return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDD or it can be in the format of DDDDDDDD';
+                }
+                else
+                {
+                    return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
+                }
+                
+            }
+            else if( fields == 'Mobile' && !Pattern.matches('[0-9]{9}',phon))
+            {    
+                return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
+            }
+            else if(!Pattern.matches('[0-9]{8}',phon) && fields != 'Mobile')
+            {
+                return fields+' contain only Digits and '+ digits+' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
+            }
+            else
+            {
+               return phonestring.substring(0,3) + phon;
+            }
+        }
+        else
+        {
+            if(!Pattern.matches('[0-9]*', phon))
+            {
+                return fields + ' contain only Digits';
+            }
+            return phonestring.substring(0,3) + phon;
+        }       
+    }
+    
+    
+    //Modified:    Mrinalini Chandra
+    //Modified the code for validations of phone number not starting from +66
+    
+     public static void ValidatePhoneNumberonBeforeEvents( list <Account> listNewAccounts)
+     {
+         String individualphone = '+66';
+         for(Account acc : listNewAccounts)
+         {
+             if(acc.RecordTypeId != dealer_RecordTypeId && acc.md__c == 'TH')
+             {
+                 if(!(String.IsBlank(acc.Individual_Home_Phone__c)) && acc.Individual_Home_Phone__c.length() > 3)
+                 {
                     //if user inputs more than one zero after +66 it will remove all the zero's
                     //if the Individual_Home_Phone__c starts with zero then find zero in third position 
-                    if (acc.Individual_Home_Phone__c.startsWith('+66')) {
-                        String restultstring = validate(acc.Individual_Home_Phone__c, 3, 'Home Phone', 8, 11);
-                        if (restultstring.startswith('Home Phone')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Individual_Home_Phone__c = restultstring;
-                        }
-                    } else {
-
-                        String restultstring = validate(acc.Individual_Home_Phone__c, 0, 'Home Phone', 8, 11);
-                        if (restultstring.startswith('Home Phone')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Individual_Home_Phone__c = restultstring;
-                        }
-                    }
-                }
-
-
-                if (!(String.IsBlank(acc.Work_Phone__c)) && acc.Work_Phone__c.length() > 3) {
-                    //if user inputs more than one zero after +66 it will remove all the zero's
-                    //if the Work_Phone__c starts with zero then find zero in third position 
-                    if (acc.Work_Phone__c.startsWith('+66')) {
-                        String restultstring = validate(acc.Work_Phone__c, 3, 'WorkPhone', 8, 11);
-                        if (restultstring.startswith('WorkPhone')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Work_Phone__c = restultstring;
-                        }
-                    } else {
-
-                        String restultstring = validate(acc.Work_Phone__c, 0, 'WorkPhone', 8, 11);
-                        if (restultstring.startswith('WorkPhone')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Work_Phone__c = restultstring;
-                        }
-                    }
-                }
-                if (!(String.IsBlank(acc.FAX)) && acc.FAX.length() > 3) {
-                    //if user inputs more than one zero after +66 it will remove all the zero's
-                    //if the Work_Phone__c starts with zero then find zero in third position 
-                    if (acc.FAX.startsWith('+66')) {
-                        String restultstring = validate(acc.FAX, 3, 'FAX', 8, 11);
-                        if (restultstring.startswith('FAX')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.FAX = restultstring;
-                        }
-                    } else {
-
-                        String restultstring = validate(acc.FAX, 0, 'FAX', 8, 11);
-                        if (restultstring.startswith('FAX')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.FAX = restultstring;
-                        }
-                    }
-                }
-                if (!(String.IsBlank(acc.Mobile__c)) && acc.Mobile__c.length() > 3) {
-                    //if user inputs more than one zero after +66 it will remove all the zero's
-                    //if the Work_Phone__c starts with zero then find zero in third position 
-                    if (acc.Mobile__c.startsWith('+66')) {
-                        String restultstring = validate(acc.Mobile__c, 3, 'Mobile', 9, 12);
-                        system.debug(restultstring + '****');
-                        //will display error messages if any
-                        if (restultstring.startswith('Mobile')) {
-                            acc.addError(restultstring);
-
-                        } // if there is not error then it will set the mobile number by adding +66
-                        else {
-                            acc.Mobile__c = restultstring;
-                        }
-                    } else {
-
-                        String restultstring = validate(acc.Mobile__c, 0, 'Mobile', 9, 12);
-                        if (restultstring.startswith('Mobile')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Mobile__c = restultstring;
-                        }
-                    }
-                }
-
+                     
+                    //if(acc.Individual_Home_Phone__c.startsWith('+66')){
+                     String restultstring = validate(acc.Individual_Home_Phone__c, 3, 'Home Phone', 8, 11);
+                     if(restultstring.startswith('Home Phone'))
+                     {
+                         acc.addError(restultstring);
+                         
+                     } 
+                     else 
+                     {
+                         acc.Individual_Home_Phone__c = restultstring;
+                     }
+                 /*}
+                 else{
+                     
+                     String restultstring=validate(acc.Individual_Home_Phone__c,0,'Home Phone',8,11);
+                     if(restultstring.startswith('Home Phone')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Individual_Home_Phone__c=restultstring;
+                     }
+                 }*/
+                 }
+             
+             
+                 if(!(String.IsBlank(acc.Work_Phone__c)) && acc.Work_Phone__c.length() > 3)
+                 {
+                     //if user inputs more than one zero after +66 it will remove all the zero's
+                     //if the Work_Phone__c starts with zero then find zero in third position 
+                     //if(acc.Work_Phone__c.startsWith('+66')){
+                     String restultstring = validate(acc.Work_Phone__c, 3, 'WorkPhone',8 ,11);
+                     if(restultstring.startswith('WorkPhone'))
+                     {
+                         acc.addError(restultstring);
+                         
+                     }
+                     else
+                     {
+                         acc.Work_Phone__c = restultstring;
+                     }
+                 /*}
+                 else{
+                     
+                     String restultstring=validate(acc.Work_Phone__c,0,'WorkPhone',8,11);
+                     if(restultstring.startswith('WorkPhone')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Work_Phone__c=restultstring;
+                     }
+                 }*/
+                 }
+                 if(!(String.IsBlank(acc.FAX)) && acc.FAX.length() > 3)
+                 {
+                     //if user inputs more than one zero after +66 it will remove all the zero's
+                     //if the Work_Phone__c starts with zero then find zero in third position 
+                     
+                     //if(acc.FAX.startsWith('+66')){
+                     String restultstring = validate(acc.FAX, 3, 'FAX', 8, 11);
+                     if(restultstring.startswith('FAX'))
+                     {
+                         acc.addError(restultstring);
+                     }
+                     else
+                     {
+                         acc.FAX=restultstring;
+                     }
+                 /*}
+                 else{
+                     
+                     String restultstring=validate(acc.FAX,0,'FAX',8,11);
+                     if(restultstring.startswith('FAX')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.FAX=restultstring;
+                     }
+                 }*/
+                 }
+                if(!(String.IsBlank(acc.Mobile__c)) && acc.Mobile__c.length() > 3)
+                {
+                     //if user inputs more than one zero after +66 it will remove all the zero's
+                     //if the Work_Phone__c starts with zero then find zero in third position 
+                     
+                     //if(acc.Mobile__c.startsWith('+66')){
+                     String restultstring=validate(acc.Mobile__c, 3, 'Mobile', 9, 12);
+                     //will display error messages if any
+                     if(restultstring.startswith('Mobile'))
+                     {
+                         acc.addError(restultstring);
+                         
+                     }// if there is not error then it will set the mobile number by adding +66
+                     else
+                     {
+                         acc.Mobile__c=restultstring;
+                     }
+                 /*}
+                 else{
+                     
+                     String restultstring=validate(acc.Mobile__c,0,'Mobile',9,12);
+                     if(restultstring.startswith('Mobile')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Mobile__c=restultstring;
+                     }
+                 }*/
+                 }
             }
-        }
-    }
-
-    /* End Of phone Number format */
+        } 
+    }     
+     /* End Of phone Number format */
+     
     public static void updateAccountFieldsBeforeInsert(list < Account > listNewAccounts, boolean isInsert) {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null) {
             for (Account Acc: listNewAccounts) {

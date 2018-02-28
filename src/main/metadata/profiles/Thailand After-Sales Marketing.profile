@@ -17645,7 +17645,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Test_Drive_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>

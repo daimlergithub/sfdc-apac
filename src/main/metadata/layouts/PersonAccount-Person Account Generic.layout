@@ -291,9 +291,16 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Service History Information</label>
-        <layoutColumns/>
-        <layoutColumns/>
-        <style>TwoColumnsLeftToRight</style>
+		<layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>ServiceRetailTask</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -336,6 +343,19 @@
         <fields>Retail_Email_OptOut__c</fields>
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
+    </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>Type__c</fields>
+        <fields>Product_Name__c</fields>
+        <fields>Status__c</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>VIN_Link__c</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>ApplicationDate__c</fields>
+        <fields>ContractNumber__c</fields>
+        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

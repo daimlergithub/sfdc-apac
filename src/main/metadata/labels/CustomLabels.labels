@@ -5060,6 +5060,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>MYGeneric (This is used by MY Market for access check)</shortDescription>
         <value>MYGeneric</value>
     </labels>
+	<labels>
+        <fullName>MYDealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYDealer (This is used by MY Market for dealer access check)</shortDescription>
+        <value>MYDealer</value>
+    </labels>
     <labels>
         <fullName>MYPhoneCountryCode</fullName>
         <language>en_US</language>
