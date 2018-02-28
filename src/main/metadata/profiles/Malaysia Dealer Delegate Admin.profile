@@ -11490,7 +11490,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Case.DeadLine__c</field>
         <readable>true</readable>
     </fieldPermissions>
