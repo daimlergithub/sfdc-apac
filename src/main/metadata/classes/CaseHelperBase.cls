@@ -192,7 +192,7 @@ public class CaseHelperBase {
         }
         Map<id, id> accUserMap = new Map<id, id>();
         if(accset.size()>0){
-            accUserMap = getAccountToDLGKUser(accset);
+            accUserMap = getAccountToDCGKUser(accset);
         }
         if (accUserMap.size() > 0) {
             for (Case c: caselist) {
@@ -200,7 +200,7 @@ public class CaseHelperBase {
                     c.ownerid = accUserMap.get(c.Case_Dealer__c);
                 }
                 else if(c.Case_Dealer__c != null && accUserMap.get(c.Case_Dealer__c) == NULL && c.md__c == market){
-                    c.addError('The Dealer Lead Gate Keeper user is either not present or is inactive.');
+                    c.addError('The Dealer Complaint Gate Keeper user is either not present or is inactive.');
                 }
             }
         }
@@ -512,7 +512,7 @@ public class CaseHelperBase {
 
     }
     
-     public Static Map<ID, ID> getAccountToDLGKUser(Set<ID> Accid){
+    public Static Map<ID, ID> getAccountToDCGKUser(Set<ID> Accid){
         Map<ID,ID> mAccToDLGKUser = new Map<ID,ID>();
         Map<ID,ID> mContactToUsr = new Map<ID,ID>();
         
@@ -520,12 +520,13 @@ public class CaseHelperBase {
             mContactToUsr.put(user.contactID, user.id);
         }
         
-        for(Contact con : [Select id, AccountID from contact where AccountID in :Accid and Dealer_Lead_Gate_Keeper__c = true]){
+        for(Contact con : [Select id, AccountID from contact where AccountID in :Accid and Dealer_Complaint_Gate_Keeper__c = true]){
             mAccToDLGKUser.put(con.AccountID, mContactToUsr.get(con.id));
         }
         
         return mAccToDLGKUser;
-    }   
+    }
+    
 /* Data Migration Explicit Fix - Santosh Mohanty */
     public void updatemarket(List<Case> caseList){        
         
