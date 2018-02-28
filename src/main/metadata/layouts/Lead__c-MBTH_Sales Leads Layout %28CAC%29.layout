@@ -51,6 +51,18 @@
                 <behavior>Edit</behavior>
                 <field>Current_Vehicle__c</field>
             </layoutItems>
+						<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bought_Vehicle_Brand__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bought_Vehicle_Class__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bought_Vehicle_Model__c</field>
+            </layoutItems>
 			<layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Contact__c</field>
@@ -232,16 +244,20 @@
                 <field>First_Contact_Customer_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Test_Drive_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Order_Placed_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Purchase_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Purchased_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
