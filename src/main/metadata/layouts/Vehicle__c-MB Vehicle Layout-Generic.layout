@@ -313,6 +313,25 @@
         <fields>PARENT.CASE_NUMBER</fields>
         <relatedList>Case.Vehicle__c</relatedList>
     </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>Service_Number__c</fields>
+        <fields>Service_Code__c</fields>
+        <fields>Service_Date__c</fields>
+        <fields>Service_Invoice_Number__c</fields>
+        <fields>Related_Lead__c</fields>
+        <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>ContractNumber__c</fields>
+        <fields>Product_Name__c</fields>
+        <fields>Type__c</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>Status__c</fields>
+        <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
