@@ -167,6 +167,14 @@
                 <behavior>Edit</behavior>
                 <field>EuroVIN__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Interested_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Interested_Competitor_Vehicle__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -193,6 +201,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Feedback_to_CAC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SendEmailToGateKeeper__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
