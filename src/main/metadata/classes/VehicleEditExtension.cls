@@ -23,7 +23,7 @@ public with sharing class VehicleEditExtension {
     public String marketcheck{get;set;}
     public String recrdType {get;set;} 
     public map<string,string> labelNvalue=new map<string,string>();
-    
+    public map<string,string> labelNvalueclass=new map<string,string>();
     public map<string,string> labelNvaluebrand=new map<string,string>();
     
     private ApexPages.StandardController stdController;
@@ -148,10 +148,7 @@ public with sharing class VehicleEditExtension {
         return options;
     } */
     
-      
-    
-       
-     public List<SelectOption> getclasses()
+        public List<SelectOption> getclasses()
     {
         List<SelectOption> options = new List<SelectOption>();
         system.debug('&&&&&&&&&&&&&&&&&&&&&&&&&&& brand'+brand);
@@ -179,10 +176,15 @@ public with sharing class VehicleEditExtension {
         List<SelectOption> options = new List<SelectOption>();
         if(class1!=null){
         
+         if(UserInfo.getLocale()=='ja_JP')
+        {
+        getclasstype();
+        class1=labelNvalueclass.get(class1);
+        }
           options.add(new SelectOption('',''));
          System.debug('@@@@@@@@@@@@@@@@@@@@@'+class1);
              System.debug('@@@@@@@@@@@@@@@@@@@@@'+brand);
-         for (Car_Model__c m : [Select Brand__c,Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Series__c=:class1 and Brand__c=:brand ] )
+         for (Car_Model__c m : [Select toLabel(Brand__c),toLabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Series__c=:class1 and Brand__c=:brand ] )
          {
           system.debug('m'+m);
           options.add(new SelectOption(m.Name,m.Name));
@@ -543,6 +545,31 @@ public with sharing class VehicleEditExtension {
       return options;
     }
     
+       public List<SelectOption> getclasstype()
+       {
+         List<SelectOption> options = new List<SelectOption>();
+        
+         Schema.DescribeFieldResult fieldResult = Car_Model__c.Series__c.getDescribe();
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+        // options.add(new selectOption('', '--None--'));
+         for( Schema.PicklistEntry f : ple)
+         {
+          if(UserInfo.getLocale()=='ja_JP')
+          {
+          
+           options.add(new SelectOption(f.getValue(), f.getLabel()));
+           labelNvalueclass.put(f.getLabel(),f.getValue());
+           system.debug('labelNvalue---'+labelNvalueclass);
+          }else{
+           options.add(new SelectOption(f.getLabel(), f.getValue()));
+           //labelNvalue.put(f.getValue(), f.getLabel());
+           }
+          }
+          system.debug('options'+options);
+          system.debug('labelNvalue'+labelNvalueclass);
+            
+      return options;
+    }  
     
     
 }
