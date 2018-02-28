@@ -24731,6 +24731,31 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <url>/701/e?RecordType=01228000001Dg46&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks> 
 	<webLinks>
+        <fullName>Retail_Campaign_Creation</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Retail Campaign Creation	</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var listcompleted='{!Campaign.Consolidated_List_Completed__c}'; 
+
+if(listcompleted == false) 
+{ 
+alert('Please push "Consolidation List Maintenance" button first'); 
+} 
+if(listcompleted == true) 
+{ 
+var resultMsg= 
+sforce.apex.execute("Call_Batch_JointDrivenCampaign","Batch_JointDrivenCampaign",{camid:"{!Campaign.Id}"}); 
+ 
+window.location.reload(); 
+}
+</url>
+    </webLinks>
+	<webLinks>
         <fullName>Create_Simple_Execution_Generic</fullName>
         <availability>online</availability>
         <displayType>button</displayType>

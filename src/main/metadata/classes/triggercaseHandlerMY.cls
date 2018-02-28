@@ -8,39 +8,49 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        CaseHelperMY caseHelperBased = new CaseHelperMY();
+        CaseHelperMY CaseHelperMYInstance = new CaseHelperMY();
         string market = System.Label.MarketMY;
         //Harshit added to check for User permission-Access Management- on 09-10-2017
         if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
         
             if(trigger.isinsert && trigger.isbefore){
-            caseHelperBased.countRepeatComplaintCase(trigger.new,true,market);
-            caseHelperBased.updateCaseDeadLineAmount(trigger.new,market,null);
-            
+            CaseHelperMYInstance.countRepeatComplaintCase(trigger.new,true,market);
+            CaseHelperMYInstance.updateCaseDeadLineAmount(trigger.new,market,null);
+            CaseHelperMYInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true, market);
+            CaseHelperMYInstance.updateCaseCreator(trigger.new, market);
+            CaseHelperMYInstance.updatecommunityurl(Trigger.New, market);
+            CaseHelperMYInstance.changeDealerAccount(Trigger.New, market);
+            CaseHelperMYInstance.updatemarket(Trigger.New);
            }
            else if(trigger.isupdate &&trigger.isbefore){
-               caseHelperBased.updateCaseDeadLineAmount(trigger.new,market,(Map<Id,Case>)trigger.oldMap);
-           
+               CaseHelperMYInstance.updatemarket(Trigger.New);
+               CaseHelperMYInstance.updatecommunityurl(Trigger.New, market);
+               CaseHelperMYInstance.updateCaseDeadLineAmount(trigger.new,market,(Map<Id,Case>)trigger.oldMap);
+               CaseHelperMYInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false, market);
            }
           
          if (trigger.isAfter){
             if (trigger.isDelete){
-               caseHelperBased.calculateComplaintAmount(trigger.old,market);
+               CaseHelperMYInstance.calculateComplaintAmount(trigger.old,market);
             }
             else if (trigger.isInsert){
-               caseHelperBased.calculateComplaintAmount(trigger.new,market); 
+               CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
+               CaseHelperMYInstance.calculateComplaintAmount(trigger.new,market); 
              
             }else if (trigger.isUpdate){
-               caseHelperBased.calculateComplaintAmount(trigger.new,market);
-                 
+               CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
+               CaseHelperMYInstance.calculateComplaintAmount(trigger.new,market);
             }
-           
         }
+        //share Record start
+        if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){
+            CaseHelperMYInstance.ShareRecordswithDealers(Trigger.new,Trigger.isupdate, market);
+        }
+        //share Record end
        }     
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       // Implementation to addedd as required in market
     }
-    
 }

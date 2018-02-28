@@ -2601,18 +2601,18 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
 	<fields>
         <fullName>Agreement_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(NOT(ISPICKVAL(General_Personal_Information_Mandatory__c,'')),NOT(ISPICKVAL(General_Personal_Information_Optional__c,'')),NOT(ISPICKVAL( Unique_Identification_Info_Mandatory__c,'')),NOT(ISPICKVAL(General_Personal_InfoThirdParty_Optional__c,'')),NOT(ISPICKVAL(Targeted_Advertising_Info_Optional__c,'')),NOT(ISPICKVAL(Unique_Identity_Info_ThirdParty_Optional__c,''))),TODAY(),null)</formula>
         <label>Agreement Date for CC New</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
     <fields>
         <fullName>Agreement_Date_for_CC_Old__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(NOT(ISPICKVAL(Personal_Agreement_CC_Old__c,'')),NOT(ISPICKVAL(Personal_Info_Third_Party_Release_CC_Old__c,'')),NOT(ISPICKVAL( Agreement_to_commit_info_proces_CC_Old__c,'')),NOT(ISPICKVAL(Personal_Abroad_Agreement_CC_Old__c,''))),TODAY(),null)</formula>
         <label>Agreement Date for CC Old</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -2628,18 +2628,18 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
     <fields>
         <fullName>Agreement_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(NOT(ISPICKVAL(General_Personal_Info_Sales_Marketing__c,''))),TODAY(),null)</formula>
         <label>Agreement Date for Marketing Consent</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-    <fields>
+   <fields>
         <fullName>Agreement_Date_for_Service_24h_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(NOT(ISPICKVAL(Personal_Agreement_Service_24h__c,''))),TODAY(),null)</formula>
         <label>Agreement Date for Service 24h Consent</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -8992,7 +8992,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
     <fields>
         <fullName>Expiration_Date_for_CC_Old__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date_for_CC_Old__c)+10, Month(Agreement_Date_for_CC_Old__c),Day(Agreement_Date_for_CC_Old__c)-1)</formula>
+        <formula>DATE(YEAR(Agreement_Date_for_CC_Old__c)+4, Month(Agreement_Date_for_CC_Old__c),Day(Agreement_Date_for_CC_Old__c)-1)</formula>
         <label>Expiration Date for CC Old</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -9001,7 +9001,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
     <fields>
         <fullName>Expiration_Date_for_Contact_Method__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date_for_Contact_Method__c)+4, Month(Agreement_Date_for_Contact_Method__c),Day(Agreement_Date_for_Contact_Method__c)-1)</formula>
+        <formula>DATE(YEAR(Agreement_Date_for_Contact_Method__c)+10, Month(Agreement_Date_for_Contact_Method__c),Day(Agreement_Date_for_Contact_Method__c)-1)</formula>
         <label>Expiration Date for Contact Method</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -19538,7 +19538,7 @@ Invisible on UI."</description>
 	<fields>
         <fullName>Withdrawal_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(General_Personal_Info_Sales_Marketing__c,'Withdrawn'),TODAY(),null)</formula>
+        <formula>DATE(YEAR(Agreement_Date_for_Marketing_Consent__c)+4, MONTH(Agreement_Date_for_Marketing_Consent__c), DAY(Agreement_Date_for_Marketing_Consent__c))</formula>
         <label>Withdrawal Date for Marketing Consent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
