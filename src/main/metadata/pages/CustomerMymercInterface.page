@@ -19,10 +19,12 @@ function CustAlrtMsg()
     if(answer ==true)
     {
         document.getElementById('page:form:hid').value = true;
+         document.getElementById('page:form:canid').value = true;
     }
    if(answer ==false)
     {
        document.getElementById('page:form:hid').value = false;
+        document.getElementById('page:form:canid').value = false;
    }
   }
    else if(valu != '')
@@ -43,6 +45,7 @@ function CustAlrtMsg()
     
     <apex:form id="form">
     <apex:inputHidden value="{!cancelpop}" id="hid"/>
+      <apex:inputHidden value="{!okcancelpop}" id="canid"/>
                <apex:pagemessages ></apex:pagemessages>
         
         <apex:pageBlock title="{!$Label.Customer_My_Mercedes_Interface_Customer}" id="a"><br/>
