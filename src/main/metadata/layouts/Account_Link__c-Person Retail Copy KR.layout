@@ -249,7 +249,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>CCC Consent (old)</label>
+        <label>CCC Consent (old)</label> 
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
