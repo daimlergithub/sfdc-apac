@@ -205,7 +205,7 @@
                     </apex:selectList>     
                 </apex:pageblockSectionItem>
                
-                 <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Range__c.Label}
+                <apex:pageBlockSectionItem rendered="{!marketcheck !='JP'}"> {!$ObjectType.Vehicle__c.fields.Range__c.Label}
                                          <apex:outputPanel id="rangeitems1">   
                                            <apex:selectList size="1" value="{!range}" >
                                               <apex:selectOptions value="{!ranges}"/>
@@ -214,9 +214,7 @@
                                     </apex:outputPanel>
                                                                                
                                        
-                                    </apex:pageBlockSectionItem>
-                        
-                                  
+                                    </apex:pageBlockSectionItem> 
                     
                                      <apex:pageBlockSectionItem > {!$ObjectType.Vehicle__c.fields.Model__c.Label}
                                          <apex:outputPanel id="modelitems1">   

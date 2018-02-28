@@ -25,7 +25,7 @@
                 <field>Branch_name_Native__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Dealer_ND_Code__c</field>
             </layoutItems>
             <layoutItems>
@@ -37,7 +37,7 @@
                 <field>Branch_name_ENG__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Dealer_GC_Code__c</field>
             </layoutItems>
             <layoutItems>

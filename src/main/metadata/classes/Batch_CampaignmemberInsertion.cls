@@ -10,7 +10,7 @@ global class Batch_CampaignmemberInsertion implements Database.Batchable<sObject
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,contact_Id__c,Address__c,Customer_Complete_Address__c,NextInspectionDate__c,NextServiceDate__c,LastInspectionDate__c,LastServiceDate__c,LastWorkDate__c,Service_Advisor__c,Sales_Consultant__c,Vehicle__c,Vehicle_Relationship__c,CUSTOMER_LABEL_NAME__C,Retail_Copy__c,Vehicle_ExternalLink__c From Campaign_Member__c Where Campaign_id__c =: campid ]);
+        return Database.getQueryLocator([Select Id,Name,Retail_Campaign_Id__c,Status__c,Preferred_Dealer__c,Contract__c,contact_Id__c,Address__c,Customer_Complete_Address__c,NextInspectionDate__c,NextServiceDate__c,LastInspectionDate__c,LastServiceDate__c,LastWorkDate__c,Service_Advisor__c,Sales_Consultant__c,Vehicle__c,Vehicle_Relationship__c,CUSTOMER_LABEL_NAME__C,Retail_Copy__c,Vehicle_ExternalLink__c From Campaign_Member__c Where Campaign_id__c =: campid ]);
     }
     
     global void execute(Database.BatchableContext BC, List<Campaign_Member__c> scope){
@@ -95,12 +95,12 @@ global class Batch_CampaignmemberInsertion implements Database.Batchable<sObject
                  {
                   newCamRetail.Vehicle_ExternalLink__c = camo.Vehicle_ExternalLink__c;
                  }
-				  if(camo.Contract__c !=null)
+                  if(camo.Contract__c !=null)
                  {
                   newCamRetail.Contract__c = camo.Contract__c;
                  }
-				 
-				 
+                 
+                 
                 
                   retailMem.add(newCamRetail);   
      

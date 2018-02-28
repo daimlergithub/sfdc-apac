@@ -22,6 +22,10 @@ public with sharing class VehicleEditExtension {
     public static Id vehicleId;
     public String marketcheck{get;set;}
     public String recrdType {get;set;} 
+    public map<string,string> labelNvalue=new map<string,string>();
+    
+    public map<string,string> labelNvaluebrand=new map<string,string>();
+    
     private ApexPages.StandardController stdController;
     public String type {get;set;}
     Map<String,Set<String>> brandClassMap = new Map<String, Set<String>>();
@@ -41,9 +45,10 @@ public with sharing class VehicleEditExtension {
            
            
              vehicleId= ApexPages.currentPage().getParameters().get('id');
-         
+         System.debug('%^%^%^%^%^%^%^%^%^%^%^% '+vehicleId);
+          System.debug('%^%^%^%^%^%^%^%^%^%^%^% '+class1);
            
-            vehicle =[SELECT id,Market__c,Name,UsVIN__c,Brand__c,EuroVIN__c,Competitor_Brand__c,Competitor_Model__c,Model_Description__c,New_Used__c,Related_contact__c,Finance_Method__c,Related_From__c,Related_To__c,Portal_Vehicle_ID__c,InsuranceExpiryDate__c,MOT_Expired_Date__c,Vehicle_Role__c,FirstRegistrationDate__c,Transmission__c,RegistrationNo__c,System_Data_Source__c,VehicleStatus__c,ProductionDate__c,NextServiceDate__c,NextInspectionDate__c,recordtypeid,recordtype.name,Class__c,Model__c,Range__c,Modification_Package__c,Vehicle_Group__c,BaumusterEx__c,OptionCode__c,Colour__c,EngineNumber__c,Trim__c,CurrentMileage__c,CylinderCapacity__c,Fuel__c,Height__c,Length__c,Width__c,Weight__c,ModelYear__c,National_Model__c,VehicleAge__c,Product_Model__c,Category_Code__c FROM Vehicle__c Where id =:vehicleId limit 1];
+            vehicle =[SELECT id,Market__c,Name,UsVIN__c,toLabel(Brand__c),EuroVIN__c,Competitor_Brand__c,Competitor_Model__c,Model_Description__c,New_Used__c,Related_contact__c,Finance_Method__c,Related_From__c,Related_To__c,Portal_Vehicle_ID__c,InsuranceExpiryDate__c,MOT_Expired_Date__c,Vehicle_Role__c,FirstRegistrationDate__c,Transmission__c,RegistrationNo__c,System_Data_Source__c,VehicleStatus__c,ProductionDate__c,NextServiceDate__c,NextInspectionDate__c,recordtypeid,recordtype.name,toLabel(Class__c),Model__c,Range__c,Modification_Package__c,Vehicle_Group__c,BaumusterEx__c,OptionCode__c,Colour__c,EngineNumber__c,Trim__c,CurrentMileage__c,CylinderCapacity__c,Fuel__c,Height__c,Length__c,Width__c,Weight__c,ModelYear__c,National_Model__c,VehicleAge__c,Product_Model__c,Category_Code__c FROM Vehicle__c Where id =:vehicleId limit 1];
             system.debug('vehicleeeeeeeeee'+vehicle);
             marketcheck = vehicle.market__c;
             recrdType=vehicle.recordtype.name;
@@ -58,6 +63,7 @@ public with sharing class VehicleEditExtension {
             {
              type='Competitor';
             }
+           system.debug('***************'+vehicle.Class__c);
            
            brand=vehicle.Brand__c;
            class1=vehicle.Class__c;
@@ -91,18 +97,46 @@ public with sharing class VehicleEditExtension {
          }
     }
     
-     
     
     public List<SelectOption> getbrands()
+       {
+         List<SelectOption> options = new List<SelectOption>();
+        
+         Schema.DescribeFieldResult fieldResult = Car_Model__c.brand__c.getDescribe();
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+        // options.add(new selectOption('', '--None--'));
+         for( Schema.PicklistEntry f : ple)
+         {
+          if(UserInfo.getLocale()=='ja_JP')
+          {
+          
+           options.add(new SelectOption(f.getValue(), f.getLabel()));
+           labelNvaluebrand.put(f.getLabel(),f.getValue());
+           system.debug('labelNvalue---'+labelNvalue);
+          }else{
+           options.add(new SelectOption(f.getLabel(), f.getValue()));
+           //labelNvalue.put(f.getValue(), f.getLabel());
+           }
+          }
+          system.debug('options'+options);
+          system.debug('labelNvalue'+labelNvaluebrand);
+            
+      return options;
+    }
+     
+    
+  /*  public List<SelectOption> getbrands()
     {
         List<SelectOption> options = new List<SelectOption>();
         set<string> brandit=new set<string>();
         System.debug('^&^&^&^&^&^&^&'+type);
-         for (Car_Model__c m :[Select toLabel(Brand__c),Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type])
+         for (Car_Model__c m :[Select toLabel(Brand__c),toLabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type])
          {
           
           brandit.add(m.Brand__c); 
+         
          }
+                    
           system.debug('++++++++++++++++'+brandit);
           for(String brands:brandit){
           if(brands != null){
@@ -112,7 +146,7 @@ public with sharing class VehicleEditExtension {
           }
           system.debug('optionssssss'+options.size());
         return options;
-    } 
+    } */
     
       
     
@@ -120,12 +154,12 @@ public with sharing class VehicleEditExtension {
      public List<SelectOption> getclasses()
     {
         List<SelectOption> options = new List<SelectOption>();
-        system.debug('brand'+brand);
+        system.debug('&&&&&&&&&&&&&&&&&&&&&&&&&&& brand'+brand);
         set<string> brandit=new set<string>();
         if(brand!=null){
         
          options.add(new SelectOption('',''));
-         for (Car_Model__c m : [Select toLabel(Brand__c),Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Brand__c=:brand] )
+         for (Car_Model__c m : [Select toLabel(Brand__c),toLabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Brand__c=:brand] )
          {
           brandit.add(m.Series__c); 
          }
@@ -167,7 +201,7 @@ public with sharing class VehicleEditExtension {
           
            System.debug('**************'+type);
             System.debug('**************'+model);
-         for (Car_Model__c m : [Select toLabel(Brand__c),Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Name=:model] )
+         for (Car_Model__c m : [Select toLabel(Brand__c),toLabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Name=:model] )
          {
           system.debug('m'+m);
           if(m.Range__c!=null){
@@ -315,6 +349,11 @@ public with sharing class VehicleEditExtension {
                system.debug(vehicle.Class__c+'i am here vehicle details'+vehicle.Brand__c);
                system.debug('modell----'+vehicle.Model__c);
                  if(recrdType == UtilConstant.MB){
+                  if(UserInfo.getLocale()=='ja_JP')
+        {
+        getaddtype();
+        class1=labelNvalue.get(class1);
+        }
             list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Own Sellable' order by CreatedDate ];
             if(!carModelId.isEmpty()){
                 vehicle.Car_Model__c=carModelId[0].id;
@@ -336,6 +375,11 @@ public with sharing class VehicleEditExtension {
                         system.debug('I am hereaaaamodel '+model);
                         system.debug('I am hereaaaa range'+range);
                          system.debug('I am hereaaaa modPackage'+modPackage); 
+                          if(UserInfo.getLocale()=='ja_JP')
+                            {
+                            getaddtype();
+                            class1=labelNvalue.get(class1);
+                            }
            list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Competitor' order by CreatedDate ];
            
                         System.debug('###################### carModelId'+carModelId);
@@ -473,5 +517,32 @@ public with sharing class VehicleEditExtension {
           return nextPage;
     }
    
+   public List<SelectOption> getaddtype()
+       {
+         List<SelectOption> options = new List<SelectOption>();
+        
+         Schema.DescribeFieldResult fieldResult = Car_Model__c.Series__c.getDescribe();
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+        // options.add(new selectOption('', '--None--'));
+         for( Schema.PicklistEntry f : ple)
+         {
+          if(UserInfo.getLocale()=='ja_JP')
+          {
+          
+           options.add(new SelectOption(f.getValue(), f.getLabel()));
+           labelNvalue.put(f.getLabel(),f.getValue());
+           system.debug('labelNvalue---'+labelNvalue);
+          }else{
+           options.add(new SelectOption(f.getLabel(), f.getValue()));
+           //labelNvalue.put(f.getValue(), f.getLabel());
+           }
+          }
+          system.debug('options'+options);
+          system.debug('labelNvalue'+labelNvalue);
+            
+      return options;
+    }
+    
+    
     
 }

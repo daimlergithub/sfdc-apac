@@ -3410,27 +3410,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Agreement_Date_for_CC_New__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Agreement_Date_for_CC_Old__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Agreement_Date_for_Contact_Method__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Agreement_Date_for_Marketing_Consent__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Agreement_Date_for_Service_24h_Consent__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4650,22 +4630,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Expiration_Date_for_CC_New__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Expiration_Date_for_CC_Old__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Expiration_Date_for_Contact_Method__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Expiry_Date_for_Service_24h_Consent__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -29635,6 +29600,10 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>VehiclePickerforCaseMY</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

@@ -668,6 +668,14 @@
         <apexClass>ConsolidationContorller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>Call_Batch_JointDrivenCampaign</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Call_Batch_JointDrivenCampaigntest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>ConsolidationContorllerTest</apexClass>
         <enabled>false</enabled>
