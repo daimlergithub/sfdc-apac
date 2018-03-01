@@ -54,7 +54,7 @@ public class AddressSearchValidationController
     public String workPhoneAreaCodePart1{get;set;}   
     public String workPhoneAreaCodePart2{get;set;}
     public String workPhoneAreaCodePart3{get;set;}
-  public String workPhone2AreaCodePart1{get;set;}   
+     public String workPhone2AreaCodePart1{get;set;}   
     public String workPhone2AreaCodePart2{get;set;}
     public String workPhone2AreaCodePart3{get;set;}
     public String homePhone2AreaCode{get;set;}
@@ -148,7 +148,8 @@ public class AddressSearchValidationController
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
         
-        
+        system.debug('>>>>>>@##Readonly'+Readonly);
+        system.debug('<<<<<<<!@!#Editmode'+Editmode);
         
         Readonly=false;
       Editmode=true;
@@ -990,6 +991,8 @@ public class AddressSearchValidationController
       companyrectype = false;
       personrectype= false;
       AddressDetails = '';
+      CompanyConfirmedMatch=false;
+      show=false;
        System.debug('recordType*********'+recordType);
         System.debug('selectedRecordType *********'+selectedRecordType);
         pageRef = new PageReference('/apex/AddressSearchValidation');
@@ -1686,6 +1689,8 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void onLineDeduplication(){ 
   //  Readonly= true;  
    //    Editmode=false; 
+   system.debug('<>><<>><<>@@#Readonly'+Readonly);
+   system.debug('!@@###!#Readonly'+Editmode);
        boolean personacc;
        boolean companyacc;
         String Doblebyte='[^ -~¡-ß]*';
@@ -1900,7 +1905,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         { 
              objPersonAccount.Work_Phone__c.addError(Label.WorkPhone_should_start_with_0);
         }
-		         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile__c != NULL && !objAccount.Mobile__c.isNumeric()))
+                 else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile__c != NULL && !objAccount.Mobile__c.isNumeric()))
         { 
             objAccount.Mobile__c.addError(Label.Mobile_should_not_include_or);
         }
@@ -1950,7 +1955,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         { 
              objAccount.Work_Phone__c.addError(Label.WorkPhone_should_start_with_0);
         }
-		        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Home_Phone_2__c != NULL && !objAccount.Home_Phone_2__c.isNumeric()))
+                else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Home_Phone_2__c != NULL && !objAccount.Home_Phone_2__c.isNumeric()))
         { 
              objAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_not_include_or);
         }
@@ -2061,7 +2066,7 @@ If the user is Saving  same address which matches the fields returned by toleran
            Address__c NewAdd=new Address__c();
             //SN20171028- Online dedup fix
             newadd.market__c=market;
-            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null && objPersonAccount.Recordtypeid !=null)
             {
               AddressObj.Address_Type__c = addresspicklist;
                 if(AddressObj.Market__c !='JP'   &&  market == System.Label.JP)
@@ -2070,7 +2075,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
             }
-            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null && objAccount.Recordtypeid !=null)
             {
               AddressObj.Address_Type__c = addresspicklist;
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
@@ -2092,7 +2097,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             System.debug('@@@@@@@@@@ response '+response);
            // System.debug('@@@@@@@@@@ response '+response.CustomerIdentificationResponseMessage);
             if(response != null){
-                if(response.CustomerIdentificationResponseMessage!=null && objPersonAccount.LastName !=null)
+                if(response.CustomerIdentificationResponseMessage!=null && objPersonAccount.LastName !=null && objPersonAccount.RecordtypeID !=null)
                 {
                 system.debug('@)((($(#><<>show'+show);
                 show = true;
@@ -2364,7 +2369,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 
                 //@Venky:Added Below if condition Changes related to SFDCJP-995
                 
-                if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null)
+                if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null && objAccount.RecordtypeID!=null)
                 {  
                 system.debug('!@##$%$###$$$%CompanyConfirmedMatch'+CompanyConfirmedMatch);                  
                 CompanyConfirmedMatch=true;
@@ -2432,6 +2437,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
         }    
+        system.debug('>@#$@@#$$$%$%Readonly'+Readonly);
+        system.debug('<<<<<<Editmode>>>>>>'+Editmode);
             Readonly= true;  
        Editmode=false;    
                       if(market == Label.JP){
@@ -2444,8 +2451,6 @@ If the user is Saving  same address which matches the fields returned by toleran
    system.debug ('+++++++++companyrectype'+companyrectype );
     companyrectype = true;
 
-   system.debug ('+++++++++companyrectype'+companyrectype );
-    
     }
     
     }
