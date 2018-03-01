@@ -3166,6 +3166,17 @@ LEN( Phone ) &lt;&gt; 0
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>BPID__c</fullName>
+        <externalId>false</externalId>
+        <label>BPID</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Base_Flex__c</fullName>
         <externalId>false</externalId>
         <label>Base Flex</label>
