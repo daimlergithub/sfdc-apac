@@ -1900,6 +1900,82 @@ If the user is Saving  same address which matches the fields returned by toleran
         { 
              objPersonAccount.Work_Phone__c.addError(Label.WorkPhone_should_start_with_0);
         }
+		         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile__c != NULL && !objAccount.Mobile__c.isNumeric()))
+        { 
+            objAccount.Mobile__c.addError(Label.Mobile_should_not_include_or);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile__c != NULL && objAccount.Mobile__c.length() >=12))
+        { 
+             objAccount.Mobile__c.addError(Label.Mobile_should_be_less_than_or_equal_to_11_digits);
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile__c != NULL &&  !objAccount.Mobile__c.startsWith('0')))
+        { 
+            objAccount.Mobile__c.addError(Label.Mobile_should_start_with_0);
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile2__c != NULL && !objAccount.Mobile2__c.isNumeric()))
+        { 
+            objAccount.Mobile2__c.addError(Label.Mobile_2_should_not_include_or);
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile2__c != NULL && objAccount.Mobile2__c.length() >=12))
+        { 
+             objAccount.Mobile2__c.addError(Label.Mobile_2_should_be_less_than_or_equal_to_11_digits);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile2__c != NULL &&  !objAccount.Mobile2__c.startsWith('0')))
+        { 
+             objAccount.Mobile2__c.addError(Label.Mobile_2_should_start_with_0);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Phone != NULL && !objAccount.Phone.isNumeric()))
+        { 
+            objAccount.Phone.addError(Label.Phone_should_not_include_or);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.phone != NULL && objAccount.phone.length() >=12))
+        { 
+            objAccount.phone.addError(Label.Phone_should_be_less_than_or_equal_to_11_digits);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Phone != NULL &&  !objAccount.Phone.startsWith('0')))
+        { 
+            objAccount.Phone.addError(Label.Phone_should_start_with_0);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Work_Phone__c != NULL && !objAccount.Work_Phone__c.isNumeric()))
+        { 
+            objAccount.Work_Phone__c.addError(Label.Work_Phone_should_not_include_or);
+        }
+        
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Work_Phone__c != NULL && objAccount.Work_Phone__c.length() >=12))
+        { 
+            objAccount.Work_Phone__c.addError(Label.Work_Phone_should_be_less_than_or_equal_to_11_digits);
+        }
+       
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Work_Phone__c != NULL &&  !objAccount.Work_Phone__c.startsWith('0')))
+        { 
+             objAccount.Work_Phone__c.addError(Label.WorkPhone_should_start_with_0);
+        }
+		        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Home_Phone_2__c != NULL && !objAccount.Home_Phone_2__c.isNumeric()))
+        { 
+             objAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_not_include_or);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && objAccount.Home_Phone_2__c != NULL && objAccount.Home_Phone_2__c.length() >=12)
+        {
+           objAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_be_less_than_or_equal_to_11_digits);
+       
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Home_Phone_2__c != NULL &&  !objAccount.Home_Phone_2__c.startsWith('0')))
+        { 
+              objAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_start_with_0);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Individual_Home_Phone__c != NULL && !objAccount.Individual_Home_Phone__c.isNumeric()))
+        { 
+            objAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_not_include_or);
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && objAccount.Individual_Home_Phone__c!= NULL && objAccount.Individual_Home_Phone__c.length() >=12)
+        {
+            objAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_be_less_than_or_equal_to_11_digits);
+       
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Individual_Home_Phone__c != NULL &&  !objAccount.Individual_Home_Phone__c.startsWith('0')))
+        { 
+            objAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_start_with_0);
+        }
         
         else
         {
