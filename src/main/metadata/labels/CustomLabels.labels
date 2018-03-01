@@ -22,7 +22,7 @@
         <protected>false</protected>
         <shortDescription>Mym page</shortDescription>
         <value>Are you sure to delete this account?</value>
-    </labels> 
+    </labels>
 	<labels>
         <fullName>New_Used</fullName>
         <categories>New Used</categories>
@@ -11311,4 +11311,36 @@ To develop service Transfer permission, assess the service of the staff and the 
 		<shortDescription>HonoraryCommunityPermissionSet</shortDescription>
 		<value>Honorary_Member_PermissionSet</value>
 	</labels>
+	<labels>
+        <fullName>Closed</fullName>
+        <categories>THClosed</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mym page</shortDescription>
+        <value>Closed</value>
+    </labels>
+	<labels>
+        <fullName>PowerPartner</fullName>
+        <categories>THPowerPartner</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>THPowerPartner</shortDescription>
+        <value>PowerPartner</value>
+    </labels>
+	<labels>
+        <fullName>MBTHonlycanClosethecase</fullName>
+        <categories>MBTHonlycanClosethecase</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>THPowerPartner</shortDescription>
+        <value>	Only MBTH Users can close the case</value>
+    </labels>
+		<labels>
+        <fullName>MBTHOwnercanclose</fullName>
+        <categories>MBTHOwnercanclose</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MBTHOwnercanclose</shortDescription>
+        <value>Only owner/Creator can close the case</value>
+    </labels>	
 </CustomLabels>
