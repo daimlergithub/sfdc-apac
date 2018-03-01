@@ -902,7 +902,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',IF(ISPICKVAL($User.Market__c, 'TH'),'TH','NA')))))</defaultValue>
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+		IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+		IF(ISPICKVAL($User.Market__c, 'TH'),'TH',
+		IF(ISPICKVAL($User.Market__c, 'MY'),'MY','NA'))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
