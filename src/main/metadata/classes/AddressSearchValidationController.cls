@@ -759,7 +759,7 @@ public class AddressSearchValidationController
                     
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
-                    
+
                     if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
@@ -2397,8 +2397,36 @@ If the user is Saving  same address which matches the fields returned by toleran
                     }
                     
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    {   
-                        AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                        if(provincetmp !=null){
+                        provincetmp = provincetmp.toLowerCase();
+                        
+                        //provincetmp = provincetmp.subString(0,1).toUpperCase();
+                        Integer     i=0;
+                        List<String> newString =  new List<String>();
+                        String[] s= provincetmp.split(' ');
+                        String x,y,finalstring;
+                        for(String str  : s)
+                        {
+                            i=str.length();
+                            //String x,y,finalstring;
+                            x= str.substring(0,1).toUpperCase();
+                            y= str.substring(1,i) ;
+                            finalstring = x + y  ;
+                            newString.add(finalstring);
+                        }                        
+                        provincetmp = String.valueOf(finalstring);
+                        provincetmp  =provincetmp.replace(',','');
+                      }
+                        
+                       // province1 = addtrmapUpdate1.get(provincetmp);
+                        if(addtrmapUpdate1.containsKey(provincetmp)){
+                            province1 = addtrmapUpdate1.get(provincetmp);
+                            system.debug('province1 2:'+province1);
+                        }
+                       system.debug('province1 3:'+province1);
+                        
+                        AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }
