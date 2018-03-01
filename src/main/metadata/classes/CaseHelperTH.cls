@@ -10,6 +10,7 @@ public class CaseHelperTH {
     private static final String PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     private static final String AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     Date myDate = date.newinstance(1900, 1, 7);
+    private static user userid=[select id,usertype,Dealer_nd_code__c from user where id=:userinfo.getUserId()];
     public static boolean booleanCampaignUpdate = true;
     public Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
     public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
@@ -285,7 +286,7 @@ public class CaseHelperTH {
             }
         }
     }
-    /*public void updatedeadine(
+   /* public void updatedeadine(
     case Caserec, Integer hours) {
         Integer daystoadd = 0;
         DateTime dt = System.now();
@@ -558,4 +559,21 @@ for(case re:triggernew){
          }
 }
 
+    public static void caseclose(List<case> triggernew,boolean flag){
+        set<id> usrid=new Set<id>();
+        Map<id,user> userwith;
+        for(Case c:triggernew)
+            usrid.add(c.createdbyid);
+       if(usrid.size()>0)
+            userwith =new Map<id,user>([select id,Dealer_nd_code__c,usertype from user where id In:usrid]);
+        for(Case c:triggernew){
+            if(c.status==System.label.Closed){
+                if(userwith.get(c.createdbyid).usertype!=System.label.PowerPartner&&userid.usertype==System.label.PowerPartner)
+                    c.status.addError(system.label.MBTHonlycanClosethecase);
+                else if(userwith.get(c.createdbyid).usertype==System.label.PowerPartner && (userid.usertype!=System.label.PowerPartner||userwith.get(c.createdbyid).Dealer_nd_code__c!=userid.Dealer_nd_code__c||userid.Dealer_nd_code__c==null||userwith.get(c.createdbyid).Dealer_nd_code__c==null))
+                    c.status.addError(system.label.MBTHOwnercanclose);
+       
+            }   
+        }
+    }
 }

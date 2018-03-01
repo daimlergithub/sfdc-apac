@@ -8994,7 +8994,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
 	<fields>
         <fullName>Expiration_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date_for_CC_New__c)+10, Month(Agreement_Date_for_CC_New__c),Day(Agreement_Date_for_CC_New__c)-1)</formula>
+        <formula>DATE(YEAR(Agreement_Date_for_CC_New__c)+10, Month(Agreement_Date_for_CC_New__c),Day(Agreement_Date_for_CC_New__c))</formula>
         <label>Expiration Date for CC New</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -9003,7 +9003,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
     <fields>
         <fullName>Expiration_Date_for_CC_Old__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date_for_CC_Old__c)+4, Month(Agreement_Date_for_CC_Old__c),Day(Agreement_Date_for_CC_Old__c)-1)</formula>
+        <formula>DATE(YEAR(Agreement_Date_for_CC_Old__c)+4, Month(Agreement_Date_for_CC_Old__c),Day(Agreement_Date_for_CC_Old__c))</formula>
         <label>Expiration Date for CC Old</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -9012,7 +9012,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
     <fields>
         <fullName>Expiration_Date_for_Contact_Method__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date_for_Contact_Method__c)+10, Month(Agreement_Date_for_Contact_Method__c),Day(Agreement_Date_for_Contact_Method__c)-1)</formula>
+        <formula>DATE(YEAR(Agreement_Date_for_Contact_Method__c)+10, Month(Agreement_Date_for_Contact_Method__c),Day(Agreement_Date_for_Contact_Method__c))</formula>
         <label>Expiration Date for Contact Method</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -9021,7 +9021,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
     <fields>
         <fullName>Expiry_Date_for_Service_24h_Consent__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date_for_Service_24h_Consent__c)+4, Month(Agreement_Date_for_Service_24h_Consent__c),Day(Agreement_Date_for_Service_24h_Consent__c)-1)</formula>
+        <formula>DATE(YEAR(Agreement_Date_for_Service_24h_Consent__c)+4, Month(Agreement_Date_for_Service_24h_Consent__c),Day(Agreement_Date_for_Service_24h_Consent__c))</formula>
         <label>Expiry Date for Service 24h Consent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

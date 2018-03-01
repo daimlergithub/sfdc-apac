@@ -176,7 +176,7 @@ public without sharing class  LeadHelperBase{
                 lists.ownerID = accUserMap.get(lists.assigned_dealer__c); 
             } 
 			else if(lists.assigned_dealer__c!=null &&  accUserMap.get(lists.assigned_dealer__c) ==null){
-                lists.addError('The Dealer Lead Gate Keeper user is either not present or is inactive.');
+              //  lists.addError('The Dealer Lead Gate Keeper user is either not present or is inactive.');
             }														 
         }
     }
