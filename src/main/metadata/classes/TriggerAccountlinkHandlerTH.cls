@@ -6,6 +6,10 @@ public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
         /* Data Migration Explicit Fix - Santosh Mohanty */
         if (Trigger.isBefore && Trigger.isUpdate) {
             AccountLinkHelper.updatemarket(Trigger.New);
+			acchelper.updateActiveStatusBeforeInser(Trigger.New,Trigger.isinsert,Trigger.isUpdate);
+        }
+		  if (Trigger.isBefore && Trigger.isinsert) {
+            acchelper.updateActiveStatusBeforeInser(Trigger.New,Trigger.isinsert,Trigger.isUpdate);
         }
         if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
             System.debug('check if went inside');
