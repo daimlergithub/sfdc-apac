@@ -9,6 +9,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
         CaseHelperTH caseHelperTHd = new CaseHelperTH();
+      
         if(trigger.isinsert && trigger.isbefore){
             if(CaseHelperTH.booleanCampaignUpdate){
             system.debug('*****************case1');
@@ -27,9 +28,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 system.debug('*****************case2');
                 CaseHelperBase.updatemarket(Trigger.New);
                 caseHelperTHd.updatecommunityurl(Trigger.New);
-             // caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false);
-                //CaseHelperTH.caseclose(trigger.new,Trigger.isInsert);
            }
         }
           
