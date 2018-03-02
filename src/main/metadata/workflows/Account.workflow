@@ -426,27 +426,6 @@
         <formula>AND(Special_Care__c != TEXT(Race__c), MD__c == &apos;MY&apos;,$Profile.Name != &apos;IntegrationAPI&apos;,$Permission.MYGeneric, RecordType.Name == 'Person Account'  )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-		<rules>
-        <fullName>Change Account Status To Prospect</fullName>
-        <actions>
-            <name>Change_Status_To_Prospect</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>This will Change Account Status To Prospect for thailand accounts at the time of create depends on vehicle amount</description>
-        <formula>AND(OR(ISBLANK(Vehicle_Amount__c ),Vehicle_Amount__c = 0 ),MD__c=&apos;TH&apos;)</formula>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
-	<fieldUpdates>
-        <fullName>Change_Status_To_Prospect</fullName>
-        <field>Status__c</field>
-        <literalValue>Prospect</literalValue>
-        <name>Change Status To Prospect</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
     <rules>
         <fullName>%27Sales Tel Display%27 field should be auto-populated with the %27Mobile%27 number</fullName>
         <actions>
