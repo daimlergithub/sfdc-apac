@@ -15,6 +15,31 @@ Public class AccountlinkhelperTH{
     Public  List<Account_link__C> Acclink;
     Public  List<Account_Link__Share> accLinkshareLst=new List<Account_Link__Share>();
     Public  List<User> usrlist=new List<User>();
+	 //SFDCTH-723
+    public void updateActiveStatusBeforeInser(List<Account_Link__c> acclinks,boolean isinsertflag,boolean isupdateflag){
+        if(isinsertflag){
+            for(Account_Link__c acl:acclinks){
+                if(acl.recordTypeID==AccountLink_C2CRecordTypeId){
+                //if C2C record type is not active make it true and change start date to today date
+                     if(!acl.Active__c){
+                         acl.Active__c=true;
+                         acl.Start_Date__c=System.Today();
+                     }
+                     ////if C2C record type is active and if it is already has start date in the other systems then no need to take start date as todays date
+                     else if(acl.Active__c&&acl.Start_Date__c==null){
+                     acl.Start_Date__c=System.Today();
+                     }
+                }
+            }
+        }
+        else if(isupdateflag){
+                for(Account_Link__c acl:acclinks){
+                    if(acl.recordTypeID==AccountLink_C2CRecordTypeId&&!acl.Active__c){
+                        acl.End_Date__c=System.Today();
+                    }
+            }
+        }
+    }
     public  void afterInsertEventShareRetailCopy(List<Account_link__C> acclinklist){
         Map<Id,Id> c2cAccLinkIdfromRoleIdMap=new Map<Id,Id>();
         Map<Id,Id> c2cAccLinkIdToRoleIdMap=new Map<Id,Id>();
