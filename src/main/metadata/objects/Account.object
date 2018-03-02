@@ -2611,7 +2611,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <fullName>Agreement_Date_for_CC_Old__c</fullName>
         <externalId>false</externalId>
         <label>Agreement Date for CC Old</label>
-        <required>false</required>
+		<required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
@@ -2628,7 +2628,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
     <fields>
         <fullName>Agreement_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
-        <label>Agreement Date for Marketing Consent</label>
+        <label>Agreement Date for Marketing Consent</label>		
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
