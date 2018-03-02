@@ -43,19 +43,19 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
             else if(!String.isBlank(mem.Contract__r.Contractor_Address3_Native__c))
                 mem.Finance_Address__c = mem.Contract__r.Contractor_Address3_Native__c;
         }        
-        if (mem.Vehicle_Relationship__r.vehicle_address__c == mem.Address__c &&  mem.Vehicle_Relationship__r.vehicle_address__c != null && mem.Address__c != null && mem.Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c == 'Sales' && mem.Retail_Campaign_Id__r.Segmentation_Base__c =='Vehicle'){
+        if (mem.Vehicle_Relationship__r.vehicle_address__c == mem.Address__c &&  mem.Vehicle_Relationship__r.vehicle_address__c != null && mem.Address__c != null  && mem.Retail_Campaign_Id__r.Segmentation_Base__c =='Vehicle'){
         system.debug('----------> in loop');
         system.debug('+++++1st condtion+++++++');
         mem.Customer_Complete_Address__c = (provinces+mem.Address__r.City__c + mem.Address__r.District__c +mem.Address__r.Block__c +mem.Address__r.Address_Line_1__c + '  ' + mem.Address__r.Address_Line_2__c ).left(100);
         //(mem.Vehicle_Relationship__r.vehicle_address_picklist__c + mem.Vehicle_Relationship__r.Vehicle_Address_Display__c).left(100);
          }
          
-         else if(mem.Vehicle_Relationship__r.vehicle_address__c != mem.Address__c &&  mem.Vehicle_Relationship__r.vehicle_address__c != null && mem.Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c == 'Sales' && mem.Retail_Campaign_Id__r.Segmentation_Base__c =='Vehicle'){
+         else if(mem.Vehicle_Relationship__r.vehicle_address__c != mem.Address__c &&  mem.Vehicle_Relationship__r.vehicle_address__c != null && mem.Retail_Campaign_Id__r.Segmentation_Base__c =='Vehicle'){
              mem.Customer_Complete_Address__c =(provincevehicles + mem.Vehicle_Relationship__r.vehicle_address__r.City__c +mem.Vehicle_Relationship__r.vehicle_address__r.District__c +mem.Vehicle_Relationship__r.vehicle_address__r.Block__c +mem.Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c+ '  ' +mem.Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c ).left(100);
              mem.Address__c=   mem.Vehicle_Relationship__r.vehicle_address__c;
              system.debug('+++++2nd condtion+++++++');
          } 
-         else if(mem.Address__c == mem.Contact_Id__r.Primary_Address_Reference__c && mem.Address__c != null &&  mem.Contact_Id__r.Primary_Address_Reference__c != null && mem.Retail_Campaign_Id__r.Segmentation_Base__c == 'Customer' &&  mem.Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c == 'Sales'){
+         else if(mem.Address__c == mem.Contact_Id__r.Primary_Address_Reference__c && mem.Address__c != null &&  mem.Contact_Id__r.Primary_Address_Reference__c != null && mem.Retail_Campaign_Id__r.Segmentation_Base__c == 'Customer' ){
             mem.Customer_Complete_Address__c = (provinces+mem.Address__r.City__c + mem.Address__r.District__c +mem.Address__r.Block__c +mem.Address__r.Address_Line_1__c + '  ' + mem.Address__r.Address_Line_2__c ).left(100); 
         }
         else if(mem.Address__c != mem.Contact_Id__r.Primary_Address_Reference__c){  
@@ -64,7 +64,7 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
         mem.Address__c = mem.Contact_Id__r.Primary_Address_Reference__c;
         system.debug('+++++3rd condtion+++++++');
          } 
-         else if (mem.Vehicle_Relationship__r.vehicle_address__c == null && mem.Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c == 'Sales' && mem.Retail_Campaign_Id__r.Segmentation_Base__c =='Vehicle' ){
+         else if (mem.Vehicle_Relationship__r.vehicle_address__c == null  && mem.Retail_Campaign_Id__r.Segmentation_Base__c =='Vehicle' ){
                 mem.Customer_Complete_Address__c =  (provincecontacts +mem.Contact_Id__r.Primary_Address_Reference__r.City__c +mem.Contact_Id__r.Primary_Address_Reference__r.District__c +mem.Contact_Id__r.Primary_Address_Reference__r.Block__c +mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c + ' ' + mem.Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c ).left(100); 
               if(mem.Contact_Id__r.Primary_Address_Reference__c != null){
                 mem.Address__c = mem.Contact_Id__r.Primary_Address_Reference__c;

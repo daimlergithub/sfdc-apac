@@ -321,28 +321,30 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>System__c</fields>
         <fields>Role__c</fields>
         <fields>toRole__c</fields>
         <fields>Role2__c</fields>
-        <fields>Dealer_ND_Code__c</fields>
+        <fields>Retail_Duplicate_Flag__c</fields>
+        <fields>Active__c</fields>
+        <fields>Start_Date__c</fields>
+		<fields>End_Date__c</fields>
         <fields>UPDATEDBY_USER</fields>
-        <fields>LAST_UPDATE</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
         <sortField>RECORDTYPE</sortField>
-        <sortOrder>Desc</sortOrder>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
-		<excludeButtons>New</excludeButtons>									
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>System__c</fields>
         <fields>fromRole__c</fields>
         <fields>Role__c</fields>
         <fields>Role2__c</fields>
-        <fields>Dealer_ND_Code__c</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <fields>LAST_UPDATE</fields>
+        <fields>Retail_Duplicate_Flag__c</fields>
+        <fields>Active__c</fields>
+		<fields>Start_Date__c</fields>
+		<fields>End_Date__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>

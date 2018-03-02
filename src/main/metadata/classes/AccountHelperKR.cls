@@ -568,7 +568,21 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                   acc.Primary_Phone_Display__c != oldAccountmap.get(acc.Id).Primary_Phone_Display__c ||
                   acc.DMS_Customer_ID__c != oldAccountmap.get(acc.Id).DMS_Customer_ID__c ||
                   acc.Complaint_Amount__c != oldAccountmap.get(acc.id).Complaint_Amount__c ||
-                  acc.Preferred_Contact_Method__c != oldAccountmap.get(acc.id).Preferred_Contact_Method__c)
+                  acc.Preferred_Contact_Method__c != oldAccountmap.get(acc.id).Preferred_Contact_Method__c||
+                  acc.General_Personal_Information_Mandatory__c != oldAccountmap.get(acc.id).General_Personal_Information_Mandatory__c||
+                  acc.Person_Agree_Test_Driving_Optional__c!= oldAccountmap.get(acc.id).Person_Agree_Test_Driving_Optional__c||
+                  acc.Person_Info_Custom_Service_Optional__c!= oldAccountmap.get(acc.id).Person_Info_Custom_Service_Optional__c||
+                  acc.Targeted_Advert_Info_Optional_STCCC__c!= oldAccountmap.get(acc.id).Targeted_Advert_Info_Optional_STCCC__c||
+                  acc.Personal_Agreement_Service_24h__c!=oldAccountmap.get(acc.id).Personal_Agreement_Service_24h__c||
+                  acc.Unique_Identification_Info_Mandatory__c!=oldAccountmap.get(acc.id).Unique_Identification_Info_Mandatory__c||
+                  acc.Unique_Identity_Info_ThirdParty_Optional__c!=oldAccountmap.get(acc.id).Unique_Identity_Info_ThirdParty_Optional__c||
+                  acc.General_Personal_Information_Optional__c!=oldAccountmap.get(acc.id).General_Personal_Information_Optional__c||
+                  acc.General_Personal_InfoThirdParty_Optional__c!=oldAccountmap.get(acc.id).General_Personal_InfoThirdParty_Optional__c||
+                  acc.Targeted_Advertising_Info_Optional__c!=oldAccountmap.get(acc.id).Targeted_Advertising_Info_Optional__c||
+				  acc.Personal_Agreement_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Agreement_CC_Old__c||
+				  acc.Personal_Info_Third_Party_Release_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Info_Third_Party_Release_CC_Old__c||
+				  acc.Agreement_to_commit_info_proces_CC_Old__c!=oldAccountmap.get(acc.id).Agreement_to_commit_info_proces_CC_Old__c||
+				  acc.Personal_Abroad_Agreement_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Abroad_Agreement_CC_Old__c)
                 {
                     AccountIds.add(acc.id);
                 }
@@ -596,7 +610,8 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                                                  toRole__r.Sales_Sanction__c,toRole__r.PersonDoNotCall,toRole__r.Visit_Opt_Out__c,toRole__r.Personal_Agreement__c,
                                                  toRole__r.Personal_Information_Third_Party_Release__c,toRole__r.Personal_Abroad_Agreement__c,toRole__r.Agreement_to_commit_info_processing__c,
                                                  toRole__r.Complaint_Amount__c,toRole__r.Preferred_Contact_Method__c,toRole__r.Job__c,toRole__r.Company_Name__c,toRole__r.PersonMobilePhone,
-                                                 toRole__r.Primary_Address_Reference__c,toRole__r.Targeted_Advert_Info_Optional_STCCC__c,toRole__r.Person_Info_Custom_Service_Optional__c,toRole__r.Person_Agree_Test_Driving_Optional__c, toRole__r.General_Personal_Info_Mandatory__c,fromRole__r.Dealer_Rollout_Status__c, Retail_Address_Reference__r.LastModifiedDate, Retail_Address_Reference__r.CreatedDate,toRole__r.Personal_Info_Third_Party_Release_CC_Old__c,toRole__r.Personal_Abroad_Agreement_CC_Old__c,toRole__r.Agreement_to_commit_info_proces_CC_Old__c,toRole__r.Personal_Agreement_CC_Old__c
+                                                 toRole__r.Primary_Address_Reference__c,toRole__r.Targeted_Advert_Info_Optional_STCCC__c,toRole__r.Person_Info_Custom_Service_Optional__c,toRole__r.Person_Agree_Test_Driving_Optional__c, toRole__r.General_Personal_Info_Mandatory__c,fromRole__r.Dealer_Rollout_Status__c, Retail_Address_Reference__r.LastModifiedDate, Retail_Address_Reference__r.CreatedDate,toRole__r.Personal_Info_Third_Party_Release_CC_Old__c,toRole__r.Personal_Abroad_Agreement_CC_Old__c,toRole__r.Agreement_to_commit_info_proces_CC_Old__c,toRole__r.Personal_Agreement_CC_Old__c,toRole__r.Personal_Agreement_Service_24h__c,toRole__r.General_Personal_Information_Mandatory__c,toRole__r.Unique_Identification_Info_Mandatory__c,toRole__r.Unique_Identity_Info_ThirdParty_Optional__c,
+                                                 toRole__r.General_Personal_Information_Optional__c,toRole__r.General_Personal_InfoThirdParty_Optional__c,toRole__r.Targeted_Advertising_Info_Optional__c
                                                  from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany )];
         
         System.debug('Accountlinklist------>'+Accountlinklist  );
@@ -685,7 +700,14 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                 acclnk.Personal_Agreement_KR__c= acclnk.toRole__r.Personal_Agreement_CC_Old__c;
                 acclnk.Personal_Information_Third_Party_KR__c= acclnk.toRole__r.Personal_Info_Third_Party_Release_CC_Old__c;
                 acclnk.Agreement_to_commit_info_processing_KR__c=acclnk.toRole__r.Agreement_to_commit_info_proces_CC_Old__c;
-                acclnk.Personal_Abroad_Agreement_KR__c= acclnk.toRole__r.Personal_Abroad_Agreement_CC_Old__c;               
+                acclnk.Personal_Abroad_Agreement_KR__c= acclnk.toRole__r.Personal_Abroad_Agreement_CC_Old__c;
+				acclnk.Personal_Agreement_Service_24h__c= acclnk.toRole__r.Personal_Agreement_Service_24h__c;
+                acclnk.General_Personal_Information_Mandatory__c= acclnk.toRole__r.General_Personal_Information_Mandatory__c;
+                acclnk.Unique_Identification_Info_Mandatory__c= acclnk.toRole__r.Unique_Identification_Info_Mandatory__c;
+                acclnk.Unique_Identity_Info_ThirdParty_Optional__c= acclnk.toRole__r.Unique_Identity_Info_ThirdParty_Optional__c;
+                acclnk.General_Personal_Information_Optional__c=acclnk.toRole__r.General_Personal_Information_Optional__c;
+                acclnk.General_Personal_InfoThirdParty_Optional__c= acclnk.toRole__r.General_Personal_InfoThirdParty_Optional__c;
+                acclnk.Targeted_Advertising_Info_Optional__c= acclnk.toRole__r.Targeted_Advertising_Info_Optional__c;				
             }
             //Checking the Company RecordType
             if(acclnk.toRole__r.RecordType.Name=='Company' && acclnk.fromRole__r.Dealer_Rollout_Status__c == 'Done')

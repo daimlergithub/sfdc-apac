@@ -52,8 +52,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             system.debug('createSharingRecord :');
             //#SFDCKR-1015
             AccountHelperKR.createSharingRecord ((Map<Id,Account>)Trigger.NewMap);
-            //SFDCKR-1207
-            AccountHelperKR.shareDealeroutletsWithDealerCompany(trigger.new);
+            
             
         } 
         if(isAfter && isUpdate && !System.isFuture())
@@ -98,6 +97,11 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
                 AccountHelperKR.updateOnEmailOptout(Trigger.new);
                 AccountHelperKR.updateAgeRange(Trigger.new);
             }
+			if(isAfter && isInsert && !System.isFuture())
+            {
+			//SFDCKR-1207 as per SFDCKR-1721 moved it to Integration user
+            AccountHelperKR.shareDealeroutletsWithDealerCompany(trigger.new);
+			}
         }
     }
 }

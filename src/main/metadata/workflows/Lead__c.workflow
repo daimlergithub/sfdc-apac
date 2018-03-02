@@ -312,6 +312,19 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	    <fieldUpdates>
+        <fullName>MBTH_Update_Lost_CAC_Date_Time</fullName>
+        <field>Lost_CAC_Date_Time__c</field>
+        <formula>IF ( 
+ISBLANK(Lost_CAC_Date_Time__c), 
+NOW(), 
+Lost_CAC_Date_Time__c
+)</formula>
+        <name>MBTH_Update Lost(CAC) Date Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Approve_Lead_Creation</fullName>
         <field>CAC_Lead_Status__c</field>
@@ -1476,7 +1489,7 @@ Purchased_Date_Time__c
             <name>Update_CAC_Lead_Status_to_Purchased</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND (3 OR 4  OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
@@ -1539,7 +1552,7 @@ Purchased_Date_Time__c
     <rules>
         <fullName>MBTH_Reassigned Lead %28Reverse Forwarding%29</fullName>
         <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(Dealer_Lead_Status__c ,'Accepted')),MD__c ='TH',OR(RecordType.Name ='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'), Assigned_Dealer__c &lt;&gt; NULL)</formula>
+        <formula>AND(NOT(ISPICKVAL(CAC_Lead_Status__c ,'Accepted')),MD__c ='TH',OR(RecordType.Name ='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'), Assigned_Dealer__c &lt;&gt; NULL)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -1805,7 +1818,7 @@ Purchased_Date_Time__c
         <criteriaItems>
             <field>Lead__c.Lead_Latest_Phase__c</field>
             <operation>equals</operation>
-            <value>Simple Estimation</value>
+            <value>Estimation</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -1815,7 +1828,7 @@ Purchased_Date_Time__c
             <name>To_update_CAC_Lead_Status</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND (3 OR 4 OR 5)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.Dealer_Lead_Status__c</field>
@@ -2380,7 +2393,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), MD__c = 'KR'),AND(MD__c="TH",ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), MD__c = 'KR'),AND(MD__c="TH",ISPICKVAL(CAC_Lead_Status__c,"Contact Failed For 3 Days"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2418,7 +2431,7 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'TH', (RecordType.Name ='Sales Leads'||RecordType.Name='Aftersales Leads'||RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer"), MD__c = 'KR'),AND(ISPICKVAL(CAC_Lead_Status__c,"First Contact Customer"), MD__c = 'TH', (RecordType.Name ='Sales Leads'||RecordType.Name='Aftersales Leads'||RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2684,7 +2697,7 @@ AND(ISCHANGED(OwnerId), (MD__c == &apos;MY&apos;))
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'KR'),AND(ISPICKVAL(CAC_Lead_Status__c,"Lost(Dealer)"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2705,7 +2718,7 @@ AND(ISCHANGED(OwnerId), (MD__c == &apos;MY&apos;))
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"),MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Order Placed"),MD__c = 'KR'),AND(ISPICKVAL(CAC_Lead_Status__c,"Order Placed"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2739,7 +2752,7 @@ AND(ISCHANGED(OwnerId), (MD__c == &apos;MY&apos;))
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"),MD__c="KR"),AND(MD__c="TH",OR(ISPICKVAL(CAC_Lead_Status__c,"Purchased"),ISPICKVAL(Dealer_Lead_Status__c,"Purchased")),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)"),MD__c="KR"),AND(MD__c="TH",ISPICKVAL(CAC_Lead_Status__c,"Purchased"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2817,7 +2830,7 @@ Function: update assigned date, recieved data and accepted date to now, and stat
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"),MD__c = 'KR'),AND(ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Test Drive"),MD__c = 'KR'),AND(ISPICKVAL(CAC_Lead_Status__c,"Test Drive"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

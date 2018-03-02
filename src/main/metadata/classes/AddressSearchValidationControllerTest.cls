@@ -246,7 +246,72 @@ public class AddressSearchValidationControllerTest
         test.stopTest();
         system.assertNotEquals(null, personAcc.id);
     }
-    
+              static testmethod void AddressSearchValidationControllerTestJP20(){
+          try {
+        createTestData();                   
+        ApexPages.currentPage().getParameters().put('recordType','Person Account');
+        ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+        AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+          test.startTest(); 
+           
+         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());  
+        JPAcccontroller.saveAccount();
+        JPAcccontroller.market = 'JP';
+        JPAcccontroller.selectedRecordType = 'Person Account';
+        JPAcccontroller.RecordType = 'Person Account';
+        JPAcccontroller.objPersonAccount = personAcc;
+        JPAcccontroller.objPersonAccount.LastName= 'ズ';
+       JPAcccontroller.objPersonAccount.FirstName = 'ジー';
+        JPAcccontroller.objPersonAccount.Data_Source__c = 'Dealers';
+        JPAcccontroller.objPersonAccount.Allow_Data_Sharing2__c = 'NO';
+        JPAcccontroller.objPersonAccount.FirstName_Native_1__c = 'ンズ';
+        JPAcccontroller.objPersonAccount.LastName_Native_1__c = 'ンズ';
+        JPAcccontroller.objPersonAccount.Status__c  ='Customer';
+        JPAcccontroller.objPersonAccount.PersonBirthdate = system.today()-10;
+       JPAcccontroller.objPersonAccount.Home_Phone_2__c = '012233111111';
+        JPAcccontroller.onLineDeduplication();
+        JPAcccontroller.saveAccount();      
+        JPAcccontroller.cancel();
+        JPAcccontroller.canceljp();
+        JPAcccontroller.validateAddressByZipCode();
+        JPAcccontroller.ValidateAddressCode(addressobj);
+        test.stopTest();
+        }
+        catch (Exception e){
+        system.assertNotEquals(null, personAcc.id);
+        System.Assert(e.getMessage().contains('Home Phone should be less than or equal to 11 digits'));
+        }
+    }
+              static testmethod void AddressSearchValidationControllerTestJP21(){
+        createTestData();                   
+     ApexPages.currentPage().getParameters().put('recordType','company');
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+          test.startTest(); 
+           
+         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());  
+        JPAcccontroller.saveAccount();
+        JPAcccontroller.market = 'JP';
+        JPAcccontroller.selectedRecordType = 'company';
+        JPAcccontroller.RecordType = 'company';
+        JPAcccontroller.objAccount = objAccount;
+        JPAcccontroller.objAccount.Name= 'testdata';
+       JPAcccontroller.objAccount.UCID__c = 'JSC000055666050';
+        JPAcccontroller.objAccount.Data_Source__c = 'Dealers';
+        JPAcccontroller.objAccount.Allow_Data_Sharing2__c = 'NO';
+        JPAcccontroller.objAccount.Company_Name__c = 'test';
+        JPAcccontroller.objAccount.Company_Name_Native_2__c = 'ンズ';
+        JPAcccontroller.objAccount.Status__c  ='Prospect';
+        JPAcccontroller.onLineDeduplication();
+        JPAcccontroller.saveAccount();      
+        JPAcccontroller.cancel();
+        JPAcccontroller.canceljp();
+        JPAcccontroller.validateAddressByZipCode();
+        JPAcccontroller.ValidateAddressCode(addressobj);
+        test.stopTest();
+        system.assertNotEquals(null, objAccount.id);
+        
+    }
     static testmethod void AddressSearchValidationControllerTest5()
     {
         createTestData();

@@ -19,6 +19,7 @@ public with sharing class CustomerMymercInterfaceController {
     public boolean cancelpop{get;set;}
    // public boolean oldpopup{get;set;}
     public boolean Newpopup{get;set;}
+     public boolean okcancelpop{get;set;}
     public string myMercId{get;set;}
     public string MyMercEmail{get;set;}
     public string RegOutlet{get;set;}
@@ -199,7 +200,8 @@ public with sharing class CustomerMymercInterfaceController {
          Accid = apexpages.currentpage().getparameters().get('id');
          accont = [select id,Data_Source__C, Allow_Data_Sharing2__c,Gender__c,Main_Dealer__c,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
          system.debug('+++++++++++++++++++++'+accont );
-         String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
+        // String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
+		String emailRegex=  '^([a-zA-Z0-9._]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$';
         Pattern MyPattern = Pattern.compile(emailRegex);
         system.debug('++++++++++++'+accont.LastName_Native_1__c);
         if(!String.isBlank(accont.LastName_Native_1__c)){
@@ -221,10 +223,10 @@ public with sharing class CustomerMymercInterfaceController {
             return null;
         }
         
-        if( (MyMercEmail == NULL || string.isBlank(MyMercEmail))  && (loginmobile == NULL  || string.isBlank(loginmobile))){
+       if( (MyMercEmail == NULL || string.isBlank(MyMercEmail))  && (loginmobile == NULL  || string.isBlank(loginmobile)) && okcancelpop ==true){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_MyMercedes_Email_Id_or_Login_Mobile));
             return null;
-        }
+          }
         else if(!string.isBlank(MyMercEmail) ){// && (!MyMercEmail.endsWith('.com') || !MyMercEmail.contains('@'));
             //String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!{}+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
             

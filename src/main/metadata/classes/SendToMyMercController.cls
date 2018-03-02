@@ -21,6 +21,7 @@ public with sharing class SendToMyMercController {
     public Id Person;
     public Id vehRelType;
     public Boolean result; 
+    public Boolean cancelpop{get;set;}
     public string emai3;
     public string mobile3{get;set;}
     public String FinalEmail{get;set;}
@@ -45,6 +46,7 @@ public with sharing class SendToMyMercController {
         accountRelatedData();
         loginmobileButton=true;
         cancelTrue=false;
+          cancelpop =true;
     }
     
     private List<AccountWrapper> accountRelatedData(){ 
@@ -187,7 +189,8 @@ public with sharing class SendToMyMercController {
         system.debug('&&*&*&*&*&*&&&&&&&& mobile3update'+mobile3update);
         
         if(!string.isBlank(Obj.PortalEmail) ){// && (!Obj.PortalEmail.endsWith('.com') || !Obj.PortalEmail.contains('@'));
-          String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
+          //String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
+      String emailRegex=  '^([a-zA-Z0-9._]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$';
             
             String CharSplit = Obj.PortalEmail.substringBefore('@');
             System.debug('+++++Split+++++++++++'+CharSplit );
@@ -323,7 +326,7 @@ public with sharing class SendToMyMercController {
             if(personBirthdate){
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.SendToMyMercedesJPUserErr));    
             }        
-            else if(accfinal != null && !accfinal.isEmpty()){
+            else if(accfinal != null && !accfinal.isEmpty() && cancelpop == true){
                 update accfinal.values();
                 if(accLinkFinal != NULL && !accLinkFinal.isEmpty()){
                     update accLinkFinal;
@@ -331,8 +334,21 @@ public with sharing class SendToMyMercController {
                 if(AccVehfinal != null && !AccVehfinal.isEmpty() ){
                     update AccVehfinal;
                 }
-                 pr = new PageReference('/'+vehpageid);
-                 pr.setRedirect(true);
+                
+                 if(cancelpop == true)
+         {
+           pr = new pagereference ('/'+vehpageid);
+         pr.setRedirect(true);
+       //  return pr;
+         }
+         if(cancelpop == false)
+         {
+          System.debug('^&^&^&^&^&^&^&^&^&^'+cancelpop);
+         pr = new pagereference ('/apex/SendVehicleInfoMyMercedes?id='+vehpageid);
+         pr.setRedirect(true);
+       //  return pr;
+         }
+        
             }
         }
         
