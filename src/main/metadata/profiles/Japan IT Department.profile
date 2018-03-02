@@ -2883,9 +2883,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.DMS_Customer_ID__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5442,6 +5442,11 @@
         <field>Account.Work_Phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.YA_CustomerIDList__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.ZipCode__c</field>
@@ -6506,6 +6511,11 @@
         <editable>false</editable>
         <field>Address__c.Updated_By_EP_Transactions__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.YA_CustomerIDList__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -16563,6 +16573,11 @@
         <field>Lead__c.X72H_Untouched__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.YA_Vehicle_Magic_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Manual__kav.Additional_Content__c</field>
@@ -24901,6 +24916,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Width__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.YA_Vehicle_Magic_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
