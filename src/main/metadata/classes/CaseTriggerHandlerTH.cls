@@ -16,6 +16,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 //CaseHelperTH.booleanCampaignUpdate=false;
                 caseHelperTHd.countRepeatComplaintCase(trigger.new,true);
                 //CaseHelperTH.caseclose(trigger.new,false);
+				
                 caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true);
         caseHelperTHd.updateCaseCreator(trigger.new);
