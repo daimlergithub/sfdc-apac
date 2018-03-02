@@ -38,7 +38,7 @@ public class CaseHelperMY {
     }
     
     public void updatemarket(List<case> cases){
-        caseHelperBaseInstance.updatemarket(cases);
+        caseHelperBase.updatemarket(cases);
     }
     
     public void CreateRetailCopy(List<case> cases, Map<Id,Case> oldValcase, boolean isInsert, boolean isUpdate, String market){

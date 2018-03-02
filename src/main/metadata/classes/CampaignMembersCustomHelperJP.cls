@@ -610,7 +610,7 @@ insert campMemShareList;
         Set<String> campaignMemberStatusSet = new Set<String>{'Bounced', 'Responded','Not Responded'};
         for(Campaign_Member__c campMem : afterCampMembers ){
             
-                if(campMem.Retail_Campaign_Id__c != null)
+                if(campMem.Retail_Campaign_Id__c != null && (campMem.Status__c=='Bounced'||campMem.Status__c=='Responded'||campMem.Status__c=='Not Responded')  )
                     parentRetailCampIds.add(campMem.Retail_Campaign_Id__c);
                        
         }

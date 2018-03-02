@@ -528,7 +528,7 @@ public class CaseHelperBase {
     }
     
 /* Data Migration Explicit Fix - Santosh Mohanty */
-    public void updatemarket(List<Case> caseList){        
+    public static void updatemarket(List<Case> caseList){        
         
                for(Case caseRec : caseList){
                     if(Test.isRunningTest()){
