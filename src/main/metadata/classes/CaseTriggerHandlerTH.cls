@@ -32,7 +32,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 caseHelperTHd.updatecommunityurl(Trigger.New);
              // caseHelperTHd.updateCaseDeadLineAmount(trigger.new);
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false);
-                CaseHelperTH.caseclose(trigger.new,Trigger.isInsert);
+                //CaseHelperTH.caseclose(trigger.new,Trigger.isInsert);
            }
         }
           

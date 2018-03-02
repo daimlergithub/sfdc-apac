@@ -18167,7 +18167,7 @@ Modify By:
 Modify Reason: 
 */
 Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</description>
- <defaultValue>IF(ISPICKVAL($User.Market__c,'KR'),'Prospect','')</defaultValue>
+ <defaultValue>IF(OR(ISPICKVAL($User.Market__c,'KR'),ISPICKVAL($User.Market__c,'TH')),'Prospect','')</defaultValue>
         <externalId>false</externalId>
         <label>Status</label>
         <picklist>
