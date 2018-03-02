@@ -29,6 +29,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 CaseHelperBase.updatemarket(Trigger.New);
                 caseHelperTHd.updatecommunityurl(Trigger.New);
                 caseHelperTHd.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false);
+				CaseHelperTH.caseclose(trigger.new,Trigger.isInsert);
            }
         }
           
