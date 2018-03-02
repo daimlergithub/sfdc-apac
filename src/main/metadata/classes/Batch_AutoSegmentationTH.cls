@@ -9,7 +9,7 @@ Id executionRecordId = RecordTypeAccessService.getRecordTypeId('Retail_Campaign_
 
 List<Network>  myNetwork = [SELECT Id,Name FROM Network];
        for(Network net:myNetwork){
-           if(net.name=='Daimler Community Thailand'){
+           if(net.name=='Dealer Community Thailand'){
            flag1=true;
            commubaseurl=Network.getLoginUrl(net.id)+'/';
            break;
@@ -22,7 +22,7 @@ if(!Test.isRunningTest()){
      return Database.getQueryLocator(query);
 }else{
   Date todaydate=DATE.TODAY();
-    Date nextdate=todaydate.addDays(1);
+    Date nextdate=todaydate.addDays(2);
     String query = 'Select Id,Name,owner.Email,OwnerId,Segmentation_Criteria__r.Criteria__c, Owner.Name from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: nextdate AND IsAutoSegmentationExecuted__c = false and recordtypeid=:executionRecordId';
      query+= ' AND MD__c=\'TH\'';
      return Database.getQueryLocator(query);
