@@ -6435,6 +6435,11 @@
         <field>Account.Work_Phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.YA_CustomerIDList__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.ZipCode__c</field>
@@ -7829,6 +7834,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.YA_CustomerIDList__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -18916,6 +18926,11 @@
         <field>Lead__c.X72H_Untouched__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.YA_Vehicle_Magic_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Loyalty_Card__c.Card_Renew_Date__c</field>
@@ -28440,6 +28455,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.Width__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.YA_Vehicle_Magic_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
