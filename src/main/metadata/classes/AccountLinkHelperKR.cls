@@ -610,7 +610,7 @@ public class AccountLinkHelperKR
        
         // Changing Sharing from User to Public Group
         system.debug('map_AccountIdAndListAccountLinkId :'+map_AccountIdAndListAccountLinkId);
-        List<Account> dealerAccList = [select Name,Dealer_ND_Code__c from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        List<Account> dealerAccList = [select Name,Dealer_ND_Code__c,RecordType.DeveloperName,RecordTypeId from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         system.debug('dealerAccList >> 1:'+dealerAccList);
         system.debug('dealerAccList >> 2:'+dealerAccList.size());
         Set<String> dealerAccNameSet = new Set<String>();
