@@ -825,7 +825,7 @@ public class AccountHelperTH {
         }
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(); //Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(); //Retriveing record type ID for Retail Company
-        List < Account_Link__c > Accountlinklist = [select id, Retail_Primary_Phone__c, toRole__r.Agreement_to_commit_info_processing__c, toRole__r.Personal_Information_Third_Party_Release__c, toRole__r.UCID__c, toRole__r.CDM_UCID__c, toRole__r.Personal_Abroad_Agreement__c, toRole__r.DMS_Retailer_ID__c, Name, toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
+        List < Account_Link__c > Accountlinklist = [select id, Retail_Address_Reference__c,Retail_Primary_Phone__c, toRole__r.Agreement_to_commit_info_processing__c, toRole__r.Personal_Information_Third_Party_Release__c, toRole__r.UCID__c, toRole__r.CDM_UCID__c, toRole__r.Personal_Abroad_Agreement__c, toRole__r.DMS_Retailer_ID__c, Name, toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
             toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, toRole__r.country__c,
             toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,
             toRole__r.Allow_Data_Sharing2__c, toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax, toRole__r.Primary_Address_Reference__r.Foreign_Nationals__c,
@@ -907,7 +907,7 @@ public class AccountHelperTH {
             acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
 
             //Checking Null for sales Address 
-            if (acclnk.toRole__r.Primary_Address_Reference__c != null) {
+            if (acclnk.toRole__r.Primary_Address_Reference__c != null && acclnk.Retail_Address_Reference__c == acclnk.toRole__r.Primary_Address_Reference__c) {
                 acclnk.Retail_Address_Reference__c = acclnk.toRole__r.Primary_Address_Reference__c;
                 acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
                 acclnk.Retail_Province__c = (acclnk.toRole__r.Primary_Address_Reference__r.Province__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.Province__c : '');
