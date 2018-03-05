@@ -111,8 +111,11 @@ public class AccountHelperTH {
         }
         else
         {
-            if(!Pattern.matches('[0-9]*', phon))
+            if(!Pattern.matches('\\+[0-9]*', phonestring))
             {
+                if(!phonestring.startswith('+')){
+                    return fields + ' country code should start with a "+"';
+                }
                 return fields + ' contain only Digits';
             }
             return phonestring.substring(0,3) + phon;
