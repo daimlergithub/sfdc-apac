@@ -2,11 +2,13 @@
 private class   CustomerMymercInterfaceControllerTest{
     static testMethod void Invokemeth1(){
     Profile p = [select id,UserLicense.Name from profile where name='Partner Community User'];
-    
-        Account ac = new Account(name='TestAcc',phone='0123456789',Portal_Email__c='test@gmail.com',Email2__c = 'testemail2@test1.com') ;
+       Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+     //Profile p = [select id,UserLicense.Name from profile where UserLicense.Name='Partner Community' limit 1];
+        Account ac = new Account(LastName = 'galaxy1',FirstName = 'First Name',phone='0123456789',Portal_Email__c='test@gmail.com',Email2__c = 'testemail2@test1.com', RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()) ;
         insert ac; 
-       
-        Contact con = new Contact(LastName ='testCon',AccountId = ac.Id);
+       Account ac1 = new Account(Name = 'First Name',phone='0123456789',Portal_Email__c='test@gmail.com',Email2__c = 'testemail2@test1.com') ;
+        insert ac1; 
+        Contact con = new Contact(LastName ='testCon',AccountId = ac1.Id);
         insert con;  
                   
         User user = new User(alias = 'test1234', email='test123@noemail.com',
@@ -22,22 +24,22 @@ private class   CustomerMymercInterfaceControllerTest{
         ApexPages.StandardController sc = new ApexPages.StandardController(ac);
         ApexPages.currentPage().getParameters().put('id', ac.Id);
         CustomerMymercInterfaceController  custmerobj = new CustomerMymercInterfaceController(sc);
-		try{
-				System.runAs(user){
-			    custmerobj.createContractSector();
-		}
-		custmerobj.createContractSector();
-		}catch(Exception e){}
+        try{
+                System.runAs(user){
+                custmerobj.createContractSector();
+        }
+        custmerobj.createContractSector();
+        }catch(Exception e){}
 
     ApexPages.currentPage().getParameters().put('recordID', acclinkobj.Id);
-	custmerobj.closePopup();
-	custmerobj.showPopup();
-	custmerobj.savepop();
-	custmerobj.mymercnew();
-	custmerobj.saveAndReturn();
-	custmerobj.Cancel();
-	custmerobj.MercedesmeDeletion();
-	custmerobj.createContractSector();
+    custmerobj.closePopup();
+    custmerobj.showPopup();
+    custmerobj.savepop();
+    custmerobj.mymercnew();
+    custmerobj.saveAndReturn();
+    custmerobj.Cancel();
+    custmerobj.MercedesmeDeletion();
+    custmerobj.createContractSector();
     
     }
 }

@@ -6,6 +6,7 @@ public with sharing class VehicleEditExtensionTest {
      public static string VehiclecompRecordtypeid = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('Competitor').getRecordTypeId();
  public static testMethod void testVehicle1()
     {
+    String recordType;
        Account personAcc = new Account(Dealer_Default_Flag__c=false,
                                 Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
                                 Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
@@ -55,8 +56,7 @@ public with sharing class VehicleEditExtensionTest {
       vehicleobj.Vehicle_Group__c='SUV';
       vehicleobj.BaumusterEx__c='LeftManual';
       vehicleobj.Competitor_Model__c='compModel';
-      insert vehicleobj;                         
-      
+      insert vehicleobj;     
       apexpages.currentpage().getparameters().put('id' , vehicleobj.id);
        ApexPages.StandardController objSc = new ApexPages.StandardController(vehicleobj);
       VehicleEditExtension cont = new VehicleEditExtension(objSc); 
@@ -331,6 +331,7 @@ public with sharing class VehicleEditExtensionTest {
       cont1.getcompmodels();
       cont1.saveveh();
       cont1.saveAndNew();
-      
+       cont1.getaddtype();
+       cont1.getclasstype();
     }
 }

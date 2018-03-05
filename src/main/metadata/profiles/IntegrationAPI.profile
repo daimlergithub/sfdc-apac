@@ -27427,8 +27427,13 @@
         <readable>true</readable>
     </fieldPermissions>
 	 <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Retail_company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Company_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
