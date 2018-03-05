@@ -28585,6 +28585,10 @@
         <tab>MBK_Customer_Search</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+        <tab>Vehicle__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <userLicense>Partner Community</userLicense>
     <userPermissions>
         <enabled>true</enabled>
