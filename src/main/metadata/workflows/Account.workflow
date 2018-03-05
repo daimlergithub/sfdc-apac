@@ -73,6 +73,15 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>	
+	<fieldUpdates>
+        <fullName>Change_Status_To_Prospect</fullName>
+        <field>Status__c</field>
+        <literalValue>Prospect</literalValue>
+        <name>Change Status To Prospect</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Data_Source_field_update</fullName>
         <description>Added DataSource as Dealer Outlet</description>
@@ -527,6 +536,17 @@
         <active>true</active>
         <formula>AND(NOT(ISPICKVAL(Personal_Agreement_Service_24h__c,&apos;&apos;)),ISBLANK(PRIORVALUE(Agreement_Date_for_Service_24h_Consent__c)) ,MD__c == &apos;KR&apos;,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Change Account Status To Prospect</fullName>
+        <actions>
+            <name>Change_Status_To_Prospect</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This will Change Account Status To Prospect for thailand accounts at the time of create depends on vehicle amount</description>
+        <formula>AND(OR(ISBLANK(Vehicle_Amount__c ),Vehicle_Amount__c  = 0 ),MD__c=&apos;TH&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Change Preferred phone to null</fullName>

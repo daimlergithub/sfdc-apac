@@ -578,7 +578,11 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                   acc.Unique_Identity_Info_ThirdParty_Optional__c!=oldAccountmap.get(acc.id).Unique_Identity_Info_ThirdParty_Optional__c||
                   acc.General_Personal_Information_Optional__c!=oldAccountmap.get(acc.id).General_Personal_Information_Optional__c||
                   acc.General_Personal_InfoThirdParty_Optional__c!=oldAccountmap.get(acc.id).General_Personal_InfoThirdParty_Optional__c||
-                  acc.Targeted_Advertising_Info_Optional__c!=oldAccountmap.get(acc.id).Targeted_Advertising_Info_Optional__c)
+                  acc.Targeted_Advertising_Info_Optional__c!=oldAccountmap.get(acc.id).Targeted_Advertising_Info_Optional__c||
+				  acc.Personal_Agreement_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Agreement_CC_Old__c||
+				  acc.Personal_Info_Third_Party_Release_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Info_Third_Party_Release_CC_Old__c||
+				  acc.Agreement_to_commit_info_proces_CC_Old__c!=oldAccountmap.get(acc.id).Agreement_to_commit_info_proces_CC_Old__c||
+				  acc.Personal_Abroad_Agreement_CC_Old__c!=oldAccountmap.get(acc.id).Personal_Abroad_Agreement_CC_Old__c)
                 {
                     AccountIds.add(acc.id);
                 }
