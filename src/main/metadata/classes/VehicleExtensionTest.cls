@@ -101,7 +101,7 @@ public class VehicleExtensionTest {
      
      //create test data
       createCarModel();
-         
+         boolean profileval =true;
       //start test
       test.startTest();
       Vehicle__c vehicle = new Vehicle__c(Recall__c = FALSE,
@@ -125,7 +125,7 @@ public class VehicleExtensionTest {
        objVehicleExtension.saveVal();
        objVehicleExtension.saveAndNew();
        //objVehicleExtension.save();
-       //objVehicleExtension.Cancel();
+       objVehicleExtension.Cancel();
       //stop test
       test.stopTest();
         
@@ -162,7 +162,8 @@ public class VehicleExtensionTest {
        objVehicleExtension.saveVal();
        objVehicleExtension.saveAndNew();
      // objVehicleExtension.save();
-       //objVehicleExtension.Cancel();
+       objVehicleExtension.Cancel();
+       objVehicleExtension.getnewusedOptions();
       //stop test
       test.stopTest();
         
