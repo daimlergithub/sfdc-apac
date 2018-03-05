@@ -1,6 +1,6 @@
 @istest
 public class UtilTaskTHTest{
-    public static String  OBCAllTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','OB Task');
+    public static String  OBCAllTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','OB Call');
     public static String  DMTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','DM');
     public static String  SMSTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','SMS');
     public static String  eDMTaskRecordTypeId = RecordTypeAccessService.getRecordTypeId('Task','eDM');
@@ -47,7 +47,7 @@ public class UtilTaskTHTest{
  	static testMethod void DMTaskRecordTypeIdTest() {
         system.runas(user1){
             Test.startTest();
-             testdata(DMTaskRecordTypeId,new List<String>{'Open','Sent','Returned/Failed'});
+             testdata(DMTaskRecordTypeId,new List<String>{'Open','Sent','Returned'});
             Test.stopTest();
         }     
 	}
