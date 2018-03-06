@@ -69,7 +69,20 @@ private class RetailTaskSharingTest {
     static void testWrapRetailTasks() {
         Test.startTest();
           RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();        
-          List<SharingWrapper> wrapRetailTasks=wrapService.wrapRetailTasks(new List<Retail_Task__c>{service, retailActivity, contract});
+          List<SharingWrapper> wrapRetailTasks=wrapService.wrapRetailTasks(new List<Retail_Task__c>{service,retailActivity,contract});
+          
+      Test.stopTest();
+        System.assertNotEquals(null,wrapRetailTasks);
+        
+    }
+    
+   
+    
+    @isTest
+    static void testWrapRetailTasksTH() {
+        Test.startTest();
+          RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();        
+          List<SharingWrapper> wrapRetailTasks=wrapService.wrapRetailTasksTH(new List<Retail_Task__c>{service});
       Test.stopTest();
         System.assertNotEquals(null,wrapRetailTasks);
     }

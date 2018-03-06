@@ -25378,7 +25378,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>User.DMS_UserID__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -25403,7 +25403,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>User.Dealer_ND_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
