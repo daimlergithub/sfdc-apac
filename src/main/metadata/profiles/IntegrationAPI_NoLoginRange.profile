@@ -16548,11 +16548,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.icrt__AeGuide_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>FAQ__kav.Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -27484,11 +27479,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.eDM_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.icrt__AeGuide_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
