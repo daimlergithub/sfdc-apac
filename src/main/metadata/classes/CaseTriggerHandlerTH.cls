@@ -45,6 +45,7 @@ public class CaseTriggerHandlerTH implements TriggerHandlerIf
                 caseHelperTHd.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate);
                 caseHelperTHd.calculateComplaintAmount(trigger.new);
                 CaseHelperTH.sendReminderEmail(Trigger.newMap,Trigger.oldMap);
+				CaseHelperTH.callCaseUpdateInformaticaURL(Trigger.newMap);
             }
            
         }

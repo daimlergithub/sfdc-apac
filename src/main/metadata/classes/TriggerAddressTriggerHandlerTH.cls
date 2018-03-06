@@ -37,7 +37,7 @@ public class TriggerAddressTriggerHandlerTH implements TriggerHandlerIf
             }
             
             if ((Trigger.isAfter && Trigger.isUpdate)){
-                
+                AddressHelperTH.updateAcclinkAddress(trigger.new);
                 AddressHelperTH.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
             }
             
