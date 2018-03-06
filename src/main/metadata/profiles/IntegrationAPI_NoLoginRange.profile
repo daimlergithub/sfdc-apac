@@ -724,10 +724,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CampaignHelperTHTestClass</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CampaignHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
