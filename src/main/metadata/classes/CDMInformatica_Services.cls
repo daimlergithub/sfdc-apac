@@ -271,7 +271,111 @@ public Class CDMInformatica_Services extends CDMServices {
         }
 
     }
-
+	
+    /*@Owner: Tejbir By TH
+     @Description: When case is updated,this method will hit Informatica case update URL to fetch data from case and send back to COS.
+    */
+     @future(callout = true)
+    public static void sendCaseDetailsToCOS(List <Id> caseIdLst, string Market, string context)
+    {
+        HttpResponse res = new HttpResponse();
+        String Endpoint = null;
+        String serializedLeadobj = null;
+        
+        CDM_Integration_URLs__c caseCDMURLObj=CDM_Integration_URLs__c.getInstance('TH-Case Update');
+        if(caseCDMURLObj!=null)
+        {
+            if(caseCDMURLObj.Context__c=='Case' && caseCDMURLObj.Country__c==Market && caseCDMURLObj.Type__c==context)
+            {
+                Endpoint = caseCDMURLObj.Informatica_URL__c;
+            }
+            if(String.isNotBlank(Endpoint))
+            {
+                Map < string, string > headerCDM = new Map < string, string > ();
+                headerCDM.put('Content-Type', 'application/json');
+                
+                string body = '[';
+                List<Case> caseObjLst=[Select Id,AccountId from case where Id IN:caseIdLst];
+                for (integer i = 0; i < caseObjLst.size(); i++) {
+                    if (body.length() == 1)
+                        body = body + '{"attributes":{"type":"Case","url":"/services/data/v41.0/sobjects/Case/' + caseObjLst[i].Id + '"},"CaseID":"' + caseObjLst[i].Id + '","AccountID":"'+caseObjLst[i].AccountId+'","CaseCommentID":""}';
+                    else
+                        body = body + ',{"attributes":{"type":"Case","url":"/services/data/v41.0/sobjects/Case/' + caseObjLst[i].Id + '"},"CaseID":"' + caseObjLst[i].Id + '","AccountID":"'+caseObjLst[i].AccountId+'","CaseCommentID":""}';
+                }
+                body = body + ']';
+                res = CalloutHandlerService.sendCalloutForPost('POST', Endpoint, 60000, headerCDM, null, body);
+            }
+        }
+    }
+    
+    /*@Owner: Tejbir By TH
+     @Description: When case comment is updated,this method will hit Informatica case update URL to fetch data from case and case comment and send back to COS.
+    */
+     @future(callout = true)
+    public static void sendCaseCommentDetailsToCOS(List <Id> caseCommentIdLst, string Market, string context)
+    {
+        HttpResponse res = new HttpResponse();
+        String Endpoint = null;
+        String serializedLeadobj = null;
+        
+        CDM_Integration_URLs__c caseCDMURLObj=CDM_Integration_URLs__c.getInstance('TH-Case Update');
+        if(caseCDMURLObj!=null)
+        {
+            if(caseCDMURLObj.Context__c=='Case' && caseCDMURLObj.Country__c==Market && caseCDMURLObj.Type__c==context)
+            {
+                Endpoint = caseCDMURLObj.Informatica_URL__c;
+            }
+            if(String.isNotBlank(Endpoint))
+            {
+                Map < string, string > headerCDM = new Map < string, string > ();
+                headerCDM.put('Content-Type', 'application/json');
+                
+                string body = '[';
+                List<CaseComment> caseCommentLst;
+                List<Case> caseObjLst;
+                Map<Id,Id> caseCommentId2caseIdMap=new Map<Id,Id>();
+                Map<Id,Id> caseId2AccountIdMap=new Map<Id,Id>();
+                if(caseCommentIdLst!=null && caseCommentIdLst.size()>0)
+                {
+                	caseCommentLst=[Select Id,parentId from CaseComment where ID IN:caseCommentIdLst];    
+                }
+                if(caseCommentLst!=null && caseCommentLst.size()>0)
+                {
+                    for(CaseComment cc:caseCommentLst)
+                    {
+                        caseCommentId2caseIdMap.put(cc.Id, cc.parentId);
+                    }
+                    if(caseCommentId2caseIdMap!=null && caseCommentId2caseIdMap.size()>0)
+                    {
+                       caseObjLst=[Select Id,AccountId from case where Id IN:caseCommentId2caseIdMap.values()]; 
+                    }
+                    if(caseObjLst!=null && caseObjLst.size()>0)
+                    {
+                        for(Case caseObj:caseObjLst)
+                        {
+                            caseId2AccountIdMap.put(caseObj.Id, caseObj.AccountId);
+                        }
+                    }
+                    
+                }
+                
+                if(caseCommentLst!=null && caseCommentLst.size()>0)
+                {
+                    for (integer i = 0; i < caseCommentLst.size(); i++) {
+                        if (body.length() == 1)
+                            body = body + '{"attributes":{"type":"CaseComment","url":"/services/data/v41.0/sobjects/CaseComment/' + caseCommentLst[i].Id + '"},"CaseID":"' + caseCommentLst[i].parentId + '","AccountID":"'+caseId2AccountIdMap.get(caseCommentLst[i].parentId)+'","CaseCommentID":"'+caseCommentLst[i].Id+'"}';
+                        else
+                            body = body + ',{"attributes":{"type":"CaseComment","url":"/services/data/v41.0/sobjects/CaseComment/' + caseCommentLst[i].Id + '"},"CaseID":"' + caseCommentLst[i].parentId + '","AccountID":"'+caseId2AccountIdMap.get(caseCommentLst[i].parentId)+'","CaseCommentID":"'+caseCommentLst[i].Id+'"}';
+                    }
+                    body = body + ']';
+                    res = CalloutHandlerService.sendCalloutForPost('POST', Endpoint, 60000, headerCDM, null, body);
+                }
+                
+            }
+        }
+    }
+    
+    
 
 
 
