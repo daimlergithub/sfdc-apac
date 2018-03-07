@@ -436,8 +436,8 @@
         <fields>Retail_Duplicate_Flag__c</fields>
         <fields>Active__c</fields>
         <fields>Start_Date__c</fields>
-        <fields>UPDATEDBY_USER</fields>
 		<fields>End_Date__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Asc</sortOrder>

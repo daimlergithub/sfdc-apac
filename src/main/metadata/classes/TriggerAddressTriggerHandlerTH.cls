@@ -62,5 +62,11 @@ public class TriggerAddressTriggerHandlerTH implements TriggerHandlerIf
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)        
     {                
         //Integration related code to be added here.
+		if(isAfter && isinsert){
+            if(TriggerRecursiveCheck.run){
+                TriggerRecursiveCheck.runOnce();
+                AddressHelperTH.updateSalesAddressAccount((map<id,Address__c>)trigger.newMap);
+            }
+        }
     }  
 }

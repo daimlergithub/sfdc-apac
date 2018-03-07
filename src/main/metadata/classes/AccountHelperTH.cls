@@ -1,4 +1,4 @@
-/**
+/* *
 * Utility for Trigger on Account for TH(Thailand)
 * Author: Mohammed Touseef Ahmed
 *Dhanamjaya  modfied
@@ -646,7 +646,7 @@ public class AccountHelperTH {
                         acclnk.fromRole__c = usr.Contact.AccountId;
                         acclnk.toRole__c = retailacc.Id;
                         acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
-                        acclnk.Retail_Company_Name__c = retailacc.name;
+                        acclnk.Retail_Company_Name__c = retailacc.Company_Name__c;
                         acclnk.Retail_Mobile__c = retailacc.Mobile__c;
                         acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
                         acclnk.Retail_Fax_OptOut__c = retailacc.PersonHasOptedOutOfFax;
@@ -825,7 +825,7 @@ public class AccountHelperTH {
         }
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(); //Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(); //Retriveing record type ID for Retail Company
-        List < Account_Link__c > Accountlinklist = [select id, Retail_Address_Reference__c,Retail_Primary_Phone__c, toRole__r.Agreement_to_commit_info_processing__c, toRole__r.Personal_Information_Third_Party_Release__c, toRole__r.UCID__c, toRole__r.CDM_UCID__c, toRole__r.Personal_Abroad_Agreement__c, toRole__r.DMS_Retailer_ID__c, Name, toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
+        List < Account_Link__c > Accountlinklist = [select id, Retail_Address_Reference__c,Retail_Primary_Phone__c, toRole__r.Agreement_to_commit_info_processing__c, toRole__r.Personal_Information_Third_Party_Release__c, toRole__r.UCID__c, toRole__r.CDM_UCID__c, toRole__r.Personal_Abroad_Agreement__c, toRole__r.DMS_Retailer_ID__c, Name, toRole__r.RecordType.Name,toRole__r.Company_Name__c, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
             toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, toRole__r.country__c,
             toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,
             toRole__r.Allow_Data_Sharing2__c, toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax, toRole__r.Primary_Address_Reference__r.Foreign_Nationals__c,
@@ -880,7 +880,7 @@ public class AccountHelperTH {
             }
             //Checking the Company RecordType
             if (acclnk.toRole__r.RecordType.Name == 'Company') {
-                acclnk.Retail_Company_Name__c = acclnk.toRole__r.Name;
+                acclnk.Retail_Company_Name__c = acclnk.toRole__r.Company_Name__c;
                 acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;

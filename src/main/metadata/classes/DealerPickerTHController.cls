@@ -134,6 +134,8 @@ public with Sharing class DealerPickerTHController {
        message.setTemplateid(temp.id);
        message.setTargetObjectId(retcamp.ownerid);
        message.setSaveAsActivity(false);
+       message.setCharset('UTF-8');
+        message.setSubject('The Planning and Design Campaign'+retcamp.name+'  is Assigned to you'); 
        String returl=URL.getSalesforceBaseUrl().toExternalForm()+'/'+retcamp.id;
        string body=temp.Body.replace('{!Retail_Campaign__c.Name}',retcamp.name).replace('{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id}',commubaseurl).replace('{!Retail_Campaign__c.Link}',returl);
        message.setPlainTextBody(body);
