@@ -332,7 +332,7 @@ public without sharing class createRetailCopy {
                             newAlk.createddate__c = accList.createdDate;
                             newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                             newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                            newAlk.Retail_Company_Name__c = accList.name;
+                            newAlk.Retail_Company_Name__c = accList.Company_Name__c;
                             newAlk.Retail_Mobile__c = accList.Mobile__c;
                             newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
                             newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;
@@ -607,7 +607,7 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_Email__c = accList.email__c;
                         newAlk.Retail_UCID__c = accList.UCID__c;
                         newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                        newAlk.Retail_Company_Name__c = accList.name;
+                        newAlk.Retail_Company_Name__c = accList.Company_Name__c;
                         newAlk.Retail_Mobile__c = accList.Mobile__c;
                         newAlk.Retail_Company_Name_Native1__c = accList.Company_Name_Native_1__c;
                         newAlk.Retail_Preferred_Language__c = accList.Preferred_Language__c;
