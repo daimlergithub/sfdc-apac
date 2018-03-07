@@ -342,7 +342,7 @@ public without sharing class AddressSelectionforExistingCustomer {
                             newAlk.LastModifiedDate__c = accList.LastmodifiedDate;
                             newAlk.createddate__c = accList.createdDate;
                             newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                            newAlk.Retail_Company_Name__c = accList.name;
+                            newAlk.Retail_Company_Name__c = accList.Company_Name__c;
                             newAlk.Retail_Mobile__c = accList.Mobile__c;
                             newAlk.Retail_Company_Phone__c = accList.Individual_Home_Phone__c;
                             newAlk.Retail_Company_Other_Phone__c = accList.Work_Phone__c;

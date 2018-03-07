@@ -83,7 +83,7 @@ system.debug('&******************'+cpList);
                     Campaign.Execution_Type__c, Campaign.Name, Contact.DUP_Number__c, Campaign.Template_Name__c, Campaign.DM_Material__c, Campaign.Flow_URL__c,
                     Campaign.Template__r.Subject__c, Campaign.Template__r.Template_ID__c,
                     Campaign.Parent.Task_De_dup_Range__c,
-                    Campaign.Parent.ParentId, Campaign.EndDate,
+                    Campaign.Parent.ParentId, Campaign.EndDate,Campaign.StartDate,
                     Campaign.Previous_Campaign_Execution__c,
                     Campaign.Template__c, Status, Campaign.OwnerId, Campaign.MD__c,Campaign.Campaign_Code__c, Campaign.OBSMSTemplate__c, 
                     Campaign.OBSMSTemplate__r.Message_Detail__c, Campaign.OBSMSTemplate__r.Template_ID__c, Campaign.Questionnaire__c
@@ -176,7 +176,7 @@ system.debug('&******************'+cpList);
                 Task tsk = new Task();
                 //SB2017 Sushma Bharti
                 //'IF' condition added for MY for blank subject for auto created tasks
-                if(cpm.Campaign.MD__c!='MY'){
+                if(cpm.Campaign.MD__c!=Label.MarketMY){
                 tsk.Subject= strOBCall;
                 } 
                 else{
@@ -186,6 +186,19 @@ system.debug('&******************'+cpList);
                 if(cpm.Campaign.MD__c=='TH'){
                 tsk.RecordTypeId = taskRecordTypeMap.get('OB Call').getRecordTypeId();
                 }
+				//SB2018
+				else if(cpm.Campaign.MD__c==Label.MarketMY){
+				    tsk.RecordTypeId = taskRecordTypeMap.get('OB Call').getRecordTypeId();
+				    if(cpm.Campaign.Enddate!=null){
+						tsk.ActivityDate = cpm.Campaign.Enddate;       
+					}          
+					else if(cpm.Campaign.StartDate!=null){                                                                          
+						tsk.ActivityDate = cpm.Campaign.StartDate;       
+					}
+					else{
+							tsk.ActivityDate = date.today();
+					}                                                                              
+				}  
                 tsk.Status = strOpenStatus;
                 tsk.DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c); 
                 tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
@@ -197,6 +210,18 @@ system.debug('&******************'+cpList);
                 {
                     tsk.ActivityDate = cpm.Campaign.EndDate;
                 }
+				//SB2018
+			    else if(loggedinUser.Market__c==Label.MarketMY){
+				    if(cpm.Campaign.Enddate!=null){
+						tsk.ActivityDate = cpm.Campaign.Enddate;       
+					}          
+					else if(cpm.Campaign.StartDate!=null){                                                                          
+						tsk.ActivityDate = cpm.Campaign.StartDate;       
+					}
+					else{
+							tsk.ActivityDate = date.today();
+					}                                                                              
+				} 
                 else
                 {
                     tsk.ActivityDate = date.today();
@@ -213,7 +238,7 @@ system.debug('&******************'+cpList);
                        tsk.OwnerId =usr_th[0].Id;
                     }
                     else{
-                    if(loggedinUser.Market__c=='MY' || loggedinUser.Market__c=='KR'){
+                    if(loggedinUser.Market__c==Label.MarketMY || loggedinUser.Market__c=='KR'){
                     tsk.OwnerId = cpm.Campaign.OwnerId;
                     }
                     else{

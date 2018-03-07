@@ -192,6 +192,19 @@
         <label>AddressFieldset</label>
     </fieldSets>
     <fields>
+        <fullName>Account_Link__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Link</label>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Addresses</relationshipLabel>
+        <relationshipName>Addresses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Address_Code__c</fullName>
         <externalId>false</externalId>
         <label>Address Code</label>
@@ -353,6 +366,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Building_name__c</fullName>
+        <externalId>false</externalId>
+        <label>Building name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>City_Native__c</fullName>
         <externalId>false</externalId>
         <label>City Native</label>
@@ -499,6 +523,15 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Defualt_address__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Defualt - address</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Delivery_Point_ID__c</fullName>
         <externalId>false</externalId>
         <label>Delivery Point ID</label>
@@ -530,6 +563,19 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FS_Contract__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>FS Contract</label>
+        <referenceTo>FS_Contract__c</referenceTo>
+        <relationshipLabel>Addresses</relationshipLabel>
+        <relationshipName>Addresses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>FS_Hardcopy_Last_Modified_By__c</fullName>
@@ -1152,6 +1198,52 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Stay_Years__c</fullName>
+        <externalId>false</externalId>
+        <label>Stay (Years)</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Stay_months__c</fullName>
+        <externalId>false</externalId>
+        <label>Stay (months)</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Street_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Street Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Street_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Street No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sub_District__c</fullName>
         <externalId>false</externalId>
         <label>Sub District</label>
@@ -1221,6 +1313,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Unit_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Unit No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -1245,7 +1348,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>ZipCode__c</fullName>
         <externalId>false</externalId>
         <label>Post Code</label>
-        <length>8</length>
+        <length>20</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>

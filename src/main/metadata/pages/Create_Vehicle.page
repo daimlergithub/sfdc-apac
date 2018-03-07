@@ -444,7 +444,7 @@
                      <apex:inputField value="{!vehicle.EuroVIN__c}"/>
                      <apex:pageBlockSectionItem >
                                          <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Class__c.Label}" />                
-                                         <select id="classItems1" style="width:174px" ng-model="selectedClasses" ng-blur="setModelValue(selectedBrand+selectedClasses)" ng-change="setModelValue(selectedBrand+selectedClasses)" ng-options="class for class in relatedClasses track by class"/>              
+                                         <select id="classItems1" style="width:174px" ng-model="selectedClasses" ng-init="selectedClasses='Unknown'" ng-blur="setModelValue(selectedBrand+selectedClasses)" ng-mousemove="setModelValue(selectedBrand+selectedClasses)" ng-options="class for class in relatedClasses track by class"/>              
                                   </apex:pageBlockSectionItem>
            <apex:pageBlockSectionItem >
                                  <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Brand__c.Label}" />
@@ -460,10 +460,17 @@
                                              </table>
                                             </div>
                                   </apex:pageBlockSectionItem>
-                                   <apex:pageBlockSectionItem >
+                                  
+                                   <apex:pageBlockSectionItem rendered="{!marketcheck !='JP'}">
                                          <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Range__c.Label}" />
                                          <select id="rangeItems1" style="width:174px" ng-blur="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-change="setSelectedRange(selectedBrand+selectedClasses+selectedModel+selectedRange)" ng-model="selectedRange" ng-options="range for range in ranges track by range"/>                          
-                                   </apex:pageBlockSectionItem>      
+                                   </apex:pageBlockSectionItem>   
+                                    <apex:pageBlockSectionItem rendered="{!marketcheck =='JP'}">
+                                         <apex:outputLabel value="" />
+                                         <input id="rangeItems1" style="width:0px;background-color:#F5F5F5;" disabled="disabled"  />                          
+                                   </apex:pageBlockSectionItem> 
+                                    
+                                 
                                    <apex:pageBlockSectionItem > 
                                          <apex:outputLabel value="{!$ObjectType.Vehicle__c.fields.Model__c.Label}"  />
                                          <div>

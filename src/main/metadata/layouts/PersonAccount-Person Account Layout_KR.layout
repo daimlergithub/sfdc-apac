@@ -546,11 +546,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Agreement_Date_for_CC_Old__c</field>
+                <field>Agreement_Date_for_CC_Old__c</field> 
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Expiration_Date_for_CC_Old__c</field>
+                <field>Expiration_Date_for_CC_Old__c</field> 
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

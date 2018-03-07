@@ -50,6 +50,16 @@ public class UpdatecampaignmemwithrefreshTest {
            //Updatecampaignmemwithrefresh.Refreshretcampaignmember(campId1);
         test.stopTest();
     }
+    	
+    @isTest
+    public static void batchRefresh(){
+	   createData();
+       String campId = objChildCamp.Id; 
+       test.startTest();
+          Batch_RefreshButton batcher = new Batch_RefreshButton(campId );
+          Database.executeBatch(batcher, 300);
+       test.stopTest();
+    }
     
     public static void createData(){
     

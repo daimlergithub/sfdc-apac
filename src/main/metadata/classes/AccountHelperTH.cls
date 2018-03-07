@@ -1,4 +1,4 @@
-/**
+/* *
 * Utility for Trigger on Account for TH(Thailand)
 * Author: Mohammed Touseef Ahmed
 *Dhanamjaya  modfied
@@ -55,140 +55,202 @@ public class AccountHelperTH {
     }
 
 
-    public static String validate(string phonestring, integer num, String fields, integer len, integer digits) {
+    //Modified:    Mrinalini Chandra
+    public static String RemoveZeroes(string phonestring, integer num)
+    {
         integer i;
-        string phon = '';
-        for (i = num; i < phonestring.length(); i++) {
-            if (phonestring.substring(i, i + 1) == '0') {
+        string phon='';
+        for(i=num ; i < phonestring.length(); i++)
+        {
+            if(phonestring.substring(i,i+1) == '0')
+            {
                 continue;
-            } else {
-                phon = phonestring.substring(i);
-
+            }
+            else
+            {
+                phon=phonestring.substring(i);
                 break;
             }
         }
-        //outside for loop
-        //after removing zero's if phone size is less than 8 through error 
-        if (phon.length() < len) {
-            if (fields != 'Mobile') {
-                return fields + ' contain only Digits and ' + digits + '  Digits with format +66DDDDDDDD or it can be in the format of DDDDDDDD';
-            } else {
-                return fields + ' contain only Digits and ' + digits + '  Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
-            }
-
-        } else if (fields == 'Mobile' && !Pattern.matches('[0-9]{9}', phon)) {
-
-            return fields + ' Phone contain only Digits and ' + digits + ' Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
-        } else if (!Pattern.matches('[0-9]{8}', phon) && fields != 'Mobile') {
-            return fields + ' contain only Digits and ' + digits + ' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
-        } else {
-            return '+66' + phon;
-        }
-
+        return phon;
     }
-    public static void ValidatePhoneNumberonBeforeEvents(list < Account > listNewAccounts) {
-        String individualphone = '+66';
-        for (Account acc: listNewAccounts) {
-            if (acc.RecordTypeId != dealer_RecordTypeId && acc.md__c == 'TH') {
-                if (!(String.IsBlank(acc.Individual_Home_Phone__c)) && acc.Individual_Home_Phone__c.length() > 3) {
+    
+     //Modified:    Mrinalini Chandra
+     public static  String validate(string phonestring, integer num, String fields, integer len, integer digits)
+     {
+        string phon = '';
+        phon = RemoveZeroes(phonestring,num);
+                
+        //outside for loop
+        if(phonestring.startsWith('+66'))
+        {
+            if(phon.length()<len)
+            {
+                if(fields!='Mobile')
+                {
+                    return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDD or it can be in the format of DDDDDDDD';
+                }
+                else
+                {
+                    return fields+ ' contain only Digits and '+ digits+'  Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
+                }
+                
+            }
+            else if( fields == 'Mobile' && !Pattern.matches('[0-9]{9}',phon))
+            {    
+                return fields+' Phone contain only Digits and '+ digits+' Digits with format +66DDDDDDDDD or it can be in the format of DDDDDDDDD';
+            }
+            else if(!Pattern.matches('[0-9]{8}',phon) && fields != 'Mobile')
+            {
+                return fields+' contain only Digits and '+ digits+' Digits with format +66DDDDDDDD  or it can be in the format of DDDDDDDD';
+            }
+            else
+            {
+               return phonestring.substring(0,3) + phon;
+            }
+        }
+        else
+        {
+            if(!Pattern.matches('\\+[0-9]*', phonestring))
+            {
+                if(!phonestring.startswith('+')){
+                    return fields + ' country code should start with a "+"';
+                }
+                return fields + ' contain only Digits';
+            }
+            return phonestring.substring(0,3) + phon;
+        }       
+    }
+    
+    
+    //Modified:    Mrinalini Chandra
+    //Modified the code for validations of phone number not starting from +66
+    
+     public static void ValidatePhoneNumberonBeforeEvents( list <Account> listNewAccounts)
+     {
+         String individualphone = '+66';
+         for(Account acc : listNewAccounts)
+         {
+             if(acc.RecordTypeId != dealer_RecordTypeId && acc.md__c == 'TH')
+             {
+                 if(!(String.IsBlank(acc.Individual_Home_Phone__c)) && acc.Individual_Home_Phone__c.length() > 3)
+                 {
                     //if user inputs more than one zero after +66 it will remove all the zero's
                     //if the Individual_Home_Phone__c starts with zero then find zero in third position 
-                    if (acc.Individual_Home_Phone__c.startsWith('+66')) {
-                        String restultstring = validate(acc.Individual_Home_Phone__c, 3, 'Home Phone', 8, 11);
-                        if (restultstring.startswith('Home Phone')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Individual_Home_Phone__c = restultstring;
-                        }
-                    } else {
-
-                        String restultstring = validate(acc.Individual_Home_Phone__c, 0, 'Home Phone', 8, 11);
-                        if (restultstring.startswith('Home Phone')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Individual_Home_Phone__c = restultstring;
-                        }
-                    }
-                }
-
-
-                if (!(String.IsBlank(acc.Work_Phone__c)) && acc.Work_Phone__c.length() > 3) {
-                    //if user inputs more than one zero after +66 it will remove all the zero's
-                    //if the Work_Phone__c starts with zero then find zero in third position 
-                    if (acc.Work_Phone__c.startsWith('+66')) {
-                        String restultstring = validate(acc.Work_Phone__c, 3, 'WorkPhone', 8, 11);
-                        if (restultstring.startswith('WorkPhone')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Work_Phone__c = restultstring;
-                        }
-                    } else {
-
-                        String restultstring = validate(acc.Work_Phone__c, 0, 'WorkPhone', 8, 11);
-                        if (restultstring.startswith('WorkPhone')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Work_Phone__c = restultstring;
-                        }
-                    }
-                }
-                if (!(String.IsBlank(acc.FAX)) && acc.FAX.length() > 3) {
-                    //if user inputs more than one zero after +66 it will remove all the zero's
-                    //if the Work_Phone__c starts with zero then find zero in third position 
-                    if (acc.FAX.startsWith('+66')) {
-                        String restultstring = validate(acc.FAX, 3, 'FAX', 8, 11);
-                        if (restultstring.startswith('FAX')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.FAX = restultstring;
-                        }
-                    } else {
-
-                        String restultstring = validate(acc.FAX, 0, 'FAX', 8, 11);
-                        if (restultstring.startswith('FAX')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.FAX = restultstring;
-                        }
-                    }
-                }
-                if (!(String.IsBlank(acc.Mobile__c)) && acc.Mobile__c.length() > 3) {
-                    //if user inputs more than one zero after +66 it will remove all the zero's
-                    //if the Work_Phone__c starts with zero then find zero in third position 
-                    if (acc.Mobile__c.startsWith('+66')) {
-                        String restultstring = validate(acc.Mobile__c, 3, 'Mobile', 9, 12);
-                        system.debug(restultstring + '****');
-                        //will display error messages if any
-                        if (restultstring.startswith('Mobile')) {
-                            acc.addError(restultstring);
-
-                        } // if there is not error then it will set the mobile number by adding +66
-                        else {
-                            acc.Mobile__c = restultstring;
-                        }
-                    } else {
-
-                        String restultstring = validate(acc.Mobile__c, 0, 'Mobile', 9, 12);
-                        if (restultstring.startswith('Mobile')) {
-                            acc.addError(restultstring);
-
-                        } else {
-                            acc.Mobile__c = restultstring;
-                        }
-                    }
-                }
-
+                     
+                    //if(acc.Individual_Home_Phone__c.startsWith('+66')){
+                     String restultstring = validate(acc.Individual_Home_Phone__c, 3, 'Home Phone', 8, 11);
+                     if(restultstring.startswith('Home Phone'))
+                     {
+                         acc.addError(restultstring);
+                         
+                     } 
+                     else 
+                     {
+                         acc.Individual_Home_Phone__c = restultstring;
+                     }
+                 /*}
+                 else{
+                     
+                     String restultstring=validate(acc.Individual_Home_Phone__c,0,'Home Phone',8,11);
+                     if(restultstring.startswith('Home Phone')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Individual_Home_Phone__c=restultstring;
+                     }
+                 }*/
+                 }
+             
+             
+                 if(!(String.IsBlank(acc.Work_Phone__c)) && acc.Work_Phone__c.length() > 3)
+                 {
+                     //if user inputs more than one zero after +66 it will remove all the zero's
+                     //if the Work_Phone__c starts with zero then find zero in third position 
+                     //if(acc.Work_Phone__c.startsWith('+66')){
+                     String restultstring = validate(acc.Work_Phone__c, 3, 'WorkPhone',8 ,11);
+                     if(restultstring.startswith('WorkPhone'))
+                     {
+                         acc.addError(restultstring);
+                         
+                     }
+                     else
+                     {
+                         acc.Work_Phone__c = restultstring;
+                     }
+                 /*}
+                 else{
+                     
+                     String restultstring=validate(acc.Work_Phone__c,0,'WorkPhone',8,11);
+                     if(restultstring.startswith('WorkPhone')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Work_Phone__c=restultstring;
+                     }
+                 }*/
+                 }
+                 if(!(String.IsBlank(acc.FAX)) && acc.FAX.length() > 3)
+                 {
+                     //if user inputs more than one zero after +66 it will remove all the zero's
+                     //if the Work_Phone__c starts with zero then find zero in third position 
+                     
+                     //if(acc.FAX.startsWith('+66')){
+                     String restultstring = validate(acc.FAX, 3, 'FAX', 8, 11);
+                     if(restultstring.startswith('FAX'))
+                     {
+                         acc.addError(restultstring);
+                     }
+                     else
+                     {
+                         acc.FAX=restultstring;
+                     }
+                 /*}
+                 else{
+                     
+                     String restultstring=validate(acc.FAX,0,'FAX',8,11);
+                     if(restultstring.startswith('FAX')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.FAX=restultstring;
+                     }
+                 }*/
+                 }
+                if(!(String.IsBlank(acc.Mobile__c)) && acc.Mobile__c.length() > 3)
+                {
+                     //if user inputs more than one zero after +66 it will remove all the zero's
+                     //if the Work_Phone__c starts with zero then find zero in third position 
+                     
+                     //if(acc.Mobile__c.startsWith('+66')){
+                     String restultstring=validate(acc.Mobile__c, 3, 'Mobile', 9, 12);
+                     //will display error messages if any
+                     if(restultstring.startswith('Mobile'))
+                     {
+                         acc.addError(restultstring);
+                         
+                     }// if there is not error then it will set the mobile number by adding +66
+                     else
+                     {
+                         acc.Mobile__c=restultstring;
+                     }
+                 /*}
+                 else{
+                     
+                     String restultstring=validate(acc.Mobile__c,0,'Mobile',9,12);
+                     if(restultstring.startswith('Mobile')){
+                         acc.addError(restultstring);
+                         
+                     }else{
+                         acc.Mobile__c=restultstring;
+                     }
+                 }*/
+                 }
             }
-        }
-    }
-
-    /* End Of phone Number format */
+        } 
+    }     
+     /* End Of phone Number format */
+     
     public static void updateAccountFieldsBeforeInsert(list < Account > listNewAccounts, boolean isInsert) {
         If(!listNewAccounts.isEmpty() && listNewAccounts != Null) {
             for (Account Acc: listNewAccounts) {
@@ -584,7 +646,7 @@ public class AccountHelperTH {
                         acclnk.fromRole__c = usr.Contact.AccountId;
                         acclnk.toRole__c = retailacc.Id;
                         acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
-                        acclnk.Retail_Company_Name__c = retailacc.name;
+                        acclnk.Retail_Company_Name__c = retailacc.Company_Name__c;
                         acclnk.Retail_Mobile__c = retailacc.Mobile__c;
                         acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
                         acclnk.Retail_Fax_OptOut__c = retailacc.PersonHasOptedOutOfFax;
@@ -763,7 +825,7 @@ public class AccountHelperTH {
         }
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(); //Retriveing record type ID for Retail Person
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(); //Retriveing record type ID for Retail Company
-        List < Account_Link__c > Accountlinklist = [select id, Retail_Primary_Phone__c, toRole__r.Agreement_to_commit_info_processing__c, toRole__r.Personal_Information_Third_Party_Release__c, toRole__r.UCID__c, toRole__r.CDM_UCID__c, toRole__r.Personal_Abroad_Agreement__c, toRole__r.DMS_Retailer_ID__c, Name, toRole__r.RecordType.Name, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
+        List < Account_Link__c > Accountlinklist = [select id, Retail_Address_Reference__c,Retail_Primary_Phone__c, toRole__r.Agreement_to_commit_info_processing__c, toRole__r.Personal_Information_Third_Party_Release__c, toRole__r.UCID__c, toRole__r.CDM_UCID__c, toRole__r.Personal_Abroad_Agreement__c, toRole__r.DMS_Retailer_ID__c, Name, toRole__r.RecordType.Name,toRole__r.Company_Name__c, toRole__r.LastName, toRole__r.FirstName, toRole__r.Salutation__c, toRole__r.LastName_Native_1__c,
             toRole__r.FirstName_Native_1__c, toRole__r.Gender__c, toRole__r.PersonBirthdate, toRole__r.Occupation__c, toRole__r.Industry, toRole__r.country__c,
             toRole__r.Preferred_Language__c, toRole__r.Primary_Phone__c, toRole__r.Special_Care__c, toRole__r.Special_Needs_Class__c,
             toRole__r.Allow_Data_Sharing2__c, toRole__r.Individual_Home_Phone__c, toRole__r.Work_Phone__c, toRole__r.Mobile__c, toRole__r.Fax, toRole__r.Primary_Address_Reference__r.Foreign_Nationals__c,
@@ -818,7 +880,7 @@ public class AccountHelperTH {
             }
             //Checking the Company RecordType
             if (acclnk.toRole__r.RecordType.Name == 'Company') {
-                acclnk.Retail_Company_Name__c = acclnk.toRole__r.Name;
+                acclnk.Retail_Company_Name__c = acclnk.toRole__r.Company_Name__c;
                 acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
@@ -845,7 +907,7 @@ public class AccountHelperTH {
             acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
 
             //Checking Null for sales Address 
-            if (acclnk.toRole__r.Primary_Address_Reference__c != null) {
+            if (acclnk.toRole__r.Primary_Address_Reference__c != null && acclnk.Retail_Address_Reference__c == acclnk.toRole__r.Primary_Address_Reference__c) {
                 acclnk.Retail_Address_Reference__c = acclnk.toRole__r.Primary_Address_Reference__c;
                 acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
                 acclnk.Retail_Province__c = (acclnk.toRole__r.Primary_Address_Reference__r.Province__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.Province__c : '');

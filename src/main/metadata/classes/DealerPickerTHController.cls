@@ -9,7 +9,6 @@ public with Sharing class DealerPickerTHController {
     List<campaignShare> campaignToShare=new List<campaignShare>();
     public DealerPickerTHController(){
     campaignId=ApexPages.currentPage().getParameters().get('CampaignId');//'a160l000000LgYf';//= 
-    system.debug('&&&&&&&'+campaignId);
        dealerList =new List<Account>();
         accessonRetailcamp=new List<Retail_Campaign__Share>();
       // List<>select id, Accesslevel, userOrgroupid from Retail_Campaign__Share where parentid='a160l000000LgYf'
@@ -56,6 +55,7 @@ public with Sharing class DealerPickerTHController {
                 dealerndCode.add(grpName);
             } 
         }
+        system.debug('dhanam'+dealerndCode);
         if(dealerndCode.size()>0){
             List<group> gnames=[select Id, Name, Type from Group where Name IN:dealerndCode];
             groupName.addAll(gnames);
@@ -65,8 +65,9 @@ public with Sharing class DealerPickerTHController {
             if(groupName.size()>0&&accssonRetailcampset.size()>0){
                 for(Group g:groupName){
                     for(Retail_Campaign__Share retshare:accssonRetailcampset){
+                        
                         if(g.id!=retshare.userOrgroupid&&!String.valueof(retshare.UserOrGroupId).Startswith('00G')){
-							actualgrouptoshare.add(g);
+                            actualgrouptoshare.add(g);
                             dealerndcodetosendEmails.add(g.name);
                         }
                     }
@@ -77,6 +78,7 @@ public with Sharing class DealerPickerTHController {
             }
             
         }
+        
         for(Group gp:actualgrouptoshare ){ 
         
             Retail_campaign__Share sharerec=new Retail_Campaign__Share();
@@ -129,10 +131,13 @@ public with Sharing class DealerPickerTHController {
            }
        }
        EmailTemplate temp=(EmailTemplate)[select id,Body,subject from emailtemplate where name=:'TH_Retail Campaign Planning And Design Notification to Dealers' limit 1];
-        message.setTemplateid(temp.id);
+       message.setTemplateid(temp.id);
        message.setTargetObjectId(retcamp.ownerid);
        message.setSaveAsActivity(false);
-       string body=temp.Body.replace('{!Retail_Campaign__c.Name}',retcamp.name).replace('{!Retail_Campaign__c.Link} ',commubaseurl);
+       message.setCharset('UTF-8');
+        message.setSubject('The Planning and Design Campaign'+retcamp.name+'  is Assigned to you'); 
+       String returl=URL.getSalesforceBaseUrl().toExternalForm()+'/'+retcamp.id;
+       string body=temp.Body.replace('{!Retail_Campaign__c.Name}',retcamp.name).replace('{!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id}',commubaseurl).replace('{!Retail_Campaign__c.Link}',returl);
        message.setPlainTextBody(body);
        List<User> usrlist=new List<User>();
        usrlist=[select id,name,Email from User where dealer_nd_code__C IN:dealerndcode];

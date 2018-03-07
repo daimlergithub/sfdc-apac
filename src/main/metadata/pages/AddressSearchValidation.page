@@ -518,41 +518,41 @@
          
             <!--  THAILAND MARKET Person Account - Start -->
                 <apex:pageBlockSection id="PersonAccBlockTH" title="{!$Label.Person_Account_Information}" rendered="{!If(AND(RecordType == 'Person Account',ISPICKVAL($User.Market__c,'TH') ),true,false)}">
-                   <apex:inputField value="{!objAccount.Salutation__c}" />
+                   <apex:inputField value="{!objAccount.Salutation__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                         
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.LastName.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                            
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
-                            <apex:inputText value="{!objAccount.LastName}" />
+                            <apex:inputText value="{!objAccount.LastName}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>               
                     <apex:pageBlockSectionItem >                 
                         <apex:outputLabel value="{!$ObjectType.Account.fields.FirstName.Label}"/>
-                        <apex:inputText value="{!objAccount.FirstName}" />   
+                        <apex:inputText value="{!objAccount.FirstName}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>   
                     </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
-                              <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px"/>
-                         <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px"/>                                
+                              <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
+                         <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>                                
                             
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>   
                    <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
-                            <apex:inputText value="{!mbCountryCode}" id="mbCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber"  style="width:120px"/>                      
+                            <apex:inputText value="{!mbCountryCode}" id="mbCountryCode"  style="width:30px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
+                         <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber"  style="width:120px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>                      
                             
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>          
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />
                         <apex:outputPanel >
-                           <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" style="width:120px"/>                                         
+                           <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
+                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" style="width:120px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>                                         
                             
                         </apex:outputPanel>                     
                     </apex:pageBlockSectionItem>
@@ -561,7 +561,7 @@
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                            
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
-                            <apex:inputField value="{!objAccount.Preferred_Phone__c}" />
+                            <apex:inputField value="{!objAccount.Preferred_Phone__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>-->
                   <!--<apex:inputField value="{!objAccount.Preferred_Phone__c}" required="true"/>--> 
@@ -570,21 +570,21 @@
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                            
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
-                            <apex:inputField value="{!objAccount.Primary_Phone__c}" />
+                            <apex:inputField value="{!objAccount.Primary_Phone__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
-                  <apex:inputField value="{!objAccount.Email__c}" />                    
-                  <apex:inputField value="{!objAccount.PersonBirthdate}"/> 
+                  <apex:inputField value="{!objAccount.Email__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>                    
+                  <apex:inputField value="{!objAccount.PersonBirthdate}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/> 
                     
                  <!-- added by dhanamjaya-->
-                 <apex:inputField value="{!objAccount.Status__c}" style="width:160px"/> 
-                 <apex:inputField value="{!objAccount.ID_Type__c}" style="width:160px"/>
-                 <apex:inputField value="{!objAccount.ID_Number__c}" style="width:160px"/>
+                 <apex:inputField value="{!objAccount.Status__c}" style="width:160px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/> 
+                 <apex:inputField value="{!objAccount.ID_Type__c}" style="width:160px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
+                 <apex:inputField value="{!objAccount.ID_Number__c}" style="width:160px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                  <!-- //dhanamjaya-->
-                  <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px"/>     
+                  <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" style="width:160px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>     
                   <!--MD changes by santosh Mohanty-->
                   <!--<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>-->
-                  <apex:inputField value="{!objAccount.Market__c }" />  
+                  <apex:inputField value="{!objAccount.Market__c }" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>  
                  
               </apex:pageBlockSection>
         <!--  THAILAND MARKET Person Account - End -->
@@ -596,30 +596,30 @@
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Name.Label}"/>
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
-                            <apex:inputText value="{!objAccount.Name}" />
+                            <apex:inputText value="{!objAccount.Name}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>                    
-                    <apex:inputField value="{!objAccount.Company_Name__c}" />              
-                    <apex:inputField value="{!objAccount.Company_Legal_Form__c}" />  
+                    <apex:inputField value="{!objAccount.Company_Name__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>              
+                    <apex:inputField value="{!objAccount.Company_Legal_Form__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />
                         <apex:outputPanel >
-                           <apex:inputText value="{!hmCountryCode}" id="hmCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px"/>   
+                           <apex:inputText value="{!hmCountryCode}" id="hmCountryCode"  style="width:30px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
+                         <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>   
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>                 
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />
                         <apex:outputPanel >
-                            <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px"/>
-                         <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber"  style="width:120px"/>   
+                            <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
+                         <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber"  style="width:120px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>   
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>  
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />                        
                           <apex:outputPanel >
-                            <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px"/>
-                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber"  style="width:120px"/>    
+                            <apex:inputText value="{!wkCountryCode}" id="wkCountryCode"  style="width:30px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
+                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber"  style="width:120px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>    
                         </apex:outputPanel>                   
                     </apex:pageBlockSectionItem>
                     <!--<apex:pageBlockSectionItem >
@@ -627,7 +627,7 @@
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                            
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
-                            <apex:inputField value="{!objAccount.Preferred_Phone__c}" />
+                            <apex:inputField value="{!objAccount.Preferred_Phone__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>-->
                    <!--<apex:inputField value="{!objAccount.Preferred_Phone__c}" required="true"/>-->    
@@ -636,29 +636,29 @@
                         <apex:outputPanel styleClass="requiredInput" layout="block">
                            
                             <apex:outputPanel styleClass="requiredBlock" layout="block"/>
-                            <apex:inputField value="{!objAccount.Primary_Phone__c}" />
+                            <apex:inputField value="{!objAccount.Primary_Phone__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>           
-                   <apex:inputField value="{!objAccount.Email__c}" />  
+                   <apex:inputField value="{!objAccount.Email__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>  
                    <!--MD changes commented by santosh Mohanty-->
                    <!--<apex:outputField value="{!objAccount.Market__c }" />-->                                         
-                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}"/> 
+                   <apex:inputField value="{!objAccount.Data_Source__c}" rendered="{!if(Market !='KR',True,false)}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/> 
                     <!-- dhanamjaya added code -->
-                    <apex:inputField value="{!objAccount.Status__c}" /> 
-                    <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" /> 
+                    <apex:inputField value="{!objAccount.Status__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/> 
+                    <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/> 
                     <!-- dhanamjaya added code end -->
                        
                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Fax.Label}" />
                         <apex:outputPanel >
-                            <apex:inputText value="{!faxCountryCode}" id="faxbCountryCode" style="width:30px"/>
-                         <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber"  style="width:120px"/>                      
+                            <apex:inputText value="{!faxCountryCode}" id="faxbCountryCode" style="width:30px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
+                         <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber"  style="width:120px" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>                      
                             
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
                     <!--MD changes by santosh Mohanty-->
                     <apex:pageBlockSectionItem ></apex:pageBlockSectionItem> 
-                   <apex:inputField value="{!objAccount.Market__c }" />                    
+                   <apex:inputField value="{!objAccount.Market__c }" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>                    
                <!--      <apex:inputField value="{!objAccount.Fax}" /> -->
                 </apex:pageBlockSection>       
         <!--  THAILAND MARKET Company Account - End -->
@@ -1061,7 +1061,7 @@
                    
                     <apex:pageBlockSectionItem >
                      <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>
+                        <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                      
                     </apex:pageBlockSectionItem>   
       
@@ -1073,18 +1073,18 @@
                     -->
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>
+                        <apex:inputField value="{!AddressObj.Address_Line_1__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                     </apex:pageBlockSectionItem>
                    
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Address_Line_2__c}"/> 
+                        <apex:inputField value="{!AddressObj.Address_Line_2__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/> 
                     </apex:pageBlockSectionItem>
                     
                      <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Foreign_Nationals__c}" id="chkForeignNational"
-                            onclick="ForeignNationalFields(this.value)"/>  
+                            onclick="ForeignNationalFields(this.value)" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>  
                     </apex:pageBlockSectionItem>
                     
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,false,true)}">
@@ -1105,7 +1105,7 @@
                     
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
                         <apex:outputLabel value="State/Province"/>
-                         <apex:inputText id="slDistrict" value="{!province}"/>
+                         <apex:inputText id="slDistrict" value="{!province}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                     </apex:pageBlockSectionItem>
                     
                     <apex:pageblockSectionItem id="pbsDistrict" rendered="{!IF(IsForeignNational==false,true,false)}">                 
@@ -1117,7 +1117,7 @@
                      
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
                         <apex:outputLabel value="District"/>
-                         <apex:inputText id="inpDistrict" value="{!district}"/>
+                         <apex:inputText id="inpDistrict" value="{!district}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                     </apex:pageBlockSectionItem>
                     
                 <apex:pageblockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}" >
@@ -1129,7 +1129,7 @@
                 
                 <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
                         <apex:outputLabel value="Sub District"/>
-                         <apex:inputText id="inpSubDistrict" value="{!subdistrict}"/>
+                         <apex:inputText id="inpSubDistrict" value="{!subdistrict}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                     </apex:pageBlockSectionItem>
                   
                 <apex:pageblockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">
@@ -1141,12 +1141,12 @@
                 
                 <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">
                     <apex:outputLabel value="ZIP"/>
-                    <apex:inputText id="inpZip" value="{!zip}"/>
+                    <apex:inputText id="inpZip" value="{!zip}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>
                 </apex:pageBlockSectionItem>
                 <!--MD changes - Added by Santosh Mohanty-->    
                 <apex:pageBlockSectionItem >        
                     <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
-                    <apex:inputField value="{!AddressObj.Market__c}"/>      
+                    <apex:inputField value="{!AddressObj.Market__c}" onkeydown="if(event.keyCode==13){this.blur();actionFunction();}"/>      
                 </apex:pageBlockSectionItem>    
                  <apex:actionFunction name="LoadProvince" action="{!LoadProvince}" reRender="AddrPBS">  
                       <apex:param name="provinceSelected" value="" /> 
