@@ -94,6 +94,14 @@
                 <behavior>Edit</behavior>
                 <field>VehicleRel_No__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Current_Vehicle_1_Text__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Current_Vehicle_2_Text__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -135,6 +143,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Team__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Trade_in_Vehicle_Text2__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

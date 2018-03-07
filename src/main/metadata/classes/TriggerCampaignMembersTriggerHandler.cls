@@ -14,10 +14,10 @@ public class TriggerCampaignMembersTriggerHandler
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
-        if(isInsert && isAfter)
+        /*if(isInsert && isAfter)
         {
             campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(trigger.new);
-        }
+        }*/
          if(isBefore && isInsert)
         {
             campaignMemberHelperKR.updatecustomstatus(trigger.new,(Map<Id,CampaignMember>)Trigger.OldMap);
