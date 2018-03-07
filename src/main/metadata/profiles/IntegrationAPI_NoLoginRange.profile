@@ -15477,11 +15477,6 @@
         <field>Dealer_List_Member__c.Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	    <fieldPermissions>
-        <editable>true</editable>
-        <field>Dealer_List_Member__c.Campaign_c__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Dealer_List_Member__c.Class_and_Body__c</field>
