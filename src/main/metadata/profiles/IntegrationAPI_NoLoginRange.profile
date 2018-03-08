@@ -6932,6 +6932,11 @@
         <field>Account_Link__c.ACN_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Old_UCID__c</field>
+        <readable>true</readable>
+   </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Active__c</field>
@@ -12729,7 +12734,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.MBTH_Turnaround_time__c</field>
+        <field>Case.Turn_Around_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15810,11 +15815,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>EP_Export_Notification__c.AddInfo2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>EP_Export_Notification__c.Updated_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

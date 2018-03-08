@@ -246,4 +246,32 @@ public with sharing class AddressHelperTH {
             }
         }
     }
+	
+	public static void updateSalesAddressAccount(map<ID,Address__c> newMap){
+        
+                 set<id> accountId = new set<id>();  
+                 list<Account> accountList = new list<Account>();
+                  
+                 //get the related accountIds
+                 for(Address__c addr:newMap.values()){
+                        if(addr.Preferred__c == true)
+                        accountId.add(addr.Customer__c);
+                  } 
+                Map<Id,Account>Accmap= new Map<Id,Account>([select id,Primary_Address_Reference__c from Account where id IN:accountId LIMIT 50000]);
+                 for(Address__c addr:newMap.values())
+                 {
+                     if(Accmap.containsKey(addr.Customer__c) && addr.Preferred__c == true){
+                         Accmap.get(addr.Customer__c).Primary_Address_Reference__c = addr.Id;
+                         accountList.add(Accmap.get(addr.Customer__c));
+                       
+                     }
+                 }
+                System.debug(accountList + '23232');
+                if(!accountList.isEmpty()||accountList!=null)
+                {
+                  update accountList; 
+                }
+                 
+        
+    }
 }

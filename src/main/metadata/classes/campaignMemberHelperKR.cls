@@ -22,13 +22,14 @@ public with sharing class campaignMemberHelperKR
 				   After update scenario would update the Create Task flag to True.
 	
 	**********************************************************************************/
-	public static void setCreateTaskFieldFalseOrTrueOnCampaign (list<CampaignMember> campMemList)
+	//public static void setCreateTaskFieldFalseOrTrueOnCampaign (list<CampaignMember> campMemList)
+	public static void setCreateTaskFieldFalseOrTrueOnCampaign (Id campnId)
 	{
 		set<Id> campaignIdSet = new set<Id>();
 		list<Campaign> updateCampaignList = new list<Campaign>();
 		list<Campaign> campaignList = new list<Campaign>();
 		Batch_Job__c accJob = new Batch_Job__c(Batch_Type__c='Contact', Status__c='Pending');
-		if(!campMemList.isEmpty() && campMemList != null)
+		/*if(!campMemList.isEmpty() && campMemList != null)
 		{
 			for(CampaignMember camMem : campMemList)
 			{
@@ -37,10 +38,11 @@ public with sharing class campaignMemberHelperKR
 					campaignIdSet.add(camMem.CampaignId);
 				}
 			}			
-		}
-		if(!campaignIdSet.isEmpty() && campaignIdSet != null)
-		{
-			campaignList = [select Id, Create_Task__c from Campaign where Id in : campaignIdSet];	
+		}*/
+		//if(!campaignIdSet.isEmpty() && campaignIdSet != null)
+		//{
+			//campaignList = [select Id, Create_Task__c from Campaign where Id in : campaignIdSet];	
+			campaignList = [select Id, Create_Task__c from Campaign where Id =: campnId];	
 			if(!campaignList.isEmpty() && campaignList != null) 
 			{          
 	            database.executeBatch(new UtilCampaignTaskGenerationByAccount(campaignList), 200);
@@ -50,7 +52,7 @@ public with sharing class campaignMemberHelperKR
 	           		 insert accJob;
 				}
 	        }
-		}
+		//}
 	}
 	
 	

@@ -60869,6 +60869,13 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <errorConditionFormula>IF( AND(ISBLANK(Mobile__c),MD__c = 'TH',RecordType.DeveloperName!='Dealer',$Profile.Name !='IntegrationAPI',ISBLANK(Work_Phone__c),ISBLANK(Individual_Home_Phone__c),( OR(ISNULL(Email__c),ISBLANK(Email__c)) )) , true, false)</errorConditionFormula>
         <errorMessage>Please Enter Atleast one contact Information</errorMessage>
     </validationRules>
+	    <validationRules>
+        <fullName>TH_ID_Type_is_mandatory</fullName>
+        <active>true</active>
+        <description>If ID Number field is having a value, ID Type should be mandatory in both Create and Update scenario</description>
+        <errorConditionFormula>AND( MD__c='TH',NOT(ISBLANK( ID_Number__c)),ISPICKVAL(ID_Type__c,''), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Please fill in ID Type if ID Number has value</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Birthday</fullName>
         <active>true</active>
