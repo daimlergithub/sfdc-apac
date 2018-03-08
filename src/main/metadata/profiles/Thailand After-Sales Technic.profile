@@ -27004,7 +27004,7 @@
         <recordType>Account.Company_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Account Master Layout</layout>
+        <layout>Account-Company Layout%28AST%29 TH</layout>
         <recordType>Account.Dealer1</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -27604,7 +27604,7 @@
         <recordType>PersonAccount.ThirdParty</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-PA Layout-Soft Deleted</layout>
+        <layout>PersonAccount-Person Account Layout%28AST%29 TH</layout>
         <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
