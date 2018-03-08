@@ -12222,7 +12222,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.MBTH_Turnaround_time__c</field>
+        <field>Case.Turn_Around_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

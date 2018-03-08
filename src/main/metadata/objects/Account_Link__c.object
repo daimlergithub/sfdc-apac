@@ -3242,6 +3242,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	 <fields>
+        <fullName>Old_UCID__c</fullName>
+        <externalId>false</externalId>
+        <label>OLDUCID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Retail_Updated_Consent_Date__c</fullName>
         <externalId>false</externalId>
