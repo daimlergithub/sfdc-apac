@@ -15,7 +15,7 @@ public with sharing class UserService {
      * @param       : list of retailCampaigns and permissionSetting
      * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
      * @see         : RetailCampaignSharingWrapService.wrapYearlyRetailCampaigns
-    **/	
+    **/ 
     
     public Map<Id, Set<Id>> mapYearlyRetailCampaign2CampaignDealers(List<Retail_Campaign__c> retailCampaigns, String permissionSetting) {
         List<Id> accountIds = new List<Id>();
@@ -50,7 +50,7 @@ public with sharing class UserService {
      * @param       : list of retailCampaigns and permissionSetting
      * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
      * @see         : RetailCampaignSharingWrapService.wrapYearlyRetailCampaigns
-    **/	
+    **/ 
 
     public Map<Id, Set<Id>> mapRetailCampaign2CampaignDealers(List<Retail_Campaign__c> retailCampaigns, String permissionSetting) {
         system.debug('**-' + retailCampaigns);
@@ -85,7 +85,7 @@ public with sharing class UserService {
      * @param       : list of Participating Dealers and permissionSetting
      * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
      * @see         : 
-    **/	
+    **/ 
 
     public Map<Id, Set<Id>> mapCampaign2DealerCampaignUsers(List<Participating_Dealer__c> dealers, String permissionSetting) {
         List<Id> accountIds = new List<Id>();
@@ -118,7 +118,7 @@ public with sharing class UserService {
      * @param       : list of toolKits and permissionSetting
      * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
      * @see         : 
-    **/	
+    **/ 
 
     public Map<Id, Set<Id>> mapToolKit2CampaignUsers(List<Tool_Kit__c> toolKits, String permissionSetting) {
         Map<Id, Id> toolKit2DealerAccount = new Map<Id, Id>();
@@ -145,7 +145,7 @@ public with sharing class UserService {
      * @param       : list of Leads and permissionSetting
      * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
      * @see         : LeadSharingWrapService.wrapLeads
-    **/	    
+    **/     
    
     public Map<Id, Set<Id>> mapLead2CampaignUsers(List<Lead__c> leads, Set<Id> profileIds) {
         Map<Id, Id> lead2DealerAccount = new Map<Id, Id>();
@@ -175,7 +175,7 @@ public with sharing class UserService {
      * @param       : map of records which are related to campaign to Dealers and dealer to CampaignUsers
      * @return      : returns map of maped records 
      * @see         : mapToolKit2CampaignUsers,mapLead2CampaignUsers
-    **/	 
+    **/  
 
     private Map<Id, Set<Id>> mapSObject2Users(Map<Id, Id> sObject2Dealer, Map<Id, Set<Id>> dealer2Users){
         Map<Id, Set<Id>> sObject2Users = new Map<Id, Set<Id>>();
@@ -192,7 +192,7 @@ public with sharing class UserService {
      * @param       : map of records which are related to campaign to Dealers and dealer to CampaignUsers
      * @return      : returns map of maped records 
      * @see         : mapToolKit2CampaignUsers,mapLead2CampaignUsers
-    **/	 
+    **/  
     
 
     private Map<Id, Set<Id>> mapSObjects2Users(Map<Id, Set<Id>> sObject2Dealers, Map<Id, Set<Id>> dealer2Users){
@@ -216,7 +216,7 @@ public with sharing class UserService {
      * @param       : list of Retail Tasks
      * @return      : returns Contact to user map 
      * @see         : RetailTaskSharingWrapService.wrapContracts
-    **/	     
+    **/      
     
     public Map<Id, Set<Id>> mapRetailTaskContract2Users(List<Retail_Task__c> contracts){
         Set<Id> dealerIds = new Set<Id>();
@@ -266,7 +266,7 @@ public with sharing class UserService {
      * @param       : list of Retail Tasks
      * @return      : returns crm codes
      * @see         : RetailTaskSharingWrapService.wrapRetailTasks
-    **/	  
+    **/   
    
     public Map<String, Set<Id>> mapCrmCode2Users(List<Retail_Task__c> retailTasks){
         Set<String> crmCodes = new Set<String>();
@@ -284,7 +284,7 @@ public with sharing class UserService {
                 String grpName='TH'+retailTask.Service_Dealer__r.Dealer_ND_Code__c;
                 DealerNdCodes.add(grpName);
             }
-            	
+                
         }
         return mapDealerNdCode2Grp(DealerNdCodes);
     }
@@ -309,7 +309,7 @@ public with sharing class UserService {
      * @param       : list of vehiclesRelationships
      * @return      : returns crm codes
      * @see         : VehicleSharingWrapService.wrapVehicleFromRelationships and VehicleSharingWrapService.wrapVehicleFromAccountLinks
-    **/	     
+    **/      
     
     public Map<String, Set<Id>> mapCrmCode2Users(List<Vehicle_Relationship__c> vehiclesRelationships){
         Set<String> crmCodes = new Set<String>();
@@ -326,7 +326,7 @@ public with sharing class UserService {
      * @param       : list of accountLinks
      * @return      : returns crm codes
      * @see         : AccountLinkSharingWrapService.wrapAccountLinks 
-    **/	 
+    **/  
    
     public Map<String, Set<Id>> mapCrmCode2Users(List<Account_Link__c> accountLinks){
         Set<String> crmCodes = new Set<String>();
@@ -343,7 +343,7 @@ public with sharing class UserService {
      * @param       : set of crm codes
      * @return      : returns map of crm to users 
      * @see         : mapCrmCode2Users,mapCrmCode2Users,mapCrmCode2Users
-    **/	
+    **/ 
    
     private Map<String, Set<Id>> mapCrmCode2Users(Set<String> crmCodes){
         Map<String, Set<Id>> crmCode2Users = new Map<String, Set<Id>>();
@@ -355,5 +355,35 @@ public with sharing class UserService {
             }
         }
         return crmCode2Users;
+    }
+    //SB2018
+    /*@generic code to add service dealer's Dealer nd Code into list*/
+    public Map<String, Set<Id>> mapDealerNdCode2GrpGeneric(List<Retail_Task__c> retailTasks){
+        User loggedInUser = [select Id, Market__c from User where Id = :UserInfo.getUserId()];
+        Set<String> DealerNdCodes = new Set<String>();
+        for(Retail_Task__c retailTask : retailTasks) {
+            if(retailTask.Related_Dealer__c!=null)
+            {
+                String grpName=loggedInUser.market__c+retailTask.Service_Dealer__r.Dealer_ND_Code__c;
+                DealerNdCodes.add(grpName);
+            }
+              
+        }
+        return mapDealerNdCode2Grp(DealerNdCodes);
+    }
+    
+    /*@generic code to add related dealer's Dealer nd Code into list*/
+    public Map<String, Set<Id>> mapRelatedDealerNdCode2GrpGeneric(List<Retail_Task__c> retailTasks){
+        User loggedInUser = [select Id, Market__c from User where Id = :UserInfo.getUserId()];
+        Set<String> DealerNdCodes = new Set<String>();
+        for(Retail_Task__c retailTask : retailTasks) {
+            if(retailTask.Related_Dealer__c!=null && retailTask.Related_Vehicle__r.Related_Dealer__c==retailTask.Related_Dealer__c)
+            {
+                String grpName=loggedInUser.market__c+retailTask.Related_Dealer__r.Dealer_ND_Code__c+retailTask.Related_Vehicle__c;
+                DealerNdCodes.add(grpName);
+            }
+              
+        }
+        return mapDealerNdCode2Grp(DealerNdCodes);
     }
 }

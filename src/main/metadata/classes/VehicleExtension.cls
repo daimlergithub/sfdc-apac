@@ -22,6 +22,7 @@ global with sharing class VehicleExtension {
     public String marketcheck{get;set;}
     public PageReference nextPage;
     public String selectedNewUsed{get;set;}
+    public map<string,string> labelNvalue=new map<string,string>();
     private ApexPages.StandardController stdController;
     
     // ***For Thailand*** Declaration Start
@@ -204,26 +205,40 @@ global with sharing class VehicleExtension {
             compModel=null;
         }
         if(recordType == UtilConstant.MB){
-            list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Own Sellable' order by CreatedDate ];
+        
+        System.debug('************************'+class1);
+        if(UserInfo.getLocale()=='ja_JP')
+        {
+        getaddtype();
+        class1=labelNvalue.get(class1);
+        }
+         
+            list<Car_Model__c> carModelId = [select id,toLabel(Series__c)  from Car_Model__c where Series__c =:class1 and Name =:model and (Brand__c=:brand OR Range__c=:range OR Mod_Pack__c=:modPackage) and Status__c='Own Sellable' order by CreatedDate ];
+         
             if(!carModelId.isEmpty()){
                 vehicle.Car_Model__c=carModelId[0].id;
+                system.debug('model--'+model);
                 vehicle.Model_Description__c=model;
             }
         }else if(recordType == 'Self Registered'){
-        system.debug('I am hereaaaa');
-        System.debug('************************'+brand);
-        System.debug('************************'+class1);
-        System.debug('************************'+model);
-          System.debug('************************'+range );
-            System.debug('************************'+range );
-              System.debug('************************'+modPackage);
-            list<Car_Model__c> carModelId = [select id from Car_Model__c where Series__c =:class1 and Name =:model and (Brand__c=:brand OR Range__c=:range OR Mod_Pack__c=:modPackage) and Status__c='Competitor' order by CreatedDate ];
-           System.debug('#######################'+carModelId);
+        
+         if(UserInfo.getLocale()=='ja_JP')
+        {
+        getaddtype();
+        class1=labelNvalue.get(class1);
+        }
+            list<Car_Model__c> carModelId = [select id,toLabel(Series__c)  from Car_Model__c where Series__c =:class1 and Name =:model and (Brand__c=:brand OR Range__c=:range OR Mod_Pack__c=:modPackage) and Status__c='Competitor' order by CreatedDate ];
+           
             if(!carModelId.isEmpty()){
                 vehicle.Car_Model__c=carModelId[0].id;
                 vehicle.Model_Description__c=model;
+               
             }
-            System.debug('#######################'+vehicle.Model_Description__c);
+            if(model !=null)
+            {
+            // vehicle.Model_Description__c=model;
+            }
+           
         }
         else{
             list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:compBrand and Name =:compModel and Status__c='Competitor' order by CreatedDate ];                   
@@ -334,7 +349,7 @@ global with sharing class VehicleExtension {
            type='Competitor';
         }
                     
-        carModels = [SELECT toLabel(Brand__c),Series__c,Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c Where Status__c =:type];
+        carModels = [SELECT toLabel(Brand__c),toLabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c Where Status__c =:type];
         
         for(Car_Model__c cm : carModels){
             
@@ -413,4 +428,29 @@ global with sharing class VehicleExtension {
         return finalMap;
     }
     
+     public List<SelectOption> getaddtype()
+       {
+         List<SelectOption> options = new List<SelectOption>();
+        
+         Schema.DescribeFieldResult fieldResult = Car_Model__c.Series__c.getDescribe();
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+        // options.add(new selectOption('', '--None--'));
+         for( Schema.PicklistEntry f : ple)
+         {
+          if(UserInfo.getLocale()=='ja_JP')
+          {
+          
+           options.add(new SelectOption(f.getValue(), f.getLabel()));
+           labelNvalue.put(f.getLabel(),f.getValue());
+           system.debug('labelNvalue---'+labelNvalue);
+          }else{
+           options.add(new SelectOption(f.getLabel(), f.getValue()));
+           //labelNvalue.put(f.getValue(), f.getLabel());
+           }
+          }
+          system.debug('options'+options);
+          system.debug('labelNvalue'+labelNvalue);
+            
+      return options;
+    }  
 }

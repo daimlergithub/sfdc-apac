@@ -740,9 +740,9 @@
                         <tr id="firstInterestRow">
                             <td>{!$Label.Interest}</td>
                             <td> <select onchange="showCriteria(this);">
-                                    <option value="Dealer_Lead_Status__c">
+                                    <!--<option value="Dealer_Lead_Status__c">
                                         {!$ObjectType.Lead__c.Fields.Dealer_Lead_Status__c.Label}
-                                    </option>
+                                    </option>-->
                                     <option value="Expected_Registration_Date__c">
                                         {!$ObjectType.Lead__c.Fields.Expected_Registration_Date__c.Label}
                                     </option>
@@ -763,9 +763,9 @@
                             </td>
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
-                                <apex:selectList styleClass="Dealer_Lead_Status__c" size="1" multiselect="false" style="display:block;">
+                                <!--<apex:selectList styleClass="Dealer_Lead_Status__c" size="1" multiselect="false" style="display:block;">
                                     <apex:selectOptions value="{!DealerLeadStatus}"></apex:selectOptions>
-                                </apex:selectList>
+                                </apex:selectList>-->
                                <!-- <apex:inputField value="{!lead.Dealer_Lead_Status__c}" styleClass="Dealer_Lead_Status__c" style="display:block;"/>-->
                                 <input class="dateInput" id="LeadTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>

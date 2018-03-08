@@ -67,6 +67,28 @@
         <type>Checkbox</type>
     </fields>
 	<fields>
+        <fullName>Agreement_Date_24h_Consent_CCC__c</fullName>
+        <externalId>false</externalId>
+        <formula>toRole__r.Agreement_Date_for_Service_24h_Consent__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Agreement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	  <fields>
+        <fullName>Expiration_Date_24h_Consent_CCC__c</fullName>
+        <externalId>false</externalId>
+        <formula>toRole__r.Expiry_Date_for_Service_24h_Consent__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
         <fullName>Agreement_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
         <formula>toRole__r.Agreement_Date_for_CC_New__c</formula>
@@ -266,13 +288,27 @@
     <fields>
         <fullName>General_Personal_InfoThirdParty_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.General_Personal_InfoThirdParty_Optional__c)</formula>
         <label>General Personal InfoThirdParty-Optional</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>General_Personal_Info_Sales_Marketing__c</fullName>
@@ -285,28 +321,56 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+      <fields>
         <fullName>General_Personal_Information_Mandatory__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.General_Personal_Information_Mandatory__c)</formula>
         <label>General Personal Information (Mandatory)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
-    <fields>
+     <fields>
         <fullName>General_Personal_Information_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.General_Personal_Information_Optional__c)</formula>
         <label>General Personal Information (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-	</fields>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Id__c</fullName>
         <externalId>false</externalId>
@@ -553,6 +617,31 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Personal_Agreement_Service_24h__c</fullName>
+        <externalId>false</externalId>
+        <label>Personal Agreement (Service 24h)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Personal_Agreement__c</fullName>
@@ -3717,13 +3806,27 @@ Holds National ID or Passport No. of wholesale Account</description>
 	<fields>
         <fullName>Targeted_Advertising_Info_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.Targeted_Advertising_Info_Optional__c)</formula>
         <label>Targeted Advertising Info (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>To_Be_Deleted__c</fullName>
@@ -3746,28 +3849,56 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+	   <fields>
         <fullName>Unique_Identification_Info_Mandatory__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.Unique_Identification_Info_Mandatory__c)</formula>
         <label>Unique Identification Info(Mandatory)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
-    <fields>
+      <fields>
         <fullName>Unique_Identity_Info_ThirdParty_Optional__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(toRole__r.Unique_Identity_Info_ThirdParty_Optional__c)</formula>
         <label>Unique Identity Info ThirdParty-Optional</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-		</fields>
+        <type>Picklist</type>
+    </fields>
 	 <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>
@@ -4043,7 +4174,7 @@ Holds National ID or Passport No. of wholesale Account</description>
 	<fields>
         <fullName>Agreement_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR(NOT(ISPICKVAL(Personal_Agreement_KR__c,'')),NOT(ISPICKVAL(Personal_Information_Third_Party_KR__c,'')),NOT(ISPICKVAL(Agreement_to_commit_info_processing_KR__c,'')),NOT(ISPICKVAL(Personal_Abroad_Agreement_KR__c,''))),TODAY(),null)</formula>
+        <formula>toRole__r.Agreement_Date_for_CC_Old__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Agreement Date</label>
         <required>false</required>
@@ -4054,7 +4185,7 @@ Holds National ID or Passport No. of wholesale Account</description>
 	<fields>
         <fullName>Expiration_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>DATE(YEAR(Agreement_Date__c)+10, MONTH(Agreement_Date__c), DAY(Agreement_Date__c))</formula>
+        <formula>toRole__r.Expiration_Date_for_CC_Old__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Expiration Date</label>
         <required>false</required>
@@ -4125,14 +4256,14 @@ Holds National ID or Passport No. of wholesale Account</description>
         <filters>
             <field>fromRole__c</field>
             <operation>equals</operation>
-            <value>津山サービス工場</value>
+            <value>æ´¥å±±ã‚µãƒ¼ãƒ“ã‚¹å·¥å ´</value>
         </filters>
         <filters>
             <field>UPDATEDBY_USER</field>
             <operation>contains</operation>
-            <value>岡本</value>
+            <value>å²¡æœ¬</value>
         </filters>
-        <label>津山サービス工場</label>
+        <label>æ´¥å±±ã‚µãƒ¼ãƒ“ã‚¹å·¥å ´</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -4152,14 +4283,14 @@ Holds National ID or Passport No. of wholesale Account</description>
         <filters>
             <field>fromRole__c</field>
             <operation>equals</operation>
-            <value>御殿場営業所</value>
+            <value>å¾¡æ®¿å ´å–¶æ¥­æ‰€</value>
         </filters>
         <filters>
             <field>UPDATEDBY_USER</field>
             <operation>contains</operation>
-            <value>原</value>
+            <value>åŽŸ</value>
         </filters>
-        <label>御殿場営業所</label>
+        <label>å¾¡æ®¿å ´å–¶æ¥­æ‰€</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>

@@ -1,5 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+	<alerts>
+        <fullName>Escalate_Case_to_Case_owner_Manager</fullName>
+        <description>Escalate Case to Case owner Manager</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Escalation_Notification_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_handing_level_email_to_Notification_MY</fullName>
+        <description>Case handing level email Notification to Dealer MY</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Handling_level_Notification</template>
+    </alerts>
     <alerts>
         <fullName>Case_Deadline_Dealer_Manager_Notification_KR_after_24_Hour</fullName>
         <description>Case Deadline Dealer Manager Notification KR after 24 Hour</description>
@@ -410,6 +434,15 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
+	<fieldUpdates>
+        <fullName>Update_Creator_Department_to_Dealer_MY</fullName>
+        <field>Complaint_Creator_Department__c</field>
+        <literalValue>Dealer</literalValue>
+        <name>Update Creator Department to Dealer MY</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Approval_Update</fullName>
         <field>Status</field>
@@ -1277,6 +1310,21 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<rules>
+        <fullName>Case handling level Assignment Notification to Dealer_MY</fullName>
+        <actions>
+            <name>Case_handing_level_email_to_Notification_MY</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Send_Email_to_Gate_Keeper</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When RO change handling level to Dealer, send a email to Dealer for Malaysia users</description>
+        <formula>AND(NOT(ISPICKVAL($Profile.UserType, &quot;PowerPartner&quot;)),  $Permission.MYGeneric, ISPICKVAL(Handling_Level__c, &quot;Dealer&quot;),  MD__c = &quot;MY&quot;,  SendEmailToGateKeeper__c = true,  OR(RecordType.Name = &quot;MB Complaint&quot;, RecordType.Name = &quot;Inquiry&quot;), ISCHANGED(OwnerId))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Case 48%2672H Check Notification</fullName>
         <active>false</active>
@@ -1578,7 +1626,11 @@
     </rules>
     <rules>
         <fullName>Case Deadline Notification MY</fullName>
-        <active>true</active>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -1593,8 +1645,17 @@
             <operation>notEqual</operation>
             <value>Closed</value>
         </criteriaItems>
-        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners an hour before the deadline</description>
+        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners an hour before the deadline and will be escalated to the case owner&apos;s manager after it surpasses the deadline.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Escalate_Case_to_Case_owner_Manager</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
         <workflowTimeTriggers>
             <actions>
                 <name>Deadline_Notification_to_Owner_before_1_hour</name>
@@ -1736,7 +1797,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
         <criteriaItems>
             <field>Case.Priority</field>
@@ -1902,7 +1963,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -1940,7 +2001,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -2009,7 +2070,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -2079,7 +2140,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -2149,7 +2210,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Priority</field>
             <operation>equals</operation>
@@ -2759,6 +2820,10 @@ RecordType.Name=&apos;MB Complaint&apos;
     </rules>
     <rules>
         <fullName>Update Complaint Creator Department To Dealer MY</fullName>
+		<actions>
+            <name>Update_Creator_Department_to_Dealer_MY</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>false</active>
         <criteriaItems>
             <field>Case.MD__c</field>
@@ -2772,7 +2837,7 @@ RecordType.Name=&apos;MB Complaint&apos;
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
-            <operation>startsWith</operation>
+            <operation>contains</operation>
             <value>Dealer</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>

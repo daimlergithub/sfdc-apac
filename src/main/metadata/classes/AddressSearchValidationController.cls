@@ -54,7 +54,7 @@ public class AddressSearchValidationController
     public String workPhoneAreaCodePart1{get;set;}   
     public String workPhoneAreaCodePart2{get;set;}
     public String workPhoneAreaCodePart3{get;set;}
-  public String workPhone2AreaCodePart1{get;set;}   
+     public String workPhone2AreaCodePart1{get;set;}   
     public String workPhone2AreaCodePart2{get;set;}
     public String workPhone2AreaCodePart3{get;set;}
     public String homePhone2AreaCode{get;set;}
@@ -148,7 +148,8 @@ public class AddressSearchValidationController
         accountOwner=userinfo.getname();
         Address_Validated_Flag = false;
         
-        
+        system.debug('>>>>>>@##Readonly'+Readonly);
+        system.debug('<<<<<<<!@!#Editmode'+Editmode);
         
         Readonly=false;
       Editmode=true;
@@ -758,7 +759,7 @@ public class AddressSearchValidationController
                     
                     recordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
                     objAccount.RecordTypeId = recordTypeId;
-                    
+
                     if(!Address_Validated_Flag)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_validation));
@@ -990,6 +991,10 @@ public class AddressSearchValidationController
       companyrectype = false;
       personrectype= false;
       AddressDetails = '';
+      CompanyConfirmedMatch=false;
+      show=false;
+       System.debug('recordType*********'+recordType);
+        System.debug('selectedRecordType *********'+selectedRecordType);
         pageRef = new PageReference('/apex/AddressSearchValidation');
         return PageRef;
        
@@ -1001,6 +1006,8 @@ public class AddressSearchValidationController
     {
         resetPhoneAreacodes();
         selectedRecordType = recordType;       
+          System.debug('recordType*********'+recordType);
+        System.debug('selectedRecordType *********'+selectedRecordType);
    // Added by Venky changes related to SFDCJP-2505
     u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
       
@@ -1682,7 +1689,10 @@ If the user is Saving  same address which matches the fields returned by toleran
     public void onLineDeduplication(){ 
   //  Readonly= true;  
    //    Editmode=false; 
-
+   system.debug('<>><<>><<>@@#Readonly'+Readonly);
+   system.debug('!@@###!#Readonly'+Editmode);
+       boolean personacc;
+       boolean companyacc;
         String Doblebyte='[^ -~¡-ß]*';
         String KanaChar='[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*';
         Boolean result;
@@ -1895,6 +1905,82 @@ If the user is Saving  same address which matches the fields returned by toleran
         { 
              objPersonAccount.Work_Phone__c.addError(Label.WorkPhone_should_start_with_0);
         }
+                 else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile__c != NULL && !objAccount.Mobile__c.isNumeric()))
+        { 
+            objAccount.Mobile__c.addError(Label.Mobile_should_not_include_or);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile__c != NULL && objAccount.Mobile__c.length() >=12))
+        { 
+             objAccount.Mobile__c.addError(Label.Mobile_should_be_less_than_or_equal_to_11_digits);
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile__c != NULL &&  !objAccount.Mobile__c.startsWith('0')))
+        { 
+            objAccount.Mobile__c.addError(Label.Mobile_should_start_with_0);
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile2__c != NULL && !objAccount.Mobile2__c.isNumeric()))
+        { 
+            objAccount.Mobile2__c.addError(Label.Mobile_2_should_not_include_or);
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile2__c != NULL && objAccount.Mobile2__c.length() >=12))
+        { 
+             objAccount.Mobile2__c.addError(Label.Mobile_2_should_be_less_than_or_equal_to_11_digits);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Mobile2__c != NULL &&  !objAccount.Mobile2__c.startsWith('0')))
+        { 
+             objAccount.Mobile2__c.addError(Label.Mobile_2_should_start_with_0);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Phone != NULL && !objAccount.Phone.isNumeric()))
+        { 
+            objAccount.Phone.addError(Label.Phone_should_not_include_or);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.phone != NULL && objAccount.phone.length() >=12))
+        { 
+            objAccount.phone.addError(Label.Phone_should_be_less_than_or_equal_to_11_digits);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Phone != NULL &&  !objAccount.Phone.startsWith('0')))
+        { 
+            objAccount.Phone.addError(Label.Phone_should_start_with_0);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Work_Phone__c != NULL && !objAccount.Work_Phone__c.isNumeric()))
+        { 
+            objAccount.Work_Phone__c.addError(Label.Work_Phone_should_not_include_or);
+        }
+        
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Work_Phone__c != NULL && objAccount.Work_Phone__c.length() >=12))
+        { 
+            objAccount.Work_Phone__c.addError(Label.Work_Phone_should_be_less_than_or_equal_to_11_digits);
+        }
+       
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Work_Phone__c != NULL &&  !objAccount.Work_Phone__c.startsWith('0')))
+        { 
+             objAccount.Work_Phone__c.addError(Label.WorkPhone_should_start_with_0);
+        }
+                else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Home_Phone_2__c != NULL && !objAccount.Home_Phone_2__c.isNumeric()))
+        { 
+             objAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_not_include_or);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && objAccount.Home_Phone_2__c != NULL && objAccount.Home_Phone_2__c.length() >=12)
+        {
+           objAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_be_less_than_or_equal_to_11_digits);
+       
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Home_Phone_2__c != NULL &&  !objAccount.Home_Phone_2__c.startsWith('0')))
+        { 
+              objAccount.Home_Phone_2__c.addError(Label.Home_Phone_2_should_start_with_0);
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Individual_Home_Phone__c != NULL && !objAccount.Individual_Home_Phone__c.isNumeric()))
+        { 
+            objAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_not_include_or);
+        }
+        else if(recordType == 'Company' && market == System.Label.JP && objAccount.Individual_Home_Phone__c!= NULL && objAccount.Individual_Home_Phone__c.length() >=12)
+        {
+            objAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_be_less_than_or_equal_to_11_digits);
+       
+        }
+         else if(recordType == 'Company' && market == System.Label.JP && (objAccount.Individual_Home_Phone__c != NULL &&  !objAccount.Individual_Home_Phone__c.startsWith('0')))
+        { 
+            objAccount.Individual_Home_Phone__c.addError(Label.Individual_Home_Phone_should_start_with_0);
+        }
         
         else
         {
@@ -1916,15 +2002,37 @@ If the user is Saving  same address which matches the fields returned by toleran
            
             companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
             PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-            if(recordType !=null && recordType=='Company')
+           if(selectedRecordType =='Company')
+           {
+           companyacc  =true;
+           personacc =false;
+           
+            if(recordType !=null && recordType=='Company' && selectedRecordType =='Company' && personacc ==false && companyacc ==true)
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
+                objPersonAccount.Recordtypeid=null;
             }
+           }
+           
+            if(selectedRecordType =='Person Account')
+           {
+           companyacc  =false;
+           personacc =true;
             system.debug('recordType------------:'+recordType);
-            if(recordType !=null && recordType== 'Person Account')
+            if(recordType !=null && recordType== 'Person Account' && selectedRecordType =='Person Account' && personacc ==true && companyacc ==false)
             {             
                 objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
+                objAccount.Recordtypeid=null;
             }
+           }
+           
+           
+           
+            System.debug('@@@@@@@ recordType------------:'+recordType);
+              System.debug('@@@@@@@ objAccount.Recordtypeid   '+objAccount.Recordtypeid);
+                System.debug('@@@@@@@ objPersonAccount.Recordtypeid    '+objPersonAccount.Recordtypeid);
+                  System.debug('recordType*********'+recordType);
+        System.debug('selectedRecordType *********'+selectedRecordType);
             if(market == System.Label.KR)
             {
                   Editmode = false;
@@ -1958,7 +2066,7 @@ If the user is Saving  same address which matches the fields returned by toleran
            Address__c NewAdd=new Address__c();
             //SN20171028- Online dedup fix
             newadd.market__c=market;
-            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null)
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objPersonAccount.LastName!=null && objPersonAccount.Recordtypeid !=null)
             {
               AddressObj.Address_Type__c = addresspicklist;
                 if(AddressObj.Market__c !='JP'   &&  market == System.Label.JP)
@@ -1967,20 +2075,20 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objPersonAccount,AddressObj); 
             }
-            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null)
+            if(NewAdd !=AddressObj && AddressObj!=null && AddressObj.ZipCode__c!=null && objAccount.Name !=null && objAccount.Recordtypeid !=null)
             {
               AddressObj.Address_Type__c = addresspicklist;
             response =  UtilWebservice.validateCustomerDetailsWithAddress(objAccount,AddressObj); 
             }
             if(AddressObj == NewAdd)
             {
-            if(objPersonAccount.LastName !=null)
+            if(objPersonAccount.LastName !=null && objPersonAccount.Recordtypeid !=null)
             {
             response =  UtilWebservice.validateCustomerDetails(objPersonAccount); 
             }
              
              //@Venky:Added Below if condition Changes related to SFDCJP-995
-             if(objAccount.Name !=null)
+             if(objAccount.Name !=null && objAccount.Recordtypeid !=null)
             {
              System.debug('objAccount &**&*&**&**&*&*'+objAccount );
             response =  UtilWebservice.validateCustomerDetails(objAccount); 
@@ -1989,8 +2097,9 @@ If the user is Saving  same address which matches the fields returned by toleran
             System.debug('@@@@@@@@@@ response '+response);
            // System.debug('@@@@@@@@@@ response '+response.CustomerIdentificationResponseMessage);
             if(response != null){
-                if(response.CustomerIdentificationResponseMessage!=null && objPersonAccount.LastName !=null)
+                if(response.CustomerIdentificationResponseMessage!=null && objPersonAccount.LastName !=null && objPersonAccount.RecordtypeID !=null)
                 {
+                system.debug('@)((($(#><<>show'+show);
                 show = true;
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
                     {
@@ -2103,14 +2212,14 @@ If the user is Saving  same address which matches the fields returned by toleran
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
         }
-        if(objAccount.Name !=null) 
+        if(objAccount.Name !=null && objAccount.Recordtypeid !=null) 
         {
             crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse response = new crmasiaDaimlerApacComCustomeridentif.CustomerIdentificationResponse();
             System.debug('@@@@@@@ response >>'+response );
            
             companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
             PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
-            if(recordType !=null && recordType=='Company')
+           /* if(recordType !=null && recordType=='Company')
             {
                 objAccount.Recordtypeid=companyRecordTypeId;
             }
@@ -2118,7 +2227,30 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(recordType !=null && recordType== 'Person Account')
             {             
                 objAccount.Recordtypeid=PersonAccountRecordTypeID ;
+            }*/
+             if(selectedRecordType =='Company')
+           {
+           companyacc  =true;
+           personacc =false;
+           
+            if(recordType !=null && recordType=='Company' && selectedRecordType =='Company' && personacc ==false && companyacc ==true)
+            {
+                objAccount.Recordtypeid=companyRecordTypeId;
+                objPersonAccount.Recordtypeid=null;
             }
+           }
+           
+            if(selectedRecordType =='Person Account')
+           {
+           companyacc  =false;
+           personacc =true;
+            system.debug('recordType------------:'+recordType);
+            if(recordType !=null && recordType== 'Person Account' && selectedRecordType =='Person Account' && personacc ==true && companyacc ==false)
+            {             
+                objPersonAccount.Recordtypeid=PersonAccountRecordTypeID ;
+                objAccount.Recordtypeid=null;
+            }
+           }
             if(market == System.Label.KR)
             {
                 if(homePhoneAreaCodePart1!= '' && homePhoneAreaCodePart2 != '' && homePhoneAreaCodePart3 != '')
@@ -2237,8 +2369,9 @@ If the user is Saving  same address which matches the fields returned by toleran
                 
                 //@Venky:Added Below if condition Changes related to SFDCJP-995
                 
-                if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null)
-                {                    
+                if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null && objAccount.RecordtypeID!=null)
+                {  
+                system.debug('!@##$%$###$$$%CompanyConfirmedMatch'+CompanyConfirmedMatch);                  
                 CompanyConfirmedMatch=true;
                      
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
@@ -2264,8 +2397,36 @@ If the user is Saving  same address which matches the fields returned by toleran
                     }
                     
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Address_xc!=null)
-                    {   
-                        AddressDetails =response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
+                    {   string provincetmp = response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Province_xc;
+                        if(provincetmp !=null){
+                        provincetmp = provincetmp.toLowerCase();
+                        
+                        //provincetmp = provincetmp.subString(0,1).toUpperCase();
+                        Integer     i=0;
+                        List<String> newString =  new List<String>();
+                        String[] s= provincetmp.split(' ');
+                        String x,y,finalstring;
+                        for(String str  : s)
+                        {
+                            i=str.length();
+                            //String x,y,finalstring;
+                            x= str.substring(0,1).toUpperCase();
+                            y= str.substring(1,i) ;
+                            finalstring = x + y  ;
+                            newString.add(finalstring);
+                        }                        
+                        provincetmp = String.valueOf(finalstring);
+                        provincetmp  =provincetmp.replace(',','');
+                      }
+                        
+                       // province1 = addtrmapUpdate1.get(provincetmp);
+                        if(addtrmapUpdate1.containsKey(provincetmp)){
+                            province1 = addtrmapUpdate1.get(provincetmp);
+                            system.debug('province1 2:'+province1);
+                        }
+                       system.debug('province1 3:'+province1);
+                        
+                        AddressDetails =province1+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].City_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].District_xc+ '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Block_xc + '  '+response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_1_xc+'  '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Line_2_xc;//response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Address_Code_xc +' '+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].ZipCode_xc + '  '+ 'Unnormalized Post Code'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_ZipCode_xc + 'Unnormalized Address'+ response.CustomerIdentificationResponseMessage[0].Customer.Address_xc[0].Temp_Address_xc;                
                         AddressDetails = AddressDetails.replace('null',' ');
                    }
                 }
@@ -2304,6 +2465,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Result_Found));
             }
         }    
+        system.debug('>@#$@@#$$$%$%Readonly'+Readonly);
+        system.debug('<<<<<<Editmode>>>>>>'+Editmode);
             Readonly= true;  
        Editmode=false;    
                       if(market == Label.JP){
@@ -2316,8 +2479,6 @@ If the user is Saving  same address which matches the fields returned by toleran
    system.debug ('+++++++++companyrectype'+companyrectype );
     companyrectype = true;
 
-   system.debug ('+++++++++companyrectype'+companyrectype );
-    
     }
     
     }
@@ -2434,6 +2595,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             if(response != null){
                 if(response.CustomerIdentificationResponseMessage!=null && objAccount.LastName !=null)
                 {
+                system.debug('+++++++++>>>>>>show'+show);
                 show = true;
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Lastname !=null)
                     {
@@ -2637,7 +2799,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                 }
                 
                 if(response.CustomerIdentificationResponseMessage!=null && objAccount.Name !=null)
-                {                    
+                {      
+                system.debug('!@##$%>>>>>>$%CompanyConfirmedMatch'+CompanyConfirmedMatch);                
                 CompanyConfirmedMatch=true;
                      
                     if(response.CustomerIdentificationResponseMessage[0].Customer.Id!=null)
@@ -3488,11 +3651,11 @@ public pagereference saveAccountTH()
                     else
                     {*/                   
                     
-					if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
-					{
-						ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
-						Validation = true;                      
-					}
+                    if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+                        Validation = true;                      
+                    }
                     //}
                     
             }

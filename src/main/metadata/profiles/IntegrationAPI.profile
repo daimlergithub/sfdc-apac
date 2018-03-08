@@ -862,6 +862,14 @@
         <apexClass>ConsolidationContorllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>Call_Batch_JointDrivenCampaign</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Call_Batch_JointDrivenCampaigntest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>ContactHelper</apexClass>
         <enabled>true</enabled>
@@ -14271,9 +14279,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Allow_Data_Sharing__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -27275,6 +27283,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Retail_LastModifiedDate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Retail_company__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+		<fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle_Relationship__c.Company_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

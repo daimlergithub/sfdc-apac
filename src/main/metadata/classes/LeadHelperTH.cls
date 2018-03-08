@@ -76,17 +76,19 @@ public without sharing class LeadHelperTH {
                         newmapid.add(((Lead__c) Trigger.newMap.get(l.id)).assigned_dealer__c);
                         l.Received_Date_Time__c = null;
                         l.Accepted_Date_Time__c = null;
-                        l.dealer_lead_status__c = '';
+                        l.CAC_Lead_status__C = 'New';
+                        System.debug('Narendra1');
                     } else {
                         if (((Lead__c) Trigger.oldMap.get(l.id)).assigned_dealer__c != null && l.assigned_dealer__c == null)
-
+                            System.debug('Narendra1');
                             //l.assigned_dealer__c=null;
                             l.ownerId = l.createdbyId;
 
                     }
 
                 } else if (((Lead__c) Trigger.newMap.get(l.id)).ownerid != ((Lead__c) Trigger.oldMap.get(l.id)).ownerid && (l.RecordTypeId == salesRecordTypeId || l.RecordTypeId == afterSalesRecordTypeId || l.RecordTypeId == retailSalesRecordTypeId)) {
-                    //l.ownerID = ((Lead__c) Trigger.newMap.get(l.id)).ownerid;
+                    l.ownerID = ((Lead__c) Trigger.newMap.get(l.id)).ownerid;
+                    System.debug('Narendra2');
                 } else if ((l.RecordTypeId == salesRecordTypeId || l.RecordTypeId == afterSalesRecordTypeId || l.RecordTypeId == retailSalesRecordTypeId)) {
                     if (l.assigned_dealer__c == null) {
                         //l.ownerID=l.createdbyId;
@@ -94,9 +96,9 @@ public without sharing class LeadHelperTH {
 
                     } else {
                         if (l.assigned_dealer__c != null && l.Received_Date_Time__c != null && l.Accepted_Date_Time__c != null) {
-                            if (l.dealer_lead_status__c != System.label.Accepted) {
+                            if (l.CAC_Lead_status__C != System.label.Accepted) {
 
-                                //l.ownerID=l.createdbyId;
+                                l.ownerID=l.createdbyId;
                                 l.assigned_dealer__c = null;
 
                             }
@@ -154,12 +156,12 @@ public without sharing class LeadHelperTH {
 
                 }
                 if ((listlead.recordtypeid == retailSalesRecordTypeId || listlead.recordtypeid == afterSalesRecordTypeId || listlead.recordtypeid == salesRecordTypeId) && profileName != 'IntegrationAPI') {
-                    if (listlead.Dealer_Lead_Status__c == 'Order Placed' && listlead.Order_Placed_Date__c == null && listlead.recordtypeid != retailSalesRecordTypeId) {
+                    if (listlead.CAC_Lead_status__C == 'Order Placed' && listlead.Order_Placed_Date__c == null && listlead.recordtypeid != retailSalesRecordTypeId) {
                         listlead.Order_Placed_Date__c.adderror(system.label.TH_SARI_DealerOrderplacedError);
 
                     }
-                    if (listlead.Dealer_Lead_Status__c == System.label.Purchased && listlead.Purchased_Date__c == null) {
-                        listlead.Dealer_Lead_Status__c.adderror(system.label.TH_SARIDealerlead_status_error);
+                    if (listlead.CAC_Lead_status__C == System.label.Purchased && listlead.Purchased_Date__c == null) {
+                        listlead.CAC_Lead_status__C.adderror(system.label.TH_SARIDealerlead_status_error);
 
                     }
                 }

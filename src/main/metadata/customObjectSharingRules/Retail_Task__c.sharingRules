@@ -88,6 +88,25 @@
         <description>Share the retail task with users having MBTH role.</description>
         <name>ShareWithMBTH</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MBMY_Service_history_records_share_to_all_MY_users</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>MBMY Service history records share to all MY users with Read access.</description>
+        <name>MBMY Service history records share to all MY users</name>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_Contract_Service_with_Region</fullName>
         <sharedTo>
