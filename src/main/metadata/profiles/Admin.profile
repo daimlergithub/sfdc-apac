@@ -2999,6 +2999,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>generateTaskClass</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>onLineDeduplicationCDMTHMock</apexClass>
         <enabled>true</enabled>
     </classAccesses>
