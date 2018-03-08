@@ -3089,6 +3089,11 @@
         <field>Account_Link__c.Retail_Related_Company3__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Old_UCID__c</field>
+        <readable>true</readable>
+   </fieldPermissions>
 	<fieldPermissions>
 		<editable>true</editable>
         <field>IdeasVoting__c.IdeaLikeCount__c</field>
