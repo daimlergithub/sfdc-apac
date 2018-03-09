@@ -82,8 +82,12 @@ global without sharing class stouchPersonDetails {
         personDetails.put('Address_Type__c', ' ');
         personDetails.put('PersonMailingAddressline2', ' ');
         if(acc.Addresses__r.size()!=0){
+            Map<String,String> prefectureValues=new Map<String,String>{'Hokkaido' =>'Incheon','Aomori' =>'Gyeongsangnam-do','Iwate' =>'Chungcheongnam-do','Akita' =>'Gyeonggi-do',
+            														'Fukushima' =>'Busan','Ibaraki' =>'Jeollabuk-do','Gunma' =>'Sejong-si','Chiba' =>'Gyeongsangbuk-do',
+            														'Ishikawa' =>'Jeju-do','Fukui' =>'Daegu','Gifu' =>'Seoul','Aichi' =>'Gangwon-do','Hyogo' =>'Jeollanam-do',
+            														'Hiroshima' =>'Ulsan','Kagawa' =>'Chungcheongbuk-do','Ehime' =>'Gwangju','Fukuoka' =>'Daejeon'};
             personDetails.put('PersonMailingPostalCode', String.ISBlank(acc.Addresses__r[0].Zipcode__c)?' ':acc.Addresses__r[0].Zipcode__c);
-            personDetails.put('PersonMailingState', String.ISBlank(acc.Addresses__r[0].Province__c)?' ':acc.Addresses__r[0].Province__c);
+            personDetails.put('PersonMailingState', String.ISBlank(acc.Addresses__r[0].Province__c)?' ':prefectureValues.get(acc.Addresses__r[0].Province__c));
             personDetails.put('PersonMailingCity', String.ISBlank(acc.Addresses__r[0].City__c)?' ':acc.Addresses__r[0].City__c);
             personDetails.put('PersonMailingAddress', String.ISBlank(acc.Addresses__r[0].Address_Line_1__c)?' ':acc.Addresses__r[0].Address_Line_1__c);
             personDetails.put('Town', String.ISBlank(acc.Addresses__r[0].District__c)?' ':acc.Addresses__r[0].District__c);
