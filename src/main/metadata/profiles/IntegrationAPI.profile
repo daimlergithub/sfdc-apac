@@ -3053,6 +3053,11 @@
         <field>Account_Link__c.Retail_Related_Company3__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Old_UCID__c</field>
+        <readable>true</readable>
+   </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Message__c</field>
@@ -11976,7 +11981,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.MBTH_Turnaround_time__c</field>
+        <field>Case.Turn_Around_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

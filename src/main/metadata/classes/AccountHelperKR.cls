@@ -842,7 +842,13 @@ public static void updatePrimaryAddressdisplay(list<Account> listNewAccounts,boo
                     AccountShare AccountShareRecord = new AccountShare();
                     AccountShareRecord.AccountId= dealerRec.id;
                     AccountShareRecord.UserOrGroupId= groupRec.Id;
+                    if(dealerRec.RecordType.DeveloperName == 'Dealer')
+                    {
                     AccountShareRecord.AccountAccessLevel= 'Read';
+                    }else
+                    {
+                    AccountShareRecord.AccountAccessLevel= 'Edit'; // Made Read to Edit as per ticket SFDCKR-1721
+                    }
                     AccountShareRecord.OpportunityAccessLevel= 'Edit';   
                     AccountShareRecord.RowCause='Manual';
                     AccountShareList.add(AccountShareRecord);
