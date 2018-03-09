@@ -4772,6 +4772,11 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Response Sheet</fullName>
                 <default>false</default>
@@ -21074,7 +21079,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Partners</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Recall desk</fullName>
                 <default>false</default>
             </values>
