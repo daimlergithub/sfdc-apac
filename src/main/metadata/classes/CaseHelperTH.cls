@@ -466,7 +466,7 @@ public class CaseHelperTH {
                 else if (((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c == null) {
                     sharingrevokefromgroups.add(((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
                     casesharingtorevoke.add(((Case) trigger.oldmap.get(casesrec.id)).id);
-                } else if (((Case) trigger.oldmap.get(casesrec.id)).ownerId != ((Case) trigger.newmap.get(casesrec.id)).ownerId) {
+                } else if (usr!=null && usr.get(casesrec.ownerid)!=null && usr.get(casesrec.ownerid).dealer_nd_code__c!=null && ((Case) trigger.oldmap.get(casesrec.id)).ownerId != ((Case) trigger.newmap.get(casesrec.id)).ownerId) {
                     String grpName = 'TH' + usr.get(casesrec.ownerid).dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
@@ -590,6 +590,6 @@ for(case re:triggernew){
             }
         }
         if(caseIdLst.size()>0)
-            CDMInformatica_Services.sendCaseDetailsToCOS(caseIdLst, 'TH', 'Case');
+            CDMInformatica_Services.sendCaseDetailsToCOS(caseIdLst, 'TH', 'Update');
     }
 }
