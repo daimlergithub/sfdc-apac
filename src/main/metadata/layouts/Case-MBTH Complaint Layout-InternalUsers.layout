@@ -108,7 +108,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>MBTH_Turnaround_time__c</field>
+                <field>Turn_Around_Time__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
