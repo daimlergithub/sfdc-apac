@@ -571,8 +571,11 @@
         <fields>Interested_Vehicle__c</fields>
         <fields>MBK_Lead_Desired_Service__c</fields>
         <fields>Dealer_Lead_Status__c</fields>
+		<fields>CREATED_DATE</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
+		<sortField>CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
