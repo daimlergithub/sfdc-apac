@@ -150,6 +150,17 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
 	</fields>
 	<fields>
         <fullName>CIAM_Email__c</fullName>
@@ -409,6 +420,17 @@
         <externalId>false</externalId>
         <label>Id</label>
         <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Industry_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Industry Type</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3888,6 +3910,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SystemModstamp__c</fullName>
