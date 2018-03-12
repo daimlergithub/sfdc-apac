@@ -9560,7 +9560,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Diplomats</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -12849,6 +12849,11 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Road Assistant</fullName>
@@ -24284,6 +24289,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
             <values>

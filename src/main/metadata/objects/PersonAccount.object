@@ -4361,6 +4361,10 @@
                 <fullName>Partners</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Road Assistant</fullName>
                 <default>false</default>
