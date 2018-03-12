@@ -82,9 +82,11 @@
         function showCriteria(fieldSelect){
             var newFieldValue = $(fieldSelect).val();
             var jQueryFieldRow = $(fieldSelect).parent().parent();
+            
               
             // show from for the date fields
             if(dateInputClass.indexOf(newFieldValue)!=-1){
+               
                 jQueryFieldRow.find('.notDate').children().each(function(){
                     if(this.style.display == 'block'){
                         this.style.display = 'none';
@@ -804,7 +806,7 @@
                                 <select onchange="showCriteria(this);"> 
                                    <option value="Car_Model__r.Model_Name__c">Model</option>                                                                     
                                    <!--<option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>-->
-                                   <!--<option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>-->                                                                     
+                                   <option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>
                                    <!--<option value="Modification_Package__c">{!$ObjectType.Vehicle__c.Fields.Modification_Package__c.Label}</option>-->
                                    <option value="FirstRegistrationDate__c">{!$ObjectType.Vehicle__c.Fields.FirstRegistrationDate__c.Label}</option>
                                    <option value="Handover_Date__c">Delivery (Hand Over Date) Date From To</option>
@@ -1227,9 +1229,9 @@
                             <apex:column headerValue="{!$ObjectType.Car_Model__c.Fields.Model_Name__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Car_Model__r.Model_Name__c}"/> 
                             </apex:column>
-                            <!--<apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}" rendered="{!segmentationBase='Vehicle'}">
+                            <apex:column headerValue="{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.veh.vehicle_id__r.Model_Description__c}"/> 
-                            </apex:column>-->
+                            </apex:column>
                             <!--<apex:column headerValue="{!$ObjectType.Recall__c.Fields.Status__c.Label}" rendered="{!segmentationBase='Vehicle'}">
                                 <apex:outputField value="{!wrapAcc.recall.Status__c}"/> 
                             </apex:column>-->
@@ -1305,3 +1307,4 @@
         </apex:pageBlock>
     </apex:form>
 </apex:page>
+             
