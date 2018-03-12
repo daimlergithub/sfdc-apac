@@ -3891,6 +3891,13 @@ please contact the number below.</value>
         <value>Postal code should be 6 digits long</value>
     </labels>
     <labels>
+        <fullName>Remove_FirstName_LastName_for_company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove FirstName, LastName for company</shortDescription>
+        <value>Please remove the firstname , lastname for saving company account and account name for person account</value>
+    </labels>
+    <labels>
         <fullName>IN_State_validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
