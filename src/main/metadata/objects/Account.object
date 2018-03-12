@@ -4772,6 +4772,11 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Response Sheet</fullName>
                 <default>false</default>
@@ -9555,7 +9560,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Diplomats</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -12844,6 +12849,11 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Road Assistant</fullName>
@@ -19798,6 +19808,41 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <role>Central</role>
         </sharedTo>
     </listViews>
+	<listViews>
+        <fullName>All_Accounts_KR</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Accounts</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Today</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACCOUNT.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Today&apos;s_Created_Customer</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>AllDealerAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
@@ -19910,6 +19955,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <columns>ACCOUNT.NAME</columns>
         <columns>Dealer_ND_Code__c</columns>
         <columns>Dealer_GC_Code__c</columns>
+		 <columns>Dealer_Active__c</columns>
         <columns>Dealer_GS_Code__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -19983,6 +20029,39 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+	    <listViews>
+        <fullName>MBTH_Active_Dealer</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Dealer_Active__c</columns>
+        <columns>Dealer_ND_Code__c</columns>
+        <columns>Individual_Home_Phone__c</columns>
+        <columns>Work_Phone__c</columns>
+        <columns>Dealer_GC_Code__c</columns>
+        <columns>Dealer_Lead_Gate_Keeper__pc</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Dealer</value>
+        </filters>
+        <filters>
+            <field>MD__pc</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <filters>
+            <field>Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>MBTH Active Dealer</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -21074,7 +21153,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Partners</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>Recall desk</fullName>
                 <default>false</default>
             </values>
@@ -24206,6 +24289,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60868,6 +60955,13 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <description>Please Enter Atleast one contact Information</description>
         <errorConditionFormula>IF( AND(ISBLANK(Mobile__c),MD__c = 'TH',RecordType.DeveloperName!='Dealer',$Profile.Name !='IntegrationAPI',ISBLANK(Work_Phone__c),ISBLANK(Individual_Home_Phone__c),( OR(ISNULL(Email__c),ISBLANK(Email__c)) )) , true, false)</errorConditionFormula>
         <errorMessage>Please Enter Atleast one contact Information</errorMessage>
+    </validationRules>
+	    <validationRules>
+        <fullName>TH_ID_Type_is_mandatory</fullName>
+        <active>true</active>
+        <description>If ID Number field is having a value, ID Type should be mandatory in both Create and Update scenario</description>
+        <errorConditionFormula>AND( MD__c='TH',NOT(ISBLANK( ID_Number__c)),ISPICKVAL(ID_Type__c,''), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Please fill in ID Type if ID Number has value</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Birthday</fullName>

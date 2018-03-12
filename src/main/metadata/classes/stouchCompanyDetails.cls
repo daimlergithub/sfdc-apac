@@ -29,7 +29,7 @@ global class stouchCompanyDetails {
         leadMaps.put('Dealer_Comments__c', (leads==null || String.ISBlank(leads.Dealer_Comments__c))?' ':leads.Dealer_Comments__c);
         leadMaps.put('LastModifiedDate',' ');
         if(leads!=null)
-            leadMaps.put('LastModifiedDate', leads.LastModifiedDate.format('yyyy-MM-dd\'T\'hh:mm:ss\'Z\'','GMT'));
+            leadMaps.put('LastModifiedDate', leads.LastModifiedDate.format('yyyy-mm-dd\'T\'hh:mm:ss\'Z\'','GMT'));
         leadMaps.put('Customer_Type__c',(leads==null || String.ISBlank(leads.Customer_Type__c))?' ':leads.Customer_Type__c);
         leadMaps.put('Purchase_Time__c',(leads==null || String.ISBlank(leads.Purchase_Time__c))?' ':leads.Purchase_Time__c);
         leadMaps.put('DealerID', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_ND_Code__c))?' ':leads.Assigned_dealer__r.Dealer_ND_Code__c);
@@ -74,8 +74,12 @@ global class stouchCompanyDetails {
         personDetails.put('CompanyTown', ' ');
         personDetails.put('Address_Type__c', ' ');
         if(acc.Addresses__r.size()!=0){
+            Map<String,String> prefectureValues=new Map<String,String>{'Hokkaido' =>'Incheon','Aomori' =>'Gyeongsangnam-do','Iwate' =>'Chungcheongnam-do','Akita' =>'Gyeonggi-do',
+            														'Fukushima' =>'Busan','Ibaraki' =>'Jeollabuk-do','Gunma' =>'Sejong-si','Chiba' =>'Gyeongsangbuk-do',
+            														'Ishikawa' =>'Jeju-do','Fukui' =>'Daegu','Gifu' =>'Seoul','Aichi' =>'Gangwon-do','Hyogo' =>'Jeollanam-do',
+            														'Hiroshima' =>'Ulsan','Kagawa' =>'Chungcheongbuk-do','Ehime' =>'Gwangju','Fukuoka' =>'Daejeon'};
             personDetails.put('CompanyPostCode', String.ISBlank(acc.Addresses__r[0].Zipcode__c)?' ':acc.Addresses__r[0].Zipcode__c);
-            personDetails.put('CompanyMailingState', String.ISBlank(acc.Addresses__r[0].Province__c)?' ':acc.Addresses__r[0].Province__c);
+            personDetails.put('CompanyMailingState', String.ISBlank(acc.Addresses__r[0].Province__c)?' ':prefectureValues.get(acc.Addresses__r[0].Province__c));
             personDetails.put('CompanyMailingCity', String.ISBlank(acc.Addresses__r[0].City__c)?' ':acc.Addresses__r[0].City__c);
             personDetails.put('CompanyMailingAddress', String.ISBlank(acc.Addresses__r[0].Address_Line_1__c)?' ':acc.Addresses__r[0].Address_Line_1__c);
             personDetails.put('CompanyTown', String.ISBlank(acc.Addresses__r[0].District__c)?' ':acc.Addresses__r[0].District__c);
