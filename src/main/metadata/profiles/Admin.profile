@@ -6500,6 +6500,11 @@
         <field>Account_Link__c.BPID__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Business_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.CIAM_Email__c</field>
@@ -6593,6 +6598,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Industry_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7286,6 +7296,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Sub_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.SystemModstamp__c</field>
         <readable>true</readable>
@@ -7712,6 +7727,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Address__c.FS_District__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Address__c.FS_Hardcopy_Last_Modified_By__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7783,6 +7803,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Source_System__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.State__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -31726,6 +31751,11 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account_Link__c.Finance_Services</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
         <visible>true</visible>
@@ -31868,6 +31898,16 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.EventDataLoad</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.FS_Compaint</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.FS_Inquiry</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -32014,6 +32054,11 @@
         <default>false</default>
         <recordType>Lead__c.Dealer_Sales_leads_ReadOnly</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Finance_Lead</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

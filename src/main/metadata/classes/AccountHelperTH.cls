@@ -905,6 +905,8 @@ public class AccountHelperTH {
             acclnk.Retail_Phone_OptOut__c = acclnk.toRole__r.PersonDoNotCall;
             acclnk.Retail_Race__c = acclnk.toRole__r.MBTH_Nationality__c;
             acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
+            //added SFDCTH-732
+            acclnk.Retail_Address_Reference__c = acclnk.toRole__r.Primary_Address_Reference__c;
 
             //Checking Null for sales Address 
             if (acclnk.toRole__r.Primary_Address_Reference__c != null && acclnk.Retail_Address_Reference__c == acclnk.toRole__r.Primary_Address_Reference__c) {
