@@ -4629,10 +4629,6 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>IN</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Portal_Source__c</picklist>
