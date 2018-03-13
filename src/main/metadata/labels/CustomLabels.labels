@@ -7480,6 +7480,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Remove</value>
     </labels>
     <labels>
+        <fullName>Remove_FirstName_LastName_for_company</fullName>
+        <categories>AddressSearchValidationcontroller class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove FirstName, LastName for company</shortDescription>
+        <value>Please remove the firstname , lastname  for saving company account and account name for person account</value>
+    </labels>
+    <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
         <categories>Report</categories>
         <language>en_US</language>
