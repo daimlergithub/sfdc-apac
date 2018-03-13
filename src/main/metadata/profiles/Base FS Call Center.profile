@@ -6,8 +6,7 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        
-        <application>Central_CRM</application>
+	<application>Central_CRM</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
@@ -102,16 +101,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBMY_Call_Center</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>MBMY_Call_Center_Console</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>MBMY_Data_Management</application>
         <default>false</default>
         <visible>false</visible>
@@ -167,12 +156,7 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>RUG_Portal</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Retail_CRM</application>
+          <application>Retail_CRM</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
