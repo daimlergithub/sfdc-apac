@@ -495,6 +495,9 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                         acclnk.Retail_Abroad_Agreement__c = led.Contact__r.Personal_Abroad_Agreement__c;
                         acclnk.Retail_Agreement_Info_Processing__c = led.Contact__r.Agreement_to_commit_info_processing__c;
                         acclnk.Retail_Vat_No__c = led.Contact__r.Vat_No__c;
+						if (led.Contact__r.Foundation_Date__c != null)
+                            acclnk.Retail_Foundation_Month__c = String.valueOf(led.Contact__r.Foundation_Date__c.year()) + (String.ValueOf(led.Contact__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.month())) : String.ValueOf(led.Contact__r.Foundation_Date__c.month())) + (String.ValueOf(led.Contact__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.day())) : String.ValueOf(led.Contact__r.Foundation_Date__c.day()));
+                    
 						if (led.Contact__r.Primary_Address_Reference__c != null) {
 							acclnk.Retail_Address_Reference__c = led.Contact__r.Primary_Address_Reference__c;
 
@@ -542,9 +545,11 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                         cacclnk.Retail_Abroad_Agreement__c = led.Company_Account__r.Personal_Abroad_Agreement__c;
                         cacclnk.Retail_Agreement_Info_Processing__c = led.Company_Account__r.Agreement_to_commit_info_processing__c;
 						cacclnk.Retail_Country__c = led.Company_Account__r.country__c;
+						if (led.Company_Account__r.Foundation_Date__c != null)
+                            cacclnk.Retail_Foundation_Month__c = String.valueOf(led.Company_Account__r.Foundation_Date__c.year()) + (String.ValueOf(led.Company_Account__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(led.Company_Account__r.Foundation_Date__c.month())) : String.ValueOf(led.Company_Account__r.Foundation_Date__c.month())) + (String.ValueOf(led.Company_Account__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(led.Company_Account__r.Foundation_Date__c.day())) : String.ValueOf(led.Company_Account__r.Foundation_Date__c.day()));
+                    
 						if(led.Company_Account__r.Primary_Address_Reference__c != null) {
-						   cacclnk.Retail_Address_Reference__c = led.Company_Account__r.Primary_Address_Reference__c;
-							
+						   cacclnk.Retail_Address_Reference__c = led.Company_Account__r.Primary_Address_Reference__c;							
 						}
                        accLst.add(cacclnk);         
                 } 
