@@ -53,7 +53,9 @@ public class AccountHelperIN{
         AccountHelperBase.updateOnEmailOptout(listNewAccounts);
     }
     
-    /*public static void updateAgeRange(list<Account> listNewAccounts){
+    
+    
+    public static void updateAgeRange(list<Account> listNewAccounts){
         AccountHelperBase.updateAgeRange(listNewAccounts);
         for(account acc : listNewAccounts ){
             if(string.isnotblank(acc.Age_Range__c)?acc.Age_Range__c=='Unknown':False)
@@ -61,7 +63,7 @@ public class AccountHelperIN{
         
         }
     }
-    
+    /*
     public static void activeContracts(list<Account> listNewAccounts){
         AccountHelperBase.activeContracts(listNewAccounts);    
     }
