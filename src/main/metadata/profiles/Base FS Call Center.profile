@@ -6,11 +6,7 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>Call_Center_Console_Generic</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
+        
         <application>Central_CRM</application>
         <default>false</default>
         <visible>false</visible>
@@ -14723,21 +14719,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>ContentVersion.AFSC__Replaced_Content_Document_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>ContentVersion.AFSC__SHA1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>ContentVersion.AFSC__Warning_MAC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Ad_Num__c</field>
         <readable>false</readable>
@@ -15844,11 +15825,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Duplicate_Merge_Info__c.Duplicate_Retail_Customer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+        
         <field>Duplicate_Merge_Info__c.Duplicate_UCID__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -15865,11 +15842,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Duplicate_Merge_Info__c.Master_Customer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Duplicate_Merge_Info__c.Master_Retail_Customer__c</field>
+        
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16418,11 +16391,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Message__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
+        
         <editable>true</editable>
         <field>Event.Notification_Email_Flag__c</field>
         <readable>true</readable>
@@ -16549,16 +16518,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Survey_Taken__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Survey__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+        
         <field>Event.Task_RecordType_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -27353,11 +27313,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Message__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
+        
         <editable>true</editable>
         <field>Task.Notification_Email_Flag__c</field>
         <readable>true</readable>
@@ -30538,9 +30494,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Scorecard-Scorecard Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ScorecardAssociation-Scorecard Association Layout</layout>
+    
     </layoutAssignments>
     <layoutAssignments>
         <layout>ScorecardMetric-Scorecard Metric Layout</layout>
@@ -30613,10 +30567,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
-        <recordType>Task.KakaoTalk</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
+       
         <recordType>Task.MBDA_Survey</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -30661,10 +30612,7 @@
     <layoutAssignments>
         <layout>Template__c-Template Layout</layout>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template__c-Template Layout</layout>
-        <recordType>Template__c.KakaoTalk</recordType>
+    
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-Template Layout</layout>
@@ -32231,11 +32179,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Task.KakaoTalk</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
+        
         <recordType>Task.MBDA_Survey</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -32297,11 +32241,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.ChildrenSMSTemplate</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Template__c.KakaoTalk</recordType>
+        
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -32409,17 +32349,11 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Dealer_List_Member__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
+        
         <tab>Dealer_Locator__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    <tabVisibilities>
-        <tab>Duplicate_Merge_Info__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
+    
     <tabVisibilities>
         <tab>FS_Contract__c</tab>
         <visibility>DefaultOn</visibility>
