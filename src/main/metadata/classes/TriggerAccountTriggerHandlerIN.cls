@@ -65,7 +65,7 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
                     firstRun=false;
                 }
             }
-            if(Util_GetPermissionList.checkAccessOnUser(Label.updateRetailCopy)){                                                                
+            if(util_getP.checkCustomPermission(Label.updateRetailCopy)){                                                                
                 AccountHelperIN.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
             }
         }

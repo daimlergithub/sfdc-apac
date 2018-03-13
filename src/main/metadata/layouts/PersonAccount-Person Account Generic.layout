@@ -62,6 +62,14 @@
                 <behavior>Edit</behavior>
                 <field>Old_UCID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Aadhaar__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PAN__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -114,6 +122,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Updated_Consent_User__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Generated_by__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Created_by_Dealership__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -211,6 +227,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Interested_Event_MultiSelect__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Preferred_Language__c</field>
             </layoutItems>
             <layoutItems>
@@ -246,6 +266,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Fleet__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Internet_Site__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_newspaper_picklist__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -291,7 +319,7 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Service History Information</label>
-		<layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <height>200</height>
                 <page>ServiceRetailTask</page>
@@ -344,7 +372,7 @@
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Product_Name__c</fields>
