@@ -8,7 +8,7 @@
         <active>true</active>
         <description>Record type for person account</description>
         <label>Person Account</label>
-		<picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>After-Sales Event</fullName>
@@ -604,6 +604,53 @@
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2725,6 +2772,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Generated_by__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Hobby__c</picklist>
             <values>
                 <fullName>Art %26 Theatre</fullName>
@@ -3861,6 +3923,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -4928,6 +5009,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -5746,6 +5831,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Hindi</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Italian</fullName>
                 <default>false</default>
             </values>
@@ -5795,6 +5884,29 @@
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7435,6 +7547,53 @@
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10099,6 +10258,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -10648,6 +10826,10 @@
 			<picklist>Market__c</picklist>
             <values>
                 <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11265,6 +11447,29 @@
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12687,6 +12892,53 @@
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15111,6 +15363,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -16433,6 +16704,29 @@
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17780,6 +18074,53 @@
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20208,6 +20549,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -21387,6 +21747,10 @@
                 <fullName>English</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Hindi</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Phone__c</picklist>
@@ -21404,6 +21768,29 @@
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22785,6 +23172,53 @@
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25421,6 +25855,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -26620,6 +27073,29 @@
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -656,6 +656,46 @@ public class ContactTableController {
             PhoneNumberFormatMY();
             checkcountrycode();
         }
+        else if (ParAcc.MD__c == 'IN' || ParAcc.Market__C == 'IN')      
+        {   
+            PhoneNumberFormatIN();  
+        }
+    }
+    //PHONE FORMAT FOR INDIA
+    public void PhoneNumberFormatIN(){                 
+    string localhmPhone,localwkPhone,localMBPhone,localFaxPhone;        
+    localhmPhone=string.valueOf(ParAcc.Individual_Home_Phone__c);       
+    localwkPhone=string.valueOf(ParAcc.Work_Phone__c);     
+    localMBPhone=string.valueOf(ParAcc.Mobile__c);     
+    localFaxPhone=string.valueOf(ParAcc.fax);     
+    if ((!String.IsBlank(localhmPhone))&&(localhmPhone.length()>3)){       
+        hmCountryCode=localhmPhone.substring(0,3);      
+            hmphoneNumber = localhmPhone.substring(3,localhmPhone.length());
+    }
+    else{               
+        hmCountryCode='+91';
+    }       
+    if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3)){ 
+        wkCountryCode=localwkPhone.substring(0,3);  
+        wkphoneNumber=localwkPhone.substring(3,localwkPhone.length());         
+    }
+    else{
+        wkCountryCode='+91';
+    }       
+    if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3)){        
+        mbCountryCode=localMBPhone.substring(0,3);              
+        mbphoneNumber=localMBPhone.substring(3,localMBPhone.length());        
+    }
+    else{
+        mbCountryCode='+91';
+    }
+    if ((!String.IsBlank(localFaxPhone)) && (localFaxPhone.length()>3)){        
+        faxCountryCode=localFaxPhone.substring(0,3);            
+        faxphoneNumber=localFaxPhone.substring(3,localFaxPhone.length());
+    }
+    else{
+        faxCountryCode='+91';
+    }   
     }
     public void UpdateAccountTH() {
         try {
@@ -800,6 +840,64 @@ public class ContactTableController {
     }
 
 
+    /*         
+ Added code to update the phone number for India
+        
+ */     
+     public void UpdateAccountIN(){     
+        system.debug('inside India method');
+        Boolean homePhoneCheck= false;
+        Boolean workPhoneCheck= false;
+        Boolean mobilePhoneCheck= false;
+        Boolean faxCheck=false;
+        PhoneNumberFormatCheck checkFormat = new PhoneNumberFormatCheck();
+        homePhoneCheck=checkFormat.detailPagePhoneFormat(hmCountryCode,hmphoneNumber);
+        workPhoneCheck=checkFormat.detailPagePhoneFormat(wkCountryCode,wkphoneNumber);
+        mobilePhoneCheck=checkFormat.detailPagePhoneFormat(mbCountryCode,mbphoneNumber);
+        faxCheck=checkFormat.detailPagePhoneFormat(faxCountryCode,faxphoneNumber);
+        if(homePhoneCheck && workPhoneCheck && mobilePhoneCheck && faxCheck){
+            if(String.isBlank(hmphoneNumber)){                     
+                ParAcc.Individual_Home_Phone__c='';      
+            }     
+            else{             
+                ParAcc.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;     
+            }                                 
+            if(String.isBlank(wkphoneNumber)){                     
+                ParAcc.Work_Phone__c='';     
+            }     
+            else{         
+                ParAcc.Work_Phone__c=wkCountryCode+wkphoneNumber;                                                                
+            }             
+            if((String.isBlank(mbphoneNumber))){                     
+                ParAcc.Mobile__c='';     
+            }     
+            else{     
+                ParAcc.Mobile__c=mbCountryCode+mbphoneNumber;        
+            }             
+            if((String.isBlank(faxphoneNumber))){                     
+                ParAcc.fax='';       
+            }     
+            else{         
+                ParAcc.fax=faxCountryCode+faxphoneNumber;        
+            }             
+            try{            
+                if(ParAcc.Individual_Home_Phone__c == '' && ParAcc.Mobile__c == '' && ParAcc.Work_Phone__c == '' && ParAcc.Email__c == null){       
+                    refreshPage = false;              
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));        
+                }
+                else{       
+                    if(ParAcc != null)     
+                    refreshPage = true;     
+                    DMLManagerService.updateAsSystem(ParAcc); 
+                }                   
+            }               
+            catch(DMLException de){       
+                refreshPage = false;        
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));      
+            } 
+        }
+    }  
+
     /**
     *@Description : This method updates the Account with the values entered by user to phone number and email fields.
     *@Date : 26/10/2015
@@ -860,6 +958,10 @@ public class ContactTableController {
         else if (ParAcc != null && ParAcc.Md__c == Label.MY) {
             UpdateAccountMY();
         }
+        else if (ParAcc != null && (ParAcc.Md__c =='IN' || ParAcc.Market__C =='IN'))       
+      {     
+        UpdateAccountIN();      
+      }
 
         try {
 
