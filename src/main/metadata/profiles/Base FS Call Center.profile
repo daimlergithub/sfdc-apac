@@ -32770,5 +32770,6 @@
 	<userPermissions>
         <enabled>true</enabled>
         <name>EmailMass</name>
+		</userPermissions>
 </Profile>
 
