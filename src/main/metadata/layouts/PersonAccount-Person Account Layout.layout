@@ -889,16 +889,15 @@
         <sortField>StartDate__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-    <relatedLists>
+    <relatedLists>	
+        <fields>NAME</fields>
         <fields>Brand__c</fields>
         <fields>Model_Description__c</fields>
-        <fields>Range__c</fields>
         <fields>ModelYear__c</fields>
         <fields>NextInspectionDate__c</fields>
         <fields>Related_From__c</fields>
         <fields>Related_To__c</fields>
         <fields>FirstRegistrationDate__c</fields>
-        <fields>NAME</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
         <sortField>Related_From__c</sortField>
