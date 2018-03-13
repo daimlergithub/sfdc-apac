@@ -32759,5 +32759,17 @@
         <enabled>true</enabled>
         <name>ViewRoles</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
+        <name>ListEmailSend</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>EmailSingle</name>
+    </userPermissions>
+	<userPermissions>
+        <enabled>true</enabled>
+        <name>EmailMass</name>
+    </userPermissions>
 </Profile>
 
