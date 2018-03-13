@@ -16698,6 +16698,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>FS_Contract__c.Contract_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>FS_Contract__c.Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
