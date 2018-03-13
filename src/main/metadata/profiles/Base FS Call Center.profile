@@ -32349,14 +32349,8 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        
-        <tab>Dealer_Locator__c</tab>
+	<tab>Dealer_Locator__c</tab>
         <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    
-    <tabVisibilities>
-        <tab>FS_Contract__c</tab>
-        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Lead__c</tab>
