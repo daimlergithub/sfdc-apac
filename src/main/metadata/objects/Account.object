@@ -2343,6 +2343,18 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Aadhaar__c</fullName>
+        <description>National ID Aadhaar for India market, Added  by Shashi 10-3-2018</description>
+        <externalId>false</externalId>
+        <label>Aadhaar</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>AccountNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -2527,6 +2539,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>17-25</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2534,6 +2547,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>26-35</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2541,6 +2555,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>36-45</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2548,6 +2563,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>46-55</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2555,6 +2571,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>56-65</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2562,6 +2579,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>65+</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2569,6 +2587,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>Unknown</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2576,6 +2595,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>Below 17</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
@@ -2815,6 +2835,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>Yes</fullName>
                 <default>true</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -2823,6 +2844,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>No Choice Yet</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2830,6 +2852,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
             <picklistValues>
                 <fullName>No</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -2873,6 +2896,7 @@ Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
             <picklistValues>
                 <fullName>No</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -2881,6 +2905,7 @@ Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
             <picklistValues>
                 <fullName>Yes</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -2889,6 +2914,7 @@ Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
             <picklistValues>
                 <fullName>No Choice Yet</fullName>
                 <default>true</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -3081,6 +3107,21 @@ Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
                 <fullName>F: &gt; 500,000 THB</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>50–75 lakhs</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>&lt;50 lakhs</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>&gt;75 lakhs</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
@@ -3440,6 +3481,18 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <externalId>false</externalId>
         <label>CDM UCID</label>
         <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CIN_Number__c</fullName>
+        <description>Corporate Identification Number for India market, added 11-3-2018</description>
+        <externalId>false</externalId>
+        <label>CIN Number</label>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -4006,6 +4059,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <picklistValues>
                 <fullName>Less than 50</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4014,6 +4068,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <picklistValues>
                 <fullName>50 - 100</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4022,6 +4077,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <picklistValues>
                 <fullName>100 - 300</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4030,6 +4086,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <picklistValues>
                 <fullName>300 - 500</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4038,6 +4095,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <picklistValues>
                 <fullName>500 - 1000</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4046,6 +4104,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <picklistValues>
                 <fullName>1000 - 3000</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4054,6 +4113,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <picklistValues>
                 <fullName>3000 - 5000</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4062,6 +4122,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
             <picklistValues>
                 <fullName>More than 5000</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4191,6 +4252,88 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Corporate_Category__c</fullName>
+        <description>Corporate category of the customer, used by India market</description>
+        <externalId>false</externalId>
+        <label>Corporate Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Small &amp; Medium Enterprise/ Corporate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industrial/ Trade Associations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special national deals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Corporate_Group__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>To indicate to which corporate group current customer belongs to, used by India market</description>
+        <externalId>false</externalId>
+        <label>Corporate Group</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select a corporate group only</errorMessage>
+            <filterItems>
+                <field>Account.Is_Corporate_Group__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts (Corporate Group)</relationshipLabel>
+        <relationshipName>Corporate_Group</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Corporate_Program__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -4208,6 +4351,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Japan</fullName>
                 <default>true</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4216,6 +4360,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Germany</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4223,6 +4368,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>China</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4231,6 +4377,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>South Korea</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4238,6 +4385,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Singapore</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4246,6 +4394,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>France</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4253,6 +4402,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Italia</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4260,6 +4410,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>United Kingdom</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4267,6 +4418,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>United States</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4274,6 +4426,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Canada</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4281,6 +4434,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Australia</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4288,6 +4442,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Philippines</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4295,6 +4450,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4302,6 +4458,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Indonesia</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4310,6 +4467,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>India</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4317,6 +4475,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Mexico</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4324,6 +4483,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Argentina</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4331,6 +4491,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Brazil</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4338,6 +4499,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Russia</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4345,6 +4507,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4352,6 +4515,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Saudi Arabia</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4359,6 +4523,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>South Africa</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4366,6 +4531,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Thailand</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4374,6 +4540,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Turkey</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4381,42 +4548,49 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Korea</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other country in Europe</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other country in Southeast Asia</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other country in Asia</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other country</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Malaysia</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
 			<picklistValues>
                 <fullName>Brunei</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
@@ -4438,6 +4612,20 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Created_by_Dealership__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Field to capture name of dealership who created record, used by India market. Automatically populated.</description>
+        <externalId>false</externalId>
+        <label>Created by Dealership</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts (Created by Dealership)</relationshipLabel>
+        <relationshipName>Created_by_Dealership</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Credit_License_Number__c</fullName>
@@ -4548,6 +4736,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Care</fullName>
                 <default>true</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4556,6 +4745,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Sales Lead</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4564,6 +4754,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Service Lead</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4572,6 +4763,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Sales &amp; Service Lead</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4579,6 +4771,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Discard</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4720,6 +4913,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Event</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4728,6 +4922,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Dealers</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4740,6 +4935,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4748,6 +4944,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Campaign</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4767,6 +4964,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4780,6 +4978,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Response Sheet</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4788,6 +4987,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Letter</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4808,6 +5008,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4830,6 +5031,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Email</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4917,6 +5119,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Partners</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4925,6 +5128,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>3rd party data</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4933,6 +5137,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>OB Call</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4941,6 +5146,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>IB Call</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4949,6 +5155,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4963,6 +5170,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Mercedes-Benz Academy</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -4970,6 +5178,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>MB website</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4978,6 +5187,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>Road Assistant</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -5005,6 +5215,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
             <picklistValues>
                 <fullName>F&amp;I</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -7672,6 +7883,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
             <picklistValues>
                 <fullName>NORTH</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7679,6 +7891,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
             <picklistValues>
                 <fullName>SOUTH</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7686,6 +7899,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
             <picklistValues>
                 <fullName>EAST</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7693,6 +7907,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
             <picklistValues>
                 <fullName>WEST</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7862,30 +8077,35 @@ Attribute in Data Dictionary object Dealer is "Dealer_SalesType"</description>
             <picklistValues>
                 <fullName>smart</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Star-Elite</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MB</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -7919,6 +8139,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7926,6 +8147,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>Parts</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7933,6 +8155,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>Body Repair</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7940,6 +8163,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>Paint Shop</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7947,6 +8171,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>Service</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7954,6 +8179,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>DSC Level 4</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7961,6 +8187,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>Aftersales</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7968,6 +8195,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>AMG Performance Center</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7975,6 +8203,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>Insurance</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7982,12 +8211,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>MBCPOS</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mbconnect</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -7995,6 +8226,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             <picklistValues>
                 <fullName>Used Car Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -8831,6 +9063,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -8838,6 +9071,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -8845,6 +9079,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Valid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -8853,6 +9088,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Invalid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -8913,6 +9149,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -8920,6 +9157,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -8927,6 +9165,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Valid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -8935,6 +9174,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Invalid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -8956,6 +9196,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Invalid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -8964,6 +9205,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Valid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -9413,6 +9655,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
             <picklistValues>
                 <fullName>Valid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -9421,6 +9664,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
             <picklistValues>
                 <fullName>Invalid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -9429,6 +9673,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
             <picklistValues>
                 <fullName>Unknown</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -9436,6 +9681,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
             <picklistValues>
                 <fullName>Blacklisted</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -10006,6 +10252,18 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>GSTN_Number__c</fullName>
+        <description>GSTN number for company accounts used by India market</description>
+        <externalId>false</externalId>
+        <label>GSTN Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Gender__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -10025,6 +10283,7 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
             <picklistValues>
                 <fullName>Male</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -10033,6 +10292,7 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
             <picklistValues>
                 <fullName>Female</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -10041,6 +10301,7 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -10252,6 +10513,32 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Generated_by__c</fullName>
+        <description>Field to indicate which group created the record, MPC or dealer or FS</description>
+        <externalId>false</externalId>
+        <label>Generated by</label>
+        <picklist>
+            <picklistValues>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Gov_Background__c</fullName>
         <defaultValue>false</defaultValue>
         <description>/* 
@@ -10282,10 +10569,11 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Golf</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Skiing</fullName>
@@ -10393,6 +10681,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Photography</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -10449,6 +10738,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Reading</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -10473,6 +10763,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Travel</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -10490,6 +10781,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Shopping</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -10579,8 +10871,9 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Fashion</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Current events</fullName>
@@ -10653,6 +10946,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Music</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -10699,9 +10993,10 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Sports</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Movies&amp;Plays</fullName>
@@ -10736,6 +11031,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -10757,30 +11053,35 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Art &amp; Theatre</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dining</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Internet Surfing</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Movies</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Home &amp; Gardening</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -10998,6 +11299,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>ID Card/Driving Card</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -11014,6 +11316,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>Passport</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -11053,6 +11356,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -11060,6 +11364,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -11068,6 +11373,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>Valid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -11076,6 +11382,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>Invalid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -12011,6 +12318,37 @@ Modify Reason:
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Interested_Event_MultiSelect__c</fullName>
+        <description>To select multiple interested events, used by India market</description>
+        <externalId>false</externalId>
+        <label>Interested Event</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Interested_Event__c</fullName>
         <externalId>false</externalId>
         <label>Interested Event</label>
@@ -12126,6 +12464,16 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Is_Corporate_Group__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Field indicating account is a corporate group, used by India market</description>
+        <externalId>false</externalId>
+        <label>Is Corporate Group</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Is_Invalid__c</fullName>
         <defaultValue>false</defaultValue>
         <description>This field is used for indicate whether the customer record is validated</description>
@@ -12160,6 +12508,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>President</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -12167,6 +12516,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>General manager</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -12174,6 +12524,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>Department manager</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -12181,6 +12532,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>Supervisor</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -12200,6 +12552,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>Self-employed</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -12207,6 +12560,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -12220,38 +12574,44 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>Upper Management</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Middle Management</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Executive</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Non-Executive</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Professional</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Retiree</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Homemaker</fullName>
@@ -13838,6 +14198,7 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
             <picklistValues>
                 <fullName>Married</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -13846,6 +14207,7 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
             <picklistValues>
                 <fullName>Single</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -13854,6 +14216,7 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
             <picklistValues>
                 <fullName>Divorced</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -13889,7 +14252,8 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -13921,7 +14285,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>NA</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
+            <picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -14373,6 +14740,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Self-employee</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14388,6 +14756,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Doctor</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14396,6 +14765,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Dentist</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14404,6 +14774,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Lawyer</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14412,6 +14783,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Accounting</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14427,6 +14799,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Athlete</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14435,6 +14808,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Pilot</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14443,6 +14817,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Government employees</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14451,6 +14826,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Teacher</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14487,6 +14863,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Pensioner</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -14494,6 +14871,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Housewife</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14502,6 +14880,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Freelancers</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14516,6 +14895,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Student</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14524,6 +14904,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14539,6 +14920,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Unknown</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -14547,24 +14929,28 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Employee</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Architect</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Artist/Entertainer/Celebrity</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Building Contractor</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -14576,6 +14962,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Engineer/Technician</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -14587,6 +14974,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Politician</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -14599,12 +14987,14 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             <picklistValues>
                 <fullName>Royalty</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance Agent/Property Agent/Direct Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -15075,6 +15465,18 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PAN__c</fullName>
+        <description>PAN number, national id, for India market person accounts</description>
+        <externalId>false</externalId>
+        <label>PAN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>PC_Status__c</fullName>
@@ -15662,6 +16064,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Yes</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -15669,6 +16072,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>No</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -15676,6 +16080,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -15905,6 +16310,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Weekday</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15913,6 +16319,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Weekend</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15921,6 +16328,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Monday</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15929,6 +16337,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Tuesday</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15937,6 +16346,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Wednesday</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15945,6 +16355,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Thursday</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15953,6 +16364,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Friday</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15961,6 +16373,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Saturday</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15969,6 +16382,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Sunday</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -15977,6 +16391,7 @@ Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description
             <picklistValues>
                 <fullName>Anytime</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -16008,6 +16423,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
             <picklistValues>
                 <fullName>Phone</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16016,6 +16432,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
             <picklistValues>
                 <fullName>Email</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16024,6 +16441,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
             <picklistValues>
                 <fullName>Fax</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -16031,6 +16449,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
             <picklistValues>
                 <fullName>Direct Mail</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16039,6 +16458,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
             <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -16151,6 +16571,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>English</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16283,6 +16704,11 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>Hindi</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -16391,6 +16817,40 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_newspaper_picklist__c</fullName>
+        <description>Preferred news paper, added for India market</description>
+        <externalId>false</externalId>
+        <label>Preferred newspaper</label>
+        <picklist>
+            <picklistValues>
+                <fullName>All</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Times of India</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Primary_Address_Display__c</fullName>
@@ -16635,6 +17095,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Home Phone</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16643,6 +17104,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Mobile</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16651,6 +17113,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Work Phone</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16659,6 +17122,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Work Mobile</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16666,6 +17130,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Other1</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -16673,6 +17138,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Other2</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -17081,6 +17547,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             <picklistValues>
                 <fullName>Indian</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -17093,6 +17560,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -17891,6 +18359,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>Media</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -17916,6 +18385,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>Dealer</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -17978,6 +18448,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>Government</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -17989,6 +18460,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>Diplomat</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -18000,6 +18472,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>Royal Family</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -18016,12 +18489,14 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
             <picklistValues>
                 <fullName>National Framework (NFA)</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>International Framework (IFA)</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -18185,6 +18660,7 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
             <picklistValues>
                 <fullName>Customer</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -18193,12 +18669,14 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
             <picklistValues>
                 <fullName>Ex-Customer</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Prospect</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -18506,16 +18984,19 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
 			<picklistValues>                
                 <fullName>Mr.</fullName>
 				<default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>                
                 <fullName>Mrs.</fullName>
 				<default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>                
                 <fullName>Ms.</fullName>
 				<default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>                
@@ -18525,11 +19006,13 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             <picklistValues>                
                 <fullName>Prof.</fullName>
 				<default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>                
                 <fullName>Madam</fullName>
 				<default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>                
@@ -18555,6 +19038,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
             <picklistValues>                
                 <fullName>Dr</fullName>
 				<default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>                
@@ -19697,6 +20181,7 @@ Invisible on UI."</description>
             <picklistValues>
                 <fullName>Valid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -19705,6 +20190,7 @@ Invisible on UI."</description>
             <picklistValues>
                 <fullName>Invalid</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -19726,7 +20212,7 @@ Invisible on UI."</description>
         <trackHistory>true</trackHistory>
         <type>Phone</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>YA_CustomerIDList__c</fullName>
         <externalId>false</externalId>
         <label>YA CustomerIDList</label>
@@ -20840,6 +21326,53 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23988,6 +24521,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -24834,6 +25386,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -25516,6 +26072,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Hindi</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Japanese</fullName>
                 <default>false</default>
             </values>
@@ -25548,6 +26108,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27002,6 +27585,53 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -30229,6 +30859,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -31613,6 +32262,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -33077,6 +33749,53 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
@@ -36164,6 +36883,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -37488,6 +38226,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -38940,6 +39701,53 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -42215,6 +43023,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -43607,6 +44434,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45095,6 +45945,53 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
@@ -48171,6 +49068,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -48815,6 +49731,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -49431,6 +50351,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Hindi</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Italian</fullName>
                 <default>false</default>
             </values>
@@ -49495,6 +50419,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50925,6 +51872,53 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -53432,6 +54426,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -54881,6 +55894,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Hindi</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Japanese</fullName>
                 <default>false</default>
             </values>
@@ -54913,6 +55930,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Second Mobile Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -56299,6 +57339,53 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>More than 5000</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Corporate_Category__c</picklist>
+            <values>
+                <fullName>Business Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Common Interest Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Loyalty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Illustrious Social Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial%2F Trade Associations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Framework Agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small %26 Medium Enterprise%2F Corporate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special national deals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -58674,6 +59761,25 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Interested_Event_MultiSelect__c</picklist>
+            <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Interested_Event__c</picklist>
             <values>
                 <fullName>Concert%2FEvent</fullName>
@@ -60058,6 +61164,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Preferred_newspaper_picklist__c</picklist>
+            <values>
+                <fullName>All</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics Times</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>The Hindu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Times of India</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Primary_Address_Validity__c</picklist>
             <values>
                 <fullName>Blacklisted</fullName>
@@ -60881,6 +62010,13 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>Aadhaar_Card_Format</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Aadhaar__c != "", NOT( REGEX(  Aadhaar__c , "[1-9]{1}[0-9]{11}") ),$Permission.INGeneric,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Adhar Card number should be as per the below format
+XXXX XXXX XXXX , the first digit should be non zero.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Account_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of Account should be same as user's market field</description>
@@ -60970,7 +62106,8 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND( 
 OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()), 
-$Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)
+$Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),
+if($Permission.INGeneric,true,false)
 ))</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>
         <errorMessage>Birthdate is not allowed to be later than today or earlier than 150 years.</errorMessage>
@@ -60982,6 +62119,12 @@ $Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__
  OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*"))))</errorConditionFormula>
         <errorDisplayField>Branch_name_Native__c</errorDisplayField>
         <errorMessage>Branch name native should not be single byte and should be ""Kana"" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CIN_Number_NoOfDigit_100Char</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric ,IF( LEN(  CIN_Number__c ) &gt; 100 ,true,false))</errorConditionFormula>
+        <errorMessage>CIN Number should be less than or equal to 100 characters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CP_Contact_Background_Check</fullName>
@@ -61083,6 +62226,17 @@ RecordType.DeveloperName = 'ThirdParty'
         <errorConditionFormula>AND($RecordType.Name="Company",LEN(Name) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Assigned_Lead_Amount_of_Everyday__c</errorDisplayField>
         <errorMessage>Name should be less than or equal to 40 letters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CompanyAccount_Mandatory_Fields</fullName>
+        <active>false</active>
+        <description>If record type selected is “Company” then user must provide values for Name, Email Id and Mobile no. fields</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'Company',
+OR( ISBLANK(Name ), ISBLANK(Email__c ), ISBLANK(Mobile__c )),
+$Profile.Name != 'IntegrationAPI',
+$Permission.INGeneric
+)</errorConditionFormula>
+        <errorMessage>Please provide value for Account Name, Email and Mobile number</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CompanyNameAccount_NoOfDigits</fullName>
@@ -61446,6 +62600,20 @@ FirstName  value &gt; 20 letters.</description>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>First_And_Last_Name_Format</fullName>
+        <active>true</active>
+        <description>First Name and Last Name fields must not contain any special character other than alphabets and digits</description>
+        <errorConditionFormula>AND(
+OR(
+NOT(REGEX( FirstName ,"^[a-z  A-Z 0-9]*$")),
+NOT(REGEX( LastName ,"^[a-z  A-Z 0-9]*$"))
+),
+$Profile.Name != 'IntegrationAPI',
+$Permission.INGeneric
+)</errorConditionFormula>
+        <errorMessage>First Name and Last Name fields must not contain any special character than alphabets and digits</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>First_Name_Fullchar</fullName>
         <active>true</active>
         <errorConditionFormula>IF(
@@ -61479,6 +62647,14 @@ $Profile.Name != 'IntegrationAPI',
 OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR' ,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorDisplayField>Foundation_Date__c</errorDisplayField>
         <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>GSTN_Number_Format</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( GSTN_Number__c != "", NOT( REGEX( GSTN_Number__c ,
+ "[0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}[0-9]{1}[A-Za-z]{1}[0-9]{1}")),$Permission.INGeneric,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>GSTIN# number should be in the format 
+XX AAAAAXXXX A X A X</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>HomePhone2_Format_KR</fullName>
@@ -61515,6 +62691,20 @@ REGEX(Home_Phone_2__c, "[064]{3}-[0-9]{3,4}-[0-9]{4}")
 2.	0xx-xxx-xxxx
 3.	0xx-xxxx-xxxx
 4. blank-xxxx-xxxx</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>HomePhone_Format_IN</fullName>
+        <active>false</active>
+        <description>Home Phone should be in the following Format 
++91-0XX-XXXXXXXX</description>
+        <errorConditionFormula>AND 
+($Profile.Name != 'IntegrationAPI', 
+$Permission.INGeneric , 
+REGEX(  Work_Phone__c  , "[1-9]{3}-[1-9]{7}")
+)</errorConditionFormula>
+        <errorDisplayField>Individual_Home_Phone__c</errorDisplayField>
+        <errorMessage>Home Phone should be in the following Format 
++91-0XX-XXXXXXXX</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>HomePhone_Format_KR</fullName>
@@ -61755,7 +62945,8 @@ OR( CONTAINS( Email__c , '?'), CONTAINS(Email__c , '^'), CONTAINS(Email__c , '%'
 CONTAINS(Email__c , '$'), RIGHT(Email__c , 1)='.', BEGINS(Email__c , '.') , CONTAINS(Email__c , '@.'), CONTAINS(Email__c , '.@'), 
 CONTAINS(Email__c , '..'), NOT(CONTAINS(Email__c , '.')), NOT(CONTAINS(Email__c , '@')), 
 CONTAINS( RIGHT( Email__c , LEN(Email__c ) - FIND('@', Email__c )), '@') , LEFT( RIGHT( Email__c , 2), 1)='.'), 
-$Profile.Name != 'IntegrationAPI',OR(MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) 
+$Profile.Name != 'IntegrationAPI',OR(MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),
+if($Permission.INGeneric,true,false)) 
 )</errorConditionFormula>
         <errorMessage>Invalid Email Address.</errorMessage>
     </validationRules>
@@ -61878,6 +63069,20 @@ MD__c = 'JP'
         <errorMessage>Mobile Phone 2 should start with "0".</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Mobile_Format_IN</fullName>
+        <active>false</active>
+        <description>The  Mobile number will be - country code + 10 digits. The number should not start with zero</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
+$Permission.INGeneric , 
+NOT( 
+REGEX( Mobile__c, "[1-9]{1}[0-9]{9}") 
+
+) 
+)</errorConditionFormula>
+        <errorDisplayField>Mobile__c</errorDisplayField>
+        <errorMessage>The Mobile Number should not start with zero and should  be only-country code+ 10 digits</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Mobile_Format_KR</fullName>
         <active>true</active>
         <description>Phone must be in any of the following formats : 
@@ -61992,6 +63197,25 @@ MD__c = 'JP'
         <errorConditionFormula>AND(MD__c ='KR',ISBLANK(Mobile__c),RecordType.DeveloperName = 'PersonAccount',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Mobile__c</errorDisplayField>
         <errorMessage>Please enter Mobile number.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PAN_card_format</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(PAN__c != "", NOT( REGEX(  PAN__c , "[A-Za-z]{5}[0-9]{4}[A-z]{1}") ),$Permission.INGeneric,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>PAN details should be as per the below format:
+AAAAAXXXXA</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PersonAccount_Mandatory_Fields</fullName>
+        <active>true</active>
+        <description>If record type selected is “Person Account” then user must provide values for First Name, Last Name, Email Id and Mobile no. fields</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'PersonAccount',
+ OR( ISBLANK(FirstName) ,ISBLANK(LastName ), 
+(ISBLANK(Mobile__c) &amp;&amp; ISBLANK( Individual_Home_Phone__c ) &amp;&amp; ISBLANK( Work_Phone__c ))),
+$Profile.Name != 'IntegrationAPI',
+$Permission.INGeneric
+)</errorConditionFormula>
+        <errorMessage>First name,last name and any of the contact number are mandatory fields on person account</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PersonHomePhone</fullName>
@@ -62237,6 +63461,20 @@ ISPICKVAL(  Gender__c , 'Male'))
         <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
         <errorDisplayField>Website</errorDisplayField>
         <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>WorkPhone_Format_IN</fullName>
+        <active>false</active>
+        <description>Work Phone should be in the following Format
++91-0XX-XXXXXXXX</description>
+        <errorConditionFormula>AND
+($Profile.Name != 'IntegrationAPI', 
+$Permission.INGeneric , 
+NOT( 
+(REGEX(Individual_Home_Phone__c,'[+91]{3}-[7-9]{1}[0-9]{2}-[0-9]{3}-[0-9]{4}'))))</errorConditionFormula>
+        <errorDisplayField>Work_Phone__c</errorDisplayField>
+        <errorMessage>Work Phone should be in the following Format
++91-0XX-XXXXXXXX</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>WorkPhone_Format_KR</fullName>
