@@ -346,7 +346,6 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Product_Name__c</fields>
@@ -357,7 +356,7 @@
         <fields>Related_Vehicle__c</fields>
         <fields>ApplicationDate__c</fields>
         <fields>ContractNumber__c</fields>
-        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
+        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
