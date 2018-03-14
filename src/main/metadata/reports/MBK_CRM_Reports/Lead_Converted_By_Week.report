@@ -28,7 +28,7 @@
         <field>Lead__c.Lead_Latest_Phase__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Lead Converted By Week</name>
+    <name>주간 전환된 리드</name>
     <params>
         <name>co</name>
         <value>1</value>

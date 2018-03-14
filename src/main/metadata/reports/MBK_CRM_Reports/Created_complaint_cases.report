@@ -61,7 +61,7 @@
         <field>CREATED_DATE</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Created complaint cases</name>
+    <name>생성된 불만 건수</name>
     <params>
         <name>units</name>
         <value>d</value>

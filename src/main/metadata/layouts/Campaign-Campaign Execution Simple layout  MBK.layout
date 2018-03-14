@@ -77,6 +77,10 @@
                 <behavior>Required</behavior>
                 <field>Task_Created_By__c</field>
             </layoutItems>
+			<layoutItems>
+	            <behavior>Edit</behavior>
+	            <field>Status</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>

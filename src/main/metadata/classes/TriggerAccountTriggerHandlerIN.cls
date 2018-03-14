@@ -39,7 +39,7 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
                 AccounthelperIN.updateOnDoNotCall(Trigger.new);
                 AccountHelperIN.updateOnPostalOptout(Trigger.new);
                 AccountHelperIN.updateOnEmailOptout(Trigger.new);
-                //AccountHelperIN.updateAgeRange(Trigger.new);
+                AccountHelperIN.updateAgeRange(Trigger.new);
                 //AccountHelperIN.activeContracts(Trigger.new);        
             }           
         }
@@ -90,7 +90,7 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
                 AccountHelperIN.updateOnDoNotCall(Trigger.new);
                 AccountHelperIN.updateOnPostalOptout(Trigger.new);
                 AccountHelperIN.updateOnEmailOptout(Trigger.new);
-                //AccountHelperIN.updateAgeRange(Trigger.new);
+                AccountHelperIN.updateAgeRange(Trigger.new);
                 
                 
             }

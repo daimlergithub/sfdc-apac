@@ -435,20 +435,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Product_Name__c</fields>
-        <fields>Status__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>VIN_Link__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <fields>ApplicationDate__c</fields>
-        <fields>ContractNumber__c</fields>
-        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
