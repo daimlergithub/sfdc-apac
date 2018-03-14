@@ -1,0 +1,123 @@
+/* Purpose: Test class for Retail Task trigger for MY and Retail Task Helper for MY
+   Date: 06/03/2018
+   Created By: Pratyasha Mishra*/
+
+@istest
+public class RetailTaskHelperMYTest {
+
+    public Static Account objAccount; 
+    public Static Account objAccount2; 
+    public Static Account DealerAccount;
+    public static Retail_Task__c lead1;
+    public static Retail_Task__c lead2;
+    public static Retail_Task__c lead3;
+    public static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    public static String DealerAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    public static String personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(); 
+    
+    public static testMethod void test_updateCustomerStage1() {  
+       Profile p = [SELECT Id FROM Profile WHERE Name='System Administrator']; 
+       User u = new User(Alias = 'standt', Email='test@mbj.com',EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',LocaleSidKey='en_US', ProfileId = p.Id, 
+                       TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com');
+       System.runAs(u) {           
+       
+        test.startTest();      
+
+  Trigger__c TriggerVehicleRelationshipMY=new Trigger__c(Name='RetailTaskTriggerMY',Trigger_Name__c='RetailTaskTrigger',
+                                                           Trigger_Handler__c='RetailTaskTriggerHandlerMY',
+                                                           update__c=True,insert__c=True,delete__c=True,after__c=True,
+                                                           before__c=True,enabled__c=True,Market__c='MY');
+    insert TriggerVehicleRelationshipMY;
+      
+    Trigger__c TriggerVehicleRelationshipMY1=new Trigger__c(Name='RetailTaskTriggerMY1',Trigger_Name__c='RetailTaskTrigger',
+                                                           Trigger_Handler__c='RetailTaskTriggerHandlerMY',
+                                                           update__c=True,insert__c=True,delete__c=True,after__c=True,
+                                                           before__c=True,enabled__c=True,Market__c='MY');                                                         
+    insert TriggerVehicleRelationshipMY1;
+    
+    DealerAccount= new Account();
+    DealerAccount.RecordtypeId=DealerAccRecordTypeId;
+    DealerAccount.Name='Test Person 1st';
+    DealerAccount.Type='Personal';
+    DealerAccount.Status__c='Active';
+    DealerAccount.Province__c='Province1';
+    DealerAccount.City__c='Test';
+    DealerAccount.Email__c='test@mbj.com';
+    //DealerAccount.Mobile__c ='0435488899';
+    insert DealerAccount;
+        
+    objAccount= new Account();
+    objAccount.RecordtypeId=personAccRecordTypeId;
+    objAccount.LastName='Test Person 1st';
+    //objAccount.Type='Personal';
+    objAccount.Status__c='Active';
+    objAccount.Province__c='Province1';
+    objAccount.City__c='Test';
+    objAccount.ZipCode__c = '100425';
+    objAccount.Email__c='test@mbj.com';
+    objAccount.Mobile__c ='0435488899';
+    //objAccount.Phone = '8022420181';
+    objAccount.Main_Dealer__c = DealerAccount.id;
+    objAccount.Customer_Lifecycle_Phase__c = 'Care';
+    insert objAccount;
+  
+    //inserted new address record
+    Address__c addr = new Address__c(Customer__c = objAccount.id, Address_Type__c = 'Home', Province__c = 'Hokkaido' , 
+                                     City__c = 'NY');
+    insert addr;
+    //added address reference to address 
+    Account objacc = new Account(id = objAccount.id, Primary_Address_Reference__c = addr.id); 
+    update objacc;
+    objAccount2= new Account();
+    objAccount2.RecordtypeId=companyAccRecordTypeId;
+    objAccount2.Name='Test Company2nd';
+    //objAccount.Type='Personal';
+    objAccount2.Status__c='Active';
+    objAccount2.Province__c='Province1';
+    objAccount2.City__c='Test';
+    objAccount2.ZipCode__c = '104235';
+    objAccount2.Email__c='test@mbj.com';
+    objAccount2.Mobile__c ='0435488899';
+    objAccount2.Phone = '8022420181';
+    objAccount2.Main_Dealer__c = DealerAccount.id;
+    objAccount2.Customer_Lifecycle_Phase__c = 'Care';
+    objAccount2.Foundation_Date__c = System.today();
+    insert objAccount2;
+
+    List<Retail_Task__c> retailActivities = new List<Retail_Task__c>();
+         
+    lead1 = new Retail_Task__c();
+    lead1.MD__c = 'MY';
+    lead1.Account__c = objAccount.id;
+    lead1.Supporting_Dealer__c = DealerAccount.id;
+    lead1.Related_Contact__c=objAccount2.id;
+    lead1.RecordTypeId =Schema.SObjectType.Retail_Task__c.getRecordTypeInfosByName().get('Service').getRecordTypeId();  
+    retailActivities.add(lead1);
+    insert lead1;  
+       
+    lead2 = new Retail_Task__c();
+    lead2.MD__c = 'MY';
+    lead2.Account__c = objAccount.id;
+    lead2.Supporting_Dealer__c = DealerAccount.id;
+    retailActivities.add(lead2);
+    insert lead2;  
+    
+    lead3 = new Retail_Task__c();
+    lead3.MD__c = 'MY';
+    lead3.Account__c = objAccount2.id;
+    lead3.Supporting_Dealer__c = DealerAccount.id; 
+    retailActivities.add(lead3);
+    insert lead3;  
+    
+    RetailTaskHelperMY rth = new RetailTaskHelperMY();
+    rth.shareRetailTasks(retailActivities);         
+         
+    lead2.Supporting_Dealer__c = DealerAccount.id;   
+    lead3.Supporting_Dealer__c = DealerAccount.Id;
+    update lead2;          
+    
+    test.stopTest();            
+     }   
+  }   
+  
+}
