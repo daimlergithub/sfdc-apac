@@ -646,7 +646,7 @@ public class AccountHelperTH {
                         acclnk.fromRole__c = usr.Contact.AccountId;
                         acclnk.toRole__c = retailacc.Id;
                         acclnk.Retail_DMS_Customer_ID__c = retailacc.DMS_Customer_ID__c;
-                        acclnk.Retail_Company_Name__c = retailacc.Company_Name__c;
+                        acclnk.Retail_Company_Name__c = retailacc.name;
                         acclnk.Retail_Mobile__c = retailacc.Mobile__c;
                         acclnk.Retail_Email_OptOut__c = retailacc.PersonHasOptedOutOfEmail;
                         acclnk.Retail_Fax_OptOut__c = retailacc.PersonHasOptedOutOfFax;
@@ -880,7 +880,7 @@ public class AccountHelperTH {
             }
             //Checking the Company RecordType
             if (acclnk.toRole__r.RecordType.Name == 'Company') {
-                acclnk.Retail_Company_Name__c = acclnk.toRole__r.Company_Name__c;
+                acclnk.Retail_Company_Name__c = acclnk.toRole__r.name;
                 acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
