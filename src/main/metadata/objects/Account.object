@@ -10240,7 +10240,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_FaxValidity&quot;</
         <fullName>GSTN_Number__c</fullName>
         <description>GSTN number for company accounts used by India market</description>
         <externalId>false</externalId>
-        <label>GSTN Number</label>
+        <label>GSTIN Number</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -20970,6 +20970,18 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         </picklistValues>
         <picklistValues>
             <picklist>Annual_Income_Range__c</picklist>
+            <values>
+                <fullName>%3C50 lakhs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E75 lakhs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50%E2%80%9375 lakhs</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
@@ -51920,6 +51932,18 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Annual_Income_Range__c</picklist>
             <values>
+                <fullName>%3C50 lakhs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E75 lakhs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50%E2%80%9375 lakhs</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
@@ -62606,7 +62630,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <active>true</active>
         <errorConditionFormula>AND(Aadhaar__c != &quot;&quot;, NOT( REGEX(  Aadhaar__c , &quot;[1-9]{1}[0-9]{11}&quot;) ),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorMessage>Aadhar Card number should be as per the below format
-XXXX XXXX XXXX , the first digit should be non zero.</errorMessage>
+XXXXXXXXXXXX , the first digit should be non zero and no entry can be an alphabet</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Account_Market_Cannot_be_Changed</fullName>
@@ -62821,14 +62845,14 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
     </validationRules>
     <validationRules>
         <fullName>CompanyAccount_Mandatory_Fields</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>If record type selected is “Company” then user must provide values for Name, Email Id and Mobile no. fields</description>
         <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Company&apos;,
-OR( ISBLANK(Name ), ISBLANK(Email__c ), ISBLANK(Mobile__c )),
+OR( ISBLANK(Name ),(ISBLANK(Mobile__c) &amp;&amp; ISBLANK( Individual_Home_Phone__c ) &amp;&amp; ISBLANK( Work_Phone__c ))),
 $Profile.Name != &apos;IntegrationAPI&apos;,
 $Permission.INGeneric
 )</errorConditionFormula>
-        <errorMessage>Please provide value for Account Name, Email and Mobile number</errorMessage>
+        <errorMessage>Account Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of company account</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CompanyNameAccount_NoOfDigits</fullName>
@@ -63202,7 +63226,7 @@ NOT(REGEX( LastName ,&quot;^[a-z  A-Z 0-9]*$&quot;))
 $Profile.Name != &apos;IntegrationAPI&apos;,
 $Permission.INGeneric
 )</errorConditionFormula>
-        <errorMessage>First Name and Last Name fields must not contain any special character than alphabets and digits</errorMessage>
+        <errorMessage>First Name and Last Name fields must not contain any special character than alphabets and digits, except company names</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Fullchar</fullName>
@@ -63245,7 +63269,7 @@ OR(MD__c = &apos;JP&apos;,MD__c = &apos;TH&apos;,MD__c = &apos;KR&apos; ,if(AND(
         <errorConditionFormula>AND( GSTN_Number__c != &quot;&quot;, NOT( REGEX( GSTN_Number__c ,
  &quot;[0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}[0-9]{1}[A-Za-z]{1}[0-9]{1}&quot;)),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorMessage>GSTIN# number should be in the format 
-XX AAAAAXXXX A X A X</errorMessage>
+XXAAAAAXXXXAXAX</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>HomePhone2_Format_KR</fullName>
@@ -63806,7 +63830,7 @@ AAAAAXXXXA</errorMessage>
 $Profile.Name != &apos;IntegrationAPI&apos;,
 $Permission.INGeneric
 )</errorConditionFormula>
-        <errorMessage>First name,last name and any of the contact number are mandatory fields on person account</errorMessage>
+        <errorMessage>First Name , Last Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of person account</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PersonHomePhone</fullName>
