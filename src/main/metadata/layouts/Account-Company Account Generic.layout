@@ -380,6 +380,23 @@
         <fields>Campaign__c</fields>
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>Campaign_Name__c</fields>
+        <fields>Campaign_Type__c</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <fields>LAST_UPDATE</fields>
+        <fields>Campaign_Execution_Type__c</fields>
+        <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Campaign_Dealer__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <fields>Status__c</fields>
+        <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
