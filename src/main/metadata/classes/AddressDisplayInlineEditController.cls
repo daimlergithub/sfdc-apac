@@ -160,6 +160,17 @@ public class AddressDisplayInlineEditController {
 
             }
         }
+        else if(market == System.Label.IN)
+        {
+            //03142018 Namitha : Added for Foreign national checkbox functionality for India market.
+            if(AddressObj.Country__c != 'India'){
+                IsForeignNational=true;
+                province='';
+                district='';
+                }
+            else
+                IsForeignNational=false;
+        }
       }
       
     public void updateHidefields(){
@@ -802,7 +813,14 @@ public class AddressDisplayInlineEditController {
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Address_Line_3_Length));        
                 Validation = true;                              
-            }       
+
+            }     
+            
+            if(addressobj.Foreign_Nationals__c == true && addressobj.Country__c == 'India')       
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Foreign_Nationals));        
+                Validation = true;                              
+            } 
                
             if(Validation == False){                
                 refreshPage = true;         
