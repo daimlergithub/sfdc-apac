@@ -49,5 +49,15 @@ public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
     }
     public void handleIntegrationTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
         // Implementation to addedd as required in market
+		 // addedd as per SFDCTH-727
+		 AccountLinkHelperTH acchelper = new AccountLinkHelperTH();
+       
+          if (Trigger.isBefore && Trigger.isUpdate) {
+                 acchelper.updateActiveStatusBeforeInser(Trigger.New,Trigger.isinsert,Trigger.isUpdate);
+                }
+      if (Trigger.isBefore && Trigger.isinsert) {
+            acchelper.updateActiveStatusBeforeInser(Trigger.New,Trigger.isinsert,Trigger.isUpdate);
+        }
+    
     }
 }

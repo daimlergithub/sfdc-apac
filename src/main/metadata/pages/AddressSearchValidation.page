@@ -914,11 +914,9 @@
                         </apex:outputPanel>     
                     </apex:pageBlockSectionItem>
                    <!-- <apex:inputField value="{!objAccount.Is_Corporate_Group__c}" /> -->
-                    <apex:inputField value="{!objAccount.Corporate_Category__c}" >
-                        <apex:actionSupport event="onchange" reRender="companyBlockIN" />
-                    </apex:inputfield>
+                    <apex:inputField value="{!objAccount.Corporate_Category__c}" />
                     <apex:inputField value="{!objAccount.Corporate_Group__c}" />
-                    <apex:inputField value="{!objAccount.Company_Name__c}" rendered="{!objAccount.Corporate_Category__c != null || objAccount.Corporate_Category__c != ''}"/>               
+                    <apex:inputField value="{!objAccount.Company_Name__c}"/>               
                     <apex:pageBlockSectionItem >     
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />      
                         <apex:outputPanel >     
@@ -1513,7 +1511,7 @@
                           </script>                    
                        </apex:outputText>
                    </apex:outputPanel>
-             <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(or(market=='TH',market=='KR') ,true,false)}"/>  
+             <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(or(market=='TH',market=='KR',market=='IN') ,true,false)}"/>  
              <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(And(market=='JP',Editmode) ,true,false)}"/>    
               <apex:commandButton action="{!canceljp}"  value="{!$Label.Cancel_Button}" rendered="{!If(And(market=='JP',Readonly) ,true,false)}"  status="actStatusId"/>
             <apex:actionStatus id="actStatusId" style="align:center;">

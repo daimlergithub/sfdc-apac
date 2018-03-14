@@ -32,7 +32,7 @@
     </columns>
     <description>Campaign with campaign member</description>
     <format>Tabular</format>
-    <name>Campaigns with Campaign Members</name>
+    <name>캠페인 구성원 있는 캠페인</name>
     <params>
         <name>scopeid</name>
         <value></value>

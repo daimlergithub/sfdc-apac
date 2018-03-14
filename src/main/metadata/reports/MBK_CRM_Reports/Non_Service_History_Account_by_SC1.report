@@ -28,7 +28,7 @@
         <field>Account.Retail_Tasks4__r$RecordType</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Non-Service History Account % by SC</name>
+    <name>SC별 서비스 히스토리 미 생성 고객 비중</name>
     <params>
         <name>co</name>
         <value>1</value>

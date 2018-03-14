@@ -299,6 +299,12 @@
                         </apex:outputField>
                     </apex:column>
                     
+                    <!-- 03132018 : Namitha Added Foreign Label column in header for INdia Market--->
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}" >
+                        <apex:outputField value="{!row.Foreign_Nationals__c}" style="width:10%; white-space:nowrap;" >
+                        </apex:outputField>
+                    </apex:column>
+                    
                      <apex:column headerValue="{!$ObjectType.Address__c.fields.Name.Label}">
                         <!--out put field to display address Name  --> 
                         <apex:outputText value="{!row.Name}" style="width:9%; white-space:nowrap;">
@@ -487,7 +493,7 @@
                      
                 </apex:pageBlockSection>
                 
-                 <apex:pageBlockSection title="Address Information" columns="2" id="pbsMY" rendered="{!IF(($Permission.MYGeneric),true,false)}">       
+                 <apex:pageBlockSection title="Address Information" columns="2" id="pbsMY" rendered="{!IF($Permission.MYGeneric,true,false)}">       
                                                 
                     <apex:pageBlockSectionItem >        
                             
@@ -575,6 +581,12 @@
                     <apex:inputField value="{!addressobj.Country__c}" onchange="ForeignNationalFields(this.value)"/>     
                  </apex:pageblockSectionItem>
                  
+                <apex:pageBlockSectionItem rendered="{!account.RecordType.name == 'Person Account' && $Permission.INGeneric}">
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>
+                        <apex:inputField value="{!addressobj.Foreign_Nationals__c}" id="chkForeignNational"
+                            onclick="ForeignNationalFields(this.value)"/>  
+                    </apex:pageBlockSectionItem>  
+                 
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
                         <apex:outputLabel value="State/Province"/>      
                          <apex:selectList size="1" value="{!province}" id="slDistrict" onchange="loadDistrict(this.value)">
@@ -621,8 +633,7 @@
                  <apex:pageblockSectionItem >       
                     <apex:outputLabel value="Preferred"/>       
                     <apex:inputField value="{!addressobj.Preferred__c}"/>       
-                 </apex:pageblockSectionItem>       
-                        
+                 </apex:pageblockSectionItem>
                             
                 </apex:pageBlockSection>
                 
