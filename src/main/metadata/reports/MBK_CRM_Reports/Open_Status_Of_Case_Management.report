@@ -25,7 +25,7 @@
         <field>RECORDTYPE</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Open Status Of Case Management</name>
+    <name>시작된 문의 및 불만</name>
     <params>
         <name>units</name>
         <value>h</value>
