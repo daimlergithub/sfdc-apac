@@ -4536,11 +4536,16 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Care</fullName>
-                <default>true</default>
+                <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>None</fullName>
+                <default>true</default>
+                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales Lead</fullName>
@@ -4570,7 +4575,6 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
