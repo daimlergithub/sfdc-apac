@@ -48,7 +48,7 @@
         <field>Vehicle_Relationship__c$Vehicle_ID__c.Model__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>NCBS (PPS) Report</name>
+    <name>NCBS 리포트</name>
     <params>
         <name>co</name>
         <value>1</value>

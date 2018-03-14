@@ -21,7 +21,7 @@
         <field>Campaign.Execution_Type__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Target Customer of New Campaign By Sourc</name>
+    <name>데이터 원천별 신규 캠페인 대상 고객 수</name>
     <params>
         <name>scopeid</name>
         <value></value>

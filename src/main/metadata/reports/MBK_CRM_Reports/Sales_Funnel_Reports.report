@@ -84,7 +84,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Sales Funnel Report</name>
+    <name>세일즈 퍼널 리포트</name>
     <params>
         <name>co</name>
         <value>1</value>

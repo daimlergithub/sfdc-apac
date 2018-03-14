@@ -21,7 +21,7 @@
         <field>PRIORITY</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Opened and Closed Cases (Inquiry/Com</name>
+    <name>시작 및 종료된 문의 및 불만</name>
     <params>
         <name>units</name>
         <value>h</value>
