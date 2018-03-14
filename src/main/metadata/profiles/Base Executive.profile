@@ -30534,10 +30534,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>AddressSearchValidationINDIA</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>AddressSelectionforExistingCustomer</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
