@@ -29257,17 +29257,6 @@
         <layout>Batch_Job__c-Batch Job Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Booking__c-Booking Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Booking__c-Booking Layout</layout>
-        <recordType>Booking__c.Service_Booking</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Booking__c-Booking Layout</layout>
-        <recordType>Booking__c.Test_Drive</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Campaign-Campaign Execution Generic</layout>
         <recordType>Campaign.Campaign_Executiono</recordType>
     </layoutAssignments>
@@ -29325,10 +29314,6 @@
     <layoutAssignments>
         <layout>Campaign-MBTH_Central Campaign Layout</layout>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Planning %26 Design Campaign Generic</layout>
-        <recordType>Campaign.Planning_Design_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CampaignMember-Campaign Member Page Layout</layout>
@@ -29526,18 +29511,6 @@
         <layout>Case_SubType_Mapping__c-Case SubType Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ChannelProgram-Channel Program Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ChannelProgramLevel-Channel Program Level Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ChannelProgramMember-Channel Program Member Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Charge_Receivable__c-Charge Receivable Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Claim__c-Claim Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -29606,9 +29579,6 @@
         <layout>Custom_Debug_Info__c-Custom Debug Info Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Customer_Key_Credential__c-Customer Key Credential Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>DM_Material__c-MBTH_DM Material Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -29618,16 +29588,7 @@
         <layout>DM_Stock_Flow__c-DM Stock Flow Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Dealer_List_Member__c-Dealer List Member Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Dealer_Locator__c-Dealer Locator Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Dealer_Offering__c-Dealer Offering Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Duplicate_Merge_Info__c-Duplicate Merge Info Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>EP_Export_Notification__c-EP Export Notification Layout</layout>
@@ -29637,12 +29598,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>EmailMessage-Email Message Layout - Email-to-Case</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Entitlement-Entitlement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>EntityMilestone-Object Milestone Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Master Layout</layout>
@@ -29733,12 +29688,6 @@
         <layout>MBK_Messages__c-MBK Messages Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>MD_Dependency__mdt-MD Dependency Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Macro-Macro Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Market__c-Market Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -29755,31 +29704,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PDC_Detail__c-PDC Detail Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Package_Item__c-Package Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Participating_Dealer__c-Participating Dealer Layout</layout>
-        <recordType>Participating_Dealer__c.Participating_Dealer</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerFundAllocation-Partner Fund Allocation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerFundClaim-Partner Fund Claim Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerFundRequest-Partner Fund Request Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PartnerMarketingBudget-Partner Marketing Budget Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-PA Layout-Dealer Portal</layout>
