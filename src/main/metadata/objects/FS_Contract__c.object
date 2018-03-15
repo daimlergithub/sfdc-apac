@@ -148,6 +148,20 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Contract_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Used by Financial Services.
+To store the Contract ID coming from RMW.</description>
+        <externalId>true</externalId>
+        <label>Contract ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -248,14 +262,14 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Guaranteer__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Guaranteer</label>
+        <fullName>Guarantor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+	<externalId>false</externalId>
+        <label>Guarantor</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>FS Contracts (Guaranteer)</relationshipLabel>
-        <relationshipName>FS_Contracts1</relationshipName>
-        <required>true</required>
+        <relationshipLabel>FS Contracts (Guarantor)</relationshipLabel>
+        <relationshipName>FS_Contracts4</relationshipName>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -475,13 +489,13 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Retail_FS_Guaranteer__c</fullName>
+        <fullName>Retail_FS_Guarantor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Retail FS Guaranteer</label>
+        <label>Retail FS Guarantor</label>
         <referenceTo>Account_Link__c</referenceTo>
-        <relationshipLabel>FS Contracts (Retail FS Guaranteer)</relationshipLabel>
-        <relationshipName>FS_Contracts1</relationshipName>
+        <relationshipLabel>FS Contracts (Retail FS Guarantor)</relationshipLabel>
+        <relationshipName>FS_Contracts2</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

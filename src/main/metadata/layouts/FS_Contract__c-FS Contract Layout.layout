@@ -42,6 +42,10 @@
                 <behavior>Edit</behavior>
                 <field>Excess_Amt__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contract_ID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

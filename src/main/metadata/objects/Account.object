@@ -241,10 +241,9 @@
         </displayedFields>
         <label>AccountMergeFields</label>
     </fieldSets>
-	
-	 <fieldSets>
+    <fieldSets>
         <fullName>AccountMergeFieldsCompany</fullName>
-        <description>AccountMerge</description>		        
+        <description>AccountMerge</description>
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
@@ -345,7 +344,6 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
@@ -572,16 +570,16 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>AccountMergeFieldsCompanyKR</label>
-    </fieldSets>	
+    </fieldSets>
     <fieldSets>
         <fullName>AccountMergeFieldsPerson</fullName>
-        <description>AccountMerge.page (Contact Portfolio)</description>        
-		<displayedFields>
+        <description>AccountMerge.page (Contact Portfolio)</description>
+        <displayedFields>
             <field>LastName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>FirstName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -605,7 +603,7 @@
             <field>Data_Source__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>Preferred_Contact_Method__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -620,7 +618,7 @@
             <field>Main_Dealer__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>Description</field>
             <isFieldManaged>false</isFieldManaged>
@@ -700,7 +698,7 @@
             <field>Preferred_Internet_Site__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>Driver_License_Number__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -727,7 +725,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>AccountMergeFieldsPerson</label>
-    </fieldSets>	
+    </fieldSets>
     <fieldSets>
         <fullName>AccountMergeFieldsPersonKR</fullName>
         <description>This is field set used in verify duplicate, This has the list fields that shows in merge page. This set is for KOREA.AccountMergeKR.page (Contact Portfolio)</description>
@@ -1088,15 +1086,14 @@
         </displayedFields>
         <label>AccountMergeFieldsPersonKR</label>
     </fieldSets>
-	
     <fieldSets>
         <fullName>AccountMergeReadonlyCompany</fullName>
         <description>Account Merge</description>
-		<displayedFields>
+        <displayedFields>
             <field>UCID__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>Data_Source_Last_Modified_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1396,7 +1393,7 @@
             <field>Primary_Fax_Last_Modified_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>VIP__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1406,7 +1403,7 @@
             <field>Interest_Model__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>CreatedDate</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1416,8 +1413,8 @@
             <field>CreatedById</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields> 
-		<displayedFields>
+        </displayedFields>
+        <displayedFields>
             <field>LastModifiedDate</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1432,7 +1429,7 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Last_Modified_User_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1453,7 +1450,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>AccountMergeReadonlyCompany</label>
-    </fieldSets>	
+    </fieldSets>
     <fieldSets>
         <fullName>AccountMergeReadonlyCompanyKR</fullName>
         <description>This is used in verify duplicate and account merge on the account layout button.</description>
@@ -1574,11 +1571,10 @@
         </displayedFields>
         <label>AccountMergeReadonlyCompanyKR</label>
     </fieldSets>
-	
     <fieldSets>
         <fullName>AccountMergeReadonlyPerson</fullName>
         <description>Account Merge</description>
-		<displayedFields>
+        <displayedFields>
             <field>UCID__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1882,7 +1878,8 @@
             <field>Primary_Fax_Last_Modified_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>        <displayedFields>
+        </displayedFields>
+        <displayedFields>
             <field>PersonDoNotCall</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -1931,7 +1928,7 @@
             <field>Visit_Opt_Out_Last_Modified_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>Opt_Out_Portal__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1951,12 +1948,12 @@
             <field>Opt_In_Contact_Reason_Details__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>Hobby__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>Preferred_Contact_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -1966,7 +1963,7 @@
             <field>Deceased__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>VIP__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -2002,7 +1999,7 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>Last_Modified_User_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -2194,11 +2191,10 @@
         </displayedFields>
         <label>SLICK_CTI_ACCOUNT</label>
     </fieldSets>
-	
     <fieldSets>
         <fullName>SuspectAccountFields</fullName>
         <description>SelectSlaveAccount.page (Contact Portfolio)</description>
-		 <displayedFields>
+        <displayedFields>
             <field>UCID__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -2243,18 +2239,17 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>LastModifiedById</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <label>SuspectAccountFields</label>
     </fieldSets>
-	
     <fieldSets>
         <fullName>SuspectedPersonaccountfields</fullName>
         <description>SelectSlaveAccount.page This is created as part of changes related to SFDCJP-2941</description>
-		 <displayedFields>
+        <displayedFields>
             <field>UCID__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -2263,7 +2258,7 @@
             <field>FirstName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
-        </displayedFields>		
+        </displayedFields>
         <displayedFields>
             <field>LastName</field>
             <isFieldManaged>false</isFieldManaged>
@@ -2304,7 +2299,7 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-		<displayedFields>
+        <displayedFields>
             <field>LastModifiedById</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -2618,7 +2613,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Agreement_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
         <label>Agreement Date for CC New</label>
@@ -2631,7 +2626,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <fullName>Agreement_Date_for_CC_Old__c</fullName>
         <externalId>false</externalId>
         <label>Agreement Date for CC Old</label>
-		<required>false</required>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
@@ -2648,13 +2643,13 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
     <fields>
         <fullName>Agreement_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
-        <label>Agreement Date for Marketing Consent</label>		
+        <label>Agreement Date for Marketing Consent</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-   <fields>
+    <fields>
         <fullName>Agreement_Date_for_Service_24h_Consent__c</fullName>
         <externalId>false</externalId>
         <label>Agreement Date for Service 24h Consent</label>
@@ -3530,15 +3525,6 @@ Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
-	<fields>
-        <fullName>isTestRunning__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>isTestRunning</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
     <fields>
         <fullName>CV_No_Brand_Purchases__c</fullName>
         <externalId>false</externalId>
@@ -3987,6 +3973,31 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>Public Limited</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Private Limited</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LLC</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sole Proprietorship</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -4143,32 +4154,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Accounts (Company)</relationshipLabel>
         <relationshipName>Accounts</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-	<fields>
-        <fullName>Merging_To_Master__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Merging To Master</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Accounts (Merging To Master)</relationshipLabel>
-        <relationshipName>MergingToMaster</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-	<fields>
-        <fullName>Merging_From_Slave__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Merging From Slave</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Accounts (Merging From Slave)</relationshipLabel>
-        <relationshipName>MergingFromSlave</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -4587,7 +4572,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Brunei</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
@@ -4927,7 +4912,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Dealer</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -4970,7 +4955,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Personal sales activity</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
@@ -5244,7 +5229,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Inquiry(i-call)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
@@ -7939,29 +7924,29 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
             <picklistValues>
                 <fullName>Not Yet</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Done</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>In_Progress</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>none</fullName>
                 <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -9035,7 +9020,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
     <fields>
         <fullName>Email_Sent_Status__c</fullName>
         <externalId>false</externalId>
-           <formula>IF( 
+        <formula>IF( 
 ISPICKVAL(Email_Status__c , 'Incomplete'), 
 IMAGE("/resource/RedLed","RedLed"), 
 IF( 
@@ -9238,7 +9223,7 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
         <type>Email</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Expiration_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
         <formula>DATE(YEAR(Agreement_Date_for_CC_New__c)+10, Month(Agreement_Date_for_CC_New__c),Day(Agreement_Date_for_CC_New__c))</formula>
@@ -9806,7 +9791,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Diplomats</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -10255,7 +10240,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <fullName>GSTN_Number__c</fullName>
         <description>GSTN number for company accounts used by India market</description>
         <externalId>false</externalId>
-        <label>GSTN Number</label>
+        <label>GSTIN Number</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -10286,8 +10271,8 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Female</fullName>
@@ -10295,8 +10280,8 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
@@ -10312,10 +10297,35 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>General_Personal_InfoThirdParty_Optional__c</fullName>
         <externalId>false</externalId>
         <label>General Personal InfoThirdParty-Optional</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>General_Personal_Info_Mandatory__c</fullName>
+        <externalId>false</externalId>
+        <label>General Personal Info (Mandatory)</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -10366,106 +10376,6 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
         <fullName>General_Personal_Information_Mandatory__c</fullName>
         <externalId>false</externalId>
         <label>General Personal Information (Mandatory)</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>General_Personal_Info_Mandatory__c</fullName>
-        <externalId>false</externalId>
-        <label>General Personal Info (Mandatory)</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Targeted_Advert_Info_Optional_STCCC__c</fullName>
-        <externalId>false</externalId>
-        <label>Targeted Advert Info (Optional) STCCC</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Person_Info_Custom_Service_Optional__c</fullName>
-        <externalId>false</externalId>
-        <label>Person Info Custom Service (Optional)</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Person_Agree_Test_Driving_Optional__c</fullName>
-        <externalId>false</externalId>
-        <label>Person Agree Test Driving (Optional)</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -10742,13 +10652,13 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Driving</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Motorcycle</fullName>
@@ -10785,7 +10695,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Spa</fullName>
@@ -10822,7 +10732,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>DIY</fullName>
                 <default>false</default>
-			</picklistValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Humanity</fullName>
                 <default>false</default>
@@ -10872,7 +10782,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Fashion</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -11001,32 +10911,32 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Movies&amp;Plays</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Concerts&amp;Exhibition</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Interior</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wine/Cuisine</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Well-being</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hiking</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
@@ -11038,12 +10948,12 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Beauty&amp;Skincare</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Health Training</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Childcare</fullName>
@@ -11323,7 +11233,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             <picklistValues>
                 <fullName>National ID</fullName>
                 <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
@@ -12510,32 +12420,32 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>General manager</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Department manager</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Supervisor</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Staff</fullName>
@@ -12554,16 +12464,16 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
@@ -12575,7 +12485,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
                 <fullName>Upper Management</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -12588,29 +12498,29 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
             <picklistValues>
                 <fullName>Executive</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Non-Executive</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Professional</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Retiree</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -12746,7 +12656,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Lastest_Consent_Date__c</fullName>
         <externalId>false</externalId>
         <label>Latest Consent Date</label>
@@ -12866,7 +12776,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Loyalty_Credit_Card_Member__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -13210,7 +13120,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Personal sales activity</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
@@ -13242,15 +13152,15 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
             <picklistValues>
                 <fullName>Compass</fullName>
                 <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>TDS</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>MBFSK</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
@@ -13556,30 +13466,30 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Legal</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Real Estate</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Delivery</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Home</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Broadcasting, Media</fullName>
                 <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
@@ -14321,7 +14231,20 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
-	 <fields>
+    <fields>
+        <fullName>Merging_From_Slave__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Merging From Slave</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts (Merging From Slave)</relationshipLabel>
+        <relationshipName>MergingFromSlave</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Merging_From_Slave_txt__c</fullName>
         <externalId>false</externalId>
         <label>Merging From Slave txt</label>
@@ -14332,7 +14255,20 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
+        <fullName>Merging_To_Master__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Merging To Master</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts (Merging To Master)</relationshipLabel>
+        <relationshipName>MergingToMaster</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Merging_To_Master_txt__c</fullName>
         <externalId>false</externalId>
         <label>Merging To Master txt</label>
@@ -14343,7 +14279,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Message__c</fullName>
         <externalId>false</externalId>
         <formula>IF(BEGINS($Profile.Name, 'MBK'), 
@@ -14375,7 +14311,7 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
         <trackHistory>true</trackHistory>
         <type>Phone</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Mobile3_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
         <label>Mobile3 Last Modified By</label>
@@ -14424,6 +14360,15 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Mobile_Phone_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Mobile Phone Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Mobile_Status__c</fullName>
@@ -14591,18 +14536,6 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>Number_of_Children__c</fullName>
-        <externalId>false</externalId>
-        <label>Number of Children</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
     <fields>
         <fullName>Newspaper__c</fullName>
         <externalId>false</externalId>
@@ -14693,6 +14626,18 @@ HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</
         <fullName>NumberOfEmployees</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Number_of_Children__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Children</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>NumberofLocations__c</fullName>
@@ -15361,12 +15306,6 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>OwnerId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-	 <fields>
         <fullName>Outlet_General_GroupID__c</fullName>
         <externalId>false</externalId>
         <label>Outlet General GroupID</label>
@@ -15377,7 +15316,13 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Owner_Relation__c</fullName>
         <externalId>false</externalId>
         <label>Owner Relation</label>
@@ -15929,7 +15874,57 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Person_Agree_Test_Driving_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>Person Agree Test Driving (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Person_Info_Custom_Service_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>Person Info Custom Service (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Personal_Abroad_Agreement_CC_Old__c</fullName>
         <externalId>false</externalId>
         <label>Personal Abroad Agreement</label>
@@ -15995,7 +15990,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Personal_Agreement_CC_Old__c</fullName>
         <externalId>false</externalId>
         <label>Personal Agreement</label>
@@ -16030,7 +16025,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Personal_Agreement_Service_24h__c</fullName>
         <externalId>false</externalId>
         <label>Personal Agreement (Service 24h)</label>
@@ -16066,16 +16061,16 @@ Modify Reason:
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>No</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Withdrawn</fullName>
@@ -16091,7 +16086,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Personal_Info_Third_Party_Release_CC_Old__c</fullName>
         <externalId>false</externalId>
         <label>Personal Information Third Party Release</label>
@@ -16116,7 +16111,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Personal_Info_Third_Party_Release_Date__c</fullName>
         <defaultValue>Today()</defaultValue>
         <externalId>false</externalId>
@@ -16218,7 +16213,7 @@ Modify Reason:
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>To be Deleted</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
@@ -16690,7 +16685,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
             <picklistValues>
                 <fullName>Tamil</fullName>
                 <default>false</default>
-               <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cantonese</fullName>
@@ -17564,7 +17559,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -18641,6 +18635,7 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
     </fields>
     <fields>
         <fullName>Status__c</fullName>
+        <defaultValue>IF(OR(ISPICKVAL($User.Market__c,'KR'),ISPICKVAL($User.Market__c,'TH')),'Prospect','')</defaultValue>
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
@@ -18652,7 +18647,6 @@ Modify By:
 Modify Reason: 
 */
 Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</description>
- <defaultValue>IF(OR(ISPICKVAL($User.Market__c,'KR'),ISPICKVAL($User.Market__c,'TH')),'Prospect','')</defaultValue>
         <externalId>false</externalId>
         <label>Status</label>
         <picklist>
@@ -18866,7 +18860,32 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Targeted_Advert_Info_Optional_STCCC__c</fullName>
+        <externalId>false</externalId>
+        <label>Targeted Advert Info (Optional) STCCC</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Targeted_Advertising_Info_Optional__c</fullName>
         <externalId>false</externalId>
         <label>Targeted Advertising Info (Optional)</label>
@@ -18883,7 +18902,6 @@ Modify Reason:
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -18981,309 +18999,309 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			<picklistValues>                
+            <picklistValues>
                 <fullName>Mr.</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Mrs.</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Ms.</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Unknown</fullName>
-				<default>false</default>
+                <default>false</default>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Prof.</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Madam</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Encik</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Cik </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>               
+            <picklistValues>
                 <fullName>Tuan</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Puan</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Dr</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Ungku</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Haji </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Hajjah</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
-                <fullName>Dato&apos;</fullName>
-				<default>false</default>
+            <picklistValues>
+                <fullName>Dato'</fullName>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Datin</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Datuk</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
-                <fullName>Dato&apos; Sri</fullName>
-				<default>false</default>
+            <picklistValues>
+                <fullName>Dato' Sri</fullName>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Datuk Seri</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Dato Paduka</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Datin Paduka</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Datuk Wira</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>YAB Datuk</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Y. A. Bhg Datin</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
-                <fullName>YAB Dato&apos; Sri </fullName>
-				<default>false</default>
+            <picklistValues>
+                <fullName>YAB Dato' Sri </fullName>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Tun</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Toh Puan</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Tan Sri</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Puan Sri</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Y.A. Bhg</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Y. Bhg. Dato</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Yang Arif </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Yang Mulia </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Yang Amat Mulia </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Yang Teramat Mulia </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Yang Berhormat </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Yang Amat Arif </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>KDYMM</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>DYTM</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Tuan Yang Terutama </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>Yang Amat Berhormat </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-            <picklistValues>                
+            <picklistValues>
                 <fullName>YAB Tan Sri Datuk Dr </fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>YAB Datuk Tan Sri Dr</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Ir.</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Datuk Dr</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Dato Tengku</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Tan Sri</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Tan Sri Dato</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Tan Sri Datuk</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Dato Sri</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Puan Sri Datin Seri</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Tan Sri Dato</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Tengku</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Datuk Dr</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Dato Ir</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Puan Sri</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Y. Bhg. Prof. Datin Paduka Dr</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Tan Sri Dato Ir</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Tan Sri Datuk Dr</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Tan Sri Dato Seri Dr</fullName>
-				<default>false</default>
+                <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
@@ -19499,7 +19517,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
-	<fields>
+    <fields>
         <fullName>Unique_Identification_Info_Mandatory__c</fullName>
         <externalId>false</externalId>
         <label>Unique Identification Info(Mandatory)</label>
@@ -19516,7 +19534,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -19541,7 +19558,6 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -19655,7 +19671,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>User_Organization__c</fullName>
         <externalId>false</externalId>
         <label>User Organization</label>
@@ -19888,33 +19904,6 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
-	<fields>
-        <fullName>Work_Phone_Checkbox__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Work Phone Checkbox</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>Mobile_Phone_Checkbox__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Mobile Phone Checkbox</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-	<fields>
-        <fullName>home_Phone_Checkbox__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>home Phone Checkbox</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
     <fields>
         <fullName>Warranty_Apply_Status__c</fullName>
         <description>"The info to identify the Account to share SPO
@@ -20040,7 +20029,7 @@ Invisible on UI."</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Withdrawal_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
         <formula>DATE(YEAR(Agreement_Date_for_Marketing_Consent__c)+4, MONTH(Agreement_Date_for_Marketing_Consent__c), DAY(Agreement_Date_for_Marketing_Consent__c))</formula>
@@ -20060,7 +20049,16 @@ Invisible on UI."</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Work_Phone2_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Work Phone2 Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Work_Phone_2__c</fullName>
         <externalId>false</externalId>
         <label>Work Phone 2</label>
@@ -20069,11 +20067,11 @@ Invisible on UI."</description>
         <trackHistory>false</trackHistory>
         <type>Phone</type>
     </fields>
-	<fields>
-        <fullName>Work_Phone2_Checkbox__c</fullName>
+    <fields>
+        <fullName>Work_Phone_Checkbox__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Work Phone2 Checkbox</label>
+        <label>Work Phone Checkbox</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -20244,6 +20242,24 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>home_Phone_Checkbox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>home Phone Checkbox</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>smart_Account_Owner__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>This field is only required if Dealer also sell Smart Car. This field can only be updated by dedicated user.smart DM</description>
@@ -20292,41 +20308,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <role>Central</role>
-        </sharedTo>
-    </listViews>
-	<listViews>
-        <fullName>All_Accounts_KR</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <label>All Accounts</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Today</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Mine</filterScope>
-        <filters>
-            <field>ACCOUNT.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>TODAY</value>
-        </filters>
-        <label>Today&apos;s_Created_Customer</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
         </sharedTo>
     </listViews>
     <listViews>
@@ -20392,6 +20373,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>All_Accounts_KR</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Accounts</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All_Accountts</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.SITE</columns>
@@ -20404,7 +20400,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo/>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>All_MBTH_Customer_Accounts</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
@@ -20441,7 +20437,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <columns>ACCOUNT.NAME</columns>
         <columns>Dealer_ND_Code__c</columns>
         <columns>Dealer_GC_Code__c</columns>
-		 <columns>Dealer_Active__c</columns>
+        <columns>Dealer_Active__c</columns>
         <columns>Dealer_GS_Code__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -20517,7 +20513,37 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
-	    <listViews>
+    <listViews>
+        <fullName>MBK_All_Customer_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Province__c</columns>
+        <columns>City__c</columns>
+        <columns>ZipCode__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <columns>Primary_Address__c</columns>
+        <columns>Primary_Address_Validity__c</columns>
+        <columns>Customer_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.PersonAccount</value>
+        </filters>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All Customer Account</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>MBK_Management</role>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MBTH_Active_Dealer</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.PHONE1</columns>
@@ -20548,36 +20574,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <language>en_US</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>MBK_All_Customer_Accounts</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Province__c</columns>
-        <columns>City__c</columns>
-        <columns>ZipCode__c</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CREATEDBY_USER.ALIAS</columns>
-        <columns>ACCOUNT.CREATED_DATE</columns>
-        <columns>Primary_Address__c</columns>
-        <columns>Primary_Address_Validity__c</columns>
-        <columns>Customer_Number__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.PersonAccount</value>
-        </filters>
-        <filters>
-            <field>MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </filters>
-        <label>MBK All Customer Account</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>MBK_Management</role>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -20650,6 +20646,26 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Today</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACCOUNT.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Today's_Created_Customer</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>View13</fullName>
         <booleanFilter>(1 OR 3) AND 2</booleanFilter>
         <columns>ACCOUNT.NAME</columns>
@@ -20676,6 +20692,37 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <operation>equals</operation>
         </filters>
         <label>個人情報第三者提供の許諾_未取得</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>View22</fullName>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>UCID__c</columns>
+        <columns>PC_LAST_NAME</columns>
+        <columns>PC_FIRST_NAME</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <columns>ACCOUNT.LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PC_LAST_NAME</field>
+            <operation>contains</operation>
+            <value>削除</value>
+        </filters>
+        <filters>
+            <field>PC_FIRST_NAME</field>
+            <operation>contains</operation>
+            <value>削除</value>
+        </filters>
+        <filters>
+            <field>ACCOUNT.LAST_UPDATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>10/1/2017 12:00 AM</value>
+        </filters>
+        <label>「削除」が付いているアカウント</label>
         <language>ja</language>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -21250,6 +21297,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>LLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Limited liability company</fullName>
                 <default>false</default>
             </values>
@@ -21278,11 +21329,27 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private Limited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Limited</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Religious corporation</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Social welfare institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Proprietorship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21391,6 +21458,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Canada</fullName>
                 <default>false</default>
             </values>
@@ -21474,10 +21545,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Brunei</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
@@ -21539,6 +21606,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>24 hours Touring Support%28b-call%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>3rd party data</fullName>
                 <default>false</default>
             </values>
@@ -21555,7 +21626,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Concierge Service%28Mercedes me App%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concierge Service%28i-call%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>DSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21564,10 +21647,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Dealers</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Dealer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21595,15 +21674,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Inquiry form%28Mercedes me App%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry form%28Mercedes me portal%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry%28i-call%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Letter to Executive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21636,6 +21723,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me Tokyo%26Osaka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21675,6 +21770,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -21686,11 +21785,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Partners</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Recall desk</fullName>
                 <default>false</default>
             </values>
@@ -21712,38 +21811,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Inquiry(i-call)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Concierge Service(i-call)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Concierge Service(Mercedes me App)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Inquiry form(Mercedes me portal)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Inquiry form(Mercedes me App)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>24 hours Touring Support(b-call)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Mercedes me connect Consultation</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23501,6 +23568,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_by__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Hobby__c</picklist>
             <values>
                 <fullName>Art %26 Theatre</fullName>
@@ -23651,11 +23748,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Interior Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Internet Surfing</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Martial Arts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Movie%2FDrama</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23767,23 +23872,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Interior Design</fullName>
-                <default>false</default>
-            </values>
-			<values>
                 <fullName>Well-being</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Wine</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Movie%2FDrama</fullName>
+            <values>
+                <fullName>Yoga</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24808,6 +24905,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>MBFSK</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
             </values>
@@ -24843,7 +24944,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Partners</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
@@ -24861,10 +24962,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBFSK</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25406,7 +25503,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Mobile3_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
@@ -25933,6 +26030,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -26080,15 +26207,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Thai</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26697,6 +26824,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>TSP_Esa_Flg__c</picklist>
             <values>
                 <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27650,6 +27792,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Canada</fullName>
                 <default>false</default>
             </values>
@@ -27753,10 +27899,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Brunei</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
@@ -27858,10 +28000,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
@@ -27891,6 +28029,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me Tokyo%26Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29839,6 +29981,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_by__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -32047,6 +32219,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -32210,6 +32412,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -32239,10 +32445,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -32834,6 +33036,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>TSP_Esa_Flg__c</picklist>
             <values>
                 <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -33810,6 +34027,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Canada</fullName>
                 <default>false</default>
             </values>
@@ -33891,10 +34112,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Brunei</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -33994,10 +34211,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
@@ -34027,6 +34240,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me Tokyo%26Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35907,6 +36124,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_by__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -38007,6 +38254,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -38174,6 +38451,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -38203,10 +38484,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -38782,6 +39059,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>TSP_Esa_Flg__c</picklist>
             <values>
                 <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39766,6 +40058,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Canada</fullName>
                 <default>false</default>
             </values>
@@ -39869,10 +40165,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Brunei</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Credit_License__c</picklist>
@@ -39974,10 +40266,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
@@ -40007,6 +40295,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me Tokyo%26Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41979,6 +42271,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_by__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -44211,6 +44533,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -44382,6 +44734,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -44411,10 +44767,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45026,6 +45378,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>TSP_Esa_Flg__c</picklist>
             <values>
                 <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45865,6 +46232,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>LLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Limited liability company</fullName>
                 <default>false</default>
             </values>
@@ -45893,11 +46264,27 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private Limited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Limited</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Religious corporation</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Social welfare institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Proprietorship</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46006,6 +46393,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Canada</fullName>
                 <default>false</default>
             </values>
@@ -46087,10 +46478,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Brunei</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -46190,10 +46577,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
             </values>
@@ -46223,6 +46606,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me Tokyo%26Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48092,6 +48479,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_by__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50196,6 +50613,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -50367,6 +50814,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -50396,10 +50847,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50964,6 +51411,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>TSP_Esa_Flg__c</picklist>
             <values>
                 <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -51993,6 +52455,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>24 hours Touring Support%28b-call%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>3rd party data</fullName>
                 <default>false</default>
             </values>
@@ -52002,6 +52468,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Cataloue Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concierge Service%28Mercedes me App%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concierge Service%28i-call%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52037,15 +52511,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Inquiry form%28Mercedes me App%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry form%28Mercedes me portal%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry%28i-call%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Letter to Executive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52078,6 +52560,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me Tokyo%26Osaka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52117,6 +52607,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -52150,38 +52644,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Inquiry(i-call)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Concierge Service(i-call)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Concierge Service(Mercedes me App)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Inquiry form(Mercedes me portal)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Inquiry form(Mercedes me App)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>24 hours Touring Support(b-call)</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Mercedes me connect Consultation</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -53738,6 +54200,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_by__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55759,6 +56251,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -55902,15 +56424,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Thai</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -56442,6 +56964,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>TSP_Esa_Flg__c</picklist>
             <values>
                 <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -57484,10 +58021,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MCare</fullName>
                 <default>false</default>
             </values>
@@ -57509,6 +58042,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes me Tokyo%26Osaka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -59109,6 +59646,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_by__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -60945,6 +61512,36 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Personal_Abroad_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -61108,6 +61705,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -61137,10 +61738,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Malay</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61676,6 +62273,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Title__c</picklist>
             <values>
                 <fullName>Dear</fullName>
@@ -62013,8 +62625,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Aadhaar_Card_Format</fullName>
         <active>true</active>
         <errorConditionFormula>AND(Aadhaar__c != "", NOT( REGEX(  Aadhaar__c , "[1-9]{1}[0-9]{11}") ),$Permission.INGeneric,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorMessage>Adhar Card number should be as per the below format
-XXXX XXXX XXXX , the first digit should be non zero.</errorMessage>
+        <errorMessage>Aadhaar Card number should be as per the below format
+XXXXXXXXXXXX ,  the first digit should be non zero and no entry can be an alphabet</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Account_Market_Cannot_be_Changed</fullName>
@@ -62044,6 +62656,13 @@ RecordType.Name='Person Account'),true,false)</errorConditionFormula>
 ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer') &amp;&amp;(MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Account_Status_Check</fullName>
+        <active>true</active>
+        <description>This is used for IN market to check if there is no vehicle associated then it won't allow user to change account status as customer</description>
+        <errorConditionFormula>AND( ISNULL( Vehicle_Amount__c ) , ISPICKVAL( Status__c , 'Customer') ,$Permission.INGeneric,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>If customer has no vehicle relationship, Status must not be 'Customer'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Acquisition_Object_Method_Cannot_Change</fullName>
@@ -62091,13 +62710,6 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <description>Please Enter Atleast one contact Information</description>
         <errorConditionFormula>IF( AND(ISBLANK(Mobile__c),MD__c = 'TH',RecordType.DeveloperName!='Dealer',$Profile.Name !='IntegrationAPI',ISBLANK(Work_Phone__c),ISBLANK(Individual_Home_Phone__c),( OR(ISNULL(Email__c),ISBLANK(Email__c)) )) , true, false)</errorConditionFormula>
         <errorMessage>Please Enter Atleast one contact Information</errorMessage>
-    </validationRules>
-	    <validationRules>
-        <fullName>TH_ID_Type_is_mandatory</fullName>
-        <active>true</active>
-        <description>If ID Number field is having a value, ID Type should be mandatory in both Create and Update scenario</description>
-        <errorConditionFormula>AND( MD__c='TH',NOT(ISBLANK( ID_Number__c)),ISPICKVAL(ID_Type__c,''), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorMessage>Please fill in ID Type if ID Number has value</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Birthday</fullName>
@@ -62416,10 +63028,10 @@ $Profile.Name != 'IntegrationAPI'
         <errorDisplayField>Driver_License_Year__c</errorDisplayField>
         <errorMessage>The driver's license year is not in correct format</errorMessage>
     </validationRules>
-	<validationRules>
+    <validationRules>
         <fullName>Email3_Other_EMail</fullName>
         <active>false</active>
-		 <description> Changes related to SFDCJP-3139</description>
+        <description>Changes related to SFDCJP-3139</description>
         <errorConditionFormula>AND(OR( 
 CONTAINS(LOWER(Email3__c), '.@'), 
 CONTAINS(LOWER(Email3__c), '/@'), 
@@ -62501,8 +63113,7 @@ MD__c = 'JP')</errorConditionFormula>
         <description>Fax must be in any of the following formats : 
 1. Country code + Area code (xx) And PhoneNumber (xxxxxxxxx) 
 2. for int: +XX-XXXXXXXXXX</description>
-        <errorConditionFormula>
-		OR(AND( 
+        <errorConditionFormula>OR(AND( 
 $Profile.Name != 'IntegrationAPI', 
 LEFT (Fax, 3) = "+60", 
 NOT(ISBLANK(Fax)), 
@@ -63019,7 +63630,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>LastName_Native_1__c</errorDisplayField>
         <errorMessage>Last Name Native should be KANA Characters</errorMessage>
     </validationRules>
-	 <validationRules>
+    <validationRules>
         <fullName>Latest_Consent_Date_is_mandatory</fullName>
         <active>true</active>
         <description>If Personal Agreement value is not blank, then latest Consent Date is mandatory.</description>
@@ -63292,7 +63903,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
         <errorMessage>Phone should be less than or equal to 11 digits.</errorMessage>
     </validationRules>
-	 <validationRules>
+    <validationRules>
         <fullName>Phone_Required_for_Sales_TEL</fullName>
         <active>true</active>
         <description>When Mobile is selected for picklist field Sales TEL, then field value Mobile is required.</description>
@@ -63369,6 +63980,13 @@ IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NO
         <errorMessage>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>TH_ID_Type_is_mandatory</fullName>
+        <active>true</active>
+        <description>If ID Number field is having a value, ID Type should be mandatory in both Create and Update scenario</description>
+        <errorConditionFormula>AND( MD__c='TH',NOT(ISBLANK( ID_Number__c)),ISPICKVAL(ID_Type__c,''), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Please fill in ID Type if ID Number has value</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>URL_format_validation</fullName>
         <active>false</active>
         <description>Ensures the URL entered is in format www.*.*</description>
@@ -63376,7 +63994,46 @@ IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NO
         <errorDisplayField>Website</errorDisplayField>
         <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
     </validationRules>
-	   <validationRules>
+    <validationRules>
+        <fullName>Validation_on_Salutation_and_Gender</fullName>
+        <active>false</active>
+        <description>As a CAC user, I want system to pop up error message automatically, if Gender is set to Female when Salutation is Mr. or , if Gender is set to Male when Salutation is Mrs.</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI',
+RecordType.Name == 'Person Account',
+OR(
+AND(ISNEW(),
+OR
+(AND(ISPICKVAL( Salutation, 'Mr.'),
+ISPICKVAL(  Gender__c , 'Female')),
+AND(ISPICKVAL( Salutation, 'Mrs.'),
+ISPICKVAL(  Gender__c , 'Male'))
+)
+),
+AND(
+OR(ISCHANGED(Salutation), 
+ISCHANGED(Gender__c)),
+OR(
+AND(ISPICKVAL( Salutation, 'Mr.'),
+ISPICKVAL(  Gender__c , 'Female')),
+AND(ISPICKVAL( Salutation, 'Mrs.'),
+ISPICKVAL(  Gender__c , 'Male'))
+)
+)
+)
+)</errorConditionFormula>
+        <errorDisplayField>Gender__c</errorDisplayField>
+        <errorMessage>Please compare the value of salution and gender, and fill in the appropriate values.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Website_text_dot</fullName>
+        <active>true</active>
+        <description>Ensures the URL entered is in format www.*.*</description>
+        <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
+        <errorDisplayField>Website</errorDisplayField>
+        <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>WorkPhone2_Format_KR</fullName>
         <active>true</active>
         <description>Work Phone 2 must be in any of the following formats : 
@@ -63422,45 +64079,6 @@ REGEX(Work_Phone_2__c, "[0-9]{4}-[0-9]{4}")
 			2.	0xx-xxx-xxxx
 			3.	0xx-xxxx-xxxx
 			4.  blank-xxxx-xxxx</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validation_on_Salutation_and_Gender</fullName>
-        <active>false</active>
-        <description>As a CAC user, I want system to pop up error message automatically, if Gender is set to Female when Salutation is Mr. or , if Gender is set to Male when Salutation is Mrs.</description>
-        <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI',
-RecordType.Name == 'Person Account',
-OR(
-AND(ISNEW(),
-OR
-(AND(ISPICKVAL( Salutation, 'Mr.'),
-ISPICKVAL(  Gender__c , 'Female')),
-AND(ISPICKVAL( Salutation, 'Mrs.'),
-ISPICKVAL(  Gender__c , 'Male'))
-)
-),
-AND(
-OR(ISCHANGED(Salutation), 
-ISCHANGED(Gender__c)),
-OR(
-AND(ISPICKVAL( Salutation, 'Mr.'),
-ISPICKVAL(  Gender__c , 'Female')),
-AND(ISPICKVAL( Salutation, 'Mrs.'),
-ISPICKVAL(  Gender__c , 'Male'))
-)
-)
-)
-)</errorConditionFormula>
-        <errorDisplayField>Gender__c</errorDisplayField>
-        <errorMessage>Please compare the value of salution and gender, and fill in the appropriate values.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Website_text_dot</fullName>
-        <active>true</active>
-        <description>Ensures the URL entered is in format www.*.*</description>
-        <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
-        <errorDisplayField>Website</errorDisplayField>
-        <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>WorkPhone_Format_IN</fullName>
@@ -63758,16 +64376,6 @@ alert("{!$Label.Check_DuplicatesErrorMsg}");
         <protected>false</protected>
     </webLinks>
     <webLinks>
-        <fullName>Create_Retail_Copy_kr</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>page</linkType>
-        <masterLabel>Create Retail Copy</masterLabel>
-        <openType>replace</openType>
-        <page>createRetailCopyKRButton</page>
-        <protected>false</protected>
-    </webLinks>
-	<webLinks>
         <fullName>Create_Retail_Copy_MY</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -63783,6 +64391,16 @@ alert("{!$Label.Retail_copy_is_already_present}");
 		{ 
 		window.open('apex/Retailcopybutton?scontrolCaching=1&amp;id={!Account.Id}'); 
 		}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_Retail_Copy_kr</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Create Retail Copy</masterLabel>
+        <openType>replace</openType>
+        <page>createRetailCopyKRButton</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>Create_Vehicle</fullName>
@@ -64380,6 +64998,60 @@ window.open(url, "_blank", "toolbar=No,scrollbars=yes,resizable=No,top=500,left=
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>Recall_Check</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Recall Check</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!requireScript("/soap/ajax/13.0/apex.js")}
+
+var VRquery= sforce.connection.query("Select Id,Name,Contact__c,Selling_Dealer__c,Owner_Dealer__c,Vehicle_ID__c,Status_1__c From Vehicle_Relationship__c where Contact__c = '{!Account.Id}' and RecordType.Name = 'Vehicle Relationship' order by LastModifiedDate desc limit 1"); 
+
+alert(VRquery); 
+
+var vrRec = VRquery.getArray("records"); 
+
+alert(vrRec); 
+var dealercc= vrRec[0].Selling_Dealer__c; 
+alert(dealercc); 
+
+var dealerrt= vrRec[0].Owner_Dealer__c; 
+alert(dealerrt); 
+var vehicleid=vrRec[0].Vehicle_ID__c; 
+alert(vehicleid); 
+var userprofile = '{!$Profile.Name}'; 
+
+alert(userprofile); 
+
+if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile != 'Korea Call Center'){ 
+alert('This feature is available only for Call Center users'); 
+}else if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile == 'Korea Call Center' &amp;&amp; dealercc != null) 
+{ 
+
+var resultMsg=sforce.apex.execute("UtilWebservice","RecallNotify",{DealerID:"dealercc",VehicleId:"vehicleid"}); 
+if(resultMsg!=null) 
+{ 
+var alrt = '{!JSENCODE('Recall done Successfully')}'; 
+alert(alrt); 
+
+} 
+else 
+{ 
+var alrt = '{!JSENCODE($Label.Web_service_callout_failed)}'; 
+alert(alrt); 
+} 
+
+}else 
+{ 
+alert('This button is for korea users'); 
+}</url>
+    </webLinks>
+    <webLinks>
         <fullName>SMS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -64703,59 +65375,4 @@ else {
 window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
-	<webLinks>
-        <fullName>Recall_Check</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Recall Check</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/33.0/apex.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
-{!requireScript("/soap/ajax/13.0/apex.js")}
-
-var VRquery= sforce.connection.query("Select Id,Name,Contact__c,Selling_Dealer__c,Owner_Dealer__c,Vehicle_ID__c,Status_1__c From Vehicle_Relationship__c where Contact__c = '{!Account.Id}' and RecordType.Name = 'Vehicle Relationship' order by LastModifiedDate desc limit 1"); 
-
-alert(VRquery); 
-
-var vrRec = VRquery.getArray("records"); 
-
-alert(vrRec); 
-var dealercc= vrRec[0].Selling_Dealer__c; 
-alert(dealercc); 
-
-var dealerrt= vrRec[0].Owner_Dealer__c; 
-alert(dealerrt); 
-var vehicleid=vrRec[0].Vehicle_ID__c; 
-alert(vehicleid); 
-var userprofile = '{!$Profile.Name}'; 
-
-alert(userprofile); 
-
-if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile != 'Korea Call Center'){ 
-alert('This feature is available only for Call Center users'); 
-}else if('{!User.Market__c}' == 'KR' &amp;&amp; userprofile == 'Korea Call Center' &amp;&amp; dealercc != null) 
-{ 
-
-var resultMsg=sforce.apex.execute("UtilWebservice","RecallNotify",{DealerID:"dealercc",VehicleId:"vehicleid"}); 
-if(resultMsg!=null) 
-{ 
-var alrt = '{!JSENCODE('Recall done Successfully')}'; 
-alert(alrt); 
-
-} 
-else 
-{ 
-var alrt = '{!JSENCODE($Label.Web_service_callout_failed)}'; 
-alert(alrt); 
-} 
-
-}else 
-{ 
-alert('This button is for korea users'); 
-}</url>
-    </webLinks>
 </CustomObject>
-
