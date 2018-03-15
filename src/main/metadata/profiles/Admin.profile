@@ -21617,7 +21617,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>true</editable> 
         <field>Rental_Receivable__c.Receivable_Rentals__c</field>
         <readable>true</readable>
     </fieldPermissions>
