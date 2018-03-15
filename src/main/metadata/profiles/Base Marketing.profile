@@ -26333,7 +26333,7 @@
         <recordType>Retail_Task__c.Retail_Activity</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
+        <layout>Retail_Task__c-Retail Task Service Layout Generic</layout>
         <recordType>Retail_Task__c.Service</recordType>
     </layoutAssignments>
     <layoutAssignments>
