@@ -3599,6 +3599,22 @@ please contact the number below.</value>
         <value>Interested Vehicle</value>
     </labels>
     <labels>
+        <fullName>Foreign_National_Should_Be_False</fullName>
+        <categories>AddressSearchValidationcontroller class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Foreign National Should Be False</shortDescription>
+        <value>Foreign National Flag should not be selected if country is India</value>
+    </labels>
+    <labels>
+        <fullName>Foreign_National_Should_Be_True</fullName>
+        <categories>AddressSearchValidationcontroller class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Foreign National Should Be True</shortDescription>
+        <value>Foreign National Flag should be selected if Country is other than India</value>
+    </labels>
+    <labels>
         <fullName>Four</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3889,6 +3905,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>City Vaidation for INDIA Market</shortDescription>
         <value>City is Mandatory.</value>
+    </labels>
+    <labels>
+        <fullName>IN_Foreign_Nationals</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Foreign National validation for India market</shortDescription>
+        <value>Cannot select Country as India when Foreign national checkbox is ticked.</value>
     </labels>
     <labels>
         <fullName>IN_Postal_Code_validation</fullName>
