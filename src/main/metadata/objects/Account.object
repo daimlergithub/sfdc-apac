@@ -4308,6 +4308,11 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <operation>equals</operation>
                 <value>True</value>
             </filterItems>
+            <filterItems>
+                <field>Account.Corporate_Category__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Corporate_Category__c</valueField>
+            </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
@@ -62844,11 +62849,11 @@ RecordType.DeveloperName = 'ThirdParty'
         <active>false</active>
         <description>If record type selected is “Company” then user must provide values for Name, Email Id and Mobile no. fields</description>
         <errorConditionFormula>AND(RecordType.DeveloperName = 'Company',
-OR( ISBLANK(Name ), ISBLANK(Email__c ), ISBLANK(Mobile__c )),
+OR( ISBLANK(Name ),(ISBLANK(Mobile__c) &amp;&amp; ISBLANK( Individual_Home_Phone__c ) &amp;&amp; ISBLANK( Work_Phone__c ))),
 $Profile.Name != 'IntegrationAPI',
 $Permission.INGeneric
 )</errorConditionFormula>
-        <errorMessage>Please provide value for Account Name, Email and Mobile number</errorMessage>
+        <errorMessage>Account Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of company account</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CompanyNameAccount_NoOfDigits</fullName>
@@ -63264,8 +63269,7 @@ OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR' ,if(AND(MD__c=='MY',$Permission.MYGene
         <active>true</active>
         <errorConditionFormula>AND( GSTN_Number__c != "", NOT( REGEX( GSTN_Number__c ,
  "[0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}[0-9]{1}[A-Za-z]{1}[0-9]{1}")),$Permission.INGeneric,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorMessage>GSTIN# number should be in the format 
-XX AAAAAXXXX A X A X</errorMessage>
+        <errorMessage>GSTIN# number should be in the format XXAAAAAXXXXAXAX</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>HomePhone2_Format_KR</fullName>
@@ -63826,7 +63830,7 @@ AAAAAXXXXA</errorMessage>
 $Profile.Name != 'IntegrationAPI',
 $Permission.INGeneric
 )</errorConditionFormula>
-        <errorMessage>First name,last name and any of the contact number are mandatory fields on person account</errorMessage>
+        <errorMessage>First Name , Last Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of person account</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PersonHomePhone</fullName>
