@@ -21582,11 +21582,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Rental_OverDue__c.FS_Contract__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Rental_OverDue__c.Gross_Outstanding__c</field>
         <readable>true</readable>
