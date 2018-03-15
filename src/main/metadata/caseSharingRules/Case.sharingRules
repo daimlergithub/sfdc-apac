@@ -250,6 +250,25 @@
         <name>MBK Case Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+    <fullName>MBLT_Case_sharing</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Inquiry,FS Compaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>FS cases should be shared only with FS users.</description>
+        <name>MBLT_Case_sharing</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Share_Central_East_Case_to_Regional</fullName>
         <sharedTo>
             <role>Regional_CRM_Mgr_E</role>
@@ -385,6 +404,11 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+	<criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>FS Inquiry,FS Compaint</value>
         </criteriaItems>
         <caseAccessLevel>Edit</caseAccessLevel>
         <description>Sharing all the cases to the all users of Thailand</description>

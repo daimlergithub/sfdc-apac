@@ -186,7 +186,7 @@ public class LeadHelperAccountLinkCreateJP {
 						acclnk.Retail_Country__c = led.contact__r.country__c;
                         acclnk.Retail_UCID__c = led.Contact__r.UCID__c;
                         acclnk.Retail_DMS_Customer_ID__c = led.Contact__r.DMS_Customer_ID__c;
-                        acclnk.Retail_Company_Name__c = led.Contact__r.Company_Name__c;
+                        acclnk.Retail_Company_Name__c = led.Contact__r.name;
                         acclnk.createddate__c = led.Contact__r.createdDate;
                         acclnk.LastModifiedDate__c = led.Contact__r.LastmodifiedDate;
                         acclnk.Retail_Company_Phone__c = led.Contact__r.Individual_Home_Phone__c;

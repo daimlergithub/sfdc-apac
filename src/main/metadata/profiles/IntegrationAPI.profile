@@ -15846,6 +15846,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>FS_Contract__c.Contract_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>FS_Contract__c.End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15887,6 +15892,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>FS_Contract__c.Inactive_borrower__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -21374,11 +21384,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Rental_Amount__c.Principal_Amount__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Rental_OverDue__c.FS_Contract__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

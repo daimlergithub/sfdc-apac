@@ -39,6 +39,25 @@
         <name>KR_MarketAccountLink_Readable_to_MBK_Management</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MBLT_Account_Link_Sharing</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Services</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Sharing of Thailand FS copy to all FS Users.</description>
+        <name>MBLT Account Link Sharing</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>MY_MarketAccountLink_Readable_to_MBMY_Management</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
@@ -89,6 +108,11 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Finance Services</value>
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>View all records of Thailand with MD__c = &apos;TH&apos; for all Roles used in Thailand</description>

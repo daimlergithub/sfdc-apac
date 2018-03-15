@@ -293,7 +293,7 @@ Id childCampaign= Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName
           
           if(reCampaign.Dealer_Name__c !=null)
           {
-          for(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:reCampaign.Dealer_Name__r.id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
+          for(User u : [Select id,profile.name,email,contactId,contact.AccountId from User where IsActive=true and contact.AccountId=:reCampaign.Dealer_Name__r.id AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ])
           
           {
           system.debug('@@@@@EmailNotification'+u.Id);

@@ -435,20 +435,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Product_Name__c</fields>
-        <fields>Status__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>VIN_Link__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <fields>ApplicationDate__c</fields>
-        <fields>ContractNumber__c</fields>
-        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
@@ -493,6 +479,23 @@
         <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>Campaign_Name__c</fields>
+        <fields>Campaign_Type__c</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <fields>LAST_UPDATE</fields>
+        <fields>Campaign_Execution_Date__c</fields>
+        <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Campaign_Dealer__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <fields>Status__c</fields>
+        <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

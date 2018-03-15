@@ -44,21 +44,23 @@ public class TriggerCampaignTriggerHandlerMY implements TriggerHandlerIf
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       List<Campaign> CampaignNewList=trigger.new;
-      if(CampaignNewList[0].MD__c==Label.MY){
-          if(trigger.isUpdate)
-        {
-                chb.beforeUpdateEvents(CampaignNewList,oldmap,market,parentCampaign);
-        }
-        
-        if((trigger.isAfter && trigger.isInsert))
-        {        
-            chb.afterInsertUpdateEvents(CampaignNewList,oldmap,trigger.isupdate,market,parentCampaign);  
-        }
-        
-        if(trigger.isAfter && trigger.isUpdate)
-        {       
-           chb.afterInsertUpdateEvents(CampaignNewList,oldmap,trigger.isupdate,market,parentCampaign);       
-        }
-      }
+	  if(!isDelete && !CampaignNewList.isEmpty() && CampaignNewList.size() > 0 && CampaignNewList[0].MD__c==Label.MY){
+		  if(CampaignNewList[0].MD__c==Label.MY){
+			  if(trigger.isUpdate)
+			{
+					chb.beforeUpdateEvents(CampaignNewList,oldmap,market,parentCampaign);
+			}
+			
+			if((trigger.isAfter && trigger.isInsert))
+			{        
+				chb.afterInsertUpdateEvents(CampaignNewList,oldmap,trigger.isupdate,market,parentCampaign);  
+			}
+			
+			if(trigger.isAfter && trigger.isUpdate)
+			{       
+			   chb.afterInsertUpdateEvents(CampaignNewList,oldmap,trigger.isupdate,market,parentCampaign);       
+			}
+		  }
+	  }
     }
 }
