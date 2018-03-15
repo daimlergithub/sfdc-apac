@@ -634,6 +634,23 @@
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Thailand_Account_Sharing</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBThailand</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Sharing all the accounts to the all users of Thailand</description>
+        <name>Thailand Account Sharing</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>VIP_CUSTOMER_Share_with_RW</fullName>
         <sharedTo>
             <role>Data_Service_Specialist</role>

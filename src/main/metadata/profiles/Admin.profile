@@ -16087,6 +16087,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>FS_Contract__c.Contract_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>FS_Contract__c.Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
