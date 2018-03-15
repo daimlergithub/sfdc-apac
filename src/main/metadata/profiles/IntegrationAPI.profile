@@ -15889,6 +15889,11 @@
         <field>FS_Contract__c.Inactive_borrower__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>FS_Contract__c.Inactive_guarantor__c</field>

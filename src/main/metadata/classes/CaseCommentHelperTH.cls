@@ -29,12 +29,12 @@ public class CaseCommentHelperTH {
                 for(Case caseObj:caseLst)
                 {
                     if(caseCommentIdCaseIdMap.get(caseCommentId)==caseObj.Id)
-                        caseCommentIdLst.add(caseCommentIdCaseIdMap.get(caseObj.Id));
+                        caseCommentIdLst.add(caseCommentId);
                 }
             }
             
         }
           if(caseCommentIdLst.size()>0)
-            CDMInformatica_Services.sendCaseCommentDetailsToCOS(caseCommentIdLst, 'TH', 'Case');
+            CDMInformatica_Services.sendCaseCommentDetailsToCOS(caseCommentIdLst, 'TH', 'Update');
     }
 }

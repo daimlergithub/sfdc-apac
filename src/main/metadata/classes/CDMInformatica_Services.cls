@@ -363,9 +363,9 @@ public Class CDMInformatica_Services extends CDMServices {
                 {
                     for (integer i = 0; i < caseCommentLst.size(); i++) {
                         if (body.length() == 1)
-                            body = body + '{"attributes":{"type":"CaseComment","url":"/services/data/v41.0/sobjects/CaseComment/' + caseCommentLst[i].Id + '"},"CaseID":"' + caseCommentLst[i].parentId + '","AccountID":"'+caseId2AccountIdMap.get(caseCommentLst[i].parentId)+'","CaseCommentID":"'+caseCommentLst[i].Id+'"}';
+                            body = body + '{"attributes":{"type":"Case","url":"/services/data/v41.0/sobjects/Case/' + caseCommentLst[i].Id + '"},"CaseID":"' + caseCommentLst[i].parentId + '","AccountID":"'+caseId2AccountIdMap.get(caseCommentLst[i].parentId)+'","CaseCommentID":"'+caseCommentLst[i].Id+'"}';
                         else
-                            body = body + ',{"attributes":{"type":"CaseComment","url":"/services/data/v41.0/sobjects/CaseComment/' + caseCommentLst[i].Id + '"},"CaseID":"' + caseCommentLst[i].parentId + '","AccountID":"'+caseId2AccountIdMap.get(caseCommentLst[i].parentId)+'","CaseCommentID":"'+caseCommentLst[i].Id+'"}';
+                            body = body + ',{"attributes":{"type":"Case","url":"/services/data/v41.0/sobjects/Case/' + caseCommentLst[i].Id + '"},"CaseID":"' + caseCommentLst[i].parentId + '","AccountID":"'+caseId2AccountIdMap.get(caseCommentLst[i].parentId)+'","CaseCommentID":"'+caseCommentLst[i].Id+'"}';
                     }
                     body = body + ']';
                     res = CalloutHandlerService.sendCalloutForPost('POST', Endpoint, 60000, headerCDM, null, body);
