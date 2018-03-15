@@ -16142,6 +16142,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>FS_Contract__c.Market__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>FS_Contract__c.Net_IRR_rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21577,11 +21582,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Rental_OverDue__c.FS_Contract__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Rental_OverDue__c.Gross_Outstanding__c</field>
         <readable>true</readable>
@@ -21617,7 +21617,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>true</editable> 
         <field>Rental_Receivable__c.Receivable_Rentals__c</field>
         <readable>true</readable>
     </fieldPermissions>

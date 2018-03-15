@@ -97,9 +97,33 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Finance Lead</value>
+        </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <description>sharing all the Thailand Leads records to all the Thailand Users with read and edit access</description>
         <name>TH_Sharing Leads to All other TH users</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>TH_Leads_sharing_MBLT</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Lead</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Share FS leads to MBLT users.</description>
+        <name>TH Leads sharing MBLT</name>
     </criteriaBasedRules>
 	 <criteriaBasedRules>
         <fullName>Share_Leads_c_to_Tracking_User_MBJ</fullName>

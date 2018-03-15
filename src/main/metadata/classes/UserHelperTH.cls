@@ -12,7 +12,7 @@ public class UserHelperTH{
         List<User> userLst=[select Id,ContactId,Contact.Account.Dealer_Nd_code__c,Market__c,UserType from User where Id IN:triggerUserIdLst];
         List<Group> grpLst=[select Id,Name from Group where Name='THUsers'];
         for(User usr:userLst)
-        {System.debug('---'+usr.ContactId+'--'+usr.Contact.Account.Dealer_Nd_code__c+'---'+usr.Market__c);
+        {
             //user who have dealer code and market is TH
             if(usr.ContactId!=null && usr.Contact.Account.Dealer_Nd_code__c!=null && usr.Market__c=='TH')
             {
@@ -20,10 +20,14 @@ public class UserHelperTH{
                 THDealerCodesLst.add(dealerCode);
                 usersWithDNClst.add(usr);
                 userIdLst.add(usr.Id);
-                addUsersToTHUserGrp(userIdLst,grpLst);
+                
             }
         }
-        System.debug('userIdLst--'+userIdLst);
+        if(userIdLst!=null && userIdLst.size()>0)
+        {
+            addUsersToTHUserGrp(userIdLst,grpLst);
+        }
+        	
         List<User> usersWOGrp=new List<User>();
         List<User> usersWHGrp=new List<User>();
         if(usersWithDNClst!=null && usersWithDNClst.size()>0)
