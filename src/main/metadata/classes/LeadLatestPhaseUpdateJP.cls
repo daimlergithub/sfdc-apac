@@ -37,7 +37,7 @@ public class LeadLatestPhaseUpdateJP {
                 else if(led.Order_Confirmation_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Registration' || led.Lead_Latest_Phase__c != 'Confirmation')){
                     led.Lead_Latest_Phase__c = 'Confirmation';
                 }
-                else if(led.Order_Placed_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Registration' || led.Lead_Latest_Phase__c != 'Confirmation' 
+                else if(led.Order_Print_Date__c != Null && (led.Lead_Latest_Phase__c != 'Handover' || led.Lead_Latest_Phase__c != 'Invoiced' || led.Lead_Latest_Phase__c != 'Registration' || led.Lead_Latest_Phase__c != 'Confirmation' 
                                                                 || led.Lead_Latest_Phase__c != 'Order Placed')){
                     led.Lead_Latest_Phase__c = 'Order Placed';
                 }

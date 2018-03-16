@@ -3925,11 +3925,23 @@
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
-                <fullName>Drive events</fullName>
+                <fullName>Concert%2FEvent</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Fashion</fullName>
+                <fullName>Domestic Trip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Driving Event%2FTest Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance%26Investment technology seminar</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3937,7 +3949,39 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Music</fullName>
+                <fullName>Golf tournament</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goumet Club</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Trip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lifestyle Event%2FWorkshop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Makeup Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music%2FConcert</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Vehicle Launch event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive promotion</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4985,6 +5029,10 @@
         </picklistValues>
         <picklistValues>
             <picklist>Marital_Status__c</picklist>
+            <values>
+                <fullName>Divorced</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Married</fullName>
                 <default>false</default>
