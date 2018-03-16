@@ -168,7 +168,7 @@ RecordType.Name,
         <fullName>Update_Content_Preview</fullName>
         <description>To display the Message Detail of selected Template</description>
         <field>Content_Preview__c</field>
-        <formula>Template__r.Message_Detail__c</formula>
+        <formula>if(Template__r.Message_Detail__c != '' &amp; Template__r.MD__c == 'TH',Template__r.Message_Detail__c, if(OBSMSTemplate__r.Message_Detail__c != '' &amp; Template__r.MD__c == 'KR',OBSMSTemplate__r.Message_Detail__c,''))</formula>
         <name>Update Content Preview</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -566,7 +566,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISNEW() || ISCHANGED( Template__c ),OR(MD__c='KR',MD__c='TH'))</formula>
+        <formula>OR(AND(ISNEW() || ISCHANGED(Template__c),MD__c='TH'),AND(ISNEW() || ISCHANGED(OBSMSTemplate__c),MD__c='KR'))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
