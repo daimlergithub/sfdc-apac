@@ -354,7 +354,7 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
         sobj.addall((List<sObject>)(vehiclestoshare));
     }
     if(sobj.size()>0){
-        Database.insert(sobj);
+        Database.upsert(sobj);
     }
     gpnamesset.addall(vrsrevokeaccess.values());
     gpnamesset.addall(accsrevokeaccess.values());
