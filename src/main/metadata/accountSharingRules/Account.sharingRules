@@ -236,6 +236,23 @@
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>IN_Share_Corporate_Groups</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Is_Corporate_Group__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <description>to share corporate group accounts to all users in India</description>
+        <name>IN Share Corporate Groups</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_MarketAccount_Readable_to_MBJ_IT_Dept</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>

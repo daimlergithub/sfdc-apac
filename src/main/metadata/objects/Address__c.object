@@ -2835,8 +2835,20 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <fullName>Foreign_National_unckeck_criteria</fullName>
         <active>true</active>
         <description>To stop user from selecting india country when foreign national field is selected</description>
-        <errorConditionFormula>AND($Profile.Name != &apos;IntegrationAPI&apos;,$Permission.INGeneric,Foreign_Nationals__c == true,  ISPICKVAL(Country__c,&apos;India&apos;))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric,Foreign_Nationals__c == true,  ISPICKVAL(Country__c,'India'))</errorConditionFormula>
         <errorMessage>Cannot select Country as India when Foreign Nationals checkbox is ticked.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>IN_Invalid_PostCode</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
+$Permission.INGeneric, 
+ISPICKVAL(Country__c , 'India'), 
+OR(ISCHANGED(ZipCode__c),ISNEW()), 
+NOT(ISBLANK(ZipCode__c)), 
+NOT(REGEX(ZipCode__c,"[0-9]{6}")) 
+)</errorConditionFormula>
+        <errorMessage>Postal code should be 6 digits long.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_PostCode</fullName>
