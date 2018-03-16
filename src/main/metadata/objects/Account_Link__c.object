@@ -9688,6 +9688,13 @@ MD__c = 'JP')</errorConditionFormula>
 $Permission.INGeneric )</errorConditionFormula>
         <errorMessage>Only gatekeeper and supervisors (level 2 in dealer hierarchy) should be able to edit the Retail Sales Consultant field.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>Same_Role1_and_Role2_IN</fullName>
+        <active>true</active>
+        <description>Validation to stop user by slecting same roles for account 1 &amp; 2 for India Market.</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric,   TEXT( Role__c ) = TEXT( Role2__c ))</errorConditionFormula>
+        <errorMessage>Cannot Link two accounts to the same Role.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Delete_retail_copy</fullName>
         <availability>online</availability>
