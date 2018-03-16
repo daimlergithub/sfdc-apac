@@ -13526,11 +13526,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Charge_Receivable__c.FS_Contract__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Charge_Receivable__c.Receivable_Charges__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -21414,11 +21409,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Rental_OverDue__c.VATGST_on_Rentals__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Rental_Receivable__c.FS_Contract__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
