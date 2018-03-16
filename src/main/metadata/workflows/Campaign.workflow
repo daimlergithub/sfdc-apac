@@ -168,7 +168,7 @@ RecordType.Name,
         <fullName>Update_Content_Preview</fullName>
         <description>To display the Message Detail of selected Template</description>
         <field>Content_Preview__c</field>
-        <formula>if(Template__r.Message_Detail__c != '' &amp; Template__r.MD__c == 'TH',Template__r.Message_Detail__c, if(OBSMSTemplate__r.Message_Detail__c != '' &amp; Template__r.MD__c == 'KR',OBSMSTemplate__r.Message_Detail__c,''))</formula>
+        <formula>if(Template__r.Message_Detail__c != '' &amp;&amp; Template__r.MD__c == 'TH',Template__r.Message_Detail__c, if(OBSMSTemplate__r.Message_Detail__c != '' &amp;&amp; Template__r.MD__c == 'KR',OBSMSTemplate__r.Message_Detail__c,''))</formula>
         <name>Update Content Preview</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
