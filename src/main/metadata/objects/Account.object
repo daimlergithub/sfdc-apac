@@ -62818,8 +62818,8 @@ RecordType.DeveloperName = 'ThirdParty'
     </validationRules>
     <validationRules>
         <fullName>CompanyAccount_Mandatory_Fields</fullName>
-        <active>false</active>
-        <description>If record type selected is “Company” then user must provide values for Name, Email Id and Mobile no. fields</description>
+        <active>true</active>
+        <description>If record type selected is “Company” then user must provide values for Name and any phone numbers</description>
         <errorConditionFormula>AND(RecordType.DeveloperName = 'Company',
 OR( ISBLANK(Name ),(ISBLANK(Mobile__c) &amp;&amp; ISBLANK( Individual_Home_Phone__c ) &amp;&amp; ISBLANK( Work_Phone__c ))),
 $Profile.Name != 'IntegrationAPI',
