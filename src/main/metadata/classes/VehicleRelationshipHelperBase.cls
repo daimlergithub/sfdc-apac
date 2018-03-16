@@ -354,7 +354,12 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
         sobj.addall((List<sObject>)(vehiclestoshare));
     }
     if(sobj.size()>0){
-        Database.insert(sobj);
+        try{
+            database.upsert(sobj,false);
+        }
+        catch(Exception e){
+            System.debug('Failed while upserting share records '+e.getMessage());
+        }
     }
     gpnamesset.addall(vrsrevokeaccess.values());
     gpnamesset.addall(accsrevokeaccess.values());

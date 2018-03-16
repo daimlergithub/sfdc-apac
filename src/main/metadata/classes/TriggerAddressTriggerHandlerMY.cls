@@ -25,6 +25,7 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf{
         if ((isAfter && isUpdate)){
 			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
 				AddressHelperMY.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+				AddressHelperMY.updateAddressRetailCopies((map<id,Address__c>)trigger.newMap, Label.MY);
 			}
         }
         

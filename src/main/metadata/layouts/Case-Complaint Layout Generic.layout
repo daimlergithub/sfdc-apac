@@ -210,15 +210,14 @@
         <label>Vehicle Select</label>
         <layoutColumns>
             <layoutItems>
-                <height>300</height>
+                <height>200</height>
                 <page>VehiclePickerforCaseMY</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -415,7 +414,7 @@
     <showInteractionLogPanel>true</showInteractionLogPanel>
     <showKnowledgeComponent>true</showKnowledgeComponent>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
-    <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
+    <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h5D000000Iker</masterLabel>
         <sizeX>4</sizeX>

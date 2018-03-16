@@ -467,7 +467,7 @@ public class AccountHelperBase{
     public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
         User usr = new user(); 
         if(userInfo.getUserType() == 'PowerPartner'){
-		usr=[select id,Name,ContactId,contact.AccountId,Profile.UserLicense.Name,Contact.Account.Dealer_ND_Code__c from user where Id =: UserInfo.getUserId()];
+		usr=[select id,Name,ContactId,contact.AccountId,Profile.UserLicense.Name,Contact.Account.Dealer_ND_Code__c,contact.Account.Dealer_Rollout_Status__c from user where Id =: UserInfo.getUserId()];
             List<group> dealergrpList = new List<group>();
             set<id> accid = new set<id>();
             List<AccountShare> insertAccshList = new List<AccountShare>();
@@ -488,6 +488,7 @@ public class AccountHelperBase{
             }
             if(retailCopyList.isEmpty()){
                 for(Account retailacc: accLst){
+					if(String.isnotblank(usr.contact.Account.Dealer_Rollout_Status__c)?(usr.contact.Account.Dealer_Rollout_Status__c=='Done'):false){
                     Account_Link__c acclnk = new Account_Link__c();
                     //mapping fields for Company recordtype
                     if(retailacc.RecordTypeId == accCompany_RecordTypeId){                       
@@ -631,6 +632,7 @@ public class AccountHelperBase{
                     }
 					
                     insertAcclnkList.add(acclnk);
+					}
                 }
             }
             if(!insertAcclnkList.isEmpty() && insertAcclnkList != null){
@@ -902,7 +904,31 @@ public class AccountHelperBase{
             CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());
         }
     }
-
+	
+	// Added by Laqshay Arora as a part of jira ticket - SM1-389
+    public static void updatePrimaryAddressDetailsOnALK(List<Account> newAcc, Map<ID, Account> oldAccMap){
+	Map<ID, Account> mAccount = new Map<ID, Account>();
+	Map<id, List<Account_link__c>> mAccToALK = new Map<id, List<Account_link__c>>();
+	
+	for(Account acc: newAcc){
+		if(acc.primary_address_reference__c != null && acc.primary_address_reference__c != oldAccMap.get(acc.id).primary_address_reference__c){
+			mAccount.put(acc.ID, acc);
+		}
+	}
+	List<Account_link__c> lALK = new List<Account_link__c>([Select id, toRole__c, Retail_Address_Reference__c from Account_link__c where toRole__c in : mAccount.values()]);
+	if(lALK.size() > 0){
+            for(Account_link__c alk : lALK){
+                alk.Retail_Address_Reference__c = mAccount.get(alk.toRole__c).primary_address_reference__c;
+            }
+            try{
+                update lALK;
+            }
+            catch(Exception e){
+                System.debug('Not able to update the related retail copies ' + e.getMessage());
+            }
+		}
+	}
+	
     /* Data Migration Explicit Fix - Santosh Mohanty */
     public static void updatemarket(List<Account> accList){        
         for(Account acc : accList){
