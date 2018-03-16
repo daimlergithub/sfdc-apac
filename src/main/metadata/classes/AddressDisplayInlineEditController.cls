@@ -163,8 +163,9 @@ public class AddressDisplayInlineEditController {
         else if(market == System.Label.IN)
         {
             //03142018 Namitha : Added for Foreign national checkbox functionality for India market.
-            if(AddressObj.Country__c != 'India'){
+            if(AddressObj.Country__c != 'India' || AddressObj.Foreign_Nationals__c==true){
                 IsForeignNational=true;
+                AddressObj.Country__c = '--None--';
                 province='';
                 district='';
                 }
@@ -356,7 +357,6 @@ public class AddressDisplayInlineEditController {
             
             LoadProvince();
             LoadDistrict();
-          
             if(market=='TH' || Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
@@ -773,36 +773,25 @@ public class AddressDisplayInlineEditController {
                     Validation = true;          
                 }                       
             } 
-            
-            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{6}$',addressobj.ZipCode__c)))      
+            if(addressobj.Address_Line_1__c == null || addressobj.Province__c == null || addressobj.District__c == null || addressobj.ZipCode__c == null || addressobj.ZipCode__c == '')        
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Address_Mandatory_Fields));       
+                Validation = true;                              
+            }           
+              
+            if(addressobj.ZipCode__c != null && addressobj.ZipCode__c != ''  && (!Pattern.matches('^[0-9]{6}$',addressobj.ZipCode__c)))      
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Postal_Code_validation));        
                  Validation = true;                             
-            }       
-            if(addressobj.Address_Line_1__c == null)        
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Address_Line_1_validation));       
-                Validation = true;                              
-            }       
-            else        
+            } 
+                 
+            if(addressobj.Address_Line_1__c != null && addressobj.Address_Line_1__c.length()>100)       
             {                   
-                if(addressobj.Address_Line_1__c.length()>100)       
-                {       
+                   
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Address_Line_1_Length_validation));        
-                    Validation = true;                              
-                }       
+                    Validation = true;        
             }       
-            if(addressobj.Province__c == null)      
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_State_validation));        
-            }       
-            if(addressobj.District__c == null )     
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_City_Vaidation));         
-                Validation = TRUE;                              
-            }       
-                    
-                            
+                 
             if(addressobj.Address_Line_2__c != null && addressobj.Address_Line_2__c.length()>100)       
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Address_Line_2_Length_validation));        
@@ -819,6 +808,11 @@ public class AddressDisplayInlineEditController {
             if(addressobj.Foreign_Nationals__c == true && addressobj.Country__c == 'India')       
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Foreign_Nationals));        
+                Validation = true;                              
+            } 
+            if(addressobj.Foreign_Nationals__c == false && addressobj.Country__c != 'India' && addressobj.Country__c != '--None--')       
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Foreign_National_Should_Be_True));        
                 Validation = true;                              
             } 
                

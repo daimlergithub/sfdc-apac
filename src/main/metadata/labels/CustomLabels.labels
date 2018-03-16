@@ -3900,6 +3900,14 @@ please contact the number below.</value>
         <value>Address Line 3 cannot have more than 100 characters.</value>
     </labels>
     <labels>
+        <fullName>IN_Address_Mandatory_Fields</fullName>
+        <categories>India address validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address Mandatory Fields</shortDescription>
+        <value>For Address creation, Address Line 1, State, City, Zip code are mandatory.</value>
+    </labels>
+    <labels>
         <fullName>IN_City_Vaidation</fullName>
         <language>en_US</language>
         <protected>false</protected>
