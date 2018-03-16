@@ -30,4 +30,7 @@ public with sharing class AddressHelperMY {
     public static void updatemarket(List<Address__c> addList){                   
         AddressHelperBase.updatemarket(addList);                    
     }
+	public static void updateAddressRetailCopies(map<ID,Address__c> newMap, string MarketDiscriminator){
+		AddressHelperBase.updateAddressRetailCopies(newMap, MarketDiscriminator);
+	}
 }
