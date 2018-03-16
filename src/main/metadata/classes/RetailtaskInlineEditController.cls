@@ -1,9 +1,13 @@
 Public class RetailtaskInlineEditController{
     public Retail_Task__c retailtask{get;set;}
     public Boolean ShowAmount{get;set;}
+	public Boolean ShowAmountMY{get;set;}
+	public Boolean MBMY{get;set;}
     public RetailtaskInlineEditController(ApexPages.StandardController sc){
         ShowAmount=false;
         Boolean MBFMBJ = false;
+		ShowAmountMY=false;
+        MBMY=false;		
         Id id = ApexPages.currentPage().getParameters().get('id');
         
         if(id!=null){
@@ -17,9 +21,12 @@ Public class RetailtaskInlineEditController{
             }
             system.debug('>>> :'+us.Dealer_GC_Code__c);
             system.debug('>>> :'+retailtask.Related_Dealer__r.Dealer_GC_Code__c);
-            //added IF condition for MY dealers, amount values can be viewed only by the dealer outlets belonging to a certain dealer (same dealer GC code)
-            if(us.market__c==Label.MarketMY && ((Util_GetPermissionList.checkAccessOnUser(Label.MYDealer) && (us.Dealer_GC_Code__c == retailtask.Related_Dealer__r.Dealer_GC_Code__c))||us.profile.name=='System Administrator' || us.profile.name=='IntegrationAPI')){
-                ShowAmount=true;
+            //added IF condition for MY dealers, amount values and related contact field can be viewed only by the dealer outlets belonging to a certain dealer (same dealer ND code)
+            if(us.market__c==Label.MarketMY){
+                MBMY=true;
+                if((Util_GetPermissionList.checkAccessOnUser(Label.MYDealer) && (us.Dealer_ND_Code__c == retailtask.Related_Dealer__r.Dealer_ND_Code__c))||us.profile.name=='System Administrator' || us.profile.name=='IntegrationAPI'){
+                    ShowAmountMY=true;
+                }
             }
             else
             If(((us.Dealer_GC_Code__c == retailtask.Related_Dealer__r.Dealer_GC_Code__c ) || us.profile.name=='System Administrator' || us.profile.name=='IntegrationAPI' || us.profile.name == 'MBK Support Profile' || us.profile.name == 'Korea After-Sales Engineer' || us.profile.name == 'Korea Call Center' || us.profile.name == 'Korea CRM' || us.profile.name == 'Korea Data Management' || us.profile.name == 'Korea IT Department' || us.profile.name == 'Korea Marketing' || us.profile.name == 'Korea Sales/After-Sales'|| MBFMBJ == TRUE) && (us.market__c!=Label.MarketMY))

@@ -33,7 +33,10 @@ public class TriggerAccountlinkHandlerMYTest {
   lsttrg.add(TriggerAccountLinkMY);
  // lsttrg.add(TriggerAccountMY);
   insert lsttrg;
-  
+	group grp = new group(name = '123456', developername = 'testndgroup');
+	insert grp;
+	group grp1 = new group(name = '1234567', developername = 'testgcgroup');
+	insert grp1;
       CallOutHandlerSettingDFW__c coh = new CallOutHandlerSettingDFW__c();
         coh.Name = 'CalloutValues';
         coh.DEFAULT_CALLOUT_TIME__c = '10000';
@@ -93,7 +96,8 @@ public class TriggerAccountlinkHandlerMYTest {
                                Opt_In_Email__c=true,
                                //owner=user1,
                                PersonBirthdate=date.today(),
-                               
+                               dealer_nd_code__c = '123456',
+							   dealer_gc_code__c = '1234567',
                            RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
    
    accountList.add(acct1);
@@ -140,8 +144,8 @@ public static testMethod void testHandleTriggerDelete(){
        
      List<Account_Link__c> listacclk1=new List<Account_Link__c>();
      al3= new Account_Link__c(Name='new55 al',Md__c='MY',toRole__c=acct1.id,fromrole__c=acct1.id,
-                             RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),
-                             Market__c='MY');    listacclk1.add(al3);
+                             RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),
+                             Market__c='MY', Dealer_ND_Code__c = '123456');    listacclk1.add(al3);
     insert listacclk1;
                 
     }
@@ -181,7 +185,8 @@ public static testMethod void testHandleTriggerDelete(){
                                Opt_In_Email__c=true,
                                //owner=user1,
                                PersonBirthdate=date.today(),
-                               
+                               dealer_nd_code__c = '123456',
+							   dealer_gc_code__c = '1234567',
                            RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
     insert acct2;
         
@@ -194,17 +199,17 @@ public static testMethod void testHandleTriggerDelete(){
            
     al1= new Account_Link__c(Name='new al',Md__c='MY',toRole__c=acct1.id,fromrole__c=acct2.id,
                              RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),
-                             Market__c='MY');
+                             Market__c='MY', Dealer_ND_Code__c = '123456');
             
             
      listacclk1.add(al1);
      insert listacclk1; 
      //system.debug('****Cod'+al1.Retail_Dealer_CompanyCode__c);
-     /*
+     
      List<Account_Link__c> updatelst=new List<Account_Link__c>();
      al1.fromrole__c=acct2.id;
      updatelst.add(al1);
-     update updatelst;*/
+     update updatelst;
      }
 }
 }

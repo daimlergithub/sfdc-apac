@@ -83,7 +83,6 @@ public class CaseHelperBaseTest {
      CaseHelperBase chb = new CaseHelperBase();
      chb.updateCaseDeadLineAmount(caselist,'MY',null);
      chb.updatedeadine(caselist[0],26);
-     chb.calculateComplaintAmount(caselist,'MY');
      chb.countRepeatComplaintCase(caselist,true,'MY');
      List<Case> childCaseList=new List<Case>();
      Case child=new Case();

@@ -12243,11 +12243,67 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Fashion</fullName>
+                <fullName>Golf tournament</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concert/Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Vehicle Launch event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fashion Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive promotion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance&amp;Investment technology seminar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Makeup Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Goumet Club</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Domestic Trip</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International Trip</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lifestyle Event/Workshop</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Driving Event/Test Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Music/Concert</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Drive events</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fashion</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -24625,19 +24681,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
-                <fullName>Drive events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -31038,19 +31082,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
-                <fullName>Drive events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -37137,19 +37169,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
-                <fullName>Drive events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -43352,19 +43372,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
-                <fullName>Drive events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -49492,19 +49500,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
-                <fullName>Drive events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -54925,19 +54921,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
-                <fullName>Drive events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -60335,19 +60319,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
-                <fullName>Drive events</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Music</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
