@@ -7066,7 +7066,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Generated_By__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7241,7 +7241,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Portal_Email__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7366,7 +7366,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Agreement__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7391,7 +7391,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Commercial_Reg_No__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7411,7 +7411,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Company_Other_Phone__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7454,7 +7454,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Link__c.Retail_Dealer_CompanyCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7484,7 +7484,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Link__c.Retail_Email__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7494,7 +7494,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Link__c.Retail_Fax__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7546,7 +7546,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_ID_Number__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7584,9 +7584,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Link__c.Retail_List_of_Events__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7611,7 +7611,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_PersonBirthdate__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7619,7 +7619,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account_Link__c.Retail_Position__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7629,7 +7629,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account_Link__c.Retail_Prefered_Radiostation__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7656,7 +7656,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Race__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7731,7 +7731,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Vat_No__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -28565,7 +28565,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Account_Link__c.Contact2Contact</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Account_Link__c.ContactSector</recordType>
