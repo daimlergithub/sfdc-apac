@@ -9692,7 +9692,7 @@ $Permission.INGeneric )</errorConditionFormula>
         <fullName>Same_Role1_and_Role2_IN</fullName>
         <active>true</active>
         <description>Validation to stop user by slecting same roles for account 1 &amp; 2 for India Market.</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric,   TEXT( Role__c ) = TEXT( Role2__c ))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric,  RecordType.DeveloperName = 'Contact2Contact',  TEXT( Role__c ) = TEXT( Role2__c ))</errorConditionFormula>
         <errorMessage>Cannot Link two accounts to the same Role.</errorMessage>
     </validationRules>
     <webLinks>
