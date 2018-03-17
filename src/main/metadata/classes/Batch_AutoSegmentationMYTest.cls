@@ -58,9 +58,12 @@ public class Batch_AutoSegmentationMYTest{
            try{      
                     
             Batch_AutoSegmentationMY cbsbut=new Batch_AutoSegmentationMY();
-            String sch = '0 0 0 0 0 ?';
+            //String sch = '0 0 0 0 0 ?';
            //String sch = '20 30 8 10 2 ?';
+          
+			 String sch = '0 0 23 * * ?';
             String jobID = system.schedule('Autosegmentation Job', sch, cbsbut);
+            //System.schedule('Schedule Name', sch, new Batch_AutoSegmentationMY ());
             }catch(Exception e){}
             test.stopTest();
         }

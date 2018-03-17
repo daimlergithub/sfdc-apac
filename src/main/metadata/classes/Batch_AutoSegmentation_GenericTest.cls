@@ -56,7 +56,7 @@ public class Batch_AutoSegmentation_GenericTest{
             Date todaydate=DATE.TODAY();
             Date nextdate=todaydate.addDays(1);
             Batch_AutoSegmentation_Generic batchSch = New Batch_AutoSegmentation_Generic();
-            batchSch.method1(bc,'Daimler Community MB Malaysia',market);
+            batchSch.method1(bc,'Daimler Community Malaysia',market);
             List<Retail_Campaign__c> rcList=[select id,RecordTypeId,Name,Parent_Campaign1__c,Start_Date__c,Owner.Name, owner.Email,OwnerId,MD__c,Close_Date__c,Auto_Segmentation__c,Execution_Type__c,Execution_Start_Date__c,Segmentation_Base__c,Segmentation_Date__c,Response_Date__c,child_campaign_status__c,Dealer_Name__c,IsAutoSegmentationExecuted__c,Segmentation_Criteria__c,Segmentation_Criteria__r.Criteria__c from Retail_Campaign__c Where Auto_Segmentation__c = true AND Segmentation_Date__c =: nextdate AND IsAutoSegmentationExecuted__c = false and recordtypeid=:camIdExec and md__c=:market];
             batchSch.method2(bc,rcList);
             test.stopTest();
