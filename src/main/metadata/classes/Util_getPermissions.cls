@@ -12,8 +12,7 @@ public class Util_getPermissions {
         u =[Select id,profileid, market__c from user where id=:UserInfo.getUserId()] ;
         profileName=[Select Id,Name from Profile where Id =: u.ProfileId].Name;
         List<String> customPermissionList = Util_getPermissions.getCustomPermissions(u.Id);
-        if((customPermissionList != null && customPermissionList.size()>0 && customPermissionList.contains(customPermission)) 
-          || profileName.equals('IntegrationAPI')){
+        if((customPermissionList != null && customPermissionList.size()>0 && customPermissionList.contains(customPermission)) || profileName.equals('IntegrationAPI')){
             return true; 
         }
         else
