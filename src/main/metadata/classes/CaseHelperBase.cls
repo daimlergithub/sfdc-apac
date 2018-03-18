@@ -80,7 +80,7 @@ public class CaseHelperBase {
         for(Case c : cases){
             if(c.MD__C == market)
                 accounts.add (c.AccountId);
-                accounts.add(Trigger.isInsert ? NULL : ((Case)Trigger.oldMap.get(c.ID)).AccountID);
+                //accounts.add(Trigger.isInsert ? NULL : ((Case)Trigger.oldMap.get(c.ID)).AccountID);
         }                       
         accounts.remove(NULL);
         List<Case> case_acc = [Select Id, AccountId From Case 
