@@ -212,6 +212,18 @@
         <picklistValues>
             <picklist>Annual_Income_Range__c</picklist>
             <values>
+                <fullName>%3C50 lakhs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%3E75 lakhs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50%E2%80%9375 lakhs</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
