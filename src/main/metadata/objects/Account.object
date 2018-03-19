@@ -3104,12 +3104,12 @@ Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>50–75 lakhs</fullName>
+                <fullName>&lt;50 lakhs</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>&lt;50 lakhs</fullName>
+                <fullName>50–75 lakhs</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
