@@ -163,9 +163,9 @@ public class AddressDisplayInlineEditController {
         else if(market == System.Label.IN)
         {
             //03142018 Namitha : Added for Foreign national checkbox functionality for India market.
-            if(AddressObj.Country__c != 'India' || AddressObj.Foreign_Nationals__c==true){
+            if(AddressObj.Foreign_Nationals__c==true){
                 IsForeignNational=true;
-                AddressObj.Country__c = '--None--';
+                if(AddressObj.Country__c == 'India')AddressObj.Country__c = '--None--';
                 province='';
                 district='';
                 }
@@ -354,9 +354,13 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
-            
-            LoadProvince();
-            LoadDistrict();
+             //03192018 Namitha Added to load only State Picklist for India MArket and India Country
+             
+             LoadProvince();
+            /*if(addressobj.Country__c == 'India')
+            {
+                LoadProvince();
+            }*/
             if(market=='TH' || Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
@@ -773,13 +777,13 @@ public class AddressDisplayInlineEditController {
                     Validation = true;          
                 }                       
             } 
-            if(addressobj.Address_Line_1__c == null || addressobj.Province__c == null || addressobj.District__c == null || addressobj.ZipCode__c == null || addressobj.ZipCode__c == '')        
+            if(addressobj.Address_Line_1__c == null || addressobj.Province__c == null || addressobj.District__c == null || addressobj.ZipCode__c == null || addressobj.ZipCode__c == '' || addressobj.Country__c == null || addressobj.Country__c == '' )        
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Address_Mandatory_Fields));       
                 Validation = true;                              
             }           
               
-            if(addressobj.ZipCode__c != null && addressobj.ZipCode__c != ''  && (!Pattern.matches('^[0-9]{6}$',addressobj.ZipCode__c)))      
+            if(addressobj.Country__c == 'India' && addressobj.ZipCode__c != null && addressobj.ZipCode__c != ''  && (!Pattern.matches('^[0-9]{6}$',addressobj.ZipCode__c)))      
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Postal_Code_validation));        
                  Validation = true;                             
