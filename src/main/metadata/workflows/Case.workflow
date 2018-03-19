@@ -983,7 +983,18 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
-	   <fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateCaseOwner</fullName>
+        <description>Update the owner of the case to FS Inquiry Team Queue</description>
+        <field>OwnerId</field>
+        <lookupValue>FS_Inquiry_Team_Queue</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>UpdateCaseOwner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>UpdateOwnerManager</fullName>
         <field>Case_Owner_manager__c</field>
         <formula>Owner:User.Manager.Email</formula>
@@ -2845,5 +2856,16 @@
         <active>true</active>
         <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos; &amp;&amp; Owner:User.Profile.Name!=&apos;Korea Call Center&apos; &amp;&amp; (CONTAINS( Owner:User.Profile.Name,&apos;Korea&apos;)||Owner:User.Profile.Name==&apos;MBK Support Profile&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>UpdateCaseOwnerCOS</fullName>
+        <actions>
+            <name>UpdateCaseOwner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update the owner of the case coming from COS.</description>
+        <formula>!ISNULL( COS_Ticket_Number__c )&amp;&amp;ISPICKVAL(Market__c, &apos;TH&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

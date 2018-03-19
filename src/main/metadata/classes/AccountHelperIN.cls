@@ -23,9 +23,9 @@ public class AccountHelperIN{
         AccountHelperBase.updateMarketingFields(listNewAccounts);
     }
   
-    public static void ValidateNationalid(List<account> ListAccount){
+ //   public static void ValidateNationalid(List<account> ListAccount){
         //AccountHelperBase.ValidateNationalid(ListAccount);
-    }
+//    }
     
     public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
         AccountHelperBase.updateAccountFieldsBeforeUpdate(listNewAccounts,accountOldMap,isUpdate);

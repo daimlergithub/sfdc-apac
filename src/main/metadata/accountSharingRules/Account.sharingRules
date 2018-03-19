@@ -215,6 +215,28 @@
         <opportunityAccessLevel>Read</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Dealer_Account_Share_India</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <description>Share all dealer records with India users so they can assign leads and create retail copies</description>
+        <name>Dealer Account Share India</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>External_Agency_View_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>External_Marketing_Agency</roleAndSubordinatesInternal>

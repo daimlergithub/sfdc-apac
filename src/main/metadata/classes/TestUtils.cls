@@ -5,6 +5,7 @@
 * Date                  Name                        Modification Description
 * 17-May-2017           Shruthi Aipanjiguly         Created
 * 25-May-2017           Sarath                      Created IntegrationAPI user for phone formatIssue
+* 18-Mar-2018 			Sravanthi					Added createAdminUser and CreatePersonAccount generic methods
 ==========================================================================================*/
 
 @istest
@@ -26,7 +27,15 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert u;
         return u;
     }
-    
+    //Generic method to create an admin user with passed market value - added by India market
+    public static User createGenericAdminUser(String sCountry, String sTimeszonekey, String sMarket){               
+        Profile p = [select id from profile where Name='System Administrator' limit 1];
+        User u = new User(LastName='User',country=sCountry,firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey=sTimeszonekey,LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind01@testing.com',UserName='admusrind@daimler.com',Market__c = sMarket);
+        insert u;
+        return u;
+    }
+
+
     // After Sales Manager User Creation
     public static User createAfterSalesManager(){       
         Profile p = [select id from profile where Name='System Administrator' limit 1];
@@ -106,8 +115,25 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert a;
         return a;
     }
-    
-    
+//Generic method to create a person account for passed particular market
+     public static Account createPersonAccountGeneric(user U, String sPhone, String sCountry, Integer iYear){      
+        Account a = new Account(FirstName = u.FirstName,LastName = u.LastName);
+        a.Work_Phone__c            = sPhone;
+        a.Status__c                = 'Prospect';
+        a.Email__c                 = 'testmail@test.com';
+        a.Country__c               = sCountry;
+        a.Gender__c                = 'Male';
+        a.Phone                    = sPhone;
+        a.Individual_Home_Phone__c = sPhone;
+        a.MD__c                    = u.market__c;
+        a.Market__c				   = u.Market__c;
+        a.ownerid                  = u.id;
+        a.PersonBirthdate          = date.newInstance(iYear,03,18); // Modified By laqshay Arora
+        a.Foundation_Date__c       = date.today();
+        a.RecordTypeId             = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        insert a;
+        return a;
+    }
     
 // Creation of a company account (B2B)
     public static Account createCompanyAccount(User U){             

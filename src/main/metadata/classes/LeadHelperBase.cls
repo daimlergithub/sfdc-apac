@@ -405,7 +405,7 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
             Company_Account__r.Special_Needs_Class__c, Company_Account__r.Allow_Data_Sharing2__c, Company_Account__r.Primary_Address_Reference__r.Address_Type__c,
             Company_Account__r.Primary_Address_Reference__r.Province__c, Company_Account__r.Preferred_Contact_Method__c,
             Company_Account__r.UCID__c,Company_Account__r.Salutation__c, Company_Account__r.RecordtypeId, Company_Account__r.Name, Company_Account__r.Company_Name_Native_1__c, Company_Account__r.Foundation_Date__c,Company_Account__r.Primary_Address_Reference__r.Foreign_Nationals__c,
-            Company_Account__r.Website, Company_Account__r.Vat_No__c, Company_Account__r.DMS_Customer_ID__c, Company_Account__r.Complaint_Amount__c, Company_Account__r.Sales_Sanction__c, Company_Account__r.Allow_Data_Sharing__c, Company_Account__r.PersonEmail, Company_Account__r.PersonHasOptedOutOfEmail, Company_Account__r.PersonHasOptedOutOfFax, Company_Account__r.Primary_Phone_Display__c, Company_Account__r.PersonDoNotCall, Company_Account__r.Postal_Opt_Out__c, Company_Account__r.Job__c, Company_Account__r.Personal_Agreement__c, Company_Account__r.Personal_Information_Third_Party_Release__c, Company_Account__r.Personal_Abroad_Agreement__c, Company_Account__r.Agreement_to_commit_info_processing__c, Company_Account__r.Commercial_Reg_No__c, Company_Account__r.Company_Name__c, Company_Account__r.Visit_Opt_Out__c
+            Company_Account__r.Website, Company_Account__r.Vat_No__c, Company_Account__r.DMS_Customer_ID__c, Company_Account__r.Complaint_Amount__c, Company_Account__r.Sales_Sanction__c, Company_Account__r.Allow_Data_Sharing__c, Company_Account__r.PersonEmail, Company_Account__r.PersonHasOptedOutOfEmail, Company_Account__r.PersonHasOptedOutOfFax, Company_Account__r.Primary_Phone_Display__c, Company_Account__r.PersonDoNotCall, Company_Account__r.Postal_Opt_Out__c, Company_Account__r.Job__c, Company_Account__r.Personal_Agreement__c, Company_Account__r.Personal_Information_Third_Party_Release__c, Company_Account__r.Personal_Abroad_Agreement__c, Company_Account__r.Agreement_to_commit_info_processing__c, Company_Account__r.Commercial_Reg_No__c, Company_Account__r.Company_Name__c, Company_Account__r.Visit_Opt_Out__c,Assigned_Dealer__r.Dealer_Rollout_Status__c
             from Lead__c WHERE id IN: contactId];
 			
         List < Account_Link__c > accLst = new List < Account_Link__c > ();
@@ -429,7 +429,7 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
 		}
 		*/
         for (Lead__c led: leadlst) {
-            if (led.Assigned_Dealer__c != null) {
+            if (led.Assigned_Dealer__c != null && String.isnotblank(led.Assigned_Dealer__r.Dealer_Rollout_Status__c)?(led.Assigned_Dealer__r.Dealer_Rollout_Status__c=='Done'):false) {
                 Account_Link__c acclnk = new Account_Link__c();
 				Account_Link__c cacclnk = new Account_Link__c();
                 if (led.Contact__r.RecordTypeId == PersonRecordTypeId && (!existingRC.containskey(string.valueof(led.Assigned_Dealer__c)+string.valueof(led.Contact__c)))) {

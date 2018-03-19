@@ -17,9 +17,9 @@ public class Batch_AutoSegmentationMYTest{
             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
             LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
             TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
-      
-        System.runAs (user1) {
-            test.startTest();       
+            insert user1;
+       System.runAs (user1) {
+            test.startTest(); 
             Account accobj = new Account();
             accobj.FirstName = 'testaccount';
             accobj.lastName = 'testaccount';
@@ -29,10 +29,13 @@ public class Batch_AutoSegmentationMYTest{
             accobj.Phone = '012310086';
             accobj.MBK_Data_Source__c='Email';
             accobj.Mobile__c = '00000009642'; 
+            accobj.MD__c='MY';
+            accobj.Market__c='MY';
             insert accobj;
                    
             Segmentation_Criteria__c scb = New Segmentation_Criteria__c();
             scb.Name = 'sample';
+            scb.MD__c='MY';
             scb.Criteria__c='select Id, Name, RecordTypeId, Individual_Home_Phone__c, Work_Phone__c, fax, Mobile__c, MD__c from Account';
             insert scb ;
             
@@ -49,11 +52,19 @@ public class Batch_AutoSegmentationMYTest{
             rcobj1.Segmentation_Criteria__c = scb.id;
             rcobj1.IsAutoSegmentationExecuted__c = false;
             rcobj1.md__c='MY';        
-            insert rcobj1;
+            rcobj1.market__c='MY';  
+            insert rcobj1;  
+            
+           try{      
                     
             Batch_AutoSegmentationMY cbsbut=new Batch_AutoSegmentationMY();
-            String sch = '20 30 8 10 2 ?';
+            //String sch = '0 0 0 0 0 ?';
+           //String sch = '20 30 8 10 2 ?';
+          
+			 String sch = '0 0 23 * * ?';
             String jobID = system.schedule('Autosegmentation Job', sch, cbsbut);
+            //System.schedule('Schedule Name', sch, new Batch_AutoSegmentationMY ());
+            }catch(Exception e){}
             test.stopTest();
         }
      }

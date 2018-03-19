@@ -2422,6 +2422,10 @@
         <enabled>true</enabled>
 </classAccesses>
 <classAccesses>
+        <apexClass>CtrlMessageServiceKRDFW</apexClass>
+        <enabled>true</enabled>
+</classAccesses>
+<classAccesses>
         <apexClass>CtrlMessageLogViewListKRDFW</apexClass>
         <enabled>true</enabled>
 </classAccesses>
@@ -27494,6 +27498,10 @@
 	</pageAccesses>
 	<pageAccesses>
         <apexPage>PageMessageLogViewListKRDFW</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>PageMessagePopupKRDFW</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
 	<pageAccesses>
