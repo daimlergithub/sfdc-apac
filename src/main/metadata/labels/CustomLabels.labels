@@ -163,6 +163,55 @@
         <shortDescription>Accept Lead / cases custom button</shortDescription>
         <value>This button is for Korea partner users only</value>
     </labels>
+	<labels>
+        <fullName>MobileAcc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Mobile fields which are referenced in VF pages Account Creation</shortDescription>
+        <value>Mobile</value>
+    </labels>
+	<labels>
+        <fullName>Work_Mobile_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Work Mobile  fields to be referenced in VF pages</shortDescription>
+        <value>Work Mobile</value>
+    </labels>
+	 <labels>
+        <fullName>Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone </shortDescription>
+        <value>Phone</value>
+    </labels>
+	<labels>
+        <fullName>Email2_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email2</shortDescription>
+        <value>Email2</value>
+    </labels>
+	<labels>
+        <fullName>Home_Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone</shortDescription>
+        <value>Home Phone</value>
+    </labels>
+	 <labels>
+        <fullName>Work_Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone</shortDescription>
+        <value>Work Phone</value>
+    </labels>
+	<labels>
+        <fullName>Email_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription> Email</shortDescription>
+        <value>Email</value>
+    </labels>
     <labels>
         <fullName>A6_Email</fullName>
         <language>en_US</language>

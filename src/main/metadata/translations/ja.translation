@@ -1481,6 +1481,34 @@
         <name>Elegance</name>
     </customLabels>
 	<customLabels>
+        <label>携帯電話番号</label>
+        <name>MobileAcc</name>
+    </customLabels>
+	 <customLabels>
+        <label>勤務先携帯電話番号</label>
+        <name>Work_Mobile_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>その他電話番号2</label>
+        <name>Phone_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>勤務先Eメール</label>
+        <name>Email2_Acc</name>
+    </customLabels>
+	 <customLabels>
+        <label>自宅電話番号</label>
+        <name>Home_Phone_Acc</name>
+    </customLabels>
+	 <customLabels>
+        <label>勤務先電話番号</label>
+        <name>Work_Phone_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>自宅Eメール</label>
+        <name>Email_Acc</name>
+    </customLabels>
+	<customLabels>
         <label>自宅Eメール</label>
         <name>Email</name>
     </customLabels>
