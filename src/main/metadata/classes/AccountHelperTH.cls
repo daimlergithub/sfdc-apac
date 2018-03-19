@@ -1,5 +1,5 @@
 /* *
-* Utility for Trigger on Account for TH(Thailand)
+*  Utility for Trigger on Account for TH(Thailand)
 * Author: Mohammed Touseef Ahmed
 *Dhanamjaya  modfied
 *
@@ -906,10 +906,10 @@ public class AccountHelperTH {
             acclnk.Retail_Race__c = acclnk.toRole__r.MBTH_Nationality__c;
             acclnk.Retail_Primary_Phone__c = acclnk.toRole__r.Primary_Phone__c;
             //added SFDCTH-732
-            acclnk.Retail_Address_Reference__c = acclnk.toRole__r.Primary_Address_Reference__c;
+            //acclnk.Retail_Address_Reference__c = acclnk.toRole__r.Primary_Address_Reference__c;
 
             //Checking Null for sales Address 
-            if (acclnk.toRole__r.Primary_Address_Reference__c != null && acclnk.Retail_Address_Reference__c == acclnk.toRole__r.Primary_Address_Reference__c) {
+            if (acclnk.toRole__r.Primary_Address_Reference__c != null &&  (acclnk.Retail_Address_Reference__c == acclnk.toRole__r.Primary_Address_Reference__c || acclnk.Retail_Address_Reference__c == null) ) {
                 acclnk.Retail_Address_Reference__c = acclnk.toRole__r.Primary_Address_Reference__c;
                 acclnk.Retail_Address_Type__c = acclnk.toRole__r.Primary_Address_Reference__r.Address_Type__c;
                 acclnk.Retail_Province__c = (acclnk.toRole__r.Primary_Address_Reference__r.Province__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.Province__c : '');
