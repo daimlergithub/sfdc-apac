@@ -816,4 +816,17 @@
         <accessLevel>Edit</accessLevel>
         <name>TH_Retail Campaigns Sharing</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MY_Retail_Campaigns_Sharing</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>MY_Retail Campaigns Sharing</name>
+    </criteriaBasedRules>
 </CustomObjectSharingRules>

@@ -2865,7 +2865,7 @@
         </actions>
         <active>true</active>
         <description>Update the owner of the case coming from COS.</description>
-        <formula>!ISNULL( COS_Ticket_Number__c )&amp;&amp;ISPICKVAL(Market__c, &apos;TH&apos;)</formula>
+        <formula>!ISNULL( COS_Ticket_Number__c )&amp;&amp;!ISBLANK( COS_Ticket_Number__c )&amp;&amp;ISPICKVAL(Market__c, &apos;TH&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>
