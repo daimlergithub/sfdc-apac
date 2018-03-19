@@ -14,7 +14,6 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>fromRole__c</field>
@@ -27,9 +26,13 @@
                 <behavior>Edit</behavior>
                 <field>Portal_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Position__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
