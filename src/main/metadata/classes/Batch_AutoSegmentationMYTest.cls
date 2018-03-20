@@ -31,6 +31,7 @@ public class Batch_AutoSegmentationMYTest{
             accobj.Mobile__c = '00000009642'; 
             accobj.MD__c='MY';
             accobj.Market__c='MY';
+            accobj.istestRunning__c=true;
             insert accobj;
                    
             Segmentation_Criteria__c scb = New Segmentation_Criteria__c();
@@ -53,6 +54,7 @@ public class Batch_AutoSegmentationMYTest{
             rcobj1.IsAutoSegmentationExecuted__c = false;
             rcobj1.md__c='MY';        
             rcobj1.market__c='MY';  
+            rcobj1.istestRunning__c=true;
             insert rcobj1;  
             
            try{      
@@ -61,7 +63,7 @@ public class Batch_AutoSegmentationMYTest{
             //String sch = '0 0 0 0 0 ?';
            //String sch = '20 30 8 10 2 ?';
           
-			 String sch = '0 0 23 * * ?';
+             String sch = '0 0 23 * * ?';
             String jobID = system.schedule('Autosegmentation Job', sch, cbsbut);
             //System.schedule('Schedule Name', sch, new Batch_AutoSegmentationMY ());
             }catch(Exception e){}
