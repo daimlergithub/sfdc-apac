@@ -16,9 +16,17 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Required</behavior>
+                <field>Service_Number__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Date_In__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -45,6 +53,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Mileage__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Branch_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
