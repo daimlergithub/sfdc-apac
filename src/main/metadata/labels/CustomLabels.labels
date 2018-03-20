@@ -77,6 +77,27 @@
         <shortDescription>Lead Merge screen</shortDescription>
         <value>Interested competitor Vehicle Details</value>
     </labels>
+	<labels>
+        <fullName>AU</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AU</shortDescription>
+        <value>AU</value>
+    </labels>
+    <labels>
+        <fullName>AUGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AUGeneric(This is used by AU Market for access check)</shortDescription>
+        <value>AUGeneric</value>
+    </labels>
+    <labels>
+        <fullName>AUPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AUPhoneCountryCode</shortDescription>
+        <value>+61</value>
+    </labels>
 			<labels>
         <fullName>Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition</fullName>
         <categories>Retailcampaignsegmentation</categories>
@@ -5410,6 +5431,28 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>Mass Assign Recall Tasks Assign Rules</shortDescription>
         <value>Assign Rules</value>
     </labels>
+	<labels>
+        <fullName>NZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NZ</shortDescription>
+        <value>NZ</value>
+    </labels>
+    <labels>
+        <fullName>NZGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NZGeneric(This is used by NZ Market for access check)</shortDescription>
+        <value>NZGeneric</value>
+    </labels>
+    <labels>
+        <fullName>NZPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NZPhoneCountryCode</shortDescription>
+        <value>+64</value>
+    </labels>
+    
     <labels>
         <fullName>Mass_Assign_Recall_Tasks_Assign_Tasks_to_Agents</fullName>
         <categories>Mass Assign Recall Tasks</categories>
