@@ -2724,6 +2724,16 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Alias__c</fullName>
+        <description>Alias for AU and NZ market</description>
+        <externalId>false</externalId>
+        <label>Alias</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>All_channel_opt_out__c</fullName>
         <externalId>false</externalId>
@@ -4424,9 +4434,11 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Australia</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4582,6 +4594,12 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -5268,6 +5286,21 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wholesale added</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retailer added</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -10295,6 +10328,21 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>M</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -11029,6 +11077,91 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Art Collecting</fullName>
                 <default>false</default>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>Classic cars</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cricket</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food/Wine</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Motorsport</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rugby League</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rugby Union</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFL</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Skiing/Snowboarding</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Soccer</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Surfing</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nature/Outdoors</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cycling</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wellness</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home &amp; Garden</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technology &amp; Innovation</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Art</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Performing Arts</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -14209,6 +14342,21 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Widowed</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Separated</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>De-Facto</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -14218,13 +14366,14 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
     </fields>
     <fields>
         <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;NZ&apos;) ,&apos;NZ&apos;,
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -14259,6 +14408,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             <picklistValues>
                 <fullName>IN</fullName>
                 <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>NZ</fullName>
+            <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -19364,6 +19517,66 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>Tan Sri Dato Seri Dr</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Captain</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colonel</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Her Excellency</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>His Excellency</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Justice</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lady</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lord</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miss</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mr</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mrs</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ms</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professor</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
