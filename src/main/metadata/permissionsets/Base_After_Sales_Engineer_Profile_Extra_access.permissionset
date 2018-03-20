@@ -24873,6 +24873,10 @@
         <apexPage>CustomerMymercInterface</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>DealerPicker</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>DMSendResult</apexPage>
         <enabled>false</enabled>
