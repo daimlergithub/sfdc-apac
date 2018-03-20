@@ -28,5 +28,14 @@ public class CampaignMemberHelperBase{
                   }  
               }       
     }
+	
+	public static void beforeInsertevents(List<CampaignMember> camp,String Market){
+		for(CampaignMember ca:camp){
+			if(ca.status==''){
+			ca.status='Added';
+			}
+
+		}
+		}
    
 }
