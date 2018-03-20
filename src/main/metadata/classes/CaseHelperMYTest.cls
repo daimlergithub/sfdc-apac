@@ -80,7 +80,7 @@ public class CaseHelperMYTest {
      List<Case> CaseList  =  [SELECT RecordTypeid,accountid,parentid,status,Case_RepeatCause__c,priority,MD__c from Case];
      CaseHelperMY ch = new CaseHelperMY();
      ch.updateCaseDeadLineAmount(caselist,'MY',null);
-     ch.calculateComplaintAmount(caselist,'MY');
+     //ch.calculateComplaintAmount(caselist,'MY');
      ch.countRepeatComplaintCase(caselist,true,'MY');
      List<Case> childCaseList=new List<Case>();
      Case child=new Case();

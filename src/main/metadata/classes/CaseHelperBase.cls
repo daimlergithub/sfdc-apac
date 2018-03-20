@@ -80,7 +80,7 @@ public class CaseHelperBase {
         for(Case c : cases){
             if(c.MD__C == market)
                 accounts.add (c.AccountId);
-                //accounts.add(Trigger.isInsert ? NULL : ((Case)Trigger.oldMap.get(c.ID)).AccountID);
+                accounts.add(Trigger.isInsert ? NULL : ((Case)Trigger.oldMap.get(c.ID)).AccountID);
         }                       
         accounts.remove(NULL);
         List<Case> case_acc = [Select Id, AccountId From Case 
@@ -98,17 +98,17 @@ public class CaseHelperBase {
             
            // accounts = new Set<Id>();
            // accounts = accountCaseMap.keySet();
-			
+            
             /*accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accounts LIMIT 50000];
             for (Account acc : accRecords){
                List<Id> caseIds = accountCaseMap.get(acc.Id);
                acc.Complaint_Amount__c = caseIds.size();
                updateAccount.add(acc);
             }*/
-			
-			for (ID acc : accounts){
-				updateAccount.add(new Account(id = acc, Complaint_Amount__c = (accountCaseMap.get(acc) != NULL ? accountCaseMap.get(acc).size() : 0)));
-			}
+            
+            for (ID acc : accounts){
+                updateAccount.add(new Account(id = acc, Complaint_Amount__c = (accountCaseMap.get(acc) != NULL ? accountCaseMap.get(acc).size() : 0)));
+            }
           
         }else{
             Set<Id> accountIds = new Set<Id>();
@@ -121,10 +121,10 @@ public class CaseHelperBase {
                updateAccount.add(acc);
             }*/
         }
-		
-		if(updateAccount.size() > 0){
-			DMLManagerService.updateAsSystem(updateAccount);   
-		}
+        
+        if(updateAccount.size() > 0){
+            DMLManagerService.updateAsSystem(updateAccount);   
+        }
     }
     
     //Calculate the number of Repeated Case for an account 
