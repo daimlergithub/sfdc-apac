@@ -10,7 +10,7 @@ Public class RetailtaskInlineEditControllerGeneric{
         Id id = ApexPages.currentPage().getParameters().get('id');
         
         if(id!=null){
-            retailtask = [select id,Service_Labour_Amount__c,Related_Contact__c,Service_Parts_Amount__c,Service_Dealer__c,Service_Currency__c,Related_Dealer__r.Dealer_ND_Code__c,Related_Dealer__r.Dealer_GC_Code__c,Service_Total_Amount__c,Description__c,Service_Invoice_Number__c,CreatedBy.Name,LastModifiedBy.Name from Retail_Task__c where id=: id];
+            retailtask = [select id,Service_Labour_Amount__c,Related_Contact__c,Service_Parts_Amount__c,Service_Dealer__c,Service_Currency__c,Related_Dealer__r.Dealer_ND_Code__c,Related_Dealer__r.Dealer_GC_Code__c,Service_Total_Amount__c,Description__c,Service_Invoice_Number__c,Retail_LastModifiedDate__c,Retail_CreatedDate__c from Retail_Task__c where id=: id];
             user us=[select id,profile.name,Dealer_ND_Code__c,Dealer_GC_Code__c, market__c  from user where id=: userinfo.getUserid()];
             if(us.market__c==Label.TH){
                 MBTH=true;

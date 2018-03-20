@@ -83,12 +83,12 @@
                         <apex:outputField value="{!retailtask.Related_Contact__c}"/>  
                       </apex:pageBlockSectionItem>
 					  <apex:pageBlockSectionItem>
-                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.CreatedById.Label}"/>
-                        <apex:outputField value="{!retailtask.CreatedBy}"/>
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Retail_CreatedDate__c.Label}"/>
+                        <apex:outputField value="{!retailtask.Retail_CreatedDate__c}"/>
                       </apex:pageBlockSectionItem>
 					  <apex:pageBlockSectionItem>
-                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.LastModifiedById.Label}"/>
-                        <apex:outputField value="{!retailtask.LastModifiedBy}"/>
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Retail_LastModifiedDate__c.Label}"/>
+                        <apex:outputField value="{!retailtask.Retail_LastModifiedDate__c}"/>
                       </apex:pageBlockSectionItem>
                     </apex:pageBlockSection>
             </apex:pageBlock>           
