@@ -354,13 +354,22 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
-             //03192018 Namitha Added to load only State Picklist for India MArket and India Country
-             
-             LoadProvince();
-            /*if(addressobj.Country__c == 'India')
-            {
+             //03192018 Namitha Added to load only State Picklist for India Market
+             if(market=='IN')
+             {
                 LoadProvince();
-            }*/
+                //03202018: Namitha Added below logic to render state as a textbox for Foreign national else a picklist.
+                if(addressobj.Foreign_Nationals__c == false)
+                {
+                    
+                    IsForeignNational=false;
+                }
+                else
+                {
+                    IsForeignNational=true;
+                    if(AddressObj.Country__c == 'India')AddressObj.Country__c = '--None--';
+                }
+             }
             if(market=='TH' || Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
