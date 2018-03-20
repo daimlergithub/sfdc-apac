@@ -106,6 +106,7 @@ static testMethod void testTriggerCaseHandlerMY1() {
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'EAST';
         dealer.Dealer_Active__c = True;
+        dealer.Dealer_Rollout_Status__c = 'Done';
         insert dealer;
         
         List<String> CaseFields=new List<String>();
