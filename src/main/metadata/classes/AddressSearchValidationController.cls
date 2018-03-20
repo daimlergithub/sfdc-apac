@@ -4069,4 +4069,26 @@ public pagereference saveAccountTH()
         
     }
 
+//Added for India Redirect
+public PageReference goToMarketSpecificPage() {
+        String vfpage = '';
+        CreateAccountVFSetting__mdt pageSetting;
+        String market = [select market__c from User where id =:UserInfo.getUserId()].market__c;
+        if (market != null && market != '' && market == Label.IN){
+            List<CreateAccountVFSetting__mdt> lstpageSetting = [select VFPageName__c from CreateAccountVFSetting__mdt where market__c = :Label.IN limit 1];
+            if (lstpageSetting.size() > 0){
+                pageSetting = lstpageSetting[0];
+            }
+            if (pageSetting != null){
+                vfpage = pageSetting.VFPageName__c;
+            }
+        }
+        if (vfpage != null && vfpage != ''){
+             PageReference accPage = new PageReference('/apex/'+ vfpage);
+             accPage.setRedirect(true);
+             return accPage;
+        }
+        return null;
+    }
+
 }
