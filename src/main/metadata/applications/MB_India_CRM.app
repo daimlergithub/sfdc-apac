@@ -4,7 +4,7 @@
     <description>Kaaviya - Added for India non console users</description>
     <label>MB India CRM</label>
     <tab>standard-Account</tab>
-    <tab>standard-Lead</tab>
+    <tab>Lead__c</tab>
     <tab>standard-Case</tab>
     <tab>Tasks</tab>
     <tab>standard-Campaign</tab>
@@ -13,4 +13,5 @@
     <tab>Vehicle_Relationship__c</tab>
     <tab>Recall__c</tab>
     <tab>Survey__c</tab>
+    <tab>standard-Knowledge</tab>
 </CustomApplication>

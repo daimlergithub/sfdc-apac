@@ -177,6 +177,10 @@
         <editHeading>true</editHeading>
         <label>New</label>
         <layoutColumns>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Province_Native__c</field>
@@ -219,6 +223,9 @@
     <miniLayout>
         <fields>Customer__c</fields>
     </miniLayout>
+	<relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

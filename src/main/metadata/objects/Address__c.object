@@ -2720,9 +2720,10 @@ OR(
 Address_Line_1__c  = '',
 District__c = '',
 ISPICKVAL( Province__c ,''),
+ISPICKVAL(Country__c , ''),
 ZipCode__c = ''
 ))</errorConditionFormula>
-        <errorMessage>For Address creation, Address Line 1, State, City, Zip code are mandatory.</errorMessage>
+        <errorMessage>For Address creation, Address Line 1, Country, State, City, Zip code are mandatory.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Address_Market_Cannot_be_Changed</fullName>
@@ -2855,7 +2856,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{6}"))
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
 $Permission.INGeneric, 
-OR(ISCHANGED(ZipCode__c),ISNEW()), 
+OR(ISCHANGED(ZipCode__c),ISNEW()),  TEXT( Country__c ) = 'India',
 NOT(ISBLANK(ZipCode__c)),
 NOT(REGEX(ZipCode__c,"[0-9]{6}")) 
 )</errorConditionFormula>
