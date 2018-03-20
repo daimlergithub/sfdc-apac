@@ -2250,6 +2250,13 @@
         <value>Company Name should be less than or equal to 40 letters.</value>
     </labels>
     <labels>
+        <fullName>Company_Record_Country</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Record Country</shortDescription>
+        <value>Country should not be other than India for Company Account</value>
+    </labels>
+    <labels>
         <fullName>Compared_Vehicle_Brand</fullName>
         <language>en_US</language>
         <protected>false</protected>
