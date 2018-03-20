@@ -9308,6 +9308,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Selected Record</shortDescription>
         <value>Selected Record</value>
     </labels>
+	<labels>
+        <fullName>Selected_type_of_address_is_not_existing_for_the_corresponding_account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selected type of address is not existing for the corresponding account</shortDescription>
+        <value>Selected type of address is not existing for the corresponding account.</value>
+    </labels>
     <labels>
         <fullName>SellingDealer</fullName>
         <language>en_US</language>
@@ -11099,7 +11106,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>korea Business Hours Id</shortDescription>
-        <value>01m28000000kAjx</value>
+        <value>01mO00000004Djp</value>
     </labels>
     <labels>
         <fullName>l_AtmospherePerceptionandLighting</fullName>
