@@ -5,7 +5,7 @@
 * Date                  Name                        Modification Description
 * 17-May-2017           Shruthi Aipanjiguly         Created
 * 25-May-2017           Sarath                      Created IntegrationAPI user for phone formatIssue
-* 18-Mar-2018 			Sravanthi					Added createAdminUser and CreatePersonAccount generic methods
+* 18-Mar-2018       Sravanthi          Added createAdminUser and CreatePersonAccount generic methods
 ==========================================================================================*/
 
 @istest
@@ -78,6 +78,83 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     
     /* Creation of users for different roles - End */
     
+    /* Creation of Generic methods by India - start */
+    
+    // Added to provide India specific custom permission to users.
+    public static void providePermissionsIN(User u, PermissionSet ps, String custPermSet){ 
+        SetupEntityAccess sea = new SetupEntityAccess();
+        sea.ParentId = ps.Id;
+        sea.SetupEntityId = [select Id from CustomPermission where DeveloperName =: custPermSet][0].Id;
+        insert sea;
+        PermissionSetAssignment psa = new PermissionSetAssignment();
+        psa.AssigneeId = u.Id;
+        psa.PermissionSetId = ps.Id;
+        insert psa;
+    }
+    
+    // Create generic bulk RegionMasterInfo__c records 
+    public static List<RegionMasterInfo__c> createBulkRegionMaster(Integer n){
+        List<RegionMasterInfo__c> rm = new List<RegionMasterInfo__c>();
+        for(Integer i=0; i<n; i++){
+            RegionMasterInfo__c rg = new RegionMasterInfo__c();
+            rg.Province__c = 'Province'+i;
+            rg.ZipCode__c = '123456';
+            rg.Language__c = 'English';
+            rg.District__c = 'Pimpri'+i;
+            rg.Sub_DIstrict__c = 'Pimple Saudagar'+i;
+            rm.add(rg);
+        }
+        return rm;
+    } 
+    
+    // Create generic company account
+    public static Account createGenericAccount(User u, String zipCode, Id accRecordTypeId, String mobile){
+        Account genericAccount = new Account();
+        genericAccount.RecordtypeId = accRecordTypeId;
+        genericAccount.Name = 'Test Generic Account';
+        //genericAccount.FirstName = 'Test Generic fName';
+        //genericAccount.LastName = 'Test Generic lName';
+        genericAccount.Status__c = 'Active';
+        genericAccount.Province__c = 'Province1';
+        genericAccount.City__c = 'Test';
+        genericAccount.Email__c='test@test.com';
+        genericAccount.ID_Type__c='National ID';
+        genericAccount.ID_Number__c='1234567891234';
+        genericAccount.Commercial_Reg_No__c='com12345';
+        genericAccount.ZipCode__c = zipCode;
+        genericAccount.Email__c ='test@test.com';  
+        genericAccount.Mobile__c = mobile;
+        genericAccount.Preferred_Language__c='English';      
+        genericAccount.MBK_Data_Source__c ='Email';
+        genericAccount.Province__c = 'Province1';
+        genericAccount.Phone = '08022420181';
+        genericAccount.Vat_No__c='kdjid';
+        genericAccount.Preferred_Language__c='English';
+        genericAccount.Province__c='apdff';
+        insert genericAccount;
+        return genericAccount;
+    }
+    
+    // Create generic Address Record
+    public static Address__C createGenericAddressRecord(Account acc, String zipCode, String market, String cntry){
+        Address__C addressobj = new Address__C();
+        addressobj.Address_Type__c = 'Home';
+        addressobj.Address_Line_1__c = 'line 1';
+        addressobj.Address_Line_2__c = 'line 2';
+        addressobj.Address_Line_3__c = 'line 3';
+        addressobj.Block__c = 'Block';
+        addressobj.Customer__c = acc.id;
+        addressobj.ZipCode__c = zipCode;
+        addressobj.Province__c ='Maharashtra';
+        addressobj.TitleOfHonor__c = 'To Person';
+        addressobj.Market__c = market;
+        addressobj.Foreign_Nationals__c=true;
+        addressobj.Country__c = cntry;
+        insert addressobj;
+        return addressobj;
+    }
+    
+    /* Creation of Generic methods by India - End */
     
     /* Creation of test records in various objects  - Begin  */
     // Creation of a person account
