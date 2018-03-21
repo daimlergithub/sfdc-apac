@@ -17,4 +17,7 @@ public class DMRequestHelperMY {
         DMRequestHelperBase.UpdateDMRequest(trigger.new,OldMap,isupdate,market);
     }
     
+    public void shareDMRequestRecordsWithDealer(List<DM_Request__c> triggerNew,Map<ID,DM_Request__c> oldMap,string market){
+        DMRequestHelperBase.shareDMRequestRecordsWithDealer(trigger.new,OldMap,market);
+    }
 }
