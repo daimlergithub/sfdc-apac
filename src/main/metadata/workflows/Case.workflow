@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>  
-<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata"> 
 	<alerts>
         <fullName>Escalate_Case_to_Case_owner_Manager</fullName>
         <description>Escalate Case to Case owner Manager</description>
