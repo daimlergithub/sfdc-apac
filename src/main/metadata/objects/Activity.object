@@ -1283,6 +1283,16 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <required>false</required>
         <type>TextArea</type>
     </fields>
+	 <fields>
+        <fullName>No_of_Pax__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Pax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Notification_Email_Flag__c</fullName>
         <defaultValue>false</defaultValue>
