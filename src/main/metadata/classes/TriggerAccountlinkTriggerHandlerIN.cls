@@ -9,12 +9,12 @@ public class TriggerAccountlinkTriggerHandlerIN implements TriggerHandlerIf {
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
      
         AccountlinkHelperIN acchelper = new AccountlinkHelperIN();
-        Util_getPermissions util_getP = new Util_getPermissions();
+     //   Util_getPermissions util_getP = new Util_getPermissions();
         
         
         if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
           
-            if(util_getP.checkCustomPermission(Label.INGeneric)){ 
+            if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){ 
               acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.IN,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
             
             }
