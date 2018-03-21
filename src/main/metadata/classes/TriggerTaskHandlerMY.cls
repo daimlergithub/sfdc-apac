@@ -30,10 +30,10 @@ public class TriggerTaskHandlerMY implements TriggerHandlerIf {
                 // RSVP for Campaign Members- Asish Kumar Nanda
                 
                 
-                if(Util_GetPermissionList.checkAccessOnUser(Label.RSVP)){
+             //   if(Util_GetPermissionList.checkAccessOnUser(Label.RSVP)){
             
-               TriggerTaskHelperMY.NumberOfPax(trigger.new);  
-               }
+             //  TriggerTaskHelperMY.NumberOfPax(trigger.new);  
+             // }
             }                 
         }        
     

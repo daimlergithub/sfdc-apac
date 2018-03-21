@@ -194,7 +194,7 @@ public with sharing class TaskHelperBase{
     
   }
   // RSVP for Campaign Members- Asish Kumar Nanda
-   public static void NumberOfPax(List<Task> lstTask) { 
+  /* public static void NumberOfPax(List<Task> lstTask) { 
    
   // lstTask= [select id,RecordTypeId from Task where RecordTypeId =:OBCAllTaskRecordTypeId ];
    Set<ID> campId = new Set<ID>();
@@ -228,7 +228,7 @@ public with sharing class TaskHelperBase{
    }
    }
 
-   } 
+   } */
    
    
    
