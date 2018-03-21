@@ -18400,6 +18400,16 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	   <fields>
+        <fullName>Secondary_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>SelecTrucks_Offered_Service__c</fullName>
         <externalId>false</externalId>
