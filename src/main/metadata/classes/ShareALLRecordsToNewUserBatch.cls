@@ -15,8 +15,8 @@ global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,s
 	market=md;
     for(User usr:usrLst)
     {
-        String grpName=usr.contact.account.Dealer_Nd_code__c;
-		//String grpName=Market+usr.contact.account.Dealer_Nd_code__c;
+        //String grpName=usr.contact.account.Dealer_Nd_code__c;
+		String grpName=Market+usr.contact.account.Dealer_Nd_code__c;
         grpNamesLst.add(grpName);
         dealerCodeLst.add(usr.contact.account.Dealer_Nd_code__c);
     }
