@@ -325,32 +325,35 @@ ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Compa
     
     // Adding for India by Shashi 
     public boolean SaveAccountDetailsIN()       
-    {       Boolean homePhoneFormat= false;
+    {       
+     Boolean homePhoneFormat= false;
      Boolean workPhoneFormat= false;
      Boolean mobilePhoneFormat= false;
+     Boolean faxFormat= false;
      PhoneNumberFormatCheck formatcheck = new PhoneNumberFormatCheck();   
      if(recordType == label.Company)                     
          recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
      else        
          recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount);     
      
-     if(recordType == Label.PersonAccount){
-         objAccount.status__C = Label.ProspectStatus;
-     }   //end code here modification by Honey     
      objAccount.RecordTypeId = recordTypeId;   
      phoneFieldConcatIN();   
+     if(recordType == Label.PersonAccount){
+         objAccount.status__C = Label.ProspectStatus;
+         faxFormat = true;
+     }
+     else if(recordType == Label.Company)
+     {
+         faxFormat = formatcheck.faxFieldFormatIN(faxCountryCode,faxAreaCode,faxphoneNumber);
+     }   //end code here modification by Honey     
      homePhoneFormat = formatcheck.homePhoneFieldFormatIN(hmCountryCode,hmAreaCode,hmphoneNumber);
      workPhoneFormat = formatcheck.workPhoneFieldFormatIN(wkCountryCode,wkAreaCode,wkphoneNumber);
      mobilePhoneFormat = formatcheck.mobilePhoneFieldFormatIN(mbCountryCode,mbphoneNumber);
-     updateGeneratedBy();
      
+     updateGeneratedBy();
      try        
      {    
-         /*if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){        
-ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));       
-}
-else */
-         if(homePhoneFormat && workPhoneFormat && mobilePhoneFormat){  
+         if(homePhoneFormat && workPhoneFormat && mobilePhoneFormat && faxFormat){  
              DMLManagerService.upsertAsSystem(objAccount);  
              refreshPage = true;
              return true; 
