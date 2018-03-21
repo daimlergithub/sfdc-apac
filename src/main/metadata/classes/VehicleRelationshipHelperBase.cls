@@ -151,8 +151,7 @@ public with sharing class VehicleRelationshipHelperBase{
 // code for  updating Vehicle Amount on update event.
 
 Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){                   
-        Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
-        Map<Id,set<Id>> mapVehRelAUNZ = new Map<Id,set<Id>>(); 
+        Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>();          
 		
         Date todayDate = Date.today() ;  
         for(vehicle_Relationship__c vr :[select id,Name,Company_Account__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND (End_Date__c=Null OR End_Date__c>=:todayDate) AND Company_Account__c IN : Company_AccountId AND (NOT Company_Account__c IN : setIgnoredAccounts) LIMIT 50000]){
@@ -166,43 +165,12 @@ Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){
             }
         }
 		
-		//For Australia and NewZealand to fetch active and inactive vehicles
-        for(vehicle_Relationship__c vrAU :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where  Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
-            if(mapVehRelAUNZ !=Null && mapVehRelAUNZ.containsKey(vrAU.Contact__c)) { 
-                set<Id> setVehicleIdAUs=mapVehRelAUNZ.get(vrAU.Contact__c);  
-                setVehicleIdAUs.add(vrAU.Vehicle_ID__c);              
-                mapVehRelAUNZ.put(vrAU.Contact__c,setVehicleIdAUs);              
-            }
-            else{              
-                mapVehRelAUNZ.put(vrAU.Contact__c,new set<Id> {vrAU.Vehicle_ID__c});
-            }
-        }
+		 
 		
         List<Account> vehicleAmountToUpdate=new List<Account>();                
         for(Account acc : [Select Id,Vehicle_amount__c From Account Where Id IN:Company_AccountId LIMIT 50000]){
 		
-		 //for AU/NZ Market refer all vehicles
-            if(acc.MD__c == 'NZ' || acc.MD__c =='AU'){
-                
-                if(mapVehRelAUNZ.get(acc.Id)!=Null){               
-                    set<Id> setVehicleAUIds=mapVehRelAUNZ.get(acc.Id);                 
-                    if(setVehicleAUIds!=Null && setVehicleAUIds.size()>99){
-                        acc.vehicle_amount__c=99;
-                    }
-                    else{       
-                        acc.vehicle_amount__c=setVehicleAUIds.size();
-                        acc.Status__c=Label.Customer_Cust; 
-                    }
-                    vehicleAmountToUpdate.add(acc);
-                    }  
-                else{
-                    acc.vehicle_amount__c=0;
-                    acc.Status__c=Label.ProspectStatus;   
-                    vehicleAmountToUpdate.add(acc);
-                } 
-            }
-			else
-			{
+		  
 				if(mapVehRel.get(acc.Id)!=Null){               
 					set<Id> setVehicleIds=mapVehRel.get(acc.Id);                 
 					if(setVehicleIds!=Null && setVehicleIds.size()>99){
@@ -219,7 +187,7 @@ Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){
 					acc.Status__c=Label.ProspectStatus;   
 					vehicleAmountToUpdate.add(acc);
 				} 
-			}
+			 
         }
         if(!vehicleAmountToUpdate.isEmpty())
             try{
