@@ -656,6 +656,10 @@ public class ContactTableController {
             PhoneNumberFormatMY();
             checkcountrycode();
         }
+		else if (ParAcc.MD__c == Label.AU || ParAcc.MD__c == 'NZ') {
+            PhoneNumberFormatAU();
+            checkcountrycodeAU();
+        }   
         else if (ParAcc.MD__c == 'IN' || ParAcc.Market__C == 'IN')      
         {   
             PhoneNumberFormatIN();  
@@ -958,6 +962,9 @@ public class ContactTableController {
         else if (ParAcc != null && ParAcc.Md__c == Label.MY) {
             UpdateAccountMY();
         }
+		else if (ParAcc != null && (ParAcc.Md__c == Label.AU || ParAcc.Md__c == Label.NZ)) {
+            UpdateAccountAU();
+        }    
         else if (ParAcc != null && (ParAcc.Md__c =='IN' || ParAcc.Market__C =='IN'))       
       {     
         UpdateAccountIN();      
@@ -1205,5 +1212,325 @@ public class ContactTableController {
              system.debug('***********'+pickListOptionsToExclude);         
              return dependentListFinal;
       }*/
+	  
+	  public void PhoneNumberFormatAU() 
+   {
+        string localhmPhone, localwkPhone, localMBPhone, localFaxPhone;
+        localhmPhone = string.valueOf(ParAcc.Individual_Home_Phone__c);
+        localwkPhone = string.valueOf(ParAcc.Work_Phone__c);
+        localMBPhone = string.valueOf(ParAcc.Mobile__c);
+        localFaxPhone = string.valueOf(ParAcc.fax);
+        if ((!String.IsBlank(localhmPhone)) && (localhmPhone.length() > 3)) {
+            hmCountryCode = localhmPhone.substring(0, 3);
+            if (hmCountryCode == label.AUPhoneCountryCode || hmCountryCode == label.NZPhoneCountryCode ) 
+            {
+            localhmPhone = localhmPhone.substring(3, localhmPhone.length());
+                    if (localhmPhone.length() == 9 ) // landline
+                    {
+                    hmAreaCode = localhmPhone.substring(0, 1);
+                    hmphoneNumber = localhmPhone.substring(1, localhmPhone.length());
+                    }
+                    else if (localhmPhone.substring(0, 4) == '2409' &&  ParAcc.MD__c == 'NZ' &&  hmCountryCode ==  label.NZPhoneCountryCode)
+                    {
+                     hmAreaCode = localhmPhone.substring(0, 4);
+                    hmphoneNumber = localhmPhone.substring(4, localhmPhone.length());
+                    }
+                     else {
+                hmAreaCode = '';
+                hmphoneNumber = localhmPhone.substring(0, localhmPhone.length());
+                     }
+                     
+            } else {
+                hmAreaCode = '';
+                hmphoneNumber = localhmPhone.substring(3, localhmPhone.length());
+            }
+
+    
+        } else {
+                if (ParAcc.MD__c == Label.AU )  
+                    hmCountryCode =  label.AUPhoneCountryCode; //AU
+                else
+                    hmCountryCode =  label.NZPhoneCountryCode; //NZ
+        }
+        
+        if ((!String.IsBlank(localwkPhone)) && (localwkPhone.length() > 3)) {
+
+            wkCountryCode = localwkPhone.substring(0, 3);
+
+            if (wkCountryCode == label.AUPhoneCountryCode || wkCountryCode == label.NZPhoneCountryCode ) {
+                  localwkPhone =  localwkPhone.substring(3, localwkPhone.length());
+                if (localwkPhone.length() == 9 ){ // landline
+                    wkAreaCode = localwkPhone.substring(0, 1);
+                    wkphoneNumber = localwkPhone.substring(1, localwkPhone.length());
+                }
+                else if (localwkPhone.substring(0, 4) == '2409' &&  ParAcc.MD__c == 'NZ' &&  wkCountryCode ==  label.NZPhoneCountryCode)
+                 {
+                     wkAreaCode = localwkPhone.substring(0, 4);
+                    wkphoneNumber = localwkPhone.substring(4, localwkPhone.length());
+                }
+                else {
+                wkAreaCode = '';
+                wkphoneNumber = localwkPhone.substring(0, localwkPhone.length());
+                     }                  
+            } else {
+                wkphoneNumber = localwkPhone.substring(3, localwkPhone.length());
+            }
+        } else {
+                if (ParAcc.MD__c == Label.AU )  
+                    wkCountryCode = label.AUPhoneCountryCode; //AU
+                else
+                wkCountryCode = label.NZPhoneCountryCode; //NZ
+            
+        }
+        if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length() > 3)) {
+
+            mbCountryCode = localMBPhone.substring(0, 3);
+            mbphoneNumber = localMBPhone.length() > 3 ? localMBPhone.substring(3, localMBPhone.length()) : '';
+        }
+        
+    }
+
+
+
+    public void checkcountrycodeAU() {
+        wAreaBoolean = false;
+        fAreaBoolean = false;
+        hAreaBoolean = false;
+
+        if (hmCountryCode == label.AUPhoneCountryCode || hmCountryCode ==  label.NZPhoneCountryCode || hmCountryCode == '' )
+            hAreaBoolean = true;
+        else
+            hAreaBoolean = false;
+        if (wkCountryCode == label.AUPhoneCountryCode || wkCountryCode ==  label.NZPhoneCountryCode || wkCountryCode == '' )
+            wAreaBoolean = true;
+        else
+            wAreaBoolean = false;
+        if (faxCountryCode == label.AUPhoneCountryCode || faxCountryCode ==  label.NZPhoneCountryCode || faxCountryCode == '' )
+            fAreaBoolean = true;
+        else
+            fAreaBoolean = false;
+
+    }
+    
+        public void UpdateAccountAU() {
+        try {
+        
+                system.debug('====>Start');
+Boolean phValidate = true; 
+         String areaCodeCheck = '^([2]|[8]|[3]|[7]{1})$';
+        String phoneCheck = '^[1-9]{1}[0-9]{7}$';
+        String areaPhoneCombinedCheck = '^[0-9]{9}$';
+        String mobileCheck = '^([4]|[5])[0-9]{8}$';
+        string tollCheck = '^([1][8][0][0]|[1][3][0][0])([0-9]{6})([0-9]{0,3})';
+        string FixedCheck = '^([1][3])([0-9]{4})([0-9]{0,1})';
+        system.debug('====>Entering Validations');
+        if(ParAcc.MD__c =='NZ')
+        {
+            mobileCheck = '^([2])[0-9]{8}$';
+            areaCodeCheck = '^([3]|[4]|[6]|[7]|[9]|[2]|[2][4][0][9] {1,4})$';
+        }
+        
+        
+//Home Phone validation
+        if(hmCountryCode!='' && (hmCountryCode==label.AUPhoneCountryCode || hmCountryCode==label.NZPhoneCountryCode))
+        {
+               system.debug('====>if-HP');
+            System.debug('hmAreaCode+hmphoneNumber====>' + hmAreaCode+hmphoneNumber);
+            //Area code & Phone number validation
+            if(hmAreaCode != '' && hmphoneNumber == '') {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone should be in any of these format: +61 x xxxx xxxx' ));
+                phValidate = false;
+            }
+            else if(hmAreaCode != '' && hmphoneNumber != ''  && hmphoneNumber.length() <= 8 && (!(Pattern.matches(FixedCheck , hmphoneNumber ))) ){
+                     if (hmAreaCode  == '2409' && hmCountryCode ==  label.NZPhoneCountryCode ) //Ross Dependency
+                    {
+                        if(!Pattern.matches('^[1-9]{4}$',hmphoneNumber)) {
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone should be in any of these format: +64 2 409 xxxx'));
+                        }
+                    }
+            
+              else if(!(Pattern.matches(areaCodeCheck, hmAreaCode) && Pattern.matches(phoneCheck, hmphoneNumber) && Pattern.matches(areaPhoneCombinedCheck, hmAreaCode+hmphoneNumber))){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone should be in any of these format: +61 x xxxx xxxx'));
+                    phValidate = false;
+                }
+                
+            }
+             else if(hmAreaCode == '' && hmphoneNumber != '' && hmphoneNumber.length() <= 8  && (!(Pattern.matches(FixedCheck , hmphoneNumber ))) ){ //except 1800 #
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please Enter Area Code ' ));
+                phValidate = false;
+            }
+                        if(hmAreaCode == '' && hmphoneNumber != '' && hmphoneNumber.length() > 8 ){ // 1800 #/1300# 
+             if(!(Pattern.matches(tollCheck , hmphoneNumber )))        {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please Enter Six digits trail both 1800 / 1300 numbers' ));
+                phValidate = false;
+                }
+            }
+            
+            
+        }
+        if(hmCountryCode!='' && (hmCountryCode!=label.AUPhoneCountryCode || hmCountryCode==label.NZPhoneCountryCode )){
+            system.debug('====>else-HP');
+            if(hmphoneNumber != null){
+                if(!Pattern.matches('[0-9]+', hmphoneNumber)){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone/Work Phone number only allows digits')); 
+                    phValidate = false;
+                }
+  
+            }
+        }
+        
+        //Work Phone validation
+        if(wkCountryCode!='' && (wkCountryCode==label.AUPhoneCountryCode || wkCountryCode==label.NZPhoneCountryCode) ){
+            system.debug('====>if-WP');
+            //Area code & Phone number validation
+            if((wkAreaCode != '' && wkphoneNumber == '') ){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Work Phone should be in any of these format: +61 x xxxx xxxx '));
+                phValidate = false;
+            }
+            else if(wkAreaCode != ''  && wkphoneNumber != ''  && (!(Pattern.matches(FixedCheck , hmphoneNumber ))) &&  wkphoneNumber.length() <= 8  ){
+            
+                    if (wkAreaCode  == '2409' && wkCountryCode ==  label.NZPhoneCountryCode ) //Ross Dependency
+                    {
+                        if(!Pattern.matches('^[1-9]{4}$',wkphoneNumber )) {
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Work Phone should be in any of these format: +64 2 409 xxxx'));
+                        }
+                    }
+                else if(!(Pattern.matches(areaCodeCheck, wkAreaCode) && Pattern.matches(phoneCheck, wkphoneNumber) && Pattern.matches(areaPhoneCombinedCheck, wkAreaCode+wkphoneNumber))){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Work Phone should be in any of these format: +61 x xxxx xxxx '));
+                    phValidate = false;
+                }   
+  
+            }
+             else if(wkAreaCode == '' && wkphoneNumber != '' && wkphoneNumber.length() <= 8   && (!(Pattern.matches(FixedCheck , hmphoneNumber ))) ){ //except 1800 #
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please Enter Area Code' ));
+                phValidate = false;
+            }
+                        if(wkAreaCode == '' && wkphoneNumber != '' && wkphoneNumber.length() > 8 ){ // 1800 #/1300# 
+             if(!(Pattern.matches(tollCheck , wkphoneNumber )))        {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please Enter Six digits trail both 1800 / 1300 numbers' ));
+                phValidate = false;
+                }
+            }
+            
+        }
+        if(wkCountryCode!='' && (wkCountryCode!=label.AUPhoneCountryCode || wkCountryCode==label.NZPhoneCountryCode ) ){
+            system.debug('====>else-WP');
+            //Phone number validation
+            if(wkphoneNumber != ''){
+                if(!Pattern.matches('[0-9]+', wkphoneNumber)){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone/Work Phone number only allows digits')); 
+                    phValidate = false;
+                }
+
+            }
+        }
+        
+        //Mobile validation
+        if(mbCountryCode!='' && (mbCountryCode==label.AUPhoneCountryCode || mbCountryCode==label.NZPhoneCountryCode )){
+            system.debug('====>if-MP : ' + mbphoneNumber );
+            //Phone number validation
+            if(mbphoneNumber != ''){
+                if(!Pattern.matches(mobileCheck, mbphoneNumber)){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Mobile Phone number only allows 9 digits and first digit should be 4 or 5')); 
+                    phValidate = false;
+                }
+ 
+            }
+            
+        }
+        if(mbCountryCode!='' && (mbCountryCode!=label.AUPhoneCountryCode  || mbCountryCode==label.NZPhoneCountryCode)){
+            system.debug('====>else-MP');
+            if(!Pattern.matches('[0-9]+', mbphoneNumber)){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Mobile Phone number only allows digits')); 
+                phValidate = false;
+            }                    
+  
+        }       
+         string emailraw ='';
+    if(ParAcc.Email__c != null  )
+     {
+         
+         emailraw = ParAcc.Email__c; 
+        String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!}{+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
+        emailraw = emailraw.replace('@@', '@'); //replace @@ to single @
+        emailraw = emailraw.replace('..', '.'); //replace .. to single .
+        emailraw = emailraw.replace('.@', '@'); //replace .@ to single @
+        emailraw = emailraw.replace('@.', '@'); //replace @. to single @
+        emailraw = emailraw.removeStart('.');// remove “.” as the first character of an e-mail address.
+        emailraw = emailraw.removeEnd('.');// remove “.” as the last character of an e-mail address.
+         emailraw= emailraw.replaceAll( '\\s+', ''); // remove spaces
+         
+         if(!Pattern.matches(emailRegex,emailraw))
+         {
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Invalid Email Address'));
+                         phValidate = false;
+         }
+         else 
+         {
+        ParAcc.Email__c = emailraw; 
+         }
+     }
+     if(ParAcc.Email2__c != null  )
+     {
+         
+         emailraw = ParAcc.Email2__c; 
+        String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!}{+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
+        emailraw = emailraw.replace('@@', '@'); //replace @@ to single @
+        emailraw = emailraw.replace('..', '.'); //replace .. to single .
+        emailraw = emailraw.replace('.@', '@'); //replace .@ to single @
+        emailraw = emailraw.replace('@.', '@'); //replace @. to single @
+        emailraw = emailraw.removeStart('.');// remove “.” as the first character of an e-mail address.
+        emailraw = emailraw.removeEnd('.');// remove “.” as the last character of an e-mail address.
+         emailraw= emailraw.replaceAll( '\\s+', ''); // remove spaces
+         
+         if(!Pattern.matches(emailRegex,emailraw))
+         {
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Invalid Business Email Address'));
+                         phValidate = false;
+         }
+         else 
+         {
+        ParAcc.Email2__c = emailraw; 
+         }
+     }
+     
+          if(String.isBlank(hmphoneNumber))  ParAcc.Individual_Home_Phone__c='';       
+        else if(hmCountryCode!='' && hmphoneNumber!='' && (hmCountryCode==label.AUPhoneCountryCode || hmCountryCode==label.NZPhoneCountryCode ))  ParAcc.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
+        else ParAcc.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;                                    
+        
+        if( String.isBlank(wkphoneNumber)) ParAcc.Work_Phone__c='';     
+        else if(wkCountryCode!='' && wkphoneNumber!='' && (wkCountryCode==label.AUPhoneCountryCode  || wkCountryCode==label.NZPhoneCountryCode  )) ParAcc.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
+        else ParAcc.Work_Phone__c=wkCountryCode+wkphoneNumber;      
+        
+        if((String.isBlank(mbphoneNumber)) )  ParAcc.Mobile__c='';         
+        else if(mbCountryCode!='' && mbphoneNumber!='') ParAcc.Mobile__c=mbCountryCode+mbphoneNumber;        
+        else ParAcc.Mobile__c='';          
+        
+        if((String.isBlank(faxphoneNumber))) ParAcc.Phone='';       
+        else if(faxCountryCode!='' && faxphoneNumber!='' && (faxCountryCode==label.AUPhoneCountryCode   || faxCountryCode==label.NZPhoneCountryCode )) ParAcc.Phone=faxCountryCode+faxAreaCode+faxphoneNumber;        
+        else ParAcc.Phone=faxCountryCode+faxphoneNumber;      
+        system.debug('====>End');  
+
+            if (
+                ParAcc.Individual_Home_Phone__c == '' &&
+                ParAcc.Mobile__c == '' &&
+                ParAcc.Work_Phone__c == '' &&
+                ParAcc.Email__c == null
+            ) {
+
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+            } 
+            else if(phValidate ) {
+
+                if (ParAcc != null)
+                    refreshPage = true;
+                update ParAcc;
+            }
+        } catch (DMLException de) {
+            refreshPage = false;
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, de.getDmlMessage(0)));
+
+        }
+    }
 
 }

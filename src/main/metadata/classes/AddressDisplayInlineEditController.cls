@@ -1300,5 +1300,106 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Temp_Address__c = '';            
             }
         }           
-    }    
+    } 
+
+	public void SaveAddressAU()     
+    {       
+        try     
+        {       
+            Validation=false;   
+      boolean countPre=false;
+      if(province!='' && province!=System.Label.SelectPicklist)      
+                addressobj.Province__c=province;        
+            if(district!='' && district!=System.Label.SelectPicklist)      
+                addressobj.District__c=district;        
+            if(zip!=null || zip!='')        
+                addressobj.ZipCode__c=zip;      
+            if(addresspicklist!=null)       
+                addressobj.Address_Type__c = addresspicklist;           
+            string accountid=ApexPages.currentPage().getParameters().get('id');     
+            List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid LIMIT 100];        
+             
+      if(addressobj.preferred__c == true) countPre=true;
+        
+            for(address__c add:objAddresses)        
+            {                       
+                if(add.id!=addressobj.id && add.preferred__c==true && countPre==true)      
+                {                       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.OnePreferredError));         
+                    Validation = true;          
+                }  
+                
+                if(add.id!=addressobj.id && addressobj.Address_Type__c==add.Address_Type__c)      
+                {                       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeError));         
+                    Validation = true;          
+                }                       
+            } 
+      
+            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{3,4}',addressobj.ZipCode__c)))      
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter valid Postal code'));        
+                 Validation = true;                             
+            }       
+            if(addressobj.Address_Line_1__c == null)        
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline1Mandatory));       
+                Validation = true;                              
+            }       
+            else        
+            {                   
+                if(addressobj.Address_Line_1__c.length()>100)       
+                {       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddressline1Length));        
+                    Validation = true;                              
+                }       
+            }       
+            if(addressobj.Province__c == null)      
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.StateProvError));        
+            }       
+    
+            if(addressobj.Address_Line_2__c == null )       
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline2));       
+                Validation = TRUE;                              
+            }       
+            else        
+            {                   
+                if(addressobj.Address_Line_2__c.length()>100)       
+                {       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddresslinelen2Length));        
+                    Validation = true;                              
+                }       
+            }       
+                    
+                  
+            if(Validation == False){                
+                refreshPage = true;         
+                Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];     
+                if (editaddressId ==null)       
+                {                   
+                            
+                    addressobj.Customer__c = acc.id;   
+                    DMLManagerService.insertAsSystem(addressobj);     
+                         
+                }       
+                else        
+                {       
+                    addressobj.id = editaddressId;      
+                    addressobj.Customer__c = acc.id; 
+                    DMLManagerService.updateAsSystem(addressobj);       
+                     
+                }       
+            }       
+        }       
+        catch (Exception e)      
+        {       
+            refreshPage = false;        
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getMessage()));                           
+            CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());       
+        }
+        
+    }       
+    
 }
