@@ -1722,10 +1722,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
-			 <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
+			
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>

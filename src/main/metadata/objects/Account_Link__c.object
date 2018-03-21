@@ -4986,10 +4986,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
-			 <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
+			 
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
