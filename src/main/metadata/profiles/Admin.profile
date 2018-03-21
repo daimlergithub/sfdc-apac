@@ -5393,6 +5393,11 @@
         <field>Account.Work_Phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.YA_CustomerIDList__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.ZipCode__c</field>
@@ -6409,6 +6414,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.YA_CustomerIDList__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
