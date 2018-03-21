@@ -22,6 +22,10 @@ public class TriggerDMRequestTriggerHandlerMY
             { 
                 dmobj.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isUpdate,market);                        
             }
+            if (Trigger.isAfter && (Trigger.isInsert || Trigger.isUpdate))
+            { 
+                dmobj.shareDMRequestRecordsWithDealer(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,market);                        
+            }
         }
     }
     
