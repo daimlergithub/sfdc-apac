@@ -114,4 +114,18 @@ public class RetailCampaignHelperBase{
             DMLManagerService.insertAsSystem(retcampshare);
         }
     }
+	
+	 /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Retail_Campaign__c> campList){        
+        
+               for(Retail_Campaign__c camp : campList){
+                    if(Test.isRunningTest()){
+                        camp.isTestRunning__c=true;
+                    }
+                   if(camp.Market__c =='' || camp.Market__c==NULL){
+                     camp.Market__c=camp.MD__c;
+                  }  
+              }       
+    }
+  
 }

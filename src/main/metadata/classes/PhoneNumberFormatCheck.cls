@@ -76,15 +76,8 @@ public Class PhoneNumberFormatCheck{
     //Mobile Phone
     public boolean mobilePhoneFieldFormatIN(String mbCountryCode, String mbphoneNumber){
         if(mbCountryCode =='' && mbphoneNumber != ''){
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, ''));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Mobile_Phone_Format));
             return false;
-        }
-        if(mbCountryCode!='' && (mbCountryCode==label.INPhoneCountryCode) && mbphoneNumber != ''){
-            //Phone number validation
-            if(!Pattern.matches(mobileCheck, mbphoneNumber)){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Mobile_Phone_Format));
-                return false;
-            }
         }
         if(mbCountryCode!='' && mbCountryCode!=label.INPhoneCountryCode && mbphoneNumber != null && !String.isBlank(mbphoneNumber)){
             try{
@@ -95,6 +88,14 @@ public Class PhoneNumberFormatCheck{
                 return false;
             }
         }
+        if(mbCountryCode!='' && (mbCountryCode==label.INPhoneCountryCode) && mbphoneNumber != ''){
+            //Phone number validation
+            if(!Pattern.matches(mobileCheck, mbphoneNumber)){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Mobile_Phone_Format));
+                return false;
+            }
+        }
+        
         return true;
     }
 

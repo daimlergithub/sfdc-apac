@@ -70,9 +70,25 @@
                          <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Service_Total_Amount__c.Label}"/>
                         <apex:outputField value="{!retailtask.Service_Total_Amount__c}"/>
                       </apex:pageBlockSectionItem>
+					  <apex:pageBlockSectionItem rendered="{!ShowAmountMY}">
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Service_Invoice_Number__c.Label}"/>
+                        <apex:outputField value="{!retailtask.Service_Invoice_Number__c}"/>
+                      </apex:pageBlockSectionItem>
+					  <apex:pageBlockSectionItem rendered="{!ShowAmountMY}">
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Service_Currency__c.Label}"/>
+                        <apex:outputField value="{!retailtask.Service_Currency__c}"/>
+                      </apex:pageBlockSectionItem>					  
                       <apex:pageBlockSectionItem rendered="{!ShowAmountMY}">
                          <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Contact__c.Label}"/>
                         <apex:outputField value="{!retailtask.Related_Contact__c}"/>  
+                      </apex:pageBlockSectionItem>
+					  <apex:pageBlockSectionItem>
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Retail_CreatedDate__c.Label}"/>
+                        <apex:outputField value="{!retailtask.Retail_CreatedDate__c}"/>
+                      </apex:pageBlockSectionItem>
+					  <apex:pageBlockSectionItem>
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Retail_LastModifiedDate__c.Label}"/>
+                        <apex:outputField value="{!retailtask.Retail_LastModifiedDate__c}"/>
                       </apex:pageBlockSectionItem>
                     </apex:pageBlockSection>
             </apex:pageBlock>           
