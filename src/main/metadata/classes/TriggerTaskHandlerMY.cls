@@ -13,16 +13,30 @@ public class TriggerTaskHandlerMY implements TriggerHandlerIf {
         if(trigger.isAfter && trigger.isInsert)
         {     
             if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){     
-              TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);            
+              TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate); 
+               if(Util_GetPermissionList.checkAccessOnUser(Label.RSVP)){
+              TriggerTaskHelperMY.NumberOfPax(trigger.new);    
+              }       
             }
         }         
         if(trigger.isAfter && trigger.isUpdate)
-        {           
+        {    
+              
             if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
-              TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);   
+            
+           
+              TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate); 
+              }
+                // RSVP for Campaign Members- Asish Kumar Nanda
+                
+                
+                if(Util_GetPermissionList.checkAccessOnUser(Label.RSVP)){
+            
+               TriggerTaskHelperMY.NumberOfPax(trigger.new);  
+               }
             }                 
         }        
-    }
+    
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
@@ -34,7 +48,8 @@ public class TriggerTaskHandlerMY implements TriggerHandlerIf {
               TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);            
         }         
         if(trigger.isAfter && trigger.isUpdate)
-        {            
+        {            // RSVP for Campaign Members- Asish Kumar Nanda
+               TriggerTaskHelperMY.NumberOfPax(trigger.new); 
               TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);                   
         }
       }

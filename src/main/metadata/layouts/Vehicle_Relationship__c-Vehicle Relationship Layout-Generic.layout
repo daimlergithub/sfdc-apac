@@ -25,6 +25,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Company_Account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Owner_Dealer__c</field>
             </layoutItems>
             <layoutItems>
@@ -46,6 +50,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Magazine__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_company__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -85,6 +93,10 @@
                 <behavior>Edit</behavior>
                 <field>Card_No__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Amount__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -106,7 +118,7 @@
                 <behavior>Readonly</behavior>
                 <field>Vehicle_Class__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>UsVIN__c</field>
             </layoutItems>
@@ -227,11 +239,11 @@
                 <behavior>Edit</behavior>
                 <field>End_Setting_DateTime__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Additional_Offer__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Additional_Offer_Others__c</field>
             </layoutItems>
@@ -244,12 +256,12 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>End_Setting_User__c</field>
-            </layoutItems>	
-			<layoutItems>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Warranty_Apply_Status__c</field>
-            </layoutItems>			
-			<layoutItems>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Warranty_Apply_User__c</field>
             </layoutItems>
@@ -272,7 +284,7 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Market__c</field>
             </layoutItems>
@@ -341,7 +353,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h5D000000EWrk</masterLabel>
+        <masterLabel>00h5D000000Ikf0</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

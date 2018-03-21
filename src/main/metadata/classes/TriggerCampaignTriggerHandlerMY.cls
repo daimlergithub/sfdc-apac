@@ -8,6 +8,9 @@
 public class TriggerCampaignTriggerHandlerMY implements TriggerHandlerIf
 {
         CampaignHelperMY chb = new CampaignHelperMY();
+        Boolean updateflag = true;
+        Boolean deleteflag =true;
+        Boolean insertflag= true;
         string market = System.Label.MarketMY;
         string parentCampaign =System.Label.Planning_Design_Campaign; 
         Map<Id,Campaign> oldmap = (Map<Id,Campaign>)trigger.oldmap;
@@ -38,29 +41,40 @@ public class TriggerCampaignTriggerHandlerMY implements TriggerHandlerIf
            chb.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate,market,parentCampaign);       
             }           
         }
+        // RSVP for Campaign Members- Asish Kumar Nanda
+        if(trigger.isAfter && (trigger.isUpdate || trigger.isdelete) )
+        {  if(Util_GetPermissionList.checkAccessOnUser(Label.RSVP)){      
+           chb.rollup(Trigger.new,Trigger.old,insertflag,updateflag,deleteflag,market);       
+            }           
+        }
        
   }
         
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
     {
       List<Campaign> CampaignNewList=trigger.new;
-	  if(!isDelete && !CampaignNewList.isEmpty() && CampaignNewList.size() > 0 && CampaignNewList[0].MD__c==Label.MY){
-		  if(CampaignNewList[0].MD__c==Label.MY){
-			  if(trigger.isUpdate)
-			{
-					chb.beforeUpdateEvents(CampaignNewList,oldmap,market,parentCampaign);
-			}
-			
-			if((trigger.isAfter && trigger.isInsert))
-			{        
-				chb.afterInsertUpdateEvents(CampaignNewList,oldmap,trigger.isupdate,market,parentCampaign);  
-			}
-			
-			if(trigger.isAfter && trigger.isUpdate)
-			{       
-			   chb.afterInsertUpdateEvents(CampaignNewList,oldmap,trigger.isupdate,market,parentCampaign);       
-			}
-		  }
-	  }
+      if(!isDelete && !CampaignNewList.isEmpty() && CampaignNewList.size() > 0 && CampaignNewList[0].MD__c==Label.MY){
+          if(CampaignNewList[0].MD__c==Label.MY){
+              if(trigger.isUpdate)
+            {
+                    chb.beforeUpdateEvents(CampaignNewList,oldmap,market,parentCampaign);
+            }
+            
+            if((trigger.isAfter && trigger.isInsert))
+            {        
+                chb.afterInsertUpdateEvents(CampaignNewList,oldmap,trigger.isupdate,market,parentCampaign);  
+            }
+            
+            if(trigger.isAfter && trigger.isUpdate)
+            {       
+               chb.afterInsertUpdateEvents(CampaignNewList,oldmap,trigger.isupdate,market,parentCampaign);       
+            }
+            // RSVP for Campaign Members- Asish Kumar Nanda
+             if(trigger.isAfter && (trigger.isUpdate || trigger.isdelete)){
+             
+               chb.rollup(Trigger.new,Trigger.old,insertflag,updateflag,deleteflag,market); 
+             }
+          }
+      }
     }
 }

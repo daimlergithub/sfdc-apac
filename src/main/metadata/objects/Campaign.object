@@ -2714,6 +2714,15 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <trackFeedHistory>false</trackFeedHistory>
         <type>DateTime</type>
     </fields>
+	<fields>
+        <fullName>No_of_Pax__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Pax</label>
+        <summarizedField>CampaignMember.No_of_Pax__c</summarizedField>
+        <summaryForeignKey>CampaignMember.CampaignId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
     <fields>
         <fullName>Noof_Car_display__c</fullName>
         <externalId>false</externalId>
@@ -2908,6 +2917,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>RSVP__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Pax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Range__c</fullName>
