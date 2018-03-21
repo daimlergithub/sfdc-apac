@@ -102,7 +102,7 @@
                 <height>200</height>
                 <page>RetailTask_inline_service_amount_generic</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
