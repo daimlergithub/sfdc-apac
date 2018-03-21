@@ -51,12 +51,17 @@ public static void assignGateKeeperToDealer(Set<ID> dealerIds) {
             }
         }
         if(!lDealersChanged.isEmpty()){
-            for(Lead__c lead : [select Assigned_Dealer__r.Dealer_Lead_Gate_Keeper__c, Assigned_Dealer__c, OwnerId from Lead__c where Assigned_Dealer__c in :dealerIds]){ 
-            if((lead.ownerID == NULL || lead.OwnerId == lead.Assigned_Dealer__r.Dealer_Lead_Gate_Keeper__c) && userMap.keySet().contains(lead.Assigned_Dealer__c)){                  
-            lead.OwnerId = userMap.get(lead.Assigned_Dealer__c).Id;
-            leads.add(lead);
+            String leadStatus = System.Label.Contact_Lead_Status;
+            List<String> ldsts = String.isNotBlank(leadStatus) ? leadStatus.split(',') : NULL;
+            if(ldsts != NULL && !ldsts.isEmpty()){
+                for(Lead__c lead : [select Assigned_Dealer__r.Dealer_Lead_Gate_Keeper__c, Assigned_Dealer__c, OwnerId from Lead__c where Assigned_Dealer__c in :dealerIds and CAC_Lead_Status__c in :ldsts]){ 
+                if((lead.ownerID == NULL || lead.OwnerId == lead.Assigned_Dealer__r.Dealer_Lead_Gate_Keeper__c) && userMap.keySet().contains(lead.Assigned_Dealer__c)){                  
+                lead.OwnerId = userMap.get(lead.Assigned_Dealer__c).Id;
+                leads.add(lead);
+                }
+                }
             }
-            }
+            
             if(leads.size() > 0){
             try{
             update leads;
