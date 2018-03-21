@@ -9261,6 +9261,31 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
         <type>Email</type>
         <unique>false</unique>
     </fields>
+	 <fields>
+        <fullName>Entity__c</fullName>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cars / Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Expiration_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
@@ -18375,6 +18400,16 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	   <fields>
+        <fullName>Secondary_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>SelecTrucks_Offered_Service__c</fullName>
         <externalId>false</externalId>
@@ -23587,6 +23622,22 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		 
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -29898,6 +29949,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -42163,6 +42229,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -48442,6 +48523,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		 <picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -54144,6 +54240,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -59575,6 +59686,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -59,12 +59,150 @@ public with sharing class VehicleRelationshipHelperBase{
         updateVehicleAmount(ContactIds);        
         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);        
     } 
+     /*
+    * Added By: Asish Kumar Nanda
+    * Jira: Implement Vehicle Relationship Functionality For a Company Account
+    */
+      
+  // code for  after insert event fired and do Update vehicle amount and create Account Link.
+    Public static void OnAfterInsert_company_account(List<Vehicle_Relationship__c> vehicleRelNewRecord){
+        Set<Id> Company_AccountId=new Set<Id>();    
+        Set<Id> Company_AccountIdofVehicleRelationship=new Set<Id>(); 
+        Set<Id> VehicleIds=new Set<Id>();        
+        Set<Id> VehicleRelationshipIds=new Set<Id>(); 
+        set<Id> Company_AccountIdforValidity=new Set<Id>();
+              
+        for (Vehicle_Relationship__c vr : vehicleRelNewRecord){               
+            if(vr.Company_Account__c!=Null  && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && vr.Validity__c.equalsIgnoreCase(System.label.Yes)){              
+                Company_AccountId.add(vr.Company_Account__c);                          
+            } 
+            if(vr.Car_Relation__c==Label.Sales_Contact_Target || (string.isnotblank(vr.Car_Relation__c)?vr.Car_Relation__c.containsIgnoreCase(Label.After_Sales_Contact_Target):False) ){
+                if((!vr.Owner_Relation__c.equalsIgnoreCase(Label.Same)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Unknown)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Others))){  
+                    VehicleIds.add(vr.Vehicle_ID__c);
+                    VehicleRelationshipIds.add(vr.Id);
+                    Company_AccountIdofVehicleRelationship.add(vr.Company_Account__c);
+                }
+            } 
+            if(vr.Company_Account__c!=Null && vr.Validity__c.equalsIgnoreCase(Label.Yes)){
+                Company_AccountIdforValidity.add(vr.Company_Account__c); 
+            }
+        }  
+        updateVehicleAmount_Company(Company_AccountId);        
+        createAccountLink(VehicleIds,VehicleRelationshipIds,Company_AccountIdofVehicleRelationship);        
+    } 
+     /*
+    * Added By: Asish Kumar Nanda
+    * Jira: Implement Vehicle Relationship Functionality For a Company Account
+    */
 
-    /*
+// code for  after Update  event fired and do Update vehicle amount and create Account Link.
+
+ Public static void OnAfterUpdate_Company_Account(List<Vehicle_Relationship__c> newVehicleRelRecord,Map<Id,Vehicle_Relationship__c> oldMapVR){     
+        Set<Id> Company_AccountId=new Set<Id>();
+        Set<Id> VehicleIds=new Set<Id>();       
+        Set<Id> VehicleRelationshipIds=new Set<Id>(); 
+        set<Id> Company_AccountIdforValidity=new Set<Id>();  
+        Set<Id> Company_AccountIdofVehicleRelationship=new Set<Id>(); 
+        for (Vehicle_Relationship__c vr : newVehicleRelRecord){
+            if(vr.Company_Account__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes))){                 
+                Company_AccountId.add(vr.Company_Account__c);
+                if(oldMapVR.get(vr.id).Company_Account__c!=vr.Company_Account__c && string.isnotblank(oldMapVR.get(vr.id).Company_Account__c)){
+                    Company_AccountId.add(oldMapVR.get(vr.id).Company_Account__c);
+                }
+            } 
+            if(vr.Car_Relation__c==Label.Sales_Contact_Target || (string.isnotblank(vr.Car_Relation__c)?vr.Car_Relation__c.containsIgnoreCase(Label.After_Sales_Contact_Target):False)){
+                if(oldMapVR.get(vr.id).Owner_Relation__c!=vr.Owner_Relation__c){
+                    if((!vr.Owner_Relation__c.equalsIgnoreCase(Label.Same)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Unknown)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Others))){  
+                        VehicleIds.add(vr.Vehicle_ID__c);
+                        VehicleRelationshipIds.add(vr.Id);
+                        Company_AccountIdofVehicleRelationship.add(vr.Company_Account__c);
+                    }
+                }
+            }   
+            if(vr.Company_Account__c!=Null && vr.Validity__c.equalsIgnoreCase(Label.Yes)){
+                Company_AccountIdforValidity.add(vr.Company_Account__c); 
+            }  
+        }                          
+        updateVehicleAmount_Company(Company_AccountId);
+        createAccountLink(VehicleIds,VehicleRelationshipIds,Company_AccountIdofVehicleRelationship);            
+    } 
+     /*
+    * Added By: Asish Kumar Nanda
+    * Jira: Implement Vehicle Relationship Functionality For a Company Account
+    */
+// code for  after Delete  event fired and do Update vehicle amount and create Account Link.
+
+  Public static void OnAfterDelete_Company_Account(List<Vehicle_Relationship__c> oldVehicleRelRecord){ 
+        Set<Id> Company_AccountId=new Set<Id>();  
+        Set<Id> VehicleIds=new Set<Id>();     
+                    
+        for (Vehicle_Relationship__c vr : oldVehicleRelRecord){
+            if(vr.Company_Account__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes)){              
+                Company_AccountId.add(vr.Company_Account__c);
+                VehicleIds.add(vr.Vehicle_ID__c);
+            }  
+        }                 
+        updateVehicleAmount_Company(Company_AccountId);          
+    } 
+     /*
+    * Added By: Asish Kumar Nanda
+    * Jira: Implement Vehicle Relationship Functionality For a Company Account
+    */
+// code for  updating Vehicle Amount on update event.
+
+Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){                   
+        Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>();          
+		
+        Date todayDate = Date.today() ;  
+        for(vehicle_Relationship__c vr :[select id,Name,Company_Account__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND (End_Date__c=Null OR End_Date__c>=:todayDate) AND Company_Account__c IN : Company_AccountId AND (NOT Company_Account__c IN : setIgnoredAccounts) LIMIT 50000]){
+            if(mapVehRel !=Null && mapVehRel.containsKey(vr.Company_Account__c)) { 
+                set<Id> setVehicleIds=mapVehRel.get(vr.Company_Account__c);  
+                setVehicleIds.add(vr.Vehicle_ID__c);              
+                mapVehRel.put(vr.Company_Account__c,setVehicleIds);              
+            }
+            else{              
+                mapVehRel.put(vr.Company_Account__c,new set<Id> {vr.Vehicle_ID__c});
+            }
+        }
+		
+		 
+		
+        List<Account> vehicleAmountToUpdate=new List<Account>();                
+        for(Account acc : [Select Id,Vehicle_amount__c From Account Where Id IN:Company_AccountId LIMIT 50000]){
+		
+		  
+				if(mapVehRel.get(acc.Id)!=Null){               
+					set<Id> setVehicleIds=mapVehRel.get(acc.Id);                 
+					if(setVehicleIds!=Null && setVehicleIds.size()>99){
+						acc.vehicle_amount__c=99;
+					}
+					else{       
+						acc.vehicle_amount__c=setVehicleIds.size();
+						acc.Status__c=Label.Customer_Cust; 
+					}
+					vehicleAmountToUpdate.add(acc);
+				}  
+				else{
+					acc.vehicle_amount__c=0;
+					acc.Status__c=Label.ProspectStatus;   
+					vehicleAmountToUpdate.add(acc);
+				} 
+			 
+        }
+        if(!vehicleAmountToUpdate.isEmpty())
+            try{
+                DMLManagerService.updateAsSystem(vehicleAmountToUpdate);
+            }
+            catch(Exception e){
+                System.debug('Couldn\'t able to update the vehicle amount' + e.getMessage());
+            }
+    }
+      /*
     * Added By: Mohammed Touseef Ahmed
     * Desc: trigger helper code for  after update event fired and do Update vehicle amount and create Account Link.
     * Updated: September 25th, 2017
     */
+
     Public static void OnAfterUpdate(List<Vehicle_Relationship__c> newVehicleRelRecords,Map<Id,Vehicle_Relationship__c> oldMapVR){     
         Set<Id> ContactIds=new Set<Id>();
         Set<Id> VehicleIds=new Set<Id>();       
@@ -138,7 +276,7 @@ public with sharing class VehicleRelationshipHelperBase{
     Public static void updateVehicleAmount(Set<Id> ContactIds){                   
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
         IgnoredAccounts();   
-		Date todayDate = Date.today() ;  
+        Date todayDate = Date.today() ;  
         for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND (End_Date__c=Null OR End_Date__c>=:todayDate) AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  

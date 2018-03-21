@@ -15682,6 +15682,11 @@
         <field>Lead__c.Orig_Fee__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Others__c</field>
+        <readable>false</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Override_Overdue__c</field>
@@ -26826,7 +26831,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
+        <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
@@ -26844,7 +26849,7 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>

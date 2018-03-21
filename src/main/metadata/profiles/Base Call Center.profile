@@ -4909,7 +4909,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Primary_Address__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -28038,7 +28038,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Retail_Campaign__c.Retail_Execution_Campaign</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

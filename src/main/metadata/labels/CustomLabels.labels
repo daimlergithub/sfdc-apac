@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+	<labels>
+        <fullName>Contact_Lead_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Lead Status</shortDescription>
+        <value>Assigned,New</value>
+    </labels>
     <labels>
         <fullName>A6_Contact_as_part_of_visiting_a_car_dealership</fullName>
         <language>en_US</language>
@@ -3521,6 +3528,14 @@ please contact the number below.</value>
         <value>Fax</value>
     </labels>
     <labels>
+        <fullName>Fax_allows_digits_only</fullName>
+        <categories>India phone validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fax allows digits only</shortDescription>
+        <value>Fax Number allows digits only</value>
+    </labels>
+    <labels>
         <fullName>Field</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4100,6 +4115,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>India Contact Format allows only digits</shortDescription>
         <value>Home Phone number, Work Phone number, Fax number and Mobile Phone number only allows digits</value>
+    </labels>
+    <labels>
+        <fullName>India_Fax_Format</fullName>
+        <categories>India phone validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>India Fax Format</shortDescription>
+        <value>Fax should be in any of these format: +91-XX-XXXXXXXX/+91-XXX-XXXXXXX/+91-XXXX-XXXXXX</value>
     </labels>
     <labels>
         <fullName>India_Home_Phone_Format</fullName>
@@ -7403,6 +7426,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
         <value>RET_02_01_ServiceAmountView</value>
+    </labels>
+    <labels>
+		<fullName>RSVP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RSVP(This is Used for RSVP implementation)</shortDescription>
+        <value>RSVP</value>
     </labels>
     <labels>
         <fullName>Range_Model</fullName>

@@ -438,7 +438,7 @@
             <name>Update_status_to_planning</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Retail_Campaign__c.RecordTypeId</field>
             <operation>equals</operation>
