@@ -14,9 +14,9 @@ public class TriggerTaskHandlerMY implements TriggerHandlerIf {
         {     
             if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){     
               TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate); 
-               if(Util_GetPermissionList.checkAccessOnUser(Label.RSVP)){
-              TriggerTaskHelperMY.NumberOfPax(trigger.new);    
-              }       
+             //  if(Util_GetPermissionList.checkAccessOnUser(Label.RSVP)){
+            //  TriggerTaskHelperMY.NumberOfPax(trigger.new);    
+             // }       
             }
         }         
         if(trigger.isAfter && trigger.isUpdate)
@@ -49,7 +49,7 @@ public class TriggerTaskHandlerMY implements TriggerHandlerIf {
         }         
         if(trigger.isAfter && trigger.isUpdate)
         {            // RSVP for Campaign Members- Asish Kumar Nanda
-               TriggerTaskHelperMY.NumberOfPax(trigger.new); 
+             //  TriggerTaskHelperMY.NumberOfPax(trigger.new); 
               TriggerTaskHelperMY.updateCampaignMemberStatus(taskNewList,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);                   
         }
       }
