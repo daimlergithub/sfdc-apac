@@ -151,8 +151,8 @@ public with sharing class VehicleRelationshipHelperBase{
 // code for  updating Vehicle Amount on update event.
 
 Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){                   
-        Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
-        
+        Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>();          
+		
         Date todayDate = Date.today() ;  
         for(vehicle_Relationship__c vr :[select id,Name,Company_Account__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND (End_Date__c=Null OR End_Date__c>=:todayDate) AND Company_Account__c IN : Company_AccountId AND (NOT Company_Account__c IN : setIgnoredAccounts) LIMIT 50000]){
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Company_Account__c)) { 
@@ -164,24 +164,30 @@ Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){
                 mapVehRel.put(vr.Company_Account__c,new set<Id> {vr.Vehicle_ID__c});
             }
         }
+		
+		 
+		
         List<Account> vehicleAmountToUpdate=new List<Account>();                
         for(Account acc : [Select Id,Vehicle_amount__c From Account Where Id IN:Company_AccountId LIMIT 50000]){
-            if(mapVehRel.get(acc.Id)!=Null){               
-                set<Id> setVehicleIds=mapVehRel.get(acc.Id);                 
-                if(setVehicleIds!=Null && setVehicleIds.size()>99){
-                    acc.vehicle_amount__c=99;
-                }
-                else{       
-                    acc.vehicle_amount__c=setVehicleIds.size();
-                    acc.Status__c=Label.Customer_Cust; 
-                }
-                vehicleAmountToUpdate.add(acc);
-            }  
-            else{
-                acc.vehicle_amount__c=0;
-                acc.Status__c=Label.ProspectStatus;   
-                vehicleAmountToUpdate.add(acc);
-            } 
+		
+		  
+				if(mapVehRel.get(acc.Id)!=Null){               
+					set<Id> setVehicleIds=mapVehRel.get(acc.Id);                 
+					if(setVehicleIds!=Null && setVehicleIds.size()>99){
+						acc.vehicle_amount__c=99;
+					}
+					else{       
+						acc.vehicle_amount__c=setVehicleIds.size();
+						acc.Status__c=Label.Customer_Cust; 
+					}
+					vehicleAmountToUpdate.add(acc);
+				}  
+				else{
+					acc.vehicle_amount__c=0;
+					acc.Status__c=Label.ProspectStatus;   
+					vehicleAmountToUpdate.add(acc);
+				} 
+			 
         }
         if(!vehicleAmountToUpdate.isEmpty())
             try{
