@@ -193,5 +193,43 @@ public with sharing class TaskHelperBase{
       }
     
   }
- 
+  // RSVP for Campaign Members- Asish Kumar Nanda
+   public static void NumberOfPax(List<Task> lstTask) { 
+   
+  // lstTask= [select id,RecordTypeId from Task where RecordTypeId =:OBCAllTaskRecordTypeId ];
+   Set<ID> campId = new Set<ID>();
+   Map<Id,Task> camptask=new Map<Id,Task>();
+   List<Campaign> campaignList = new List<Campaign>();
+    for(Task tsk : lstTask){ 
+    if(tsk.RecordTypeId == OBCAllTaskRecordTypeId || tsk.RecordTypeId == eDMTaskRecordTypeId){
+     if(string.isNotBlank(tsk.Campaign_Member_ID__c)){
+    campId.add(tsk.Campaign_Member_ID__c);
+    }
+     if(string.isNotBlank(tsk.Campaign_Member_ID__c)) {
+    camptask.put(tsk.Campaign_Member_ID__c,tsk);
+   }
+   }
+   }
+    
+   if(campId.size()>0) {
+   List<CampaignMember> cm1= [select id,No_of_Pax__c from CampaignMember where id in :campId ];
+   List<CampaignMember> cm2=new List<CampaignMember>();
+   if(cm1.size()>0){
+   For(CampaignMember cm:cm1){
+   if(camptask.containsKey(cm.id) && cm.id !=null ){
+     cm.No_of_Pax__c=camptask.get(cm.id).No_of_Pax__c;
+     cm2.add(cm);
+     }
+  }
+   }
+   
+    if(cm2!=null && !cm2.IsEmpty()){
+   DMLManagerService.updateAsSystem(cm2);
+   }
+   }
+
+   } 
+   
+   
+   
 }
