@@ -4,7 +4,7 @@
 * Author: Laqshay
 * Created Date : 2018-01-22
 */
-public class ContactHelperMY {
+public class ContactHelperMY { 
 private static final String HasSalesGetKeeper = 'The Dealer already has a Dealer Lead Gate Keeper.';
 private static Set<Id> AccountIds = new Set<Id>();
 private static Set<Id> updateContactIds = new Set<Id>(); 
