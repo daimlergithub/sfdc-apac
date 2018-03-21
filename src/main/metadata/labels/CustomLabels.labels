@@ -7421,6 +7421,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>RET_02_01_ServiceAmountView</value>
     </labels>
     <labels>
+		<fullName>RSVP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RSVP(This is Used for RSVP implementation)</shortDescription>
+        <value>RSVP</value>
+    </labels>
+    <labels>
         <fullName>Range_Model</fullName>
         <language>en_US</language>
         <protected>false</protected>
