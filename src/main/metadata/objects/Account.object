@@ -23627,21 +23627,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		 <picklistValues>
-            <picklist>Entity__c</picklist>
-            <values>
-                <fullName>Cars</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cars %2F Vans</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vans</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+		 
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
