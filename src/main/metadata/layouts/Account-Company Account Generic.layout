@@ -68,6 +68,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Radio_Station__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Entity__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>GSTN_Number__c</field>
@@ -129,6 +133,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Foundation_Date__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Deceased__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Age__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Country__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Occupation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
