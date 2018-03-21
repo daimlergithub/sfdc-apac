@@ -116,9 +116,9 @@ public class RetailCampaignHelperBase{
     }
 	
 	 /* Data Migration Explicit Fix - Santosh Mohanty */
-    public static void updatemarket(List<Campaign> campList){        
+    public static void updatemarket(List<Retail_Campaign__c> campList){        
         
-               for(Campaign camp : campList){
+               for(Retail_Campaign__c camp : campList){
                     if(Test.isRunningTest()){
                         camp.isTestRunning__c=true;
                     }
