@@ -3521,6 +3521,14 @@ please contact the number below.</value>
         <value>Fax</value>
     </labels>
     <labels>
+        <fullName>Fax_allows_digits_only</fullName>
+        <categories>India phone validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fax allows digits only</shortDescription>
+        <value>Fax Number allows digits only</value>
+    </labels>
+    <labels>
         <fullName>Field</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4100,6 +4108,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>India Contact Format allows only digits</shortDescription>
         <value>Home Phone number, Work Phone number, Fax number and Mobile Phone number only allows digits</value>
+    </labels>
+    <labels>
+        <fullName>India_Fax_Format</fullName>
+        <categories>India phone validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>India Fax Format</shortDescription>
+        <value>Fax should be in any of these format: +91-XX-XXXXXXXX/+91-XXX-XXXXXXX/+91-XXXX-XXXXXX</value>
     </labels>
     <labels>
         <fullName>India_Home_Phone_Format</fullName>
