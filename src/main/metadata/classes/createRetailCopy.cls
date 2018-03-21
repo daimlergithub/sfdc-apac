@@ -133,7 +133,7 @@ public without sharing class createRetailCopy {
     Public void CreateRetailCopy() {
     
         //added by Honey to check custom permission for IN
-        Util_getPermissions util_getP = new Util_getPermissions();
+      //  Util_getPermissions util_getP = new Util_getPermissions();
 
         AccId = ApexPages.currentPage().getParameters().get('id');
 
@@ -242,7 +242,7 @@ public without sharing class createRetailCopy {
                             }
                         }
                         // if market is MY
-                        if (accList.MD__c == 'MY' || util_getP.checkCustomPermission(Label.INGeneric)) {
+                        if (accList.MD__c == 'MY' || Util_getPermissions.checkCustomPermission(Label.INGeneric)) {
                             if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {                             
                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
@@ -364,7 +364,7 @@ public without sharing class createRetailCopy {
                              
                         }
                         //if market is MY
-                        if (accList.MD__c == 'MY' || util_getP.checkCustomPermission(Label.INGeneric)) {
+                        if (accList.MD__c == 'MY' || Util_getPermissions.checkCustomPermission(Label.INGeneric)) {
                         if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {                               
                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
@@ -516,7 +516,7 @@ public without sharing class createRetailCopy {
                             }
                     }
                     // if market is MY
-                        if (accList.MD__c == 'MY' || util_getP.checkCustomPermission(Label.INGeneric)) {
+                        if (accList.MD__c == 'MY' || Util_getPermissions.checkCustomPermission(Label.INGeneric)) {
                              if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {   
                                 newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );
@@ -640,7 +640,7 @@ public without sharing class createRetailCopy {
                         //newAlk.Retail_Foundation_Month__c=    acclist.Foundation_Date__c ;
                     }
                     // if market is MY
-                        if (accList.MD__c == 'MY' || util_getP.checkCustomPermission(Label.INGeneric)) {
+                        if (accList.MD__c == 'MY' || Util_getPermissions.checkCustomPermission(Label.INGeneric)) {
                            if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {                              
                                newAlk.Retail_Address_Type__c = SelectedAdd[0].Address_Type__c;
                                 newAlk.Retail_Province__c = (SelectedAdd[0].Province__c !=null ?SelectedAdd[0].Province__c: '' );

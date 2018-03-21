@@ -10,10 +10,6 @@ public class Util_getPermissionsTest {
     static void testSetupMethod(){
         User usr = TestUtils.IntegrationAPIUser();
         User usr1 = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata','IN');
-    }
-    
-    @IsTest
-    private static void testCheckCustomPermission() {
         ID pId = [select id from profile where Name='IntegrationAPI' limit 1].Id;
         User u = [Select id from user where profileid=:pId limit 1];
         User u1 = [select id from user where profile.name = 'System Administrator' and isActive=true limit 1];
@@ -28,18 +24,29 @@ public class Util_getPermissionsTest {
         psa.AssigneeId = u.Id;
         psa.PermissionSetId = ps.Id;
         insert psa;
-        Util_getPermissions utGetpermission = new Util_getPermissions();
+
+    }
+    
+    @IsTest
+    private static void testCheckCustomPermission() {
+        User u = [Select id from user where profile.name = 'IntegrationAPI' limit 1];
         Boolean flag = false;
-        Boolean flag2 = false;
         test.startTest();
         System.runAs(u){
-        	flag = utGetpermission.checkCustomPermission('INGeneric');            
-        }
-        System.runAs(u1){
-        	flag2 = utGetpermission.checkCustomPermission('MYGeneric');            
+          flag = Util_getPermissions.checkCustomPermission('INGeneric');            
         }
         test.stopTest();
         System.assertEquals(True, flag); 
+    }
+  @IsTest
+    private static void testCheckCustomPermission1() {
+        User u1 = [select id from user where profile.name = 'System Administrator' and isActive=true limit 1];
+        Boolean flag2 = false;
+        test.startTest();
+        System.runAs(u1){
+          flag2 = Util_getPermissions.checkCustomPermission('testGeneric');            
+        }
+        test.stopTest();
         System.assertEquals(false, flag2);
     }
 }

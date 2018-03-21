@@ -11772,6 +11772,110 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <fullName>Consulting</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agriculture/Farming</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Management/Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction/Engineering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking/Finance/Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home Duties</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales/Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property Development/Real Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hospitality/Tourism/Travel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trades/Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Architecture/Design</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Communication/Media/Entertainment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mining</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Human Resources</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Publishing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Broadcasting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arts, Entertainment and Recreation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Religious</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scientific or Technical Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -18748,6 +18852,10 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -18948,6 +19056,21 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Complainant</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>General Enquirer</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -63517,12 +63640,16 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>Please enter First Name.</errorMessage>
     </validationRules>
+	
     <validationRules>
         <fullName>FirstName_NoOfDigits</fullName>
         <active>true</active>
         <description>Record Type is Person Account
 FirstName  value &gt; 20 letters.</description>
-        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(FirstName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND($RecordType.Name = &quot;Person Account&quot;,LEN(FirstName) &gt; 40, MD__c=&apos;JP&apos;,
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
@@ -63543,13 +63670,15 @@ $Permission.INGeneric
     <validationRules>
         <fullName>First_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>IF(
-AND(
-NOT(ISBLANK( FirstName )),
-OR(NOT(REGEX( FirstName , "[^ -~｡-ﾟ]*" ))),
-$Profile.Name != 'IntegrationAPI',
-MD__c = 'JP',
-RecordType.Name='Person Account'),true,false)</errorConditionFormula>
+        <errorConditionFormula>IF( 
+AND( 
+NOT(ISBLANK( FirstName )), 
+OR(NOT(REGEX( FirstName , &quot;[^ -~｡-ﾟ]*&quot; ))), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+ MD__c=&apos;JP&apos;, 
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false),  
+RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be of 2 byte characters.</errorMessage>
     </validationRules>
@@ -63983,20 +64112,24 @@ $Profile.Name != 'IntegrationAPI',if(AND(MD__c=='MY',$Permission.MYGeneric),true
         <active>true</active>
         <description>Record Type is Person Account
 LastName  value &gt; 40 letters.</description>
-        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND($RecordType.Name = &quot;Person Account&quot;,LEN(LastName) &gt; 40, MD__c=&apos;JP&apos;, 
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>IF(
+             <errorConditionFormula>IF(
 AND(
 NOT(ISBLANK( LastName)),
-OR(NOT(REGEX( LastName , "[^ -~｡-ﾟ]*" ))),
-$Profile.Name != 'IntegrationAPI',
-MD__c = 'JP',
-RecordType.Name='Person Account'),true,false)</errorConditionFormula>
+OR(NOT(REGEX( LastName , &quot;[^ -~｡-ﾟ]*&quot; ))),
+$Profile.Name != &apos;IntegrationAPI&apos;,
+MD__c = &apos;JP&apos;,
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be of  2 byte characters.</errorMessage>
     </validationRules>

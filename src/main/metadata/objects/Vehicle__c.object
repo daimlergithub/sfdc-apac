@@ -6507,6 +6507,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
+			
 			<values>
                 <fullName>CN</fullName>
                 <default>false</default>
