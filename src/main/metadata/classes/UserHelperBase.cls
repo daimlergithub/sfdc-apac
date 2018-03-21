@@ -15,8 +15,8 @@ public class UserHelperBase{
             //user who have dealer code and market is TH
             if(usr.ContactId!=null && usr.Contact.Account.Dealer_Nd_code__c!=null && usr.Market__c==market)
             {
-                //String dealerCode=market+usr.Contact.Account.Dealer_Nd_code__c;
-                String dealerCode=usr.Contact.Account.Dealer_Nd_code__c;
+                String dealerCode=market+usr.Contact.Account.Dealer_Nd_code__c;
+                //String dealerCode=usr.Contact.Account.Dealer_Nd_code__c;
 				DealerCodesLst.add(dealerCode);
                 usersWithDNClst.add(usr);
                 userIdLst.add(usr.Id);
@@ -35,8 +35,8 @@ public class UserHelperBase{
             }
             for(User usr:usersWithDNClst)
             {
-                //String DealerNCode=Market+usr.Contact.Account.Dealer_Nd_code__c;
-                String DealerNCode=usr.Contact.Account.Dealer_Nd_code__c;
+                String DealerNCode=Market+usr.Contact.Account.Dealer_Nd_code__c;
+                //String DealerNCode=usr.Contact.Account.Dealer_Nd_code__c;
 			   //if aready group is present for the user
                 if(groupNamesSet.contains(DealerNCode))
                 {
@@ -84,8 +84,8 @@ public class UserHelperBase{
         for(User usr:usersWOGrp)
         {
             Group grpObj=new Group();
-            //grpObj.Name=market+usr.contact.Account.Dealer_Nd_code__c;
-			grpObj.Name=usr.contact.Account.Dealer_Nd_code__c;
+            grpObj.Name=market+usr.contact.Account.Dealer_Nd_code__c;
+			//grpObj.Name=usr.contact.Account.Dealer_Nd_code__c;
             grpObj.DoesIncludeBosses=true;
             grpSet.add(grpObj);
         }
@@ -108,8 +108,8 @@ public class UserHelperBase{
         Set<String> groupNamesLst = new Set<String>(); 
         for(User usr:usersWHGrp)
         {
-            //String groupName=market+usr.contact.Account.Dealer_Nd_code__c;
-			String groupName=usr.contact.Account.Dealer_Nd_code__c;
+            String groupName=market+usr.contact.Account.Dealer_Nd_code__c;
+			//String groupName=usr.contact.Account.Dealer_Nd_code__c;
             groupNamesLst.add(groupName);
         }
         List<Group> grpLst;
@@ -125,8 +125,8 @@ public class UserHelperBase{
         List<GroupMember> grpMemberLst=new List<GroupMember>();
         for(User usr:usersWHGrp)
         {
-            //String groupName=market+usr.contact.Account.Dealer_Nd_code__c;
-			String groupName=usr.contact.Account.Dealer_Nd_code__c;
+            String groupName=market+usr.contact.Account.Dealer_Nd_code__c;
+			//String groupName=usr.contact.Account.Dealer_Nd_code__c;
             grpMemberLst.add(new GroupMember(GroupId=grpNameGrpIdMap.get(groupName),UserOrGroupId = usr.id));
         }
         if(grpMemberLst!=null && grpMemberLst.size()>0)
