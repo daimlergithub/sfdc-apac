@@ -19057,6 +19057,21 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			 <picklistValues>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Complainant</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>General Enquirer</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
