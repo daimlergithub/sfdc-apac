@@ -5429,6 +5429,14 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>MarketMY</shortDescription>
         <value>MY</value>
     </labels>
+	   <labels>
+        <fullName>MarketAU</fullName>
+        <categories>Australia</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketAU</shortDescription>
+        <value>AU</value>
+    </labels>
     <labels>
         <fullName>MarketTH</fullName>
         <categories>MBTH</categories>
@@ -11558,6 +11566,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>MYRetail</shortDescription>
         <value>MYRetail</value>
+    </labels>
+	<labels>
+        <fullName>AURetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AURetail</shortDescription>
+        <value>AURetail</value>
     </labels>
 	<labels>
         <fullName>PreferreddALKAddress</fullName>
