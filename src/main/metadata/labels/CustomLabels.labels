@@ -11213,6 +11213,58 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>retURL</shortDescription>
         <value>retURL</value>
     </labels>
+	<labels>
+        <fullName>LeadAL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeadAL</shortDescription>
+        <value>LeadAL</value>
+    </labels>
+	<labels>
+        <fullName>LeadShareRecordswithDealers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeadShareRecordswithDealers</shortDescription>
+        <value>LeadShareRecordswithDealers</value>
+    </labels>
+	
+	<labels>
+        <fullName>AccountLinkAL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountLinkAL</shortDescription>
+        <value>AccountLinkAL</value>
+    </labels>
+	<labels>
+        <fullName>addressupdateRT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>addressupdateRT</shortDescription>
+        <value>addressupdateRT</value>
+    </labels>
+	
+	<labels>
+        <fullName>AccCDM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccCDM</shortDescription>
+        <value>AccCDM</value>
+    </labels>
+	<labels>
+        <fullName>MYRetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYRetail</shortDescription>
+        <value>MYRetail</value>
+    </labels>
+	<labels>
+        <fullName>PreferreddALKAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PreferreddALKAddress</shortDescription>
+        <value>PreferreddALKAddress</value>
+    </labels>
+	
     <labels>
         <fullName>retURL_apex_SelectSlaveAccount_Id</fullName>
         <language>en_US</language>
