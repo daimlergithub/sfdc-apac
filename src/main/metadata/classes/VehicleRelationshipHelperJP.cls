@@ -475,6 +475,7 @@ public with sharing class VehicleRelationshipHelperJP
         Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
         UtilAddressTranslation.gettranslatedvalues('JP');
         Map<string,Id> addtypeid=new map<String,ID>();
+        Map<Id,Address__c> addmap=new Map<Id,Address__c>();
         
         if(LeadUtil.verTrigger)
         { 
@@ -520,46 +521,36 @@ public with sharing class VehicleRelationshipHelperJP
             addr = new map<id,Address__c>([select Customer__c,Province__c,Address_Type__c ,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =: addressids]); 
             
             system.debug('++++++++++++++++++'+addr);
+            if(veReList !=null && label.VR_Validation_Check=='Yes')
+            {
+            
             for(Vehicle_Relationship__c Vrs1 : veReList)
             {
             for(Address__c addrs : addr.values())
             {addtypeid.put(addrs.Address_Type__c,addrs.id);
+            addmap.put(addrs.Customer__c,addrs);
             }
             System.debug('Vrs1.vehicle_address_picklist__c '+Vrs1.vehicle_address_picklist__c );
              System.debug('Vrs1.addtypeid   '+addtypeid);
-            if(Vrs1.vehicle_address_picklist__c  !=null && !addtypeid.containskey(Vrs1.vehicle_address_picklist__c) && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Other Address 1' || Vrs1.vehicle_address_picklist__c=='Other Address 2' || Vrs1.vehicle_address_picklist__c =='Other Address 3'))
+            if(Vrs1.vehicle_address_picklist__c  !=null && addmap.containskey(Vrs1.contact__c) && addmap!=null && !addtypeid.containskey(Vrs1.vehicle_address_picklist__c) && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Other Address 1' || Vrs1.vehicle_address_picklist__c=='Other Address 2' || Vrs1.vehicle_address_picklist__c =='Other Address 3'))
             {
              vrs1.adderror(label.Selected_type_of_address_is_not_existing_for_the_corresponding_account); 
        
             }
-             if(Vrs1.vehicle_address_picklist__c  !=null && !addtypeid.containskey('Home') && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Home Address'))
+             if(Vrs1.vehicle_address_picklist__c  !=null && addmap.containskey(Vrs1.contact__c) && addmap!=null && !addtypeid.containskey('Home') && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Home Address'))
             {
              vrs1.adderror(label.Selected_type_of_address_is_not_existing_for_the_corresponding_account); 
        
             }
-            if(Vrs1.vehicle_address_picklist__c  !=null && !addtypeid.containskey('Business') && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Work address'))
+            if(Vrs1.vehicle_address_picklist__c  !=null && addmap.containskey(Vrs1.contact__c) && addmap!=null && !addtypeid.containskey('Business') && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Work address'))
             {
              vrs1.adderror(label.Selected_type_of_address_is_not_existing_for_the_corresponding_account); 
        
             }
             
             }
-            //Added for k11.1
-            for(Vehicle_Relationship__c Vrs : vrList)
-            {
-             system.debug('++++++++Added for k11.1++++++++++'+addr);
-                for(Address__c addrs : addr.values())
-                {
-                
-               if(Vrs.vehicle_address_picklist__c != addrs.Address_Type__c && Vrs.Contact__c == addrs.Customer__c)
-               {
-                 
-               // ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Selected type of address is not existing for the corresponding address'));
-            //  vrs.adderror('Selected type of address is not existing for the corresponding address'); 
             }
-                }
             
-            }
             //Added for k11.1
             for(Vehicle_Relationship__c Vels  : vrList)
             {
