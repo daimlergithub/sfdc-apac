@@ -24,7 +24,7 @@
                 <field>Contact__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Company_Account__c</field>
             </layoutItems>
             <layoutItems>
@@ -46,10 +46,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SalesType__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_company__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
