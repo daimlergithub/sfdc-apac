@@ -51,10 +51,6 @@
                 <behavior>Edit</behavior>
                 <field>Magazine__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_company__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
