@@ -4132,6 +4132,10 @@
         <label>설문조사 이름</label>
         <name>Survey_Name</name>
     </customLabels>
+	<customLabels>
+        <label>작업 생성 기능이 성공적으로 개시되었습니다.작업 생성 절차는 약 1-2분이 소요될 예정입니다. 1-2분 후 페이지를 새로고침하여 생성된 작업을 확인할 수 있습니다.</label>
+        <name>Successful_Task_Generation</name>
+    </customLabels>
     <customLabels>
         <label><!-- Survey Response --></label>
         <name>Survey_Response</name>

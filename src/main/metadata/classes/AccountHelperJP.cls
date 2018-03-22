@@ -948,7 +948,8 @@ public class AccountHelperJP
         Set<Id> sid = New Set<Id>();
         List<Account> accList=new List<Account>();
         list<Account> updateacclist = new list<Account>(); 
-        List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
+    //  List<Vehicle_Relationship__c> Updateli = new List<Vehicle_Relationship__c> (); 
+         Map<id,Vehicle_Relationship__c> Updateli = new Map<id,Vehicle_Relationship__c> (); 
                 
              if(LeadUtil.Acctrigger )
             {    
@@ -1030,11 +1031,11 @@ public class AccountHelperJP
                   
                                   
        
-           Updateli.add(Velti ); 
+           Updateli.put(Velti.id,Velti); 
        }
        }
        }
-     Update Updateli ;
+     Database.Update(Updateli.values(),false);
     LeadUtil.Acctrigger = false; 
 }
 public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAccountmap,boolean isInsert, boolean isUpdate)
