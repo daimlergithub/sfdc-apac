@@ -155,6 +155,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             if(isAfter && isupdate && !accountNewList.isEmpty() && accountNewList.size() > 0)
             {
                 AccountHelperTH.DealerCommAccountlinkcreatecdm(accountNewList,(Map<Id,Account>)Trigger.OldMap);
+				AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, accountNewList);
             }
         }
 
