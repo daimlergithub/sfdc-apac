@@ -50,7 +50,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
         {   
-            if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+             if(Util_GetPermissionList.checkAccessOnUser(Label.AccCDM)){
                 if(TriggerRecursiveCheck.run){
                     TriggerRecursiveCheck.runOnce();
                     AccountHelperMY.createUCID(Trigger.new,trigger.isInsert);
@@ -67,7 +67,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-            if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+             if(Util_GetPermissionList.checkAccessOnUser(Label.AccCDM)){
                 if(TriggerRecursiveCheck.run){
                         TriggerRecursiveCheck.runOnce();
                         AccountHelperMY.createUpdateCDMUCID(Label.UpdateContext,Label.MY,Trigger.new);
