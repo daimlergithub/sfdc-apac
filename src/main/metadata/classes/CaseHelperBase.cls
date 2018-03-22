@@ -441,23 +441,25 @@ public class CaseHelperBase {
         set < caseShare > caseshare = new set < caseShare > ();
         set < id > casesharingtorevoke = new set < id > ();
         set < String > sharingrevokefromgroups = new set < String > ();
-        List < Case > caselisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, Case_Dealer__c, Case_Dealer__r.Dealer_nd_code__c, ownerId from Case where id IN: caselist];
+        List < Case > caselisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, Case_Dealer__c, Case_Dealer__r.Dealer_nd_code__c,Case_Dealer__r.MD__c,Market__c,createdby.Market__c,ownerId from Case where id IN: caselist];
         Set < id > idset = new Set < id > ();
         for (Case c: caselisttoiterat) {
             idset.add(c.ownerid);
         }
-        Map < id, User > usr = new map < id, User > ([select id, name, Dealer_nd_code__c, usertype from user where id IN: idset]);
+        Map < id, User > usr = new map < id, User > ([select id, name, Dealer_nd_code__c, usertype,Market__c from user where id IN: idset]);
         //below if part will work at the time of insert
         for (Case casesrec: caselisttoiterat) {
             if (!flag) {
 
                 //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
                 if (casesrec.createdby.usertype == 'PowerPartner' && casesrec.createdby.Dealer_nd_code__c != null) {
-                    String grpName = casesrec.createdby.Dealer_nd_code__c;
+                    //String grpName = casesrec.createdby.Dealer_nd_code__c;
+					String grpName = casesrec.createdby.Market__c+casesrec.createdby.Dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 } else if (casesrec.Case_Dealer__c != null && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
-                    String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+                    //String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+					String grpName = casesrec.Case_Dealer__r.MD__c+casesrec.Case_Dealer__r.Dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 }
@@ -467,13 +469,15 @@ public class CaseHelperBase {
                 //system.debug(((Case)trigger.oldmap.get(casesrec.id)).owner!=((Case)trigger.newmap.get(casesrec.id)).owner);
                 system.debug(((Case) trigger.oldmap.get(casesrec.id)).ownerId + '  ' + ((Case) trigger.newmap.get(casesrec.id)).ownerId);
                 if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c == null && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
-                    String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
-                    dealerndcodeset.add(grpName);
+                    //String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+					String grpName = casesrec.Case_Dealer__r.MD__c+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+					dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 }
                 //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
                 else if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != ((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__c && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
-                    String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+                    //String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+					String grpName = casesrec.Case_Dealer__r.MD__c+casesrec.Case_Dealer__r.Dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                     //will revoke record access depends on dealer nd code  if we change the assigned dealer
@@ -487,7 +491,8 @@ public class CaseHelperBase {
                     sharingrevokefromgroups.add(((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
                     casesharingtorevoke.add(((Case) trigger.oldmap.get(casesrec.id)).id);
                 } else if (((Case) trigger.oldmap.get(casesrec.id)).ownerId != ((Case) trigger.newmap.get(casesrec.id)).ownerId) {
-                    String grpName = usr.get(casesrec.ownerid).dealer_nd_code__c;
+                   // String grpName = usr.get(casesrec.ownerid).dealer_nd_code__c;
+				    String grpName = usr.get(casesrec.ownerid).Market__c+usr.get(casesrec.ownerid).dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 }
@@ -496,8 +501,10 @@ public class CaseHelperBase {
         for (Group gp: [select id, name from Group where name IN: dealerndcodeset]) {
             for (Case caseid: lstcase) {
                 //this if part will applicable for Salesforce users
-                String grpName = caseid.Case_Dealer__r.Dealer_nd_code__c;
-                String createdGrpName = caseid.createdby.Dealer_nd_code__c;
+                //String grpName = caseid.Case_Dealer__r.Dealer_nd_code__c;
+                //String createdGrpName = caseid.createdby.Dealer_nd_code__c;
+				String grpName = caseid.Case_Dealer__r.MD__c+caseid.Case_Dealer__r.Dealer_nd_code__c;
+                String createdGrpName = caseid.createdby.Market__c+caseid.createdby.Dealer_nd_code__c;
                 if (gp.name == grpName) {
                     caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseShare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
                 } //this else part will applicable for Dealer users
