@@ -521,7 +521,7 @@ public with sharing class VehicleRelationshipHelperJP
             addr = new map<id,Address__c>([select Customer__c,Province__c,Address_Type__c ,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =: addressids]); 
             
             system.debug('++++++++++++++++++'+addr);
-            if(veReList !=null && label.VR_Validation_Check=='Yes')
+            if(veReList !=null && label.VR_Validation_Check=='Yes' && usr.Profile.Name != 'IntegrationAPI' && addr!=null) 
             {
             
             for(Vehicle_Relationship__c Vrs1 : veReList)
