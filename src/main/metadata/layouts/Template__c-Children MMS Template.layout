@@ -49,6 +49,10 @@
                 <behavior>Edit</behavior>
                 <field>Closure_SMS__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MD__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
