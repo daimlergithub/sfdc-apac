@@ -371,6 +371,9 @@
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
+	<relatedLists>
+        <relatedList>RelatedCommentsList</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Complaint_Description__c.Case__c</relatedList>

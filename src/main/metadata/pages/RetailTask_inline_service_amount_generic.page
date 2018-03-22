@@ -9,7 +9,7 @@
                 <apex:pageMessages id="pgmsg"/> 
                     <apex:pageBlockSection columns="2">
                     
-                     <apex:pageBlockSectionItem >
+                    <apex:pageBlockSectionItem >
                          <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Dealer__c.Label}"/>
                         <apex:outputField value="{!retailtask.Related_Dealer__c}"/>  
                       </apex:pageBlockSectionItem>
@@ -34,10 +34,18 @@
                          <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Service_Total_Amount__c.Label}"/>
                         <apex:outputField value="{!retailtask.Service_Total_Amount__c}"/>  
                       </apex:pageBlockSectionItem>
+					  <!--
                       <apex:pageBlockSectionItem >
                          <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Contact__c.Label}"/>
                         <apex:outputField value="{!retailtask.Related_Contact__c}"/>  
                       </apex:pageBlockSectionItem>
+					  -->
+					  <apex:pageBlockSectionItem >
+                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Related_Contact__c.Label}"/>
+                       <!-- <apex:outputField value="{!retailtask.Related_Contact__c}"/>  -->
+						<apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.Prefix)}/{!retailtask.Related_Contact__c}','_blank');">{!retailtask.Related_Contact__c}</apex:outputlink>
+                      </apex:pageBlockSectionItem>
+					                          
                     </apex:pageBlockSection>
             </apex:pageBlock> 
 
