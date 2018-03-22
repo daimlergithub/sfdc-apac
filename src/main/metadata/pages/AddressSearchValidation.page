@@ -61,7 +61,7 @@
                 
                 <apex:actionFunction action="{!selectedRecordTypeValue}" name="setRecType"/>
         <!--  All Markets Record Type Selection - Start -->
-                <apex:pageBlockSection rendered="{!If(OR(ISPICKVAL($User.Market__c,'KR'),ISPICKVAL($User.Market__c,'MY'),ISPICKVAL($User.Market__c,'TH')) ,true,false)}">
+                <apex:pageBlockSection rendered="{!If(OR(ISPICKVAL($User.Market__c,'KR'),ISPICKVAL($User.Market__c,'MY'),ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'AU'),ISPICKVAL($User.Market__c,'NZ')) ,true,false)}">
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}"/>
                         <!--<apex:outputLabel value="{!$Label.RecordTypeId}"/> -->
