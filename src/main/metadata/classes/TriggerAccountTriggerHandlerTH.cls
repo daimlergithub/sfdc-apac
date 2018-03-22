@@ -54,7 +54,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
            // AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         //New Code Block Added on 9/21/2016
-        if(isAfter && isInsert && !System.isFuture())
+        if(isAfter && isInsert && !System.isFuture() && !System.isBatch())
         {
              if(switchto!=null && switchto.CDM__c==true){
                 set<ID> accids=new set<ID>();
