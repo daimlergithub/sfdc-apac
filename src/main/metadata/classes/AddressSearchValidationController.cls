@@ -16,7 +16,6 @@ History:
     Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
     Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in CDM   
     Sanjay Nandi(SN20171028)    2017/10/28            //SN20171028- Added code to resolve issues related to search of CUstomer without address                                                                                                                                        
-    Shashi Goswami(India)       2018/03/09            //India - Added India specific code
 **/
 public class AddressSearchValidationController
 {
@@ -243,18 +242,6 @@ public class AddressSearchValidationController
             LoadProvince();
         } 
 		
-        else if(market==Label.IN)
-        {
-            firstsave = true;  
-            secondsave = false;// need to change later 
-            mbCountryCode='+91';
-            hmCountryCode='+91';
-            wkCountryCode='+91';
-            faxCountryCode='+91';
-            AddressObj.Country__c='India';
-            objAccount.Market__c=market;
-            LoadProvince();
-        }
         else
         {
             firstsave = false;  
@@ -405,22 +392,6 @@ public class AddressSearchValidationController
                 district='--Select--';
             }
          }
-        else if(market == System.Label.IN)
-        {
-            if(AddressObj.Country__c!='India'){
-                
-                IsForeignNational=true;
-                province='';
-                district='';
-                
-            }
-            else{
-                IsForeignNational=false;
-                //province='--Select--';
-                //district='--Select--';
-            }
-        }
-
        }
     //Introduced for TH market - End
 
@@ -3758,86 +3729,7 @@ public pagereference saveAccountTH()
      return null;       
     }
     
-    //Adding for India (By Shashi)
-    
-    public pagereference saveAccountIN()       
-    {       
-        if(addresspicklist!=null)       
-            AddressObj.Address_Type__c = addresspicklist;       
-        Validation = false;     
-        
-        // Save record without Address record if no value is Entered in Address section  
-        // 03022018 Namitha added none if condition and if loop logic to display error only wen any of the address is entered.       
-        if(AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '--None--')      
-        {       
-            if ((string.isnotblank(AddressObj.Address_Line_1__c) ||     
-                string.isnotblank(AddressObj.Address_Line_2__c) || 
-                string.isnotblank(AddressObj.Address_Line_3__c) ||
-                (string.isnotblank(province) && province!= '--Select--') || 
-                string.isnotblank(district) ||  
-                string.isnotblank(Zip)) && addressObj.Country__c=='India' ){
-                    // Added custom label 'AddressTypeValidationIN' (prem)
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.AddressTypeValidationIN));       
-                    Validation = true; 
-                }
-            
-            else{
-                if(SaveAccountDetailsIN())      
-                {       
-                    PageReference pageRef = new PageReference('/'+objAccount.Id);       
-                    return PageRef;                 
-                }       
-            }
-        }
-        
-        // Save record with Address details Validating the Address Details 
-        boolean check=false;
-        If(AddressObj.Address_Type__c != null)      
-        {       
-            
-            try     
-            {       
-                if(recordType == Label.Company)                     
-                    recordTypeId =RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
-                else        
-                    recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount); 
-                
-                
-                objAccount.RecordTypeId = recordTypeId;         
-                
-                //Add province
-                if(province!='' && province!='--Select--')      
-                    addressobj.Province__c=province;        
-                if(province!='' && province!='--Select--')      
-                    addressobj.Province__c=province;        
-                if(district!='' && district!='--Select--')      
-                    addressobj.District__c=district;                
-                if(zip!='')     
-                    addressobj.ZipCode__c=zip; 
-            
-            
-                refreshPage = true;     
-                if(SaveAccountDetailsIN())      
-                {           
-                    AddressObj.Customer__c = objAccount.id; 
-                    AddressObj.Preferred__c=true; 
-                    DMLManagerService.insertAsSystem(AddressObj);                              
-                    //insert AddressObj;      
-                    PageReference pageRef = new PageReference('/'+objAccount.Id);       
-                    return PageRef;     
-                }              
-            }       
-            catch(DMLException e)       
-            {       
-                
-                refreshPage = false;        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));       
-                CustomLogUtil.CustomLoggingEntry('Error Occured ' +e.getDMlMessage(0));              
-            }               
-        } 
-        return null;       
-    }
-
+   
     
 //Saves the Account relaed details for Thailand Market
 //Created By : Mohammed Touseef AHmed
@@ -4003,37 +3895,7 @@ public pagereference saveAccountTH()
          
     }
     
-    //Added for India (By Shashi)
-    public void phoneFieldConcatIN(){
-
-        if(String.isBlank(hmphoneNumber))  objAccount.Individual_Home_Phone__c='';       
-        else if(hmCountryCode!='' && hmphoneNumber!='' && (hmCountryCode==label.INPhoneCountryCode || hmCountryCode==label.MYPhoneCountryCode))  objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
-        else objAccount.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;                                    
-        
-        if( String.isBlank(wkphoneNumber)) objAccount.Work_Phone__c='';     
-        else if(wkCountryCode!='' && wkphoneNumber!='' && (wkCountryCode==label.INPhoneCountryCode || wkCountryCode==label.MYPhoneCountryCode)) objAccount.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
-        else objAccount.Work_Phone__c=wkCountryCode+wkphoneNumber;      
-        
-        if((String.isBlank(mbphoneNumber)) )  objAccount.Mobile__c='';         
-        else if(mbCountryCode!='' && mbphoneNumber!='') objAccount.Mobile__c=mbCountryCode+mbphoneNumber;        
-        else objAccount.Mobile__c='';          
-        
-        if((String.isBlank(faxphoneNumber))) objAccount.fax='';       
-        else if(faxCountryCode!='' && faxphoneNumber!='' && (faxCountryCode==label.INPhoneCountryCode || faxCountryCode==label.MYPhoneCountryCode)) objAccount.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
-        else objAccount.fax=faxCountryCode+faxphoneNumber;      
-        
-    }
-    
-    //Added for India (By Shashi)
-    public void updateGeneratedBy(){
-        if(Userinfo.getUserType() == 'PowerPartner'){
-            objAccount.Generated_by__c= 'Dealer';
-        }
-        else 
-            objAccount.Generated_by__c= 'MBIL';
-    }
-    
-
+   
     
 //Saves the Account relaed details for Malaysia Market      
 //Created By : Mohammed Touseef AHmed       
@@ -4085,56 +3947,6 @@ public pagereference saveAccountTH()
             return false;       
     }
 
-    // Adding for India by Shashi 
-    public boolean SaveAccountDetailsIN()       
-    {       Boolean homePhoneFormat= false;
-            Boolean workPhoneFormat= false;
-            Boolean mobilePhoneFormat= false;
-            PhoneNumberFormatCheck formatcheck = new PhoneNumberFormatCheck();   
-            if(recordType == label.Company)                     
-                recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
-            else        
-                recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount);     
-            
-            if(recordType == Label.PersonAccount){
-                objAccount.status__C = Label.ProspectStatus;
-            }   //end code here modification by Honey     
-            objAccount.RecordTypeId = recordTypeId;   
-            phoneFieldConcatIN();   
-            homePhoneFormat = formatcheck.homePhoneFieldFormatIN(hmCountryCode,hmAreaCode,hmphoneNumber);
-            workPhoneFormat = formatcheck.workPhoneFieldFormatIN(wkCountryCode,wkAreaCode,wkphoneNumber);
-            mobilePhoneFormat = formatcheck.mobilePhoneFieldFormatIN(mbCountryCode,mbphoneNumber);
-            updateGeneratedBy();
-            
-        try        
-        {    
-            if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));       
-            }
-            else if(homePhoneFormat && workPhoneFormat && mobilePhoneFormat){  
-                DMLManagerService.insertAsSystem(objAccount);  
-                refreshPage = true;
-                return true; 
-            }
-            else 
-                return false;
-        }       
-        catch(DMLException e)       
-        {       
-            
-            refreshPage = false;   
-            if(e.getdmlMessage(0).contains('bad field') ){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Remove_FirstName_LastName_for_company));
-                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
-            }
-            else{               
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0))); 
-                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
-            }               
-            return false;       
-        }       
-        return false;       
-    }
 
     //check if For Thailand market Address Type is Selected then all other fields on address are mandatory.
     
@@ -4428,18 +4240,7 @@ public pagereference saveAccountTH()
              if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.MYPhoneCountryCode?true:false :false) wAreaBoolean=true;
            
     }
-    //Added for India
-    public void checkcountrycodeindia(){
-        wAreaBoolean=false;
-        fAreaBoolean=false;
-        hAreaBoolean=false;
-        
-        if(String.isNOTBlank(faxCountryCode) ? faxCountryCode!=label.INPhoneCountryCode?true:false:false) fAreaBoolean=true;
-        if(String.isNOTBlank(hmCountryCode) ? hmCountryCode!=label.INPhoneCountryCode?true:false:false) hAreaBoolean=true;
-        if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.INPhoneCountryCode?true:false :false) wAreaBoolean=true;
-        
-    }
-	
+
 	 //  Sada US-2/3 2018/March/22 R1    
         public void checkcountrycodeANZ(){
         wAreaBoolean=false;

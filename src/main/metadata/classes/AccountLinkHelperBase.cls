@@ -76,10 +76,12 @@ Public class AccountLinkHelperBase{
         }
    } 
     public  void afterInsertEventShareRetailCopy(List<Account_link__C> acclinklist){
-        Acclink=[select id,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,fromRole__r.Dealer_nd_Code__c from Account_link__c  where fromRole__c!=null and id=:acclinklist AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
+        Acclink=[select id,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,fromRole__r.Dealer_nd_Code__c,fromRole__r.MD__c from Account_link__c  where fromRole__c!=null and id=:acclinklist AND (recordtypeid =:AccountLink_RetailPersonRecordTypeId OR recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
         for(Account_link__c acclinkrec:Acclink){
             if(acclinkrec.fromRole__r.Dealer_GC_Code__c !=null){
-                AcclinkMap.put(acclinkrec,acclinkrec.fromRole__r.Dealer_nd_Code__c);
+				string grpName= acclinkrec.fromRole__r.MD__c+acclinkrec.fromRole__r.Dealer_nd_Code__c;
+                //AcclinkMap.put(acclinkrec,acclinkrec.fromRole__r.Dealer_nd_Code__c);
+				AcclinkMap.put(acclinkrec,grpName);
                 
             }
             
@@ -107,12 +109,16 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
     List<AccountShare> AccountShareList = new  List<AccountShare>();
     Set<String> ndCode=new Set<String>();
     List<id> acctoshare=new List<id>();
-    List<Account_Link__c> Acclink=[select id,toRole__c,fromRole__r.Dealer_ND_Code__c from Account_link__c  where toRole__c!=null and fromRole__c!=null and id=:acclinklist];
+    List<Account_Link__c> Acclink=[select id,toRole__c,fromRole__r.Dealer_ND_Code__c,fromRole__r.MD__c from Account_link__c  where toRole__c!=null and fromRole__c!=null and id=:acclinklist];
     for(Account_Link__c acclinkrec:Acclink){
         acctoshare.add(acclinkrec.fromRole__c);
         acctoshare.add(acclinkrec.toRole__c);
         if(acclinkrec.fromRole__r.Dealer_ND_Code__c!=null){
-            ndCode.add(acclinkrec.fromRole__r.Dealer_nd_Code__c);
+			string grpName= acclinkrec.fromRole__r.MD__c+acclinkrec.fromRole__r.Dealer_nd_Code__c;
+            //AcclinkMap.put(acclinkrec,acclinkrec.fromRole__r.Dealer_nd_Code__c);
+			AcclinkMap.put(acclinkrec,grpName);
+            //ndCode.add(acclinkrec.fromRole__r.Dealer_nd_Code__c);
+			ndCode.add(grpName);
         }
     }
     if(ndCode.size()>0){
@@ -222,8 +228,13 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                  }             
             }
         if(deleteSharingRec.size()>0){
-            for(Account acc:[select id,Dealer_ND_Code__c from Account where id IN:deleteSharingRec]){
-                if(string.isnotblank(acc.Dealer_ND_Code__c)) gname.add(acc.Dealer_ND_Code__C);
+            for(Account acc:[select id,Dealer_ND_Code__c,MD__c from Account where id IN:deleteSharingRec]){
+			
+                if(string.isnotblank(acc.Dealer_ND_Code__c)){ 
+					string grpName= acc.MD__c+acc.Dealer_nd_Code__c;
+					//gname.add(acc.Dealer_ND_Code__C);
+					gname.add(grpName);
+				}
                 
             }
        
