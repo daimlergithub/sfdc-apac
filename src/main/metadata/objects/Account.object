@@ -22245,6 +22245,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
+			 <values>
+                <fullName>Retailer added</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Wholesale added</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -27213,6 +27221,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <values>
                 <fullName>Prospect</fullName>
                 <default>true</default>
+            </values>
+			<values>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Complainant</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>General Enquirer	</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
