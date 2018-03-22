@@ -15914,11 +15914,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Dealer_List_Member__c.Registration_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Dealer_List_Member__c.Removed__c</field>
         <readable>true</readable>
