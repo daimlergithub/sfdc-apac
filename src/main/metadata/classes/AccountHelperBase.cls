@@ -467,7 +467,7 @@ public class AccountHelperBase{
     public static void CreateRetailCopy(list<Account> accLst, boolean isInsert, boolean isUpdate){
         User usr = new user(); 
         if(userInfo.getUserType() == 'PowerPartner'){
-		usr=[select id,Name,ContactId,contact.AccountId,Profile.UserLicense.Name,Contact.Account.Dealer_ND_Code__c,contact.Account.Dealer_Rollout_Status__c from user where Id =: UserInfo.getUserId()];
+		usr=[select id,Name,ContactId,contact.AccountId,Profile.UserLicense.Name,Contact.Account.Dealer_ND_Code__c,contact.Account.Dealer_Rollout_Status__c,Market__c from user where Id =: UserInfo.getUserId()];
             List<group> dealergrpList = new List<group>();
             set<id> accid = new set<id>();
             List<AccountShare> insertAccshList = new List<AccountShare>();
@@ -639,7 +639,9 @@ public class AccountHelperBase{
                 DMLManagerService.InsertAsSystem(insertAcclnkList);
             }
             if(usr != null){
-                dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:usr.Contact.Account.Dealer_ND_Code__c];
+				string grpName= usr.Market__c+usr.Contact.Account.Dealer_ND_Code__c;
+                //dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:usr.Contact.Account.Dealer_ND_Code__c];
+				dealergrpList = [select id ,DeveloperName ,Name ,Type from Group where Name =:grpName];
             }
             if(!dealergrpList.isEmpty() && dealergrpList != null){
                 for(Group g : dealergrpList){
@@ -647,13 +649,16 @@ public class AccountHelperBase{
                 }
             }
             for(Account shareacc : accLst){
-                if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c) != null && shareacc.OwnerId != usr.Id){
+				string grpName= usr.Market__c+usr.Contact.Account.Dealer_ND_Code__c;
+                //if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c) != null && shareacc.OwnerId != usr.Id){
+				if(!dealerGroupMap.isEmpty() && dealerGroupMap.get(grpName) != null && shareacc.OwnerId != usr.Id){
                     AccountShare accshr = new AccountShare();
                     accshr.AccountId = shareacc.Id;
                     accshr.AccountAccessLevel = 'Edit';
                     accshr.CaseAccessLevel = 'None';
                     accshr.OpportunityAccessLevel = 'None';
-                    accshr.UserOrGroupId = dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c);
+                    //accshr.UserOrGroupId = dealerGroupMap.get(usr.Contact.Account.Dealer_ND_Code__c);
+					accshr.UserOrGroupId = dealerGroupMap.get(grpName);
                     insertAccshList.add(accshr);
                 }
             }
