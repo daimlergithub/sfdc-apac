@@ -2582,6 +2582,10 @@
     </customPermissions>
 	<customPermissions>
         <enabled>true</enabled>
+        <name>RSVP</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
         <name>LeadAL</name>
     </customPermissions>
 	<customPermissions>
@@ -2627,6 +2631,10 @@
     <customPermissions>
         <enabled>true</enabled>
         <name>updateAccountlinks</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>PreferreddALKAddress</name>
     </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
