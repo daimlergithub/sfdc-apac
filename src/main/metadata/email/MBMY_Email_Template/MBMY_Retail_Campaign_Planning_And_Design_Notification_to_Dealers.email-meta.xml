@@ -3,7 +3,7 @@
     <available>true</available>
     <description>Email has been sent after Retail Campaign is Created and assigned to dealer</description>
     <encodingKey>ISO-8859-1</encodingKey>
-    <name>MBMY_Retail_Campaign_Planning And_Design_Notification_to_Dealers</name>
+    <name>MBMY_Retail_Campaign_Planning_And_Design_Notification_to_Dealers</name>
     <style>none</style>
     <subject>{!Retail_Campaign__c.Campaign_Name__c} is Created and assigned to you. Kindly check.</subject>
     <type>custom</type>
