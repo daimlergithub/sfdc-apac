@@ -236,8 +236,9 @@ public with sharing class VehicleRelationshipHelperTH
             if(vr.Contact__c!=Null && vr.Validity__c.equalsIgnoreCase('Yes') && (!setIgnoredAccounts.contains(vr.Contact__c))){
                ContactIdsforValidity.add(vr.Contact__c); 
             }  
-        }                          
-        updateVehicleAmount(ContactIds);
+        } 
+        if(ContactIds!=null && ContactIds.size()>0)
+        	updateVehicleAmount(ContactIds);
         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);            
     } 
     Public static void OnAfterDelete(List<Vehicle_Relationship__c> oldVehicleRelRecords){ 

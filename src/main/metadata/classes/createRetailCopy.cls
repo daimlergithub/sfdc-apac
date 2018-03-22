@@ -201,7 +201,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_FirstName_Native__c = accList.FirstName_Native_1__c;
                             newAlk.Retail_Primary_Phone__c = accList.Primary_Phone__c;
                             newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                            newAlk.Retail_Full_Name__c = accList.FirstName + ' ' + accList.LastName ;
+                            newAlk.Retail_Full_Name__c = (accList.FirstName!= null ?accList.FirstName:'') + ' ' +(accList.LastName!= null ?accList.LastName:'');
                             newAlk.Retail_Full_Name_Title__c = ((acclist.Salutation__c!= null ?acclist.Salutation__c:'')  + ' ' + (accList.FirstName!= null ?accList.FirstName:'') + ' ' +(accList.LastName!= null ?accList.LastName:'')).left(140) ;
                             newAlk.Retail_LastName__c = accList.LastName;
                             newAlk.Retail_FirstName__c = accList.FirstName;
@@ -475,7 +475,7 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_FirstName_Native__c = accList.FirstName_Native_1__c;
                         newAlk.Retail_Primary_Phone__c = accList.Primary_Phone__c;
                         newAlk.Retail_DMS_Customer_ID__c = accList.DMS_Customer_ID__c;
-                        newAlk.Retail_Full_Name__c = accList.FirstName + ' ' + accList.LastName;
+                        newAlk.Retail_Full_Name__c = (accList.FirstName!= null ?accList.FirstName:'') + ' ' +(accList.LastName!= null ?accList.LastName:'');
                         newAlk.Retail_LastName__c = accList.LastName;
                         newAlk.Retail_FirstName__c = accList.FirstName;
                         newAlk.Retail_Full_Name_Title__c = ((acclist.Salutation__c!= null ?acclist.Salutation__c:'')  + ' ' + (accList.FirstName!= null ?accList.FirstName:'') + ' ' +(accList.LastName!= null ?accList.LastName:'')).left(140) ;

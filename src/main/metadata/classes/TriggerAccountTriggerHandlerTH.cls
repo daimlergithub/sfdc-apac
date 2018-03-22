@@ -54,7 +54,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
            // AccountHelperTH.eliminateZerofrmPhone(Trigger.new);
         }
         //New Code Block Added on 9/21/2016
-        if(isAfter && isInsert && !System.isFuture())
+        if(isAfter && isInsert && !System.isFuture() && !System.isBatch())
         {
              if(switchto!=null && switchto.CDM__c==true){
                 set<ID> accids=new set<ID>();
@@ -155,6 +155,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             if(isAfter && isupdate && !accountNewList.isEmpty() && accountNewList.size() > 0)
             {
                 AccountHelperTH.DealerCommAccountlinkcreatecdm(accountNewList,(Map<Id,Account>)Trigger.OldMap);
+				AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, accountNewList);
             }
         }
 
