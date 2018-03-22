@@ -10270,6 +10270,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Vehicle</shortDescription>
         <value>Vehicle</value>
     </labels>
+	<labels>
+        <fullName>VR_Validation_Check</fullName>
+        <categories>This is used for activating and deactivating Validation Rule.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VR Validation Check</shortDescription>
+        <value>Yes</value>
+    </labels>
     <labels>
         <fullName>VehicleRelationship</fullName>
         <language>en_US</language>

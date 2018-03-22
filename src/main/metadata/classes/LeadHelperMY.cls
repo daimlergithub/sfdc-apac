@@ -49,5 +49,16 @@ public without sharing  class  LeadHelperMY{
 		LeadHelperBase.updateRetailLookups(Trigger.New,market);
     }
 	
+    //Added by Mrinalini Chandra
+    public void autoPopulateAssignDealer(List<Lead__c> Leadlist, String Market){
+        LeadHelperBase.autoPopulateAssignDealer(Trigger.New,market);
+    }
+    
+    public void leadValidation(List<lead__c> leadlist, String Market){
+        helperBase.leadValidation(Trigger.New,market);
+    }
 
+    public void updateAllWorkflowsActionsAfterInsert(List<lead__c> leads,boolean flag, string Market){
+        helperBase.updateAllWorkflowsActionsAfterInsert(Trigger.New,true,market);
+    }
 }
