@@ -11560,6 +11560,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>MYRetail</value>
     </labels>
 	<labels>
+        <fullName>AURetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AURetail</shortDescription>
+        <value>AURetail</value>
+    </labels>
+	<labels>
         <fullName>PreferreddALKAddress</fullName>
         <language>en_US</language>
         <protected>false</protected>
