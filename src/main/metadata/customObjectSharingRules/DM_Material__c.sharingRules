@@ -80,6 +80,19 @@
         <accessLevel>Edit</accessLevel>
         <name>MBMY DM Material Sharing Rule</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>DM_Material_Sharing_with_All_MY_Dealers</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>DM Material Sharing with All MY Dealers</name>
+    </criteriaBasedRules>
     <ownerRules>
         <fullName>Share_with_Data_Fulfillment_user_with_R_W</fullName>
         <sharedTo>
