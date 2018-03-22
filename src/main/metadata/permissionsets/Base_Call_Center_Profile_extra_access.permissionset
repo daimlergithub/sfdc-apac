@@ -2586,6 +2586,14 @@
     </customPermissions>
 	<customPermissions>
         <enabled>true</enabled>
+        <name>PreferreddALKAddress</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>RSVP</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
         <name>MYRetail</name>
     </customPermissions>
 	<customPermissions>
