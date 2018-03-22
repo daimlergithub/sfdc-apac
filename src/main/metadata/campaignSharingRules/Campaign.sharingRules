@@ -360,9 +360,9 @@
         <name>Share Campaign With Roles and Subordinates KR v1</name>
     </criteriaBasedRules>
 	<criteriaBasedRules>
-        <fullName>Share_Campaign_With_Roles_and_Subordinates_MY_V1</fullName>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_MY_V2</fullName>
         <sharedTo>
-            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>MD__c</field>

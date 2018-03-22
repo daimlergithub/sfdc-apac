@@ -2724,6 +2724,16 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+	<fields>
+        <fullName>Alias__c</fullName>
+        <description>Alias for AU and NZ market</description>
+        <externalId>false</externalId>
+        <label>Alias</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>All_channel_opt_out__c</fullName>
         <externalId>false</externalId>
@@ -3104,12 +3114,12 @@ Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>50–75 lakhs</fullName>
+                <fullName>&lt;50 lakhs</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>&lt;50 lakhs</fullName>
+                <fullName>50–75 lakhs</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
@@ -4424,9 +4434,11 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
             <picklistValues>
                 <fullName>Australia</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4582,6 +4594,12 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -5268,6 +5286,21 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wholesale added</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retailer added</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -9228,6 +9261,31 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
         <type>Email</type>
         <unique>false</unique>
     </fields>
+	 <fields>
+        <fullName>Entity__c</fullName>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cars / Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Expiration_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
@@ -10295,6 +10353,21 @@ Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>M</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>X</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -11030,6 +11103,91 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
                 <fullName>Art Collecting</fullName>
                 <default>false</default>
             </picklistValues>
+			 <picklistValues>
+                <fullName>Classic cars</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cricket</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food/Wine</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Motorsport</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rugby League</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rugby Union</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AFL</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Skiing/Snowboarding</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Soccer</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Surfing</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nature/Outdoors</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cycling</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wellness</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home &amp; Garden</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technology &amp; Innovation</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Art</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Performing Arts</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -11612,6 +11770,110 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agriculture/Farming</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Management/Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction/Engineering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking/Finance/Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home Duties</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales/Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property Development/Real Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hospitality/Tourism/Travel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trades/Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Architecture/Design</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Communication/Media/Entertainment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mining</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Human Resources</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Publishing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Broadcasting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arts, Entertainment and Recreation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Religious</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scientific or Technical Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retired</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -14209,6 +14471,21 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Widowed</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Separated</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>De-Facto</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -14218,13 +14495,14 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
     </fields>
     <fields>
         <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;NZ&apos;) ,&apos;NZ&apos;,
+IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -14259,6 +14537,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             <picklistValues>
                 <fullName>IN</fullName>
                 <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>NZ</fullName>
+            <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -18222,6 +18504,16 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	   <fields>
+        <fullName>Secondary_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>SelecTrucks_Offered_Service__c</fullName>
         <externalId>false</externalId>
@@ -18560,6 +18852,10 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -18760,6 +19056,21 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Complainant</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>General Enquirer</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -19364,6 +19675,66 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>Tan Sri Dato Seri Dr</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Captain</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colonel</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Her Excellency</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>His Excellency</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Justice</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lady</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lord</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miss</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mr</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mrs</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ms</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professor</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -23374,6 +23745,22 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		 
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -29685,6 +30072,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -41950,6 +42352,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -48229,6 +48646,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		 <picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -53931,6 +54363,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -59365,6 +59812,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2F Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Fax_Validity2__c</picklist>
             <values>
@@ -62695,7 +63157,7 @@ OR(Allow_Data_Sharing_Comment__c = null,Allow_Data_Sharing_Comment__c="") )</err
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND( 
 OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()), 
-$Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),
+$Profile.Name != 'IntegrationAPI') &amp;&amp; (OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),if(AND(MD__c=='AU',$Permission.AUGeneric),true,false),if(AND(MD__c=='NZ',$Permission.NZGeneric),true,false),
 if($Permission.INGeneric,true,false)
 ))</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>
@@ -63178,12 +63640,16 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>Please enter First Name.</errorMessage>
     </validationRules>
+	
     <validationRules>
         <fullName>FirstName_NoOfDigits</fullName>
         <active>true</active>
         <description>Record Type is Person Account
 FirstName  value &gt; 20 letters.</description>
-        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(FirstName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND($RecordType.Name = &quot;Person Account&quot;,LEN(FirstName) &gt; 40, MD__c=&apos;JP&apos;,
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
@@ -63204,13 +63670,15 @@ $Permission.INGeneric
     <validationRules>
         <fullName>First_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>IF(
-AND(
-NOT(ISBLANK( FirstName )),
-OR(NOT(REGEX( FirstName , "[^ -~｡-ﾟ]*" ))),
-$Profile.Name != 'IntegrationAPI',
-MD__c = 'JP',
-RecordType.Name='Person Account'),true,false)</errorConditionFormula>
+        <errorConditionFormula>IF( 
+AND( 
+NOT(ISBLANK( FirstName )), 
+OR(NOT(REGEX( FirstName , &quot;[^ -~｡-ﾟ]*&quot; ))), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+ MD__c=&apos;JP&apos;, 
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false),  
+RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be of 2 byte characters.</errorMessage>
     </validationRules>
@@ -63293,6 +63761,35 @@ REGEX(  Work_Phone__c  , "[1-9]{3}-[1-9]{7}")
         <errorMessage>Home Phone should be in the following Format 
 +91-0XX-XXXXXXXX</errorMessage>
     </validationRules>
+	
+	<validationRules>
+        <fullName>HomePhone_Format_AU</fullName>
+        <active>true</active>
+        <description>Home Phone must be in any of the following formats : 
+1. Country code + Area code (x) And PhoneNumber (xxxxxxxx) 
+2. for int: +XX-XXXXXXXXXX</description>
+        <errorConditionFormula>OR(AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT (Individual_Home_Phone__c, 3) = &quot;+61&quot;, 
+NOT(ISBLANK(Individual_Home_Phone__c)), 
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+NOT(OR( 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([2]|[8]|[3]|[7]{1})[0-9]{7}&quot;), 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([1][8][0][0]|[1][3][0][0])([0-9]{6})([0-9]{0,3})&quot;), 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([1][3])([0-9]{4})([0-9]{0,1})&quot;)) 
+)
+), 
+AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT (Individual_Home_Phone__c, 3)!= &quot;+61&quot;, 
+NOT(ISBLANK(Individual_Home_Phone__c)), if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+NOT(OR(REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{10}&quot;),REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{9}&quot;), 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{8}&quot;),REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{7}&quot;)))))</errorConditionFormula>
+        <errorMessage>Home Phone must be in any of the following formats : 
+1. Country code + Area code (x) And PhoneNumber (xxxxxxxx) 
+2. for int: +XX-XXXXXXXXXX</errorMessage>
+    </validationRules>
+	
     <validationRules>
         <fullName>HomePhone_Format_KR</fullName>
         <active>true</active>
@@ -63372,6 +63869,35 @@ REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}"),REGEX(Individual_Home_Phone
 1. Country code + Area code (x Or xx) And Phone Number (from 6 to 10 ) Digits
 2. for int: +XX-XXXXXXXXXX</errorMessage>
     </validationRules>
+	
+	<validationRules>
+        <fullName>HomePhone_Format_NZ</fullName>
+        <active>true</active>
+        <description>Home Phone must be in any of the following formats : 
+1. Country code + Area code (x) And PhoneNumber (xxxxxxxx) 
+2. for int: +XX-XXXXXXXXXX</description>
+        <errorConditionFormula>OR(AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT (Individual_Home_Phone__c, 3) = &quot;+64&quot;, 
+NOT(ISBLANK(Individual_Home_Phone__c)), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+NOT(OR( 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([2]|[8]|[3]|[7]{1})[0-9]{7}&quot;), 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([1][8][0][0]|[1][3][0][0])([0-9]{6})([0-9]{0,3})&quot;), 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([1][3])([0-9]{4})([0-9]{0,1})&quot;)) 
+)
+), 
+AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT (Individual_Home_Phone__c, 3)!= &quot;+64&quot;, 
+NOT(ISBLANK(Individual_Home_Phone__c)), if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+NOT(OR(REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{10}&quot;),REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{9}&quot;), 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{8}&quot;),REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}[0-9]{7}&quot;)))))</errorConditionFormula>
+        <errorMessage>Home Phone must be in any of the following formats : 
+1. Country code + Area code (x) And PhoneNumber (xxxxxxxx) 
+2. for int: +XX-XXXXXXXXXX</errorMessage>
+    </validationRules>
+	
     <validationRules>
         <fullName>HomePhone_Format_TH</fullName>
         <active>false</active>
@@ -63537,6 +64063,14 @@ if($Permission.INGeneric,true,false))
 )</errorConditionFormula>
         <errorMessage>Invalid Email Address.</errorMessage>
     </validationRules>
+	<validationRules>
+        <fullName>Invalid_PostalCode_ANZ</fullName>
+        <active>true</active>
+        <description>PostalCode should be 3 or 4 digits long</description>
+        <errorConditionFormula>AND(OR(ISCHANGED(ZipCode__c ), ISNEW()), NOT( ISBLANK(ZipCode__c )), NOT(OR((REGEX(ZipCode__c ,&quot;[0-9]{3}&quot;)),(REGEX(ZipCode__c ,&quot;[0-9]{4}&quot;)))), 
+$Profile.Name != &apos;IntegrationAPI&apos;,if(OR(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric), AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric)),true,false))</errorConditionFormula>
+        <errorMessage>PostalCode should be 3 or 4 digits long</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Invalid_ZipCode</fullName>
         <active>true</active>
@@ -63578,20 +64112,24 @@ $Profile.Name != 'IntegrationAPI',if(AND(MD__c=='MY',$Permission.MYGeneric),true
         <active>true</active>
         <description>Record Type is Person Account
 LastName  value &gt; 40 letters.</description>
-        <errorConditionFormula>AND($RecordType.Name = "Person Account",LEN(LastName) &gt; 40, MD__c='JP',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND($RecordType.Name = &quot;Person Account&quot;,LEN(LastName) &gt; 40, MD__c=&apos;JP&apos;, 
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Last_Name_Fullchar</fullName>
         <active>true</active>
-        <errorConditionFormula>IF(
+             <errorConditionFormula>IF(
 AND(
 NOT(ISBLANK( LastName)),
-OR(NOT(REGEX( LastName , "[^ -~｡-ﾟ]*" ))),
-$Profile.Name != 'IntegrationAPI',
-MD__c = 'JP',
-RecordType.Name='Person Account'),true,false)</errorConditionFormula>
+OR(NOT(REGEX( LastName , &quot;[^ -~｡-ﾟ]*&quot; ))),
+$Profile.Name != &apos;IntegrationAPI&apos;,
+MD__c = &apos;JP&apos;,
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be of  2 byte characters.</errorMessage>
     </validationRules>
@@ -63669,6 +64207,26 @@ REGEX( Mobile__c, "[1-9]{1}[0-9]{9}")
         <errorDisplayField>Mobile__c</errorDisplayField>
         <errorMessage>The Mobile Number should not start with zero and should  be only-country code+ 10 digits</errorMessage>
     </validationRules>
+	
+	<validationRules>
+        <fullName>Mobile_Format_AU</fullName>
+        <active>true</active>
+        <description>Mobile Phone must be in any of the following formats : 
+1. Country Code + Number(4xxxxxxxx)</description>
+        <errorConditionFormula>OR(AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT ( Mobile__c, 3) = &quot;+61&quot;, 
+NOT(ISBLANK(Mobile__c)), 
+NOT(REGEX(Mobile__c, &quot;[+0-9]{3}([4]|[5])[0-9]{8}&quot;)), if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false)), 
+AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT ( Mobile__c, 3)!= &quot;+61&quot;, 
+NOT(ISBLANK(Mobile__c)), 
+NOT(OR(REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{10}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{9}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{8}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{7}&quot;))), if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false)))</errorConditionFormula>
+        <errorMessage>Mobile Phone must be in any of the following formats : 
+1. Country Code + Number(xxxxxxxxx)</errorMessage>
+    </validationRules>
+	
     <validationRules>
         <fullName>Mobile_Format_KR</fullName>
         <active>true</active>
@@ -63711,6 +64269,26 @@ NOT(ISBLANK(Mobile__c)),
 NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{9}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{8}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{7}"))), if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
 1. Country Code + Number(xxxxxxxxxx)</errorMessage>
+    </validationRules>
+	
+	
+	<validationRules>
+        <fullName>Mobile_Format_NZ</fullName>
+        <active>true</active>
+        <description>Mobile Phone must be in any of the following formats : 
+1. Country Code + Number(2xxxxxxxx)</description>
+        <errorConditionFormula>OR(AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT ( Mobile__c, 3) = &quot;+64&quot;, 
+NOT(ISBLANK(Mobile__c)), 
+NOT(REGEX(Mobile__c, &quot;[+0-9]{3}([2])[0-9]{8}&quot;)), if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)), 
+AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT ( Mobile__c, 3)!= &quot;+64&quot;, 
+NOT(ISBLANK(Mobile__c)), 
+NOT(OR(REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{10}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{9}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{8}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{7}&quot;))), if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)))</errorConditionFormula>
+        <errorMessage>Mobile Phone must be in any of the following formats : 
+1. Country Code + Number(xxxxxxxxx)</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile_Format_TH</fullName>
@@ -64070,6 +64648,34 @@ NOT(
         <errorMessage>Work Phone should be in the following Format
 +91-0XX-XXXXXXXX</errorMessage>
     </validationRules>
+	
+	<validationRules>
+        <fullName>WorkPhone_Format_AU</fullName>
+        <active>true</active>
+        <description>Work Phone must be in any of the following formats : 
+1. Country code + Area code (x) And PhoneNumber (xxxxxxxx) 
+2. for int: +XX-XXXXXXXXXX</description>
+        <errorConditionFormula>OR(AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT (Work_Phone__c, 3) = &quot;+61&quot;, 
+NOT(ISBLANK(Work_Phone__c)), 
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+NOT(OR( 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}([2]|[8]|[3]|[7]{1})[0-9]{7}&quot;), 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}([1][8][0][0]|[1][3][0][0])([0-9]{6})([0-9]{0,3})&quot;), 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}([1][3])([0-9]{4})([0-9]{0,1})&quot;))
+)), 
+AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT (Work_Phone__c, 3)!= &quot;+61&quot;, 
+NOT(ISBLANK(Work_Phone__c)), if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
+NOT(OR(REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{10}&quot;),REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{9}&quot;), 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{8}&quot;),REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{7}&quot;)))))</errorConditionFormula>
+        <errorMessage>Work Phone must be in any of the following formats : 
+1. Country code + Area code (x) And PhoneNumber (xxxxxxxx) 
+2. for int: +XX-XXXXXXXXXX</errorMessage>
+    </validationRules>
+	
     <validationRules>
         <fullName>WorkPhone_Format_KR</fullName>
         <active>true</active>
@@ -64149,6 +64755,35 @@ REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{8}"),REGEX(Work_Phone__c, "[+0-9]{3}[0-9]{7
 1. Country code + Area code (x or xx) And Phone Number (from 6 to 10 ) Digits
 2. for int: +XX-XXXXXXXXXX</errorMessage>
     </validationRules>
+	
+	<validationRules>
+        <fullName>WorkPhone_Format_NZ</fullName>
+        <active>true</active>
+        <description>Work Phone must be in any of the following formats : 
+1. Country code + Area code (x) And PhoneNumber (xxxxxxxx) 
+2. for int: +XX-XXXXXXXXXX</description>
+        <errorConditionFormula>OR(AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT (Work_Phone__c, 3) = &quot;+64&quot;, 
+NOT(ISBLANK(Work_Phone__c)), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+NOT(OR( 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}([2]|[8]|[3]|[7]{1})[0-9]{7}&quot;), 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}([1][8][0][0]|[1][3][0][0])([0-9]{6})([0-9]{0,3})&quot;), 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}([1][3])([0-9]{4})([0-9]{0,1})&quot;))
+)), 
+AND( 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+LEFT (Work_Phone__c, 3)!= &quot;+64&quot;, 
+NOT(ISBLANK(Work_Phone__c)), if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+NOT(OR(REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{10}&quot;),REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{9}&quot;), 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{8}&quot;),REGEX(Work_Phone__c, &quot;[+0-9]{3}[0-9]{7}&quot;)))))</errorConditionFormula>
+        <errorMessage>Work Phone must be in any of the following formats : 
+1. Country code + Area code (x) And PhoneNumber (xxxxxxxx) 
+2. for int: +XX-XXXXXXXXXX</errorMessage>
+    </validationRules>
+	
+	
     <validationRules>
         <fullName>WorkPhone_Format_TH</fullName>
         <active>false</active>

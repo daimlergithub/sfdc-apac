@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>New Zealand: Sales Managers,Associates and Executives at wholesale</description>
+    <label>MBNZ After Sales</label>
+</PermissionSet>

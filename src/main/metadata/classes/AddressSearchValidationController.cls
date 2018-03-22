@@ -16,7 +16,6 @@ History:
     Sanjay Nandi(SN20170912)    2017/09/12            //SN20170912- Area Code logic For MY
     Prabhata Rath(PR20170918)   2017/09/18            //PR20170918- CustomerSearch in CDM   
     Sanjay Nandi(SN20171028)    2017/10/28            //SN20171028- Added code to resolve issues related to search of CUstomer without address                                                                                                                                        
-    Shashi Goswami(India)       2018/03/09            //India - Added India specific code
 **/
 public class AddressSearchValidationController
 {
@@ -108,6 +107,7 @@ public class AddressSearchValidationController
     public String faxCountryCode{get;set;}
     public String faxphoneNumber{get;set;}
     public String faxAreaCode{get;set;} 
+	public static boolean phValidate;
     Public User u{get;set;}
     
     //PR20170918- Variable to hold JSON response from Informatica/CDM
@@ -217,18 +217,31 @@ public class AddressSearchValidationController
             wkCountryCode='+66';
             faxCountryCode='+66';
         }
-        else if(market==Label.IN)
+		 else if(market=='AU') //  Sada US-2/3 2018/March/22 R1  
         {
             firstsave = true;  
-            secondsave = false;// need to change later 
-            mbCountryCode='+91';
-            hmCountryCode='+91';
-            wkCountryCode='+91';
-            faxCountryCode='+91';
-            AddressObj.Country__c='India';
+            secondsave = false;// need to change later
+            mbCountryCode='+61';
+            hmCountryCode='+61';
+            wkCountryCode='+61';
+            faxCountryCode='+61';
+            AddressObj.Country__c='Australia';
             objAccount.Market__c=market;
             LoadProvince();
-        }
+        }   
+      else if(market=='NZ') //  Sada US-2/3 2018/March/22 R1  
+        {
+            firstsave = true;  
+            secondsave = false;// need to change later
+            mbCountryCode='+64';
+            hmCountryCode='+64';
+            wkCountryCode='+64';
+            faxCountryCode='+64';
+            AddressObj.Country__c='New Zealand';
+            objAccount.Market__c=market;
+            LoadProvince();
+        } 
+		
         else
         {
             firstsave = false;  
@@ -379,22 +392,6 @@ public class AddressSearchValidationController
                 district='--Select--';
             }
          }
-        else if(market == System.Label.IN)
-        {
-            if(AddressObj.Country__c!='India'){
-                
-                IsForeignNational=true;
-                province='';
-                district='';
-                
-            }
-            else{
-                IsForeignNational=false;
-                //province='--Select--';
-                //district='--Select--';
-            }
-        }
-
        }
     //Introduced for TH market - End
 
@@ -2933,6 +2930,351 @@ If the user is Saving  same address which matches the fields returned by toleran
         System.debug('Endurl*** ' + endUrl);
         return endUrl;
     }
+	
+	 
+    //  Sada US-2/3 2018/March/22 R1    
+    public pagereference saveAccountANZ()       
+    {       
+        if(addresspicklist!=null)       
+            AddressObj.Address_Type__c = addresspicklist;       
+        Validation = false;     
+        
+        // Save record without Address record if no value is Entered in Address section  
+     
+        if(AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '--None--' || AddressObj.Address_Type__c == '')      
+        {       
+            if ((string.isnotblank(AddressObj.Address_Line_1__c) ||     
+                string.isnotblank(AddressObj.Address_Line_2__c) || 
+                string.isnotblank(AddressObj.Address_Line_3__c) ||                      
+                string.isnotblank(Zip)) && ( addressObj.Country__c=='Australia' || addressObj.Country__c=='New Zealand') ){
+                    
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select address type'));       
+                    Validation = true; 
+                }
+            
+            else{
+                    system.debug('====>Address Not entered');
+                if(SaveAccountDetailsANZ())      
+                {       
+                    PageReference pageRef = new PageReference('/'+objAccount.Id);       
+                    return PageRef;                 
+                }       
+            }
+        } 
+        
+        // Save record with Address details Validating the Address Details 
+        boolean check=false;
+        If(AddressObj.Address_Type__c != null)      
+        {       
+            
+            try     
+            {       
+                if(recordType == Label.Company)                     
+                    recordTypeId =RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
+                else        
+                    recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount); 
+                
+                
+                objAccount.RecordTypeId = recordTypeId;         
+                ValidateAddressANZ() ;     
+                if(Validation == False)     
+                 {       
+                refreshPage = true; 
+                if(SaveAccountDetailsANZ() && phValidate)      
+                {           
+                    AddressObj.Customer__c = objAccount.id; 
+                    AddressObj.Preferred__c=true; 
+                    DMLManagerService.insertAsSystem(AddressObj);                              
+                    //insert AddressObj;      
+                    PageReference pageRef = new PageReference('/'+objAccount.Id);       
+                    return PageRef;     
+                }       
+                 }       
+            }       
+            catch(DMLException e)       
+            {       
+                
+                refreshPage = false;        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));       
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' +e.getDMlMessage(0));              
+            }               
+        } 
+        return null;       
+    }
+    
+    //  Sada US-2/3 2018/March/22 R1  
+     public boolean SaveAccountDetailsANZ()       
+    {    
+      try        
+        {   
+          
+            if(recordType == label.Company)                     
+                recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
+            else        
+                recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount);     
+            
+            
+            if(recordType == Label.PersonAccount){
+                objAccount.status__C = Label.ProspectStatus;
+            } 
+            
+            objAccount.RecordTypeId = recordTypeId;  
+            
+            
+            phValidate = true; 
+          system.debug('====>Start');
+
+  
+        //Email validation 
+     if(objAccount.Email__c != null && recordType == System.Label.PersonAccount )
+     {
+         
+        string emailraw = objAccount.Email__c; 
+        String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!}{+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
+        emailraw = emailraw.replace('@@', '@'); //replace @@ to single @
+        emailraw = emailraw.replace('..', '.'); //replace .. to single .
+        emailraw = emailraw.replace('.@', '@'); //replace .@ to single @
+        emailraw = emailraw.replace('@.', '@'); //replace @. to single @
+        emailraw = emailraw.removeStart('.');// remove “.” as the first character of an e-mail address.
+        emailraw = emailraw.removeEnd('.');// remove “.” as the last character of an e-mail address.
+        emailraw= emailraw.replaceAll( '\\s+', ''); // remove spaces
+         
+         if(!Pattern.matches(emailRegex,emailraw))
+         {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Invalid Email Address'));
+                 phValidate = false;
+         }
+         else 
+         {
+        objAccount.Email__c = emailraw; 
+         }
+     }
+             
+                
+        if(String.isBlank(hmphoneNumber))  objAccount.Individual_Home_Phone__c='';       
+        else if(hmCountryCode!='' && hmphoneNumber!='' && (hmCountryCode==label.AUPhoneCountryCode || hmCountryCode==label.NZPhoneCountryCode ))  objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
+        else objAccount.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;                                    
+        
+        if( String.isBlank(wkphoneNumber)) objAccount.Work_Phone__c='';     
+        else if(wkCountryCode!='' && wkphoneNumber!='' && (wkCountryCode==label.AUPhoneCountryCode  || wkCountryCode==label.NZPhoneCountryCode  )) objAccount.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
+        else objAccount.Work_Phone__c=wkCountryCode+wkphoneNumber;      
+        
+        if((String.isBlank(mbphoneNumber)) )  objAccount.Mobile__c='';         
+        else if(mbCountryCode!='' && mbphoneNumber!='') objAccount.Mobile__c=mbCountryCode+mbphoneNumber;        
+        else objAccount.Mobile__c='';          
+        
+        if((String.isBlank(faxphoneNumber))) objAccount.Phone='';       
+        else if(faxCountryCode!='' && faxphoneNumber!='' && (faxCountryCode==label.AUPhoneCountryCode   || faxCountryCode==label.NZPhoneCountryCode )) objAccount.Phone=faxCountryCode+faxAreaCode+faxphoneNumber;        
+        else objAccount.Phone=faxCountryCode+faxphoneNumber;      
+        system.debug('====>End');          
+        
+            System.debug('=====>phValidate : ' + phValidate);
+
+     if(objAccount.Name == '' && recordType == System.Label.Company)
+            {        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Account Name is required'));    
+                phValidate = false;             
+            }
+      if(objAccount.LastName == '' && recordType == System.Label.PersonAccount)
+            {        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Last Name is required'));       
+                 phValidate = false;
+            }
+      if(objAccount.FirstName == '' && recordType == System.Label.PersonAccount)
+            {        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'First Name is required'));       
+                 phValidate = false;
+            }
+            
+                       
+            if(objAccount.Individual_Home_Phone__c == '' && objAccount.Mobile__c == '' && objAccount.Email__c == null )
+            {        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));       
+            }
+           else{  
+                if(phValidate){
+                    DMLManagerService.insertAsSystem(objAccount);  
+                // insert objAccount ;
+                       refreshPage = true;
+                          return true; 
+
+                }
+                
+            }           
+        }       
+        catch(DMLException e)       
+        {       
+            
+            refreshPage = false;   
+            if(e.getdmlMessage(0).contains('bad field') ){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please remove the firstname , lastname  for saving company account and account name for person account'));
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
+            }
+            else{               
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0))); 
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
+            }               
+            return false;       
+        }       
+        return false;       
+    }
+    
+      //  Sada US-2/3 2018/March/22 R1  
+     public void ValidateAddressANZ()     
+    {       
+        try{  
+           
+                    
+        if(zip!='')     
+            addressobj.ZipCode__c=zip;  
+            
+            
+       
+         String ZipCheck = '^([0-9]{3,4})'; 
+                 if(AddressObj.Address_Type__c != null )
+                {
+                    if(addressobj.ZipCode__c != null  && (!Pattern.matches(ZipCheck,addressobj.ZipCode__c)))      
+                    {       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter valid Postal code'));        
+                         Validation = true;                             
+                    }       
+                                                
+                    if(addressobj.ZipCode__c == null)       
+                    {       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.ZipCodeMandatory));         
+                        Validation = true;                              
+                    }
+                    
+                    if(addressobj.Address_Line_1__c == null)        
+                    {       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline1Mandatory));       
+                        Validation = true;                              
+                    }       
+                    else        
+                    {       
+                        if(addressobj.Address_Line_1__c.length()>100)       
+                        {       
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddressline1Length));        
+                            Validation = true;                              
+                        }       
+                     } 
+                    if(addressobj.State_City__c == null)      
+                    {       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateProvError));        
+                        Validation = TRUE;      
+                    }       
+                    if(addressobj.Suburb__c == null )
+                    {                       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Enter Suburb details'));                        
+                        Validation = TRUE;                                              
+                    } 
+                     if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+                        Validation = true;                      
+                    }
+                     if(String.isNotBlank(addressobj.Address_Line_3__c) && addressobj.Address_Line_3__c.length()>100)
+                    {
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 3 should be less than or equal to 100 characters.'));
+                        Validation = true;                      
+                    }
+                     
+            }           
+        }       
+            catch (exception e)     
+            {       
+                 
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));   
+                
+                CustomLogUtil.CustomLoggingEntry('error' + e);               
+            }       
+    }       
+          
+     
+    //  Sada US-2/3 2018/March/22 R1  
+    public object onLineDeduplicationANZ(){ 
+    displayAccList.clear();     
+    DedupAccountList.clear();
+    Boolean errorFlag=true;
+    boolean mandatoryFlag=True;
+    boolean recordCheck=true;
+    Continuation con=null;                    
+    if(Recordtype!=Label.PersonAccount && Recordtype!=Label.Company){
+                recordCheck=false;
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.RecordTypeError));       
+    }
+    
+    if(recordCheck && Recordtype== Label.PersonAccount?string.isblank(objAccount.firstName) || string.isblank(objAccount.Lastname):false){
+        mandatoryFlag=false;
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
+    }
+    if(recordCheck && mandatoryFlag &&  Recordtype==Label.Company? string.isblank(objAccount.name):false){
+        mandatoryFlag=false;
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError ));       
+    }
+    if(recordCheck && mandatoryFlag){
+    
+    if(Recordtype==Label.PersonAccount && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null && objAccount.ID_Number__c==null){        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
+                    errorFlag=false;
+        } 
+
+      //SN20171120- the following is being removed objAccount.Email__c
+     if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber)  ){        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError));       
+                    errorFlag=false;
+     }
+    }
+    if(errorFlag && mandatoryFlag && recordCheck){
+    firstsave=true;     
+    secondsave=false;       
+                
+    //SN20170907        
+    last=false;     
+    previous=false;     
+    first=false;        
+    next=false;     
+    
+        if(String.isBlank(hmphoneNumber))  objAccount.Individual_Home_Phone__c='';       
+        else if(hmCountryCode!='' && hmphoneNumber!='' && (hmCountryCode==label.AUPhoneCountryCode || hmCountryCode==label.NZPhoneCountryCode ))  objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
+        else objAccount.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;                                    
+        
+        if( String.isBlank(wkphoneNumber)) objAccount.Work_Phone__c='';     
+        else if(wkCountryCode!='' && wkphoneNumber!='' && (wkCountryCode==label.AUPhoneCountryCode  || wkCountryCode==label.NZPhoneCountryCode  )) objAccount.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
+        else objAccount.Work_Phone__c=wkCountryCode+wkphoneNumber;      
+        
+        if((String.isBlank(mbphoneNumber)) )  objAccount.Mobile__c='';         
+        else if(mbCountryCode!='' && mbphoneNumber!='') objAccount.Mobile__c=mbCountryCode+mbphoneNumber;        
+        else objAccount.Mobile__c='';          
+        
+        if((String.isBlank(faxphoneNumber))) objAccount.Phone='';       
+        else if(faxCountryCode!='' && faxphoneNumber!='' && (faxCountryCode==label.AUPhoneCountryCode   || faxCountryCode==label.NZPhoneCountryCode )) objAccount.Phone=faxCountryCode+faxAreaCode+faxphoneNumber;        
+        else objAccount.Phone=faxCountryCode+faxphoneNumber;   
+        
+            
+            
+    String EndUrl=generateCDMEndPointURL();
+    CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
+    try{    
+        if(label.New_Component=='true'){
+            con = new Continuation(120);     
+            con.continuationMethod='processResponse';
+            this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+        }
+        else{
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
+            errorFlag=false;
+        }
+    } catch (Exception e){
+         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
+         errorFlag=false;
+         CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
+        
+    }                   
+      }
+      return con;
+    }
+    
     
     /* *PR20170918- CustomerSearch in CDM* */
     public Object onLineDeduplicationCDMTH() {
@@ -3387,86 +3729,7 @@ public pagereference saveAccountTH()
      return null;       
     }
     
-    //Adding for India (By Shashi)
-    
-    public pagereference saveAccountIN()       
-    {       
-        if(addresspicklist!=null)       
-            AddressObj.Address_Type__c = addresspicklist;       
-        Validation = false;     
-        
-        // Save record without Address record if no value is Entered in Address section  
-        // 03022018 Namitha added none if condition and if loop logic to display error only wen any of the address is entered.       
-        if(AddressObj.Address_Type__c == null || AddressObj.Address_Type__c == '--None--')      
-        {       
-            if ((string.isnotblank(AddressObj.Address_Line_1__c) ||     
-                string.isnotblank(AddressObj.Address_Line_2__c) || 
-                string.isnotblank(AddressObj.Address_Line_3__c) ||
-                (string.isnotblank(province) && province!= '--Select--') || 
-                string.isnotblank(district) ||  
-                string.isnotblank(Zip)) && addressObj.Country__c=='India' ){
-                    // Added custom label 'AddressTypeValidationIN' (prem)
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.AddressTypeValidationIN));       
-                    Validation = true; 
-                }
-            
-            else{
-                if(SaveAccountDetailsIN())      
-                {       
-                    PageReference pageRef = new PageReference('/'+objAccount.Id);       
-                    return PageRef;                 
-                }       
-            }
-        }
-        
-        // Save record with Address details Validating the Address Details 
-        boolean check=false;
-        If(AddressObj.Address_Type__c != null)      
-        {       
-            
-            try     
-            {       
-                if(recordType == Label.Company)                     
-                    recordTypeId =RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
-                else        
-                    recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount); 
-                
-                
-                objAccount.RecordTypeId = recordTypeId;         
-                
-                //Add province
-                if(province!='' && province!='--Select--')      
-                    addressobj.Province__c=province;        
-                if(province!='' && province!='--Select--')      
-                    addressobj.Province__c=province;        
-                if(district!='' && district!='--Select--')      
-                    addressobj.District__c=district;                
-                if(zip!='')     
-                    addressobj.ZipCode__c=zip; 
-            
-            
-                refreshPage = true;     
-                if(SaveAccountDetailsIN())      
-                {           
-                    AddressObj.Customer__c = objAccount.id; 
-                    AddressObj.Preferred__c=true; 
-                    DMLManagerService.insertAsSystem(AddressObj);                              
-                    //insert AddressObj;      
-                    PageReference pageRef = new PageReference('/'+objAccount.Id);       
-                    return PageRef;     
-                }              
-            }       
-            catch(DMLException e)       
-            {       
-                
-                refreshPage = false;        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));       
-                CustomLogUtil.CustomLoggingEntry('Error Occured ' +e.getDMlMessage(0));              
-            }               
-        } 
-        return null;       
-    }
-
+   
     
 //Saves the Account relaed details for Thailand Market
 //Created By : Mohammed Touseef AHmed
@@ -3632,37 +3895,7 @@ public pagereference saveAccountTH()
          
     }
     
-    //Added for India (By Shashi)
-    public void phoneFieldConcatIN(){
-
-        if(String.isBlank(hmphoneNumber))  objAccount.Individual_Home_Phone__c='';       
-        else if(hmCountryCode!='' && hmphoneNumber!='' && (hmCountryCode==label.INPhoneCountryCode || hmCountryCode==label.MYPhoneCountryCode))  objAccount.Individual_Home_Phone__c=hmCountryCode+hmAreaCode+hmphoneNumber;                                     
-        else objAccount.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;                                    
-        
-        if( String.isBlank(wkphoneNumber)) objAccount.Work_Phone__c='';     
-        else if(wkCountryCode!='' && wkphoneNumber!='' && (wkCountryCode==label.INPhoneCountryCode || wkCountryCode==label.MYPhoneCountryCode)) objAccount.Work_Phone__c=wkCountryCode+wkAreaCode+wkphoneNumber;                                         
-        else objAccount.Work_Phone__c=wkCountryCode+wkphoneNumber;      
-        
-        if((String.isBlank(mbphoneNumber)) )  objAccount.Mobile__c='';         
-        else if(mbCountryCode!='' && mbphoneNumber!='') objAccount.Mobile__c=mbCountryCode+mbphoneNumber;        
-        else objAccount.Mobile__c='';          
-        
-        if((String.isBlank(faxphoneNumber))) objAccount.fax='';       
-        else if(faxCountryCode!='' && faxphoneNumber!='' && (faxCountryCode==label.INPhoneCountryCode || faxCountryCode==label.MYPhoneCountryCode)) objAccount.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
-        else objAccount.fax=faxCountryCode+faxphoneNumber;      
-        
-    }
-    
-    //Added for India (By Shashi)
-    public void updateGeneratedBy(){
-        if(Userinfo.getUserType() == 'PowerPartner'){
-            objAccount.Generated_by__c= 'Dealer';
-        }
-        else 
-            objAccount.Generated_by__c= 'MBIL';
-    }
-    
-
+   
     
 //Saves the Account relaed details for Malaysia Market      
 //Created By : Mohammed Touseef AHmed       
@@ -3714,56 +3947,6 @@ public pagereference saveAccountTH()
             return false;       
     }
 
-    // Adding for India by Shashi 
-    public boolean SaveAccountDetailsIN()       
-    {       Boolean homePhoneFormat= false;
-            Boolean workPhoneFormat= false;
-            Boolean mobilePhoneFormat= false;
-            PhoneNumberFormatCheck formatcheck = new PhoneNumberFormatCheck();   
-            if(recordType == label.Company)                     
-                recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.Company);      
-            else        
-                recordTypeId = RecordTypeAccessService.getRecordTypeId('Account',Label.PersonAccount);     
-            
-            if(recordType == Label.PersonAccount){
-                objAccount.status__C = Label.ProspectStatus;
-            }   //end code here modification by Honey     
-            objAccount.RecordTypeId = recordTypeId;   
-            phoneFieldConcatIN();   
-            homePhoneFormat = formatcheck.homePhoneFieldFormatIN(hmCountryCode,hmAreaCode,hmphoneNumber);
-            workPhoneFormat = formatcheck.workPhoneFieldFormatIN(wkCountryCode,wkAreaCode,wkphoneNumber);
-            mobilePhoneFormat = formatcheck.mobilePhoneFieldFormatIN(mbCountryCode,mbphoneNumber);
-            updateGeneratedBy();
-            
-        try        
-        {    
-            if(objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null){        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));       
-            }
-            else if(homePhoneFormat && workPhoneFormat && mobilePhoneFormat){  
-                DMLManagerService.insertAsSystem(objAccount);  
-                refreshPage = true;
-                return true; 
-            }
-            else 
-                return false;
-        }       
-        catch(DMLException e)       
-        {       
-            
-            refreshPage = false;   
-            if(e.getdmlMessage(0).contains('bad field') ){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Remove_FirstName_LastName_for_company));
-                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
-            }
-            else{               
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0))); 
-                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
-            }               
-            return false;       
-        }       
-        return false;       
-    }
 
     //check if For Thailand market Address Type is Selected then all other fields on address are mandatory.
     
@@ -4057,16 +4240,40 @@ public pagereference saveAccountTH()
              if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.MYPhoneCountryCode?true:false :false) wAreaBoolean=true;
            
     }
-    //Added for India
-    public void checkcountrycodeindia(){
+
+	 //  Sada US-2/3 2018/March/22 R1    
+        public void checkcountrycodeANZ(){
         wAreaBoolean=false;
         fAreaBoolean=false;
         hAreaBoolean=false;
         
-        if(String.isNOTBlank(faxCountryCode) ? faxCountryCode!=label.INPhoneCountryCode?true:false:false) fAreaBoolean=true;
-        if(String.isNOTBlank(hmCountryCode) ? hmCountryCode!=label.INPhoneCountryCode?true:false:false) hAreaBoolean=true;
-        if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.INPhoneCountryCode?true:false :false) wAreaBoolean=true;
-        
+        if(String.isNOTBlank(faxCountryCode) ? faxCountryCode!=label.AUPhoneCountryCode?true:faxCountryCode!=label.NZPhoneCountryCode?true:false:false) fAreaBoolean=true;
+        if(String.isNOTBlank(hmCountryCode) ? hmCountryCode!=label.AUPhoneCountryCode?true:faxCountryCode!=label.NZPhoneCountryCode?true:false:false) hAreaBoolean=true;
+        if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.AUPhoneCountryCode?true:faxCountryCode!=label.NZPhoneCountryCode?true:false :false) wAreaBoolean=true;
+
+
+    }
+
+//Added for India Redirect
+public PageReference goToMarketSpecificPage() {
+        String vfpage = '';
+        CreateAccountVFSetting__mdt pageSetting;
+        String market = [select market__c from User where id =:UserInfo.getUserId()].market__c;
+        if (market != null && market != '' && market == Label.IN){
+            List<CreateAccountVFSetting__mdt> lstpageSetting = [select VFPageName__c from CreateAccountVFSetting__mdt where market__c = :Label.IN limit 1];
+            if (lstpageSetting.size() > 0){
+                pageSetting = lstpageSetting[0];
+            }
+            if (pageSetting != null){
+                vfpage = pageSetting.VFPageName__c;
+            }
+        }
+        if (vfpage != null && vfpage != ''){
+             PageReference accPage = new PageReference('/apex/'+ vfpage);
+             accPage.setRedirect(true);
+             return accPage;
+        }
+        return null;
     }
 
 }

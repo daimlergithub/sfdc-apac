@@ -163,9 +163,9 @@ public class AddressDisplayInlineEditController {
         else if(market == System.Label.IN)
         {
             //03142018 Namitha : Added for Foreign national checkbox functionality for India market.
-            if(AddressObj.Country__c != 'India' || AddressObj.Foreign_Nationals__c==true){
+            if(AddressObj.Foreign_Nationals__c==true){
                 IsForeignNational=true;
-                AddressObj.Country__c = '--None--';
+                if(AddressObj.Country__c == 'India')AddressObj.Country__c = '--None--';
                 province='';
                 district='';
                 }
@@ -354,9 +354,22 @@ public class AddressDisplayInlineEditController {
             district=editadds.District__c;
             subdistrict=editadds.Sub_District__c;
              LanguageSelected=editadds.Language__c;
-            
-            LoadProvince();
-            LoadDistrict();
+             //03192018 Namitha Added to load only State Picklist for India Market
+             if(market=='IN')
+             {
+                LoadProvince();
+                //03202018: Namitha Added below logic to render state as a textbox for Foreign national else a picklist.
+                if(addressobj.Foreign_Nationals__c == false)
+                {
+                    
+                    IsForeignNational=false;
+                }
+                else
+                {
+                    IsForeignNational=true;
+                    if(AddressObj.Country__c == 'India')AddressObj.Country__c = '--None--';
+                }
+             }
             if(market=='TH' || Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
@@ -489,25 +502,23 @@ public class AddressDisplayInlineEditController {
         * @Date        : 02/8/2017    
     **/ 
     
-    public void SaveAddressTH()
-    {
-        try
-        {
-            Validation=false;
-            if(province!='' && province!=System.Label.SelectPicklist)
-                addressobj.Province__c=province;
-            if(district!='' && district!=System.Label.SelectPicklist)
-                addressobj.District__c=district;
-            if(subdistrict!='' && subdistrict!=System.Label.SelectPicklist)
-                addressobj.Sub_District__c=subdistrict;
-            if(zip!='' && zip!=System.Label.SelectPicklist)
-                addressobj.ZipCode__c=zip;
-            if(addresspicklist!=null)
-                addressobj.Address_Type__c = addresspicklist;   
-            string accountid=ApexPages.currentPage().getParameters().get('id');
-            List<address__c> objAddresses=[select id,preferred__c from address__c where Customer__c=:accountid and preferred__c=true LIMIT 100];
-            
-      //commented by Tej on 12-6-2017 to implement new preferred logic
+    public void SaveAddressTH() {
+        try {
+            Validation = false;
+            if (province != '') //&& province!=System.Label.SelectPicklist)
+                addressobj.Province__c = province;
+            if (district != '') //&& district!=System.Label.SelectPicklist)
+                addressobj.District__c = district;
+            if (subdistrict != '') //&& subdistrict!=System.Label.SelectPicklist)
+                addressobj.Sub_District__c = subdistrict;
+            if (zip != '') //&& zip!=System.Label.SelectPicklist)
+                addressobj.ZipCode__c = zip;
+            if (addresspicklist != null)
+                addressobj.Address_Type__c = addresspicklist;
+            string accountid = ApexPages.currentPage().getParameters().get('id');
+            List < address__c > objAddresses = [select id, preferred__c from address__c where Customer__c =: accountid and preferred__c = true LIMIT 100];
+			
+            //commented by Tej on 12-6-2017 to implement new preferred logic
             /*for(address__c add:objAddresses)
             {               
                 if(add.id!=addressobj.id && addressobj.preferred__c==true) 
@@ -515,111 +526,93 @@ public class AddressDisplayInlineEditController {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'There must be only one Preferred address.')); 
                     Validation = true;  
                 }               
-            }*/
-            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5}$',addressobj.ZipCode__c)))
-            {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.')); 
-                 Validation = true;                     
+            }*/			
+			
+            System.debug('8888' + addressobj.ZipCode__c + addressobj.Address_Line_1__c + addressobj.Province__c + addressobj.District__c + addressobj.Sub_District__c);
+            if (addressobj.ZipCode__c == null || addressobj.ZipCode__c == System.Label.SelectPicklist) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
+                Validation = true;
             }
-            if(addressobj.ZipCode__c == null)
-            {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.')); 
-                Validation = true;                      
+            if (addressobj.ZipCode__c != null && (addressobj.ZipCode__c != System.Label.SelectPicklist) && (!Pattern.matches('^[0-9]{5}$', addressobj.ZipCode__c))) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIP CODE should be minimum 5 digits and ONLY Numbers.'));
+                Validation = true;
             }
-            if(addressobj.Address_Line_1__c == null)
-            {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_1__c is Mandatory.'));
-                Validation = true;                      
-            }
-            else
-            {            
-                if(addressobj.Address_Line_1__c.length()>100)
-                {
+
+            if (addressobj.Address_Line_1__c == null) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 is Mandatory.'));
+                Validation = true;
+            } else {
+                if (addressobj.Address_Line_1__c.length() > 100) {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 1 should be less than or equal to 100 characters.'));
-                    Validation = true;                      
+                    Validation = true;
                 }
             }
-            if(addressobj.Province__c == null)
-            {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province __c is Mandatory.'));  
+            if (addressobj.Province__c == null || addressobj.Province__c == System.Label.SelectPicklist) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Province is Mandatory.'));
             }
-            if(addressobj.District__c == null )
-            {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District__c is Mandatory.')); 
-                Validation = TRUE;                        
+            if (addressobj.District__c == null || addressobj.District__c == System.Label.SelectPicklist) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'District is Mandatory.'));
+                Validation = TRUE;
             }
-            if(addressobj.Sub_District__c == null)
-            {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sub_District__c is Mandatory.')); 
-                Validation = TRUE;                        
+            if (addressobj.Sub_District__c == null || addressobj.Sub_District__c == System.Label.SelectPicklist) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Sub-District is Mandatory.'));
+                Validation = TRUE;
             }
-            if(addressobj.Address_Line_2__c == null )
+            /*if(addressobj.Address_Line_2__c == null )
             {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address_Line_2__c is Mandatory.')); 
                 Validation = TRUE;                        
             }
             else
-            {            
-                if(addressobj.Address_Line_2__c.length()>100)
-                {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
-                    Validation = true;                      
-                }
+            { */
+            if (String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length() > 100) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+                Validation = true;
             }
-            if(Validation == False){        
-                refreshPage = true; 
-                List<Address__c> addressLst=new List<Address__c>();
-                Account acc =[select id,name,Primary_Address_Reference__c from Account where id=:ApexPages.currentPage().getParameters().get('id')];
-                Account acc1 =new Account(Id=acc.Id);
-                if (editaddressId ==null)
-                {           
-                    
-                    addressobj.Customer__c = acc.id;  
-                    addressobj.Language__c =LanguageSelected;
-                    
+            if (Validation == False) {
+                refreshPage = true;
+                List < Address__c > addressLst = new List < Address__c > ();
+                Account acc = [select id, name, Primary_Address_Reference__c from Account where id =: ApexPages.currentPage().getParameters().get('id')];
+                Account acc1 = new Account(Id = acc.Id);
+                if (editaddressId == null) {
+
+                    addressobj.Customer__c = acc.id;
+                    addressobj.Language__c = LanguageSelected;
+
                     DMLManagerService.insertAsSystem(addressobj);
-                    
-                }
-                else
-                {
+
+                } else {
                     addressobj.id = editaddressId;
                     addressobj.Customer__c = acc.id;
-                    addressobj.Language__c =LanguageSelected;
+                    addressobj.Language__c = LanguageSelected;
                     DMLManagerService.updateAsSystem(addressobj);
-                   
+
                 }
                 //if one of the preferred check box is checked, then uncheck other preferred check box
-                if(adds!=null && adds.size()>0)
-                {
-                    if(addressobj.Preferred__c)
-                    {
-                        for(Address__c addressObj1:adds)
-                        {
-                            if(addressObj1.Id!=addressobj.Id)
-                            {
-                                addressObj1.Preferred__c=false;
-                              addressLst.add(addressObj1);
+                if (adds != null && adds.size() > 0) {
+                    if (addressobj.Preferred__c) {
+                        for (Address__c addressObj1: adds) {
+                            if (addressObj1.Id != addressobj.Id) {
+                                addressObj1.Preferred__c = false;
+                                addressLst.add(addressObj1);
                             }
-                            
+
                         }
-                        
+
                     }
-                    if(addressLst!=null && addressLst.size()>0)
-                       DMLManagerService.updateAsSystem(addressLst);
+                    if (addressLst != null && addressLst.size() > 0)
+                        DMLManagerService.updateAsSystem(addressLst);
                 }
                 //update sales address field in account if preferred checkbox is checked
-                if(addressobj.Preferred__c)
-                {
-                    acc1.Primary_Address_Reference__c=addressobj.Id;
+                if (addressobj.Preferred__c) {
+                    acc1.Primary_Address_Reference__c = addressobj.Id;
                     DMLManagerService.updateAsSystem(acc1);
                 }
             }
-        }
-        catch (DmlException e) 
-        {
+        } catch (DmlException e) {
             refreshPage = false;
-            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                    
-            system.debug(e.getDMLMessage(0)+'   Error Meassage   '+refreshPage);
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error, e.getDMLMessage(0)));
+            system.debug(e.getDMLMessage(0) + '   Error Meassage   ' + refreshPage);
         }
     }
     
@@ -773,13 +766,13 @@ public class AddressDisplayInlineEditController {
                     Validation = true;          
                 }                       
             } 
-            if(addressobj.Address_Line_1__c == null || addressobj.Province__c == null || addressobj.District__c == null || addressobj.ZipCode__c == null || addressobj.ZipCode__c == '')        
+            if(addressobj.Address_Line_1__c == null || addressobj.Province__c == null || addressobj.District__c == null || addressobj.ZipCode__c == null || addressobj.ZipCode__c == '' || addressobj.Country__c == null || addressobj.Country__c == '' )        
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Address_Mandatory_Fields));       
                 Validation = true;                              
             }           
               
-            if(addressobj.ZipCode__c != null && addressobj.ZipCode__c != ''  && (!Pattern.matches('^[0-9]{6}$',addressobj.ZipCode__c)))      
+            if(addressobj.Country__c == 'India' && addressobj.ZipCode__c != null && addressobj.ZipCode__c != ''  && (!Pattern.matches('^[0-9]{6}$',addressobj.ZipCode__c)))      
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Postal_Code_validation));        
                  Validation = true;                             
@@ -1287,5 +1280,106 @@ If the user is Saving  same address which matches the fields returned by toleran
                 AddressObj.Temp_Address__c = '';            
             }
         }           
-    }    
+    } 
+
+	public void SaveAddressAU()     
+    {       
+        try     
+        {       
+            Validation=false;   
+      boolean countPre=false;
+      if(province!='' && province!=System.Label.SelectPicklist)      
+                addressobj.Province__c=province;        
+            if(district!='' && district!=System.Label.SelectPicklist)      
+                addressobj.District__c=district;        
+            if(zip!=null || zip!='')        
+                addressobj.ZipCode__c=zip;      
+            if(addresspicklist!=null)       
+                addressobj.Address_Type__c = addresspicklist;           
+            string accountid=ApexPages.currentPage().getParameters().get('id');     
+            List<address__c> objAddresses=[select id,preferred__c,Address_Type__c from address__c where Customer__c=:accountid LIMIT 100];        
+             
+      if(addressobj.preferred__c == true) countPre=true;
+        
+            for(address__c add:objAddresses)        
+            {                       
+                if(add.id!=addressobj.id && add.preferred__c==true && countPre==true)      
+                {                       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.OnePreferredError));         
+                    Validation = true;          
+                }  
+                
+                if(add.id!=addressobj.id && addressobj.Address_Type__c==add.Address_Type__c)      
+                {                       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeError));         
+                    Validation = true;          
+                }                       
+            } 
+      
+            if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{3,4}',addressobj.ZipCode__c)))      
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter valid Postal code'));        
+                 Validation = true;                             
+            }       
+            if(addressobj.Address_Line_1__c == null)        
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline1Mandatory));       
+                Validation = true;                              
+            }       
+            else        
+            {                   
+                if(addressobj.Address_Line_1__c.length()>100)       
+                {       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddressline1Length));        
+                    Validation = true;                              
+                }       
+            }       
+            if(addressobj.Province__c == null)      
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.StateProvError));        
+            }       
+    
+            if(addressobj.Address_Line_2__c == null )       
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline2));       
+                Validation = TRUE;                              
+            }       
+            else        
+            {                   
+                if(addressobj.Address_Line_2__c.length()>100)       
+                {       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddresslinelen2Length));        
+                    Validation = true;                              
+                }       
+            }       
+                    
+                  
+            if(Validation == False){                
+                refreshPage = true;         
+                Account acc =[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];     
+                if (editaddressId ==null)       
+                {                   
+                            
+                    addressobj.Customer__c = acc.id;   
+                    DMLManagerService.insertAsSystem(addressobj);     
+                         
+                }       
+                else        
+                {       
+                    addressobj.id = editaddressId;      
+                    addressobj.Customer__c = acc.id; 
+                    DMLManagerService.updateAsSystem(addressobj);       
+                     
+                }       
+            }       
+        }       
+        catch (Exception e)      
+        {       
+            refreshPage = false;        
+            ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getMessage()));                           
+            CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred '+e+'-'+e.getlinenumber());       
+        }
+        
+    }       
+    
 }

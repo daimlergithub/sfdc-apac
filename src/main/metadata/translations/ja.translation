@@ -1481,6 +1481,34 @@
         <name>Elegance</name>
     </customLabels>
 	<customLabels>
+        <label>携帯電話番号</label>
+        <name>MobileAcc</name>
+    </customLabels>
+	 <customLabels>
+        <label>勤務先携帯電話番号</label>
+        <name>Work_Mobile_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>その他電話番号2</label>
+        <name>Phone_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>勤務先Eメール</label>
+        <name>Email2_Acc</name>
+    </customLabels>
+	 <customLabels>
+        <label>自宅電話番号</label>
+        <name>Home_Phone_Acc</name>
+    </customLabels>
+	 <customLabels>
+        <label>勤務先電話番号</label>
+        <name>Work_Phone_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>自宅Eメール</label>
+        <name>Email_Acc</name>
+    </customLabels>
+	<customLabels>
         <label>自宅Eメール</label>
         <name>Email</name>
     </customLabels>
@@ -4623,6 +4651,10 @@
 	<customLabels>
         <label>送信内容の確認　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください</label>
         <name>Selected_Record</name>
+    </customLabels>
+	 <customLabels>
+        <label>選択された区分の住所は、この車両顧客関係に紐付いたアカウントに登録されていません。</label>
+        <name>Selected_type_of_address_is_not_existing_for_the_corresponding_account</name>
     </customLabels>
     <customLabels>
         <label>販売拠点</label>

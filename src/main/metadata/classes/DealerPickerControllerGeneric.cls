@@ -119,7 +119,7 @@ public with Sharing class DealerPickerControllerGeneric {
          Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
          String commubaseurl='';
          boolean flag;        
-         String communityName='Dealer Community MB Malaysia';    //market specific community name
+         String communityName='Dealer Community Malaysia';    //market specific community name
          List<Network>  myNetwork = [SELECT Id,Name FROM Network];
          retcamp=[select name,id,ownerid from Retail_Campaign__C where id =:campaignID];
          for(Network net:myNetwork){

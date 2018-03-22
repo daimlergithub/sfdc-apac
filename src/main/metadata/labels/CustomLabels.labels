@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+	<labels>
+        <fullName>Contact_Lead_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Lead Status</shortDescription>
+        <value>Assigned,New</value>
+    </labels>
     <labels>
         <fullName>A6_Contact_as_part_of_visiting_a_car_dealership</fullName>
         <language>en_US</language>
@@ -76,6 +83,27 @@
         <protected>false</protected>
         <shortDescription>Lead Merge screen</shortDescription>
         <value>Interested competitor Vehicle Details</value>
+    </labels>
+	<labels>
+        <fullName>AU</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AU</shortDescription>
+        <value>AU</value>
+    </labels>
+    <labels>
+        <fullName>AUGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AUGeneric(This is used by AU Market for access check)</shortDescription>
+        <value>AUGeneric</value>
+    </labels>
+    <labels>
+        <fullName>AUPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AUPhoneCountryCode</shortDescription>
+        <value>+61</value>
     </labels>
 			<labels>
         <fullName>Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition</fullName>
@@ -162,6 +190,55 @@
         <protected>false</protected>
         <shortDescription>Accept Lead / cases custom button</shortDescription>
         <value>This button is for Korea partner users only</value>
+    </labels>
+	<labels>
+        <fullName>MobileAcc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Mobile fields which are referenced in VF pages Account Creation</shortDescription>
+        <value>Mobile</value>
+    </labels>
+	<labels>
+        <fullName>Work_Mobile_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Work Mobile  fields to be referenced in VF pages</shortDescription>
+        <value>Work Mobile</value>
+    </labels>
+	 <labels>
+        <fullName>Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone </shortDescription>
+        <value>Phone</value>
+    </labels>
+	<labels>
+        <fullName>Email2_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email2</shortDescription>
+        <value>Email2</value>
+    </labels>
+	<labels>
+        <fullName>Home_Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone</shortDescription>
+        <value>Home Phone</value>
+    </labels>
+	 <labels>
+        <fullName>Work_Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone</shortDescription>
+        <value>Work Phone</value>
+    </labels>
+	<labels>
+        <fullName>Email_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription> Email</shortDescription>
+        <value>Email</value>
     </labels>
     <labels>
         <fullName>A6_Email</fullName>
@@ -2180,6 +2257,13 @@
         <value>Company Name should be less than or equal to 40 letters.</value>
     </labels>
     <labels>
+        <fullName>Company_Record_Country</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Record Country India</shortDescription>
+        <value>Country should not be other than India for Company Account</value>
+    </labels>
+    <labels>
         <fullName>Compared_Vehicle_Brand</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3444,6 +3528,14 @@ please contact the number below.</value>
         <value>Fax</value>
     </labels>
     <labels>
+        <fullName>Fax_allows_digits_only</fullName>
+        <categories>India phone validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fax allows digits only</shortDescription>
+        <value>Fax Number allows digits only</value>
+    </labels>
+    <labels>
         <fullName>Field</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3905,7 +3997,7 @@ please contact the number below.</value>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Address Mandatory Fields</shortDescription>
-        <value>For Address creation, Address Line 1, State, City, Zip code are mandatory.</value>
+        <value>For Address creation, Address Line 1, Country, State, City, Zip code are mandatory.</value>
     </labels>
     <labels>
         <fullName>IN_City_Vaidation</fullName>
@@ -4023,6 +4115,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>India Contact Format allows only digits</shortDescription>
         <value>Home Phone number, Work Phone number, Fax number and Mobile Phone number only allows digits</value>
+    </labels>
+    <labels>
+        <fullName>India_Fax_Format</fullName>
+        <categories>India phone validation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>India Fax Format</shortDescription>
+        <value>Fax should be in any of these format: +91-XX-XXXXXXXX/+91-XXX-XXXXXXX/+91-XXXX-XXXXXX</value>
     </labels>
     <labels>
         <fullName>India_Home_Phone_Format</fullName>
@@ -5361,6 +5461,28 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>Mass Assign Recall Tasks Assign Rules</shortDescription>
         <value>Assign Rules</value>
     </labels>
+	<labels>
+        <fullName>NZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NZ</shortDescription>
+        <value>NZ</value>
+    </labels>
+    <labels>
+        <fullName>NZGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NZGeneric(This is used by NZ Market for access check)</shortDescription>
+        <value>NZGeneric</value>
+    </labels>
+    <labels>
+        <fullName>NZPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NZPhoneCountryCode</shortDescription>
+        <value>+64</value>
+    </labels>
+    
     <labels>
         <fullName>Mass_Assign_Recall_Tasks_Assign_Tasks_to_Agents</fullName>
         <categories>Mass Assign Recall Tasks</categories>
@@ -7304,6 +7426,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>RET_02_01_ServiceAmountView</shortDescription>
         <value>RET_02_01_ServiceAmountView</value>
+    </labels>
+    <labels>
+		<fullName>RSVP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RSVP(This is Used for RSVP implementation)</shortDescription>
+        <value>RSVP</value>
     </labels>
     <labels>
         <fullName>Range_Model</fullName>
@@ -9259,6 +9388,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Selected Record</shortDescription>
         <value>Selected Record</value>
     </labels>
+	<labels>
+        <fullName>Selected_type_of_address_is_not_existing_for_the_corresponding_account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selected type of address is not existing for the corresponding account</shortDescription>
+        <value>Selected type of address is not existing for the corresponding account.</value>
+    </labels>
     <labels>
         <fullName>SellingDealer</fullName>
         <language>en_US</language>
@@ -11050,7 +11186,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>korea Business Hours Id</shortDescription>
-        <value>01m28000000kAjx</value>
+        <value>01mO00000004Djp</value>
     </labels>
     <labels>
         <fullName>l_AtmospherePerceptionandLighting</fullName>

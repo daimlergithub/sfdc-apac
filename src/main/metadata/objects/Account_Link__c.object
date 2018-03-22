@@ -4986,6 +4986,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
+			 
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
@@ -9686,7 +9687,14 @@ MD__c = 'JP')</errorConditionFormula>
  $UserRole.Name &lt;&gt; " Partner Executive",
  $UserRole.Name &lt;&gt; " Partner manager",
 $Permission.INGeneric )</errorConditionFormula>
-        <errorMessage>Only gatekeeper and supervisors (level 2 in dealer hierarchy) should be able to edit the Retail Sales Consultant field.</errorMessage>
+        <errorMessage>Only gatekeeper should be able to edit the Retail Sales Consultant field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Role1_Role2_Blank_Check_Generic</fullName>
+        <active>true</active>
+        <description>This is used to check if role1 or role2 is blank</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric, RecordType.DeveloperName = 'Contact2Contact', OR(ISBLANK( TEXT(Role__c )), ISBLANK(TEXT( Role2__c)) ))</errorConditionFormula>
+        <errorMessage>Role cannot be blank</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Same_Role1_and_Role2_IN</fullName>

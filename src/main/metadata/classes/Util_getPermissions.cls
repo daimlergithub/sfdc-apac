@@ -6,12 +6,20 @@
 **/
 
 public class Util_getPermissions {
-    public static String profileName;
+    public static String profileName = '';
     public static User u;
-    public Boolean checkCustomPermission(String customPermission){
-        u =[Select id,profileid, market__c from user where id=:UserInfo.getUserId()] ;
-        profileName=[Select Id,Name from Profile where Id =: u.ProfileId].Name;
-        List<String> customPermissionList = Util_getPermissions.getCustomPermissions(u.Id);
+    public static List<String> customPermissionList;
+    public static Boolean checkCustomPermission(String customPermission){
+        if (u == null){
+            u =[Select id,profileid, market__c from user where id=:UserInfo.getUserId()] ;
+        }
+        if (profileName == null || profileName == ''){
+            profileName=[Select Id,Name from Profile where Id =: u.ProfileId].Name;
+        }
+        if (customPermissionList == null || customPermissionList.size() == 0){
+            customPermissionList = Util_getPermissions.getCustomPermissions(u.Id);
+        }
+        
         if((customPermissionList != null && customPermissionList.size()>0 && customPermissionList.contains(customPermission)) || profileName.equals('IntegrationAPI')){
             return true; 
         }

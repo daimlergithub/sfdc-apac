@@ -171,4 +171,109 @@ public with sharing class  DMRequestHelperBase {
             }
         
     }
+    
+    public static list<DM_Material__Share> insertDMMaterialShareList = new list<DM_Material__Share>();
+    public static void shareDMRequestRecordsWithDealer (list<DM_Request__c> dmRequestListNew, Map<ID, DM_Request__c> dmRequestlListOld, String market)
+    {
+        if(userinfo.getUserType() == 'PowerPartner')
+        {
+            list<DM_Request__Share> insertDMRequestShareList = new list<DM_Request__Share>();
+            list<Id> userIdList = new list<Id>();
+            set<string> dealerCompNdCodeSet = new set<string>();
+            list<Group> dealerCompGroupList = new list<Group>();
+            User currentUser = [select Id, Contact.Account.Dealer_Type__c, Contact.Account.Dealer_ND_Code__c,Contact.Account.Md__c,Market__c from User where Id =: UserInfo.getUserId()];
+            
+            if(String.isNotBlank(currentUser.Contact.Account.Dealer_ND_Code__c)){
+               //String dealerndcode = currentUser.Contact.Account.Dealer_ND_Code__c;
+			   String dealerndcode = currentUser.Contact.Account.Md__c+currentUser.Contact.Account.Dealer_ND_Code__c;
+               dealerCompGroupList = [select Id, Name from Group where Name = :dealerndcode];
+               if(!dmRequestListNew.isEmpty() && dmRequestListNew != null)
+                {
+                    for(DM_Request__c dmRqtl : dmRequestListNew)
+                    {
+                        if(!dealerCompGroupList.isEmpty() && dealerCompGroupList != null)
+                        {
+                            for(group grp : dealerCompGroupList)
+                            {
+                                DM_Request__Share dmRqtShare = new DM_Request__Share();
+                                dmRqtShare.ParentId = dmRqtl.Id;
+                                dmRqtShare.AccessLevel = 'Edit';
+                                dmRqtShare.UserOrGroupId = grp.Id;
+                                insertDMRequestShareList.add(dmRqtShare);
+                            }
+                        }
+                    }
+                }
+            }
+            system.debug('*$*$*$*$* insertDMRequestShareList  ' + insertDMRequestShareList);
+            if(!insertDMRequestShareList.isEmpty() && insertDMRequestShareList != null)
+            {
+                DMLManagerService.InsertAsSystem(insertDMRequestShareList);
+            }
+        }
+        else{
+            list<DM_Request__Share> insertDMRequestShareList = new list<DM_Request__Share>();
+            list<Id> userIdList = new list<Id>();
+            set<Id> ownerIdSet = new set<Id>();
+            set<string> dealerCompNdCodeSet = new set<string>();
+            list<Group> dealerCompGroupList = new list<Group>();
+            List<DM_Request__c> lDMRqt = new List<DM_Request__c>([Select id, Assigned_Dealer__r.Dealer_ND_Code__c, Actual_DM_Material1__c, Actual_DM_Material2__c, Actual_DM_Material3__c, Expected_DM_Material1__c, Expected_DM_Material2__c, Expected_DM_Material3__c,Assigned_Dealer__r.Md__c from DM_Request__c where ID in :dmRequestListNew]);
+            Map<ID, String> mDMRqtToDealerND = new Map<ID, String>();
+            for(DM_Request__c dmRqtl : lDMRqt){
+                if((Trigger.isInsert && dmRqtl.Assigned_Dealer__c != NULL) || (Trigger.isUpdate && dmRqtl.Assigned_Dealer__c != NULL && dmRqtl.Assigned_Dealer__c != dmRequestlListOld.get(dmRqtl.ID).Assigned_Dealer__c)){
+                    //mDMRqtToDealerND.put(dmRqtl.ID, dmRqtl.Assigned_Dealer__r.Dealer_ND_Code__c);
+					string grpName=dmRqtl.Assigned_Dealer__r.Md__c+dmRqtl.Assigned_Dealer__r.Dealer_ND_Code__c;
+					//mDMRqtToDealerND.put(dmRqtl.ID, dmRqtl.Assigned_Dealer__r.Dealer_ND_Code__c);
+					mDMRqtToDealerND.put(dmRqtl.ID,grpName);
+                }       
+            }
+            if(!mDMRqtToDealerND.isEmpty()){
+                dealerCompGroupList = [select Id, Name from Group where Name in :mDMRqtToDealerND.values()];
+                if(!dealerCompGroupList.isEmpty() && dealerCompGroupList != NULL){
+                    Map<String, ID> mGroupNameToID = new Map<String, ID>();
+                    for(Group grp : dealerCompGroupList){
+                        mGroupNameToID.put(grp.name, grp.ID);
+                    }
+                    if(!mGroupNameToID.isEmpty()){
+                        for(DM_Request__c dmRqst : lDMRqt){
+                            DM_Request__Share dmRequestShare = new DM_Request__Share();
+                            dmRequestShare.ParentID = dmRqst.ID;
+                            dmRequestShare.AccessLevel = 'EDIT';
+							String grpName=dmRqst.Assigned_Dealer__r.MD__c+dmRqst.Assigned_Dealer__r.Dealer_ND_Code__c;
+                            //dmRequestShare.UserOrGroupID = mGroupNameToID.get(dmRqst.Assigned_Dealer__r.Dealer_ND_Code__c);
+							dmRequestShare.UserOrGroupID = mGroupNameToID.get(grpName);
+                            insertDMRequestShareList.add(dmRequestShare);
+                            if((Trigger.isInsert && dmRqst.Actual_DM_Material1__c != NULL) || (Trigger.isUpdate && dmRqst.Actual_DM_Material1__c != NULL && dmRqst.Actual_DM_Material1__c != dmRequestlListOld.get(dmRqst.ID).Actual_DM_Material1__c))
+                            addDMMaterialShareRecordToList(dmRqst.Actual_DM_Material1__c, mGroupNameToID.get(grpName)); 
+                            if((Trigger.isInsert && dmRqst.Actual_DM_Material2__c != NULL) || (Trigger.isUpdate && dmRqst.Actual_DM_Material2__c != NULL && dmRqst.Actual_DM_Material2__c != dmRequestlListOld.get(dmRqst.ID).Actual_DM_Material2__c))
+                            addDMMaterialShareRecordToList(dmRqst.Actual_DM_Material2__c, mGroupNameToID.get(grpName));
+                            if((Trigger.isInsert && dmRqst.Actual_DM_Material3__c != NULL) || (Trigger.isUpdate && dmRqst.Actual_DM_Material3__c != NULL && dmRqst.Actual_DM_Material3__c != dmRequestlListOld.get(dmRqst.ID).Actual_DM_Material3__c))
+                            addDMMaterialShareRecordToList(dmRqst.Actual_DM_Material3__c, mGroupNameToID.get(grpName));
+                            if((Trigger.isInsert && dmRqst.Expected_DM_Material1__c != NULL) || (Trigger.isUpdate && dmRqst.Expected_DM_Material1__c != NULL && dmRqst.Expected_DM_Material1__c != dmRequestlListOld.get(dmRqst.ID).Expected_DM_Material1__c))
+                            addDMMaterialShareRecordToList(dmRqst.Expected_DM_Material1__c, mGroupNameToID.get(grpName));
+                            if((Trigger.isInsert && dmRqst.Expected_DM_Material2__c != NULL) || (Trigger.isUpdate && dmRqst.Expected_DM_Material2__c != NULL && dmRqst.Expected_DM_Material2__c != dmRequestlListOld.get(dmRqst.ID).Expected_DM_Material2__c))
+                            addDMMaterialShareRecordToList(dmRqst.Expected_DM_Material2__c, mGroupNameToID.get(grpName));
+                            if((Trigger.isInsert && dmRqst.Expected_DM_Material3__c != NULL) || (Trigger.isUpdate && dmRqst.Expected_DM_Material3__c != NULL && dmRqst.Expected_DM_Material3__c != dmRequestlListOld.get(dmRqst.ID).Expected_DM_Material3__c))
+                            addDMMaterialShareRecordToList(dmRqst.Expected_DM_Material3__c, mGroupNameToID.get(grpName));
+                        }
+                        
+                        if(insertDMRequestShareList != NULL && !insertDMRequestShareList.isEmpty()){
+                            DMLManagerService.InsertAsSystem(insertDMRequestShareList);
+                        }
+                        if(insertDMMaterialShareList != NULL && !insertDMMaterialShareList.isEmpty()){
+                            DMLManagerService.InsertAsSystem(insertDMMaterialShareList);
+                        }   
+                    }
+                }
+            }
+        }
+    }
+    
+    public static void addDMMaterialShareRecordToList(ID DMMaterialID, ID UserGroupID){
+        DM_Material__Share dmMtrlShare = new DM_Material__Share();
+        dmMtrlShare.ParentId = DMMaterialID;
+        dmMtrlShare.AccessLevel = 'Edit';
+        dmMtrlShare.UserOrGroupId = UserGroupID;
+        insertDMMaterialShareList.add(dmMtrlShare);
+    }
 }

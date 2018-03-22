@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<?xml version="1.0" encoding="UTF-8"?>  
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata"> 
 	<alerts>
         <fullName>Escalate_Case_to_Case_owner_Manager</fullName>
         <description>Escalate Case to Case owner Manager</description>
@@ -1641,7 +1641,7 @@
             <name>Case_owner_manager_update</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -2803,7 +2803,7 @@
             <name>Update_Creator_Department_to_Dealer_MY</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Case.MD__c</field>
             <operation>equals</operation>
@@ -2865,7 +2865,7 @@
         </actions>
         <active>true</active>
         <description>Update the owner of the case coming from COS.</description>
-        <formula>!ISNULL( COS_Ticket_Number__c )&amp;&amp;ISPICKVAL(Market__c, &apos;TH&apos;)</formula>
+        <formula>!ISNULL( COS_Ticket_Number__c )&amp;&amp;!ISBLANK( COS_Ticket_Number__c )&amp;&amp;ISPICKVAL(Market__c, &apos;TH&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

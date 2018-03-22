@@ -1189,6 +1189,211 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	 <fields>
+        <fullName>State_City__c</fullName>
+        <description>To capture state/city for ANZ</description>
+        <externalId>false</externalId>
+        <label>State/City</label>
+        <picklist>
+            <controllingField>Country__c</controllingField>
+            <picklistValues>
+                <fullName>ACT</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NSW</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NT</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SA</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TAS</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QLD</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WA</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VIC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auckland</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bay of Plenty</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blenheim</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Christchurch</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dunedin</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gisborne</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greymouth</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hamilton</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hastings</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invercargill</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manawatu</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Napier</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nelson</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Plymouth</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>North Island - Central and East</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>North Island - North</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>North Island - West</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Palmerston North</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pokeno</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Queenstown</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rotorua</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tauranga</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taupo</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>The South Island</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Timaru</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wairarapa</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wanaka</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wanganui</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wellington</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Whangarei</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>State__c</fullName>
         <externalId>false</externalId>
@@ -1300,6 +1505,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	  <fields>
+        <fullName>Suburb__c</fullName>
+        <description>Suburb details  for AU/NZ</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Suburb</inlineHelpText>
+        <label>Suburb</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1504,6 +1722,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
+			
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
@@ -2720,9 +2939,10 @@ OR(
 Address_Line_1__c  = '',
 District__c = '',
 ISPICKVAL( Province__c ,''),
+ISPICKVAL(Country__c , ''),
 ZipCode__c = ''
 ))</errorConditionFormula>
-        <errorMessage>For Address creation, Address Line 1, State, City, Zip code are mandatory.</errorMessage>
+        <errorMessage>For Address creation, Address Line 1, Country, State, City, Zip code are mandatory.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Address_Market_Cannot_be_Changed</fullName>
@@ -2855,7 +3075,7 @@ NOT(REGEX(ZipCode__c,"[0-9]{6}"))
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
 $Permission.INGeneric, 
-OR(ISCHANGED(ZipCode__c),ISNEW()), 
+OR(ISCHANGED(ZipCode__c),ISNEW()),  TEXT( Country__c ) = 'India',
 NOT(ISBLANK(ZipCode__c)),
 NOT(REGEX(ZipCode__c,"[0-9]{6}")) 
 )</errorConditionFormula>

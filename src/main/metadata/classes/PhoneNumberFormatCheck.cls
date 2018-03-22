@@ -73,18 +73,42 @@ public Class PhoneNumberFormatCheck{
         }
         return true;
     }
+    //Fax
+    public boolean faxFieldFormatIN(String faxCountryCode, String faxAreaCode, String faxphoneNumber){
+        if(faxCountryCode =='' && (faxAreaCode != '' || faxphoneNumber != '')){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Fax_Format));
+            return false;
+        }
+        if(faxCountryCode!='' && (faxCountryCode==label.INPhoneCountryCode)){
+            //Area code & Fax number validation
+            if((faxAreaCode != '' && faxphoneNumber == '') || (faxAreaCode == '' && faxphoneNumber != '')){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Fax_Format));
+                return false;
+            }
+            else if(faxAreaCode != '' && faxphoneNumber != ''){
+                if(!(Pattern.matches(areaCodeCheck, faxAreaCode) && Pattern.matches(phoneCheck, faxphoneNumber) && Pattern.matches(mobileCheck, faxAreaCode+faxphoneNumber))){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Fax_Format));
+                    return false;
+                }
+            }
+            
+        }
+        if(faxCountryCode!='' && (faxCountryCode!=label.INPhoneCountryCode) && faxphoneNumber != null && !String.isBlank(faxphoneNumber)){
+            try{
+                digitsPhoneNumber = Integer.valueOf(faxphoneNumber);
+            }
+            catch(exception e){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.Fax_allows_digits_only));
+                return false;
+            }
+        }
+        return true;
+    }
     //Mobile Phone
     public boolean mobilePhoneFieldFormatIN(String mbCountryCode, String mbphoneNumber){
         if(mbCountryCode =='' && mbphoneNumber != ''){
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, ''));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Mobile_Phone_Format));
             return false;
-        }
-        if(mbCountryCode!='' && (mbCountryCode==label.INPhoneCountryCode) && mbphoneNumber != ''){
-            //Phone number validation
-            if(!Pattern.matches(mobileCheck, mbphoneNumber)){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Mobile_Phone_Format));
-                return false;
-            }
         }
         if(mbCountryCode!='' && mbCountryCode!=label.INPhoneCountryCode && mbphoneNumber != null && !String.isBlank(mbphoneNumber)){
             try{
@@ -95,6 +119,14 @@ public Class PhoneNumberFormatCheck{
                 return false;
             }
         }
+        if(mbCountryCode!='' && (mbCountryCode==label.INPhoneCountryCode) && mbphoneNumber != ''){
+            //Phone number validation
+            if(!Pattern.matches(mobileCheck, mbphoneNumber)){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Mobile_Phone_Format));
+                return false;
+            }
+        }
+        
         return true;
     }
 

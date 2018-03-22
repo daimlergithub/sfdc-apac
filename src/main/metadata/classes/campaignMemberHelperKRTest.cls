@@ -18,6 +18,8 @@ private class campaignMemberHelperKRTest
     public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     public static list<CampaignMember> campMembrList;
     public static list<Contact> contList;
+    public static Campaign campExec;
+    public static map<Id, CampaignMember> campMembrMap = new map<Id, CampaignMember>();
     
     public static void testDataPreparation()
     {
@@ -46,7 +48,7 @@ private class campaignMemberHelperKRTest
         campDsgn.RecordTypeId = campDsgRecTypId;
         insert campDsgn;
         
-        Campaign campExec = new Campaign();
+        campExec = new Campaign();
         campExec.IsActive = true; 
         campExec.Name = 'Test Campaign'; 
         campExec.Task_Created_By__c = 'Contact';
@@ -79,9 +81,12 @@ private class campaignMemberHelperKRTest
 	        CampaignMember campMbr = new CampaignMember();
 	        campMbr.CampaignId = campExec.Id;
 	        campMbr.ContactId = con.Id;           
-	        campMbr.Status = 'Send';
+	        campMbr.Status = 'Sent';
+           campMbr.Status__c = 'Sent';
+            campMbr.MD__c = 'KR';
 	        campMbr.Task_Generated__c = false;
 	        campMembrList.add(campMbr);
+           campMembrMap.put(campMbr.Id,campMbr);
        }
        insert campMembrList;
     }
@@ -89,7 +94,8 @@ private class campaignMemberHelperKRTest
     {
         Test.startTest();
         testDataPreparation();
-        campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(campMembrList);
+        campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(campExec.Id);
+        campaignMemberHelperKR.updatecustomstatus(campMembrList,campMembrMap);
         Test.stopTest();        
     }
 }

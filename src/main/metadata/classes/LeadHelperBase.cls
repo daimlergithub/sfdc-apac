@@ -266,39 +266,47 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
         set < Lead__Share > leadshare = new set < Lead__share > ();
         set < id > leadsharingtorevoke = new set < id > ();
         set < String > sharingrevokefromgroups = new set < String > ();
-        List < Lead__c > leadlisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, assigned_dealer__c, assigned_dealer__r.Dealer_nd_code__c from Lead__C where id IN: leadlist];
+        List < Lead__c > leadlisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, assigned_dealer__c, assigned_dealer__r.Dealer_nd_code__c,assigned_dealer__r.MD__c,createdby.Market__c,MD__c from Lead__C where id IN: leadlist];
         
         //below if part will work at the time of insert
         for (Lead__c leadsrec: leadlisttoiterat) {
             if (!flag) {
                 //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
                 if (leadsrec.createdby.usertype == 'PowerPartner' && leadsrec.createdby.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+                    //dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+					string GrpName=leadsrec.createdby.Market__c+leadsrec.createdby.Dealer_nd_code__c;
+					dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
                     lstlead.add(leadsrec);
                 } else if (leadsrec.assigned_dealer__c != null && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+					string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+                    //dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+					dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                 }
             } else {
               
                 //if trigger new map value is filled and  oldmap assigned dealer is null then share records with new assigned value
                 if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c == null && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+                    //dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+					string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+					dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                 }
                 //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
                 else if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != ((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__c && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+                   string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+				   //dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+				   dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                     //will revoke record access depends on dealer nd code  if we change the assigned dealer
                     if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c != null) {
-                        sharingrevokefromgroups.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
+                        sharingrevokefromgroups.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).MD__c+((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
                         leadsharingtorevoke.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).id);
                     }
                 }
                 //if trigger old value is filled and new value did not filled then revoke access from old Dealer
                 else if (((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c == null) {
-                    sharingrevokefromgroups.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
+                    sharingrevokefromgroups.add(leadsrec.MD__c+((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
                     leadsharingtorevoke.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).id);
                 }
                 /*
@@ -314,10 +322,12 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
         for (Group gp: [select id, name from Group where name IN: dealerndcodeset]) {
             for (Lead__C leadid: lstlead) {
                 //this if part will applicable for Salesforce users
-                if (gp.name == leadid.assigned_dealer__r.Dealer_nd_code__c) {
+				string grpname=(leadid.MD__c+leadid.assigned_dealer__r.Dealer_nd_code__c);
+				string grpCname=(leadid.createdby.Market__c+leadid.createdby.Dealer_nd_code__c );
+                if (gp.name == grpname) {
                     leadshare.add(new Lead__Share(parentid = leadid.id, UserOrGroupId = gp.id, RowCause = Schema.Lead__share.Rowcause.manual, AccessLevel = 'EDIT'));
                 } //this else part will applicable for Dealer users
-                else if (gp.name == leadid.createdby.Dealer_nd_code__c && leadid.createdby.Usertype == 'PowerPartner') {
+                else if (gp.name == grpCname && leadid.createdby.Usertype == 'PowerPartner') {
                     leadshare.add(new Lead__Share(parentid = leadid.id, UserOrGroupId = gp.id, RowCause = Schema.Lead__share.Rowcause.manual, AccessLevel = 'EDIT'));
                 }
             }
