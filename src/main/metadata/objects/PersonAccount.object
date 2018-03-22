@@ -1059,11 +1059,7 @@
 			<values>
                 <fullName>Other</fullName>
                 <default>false</default>
-            </values>
-			 <values>
-                <fullName>Survey</fullName>
-                <default>false</default>
-            </values>
+            </values>			 
 			 <values>
                 <fullName>Retailer added</fullName>
                 <default>false</default>
