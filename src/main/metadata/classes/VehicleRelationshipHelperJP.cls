@@ -467,12 +467,15 @@ public with sharing class VehicleRelationshipHelperJP
         set<id> Contactsid = new set<id>();
         set<id> addressids = new set<id>();
         Map<Id,Address__c> addr;
+        Map<id, Vehicle_Relationship__c> oldrec = new Map<id, Vehicle_Relationship__c>();
         // List<Address__c> addr = new List<Address__c> ();   
         List<Vehicle_Relationship__c> Updatelist = new List<Vehicle_Relationship__c> ();
         List<Vehicle_Relationship__c> vrList = new List<Vehicle_Relationship__c> ();
         String province;
         Map<String, String> addtrmap1 = UtilAddressTranslation.addtrmap;
         UtilAddressTranslation.gettranslatedvalues('JP');
+        Map<string,Id> addtypeid=new map<String,ID>();
+        Map<Id,Address__c> addmap=new Map<Id,Address__c>();
         
         if(LeadUtil.verTrigger)
         { 
@@ -496,6 +499,7 @@ public with sharing class VehicleRelationshipHelperJP
                       contact__r.Email2__c,contact__r.Email3__c,vehicle_address__c,Vehicle_Address_Display__c,vehicle_fax__c,vehicle_mail__c,Vehicle_Phone__c,vehicle_address_picklist__c ,vehicle_fax_picklist__c,vehicle_mail_picklist__c,Vehicle_Phone_picklist__c,Contact__r.Id from Vehicle_Relationship__c where id =:Contactsid and Contact__c=:sid];
         }
         system.debug('@@#@##@#@#@ vrList'+vrList);
+         
         for(Vehicle_Relationship__c vRs : vrList)
         {
             if(vRs.contact__r.Primary_Address_Reference__c != null)
@@ -506,6 +510,8 @@ public with sharing class VehicleRelationshipHelperJP
         }
         LeadUtil.verTrigger = false;
         system.debug('++++++++++++++++++++'+sid);
+         system.debug('++++++++++++++++++++'+addressids);
+         
         if(addressids.size()>0)
         {
             //addr = [Select ID,Company_Name_Native__C,Customer__c,Name,Address_Type__c,ZipCode__c,Province__c,
@@ -515,6 +521,37 @@ public with sharing class VehicleRelationshipHelperJP
             addr = new map<id,Address__c>([select Customer__c,Province__c,Address_Type__c ,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c from Address__c where Customer__c =: addressids]); 
             
             system.debug('++++++++++++++++++'+addr);
+            if(veReList !=null && label.VR_Validation_Check=='Yes' && usr.Profile.Name != 'IntegrationAPI' && addr!=null) 
+            {
+            
+            for(Vehicle_Relationship__c Vrs1 : veReList)
+            {
+            for(Address__c addrs : addr.values())
+            {addtypeid.put(addrs.Address_Type__c,addrs.id);
+            addmap.put(addrs.Customer__c,addrs);
+            }
+            System.debug('Vrs1.vehicle_address_picklist__c '+Vrs1.vehicle_address_picklist__c );
+             System.debug('Vrs1.addtypeid   '+addtypeid);
+            if(Vrs1.vehicle_address_picklist__c  !=null && addmap.containskey(Vrs1.contact__c) && addmap!=null && !addtypeid.containskey(Vrs1.vehicle_address_picklist__c) && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Other Address 1' || Vrs1.vehicle_address_picklist__c=='Other Address 2' || Vrs1.vehicle_address_picklist__c =='Other Address 3'))
+            {
+             vrs1.adderror(label.Selected_type_of_address_is_not_existing_for_the_corresponding_account); 
+       
+            }
+             if(Vrs1.vehicle_address_picklist__c  !=null && addmap.containskey(Vrs1.contact__c) && addmap!=null && !addtypeid.containskey('Home') && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Home Address'))
+            {
+             vrs1.adderror(label.Selected_type_of_address_is_not_existing_for_the_corresponding_account); 
+       
+            }
+            if(Vrs1.vehicle_address_picklist__c  !=null && addmap.containskey(Vrs1.contact__c) && addmap!=null && !addtypeid.containskey('Business') && addtypeid!=null && (Vrs1.vehicle_address_picklist__c=='Work address'))
+            {
+             vrs1.adderror(label.Selected_type_of_address_is_not_existing_for_the_corresponding_account); 
+       
+            }
+            
+            }
+            }
+            
+            //Added for k11.1
             for(Vehicle_Relationship__c Vels  : vrList)
             {
                 if (vels.Vehicle_Phone_picklist__c == Null)
@@ -577,6 +614,8 @@ public with sharing class VehicleRelationshipHelperJP
                             system.debug('+++++++++++++'+Vels.Contact__r.Primary_Address_Display__c);
                             system.debug('+++++++++++++ vels'+ vels);
                         }*/
+                        
+                        
                         
                         //if( vels.vehicle_address_picklist__c == add.Address_Type__c){
                         if( vels.vehicle_address_picklist__c == 'Home Address' && add.Address_Type__c == 'Home')
@@ -927,6 +966,7 @@ public with sharing class VehicleRelationshipHelperJP
      Map<id,Address__c> addressMap = new Map<id,Address__c>([select id,HouseNumber__c,City__c,Country__c,District__c,Province__c,ZipCode__c from Address__c where id in:addressids] );
  
      for(Vehicle_Relationship__c vc : newList){
+     
          if(addressMap !=null && addressMap.get(vc.vehicle_address__c) !=null &&vc.vehicle_address__c!=oldMap.get(vc.id).vehicle_address__c)
          {
                 Address__c addr =addressMap.get(vc.vehicle_address__c);
@@ -947,6 +987,8 @@ public with sharing class VehicleRelationshipHelperJP
                 
                 
          }
+         
+         
      
      
      }
