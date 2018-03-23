@@ -40,7 +40,7 @@ public class AddressDisplayInlineEditController {
         //SN20170911 -- Added address Line 3 in the query           
             adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,Country__c,Sub_District__c,Language__c,Foreign_Nationals__c,
                     Address_Line_2__c , Address_Line_3__c ,Address_Line_1__c,District__c,HouseNumber__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,        
-                    Address_Line_1_Native__c,Address_Line_2_Native__c from Address__c where Customer__c =: aid and Account_Link__c=null and FS_Contract__c=null Limit 10];        
+                    Address_Line_1_Native__c,Address_Line_2_Native__c,State_City__c from Address__c where Customer__c =: aid and Account_Link__c=null and FS_Contract__c=null Limit 10];        
            
         }                     
         /*Intitializing address object*/
@@ -238,7 +238,7 @@ public class AddressDisplayInlineEditController {
             //SN20170911 -- Added address Line 3 in the query 
         adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
                 Address_Line_2__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,       
-                Address_Line_2_Native__c,Foreign_Nationals__c,Language__c,Country__c,Sub_District__c  from Address__c where Customer__c =: aid and Account_Link__c=null and FS_Contract__c=null];
+                Address_Line_2_Native__c,Foreign_Nationals__c,Language__c,Country__c,Sub_District__c,State_City__c  from Address__c where Customer__c =: aid and Account_Link__c=null and FS_Contract__c=null];
     }
     
     /**    
@@ -275,7 +275,7 @@ public class AddressDisplayInlineEditController {
     //SN20170911 -- Added address Line 3 in the query 
         Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
         adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,Sub_District__c,
-               Address_Line_2__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c,Language__c,Country__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Foreign_Nationals__c from Address__c where Customer__c=:acc.id Limit 10];
+               Address_Line_2__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c,Language__c,Country__c, Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Foreign_Nationals__c,State_City__c from Address__c where Customer__c=:acc.id Limit 10];
         if(adds.size()>=5){
             ShowpageBlockFlag=false;
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,system.label.Account_cannot_have_more_than_5_Address));
@@ -309,7 +309,7 @@ public class AddressDisplayInlineEditController {
         //SN20170911 -- Added address Line 3 in the query 
         if (editaddressId != null){
             editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,HouseNumber__c,
-                        Address_Line_2__c,Market__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Country__c,Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c from Address__c where Id =: editaddressId Limit 10];
+                        Address_Line_2__c,Market__c ,Address_Line_3__c,Address_Line_1__c,District__c,City__c, Country__c,Block__c,TitleOfHonor__c,Company_Name_Native__c,Temp_ZipCode__c,Temp_Address__c,LastModifiedDate,Block_Native__c,City_Native__c,Province_Native__c,District_Native__c,Address_Line_1_Native__c,Address_Line_2_Native__c,Sub_District__c,Language__c,Foreign_Nationals__c,State_City__c from Address__c where Id =: editaddressId Limit 10];
             // if for any reason we are missing the reference           
         }
         
