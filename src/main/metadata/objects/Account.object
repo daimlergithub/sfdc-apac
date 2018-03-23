@@ -5287,20 +5287,17 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
-                <fullName>Social Media</fullName>
-                <default>false</default>
-                <controllingFieldValues>AU</controllingFieldValues>
-            </picklistValues>
             <picklistValues>
                 <fullName>Wholesale added</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Retailer added</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -19016,6 +19013,8 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ex-Customer</fullName>
@@ -19023,6 +19022,8 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Prospect</fullName>
@@ -19032,6 +19033,8 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>VIP</fullName>
@@ -19066,11 +19069,13 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <fullName>Complainant</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
 			<picklistValues>
                 <fullName>General Enquirer</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -63666,10 +63671,15 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <active>true</active>
         <description>Record Type is Person Account
 FirstName  value &gt; 20 letters.</description>
-        <errorConditionFormula>AND($RecordType.Name = &quot;Person Account&quot;,LEN(FirstName) &gt; 40, MD__c=&apos;JP&apos;,
+      <errorConditionFormula>IF( 
+AND( 
+NOT(ISBLANK( FirstName )), LEN( FirstName ) &gt; 40, 
+OR(NOT(REGEX( FirstName , &quot;[^ -~｡-ﾟ]*&quot; ))), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c=&apos;JP&apos;, 
 if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
-if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
-$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)), 
+RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
@@ -64132,9 +64142,15 @@ $Profile.Name != 'IntegrationAPI',if(AND(MD__c=='MY',$Permission.MYGeneric),true
         <active>true</active>
         <description>Record Type is Person Account
 LastName  value &gt; 40 letters.</description>
-        <errorConditionFormula>AND($RecordType.Name = &quot;Person Account&quot;,LEN(LastName) &gt; 40, MD__c=&apos;JP&apos;, 
-if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
-if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>IF( 
+AND( 
+NOT(ISBLANK( LastName )), LEN( LastName ) &gt; 40, 
+OR(NOT(REGEX( LastName , &quot;[^ -~｡-ﾟ]*&quot; ))), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c=&apos;JP&apos;, 
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false),
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)), 
+RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>

@@ -21860,7 +21860,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Retail_Campaign__c.Parent_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -28379,7 +28379,7 @@
         <layout>Campaign_Lead__c-Campaign Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign_Member__c-Campaign Member Layout</layout>
+        <layout>Campaign_Member__c-Campaign Member Layout Generic</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign_Offering__c-Campaign Offering Layout</layout>

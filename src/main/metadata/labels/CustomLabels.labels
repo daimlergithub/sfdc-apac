@@ -6448,6 +6448,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>used in MY Address Search Validation Controller</shortDescription>
         <value>For Customer Search First Name, Last Name and any of the contact information or ID number is required</value>
     </labels>
+	<labels>
+        <fullName>PersonAccountSearchErrorANZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>used in ANZ Address Search Validation Controller</shortDescription>
+        <value>For Customer Search First Name, Last Name and any of the contact information is required</value>
+    </labels>
     <labels>
         <fullName>PersonAccount_Record_Type_From_Account</fullName>
         <language>en_US</language>
