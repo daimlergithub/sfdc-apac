@@ -25951,6 +25951,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Mobile3_Status__c</picklist>
@@ -32237,6 +32241,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
@@ -38258,6 +38266,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -44542,6 +44554,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
@@ -50625,6 +50641,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
@@ -56195,6 +56215,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
@@ -61530,6 +61554,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Mobile_Status__c</picklist>
@@ -63702,12 +63730,12 @@ $Permission.INGeneric
         <active>true</active>
         <errorConditionFormula>IF( 
 AND( 
-NOT(ISBLANK( FirstName )), 
+NOT(ISBLANK( FirstName )), LEN( FirstName ) &lt; 2,
 OR(NOT(REGEX( FirstName , &quot;[^ -~｡-ﾟ]*&quot; ))), 
-$Profile.Name != &apos;IntegrationAPI&apos;, 
- MD__c=&apos;JP&apos;, 
-if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
-if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false),  
+$Profile.Name != &apos;IntegrationAPI&apos;,
+OR(MD__c=&apos;JP&apos;,
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false),
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)),   
 RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be of 2 byte characters.</errorMessage>
@@ -64157,14 +64185,14 @@ RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
     <validationRules>
         <fullName>Last_Name_Fullchar</fullName>
         <active>true</active>
-             <errorConditionFormula>IF(
-AND(
-NOT(ISBLANK( LastName)),
-OR(NOT(REGEX( LastName , &quot;[^ -~｡-ﾟ]*&quot; ))),
-$Profile.Name != &apos;IntegrationAPI&apos;,
-MD__c = &apos;JP&apos;,
+             <errorConditionFormula>IF( 
+AND( 
+NOT(ISBLANK( LastName )), LEN( LastName ) &lt; 2, 
+OR(NOT(REGEX( LastName , &quot;[^ -~｡-ﾟ]*&quot; ))), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c=&apos;JP&apos;, 
 if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
-if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)), 
 RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be of  2 byte characters.</errorMessage>

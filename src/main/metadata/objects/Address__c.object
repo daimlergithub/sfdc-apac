@@ -1729,7 +1729,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
-			
+			<picklistValues>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </picklistValues>
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
@@ -2134,6 +2137,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <fullName>CN</fullName>
                 <default>false</default>
             </values>
+			<picklistValues>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </picklistValues>
             <values>
                 <fullName>IN</fullName>
                 <default>false</default>
@@ -2554,6 +2561,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+			<picklistValues>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </picklistValues>
         </picklistValues>
         <picklistValues>
             <picklist>Province__c</picklist>
