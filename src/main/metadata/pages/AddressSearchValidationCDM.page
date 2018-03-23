@@ -148,7 +148,7 @@
                         </apex:outputPanel>                             
                     </apex:pageBlockSectionItem>
                      <apex:pageBlockSectionItem >       
-                        <apex:outputLabel value="{!$ObjectType.Account.fields.Fax.Label}" />        
+                        <apex:outputLabel value="{!$Label.Fax}" />
                         <apex:outputPanel >     
                         <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" style="width:30px" rendered="{!isClassic}">
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="companyBlockIN">
