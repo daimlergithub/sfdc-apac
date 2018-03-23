@@ -742,17 +742,7 @@
 • 60000000 to 80000000  this is mapped to Wholesale added</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
-        <fullName>MBK Populate Company Name</fullName>
-        <actions>
-            <name>Update_Company_Name</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>This rule is used to populate company name with account name when record type is company</description>
-        <formula>IF((RecordType.Name == &apos;Company&apos;) &amp;&amp; (TEXT( $User.Market__c)==&apos;KR&apos;), true, false)</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
+    
     <rules>
         <fullName>MBK Populate Company Name</fullName>
         <actions>
