@@ -63666,10 +63666,17 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <active>true</active>
         <description>Record Type is Person Account
 FirstName  value &gt; 20 letters.</description>
-        <errorConditionFormula>AND($RecordType.Name = &quot;Person Account&quot;,LEN(FirstName) &gt; 40, MD__c=&apos;JP&apos;,
+      <errorConditionFormula>IF( 
+AND( 
+NOT(ISBLANK( FirstName )), LEN( FirstName ) &gt; 40, 
+OR(NOT(REGEX( FirstName , &quot;[^ -~｡-ﾟ]*&quot; ))), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c=&apos;JP&apos;, 
 if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
-if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
-$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)), 
+RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
+        <errorDisplayField>FirstName</errorDisplayField>
+        <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
@@ -64132,9 +64139,15 @@ $Profile.Name != 'IntegrationAPI',if(AND(MD__c=='MY',$Permission.MYGeneric),true
         <active>true</active>
         <description>Record Type is Person Account
 LastName  value &gt; 40 letters.</description>
-        <errorConditionFormula>AND($RecordType.Name = &quot;Person Account&quot;,LEN(LastName) &gt; 40, MD__c=&apos;JP&apos;, 
-if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false), 
-if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>IF( 
+AND( 
+NOT(ISBLANK( LastName )), LEN( LastName ) &gt; 40, 
+OR(NOT(REGEX( LastName , &quot;[^ -~｡-ﾟ]*&quot; ))), 
+$Profile.Name != &apos;IntegrationAPI&apos;, 
+OR(MD__c=&apos;JP&apos;, 
+if(AND(MD__c==&apos;AU&apos;,$Permission.AUGeneric),true,false),
+if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)), 
+RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>LastName</errorDisplayField>
         <errorMessage>Last Name should be less than or equal to 40 letters.</errorMessage>
     </validationRules>
