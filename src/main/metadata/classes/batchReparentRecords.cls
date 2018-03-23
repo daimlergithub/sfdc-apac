@@ -20,7 +20,7 @@ global class batchReparentRecords implements Database.Batchable<sObject> {
         //merge vehicle relationships record from duplicate account to golden account
         //sObjectMerge.mergeVR(duplicateCustmrId2MasterCustmerIdMap);
         sObjectMerge.mergeOpenActivities(duplicateCustmrId2MasterCustmerIdMap);
-        //sObjectMerge.mergeNotesAndAttachment(duplicateCustmrId2MasterCustmerIdMap);
+        sObjectMerge.mergeNotesAndAttachment(duplicateCustmrId2MasterCustmerIdMap);
         
         //update the status of duplicate merge info to processed
         if(dupMergeInfoTobeUpdated!=null && dupMergeInfoTobeUpdated.size()>0)

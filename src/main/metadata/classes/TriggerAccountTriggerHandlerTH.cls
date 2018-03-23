@@ -71,7 +71,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             }
             AccountHelperTH.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
         } 
-        if(isAfter && isUpdate && !System.isFuture())
+        if(isAfter && isUpdate && !System.isFuture() && !System.isBatch())
         {
             /*if(switchto!=null && switchto.EP__c==true){
             serializedObject=json.serialize(ListAccNew);
