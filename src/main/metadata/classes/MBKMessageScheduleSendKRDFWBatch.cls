@@ -20,7 +20,7 @@ global class MBKMessageScheduleSendKRDFWBatch implements Database.Batchable<sObj
 		String second  = nowTime.second() < 10 ? '0'+String.valueOf(nowTime.second()) : String.valueOf(nowTime.second());
 		String queryDate = year+'-'+month+'-'+day+'T'+hour+':'+minute+':'+second+'Z'; 	
 		
-		query = 'SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, '
+		query = 'SELECT Account__c, Account_Name__c, CampaignMember__c, Case__c, KaKaoTalk_ID__c, '
 				+' Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c, '
 				+' altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, '
 				+' processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c '

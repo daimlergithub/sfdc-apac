@@ -34,10 +34,10 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
  				}
  				List<MBK_Messages__c> targetMsgs = new List<MBK_Messages__c>();
  				if(LeadIds.size() > 0){
- 					List<Lead__c> leads = [SELECT Id, Contact__c, Contact__r.Name,Contact__r.Opt_In_SMS__c,Contact__r.Personal_Agreement__c,
- 												Contact__r.Personal_Information_Third_Party_Release__c, Contact__r.Personal_Abroad_Agreement__c,
- 												Contact__r.Agreement_to_commit_info_processing__c, Contact__r.KaKao_Talk_ID__c, Contact__r.UCID__c,
- 												Contact__r.Mobile__c
+ 					List<Lead__c> leads = [SELECT Id, Name, Contact__c, Contact__r.UCID__c, Contact__r.Mobile__c, Contact__r.PersonEmail, Assigned_Dealer__c,
+    											Contact__r.Name, Contact__r.Email2__c, Contact__r.Opt_In_SMS__c, Contact__r.KaKao_Talk_ID__c, 
+    											Contact__r.Personal_Agreement__c, Contact__r.Personal_Information_Third_Party_Release__c, 
+    											Contact__r.Personal_Abroad_Agreement__c, Contact__r.Agreement_to_commit_info_processing__c
  					  						FROM Lead__c WHERE Id IN: LeadIds];
 					for(Lead__c lead:leads){
 						MBK_Messages__c target = new MBK_Messages__c();
@@ -65,9 +65,9 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 					}
  				}
  				if(AccountIds.size() > 0){
- 					List<Account> accounts = [SELECT Id, Name, Opt_In_SMS__c, Personal_Agreement__c, KaKao_Talk_ID__c, UCID__c,
- 												Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c,
- 												Agreement_to_commit_info_processing__c, Mobile__c
+ 					List<Account> accounts = [SELECT Id, Name, UCID__c, Mobile__c, PersonEmail, Opt_In_SMS__c, KaKao_Talk_ID__c,
+    							 					Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c,
+    							 					Agreement_to_commit_info_processing__c
  											FROM Account WHERE Id IN: AccountIds];
 					for(Account acc:accounts){
 						MBK_Messages__c target = new MBK_Messages__c();
@@ -95,12 +95,11 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 					} 				
  				}
  				if(TaskIds.size() > 0){
- 					List<Task> tasks = [SELECT Id, Account_Name__c, CustomerName__c, UCID__c, Phone__c 
+ 					List<Task> tasks = [SELECT Id, Account_Name__c, CustomerName__c, UCID__c, Email_Address__c, Phone__c 
  										FROM Task WHERE Id IN: TaskIds];
 					for(Task task:tasks){
 						MBK_Messages__c target = new MBK_Messages__c();
-					    target.Account_Name__c = task.Account_Name__c;
-					    //target.KaKaoTalk_ID__c = acc.KaKao_Talk_ID__c; 
+					    target.Account_Name__c = task.Account_Name__c; 
 					    target.UCID__c = task.UCID__c; 
 					    target.phoneNum__c = task.Phone__c;	
 					    
@@ -145,36 +144,41 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
  			//Campaign	
  			for(MBK_Bulk_Message__c temp:scope){
  				if(temp.Set_Sending_Time__c == null) temp.Set_Sending_Time__c = system.now();
-				List<Campaign_Member__c> targetResults = [SELECT Id, Contact_Id__c, Contact_Id__r.UCID__c, Contact_Id__r.Mobile__c, 
-																Contact_Id__r.Name, Contact_Id__r.Opt_In_SMS__c, Contact_Id__r.KaKao_Talk_ID__c, 
-																Contact_Id__r.Personal_Agreement__c, Contact_Id__r.Personal_Information_Third_Party_Release__c,
-																Campaign__c, Contact_Id__r.Personal_Abroad_Agreement__c, Contact_Id__r.Agreement_to_commit_info_processing__c
-															FROM Campaign_Member__c WHERE Campaign__c =: temp.Source_Object_Id__c];
+				List<CampaignMember> targetResults = [SELECT Id, Contact.AccountId, Contact.Account.UCID__c, Contact.Account.Mobile__c,
+																Contact.Account.Name, Contact.Account.Opt_In_SMS__c, Contact.Account.KaKao_Talk_ID__c, 
+																Campaign.Name, Campaign.Campaign_Code__c, Contact.Account.Personal_Agreement__c, 
+																Contact.Account.Personal_Information_Third_Party_Release__c,
+																Contact.Account.Personal_Abroad_Agreement__c, Contact.Account.Agreement_to_commit_info_processing__c
+															FROM CampaignMember WHERE Campaign.Id =: temp.Source_Object_Id__c];
  				List<MBK_Messages__c> targetMsgs = new List<MBK_Messages__c>();
- 				for(Campaign_Member__c member:targetResults ){
+ 				for(CampaignMember member:targetResults ){
 					MBK_Messages__c target = new MBK_Messages__c();
-					target.Account__c = member.Contact_Id__c;
-					target.Campaign__c = member.Campaign__c;
-					target.Account_Name__c = member.Contact_Id__r.Name;
-					target.Opt_In_SMS__c  = member.Contact_Id__r.Opt_In_SMS__c;
-					target.Personal_Agreement__c = member.Contact_Id__r.Personal_Agreement__c;
-					target.Personal_Information_Third_Party_Release__c = member.Contact_Id__r.Personal_Information_Third_Party_Release__c;
-					target.Personal_Abroad_Agreement__c = member.Contact_Id__r.Personal_Abroad_Agreement__c;
-					target.Agreement_to_commit_info_processing__c = member.Contact_Id__r.Agreement_to_commit_info_processing__c;
-					target.KaKaoTalk_ID__c = member.Contact_Id__r.KaKao_Talk_ID__c; 
-					target.UCID__c = member.Contact_Id__r.UCID__c; 
-					target.phoneNum__c = member.Contact_Id__r.Mobile__c;	
-										    
-					target.MBKMessageTemplate__c = temp.Template_ID__c;
-					target.templateCode__c = temp.Template_Code__c;	   
-					target.channel__c = temp.channel__c;
-					target.Set_Sending_Time__c = temp.Set_Sending_Time__c;
-					target.subject__c = temp.subject__c;
-					target.message__c = temp.message__c;
-					target.custGubun__c  = system.label.MBK_Message_custGubun;
-					target.senderKey__c = system.label.MBK_Message_SenderKey;
-					target.Status__c = 'Reserved';
- 					targetMsgs.add(target);		
+					if(member.Contact <> null && member.Contact.Account <> null){
+						Account acc = member.Contact.Account;
+						
+						target.Account__c = acc.Id;
+						target.Campaign__c = member.Campaign.Id;
+						target.Account_Name__c = acc.Name;
+						target.Opt_In_SMS__c  = acc.Opt_In_SMS__c;
+						target.Personal_Agreement__c = acc.Personal_Agreement__c;
+						target.Personal_Information_Third_Party_Release__c = acc.Personal_Information_Third_Party_Release__c;
+						target.Personal_Abroad_Agreement__c = acc.Personal_Abroad_Agreement__c;
+						target.Agreement_to_commit_info_processing__c = acc.Agreement_to_commit_info_processing__c;
+						target.KaKaoTalk_ID__c = acc.KaKao_Talk_ID__c; 
+						target.UCID__c = acc.UCID__c; 
+						target.phoneNum__c = acc.Mobile__c;	
+											    
+						target.MBKMessageTemplate__c = temp.Template_ID__c;
+						target.templateCode__c = temp.Template_Code__c;	   
+						target.channel__c = temp.channel__c;
+						target.Set_Sending_Time__c = temp.Set_Sending_Time__c;
+						target.subject__c = temp.subject__c;
+						target.message__c = temp.message__c;
+						target.custGubun__c  = system.label.MBK_Message_custGubun;
+						target.senderKey__c = system.label.MBK_Message_SenderKey;
+						target.Status__c = 'Reserved';
+	 					targetMsgs.add(target);
+					}		
  				}
  				insert targetMsgs;
  				MBKMessageCampaignLogging(temp);
@@ -214,7 +218,7 @@ global class MBKBulkMessageCreateKRDFWBatch implements Database.Batchable<sObjec
 		for(MBK_Messages__c temp:MBKMessages){
 			Task log = new Task();
 			if(temp.Account__c <> null) log.WhatId = temp.Account__c;
-			else if(temp.Campaign_Member__c <> null) log.WhatId = temp.Campaign_Member__c;
+			else if(temp.CampaignMember__c <> null) log.WhatId = temp.CampaignMember__c;
 			else if(temp.Case__c <> null) log.WhatId = temp.Case__c;
 			else if(temp.Leads__c <> null) log.WhatId = temp.Leads__c;
 			
