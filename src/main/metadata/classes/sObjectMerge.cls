@@ -120,7 +120,7 @@ public class sObjectMerge {
     public static void mergeOpenActivities(Map<Id,Id> duplicateCustmrId2MasterCustmerIdMap)
     {
         //get open task from duplicate account
-        List<Task> openTaskOfDupAccount=[Select Id,WhatId from Task where WhatId IN:duplicateCustmrId2MasterCustmerIdMap.keySet() and status!='Completed'];
+        List<Task> openTaskOfDupAccount=[Select Id,WhatId from Task where WhatId IN:duplicateCustmrId2MasterCustmerIdMap.keySet() and status!='Closed'];
         if(openTaskOfDupAccount!=null && openTaskOfDupAccount.size()>0)
         {
         	Map<Id,List<Task>> dupAccountId2LstDupTaskMap=new Map<Id,List<Task>>();
