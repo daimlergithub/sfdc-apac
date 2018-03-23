@@ -87,7 +87,8 @@ public class LeadHelperKR
                     
                 }
             }*/
-            if(le.Assigned_Dealer__r.Dealer_Type__c == 'Company'|| le.Assigned_Dealer__r.Dealer_Type__c == 'Outlet')
+            //Changes by Monalisa SFDCKR-1727
+			if(le.Assigned_Dealer__r.Dealer_Type__c == 'Company'|| le.Assigned_Dealer__r.Dealer_Type__c == 'Outlet')
             {
                 if(le.Assigned_Dealer__r.Dealer_ND_Code__c != null && le.Assigned_Dealer__r.Dealer_ND_Code__c != '')
                 {

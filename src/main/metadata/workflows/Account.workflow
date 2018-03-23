@@ -297,6 +297,15 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Country_Field_AU</fullName>
+        <field>Country__c</field>
+        <literalValue>Australia</literalValue>
+        <name>Update Country Field AU</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Country_Field_JP</fullName>
         <field>Country__c</field>
@@ -320,6 +329,37 @@
         <field>Country__c</field>
         <literalValue>Malaysia</literalValue>
         <name>Update Country Field MY</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>update_data_source_Retail_added</fullName>
+        <field>Data_Source__c</field>
+        <literalValue>Retailer added</literalValue>
+        <name>update data source Retail addded</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>update_data_source</fullName>
+        <description>If the customer number sequence is 
+• If customer number is between 1 - 10,000,000 = Wholesale added 
+• If customer number is between 60,000,000 – 80,000,000 = Wholesale added</description>
+        <field>Data_Source__c</field>
+        <literalValue>Wholesale added</literalValue>
+        <name>update data source</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Country_Field_NZ</fullName>
+        <field>Country__c</field>
+        <literalValue>New Zealand</literalValue>
+        <name>Update Country Field NZ</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -626,6 +666,83 @@
         <description>if &apos;Deceased&apos; checked, and saving the record, it updates the status of customer is updated as &apos;Deceased&apos;</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	
+	 <rules>
+        <fullName>MBAU update data source_Retailer added</fullName>
+        <actions>
+            <name>update_data_source_Retail_added</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 5)</booleanFilter>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-2</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-3</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-4</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-5</value>
+        </criteriaItems>
+        <description>If the customer number sequence is 
+• If customer number is between 10,000,001 – 59,999,999  = Retailer added</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>MBAU update data source_wholesale added</fullName>
+        <actions>
+            <name>update_data_source</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2 OR 3 OR 4) AND 5</booleanFilter>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-6</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-7</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>startsWith</operation>
+            <value>C-8</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Customer_Number__c</field>
+            <operation>notContain</operation>
+            <value>C-1</value>
+        </criteriaItems>
+        <description>If the customer number sequence is 
+• 1 to 10000000 this is mapped to Wholesale added
+• 60000000 to 80000000  this is mapped to Wholesale added</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    
     <rules>
         <fullName>MBK Populate Company Name</fullName>
         <actions>
@@ -859,6 +976,28 @@ ISCHANGED(Main_Dealer__c)
         <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for JP</description>
         <formula>ISPICKVAL($User.Market__c,&apos;JP&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>Update Preferred Language and Country AU</fullName>
+        <actions>
+            <name>Update_Country_Field_AU</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for AU</description>
+        <formula>(AND($Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL($User.Market__c,&apos;AU&apos;)))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+	 <rules>
+        <fullName>Update Preferred Language and Country NZ</fullName>
+        <actions>
+            <name>Update_Country_Field_NZ</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for NZ</description>
+        <formula>(AND($Profile.Name != &apos;IntegrationAPI&apos;,ISPICKVAL($User.Market__c,&apos;NZ&apos;)))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Preferred Language and Country KR</fullName>
