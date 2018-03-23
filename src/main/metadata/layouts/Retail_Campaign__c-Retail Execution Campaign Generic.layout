@@ -47,10 +47,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>RecordTypeId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Description__c</field>
             </layoutItems>
             <layoutItems>
@@ -130,6 +126,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>RecordTypeId</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Parent_Campaign1__c</field>
@@ -339,16 +339,7 @@
         <fields>CREATEDBY_USER</fields>
         <relatedList>Lead__c.Retail_Campaign_Name__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Survey__c</fields>
-        <fields>Survey_Taking_Status__c</fields>
-        <fields>Account__c</fields>
-        <fields>Case__c</fields>
-        <fields>Lead__c</fields>
-        <fields>Campaign__c</fields>
-        <relatedList>SurveyTaker__c.Retail_Campaign__c</relatedList>
-    </relatedLists>
+    
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
