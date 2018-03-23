@@ -895,6 +895,7 @@
         <fields>Model_Description__c</fields>
         <fields>ModelYear__c</fields>
         <fields>NextInspectionDate__c</fields>
+		<fields>MOT_Expired_Date__c</fields>
         <fields>Related_From__c</fields>
         <fields>Related_To__c</fields>
         <fields>FirstRegistrationDate__c</fields>
