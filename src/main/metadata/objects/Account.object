@@ -63677,8 +63677,7 @@ if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)),
 RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <errorDisplayField>FirstName</errorDisplayField>
         <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
-        <errorDisplayField>FirstName</errorDisplayField>
-        <errorMessage>First Name should be less than or equal to 40 letters.</errorMessage>
+        <errorDisplayField>FirstName</errorDisplayField>        
     </validationRules>
     <validationRules>
         <fullName>First_And_Last_Name_Format</fullName>
