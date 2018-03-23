@@ -382,6 +382,10 @@
                 <fullName>AU</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>CN</fullName>
                 <default>false</default>

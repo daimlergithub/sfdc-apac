@@ -99,13 +99,13 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Campaign_Member__c</fullName>
+        <fullName>CampaignMember__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Campaign Member</label>
         <referenceTo>Campaign_Member__c</referenceTo>
-        <relationshipLabel>MBK_Messages</relationshipLabel>
-        <relationshipName>MBK_Messages</relationshipName>
+        <relationshipLabel>MBK_Messages (Campaign Member)</relationshipLabel>
+        <relationshipName>Messages</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
