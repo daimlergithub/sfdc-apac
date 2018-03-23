@@ -219,7 +219,7 @@ public class AddressSearchValidationController
         }
 		 else if(market=='AU') //  Sada US-2/3 2018/March/22 R1  
         {
-            firstsave = true;  
+           //   firstsave = true;   //sada - disabling save button initially 
             secondsave = false;// need to change later
             mbCountryCode='+61';
             hmCountryCode='+61';
@@ -231,7 +231,7 @@ public class AddressSearchValidationController
         }   
       else if(market=='NZ') //  Sada US-2/3 2018/March/22 R1  
         {
-            firstsave = true;  
+             // firstsave = true;    //sada - disabling save button initially 
             secondsave = false;// need to change later
             mbCountryCode='+64';
             hmCountryCode='+64';
@@ -2927,6 +2927,17 @@ If the user is Saving  same address which matches the fields returned by toleran
                      endUrl+='&ip_CommercialRegisterId='+(String.isnotblank(objAccount.Commercial_Reg_No__c)?EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c,'UTF-8'):'');
                  }
             }
+			 if(Market == 'AU' || Market == 'NZ') // sada 2018/3/22 as part of US/2/3 and US229
+                 {
+                     endUrl+='&ip_AddressUsageValue='+(string.isnotblank(AddressObj.Address_Type__c)?EncodingUtil.URLENCODE(AddressObj.Address_Type__c,'UTF-8'):'');
+                     endUrl+='&ip_AddressLineOne='+(string.isnotblank(AddressObj.Address_Line_1__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_1__c,'UTF-8'):'');
+                     endUrl+='&ip_AddressLineTwo='+(string.isnotblank(AddressObj.Address_Line_2__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_2__c,'UTF-8'):'');
+                     endUrl+='&ip_AddressLineThree='+(string.isnotblank(AddressObj.Address_Line_3__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_3__c,'UTF-8'):'');
+                     endUrl+='&ip_StateCityValue='+(string.isnotblank(AddressObj.State_City__c)?EncodingUtil.URLENCODE(AddressObj.State_City__c,'UTF-8'):'');
+                     endUrl+='&ip_SubUrbValue='+(string.isnotblank(AddressObj.Suburb__c)?EncodingUtil.URLENCODE(AddressObj.Suburb__c,'UTF-8'):'');
+                     endUrl+='&ip_ZipPostalCode='+(string.isnotblank(zip)?EncodingUtil.URLENCODE(zip,'UTF-8'):'');
+                     endUrl+='&ip_Country='+(String.isnotblank(AddressObj.Country__c)?EncodingUtil.URLENCODE(AddressObj.Country__c,'UTF-8'):'');
+                 }
         System.debug('Endurl*** ' + endUrl);
         return endUrl;
     }
@@ -3206,7 +3217,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     
     if(recordCheck && Recordtype== Label.PersonAccount?string.isblank(objAccount.firstName) || string.isblank(objAccount.Lastname):false){
         mandatoryFlag=false;
-        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchErrorANZ));       
     }
     if(recordCheck && mandatoryFlag &&  Recordtype==Label.Company? string.isblank(objAccount.name):false){
         mandatoryFlag=false;
@@ -3215,7 +3226,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     if(recordCheck && mandatoryFlag){
     
     if(Recordtype==Label.PersonAccount && string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber) && objAccount.Email__c == null && objAccount.ID_Number__c==null){        
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchError));       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchErrorANZ));       
                     errorFlag=false;
         } 
 
@@ -3256,15 +3267,16 @@ If the user is Saving  same address which matches the fields returned by toleran
     String EndUrl=generateCDMEndPointURL();
     CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
     try{    
-        if(label.New_Component=='true'){
+       /* if(label.New_Component=='true'){
             con = new Continuation(120);     
             con.continuationMethod='processResponse';
             this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
         }
-        else{
+        else*/
+		//{
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
             errorFlag=false;
-        }
+        //}
     } catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;

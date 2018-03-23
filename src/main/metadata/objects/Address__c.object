@@ -698,7 +698,8 @@
 	IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
         IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
         IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
-	IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
+		 IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
+	IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))
 	)))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
@@ -718,7 +719,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -740,6 +742,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+			 <picklistValues>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

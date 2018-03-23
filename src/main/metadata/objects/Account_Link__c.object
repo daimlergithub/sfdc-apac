@@ -576,7 +576,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -594,7 +595,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
+IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -616,6 +618,10 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','')))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
