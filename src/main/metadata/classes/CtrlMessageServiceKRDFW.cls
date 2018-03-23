@@ -293,7 +293,7 @@ public with sharing class CtrlMessageServiceKRDFW {
     }
     
     private void getMBKMessage(){
-    	viewObject = [SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, IsModify__c, 
+    	viewObject = [SELECT Account__c, Account_Name__c, Case__c, KaKaoTalk_ID__c, IsModify__c, CampaignMember__c, 
 							Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 							altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 							processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c,
@@ -379,7 +379,8 @@ public with sharing class CtrlMessageServiceKRDFW {
 					mmsFile2 = new Attachment();
 					mmsFile3 = new Attachment();
 				}				
-				insertObject = [SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, IsModify__c, 
+
+				insertObject = [SELECT Account__c, Account_Name__c, Case__c, KaKaoTalk_ID__c, IsModify__c, CampaignMember__c, 
 									Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 									altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 									processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c,
@@ -567,7 +568,7 @@ public with sharing class CtrlMessageServiceKRDFW {
 					mmsFile3 = new Attachment();
 				}
 				
-				viewObject = [SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c, IsModify__c, 
+				viewObject = [SELECT Account__c, Account_Name__c, Case__c, KaKaoTalk_ID__c, IsModify__c, CampaignMember__c, 
 									Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 									altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 									processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c,

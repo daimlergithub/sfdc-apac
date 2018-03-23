@@ -25727,7 +25727,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>MBK_Messages__c.Campaign_Member__c</field>
+        <field>MBK_Messages__c.CampaignMember__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -25917,7 +25917,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>MBK_Messages__c.Campaign_Member__c</field>
+        <field>MBK_Messages__c.CampaignMember__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -26192,7 +26192,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>MBK_Messages__c.Campaign_Member__c</field>
+        <field>MBK_Messages__c.CampaignMember__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

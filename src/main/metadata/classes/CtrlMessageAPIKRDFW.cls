@@ -11,7 +11,7 @@ global class CtrlMessageAPIKRDFW {
 	//*** 실시간 전송 ***//
 	@future(callout=true)	
 	public static void MBKMessageDirectSender(List<String> MessageIds){
-		map<Id, MBK_Messages__c> mapMBKs = new map<Id, MBK_Messages__c>([SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c,  
+		map<Id, MBK_Messages__c> mapMBKs = new map<Id, MBK_Messages__c>([SELECT Account__c, Account_Name__c, Case__c, KaKaoTalk_ID__c, CampaignMember__c,  
 												Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 												altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 												processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c 
@@ -116,8 +116,10 @@ global class CtrlMessageAPIKRDFW {
 			res = http.send(req);		
 			update MBKMessages;
 			Integer statusCode = res.getStatusCode();
-			map<String, object> resData;
+			//map<String, object> resData;
+			List<Object> ReturnDatas = new List<Object>();
 			if(statusCode != 200) {
+				gu.debug('[getBody]'+res.getBody());
 				//API 전송실패
 				errMsg = res.getStatus();					
 				for(MBK_Messages__c temp:MBKMessages){
@@ -129,11 +131,13 @@ global class CtrlMessageAPIKRDFW {
 			}else{				
 			gu.debug('[getBody]'+res.getBody());						
 				if(res.getBody().length() > 0){
-					resData = (map<String, object>)JSON.deserializeUntyped(String.valueOf(res.getBody()));
+					String jsonBody = String.valueOf(res.getBody());
+					ReturnDatas = (List<Object>)JSON.deserializeUntyped(jsonBody);
 				}
 				//step1
-				if(resData <> null){
+				for(Object rData:ReturnDatas){
 					//Step2
+					map<String, object> resData = (map<String, object>)rData;
 					String sn = resData.get('sn') == null ? '' : (String)resData.get('sn');
 				    String custMsgSn = resData.get('custMsgSn') == null ? '' : (String)resData.get('custMsgSn');
 					String code = resData.get('code') == null ? '' : (String)resData.get('code');
@@ -159,12 +163,6 @@ global class CtrlMessageAPIKRDFW {
 						else if(altCode == '0000') temp.Status__c = 'Completed';
 						else temp.Status__c = 'Fail';
 					}	
-
-				}else{
-					for(MBK_Messages__c temp:MBKMessages){
-						temp.processed__c = true;
-						temp.Status__c = 'Fail';
-					}
 				}
 			}
 			update MBKMessages;
@@ -191,7 +189,7 @@ global class CtrlMessageAPIKRDFW {
 	
 	@future
 	public static void MBKMessageLogging(List<String> MBKMessageIds){
-		List<MBK_Messages__c> MBKMessages = [SELECT Account__c, Account_Name__c, Campaign_Member__c, Case__c, KaKaoTalk_ID__c,  
+		List<MBK_Messages__c> MBKMessages = [SELECT Account__c, Account_Name__c, Case__c, KaKaoTalk_ID__c, CampaignMember__c,  
 												Leads__c, MBKMessageTemplate__c, Name, Id, Set_Sending_Time__c, Status__c, UCID__c, altCode__c ,
 												altMsg__c, channel__c, code__c, custGubun__c, AttachmentImages__c, message__c, phoneNum__c, 
 												processed__c, reqDtm__c, senderKey__c, sn__c, sndDtm__c, subject__c, templateCode__c,

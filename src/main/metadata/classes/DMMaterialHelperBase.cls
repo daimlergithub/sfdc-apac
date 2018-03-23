@@ -17,10 +17,11 @@ public class DMMaterialHelperBase
             list<Id> userIdList = new list<Id>();
             set<string> dealerCompNdCodeSet = new set<string>();
             list<Group> dealerCompGroupList = new list<Group>();
-            User currentUser = [select Id, Contact.Account.Dealer_Type__c, Contact.Account.Dealer_ND_Code__c from User where Id =: UserInfo.getUserId()];
+            User currentUser = [select Id, Contact.Account.Dealer_Type__c, Contact.Account.Dealer_ND_Code__c, Contact.Account.MD__C,market__c from User where Id =: UserInfo.getUserId()];
             
             if(String.isNotBlank(currentUser.Contact.Account.Dealer_ND_Code__c)){
-               String dealerndcode = currentUser.Contact.Account.Dealer_ND_Code__c;
+            //   String dealerndcode = currentUser.Contact.Account.Dealer_ND_Code__c;
+			   String dealerndcode = currentUser.Contact.Account.MD__C+currentUser.Contact.Account.Dealer_ND_Code__c;
                dealerCompGroupList = [select Id, Name from Group where Name = :dealerndcode];
                if(!dmMaterialList.isEmpty() && dmMaterialList != null)
                 {

@@ -8,8 +8,13 @@ public class RetailTaskTriggerHandlerTH implements TriggerHandlerIf
     {
         // Implementation to addedd as required in market
         if(Trigger.isInsert && Trigger.isAfter){
-            RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();
-            SharingService.shareRetailTasks(wrapService.wrapRetailTasksTH(Trigger.new));
+            User loggedInUser=[select Id,Market__c from user where Id=:UserInfo.getUserId()];
+            if(loggedInUser.Market__c=='TH')
+            {
+                RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();
+            	SharingService.shareRetailTasks(wrapService.wrapRetailTasksTH(Trigger.new));
+            }
+            
         }
     }
 

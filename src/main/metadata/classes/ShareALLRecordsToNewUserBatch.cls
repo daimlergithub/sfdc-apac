@@ -31,7 +31,7 @@ global ShareALLRecordsToNewUserBatch (List<ID> userIdLst,String sobjectNameStr,s
         for(Group gp:grpLst)
         {
             String dealerCode=gp.Name;
-            //dealerCode=dealerCode.substring(2);
+            dealerCode=dealerCode.substring(2);
             dealerCodeGrpIdMap.put(dealerCode, gp.Id);
         }        
 
@@ -46,7 +46,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c,fromRole__c,fromRole__r.recordTypeID,recordTypeID');
             condition.add('Account_Link__c');
             condition.add('Md__c=:market');
-            condition.add('toRole__c!=null');
+            condition.add('(toRole__c!=null or fromRole__c!=null)');
         } else if ('Lead__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Assigned_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Lead__c');
