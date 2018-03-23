@@ -1335,9 +1335,9 @@ If the user is Saving  same address which matches the fields returned by toleran
                     Validation = true;                              
                 }       
             }       
-            if(addressobj.Province__c == null)      
+            if(addressobj.State_City__c == null)      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.StateProvError));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'State/City is Mandatory'));        
             }       
     
             if(addressobj.Address_Line_2__c == null )       
