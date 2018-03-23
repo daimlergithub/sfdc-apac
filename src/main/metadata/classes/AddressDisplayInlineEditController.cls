@@ -1,5 +1,6 @@
 public class AddressDisplayInlineEditController { 
     public boolean openPanal{get;set;}
+	
     public List<Address__c> adds {get; set;}
     public Address__c addressobj {get; set;}
     public Boolean ShowpageBlockFlag {get;set;}

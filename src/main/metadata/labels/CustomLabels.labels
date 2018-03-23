@@ -5429,6 +5429,14 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>MarketMY</shortDescription>
         <value>MY</value>
     </labels>
+	   <labels>
+        <fullName>MarketAU</fullName>
+        <categories>Australia</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketAU</shortDescription>
+        <value>AU</value>
+    </labels>
     <labels>
         <fullName>MarketTH</fullName>
         <categories>MBTH</categories>
@@ -10556,6 +10564,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Vehicle</shortDescription>
         <value>Vehicle</value>
     </labels>
+	<labels>
+        <fullName>VR_Validation_Check</fullName>
+        <categories>This is used for activating and deactivating Validation Rule.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VR Validation Check</shortDescription>
+        <value>Yes</value>
+    </labels>
     <labels>
         <fullName>VehicleRelationship</fullName>
         <language>en_US</language>
@@ -11507,6 +11523,65 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>retURL</shortDescription>
         <value>retURL</value>
     </labels>
+	<labels>
+        <fullName>LeadAL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeadAL</shortDescription>
+        <value>LeadAL</value>
+    </labels>
+	<labels>
+        <fullName>LeadShareRecordswithDealers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeadShareRecordswithDealers</shortDescription>
+        <value>LeadShareRecordswithDealers</value>
+    </labels>
+	
+	<labels>
+        <fullName>AccountLinkAL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountLinkAL</shortDescription>
+        <value>AccountLinkAL</value>
+    </labels>
+	<labels>
+        <fullName>addressupdateRT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>addressupdateRT</shortDescription>
+        <value>addressupdateRT</value>
+    </labels>
+	
+	<labels>
+        <fullName>AccCDM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccCDM</shortDescription>
+        <value>AccCDM</value>
+    </labels>
+	<labels>
+        <fullName>MYRetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYRetail</shortDescription>
+        <value>MYRetail</value>
+    </labels>
+	<labels>
+        <fullName>AURetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AURetail</shortDescription>
+        <value>AURetail</value>
+    </labels>
+	<labels>
+        <fullName>PreferreddALKAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PreferreddALKAddress</shortDescription>
+        <value>PreferreddALKAddress</value>
+    </labels>
+	
     <labels>
         <fullName>retURL_apex_SelectSlaveAccount_Id</fullName>
         <language>en_US</language>

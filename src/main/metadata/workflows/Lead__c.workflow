@@ -1617,7 +1617,7 @@ Purchased_Date_Time__c
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>((1 or 2) AND (3 OR 7) AND (6 OR 4)) OR (2 AND 5 AND 4)</booleanFilter>
+        <booleanFilter>((1 or 2) AND (3 OR 7 OR 5) AND (6 OR 4)) OR (2 AND 5 AND 4)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.MD__c</field>
             <operation>equals</operation>

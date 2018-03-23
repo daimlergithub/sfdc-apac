@@ -2148,7 +2148,7 @@
             <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -2166,17 +2166,14 @@
             <picklistValues>
                 <fullName>IB call</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Social media</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>

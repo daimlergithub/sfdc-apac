@@ -12,7 +12,7 @@ public with Sharing class DealerPickerControllerGeneric {
     campaignId=ApexPages.currentPage().getParameters().get('CampaignId');//'a160l000000LgYf';//= 
        dealerList =new List<Account>();
         accessonRetailcamp=new List<Retail_Campaign__Share>();
-        dealerList=[select id,Name,Dealer_Nd_code__c,Dealer_Gc_code__C,Dealer_Lead_Gate_Keeper__c,Mobile__c from Account where RecordTypeId=:dealerAccount and MD__c=:market and Dealer_Nd_code__c!=''];
+		dealerList=[select id,Name,Dealer_Nd_code__c,Dealer_Gc_code__C,Dealer_Lead_Gate_Keeper__c,Mobile__c from Account where RecordTypeId=:dealerAccount and Dealer_Rollout_Status__c='Done' and Dealer_Active__c=true and MD__c=:market and Dealer_Nd_code__c!='']; 
         dList=new List<DealersList>();
         for(Account dealerrec:dealerList){
             dList.add(new DealersList(dealerrec));

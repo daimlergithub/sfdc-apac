@@ -99,6 +99,10 @@ public class AddressSearchValidationControllerCDM
         
     }
     
+    public Boolean getIsClassic() {
+        return (UserInfo.getUiThemeDisplayed() == 'Theme3');
+    }
+    
     public void LoadProvince()
     {  
         
