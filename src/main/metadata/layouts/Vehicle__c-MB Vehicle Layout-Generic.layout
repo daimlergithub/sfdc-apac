@@ -9,13 +9,12 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Vehicle information </label>
+        <label>Vehicle information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Name</field>
             </layoutItems>
-            
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>EuroVIN__c</field>
@@ -44,7 +43,7 @@
                 <behavior>Edit</behavior>
                 <field>Model__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Car_Model__c</field>
             </layoutItems>
@@ -54,7 +53,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
@@ -204,11 +203,11 @@
                 <behavior>Readonly</behavior>
                 <field>Warranty_End_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Extended_Warranty_Start_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Extended_Warranty_End_Date__c</field>
             </layoutItems>
@@ -272,7 +271,7 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Market__c</field>
             </layoutItems>
@@ -280,7 +279,7 @@
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <relatedLists>
-		<excludeButtons>New</excludeButtons>									
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Contact__c</fields>
         <fields>Car_Relation__c</fields>
@@ -294,7 +293,7 @@
         <relatedList>Vehicle_Relationship__c.Vehicle_ID__c</relatedList>
     </relatedLists>
     <relatedLists>
-		<excludeButtons>New</excludeButtons>									
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>VIN__c</fields>
@@ -321,13 +320,14 @@
         <fields>PARENT.CASE_NUMBER</fields>
         <relatedList>Case.Vehicle__c</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Service_Number__c</fields>
         <fields>Service_Code__c</fields>
         <fields>Service_Date__c</fields>
         <fields>Service_Invoice_Number__c</fields>
         <fields>Related_Lead__c</fields>
+        <fields>Service_Dealer__c</fields>
         <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -349,7 +349,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h28000006X9oy</masterLabel>
+        <masterLabel>00h0I000006TjTv</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
