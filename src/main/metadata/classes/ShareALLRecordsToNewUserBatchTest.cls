@@ -8,13 +8,14 @@ public class ShareALLRecordsToNewUserBatchTest {
         Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
         User user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com',
                           EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US',UserRoleId = portalRole1.Id, 
-                          LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='JP',
+                          LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='MY',
                           TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
          system.runAs(user_Obj)
         {    
             
           Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
           dealer.Dealer_Nd_code__c='abcd';
+          dealer.mD__c='MY';
           update dealer;  
           // create a Contact
         
@@ -39,7 +40,7 @@ public class ShareALLRecordsToNewUserBatchTest {
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US',
             ContactId=con.id,
-            Market__c='JP'
+            Market__c='MY'
         );
         insert usr;    
         Group g = new Group(name='abcd');
@@ -50,7 +51,7 @@ public class ShareALLRecordsToNewUserBatchTest {
                   Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'),Purchase_Month__c ='02',Purchase_Year__c='2004',RegistrationNo__c ='787878');
        insert vehicles;  
        List<Account> AccList= new list<Account>();     
-        Account personAccount =  new Account(FirstName='刈乾冠寒刊勘',LastName='刈乾冠寒刊勘',Md__c='JP', Individual_Home_Phone__c='046234824', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT).getRecordTypeId());
+        Account personAccount =  new Account(FirstName='刈乾冠寒刊勘',LastName='刈乾冠寒刊勘',Md__c='MY', Individual_Home_Phone__c='046234824', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT).getRecordTypeId());
         //insert personAccount;
        Account Dealer1 = new Account(Dealer_ND_Code__c='abcd',Dealer_Default_Flag__c=true,Dealer_DMS_CRM_Code__c='test code',Dealer_GC_Code__c=user_Obj.Dealer_GC_Code__c,Status__c='xCustomer',City__c='Beijing',Phone = '0808001010',Name = 'test dealer1', Mobile__c = '0000000000',Area_code__c = '010',ZipCode__c='1234567',Allow_Data_Sharing_Comment__c = 'yes',RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId());
        //insert Dealer;  
@@ -62,7 +63,7 @@ public class ShareALLRecordsToNewUserBatchTest {
        vRel.Vehicle_ID__c = vehicles.id;
        insert vRel;  
        List<Account_Link__c> ALList=new List<Account_Link__c>();    
-       Account_Link__c  accLink = new Account_Link__c(toRole__c =Dealer1.Id,Md__c='JP',fromRole__c = personAccount.Id,RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),Name = 'contact2Contact', Vehicle__c = vehicles.Id);
+       Account_Link__c  accLink = new Account_Link__c(toRole__c =Dealer1.Id,Md__c='MY',fromRole__c = personAccount.Id,RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),Name = 'contact2Contact', Vehicle__c = vehicles.Id);
       //insert accLink;      //Vehicle_External_Link
       Account_Link__c  accLink1 = new Account_Link__c(toRole__c =personAccount.Id,fromRole__c = Dealer1.Id,Retail_Delete_Flag__c = false,Retail_Duplicate_Flag__c = false,RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Name = 'contact2Contact', Vehicle__c = vehicles.Id);
       //insert accLink1;      //Vehicle_External_Link
@@ -82,7 +83,7 @@ public class ShareALLRecordsToNewUserBatchTest {
         lead1.Trade_In_Vehicle_Class__c = 'C-CLASS';
         lead1.Trade_In_Other_Vehicle_Model__c = 'testT';
         lead1.Interested_Vehicle_Brand__c = 'Smart';
-        lead1.md__c='TH';
+        lead1.md__c='MY';
         lead1.RecordTypeId=afterSalesRecordTypeId;
         lead1.Assigned_Dealer__c = dealer.Id;
         insert lead1; 
