@@ -16803,6 +16803,18 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>SMS / MMS/ IM</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -17043,7 +17055,89 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <fullName>Hindi</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
+			
+            <picklistValues>
+                <fullName>Afrikaans</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabic</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Croatian</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dutch</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greek</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indonesian</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Macedonian</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mandarin</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Polish</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Serbian</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tagalog</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turkish</fullName>
+                <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -24027,6 +24121,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>General_Personal_Info_Mandatory__c</picklist>
@@ -30463,6 +30569,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>General_Personal_Info_Mandatory__c</picklist>
@@ -36596,6 +36714,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>X</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -42750,6 +42880,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>X</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -48965,6 +49107,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>X</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -60146,6 +60300,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Male</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>X</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

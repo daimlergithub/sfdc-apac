@@ -61,7 +61,8 @@
                 
                 <apex:actionFunction action="{!selectedRecordTypeValue}" name="setRecType"/>
         <!--  All Markets Record Type Selection - Start -->
-                <apex:pageBlockSection rendered="{!If(OR(ISPICKVAL($User.Market__c,'KR'),ISPICKVAL($User.Market__c,'MY'),ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'AU'),ISPICKVAL($User.Market__c,'NZ')) ,true,false)}">
+		<!-- Sada 2013/Mar/22 Added for us2/3 and 229-->
+				<apex:pageBlockSection rendered="{!If(OR(ISPICKVAL($User.Market__c,'KR'),ISPICKVAL($User.Market__c,'MY'),ISPICKVAL($User.Market__c,'TH'),ISPICKVAL($User.Market__c,'IN'), ISPICKVAL($User.Market__c,'NZ'), ISPICKVAL($User.Market__c,'AU')) ,true,false)}">
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.RecordTypeId.Label}"/>
                         <!--<apex:outputLabel value="{!$Label.RecordTypeId}"/> -->
@@ -1496,11 +1497,17 @@
                      <!--MT20170909- Added Button for Malaysia-->
                      <apex:commandButton action="{!onLineDeduplicationMY}" value="{!$Label.OnLine_Deduplication}" rendered="{!If($Permission.MYGeneric ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>      
                     <!--MT20170909-->
+					<!-- Sada 2013/Mar/22 Added for us2/3 and 229-->
+                    <apex:commandButton action="{!onLineDeduplicationANZ}" value="{!$Label.OnLine_Deduplication}" rendered="{!If( OR(ISPICKVAL($User.Market__c,'AU') || ISPICKVAL($User.Market__c,'NZ')) ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>
+             					
                      </apex:outputPanel>
                     <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,JpaddressIds,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric)) ,true,false)}" oncomplete="hideTable();"/> <!--oncomplete="hideTable();-->
                     <!--<apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>-->
                     
                     <apex:outputPanel rendered="{!firstsave}" >
+					<!-- Sada 2013/Mar/22 Added for us2/3 and 229--><!-- Sada 2013/Mar/22 Added for us2/3 and 229-->
+                    <apex:commandButton id="SavebtnAU" action="{!saveAccountANZ}" value="{!$Label.Save_Button}" rendered="{!If(OR(ISPICKVAL($User.Market__c,'AU') || ISPICKVAL($User.Market__c,'NZ')) ,true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>               
+                    
                      <!--   <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button}" rendered="{!if(Market =='JP',True,false)}" onClick="this.disabled=true;" oncomplete="this.disabled=false;" rerender="redirectPanel,msgs" status="actStatusId"/>  -->
                         <apex:commandButton id="SavebtnTH" action="{!saveAccountTH}" value="{!$Label.Save_Button}" rendered="{!if(Market =='TH',True,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>
                     <!--MT20170909- Added Button for Malaysia-->        
@@ -1537,9 +1544,8 @@
                    </apex:outputPanel>
 				    <apex:outputPanel >
                  <!--   Sada US-2/3 2018/March/22 R1  -->      
-                    <apex:commandButton action="{!onLineDeduplicationANZ}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(ISPICKVAL($User.Market__c,'AU') ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>
-                   <apex:commandButton id="SavebtnAU" action="{!saveAccountANZ}" value="{!$Label.Save_Button}" rendered="{!If(ISPICKVAL($User.Market__c,'AU') ,true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>               
-                   <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(ISPICKVAL($User.Market__c,'AU') ,true,false)}"/>  
+                   <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(OR(ISPICKVAL($User.Market__c,'AU') || ISPICKVAL($User.Market__c,'NZ')) ,true,false)}"/>  
+				   
                   </apex:outputPanel>
              <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(or(market=='TH',market=='KR') ,true,false)}"/>  
              <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(And(market=='JP',Editmode) ,true,false)}"/>    
@@ -1834,7 +1840,56 @@
                     </apex:Column>   
                                             
                 </apex:PageBlockTable>      
-                     </apex:pageBlockSection>       
+                     </apex:pageBlockSection> 
+
+<!--Sada 2018/Mar/22 - Added Block for ANZ as part of Userstories 2/3 and 229-->       
+                 <!--<apex:pageBlock title="{!$Label.Confirmed_Match}" id="frm">-->
+                     <apex:pageBlockSection columns="1" rendered="{!IF((displayAccList.size!=0 && ($Permission.AUGeneric ||$Permission.NZGeneric  )), true, false)}">                 
+                     <apex:pageBlockTable value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Person Account'}">       
+                      <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">         
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>            
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId ==null}">       
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.LastName}</apex:outputLink>            
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                           
+                        <apex:outputField value="{!cr.firstName}"/>     
+                    </apex:Column>      
+                                    
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Mobile__c.Label}">                           
+                        <apex:outputField value="{!cr.Mobile__c}"/>     
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
+                        <apex:outputField value="{!cr.Email__c}"/>      
+                    </apex:Column>      
+                     <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>        
+                     </apex:pageBlockTable>     
+                            
+                     <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Company'}">      
+                            
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId !=null}">       
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.Name}</apex:outputLink>            
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId ==null}">       
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.Name}</apex:outputLink>            
+                    </apex:Column>      
+       
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Work_Phone__c.Label}">                            
+                        <apex:outputField value="{!cr.Work_Phone__c}"/>      
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
+                        <apex:outputField value="{!cr.Email__c}"/>
+                        
+                    </apex:Column>      
+                      <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>   
+                                            
+                </apex:PageBlockTable>      
+                     </apex:pageBlockSection>
+					 
                      <apex:pageblockButtons >       
                      <apex:commandButton value="First" action="{!first}" reRender="frmCDM" disabled="{!first}"/>       
                      <apex:commandButton value="Previous" action="{!previous}" reRender="frmCDM" disabled="{!previous}"/>      
