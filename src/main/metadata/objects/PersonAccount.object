@@ -6073,11 +6073,7 @@
 			<values>
 			<fullName>Greek</fullName>
 			<default>false</default>
-			</values>
-			<values>
-			<fullName>Hindi</fullName>
-			<default>false</default>
-			</values>
+			</values>			
 			<values>
 			<fullName>Indonesian</fullName>
 			<default>false</default>
@@ -6096,10 +6092,6 @@
 			</values>
 			<values>
 			<fullName>Polish</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Portuguese</fullName>
 			<default>false</default>
 			</values>
 			<values>
