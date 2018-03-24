@@ -5866,7 +5866,11 @@
 			<values>
                 <fullName>Social Media</fullName>
                 <default>false</default>
-            </values>		
+            </values>	
+			<values>
+                <fullName>SMS %2F MMS%2F IM</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
@@ -5952,6 +5956,10 @@
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+			 <values>
+                <fullName>Afrikaans</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
