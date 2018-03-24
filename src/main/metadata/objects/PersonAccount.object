@@ -2730,6 +2730,18 @@
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
 		<picklistValues>
             <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
@@ -3198,6 +3210,74 @@
             </values>
 			<values>
                 <fullName>Childcare</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Classic cars</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cricket</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Food/Wine</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Motorsport</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Rugby League</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Rugby Union</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>AFL</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Skiing/Snowboarding</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Soccer</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Surfing</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Nature/Outdoors</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Cycling</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Wellness</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Home & Garden</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Technology & Innovation</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Art</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Performing arts</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5065,6 +5145,18 @@
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Widowed</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Separated</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>De-Facto</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
 			<picklist>Market__c</picklist>
@@ -5354,7 +5446,11 @@
             <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
-            </values>
+            </values>			
+			<values>
+                <fullName>IT employee</fullName>
+                <default>false</default>
+            </values
             <values>
                 <fullName>enterprise and public institution responsible officer</fullName>
                 <default>false</default>
@@ -5962,6 +6058,54 @@
                 <fullName>Afrikaans</fullName>
                 <default>false</default>
             </values>
+			<values>
+			<fullName>Arabic</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Croatian</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Dutch</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Greek</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Hindi</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Indonesian</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Macedonian</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Mandarin</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Other</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Polish</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Portuguese</fullName>
+			<default>false</default>
+			</values>
+			<values>
+			<fullName>Serbian</fullName>
+			<default>false</default>
+			</values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_newspaper_picklist__c</picklist>
@@ -6375,6 +6519,10 @@
                 <fullName>Royal Family</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Special_Needs_Class__c</picklist>
@@ -6771,6 +6919,54 @@
             </values>
 			<values>
                 <fullName>Tan Sri Dato Seri Dr</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Captain</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Colonel</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Her Excellency</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>His Excellency</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Justice</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Lady</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Lord</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Miss</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mr</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Mrs</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Ms</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Professor</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
