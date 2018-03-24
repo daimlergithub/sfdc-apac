@@ -1501,8 +1501,9 @@
                     <apex:commandButton action="{!onLineDeduplicationANZ}" value="{!$Label.OnLine_Deduplication}" rendered="{!If( OR(ISPICKVAL($User.Market__c,'AU') || ISPICKVAL($User.Market__c,'NZ')) ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()"/>
              					
                      </apex:outputPanel>
-                    <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,JpaddressIds,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric)) ,true,false)}" oncomplete="hideTable();"/> <!--oncomplete="hideTable();-->
-                    <!--<apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>-->
+					 <!-- Sada 2013/Mar/22 Added NZ and AU  for us2/3 and 229-->
+					 <apex:commandButton action="{!validateAddressByZipCode}" value="{!$Label.Validate}" reRender="AddrPBS,AddrJPKRPBS,JpaddressIds,addressIds,msgs" rendered="{!If(NOT(OR(ISPICKVAL($User.Market__c,'TH'),$Permission.MYGeneric, $Permission.AUGeneric, $Permission.NZGeneric)) ,true,false)}" oncomplete="hideTable();"/> <!--oncomplete="hideTable();-->
+                     <!--<apex:commandButton id="Savebtn" action="{!saveAccount}" value="{!$Label.Save_Button}"  rendered="{!If(AND(market =='KR',(RecordType == 'Person Account' || RecordType == 'Company')),true,false)}" rerender="redirectPanel,msgs" status="actStatusId"/>-->
                     
                     <apex:outputPanel rendered="{!firstsave}" >
 					<!-- Sada 2013/Mar/22 Added for us2/3 and 229--><!-- Sada 2013/Mar/22 Added for us2/3 and 229-->
