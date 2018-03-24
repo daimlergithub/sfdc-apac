@@ -3265,11 +3265,11 @@
                 <default>false</default>
             </values>
 			<values>
-                <fullName>Home & Garden</fullName>
+                <fullName>Home &amp; Garden</fullName>
                 <default>false</default>
             </values>
 			<values>
-                <fullName>Technology & Innovation</fullName>
+                <fullName>Technology &amp; Innovation</fullName>
                 <default>false</default>
             </values>
 			<values>
