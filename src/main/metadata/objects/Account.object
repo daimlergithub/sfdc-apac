@@ -16763,6 +16763,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Email</fullName>
@@ -16772,6 +16774,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fax</fullName>
@@ -16789,6 +16793,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SMS</fullName>
@@ -16805,12 +16811,6 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"<
             </picklistValues>
 			<picklistValues>
                 <fullName>SMS / MMS/ IM</fullName>
-                <default>false</default>
-                <controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Mobile</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
@@ -26744,6 +26744,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>SMS %2F MMS%2F IM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
