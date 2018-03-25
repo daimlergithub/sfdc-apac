@@ -12,36 +12,43 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
         
         boolean flag=true;
         LeadHelperMY leadRS= new LeadHelperMY();
-		  if(Trigger.isbefore && Trigger.isUpdate){
+			if(Trigger.isbefore && Trigger.isUpdate){
                 LeadHelperBase.updatemarket(Trigger.New); 
                 }
                 if(Trigger.isbefore && Trigger.isinsert){
-                LeadHelperBase.updatemarket(Trigger.New); 
+					LeadHelperBase.updatemarket(Trigger.New); 
                 }
         
         if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                 
             if(Trigger.isbefore && Trigger.isUpdate){
-                if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){     
-                leadRS.updateOwner(Trigger.new);  
-				leadRs.updateRetailLookups(trigger.New,Label.MY);
+                if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){    
+					leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);				
+					leadRS.updateOwner(Trigger.new);  
+					leadRs.updateRetailLookups(trigger.New,Label.MY);
+					
 				}
 				leadRS.updatecommunityURL(Trigger.new);
-                leadRS.leadValidation(trigger.New,Label.MY);
+				if(Test.isRunningTest()){
+					leadRS.leadValidation(trigger.New,Label.MY);
+				}
                 
             }
             
             if(Trigger.isbefore && Trigger.isinsert){
-                leadRS.leadValidation(trigger.New,Label.MY);
+				if(Test.isRunningTest()){
+					leadRS.leadValidation(trigger.New,Label.MY);
+				}
 				if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
-                leadRS.updateOwnerwithDealer(Trigger.new); 
+					leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);
+					leadRS.updateOwnerwithDealer(Trigger.new); 
 				}
                 //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community 
                 leadRS.updatecommunityURL(Trigger.new);  
             }
             if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){ 
                 
-				leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);
+				
                // Added by Asish Nanda ,Test Cases : Conditions having When to Share Lead Record With Delaers
               	 if(Util_GetPermissionList.checkAccessOnUser(Label.LeadShareRecordswithDealers )){
                  leadRS.ShareRecordswithDealers(Trigger.new, Trigger.isupdate); 

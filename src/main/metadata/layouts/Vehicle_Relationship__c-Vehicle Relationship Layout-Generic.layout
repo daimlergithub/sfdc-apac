@@ -298,19 +298,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Contact__c</fields>
-        <fields>Dealer_Lead_Status__c</fields>
-        <fields>Lead_Latest_Phase__c</fields>
-        <fields>Assigned_Dealer__c</fields>
-        <fields>Service_Advisor__c</fields>
-        <fields>AfterSales_VIN__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>Expected_Registration_Date__c</fields>
-        <relatedList>Lead__c.VehicleRel_No__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.CREATED_DATE</fields>

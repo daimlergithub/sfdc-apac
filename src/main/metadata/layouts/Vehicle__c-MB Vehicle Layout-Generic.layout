@@ -330,17 +330,7 @@
         <fields>Service_Dealer__c</fields>
         <relatedList>Retail_Task__c.Service_Vehicle__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>
-        <fields>Product_Name__c</fields>
-        <fields>Type__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>Status__c</fields>
-        <relatedList>Retail_Task__c.Related_Vehicle__c</relatedList>
-    </relatedLists>
-    <relatedLists>
+   <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

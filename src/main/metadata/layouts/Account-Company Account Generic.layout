@@ -291,7 +291,7 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>UsVIN__c</fields>
+        <fields>Euro_Vin__c</fields>
         <fields>Car_Relation__c</fields>
         <fields>Vehicle_Model__c</fields>
         <fields>New_Used__c</fields>
@@ -299,7 +299,7 @@
         <fields>End_Date__c</fields>
         <fields>Registration_Number__c</fields>
         <fields>Vehicle_ID__c</fields>
-        <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
+        <relatedList>Vehicle_Relationship__c.Company_Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
@@ -388,14 +388,6 @@
         <fields>LAST_UPDATE</fields>
         <fields>Campaign_Execution_Type__c</fields>
         <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Campaign_Dealer__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <fields>Status__c</fields>
-        <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
