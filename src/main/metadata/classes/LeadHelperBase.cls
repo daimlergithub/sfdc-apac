@@ -687,9 +687,9 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
 	
 	public static void autoPopulateAssignDealer(List<Lead__c> Leadlist, String Market){
 	 if (userInfo.getUserType() == 'PowerPartner' ) {
-		 User usr = [Select id, contactID,AccountID from user where contactID =: userInfo.getUserId()];
+		 User usr = [Select id, contactID,AccountID,contact.accountid from user where id =: userInfo.getUserId()];
 		 for(Lead__c le:Leadlist){
-			if(string.isblank(le.Assigned_Dealer__c)) le.Assigned_Dealer__c=usr.AccountID;		
+			if(string.isblank(le.Assigned_Dealer__c)) le.Assigned_Dealer__c=usr.contact.AccountID;		
 		} 
 	  }
 	}
