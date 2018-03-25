@@ -70,6 +70,12 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             condition.add('Dealer_ND_Code__c!=null and Dealer_ND_Code__c IN:dealerCodeLst');
           
         }
+		else if('Retail_Task__c'.equalsIgnoreCase(sobjectName)){
+            condition.add('Id,Service_Dealer__r.Dealer_ND_Code__c,MD__c');
+            condition.add('Retail_Task__c');
+            condition.add('MD__c=:market');
+            condition.add('Service_Dealer__c!=null and Service_Dealer__r.Dealer_ND_Code__c IN:dealerCodeLst and recordtype.name=\'Service\'');          
+        }
         
         return Database.getQueryLocator(String.format(query, condition));
     }
@@ -389,6 +395,47 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             if(insertUserShare!=null && insertUserShare.size()>0)
              DMLManagerService.insertAsSystem(insertUserShare); 
         }            
+		else if('Retail_Task__c'.equalsIgnoreCase(sobjectName))
+      {
+            Map<String,List<Retail_Task__c>> DealerCodeRTMap=new Map<String,List<Retail_Task__c>>();
+            for(sObject sObj:scope)
+            {  
+                Retail_Task__c RTObj=(Retail_Task__c)sObj;
+                if(DealerCodeRTMap.containsKey(RTObj.Service_Dealer__r.Dealer_ND_Code__c))
+                {
+                    List<Retail_Task__c> rtList=new List<Retail_Task__c>();
+                    rtList=DealerCodeRTMap.get(RTObj.Service_Dealer__r.Dealer_ND_Code__c);
+                    rtList.add(RTObj);
+                    DealerCodeRTMap.put(RTObj.Service_Dealer__r.Dealer_ND_Code__c,rtList);
+                }
+                else //if Dealer code is not present in map
+                {
+                    List<Retail_Task__c> rtList=new List<Retail_Task__c>();
+                    rtList.add(RTObj);
+                    DealerCodeRTMap.put(RTObj.Service_Dealer__r.Dealer_ND_Code__c,rtList);
+                }
+            }
+            
+            
+           List<Retail_Task__Share> insertRTShare=new List<Retail_Task__Share>();
+            for(String dealerCode:DealerCodeRTMap.keySet())
+            {
+                List<Retail_Task__c> rtList=DealerCodeRTMap.get(dealerCode);
+                
+                for(Retail_Task__c RTObj:rtList)
+                {
+                     Retail_Task__Share share = new Retail_Task__Share();
+                     share.AccessLevel = 'READ';
+                     share.ParentId = RTObj.Id;
+                     share.UserOrGroupId = dealerCodeGrpIdMap.get(RTObj.Service_Dealer__r.Dealer_ND_Code__c);
+                     share.RowCause = Schema.Retail_Task__Share.RowCause.Service_Share__c;
+                     insertRTShare.add(share);
+
+                }
+            }
+            if(insertRTShare!=null && insertRTShare.size()>0)
+             DMLManagerService.insertAsSystem(insertRTShare); 
+        }
     }
     global void finish(Database.BatchableContext BC)
     {

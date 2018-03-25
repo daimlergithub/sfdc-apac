@@ -81,7 +81,7 @@ public class VehicleRelationshipHelperBaseTest {
         delete vrlst;
        }
        
-       public static testMethod void VehicleRelationshipHelperMYTestMethod(){
+    /*   public static testMethod void VehicleRelationshipHelperMYTestMethod(){
         createPersonaUser();
         System.runAs (user2) {
             test.startTest();
@@ -91,5 +91,5 @@ public class VehicleRelationshipHelperBaseTest {
             catch(Exception e){}
             test.stopTest();
         }
-    }
+    }*/
 }
