@@ -87,8 +87,7 @@ public with sharing class VehicleRelationshipHelperBase{
                 Company_AccountIdforValidity.add(vr.Company_Account__c); 
             }
         }  
-        updateVehicleAmount_Company(Company_AccountId);        
-        createAccountLink(VehicleIds,VehicleRelationshipIds,Company_AccountIdofVehicleRelationship);        
+        updateVehicleAmount_Company(Company_AccountId);  
     } 
      /*
     * Added By: Asish Kumar Nanda
@@ -123,8 +122,7 @@ public with sharing class VehicleRelationshipHelperBase{
                 Company_AccountIdforValidity.add(vr.Company_Account__c); 
             }  
         }                          
-        updateVehicleAmount_Company(Company_AccountId);
-        createAccountLink(VehicleIds,VehicleRelationshipIds,Company_AccountIdofVehicleRelationship);            
+        updateVehicleAmount_Company(Company_AccountId);   
     } 
      /*
     * Added By: Asish Kumar Nanda

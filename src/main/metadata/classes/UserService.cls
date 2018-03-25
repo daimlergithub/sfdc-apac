@@ -356,34 +356,4 @@ public with sharing class UserService {
         }
         return crmCode2Users;
     }
-    //SB2018
-    /*@generic code to add service dealer's Dealer nd Code into list*/
-    public Map<String, Set<Id>> mapDealerNdCode2GrpGeneric(List<Retail_Task__c> retailTasks){
-        User loggedInUser = [select Id, Market__c from User where Id = :UserInfo.getUserId()];
-        Set<String> DealerNdCodes = new Set<String>();
-        for(Retail_Task__c retailTask : retailTasks) {
-            if(retailTask.Related_Dealer__c!=null)
-            {
-                String grpName=loggedInUser.market__c+retailTask.Service_Dealer__r.Dealer_ND_Code__c;
-                DealerNdCodes.add(grpName);
-            }
-              
-        }
-        return mapDealerNdCode2Grp(DealerNdCodes);
-    }
-    
-    /*@generic code to add related dealer's Dealer nd Code into list*/
-    public Map<String, Set<Id>> mapRelatedDealerNdCode2GrpGeneric(List<Retail_Task__c> retailTasks){
-        User loggedInUser = [select Id, Market__c from User where Id = :UserInfo.getUserId()];
-        Set<String> DealerNdCodes = new Set<String>();
-        for(Retail_Task__c retailTask : retailTasks) {
-            if(retailTask.Related_Dealer__c!=null && retailTask.Related_Vehicle__r.Related_Dealer__c==retailTask.Related_Dealer__c)
-            {
-                String grpName=loggedInUser.market__c+retailTask.Related_Dealer__r.Dealer_ND_Code__c+retailTask.Related_Vehicle__c;
-                DealerNdCodes.add(grpName);
-            }
-              
-        }
-        return mapDealerNdCode2Grp(DealerNdCodes);
-    }
 }

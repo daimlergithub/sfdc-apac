@@ -61,8 +61,7 @@ public class UserServiceTest {
          usr.mapDealerNdCode2Grp(rettask);
          usr.mapCrmCode2Users(vehlist);
          usr.mapCrmCode2Users(accountLinks);
-         usr.mapDealerNdCode2GrpGeneric(rettask);
-         usr.mapRelatedDealerNdCode2GrpGeneric(rettask);
+      
     }
         
     }
