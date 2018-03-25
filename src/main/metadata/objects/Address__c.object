@@ -304,7 +304,8 @@
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>				
+				<controllingFieldValues>AU</controllingFieldValues>	
+				<controllingFieldValues>NZ</controllingFieldValues>					
             </picklistValues>
             <picklistValues>
                 <fullName>Business</fullName>
@@ -314,7 +315,8 @@
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>				
+				<controllingFieldValues>AU</controllingFieldValues>	
+				<controllingFieldValues>NZ</controllingFieldValues>				
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 1</fullName>
@@ -324,7 +326,8 @@
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>				
+				<controllingFieldValues>AU</controllingFieldValues>	
+				<controllingFieldValues>NZ</controllingFieldValues>					
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 2</fullName>
@@ -334,7 +337,8 @@
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>				
+				<controllingFieldValues>AU</controllingFieldValues>	
+				<controllingFieldValues>NZ</controllingFieldValues>					
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 3</fullName>
@@ -344,7 +348,8 @@
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>				
+				<controllingFieldValues>AU</controllingFieldValues>	
+				<controllingFieldValues>NZ</controllingFieldValues>					
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -454,11 +459,13 @@
                 <fullName>Australia</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				 <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Zealand</fullName>
                 <default>false</default>
-                <controllingFieldValues>AU</controllingFieldValues>               
+                <controllingFieldValues>AU</controllingFieldValues> 
+				<controllingFieldValues>NZ</controllingFieldValues>				
             </picklistValues>
             <picklistValues>
                 <fullName>Laos</fullName>
@@ -1729,7 +1736,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
-			
+			<values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
@@ -2132,6 +2142,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2552,6 +2566,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
