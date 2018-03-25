@@ -16,10 +16,13 @@ public class TriggerVehicleRelTriggerHandlerMYTest{
   */
   public static User user1;
        public static User user2;
-        public static User user3;
+       public static User user3;
        public static User integrationAPI;
        public static List<Case> CaseFieldsList;
-       public static List<Vehicle_Relationship__c> VehicleRelFieldsList;
+       public static List<Vehicle_Relationship__c> vrlst;
+       public static Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Vehicle_Relationship__c','Vehicle Relationship Retail');
+   
+       public static List<Account> accList;
 
 
     static void setupTestData(){
@@ -46,6 +49,8 @@ public class TriggerVehicleRelTriggerHandlerMYTest{
                           LocaleSidKey='en_US', ProfileId = p2.Id,
                           TimeZoneSidKey='America/Los_Angeles', UserName='testuser3@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
         DMLManagerService.insertAsSystem(user3 );
+         Group gr=new Group(Name='MY12345');
+        insert gr;
        system.runas(user1){
         Trigger__c CaseTriggerMY= new Trigger__c(Name='TriggerVehicleRelationshipMY',Trigger_Name__c='TriggerVehicleRelationship',Trigger_Handler__c='TriggerVehicleRelTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
     insert CaseTriggerMY;
@@ -86,43 +91,34 @@ public class TriggerVehicleRelTriggerHandlerMYTest{
         psa.AssigneeId = user2.id;
         psa.PermissionSetId = ps.Id;
         insert psa;
-       System.runAs (user1) {  
-        List<String> AccountFields=new List<String>();
-        AccountFields.add('Lastname');
-        AccountFields.add('Individual_Home_Phone__c');
-        AccountFields.add('Work_Phone__c');
-        AccountFields.add('fax');
-        AccountFields.add('Mobile__c');
-        AccountFields.add('MD__c');
-        List<Account> AccountFieldsList=DataFactoryServices.createRecords('Account',AccountFields,'',1);
-        AccountFieldsList[0].Lastname='Lastname1';
-        AccountFieldsList[0].Individual_Home_Phone__c='+6003123654789';
-        AccountFieldsList[0].Work_Phone__c='+60825634789541';
-        AccountFieldsList[0].fax='+60827896541';
-        AccountFieldsList[0].Mobile__c='+609856321478';
-        AccountFieldsList[0].MD__c='MY';
-        AccountFieldsList[0].email__c='abc@xyz.com';
-        insert AccountFieldsList;
-        List<String> VehicleFields=new List<String>();
-        //VehicleFields.add('recordtype');
-        VehicleFields.add('Brand__c');
-        List<Vehicle__c> VehicleFieldsList=DataFactoryServices.createRecords('Vehicle__c',VehicleFields,'',1);
-        VehicleFieldsList[0].RecordTypeId=Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
-        VehicleFieldsList[0].Brand__c='BMW';
-        insert VehicleFieldsList;
+        System.runAs (user1) {  
+         accList = new List<Account>();
+        Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+       
+        Account accObj = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+6612123789', md__c ='MY');
+        accList.add(accObj);
+        Id recordTypeAccDealerObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Id recordTypeAccCompanyAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+       Account accObjcomp = new Account(RecordTypeId = recordTypeAccCompanyAccountObjId ,Name = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+6612123789', md__c ='MY');
+        accList.add(accObjcomp);
+        Account accObj1 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+6612123789',Dealer_ND_Code__c='12345', md__c ='MY');
+        accList.add(accObj1);
+        Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Home_Phone_2__c = '02202245626',Individual_Home_Phone__c='+6612123789',Dealer_ND_Code__c='12345', md__c ='MY');
+        accList.add(accObj2);
+        insert accList;
         
-        List<String> VehicleRelFields=new List<String>();
-        VehicleRelFields.add('Car_Relation__c');
-        VehicleRelFields.add('Contact__c');
-        VehicleRelFields.add('Vehicle_ID__c');
-        VehicleRelFields.add('Status_1__c');
+        Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
+        Vehicle__c vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='12369854789632147',EuroVIN__c ='tlikkkkkkkklllll66',CurrentMileage__c=5000,NextMileage__c=6000, md__c ='MY');
+        insert vehicleObj;
+        vrlst = new List<Vehicle_Relationship__c>();
+       Vehicle_Relationship__c vehicleRelationshipObj = new Vehicle_Relationship__c( Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(2).Id,Purchase_Date__c=system.today(),Company_Account__C=accList.get(1).Id,Contact__c =accList.get(0).Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data',vehicle_mail_picklist__c='MyMercedes Email',vehicle_fax_picklist__c='Work FAX',Owner_Dealer__c=accList.get(2).Id,recordtypeid=retailCompany_RecordTypeId, md__c ='MY');
+        vrlst.add(vehicleRelationshipObj);
+        Vehicle_Relationship__c vehicleRelationshipObj1 = new Vehicle_Relationship__c( Car_Relation__c ='Purchaser',Owner_Relation__c = 'Others',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(2).Id,Purchase_Date__c=system.today(),Company_Account__C=accList.get(1).Id,Contact__c =accList.get(0).Id,Validity__c ='Yes',End_Date__c = system.today().addDays(1),Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data',vehicle_mail_picklist__c='MyMercedes Email',vehicle_fax_picklist__c='Work FAX', md__c ='MY',Owner_Dealer__c=accList.get(2).Id);
+        vrlst.add(vehicleRelationshipObj1);
+        Vehicle_Relationship__c vehicleRelationshipObj2 = new Vehicle_Relationship__c( Car_Relation__c ='Sales Contact Target',Owner_Relation__c = 'Partner',Registration_Number__c = 'tlikkkkkkkklllll',Vehicle_ID__c = vehicleObj.Id,Selling_Dealer__c = accList.get(2).Id,Purchase_Date__c=system.today(),Company_Account__C=accList.get(1).Id,Contact__c =accList.get(1).Id,Validity__c ='Yes',Start_Date__c = system.today().addDays(-1),End_Reason__c ='Test Data',vehicle_mail_picklist__c='MyMercedes Email',vehicle_fax_picklist__c='Work FAX',Owner_Dealer__c=accList.get(2).Id,recordtypeid=retailCompany_RecordTypeId, md__c ='MY');
+        vrlst.add(vehicleRelationshipObj2);
         
-        VehicleRelFieldsList=DataFactoryServices.createRecords('Vehicle_Relationship__c',VehicleRelFields,'',1);
-        VehicleRelFieldsList[0].Car_Relation__c='Purchaser';
-        VehicleRelFieldsList[0].Contact__c=AccountFieldsList[0].Id;
-        VehicleRelFieldsList[0].Vehicle_ID__c=VehicleFieldsList[0].Id;
-        VehicleRelFieldsList[0].Status_1__c='C';
-        VehicleRelFieldsList[0].MD__c='MY';
+       
         
       }
    } 
@@ -137,23 +133,27 @@ public class TriggerVehicleRelTriggerHandlerMYTest{
           setupTestData();
            System.runAs (user2) {  
            test.starttest();
-         
-                     insert VehicleRelFieldsList;
-                     update  VehicleRelFieldsList;
-                     delete VehicleRelFieldsList;            
-                test.stoptest(); 
+            TriggerUtil.userCreate=false;
+           insert vrlst;
+           update  vrlst;
+            TriggerUtil.userCreate=false;
+           delete vrlst;            
+           test.stoptest(); 
         }
      }
     
     static testMethod void testAccAssignmentINT() {
          
           setupTestData();
-         
+         TriggerUtil.userCreate=false;
            System.runAs (user3) {  
                    TriggerUtil.userCreate=false;
-                     insert VehicleRelFieldsList;
-                     update VehicleRelFieldsList;
-                     delete VehicleRelFieldsList;            
+                     insert vrlst;
+                     update vrlst;
+                     vrlst[0].owner_Dealer__c=null;
+                     Vrlst[1].owner_Dealer__c=acclist[3].id;
+                      update vrlst;
+                     delete vrlst;            
                 
         }
      }

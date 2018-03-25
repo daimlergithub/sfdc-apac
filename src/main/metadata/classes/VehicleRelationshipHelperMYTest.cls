@@ -96,7 +96,7 @@ public class VehicleRelationshipHelperMYTest{
       Description:Added to update the code coverage of the method for MY
       Modified Date: 2017-10-09
   */
-    static testmethod void testVehicleRelationshipHelperMY1(){
+ /*   static testmethod void testVehicleRelationshipHelperMY1(){
     
     Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
        User user1 = new User(LastName='User'+System.Today(),Market__c='MY',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral1.com.dev01');
@@ -129,5 +129,5 @@ public class VehicleRelationshipHelperMYTest{
       test.stopTest(); 
       
       }   
-    }
+    }*/
 }
