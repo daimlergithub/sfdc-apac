@@ -70,7 +70,7 @@ public with sharing class VehicleRelationshipHelperBase{
         Set<Id> Company_AccountIdofVehicleRelationship=new Set<Id>(); 
         Set<Id> VehicleIds=new Set<Id>();        
         Set<Id> VehicleRelationshipIds=new Set<Id>(); 
-        set<Id> Company_AccountIdforValidity=new Set<Id>();
+        set<Id> Company_AccountIdforValidity=new Set<Id>(); 
               
         for (Vehicle_Relationship__c vr : vehicleRelNewRecord){               
             if(vr.Company_Account__c!=Null  && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && vr.Validity__c.equalsIgnoreCase(System.label.Yes)){              
