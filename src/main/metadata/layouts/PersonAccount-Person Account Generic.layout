@@ -414,7 +414,7 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>UsVIN__c</fields>
+        <fields>Euro_Vin__c</fields>
         <fields>Car_Relation__c</fields>
         <fields>Vehicle_Model__c</fields>
         <fields>New_Used__c</fields>
@@ -516,14 +516,6 @@
         <fields>LAST_UPDATE</fields>
         <fields>Campaign_Execution_Date__c</fields>
         <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Campaign_Dealer__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <fields>Status__c</fields>
-        <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
