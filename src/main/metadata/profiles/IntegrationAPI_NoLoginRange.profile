@@ -15,7 +15,7 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
+    <applicationVisibilities>	
         <application>Central_Dealer_Portal</application>
         <default>false</default>
         <visible>false</visible>
@@ -1891,11 +1891,7 @@
         <apexClass>RetailTaskSharingWrapService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>RetailTaskSharingWrapServiceBase</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
+     <classAccesses>
         <apexClass>RetailTaskTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
