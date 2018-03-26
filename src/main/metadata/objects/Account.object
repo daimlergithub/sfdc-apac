@@ -14532,15 +14532,11 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Married w/o Child</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
@@ -14548,8 +14544,6 @@ Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</descript
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
 			<picklistValues>
                 <fullName>Widowed</fullName>
@@ -17078,6 +17072,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>English</fullName>
@@ -17087,6 +17083,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Chinese</fullName>
@@ -17102,6 +17100,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hindhi</fullName>
@@ -17116,6 +17116,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>French</fullName>
@@ -17123,6 +17125,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Italian</fullName>
@@ -17130,13 +17134,15 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Tagalogue</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>		
             </picklistValues>
             <picklistValues>
                 <fullName>Portuguese</fullName>
@@ -17144,6 +17150,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vietnamese</fullName>
@@ -17151,6 +17159,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Spanish</fullName>
@@ -17158,6 +17168,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Thai</fullName>
@@ -17165,6 +17177,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Russian</fullName>
@@ -17172,6 +17186,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Turkey</fullName>
@@ -17202,12 +17218,16 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <fullName>Tamil</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cantonese</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mandarin Chinese</fullName>
@@ -17221,6 +17241,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
                 <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
 			
             <picklistValues>
@@ -27496,6 +27518,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Royal Family</fullName>
                 <default>false</default>
             </values>
+			 <values>
+                <fullName>Military</fullName>
+                <default>false</default>
+            </values>
+			
         </picklistValues>
         <picklistValues>
             <picklist>Special_Needs_Class__c</picklist>
