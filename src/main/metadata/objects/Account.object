@@ -15102,9 +15102,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>				
             </picklistValues>
             <picklistValues>
                 <fullName>Self-employee</fullName>
@@ -20017,61 +20015,73 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <fullName>Captain</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Colonel</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Her Excellency</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>His Excellency</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Justice</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lady</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lord</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Miss</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mr</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mrs</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ms</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Professor</fullName>
                 <default>false</default>
                 <controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
