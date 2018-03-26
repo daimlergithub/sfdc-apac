@@ -278,7 +278,7 @@
             </layoutItems>
             
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Retail_WebSite__c</field>
             </layoutItems>
             <layoutItems>

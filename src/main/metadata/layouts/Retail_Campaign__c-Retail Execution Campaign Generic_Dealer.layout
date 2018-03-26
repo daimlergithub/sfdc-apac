@@ -71,11 +71,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Relevant_Central_Campaign__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Parent_Campaign__c</field>
+                <field>Relevant_Retail_Campaign__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
