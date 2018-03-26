@@ -4529,7 +4529,7 @@ Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</descrip
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>Customer_Lifecycle_Phase__c</fullName>
+        <fullName>Customer_Lifecycle_Phase__c</fullName> 
         <externalId>false</externalId>
         <label>Customer phase</label>
         <picklist>
