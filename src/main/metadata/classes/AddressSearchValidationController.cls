@@ -3174,12 +3174,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateProvError));        
                         Validation = TRUE;      
                     }       
-                    if(addressobj.Suburb__c == null )
-                    {                       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Enter Suburb details'));                        
-                        Validation = TRUE;                                              
-                    } 
-                     if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+                      if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
                         Validation = true;                      
@@ -3221,7 +3216,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     }
     if(recordCheck && mandatoryFlag &&  Recordtype==Label.Company? string.isblank(objAccount.name):false){
         mandatoryFlag=false;
-        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError ));       
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchErrorANZ ));       
     }
     if(recordCheck && mandatoryFlag){
     
@@ -3232,7 +3227,7 @@ If the user is Saving  same address which matches the fields returned by toleran
 
       //SN20171120- the following is being removed objAccount.Email__c
      if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber)  ){        
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError));       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchErrorANZ));       
                     errorFlag=false;
      }
     }
