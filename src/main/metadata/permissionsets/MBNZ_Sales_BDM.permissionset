@@ -7522,11 +7522,7 @@
         <field>Account_Link__c.OwnerId__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Passport_No__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+     
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Person_Agree_Test_Driving_Optional__c</field>
@@ -14623,11 +14619,7 @@
         <field>Customer_Key_Credential__c.Passport_No__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Customer_Key_Credential__c.Race__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+     
     <fieldPermissions>
         <editable>false</editable>
         <field>Customer_Key_Credential__c.Retail_FS_Borrower__c</field>
@@ -16189,11 +16181,7 @@
         <field>FS_Contract__c.Contract_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.End_Date__c</field>
@@ -16324,21 +16312,13 @@
         <field>FS_Contract__c.Retail_FS_Borrower__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Retail_FS_Guaranteer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.Retail_FS_Guarantor__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Sales_Person__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.Start_Date__c</field>
@@ -30010,36 +29990,5 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-    <tabSettings>
-        <tab>standard-Asset</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-Campaign</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-Case</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-Entitlement</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-Idea</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-ServiceContract</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-Solution</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-UserProvisioningRequest</tab>
-        <visibility>None</visibility>
-    </tabSettings>
+    
 </PermissionSet>
