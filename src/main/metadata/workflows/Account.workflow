@@ -674,7 +674,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 5) AND 6 AND 7</booleanFilter>
         <criteriaItems>
             <field>Account.Customer_Number__c</field>
             <operation>startsWith</operation>
@@ -700,6 +700,16 @@
             <operation>startsWith</operation>
             <value>C-5</value>
         </criteriaItems>
+		 <criteriaItems>
+            <field>Account.Market__c</field>
+            <operation>contains</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>contains</operation>
+            <value>Company,Person Account</value>
+        </criteriaItems>
         <description>If the customer number sequence is 
 • If customer number is between 10,000,001 – 59,999,999  = Retailer added</description>
         <triggerType>onAllChanges</triggerType>
@@ -711,7 +721,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2 OR 3 OR 4) AND 5</booleanFilter>
+        <booleanFilter>(1 OR 2 OR 3 OR 4) AND 5 AND 6 AND 7</booleanFilter>
         <criteriaItems>
             <field>Account.Customer_Number__c</field>
             <operation>startsWith</operation>
@@ -736,6 +746,16 @@
             <field>Account.Customer_Number__c</field>
             <operation>notContain</operation>
             <value>C-1</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Account.Market__c</field>
+            <operation>contains</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>contains</operation>
+            <value>Company,Person Account</value>
         </criteriaItems>
         <description>If the customer number sequence is 
 • 1 to 10000000 this is mapped to Wholesale added

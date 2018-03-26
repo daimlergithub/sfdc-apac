@@ -3174,12 +3174,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateProvError));        
                         Validation = TRUE;      
                     }       
-                    if(addressobj.Suburb__c == null )
-                    {                       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please Enter Suburb details'));                        
-                        Validation = TRUE;                                              
-                    } 
-                     if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+                      if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
                     {
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
                         Validation = true;                      
@@ -3221,7 +3216,7 @@ If the user is Saving  same address which matches the fields returned by toleran
     }
     if(recordCheck && mandatoryFlag &&  Recordtype==Label.Company? string.isblank(objAccount.name):false){
         mandatoryFlag=false;
-        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError ));       
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchErrorANZ ));       
     }
     if(recordCheck && mandatoryFlag){
     
@@ -3232,7 +3227,7 @@ If the user is Saving  same address which matches the fields returned by toleran
 
       //SN20171120- the following is being removed objAccount.Email__c
      if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber)  ){        
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchError));       
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchErrorANZ));       
                     errorFlag=false;
      }
     }
@@ -3407,7 +3402,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             if(set_accounts.size()>0){
                 showCDM=true;
-                string querytxt='select id,firstname,UCID__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c from account where <Search> in (';
+                string querytxt='select id,firstname,UCID__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c,ID_Number__c,Lastmodifieddate  from account where <Search> in (';
                 querytxt=querytxt.replace('<Search>',label.SearchKey); 
                 set<String> valueSet = new set<String>();
                 for(Integer i=0; i<set_accounts.size(); i++){
@@ -3416,7 +3411,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 if (valueSet.isEmpty()){
                     valueSet.add('\'\'');
                 }
-                querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
+                querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') ORDER BY Lastmodifieddate DESC limit ' +label.limitsize;
                 for(account acc :database.query(querytxt)){
                     if(acc.Recordtype.name == 'Person Account' || acc.Recordtype.name == 'Company')
                     DedupAccountList.add(acc);
