@@ -6552,6 +6552,10 @@
                 <fullName>Customer</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Ex-Customer</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Prospect</fullName>
                 <default>false</default>
