@@ -130,7 +130,7 @@ public without sharing class  LeadHelperBase{
                 l.CAC_Lead_Status__c = 'New';
 			}
         }
-        if(!ldowner.isEmpty()){
+        if(!ldowner.isEmpty() && userInfo.getUserType() != 'PowerPartner' ){
 	
             if(accId.size()>0){
                 updateOwnership(accId,ldowner,market);
