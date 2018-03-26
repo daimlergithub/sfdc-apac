@@ -16997,11 +16997,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Sales_Person__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>FS_Contract__c.Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
