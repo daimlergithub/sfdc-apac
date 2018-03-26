@@ -275,7 +275,8 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                 if (leadsrec.createdby.usertype == 'PowerPartner' && leadsrec.createdby.Dealer_nd_code__c != null) {
                     //dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
 					string GrpName=leadsrec.createdby.Market__c+leadsrec.createdby.Dealer_nd_code__c;
-					dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+					//dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+					dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                 } else if (leadsrec.assigned_dealer__c != null && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
 					string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;

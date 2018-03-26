@@ -5971,7 +5971,11 @@
         <picklistValues>
             <picklist>Preferred_Language__c</picklist>
             <values>
-                <fullName>Malay</fullName>
+                <fullName>Afrikaans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arabic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5979,7 +5983,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chinese</fullName>
+                <fullName>Croatian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dutch</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5995,11 +6003,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hindhi</fullName>
+                <fullName>Greek</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Hindi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indonesian</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6015,11 +6027,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mandarin Chinese</fullName>
+                <fullName>Macedonian</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Mandarin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Polish</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6031,11 +6051,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Serbian</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Spanish</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tagalogue</fullName>
+                <fullName>Tagalog</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6047,57 +6071,13 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Turkey</fullName>
+                <fullName>Turkish</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Vietnamese</fullName>
                 <default>false</default>
             </values>
-			 <values>
-                <fullName>Afrikaans</fullName>
-                <default>false</default>
-            </values>
-			<values>
-			<fullName>Arabic</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Croatian</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Dutch</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Greek</fullName>
-			<default>false</default>
-			</values>			
-			<values>
-			<fullName>Indonesian</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Macedonian</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Mandarin</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Other</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Polish</fullName>
-			<default>false</default>
-			</values>
-			<values>
-			<fullName>Serbian</fullName>
-			<default>false</default>
-			</values>
         </picklistValues>
         <picklistValues>
             <picklist>Preferred_newspaper_picklist__c</picklist>
@@ -6570,6 +6550,10 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Ex-Customer</fullName>
                 <default>false</default>
             </values>
             <values>
