@@ -7472,11 +7472,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account_Link__c.Passport_No__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account_Link__c.Person_Agree_Test_Driving_Optional__c</field>
         <readable>true</readable>
     </fieldPermissions>
