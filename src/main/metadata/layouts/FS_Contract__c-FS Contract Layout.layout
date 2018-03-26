@@ -87,6 +87,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Dealer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Inactive_guarantor__c</field>
             </layoutItems>
         </layoutColumns>
@@ -106,6 +110,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Payment_Mode__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Person__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

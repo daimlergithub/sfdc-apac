@@ -162,6 +162,18 @@ To store the Contract ID coming from RMW.</description>
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Dealer__c</fullName>
+        <description>Created  as a part of FS Development</description>
+        <externalId>false</externalId>
+        <label>Dealer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>End_Date__c</fullName>
         <externalId>false</externalId>
         <label>End Date</label>
@@ -487,6 +499,18 @@ To store the Contract ID coming from RMW.</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Person__c</fullName>
+        <description>Create as part of FS Development</description>
+        <externalId>false</externalId>
+        <label>Sales Person</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Start_Date__c</fullName>
