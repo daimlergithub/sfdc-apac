@@ -165,7 +165,6 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-   
     <applicationVisibilities>
         <application>Retail_CRM</application>
         <default>false</default>
@@ -31200,6 +31199,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+		<name>CreateCustomizeReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>								   
         <name>CreateTopics</name>
     </userPermissions>
     <userPermissions>
