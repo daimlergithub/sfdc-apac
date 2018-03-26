@@ -13,6 +13,7 @@ public class LeadHelperKR
     {
         Id Dealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         list<lead__c> leadlist = new list<lead__c>();
+        list<User> aftersalesOutletUserList =new list<User>();   
         list<account> dealerAccountList =new list<account>();
         Map<String,account>accountMap=new Map<String,account>();
         // Map<id,account>aMap=new Map<id,account>();
@@ -20,9 +21,11 @@ public class LeadHelperKR
         set<String> GCCode = new set<String>();
         Set<String> DealerGScode = new Set<String>();
         set<id> leadIds = new set<id>();
+        set<id> ownerIds = new set<id>();
         set<id> parentIds = new set<id>();
         Set<String> DealerNDCode= new Set<String>();
-        list<Lead__share>  leadshare=new list<lead__share>();       
+        Set<String> outletDealerNDCode= new Set<String>();
+        list<Lead__share>  leadshare=new list<lead__share>();      
         map<string,id> assgroupMap = new map<string,id>();
         List<Group> grplist=new List<Group>();
         
@@ -38,9 +41,9 @@ public class LeadHelperKR
         }
         if(!leadIds.isEmpty() && leadIds != null)
         {
-            leadlist = [Select id,recordtypeId,Assigned_Dealer__r.ParentId,CAC_Lead_Status__c,
+            leadlist = [Select id,ownerId,recordtypeId,Assigned_Dealer__r.ParentId,CAC_Lead_Status__c,
                         Assigned_Dealer__r.Dealer_ND_Code__c,Assigned_Dealer__r.Dealer_GC_Code__c,Assigned_Dealer__r.Dealer_Type__c,
-                        Assigned_Dealer__r.Dealer_GS_Code__c,Assigned_Dealer__c from Lead__c where Id IN:leadIds];
+                        Assigned_Dealer__r.Dealer_GS_Code__c,Assigned_Dealer__c from Lead__c where Id IN:leadIds];            
         }
         if(!leadlist.isEmpty() && leadlist != null)
         {
@@ -49,9 +52,24 @@ public class LeadHelperKR
                 if(leds.Assigned_Dealer__r.ParentId != null && leds.Assigned_Dealer__r.Dealer_Type__c == 'Outlet')
                 {
                     parentIds.add(leds.Assigned_Dealer__r.ParentId);
+                   
+                    if(leds.RecordTypeId ==afterSalesRecordTypeId)
+                        {
+                            ownerIds.add(leds.ownerId);
+                        }
                 }
             }
         }
+         if(!ownerIds.isEmpty() && ownerIds!= null)
+        {
+        List<User> userlist=[select id,Dealer_ND_Code__c from User where id IN:ownerIds and Dealer_ND_Code__c!=null];
+        if(!userlist.isEmpty() && userlist!= null){
+            for(User u:userlist){
+            outletDealerNDCode.add(u.Dealer_ND_Code__c);
+              }
+          }
+        }
+        
         if(!parentIds.isEmpty() && parentIds != null)
         {
             dealerAccountList = [select id,Dealer_ND_Code__c from Account where id =:parentIds];
@@ -87,8 +105,8 @@ public class LeadHelperKR
                     
                 }
             }*/
-            //Changes by Monalisa SFDCKR-1727
-			if(le.Assigned_Dealer__r.Dealer_Type__c == 'Company'|| le.Assigned_Dealer__r.Dealer_Type__c == 'Outlet')
+           
+            if(le.Assigned_Dealer__r.Dealer_Type__c == 'Company')
             {
                 if(le.Assigned_Dealer__r.Dealer_ND_Code__c != null && le.Assigned_Dealer__r.Dealer_ND_Code__c != '')
                 {
@@ -130,7 +148,30 @@ public class LeadHelperKR
                 leadshare.add(l);
             }           
         }              
-        Database.SaveResult[] lsr = Database.insert(leadshare,false); 
+       //---------------------------- Lead Share - SFDCKR-1727 ----------------------------
+    // Added By - Monalisa
+        if(!ownerIds.isEmpty() && ownerIds!= null)
+        {
+            aftersalesOutletUserList= [select id,Profile.Name,dealer_ND_Code__c from User where Profile.Name='MBK  Dealer service center' and dealer_ND_Code__c=:outletDealerNDCode];
+            System.debug('aftersalesOutletUserList--->'+aftersalesOutletUserList);         
+        }
+        
+            if(!aftersalesOutletUserList.isEmpty() && aftersalesOutletUserList!= null )
+            {
+                 for(Lead__c lead:leadlist)  
+                {        
+                    for(User usr :aftersalesOutletUserList)
+                    {                       
+                        Lead__share l=new Lead__share();
+                        l.ParentId=lead.id;
+                        l.UserOrGroupId = usr.Id;                   
+                        l.AccessLevel='edit';
+                        leadshare.add(l);
+                    }
+                    
+                }    
+            }
+           Database.SaveResult[] lsr = Database.insert(leadshare,false);   
     }
      /* public static void roleRestrictionForCCC(List<Lead__c> Lstnewlead,Map<Id,Lead__c> oldVallead,Boolean isUpdate,Boolean isDelete)
     {
