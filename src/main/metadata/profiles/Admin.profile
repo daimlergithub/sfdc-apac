@@ -6705,11 +6705,7 @@
         <field>Account_Link__c.OwnerId__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account_Link__c.Passport_No__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Personal_Abroad_Agreement__c</field>
@@ -16087,11 +16083,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Dealer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>FS_Contract__c.End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16216,14 +16207,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>FS_Contract__c.Retail_FS_Guaranteer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>FS_Contract__c.Sales_Person__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>FS_Contract__c.Retail_FS_Guarantor__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
