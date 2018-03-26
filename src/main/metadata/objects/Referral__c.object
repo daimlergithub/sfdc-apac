@@ -131,7 +131,7 @@
         <fullName>Employee_Name__c</fullName>
         <description>used to display employee name from the email template</description>
         <externalId>false</externalId>
-        <formula>ReferredEmployee__r.First_Name__c + '  '+ ReferredEmployee__r.Last_Name__c</formula>
+        <formula>"Sanjay"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Employee Name</label>
         <required>false</required>
