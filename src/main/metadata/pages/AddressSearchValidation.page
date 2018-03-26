@@ -1740,7 +1740,7 @@
             <!--    <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">-->
                     <apex:pageBlock title="Match Found" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
                     <apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
-                        <apex:PageBlockTable Columns="8" value="{!displayAccList}" var="Th">   
+                        <apex:PageBlockTable Columns="9" value="{!displayAccList}" var="Th">   
                             <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!($User.ContactId !=null && recordType == 'Person Account')}">  
                                 <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.LastName}</apex:outputLink>    
                             </apex:Column>
@@ -1777,7 +1777,10 @@
                             </apex:Column>  
                             <apex:Column headerValue="{!$ObjectType.Account.fields.ID_Number__c.Label}" rendered="{!recordType == 'Person Account'}">                    
                                 <apex:outputField value="{!Th.ID_Number__c}"/>
-                            </apex:Column>                  
+                            </apex:Column>  
+							<apex:Column headerValue="Last Modified Date & Time" >     
+								<apex:outputField value="{!Th.Lastmodifieddate}"/>
+                            </apex:Column>  	
                         </apex:PageBlockTable>
                     </apex:pageBlockSection>
                  <!--PR20170918--End-- Introduced for Thailand-->
