@@ -16585,11 +16585,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FS_Contract__c.Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>FS_Contract__c.End_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16706,16 +16701,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.Retail_FS_Borrower__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Retail_FS_Guaranteer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Sales_Person__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
