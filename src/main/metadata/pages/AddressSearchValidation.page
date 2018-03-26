@@ -405,19 +405,6 @@
                         </apex:outputPanel>                             
                     </apex:pageBlockSectionItem> 
                                
-     <apex:pageBlockSectionItem >        
-                        <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />       
-                        <apex:outputPanel >  
-   
-                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px" > 
-                            <apex:actionSupport action="{!checkcountrycodeANZ}" event="onchange" reRender="PersonAccBlockIN,slhmAreaCode,hmAreaCode" >
-                            </apex:actionSupport>
-                          </apex:inputText>                                   
-                          <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:30px" rendered="{!!hAreaBoolean}"/>                                      
-                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px"/>                                      
-                                    
-                        </apex:outputPanel>     
-                    </apex:pageBlockSectionItem> 
                                                         
                     <apex:inputfield value="{!objAccount.Data_Source__c}"  />   
                     
@@ -1347,21 +1334,21 @@
                     </apex:pageBlockSectionItem>
                                         
                    
+                   <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Suburb__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Suburb__c}"/>
+                    </apex:pageBlockSectionItem>
+                                  
+                   <apex:pageBlockSectionItem >
+                       <apex:outputLabel value="{!$ObjectType.Address__c.fields.State_City__c.Label}"/>  
+                         <apex:inputField value="{!AddressObj.State_City__c}" style="width:35%; white-space:none;" />        
+                    </apex:pageBlockSectionItem>
+                      
+                    
                     <apex:pageBlockSectionItem >
                     <!-- rendered="{!IF(IsForeignNational==false,true,false)}"-->
                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>  
                          <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" />        
-                    </apex:pageBlockSectionItem>
-       
-                    <apex:pageBlockSectionItem >
-                       <apex:outputLabel value="{!$ObjectType.Address__c.fields.State_City__c.Label}"/>  
-                         <apex:inputField value="{!AddressObj.State_City__c}" style="width:35%; white-space:none;" />        
-                    </apex:pageBlockSectionItem>
-                   
-                      
-                     <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Suburb__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Suburb__c}"/>
                     </apex:pageBlockSectionItem>
                     
                      

@@ -98,6 +98,13 @@
         <shortDescription>AUGeneric(This is used by AU Market for access check)</shortDescription>
         <value>AUGeneric</value>
     </labels>
+	<labels>
+        <fullName>CompanyAccountSearchErrorANZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Name and one of Contact Number has to be entered</shortDescription>
+        <value>Company Name and one of Contact Number has to be entered</value>
+    </labels>
     <labels>
         <fullName>AUPhoneCountryCode</fullName>
         <language>en_US</language>
