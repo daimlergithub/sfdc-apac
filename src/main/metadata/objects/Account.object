@@ -14090,7 +14090,8 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'NZ',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
         <length>2</length>
@@ -64142,14 +64143,23 @@ RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <fullName>First_And_Last_Name_Format</fullName>
         <active>true</active>
         <description>First Name and Last Name fields must not contain any special character other than alphabets and digits</description>
-        <errorConditionFormula>AND(
+       <errorConditionFormula>OR(
+AND(
 OR(
 NOT(REGEX( FirstName ,"^[a-z  A-Z 0-9]*$")),
 NOT(REGEX( LastName ,"^[a-z  A-Z 0-9]*$"))
 ),
 $Profile.Name != 'IntegrationAPI',
 $Permission.INGeneric
-)</errorConditionFormula>
+), 
+AND(
+OR(
+NOT(REGEX( FirstName ,"^[a-z A-Z 0-9 \\- . ']*$")),
+NOT(REGEX( LastName ,"^[a-z A-Z 0-9 \\- . ']*$"))
+),
+$Profile.Name != 'IntegrationAPI',
+OR($Permission.AUGeneric, $Permission.NZGeneric)
+))</errorConditionFormula>
         <errorMessage>First Name and Last Name fields must not contain any special character than alphabets and digits</errorMessage>
     </validationRules>
     <validationRules>
