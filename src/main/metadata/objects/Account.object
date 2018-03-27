@@ -14090,7 +14090,7 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
-IF(ISPICKVAL($User.Market__c, 'MY'), 'NZ',
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market discriminator</label>
@@ -18973,15 +18973,11 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <fullName>GLC-Class Coupe</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLE-Class</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>			
             </picklistValues>
             <picklistValues>
                 <fullName>Media</fullName>
@@ -18989,33 +18985,27 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>	
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>					
             </picklistValues>
             <picklistValues>
                 <fullName>Central&amp;BBAC</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Central</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>				
             </picklistValues>
             <picklistValues>
                 <fullName>BBAC</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer</fullName>
@@ -19025,8 +19015,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MBJ</fullName>
@@ -19034,8 +19022,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Police</fullName>
@@ -19043,8 +19029,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance Company</fullName>
@@ -19052,8 +19036,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fire department</fullName>
@@ -19061,8 +19043,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lawyer</fullName>
@@ -19070,8 +19050,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ministry of Transport</fullName>
@@ -19079,8 +19057,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Automotive related</fullName>
@@ -19088,15 +19064,11 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MBK</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Government</fullName>
@@ -19111,8 +19083,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <fullName>Authority</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Diplomat</fullName>
@@ -19127,8 +19097,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <fullName>Army</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Royal Family</fullName>
@@ -19136,22 +19104,16 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hotel</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Rental Company</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>National Framework (NFA)</fullName>
@@ -19159,8 +19121,6 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>International Framework (IFA)</fullName>
@@ -19168,15 +19128,11 @@ Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</descriptio
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MPC</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
 			<picklistValues>
                 <fullName>Military</fullName>
