@@ -192,12 +192,12 @@
                 <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
-           <layoutItems>
-                <height>500</height>
+			<layoutItems>
+                <height>350</height>
                 <page>AddressDisplayInlineEdit</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>true</showScrollbars>
-                <width>1400</width>
+                <width>100%</width>
             </layoutItems>
             <layoutItems>
                 <height>200</height>
