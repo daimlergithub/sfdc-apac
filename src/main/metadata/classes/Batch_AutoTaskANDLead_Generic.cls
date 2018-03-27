@@ -53,7 +53,7 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
         taskstoInsert.add(taskrec);
         campmember.Auto_creation_of_tasks__c= true;
         }
-        else if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='Lead' && campmember.Convert_To_Lead_Flag__c!=True &&(campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'||campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='PowerPartner')){
+        /*else if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='Lead' && campmember.Convert_To_Lead_Flag__c!=True &&(campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'||campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='PowerPartner')){
              Lead__c duplicate = checkDuplicate(campmember, existingLeadList);
               if(duplicate.Id == null){
                   leadListToInsert.add(setLeadRecordFields(campmember.Retail_Campaign_Id__c,campmember));
@@ -74,11 +74,11 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
                leadList.add(duplicate);
                
               }
-        }
+        }*/
       }
-      if(leadListToInsert.size() > 0){
+      /*if(leadListToInsert.size() > 0){
       insert leadListToInsert;
-      }
+      }*/
       if(taskstoInsert.size()>0)
       {
       insert taskstoInsert;
@@ -88,9 +88,9 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
             update scope;  
        }
        
-       insertCampaignLeadRecords(leadListToInsert, leadList);
+      // insertCampaignLeadRecords(leadListToInsert, leadList);
   }
-  public Lead__c setLeadRecordFields(String campaignId, Campaign_Member__c campaignMember) {
+  /*public Lead__c setLeadRecordFields(String campaignId, Campaign_Member__c campaignMember) {
         Lead__c leadRec = new Lead__c();
         leadRec.Retail_Campaign_Name__c = campaignId;
         leadRec.CAC_Lead_Status__c = 'New';
@@ -166,5 +166,5 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
             cLeadRec.Retail_Campaign__c = leadRec.Retail_Campaign_Name__c;
         }  
         return cLeadRec;
-    }
+    }*/
 }

@@ -16384,7 +16384,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>TH_child_campaign_should_bw_parent_close</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Parent_Campaign1__c !=null,MD__c='TH',OR(Start_Date__c &lt;Parent_Campaign1__r.Start_Date__c,Close_Date__c &gt; Parent_Campaign1__r.Close_Date__c ))</errorConditionFormula>
+        <errorConditionFormula>AND(Parent_Campaign1__c !=null,OR(MD__c='TH', if( AND(MD__c=='MY', $Permission.MYDealer),true,false)),OR(Start_Date__c &lt;Parent_Campaign1__r.Start_Date__c,Close_Date__c &gt; Parent_Campaign1__r.Close_Date__c ))</errorConditionFormula>
         <errorMessage>child campaign Start and close date should be between parent start and Close Date</errorMessage>
     </validationRules>
     <validationRules>
