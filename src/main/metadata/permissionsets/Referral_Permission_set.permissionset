@@ -417,10 +417,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BBQEmployeeTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BBQReferral</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -605,15 +601,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BbqRankCalculation_test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BbqStatusUpdate</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BbqStatusUpdate_test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -622,10 +610,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BbqTriggerHelperBase</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BbqTriggerHelperBaseTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
