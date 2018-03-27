@@ -44,8 +44,8 @@
                 <field>Questionnaire__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Content_Preview__c</field>
+                <behavior>Edit</behavior>
+                <field>Description</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -261,6 +261,7 @@
     </relatedLists>
     <relatedLists>
 	    <customButtons>Task.Manage_Tasks</customButtons>
+		<customButtons>Task.Generate_Task</customButtons>
         <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
