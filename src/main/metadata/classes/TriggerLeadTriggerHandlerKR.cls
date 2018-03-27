@@ -92,19 +92,24 @@ public class TriggerLeadTriggerHandlerKR
 		Map<Id,Lead__C> oldMap=(Map<Id,Lead__C>)Trigger.oldMap;
         List<Lead__c> stouchLeads=new List<Lead__c>();
         Map<Id,Lead__C> stouchOldMap=new Map<Id,Lead__c>();
-        if(isAfter && (isInsert || isUpdate)){
+        if(isAfter && (isInsert || isUpdate))
+		{
             //Leads Created from stouch
-            for(Lead__c lead:(List<Lead__c>)trigger.new){
-                if(lead.md__c=='KR' && lead.StouchLeadID__c!=null){
+            for(Lead__c lead:(List<Lead__c>)trigger.new)
+			{
+                if(lead.md__c=='KR' && lead.StouchLeadID__c!=null)
+				{
                     stouchLeads.add(lead);
                     if(isUpdate)
                         stouchOldMap.put(lead.Id, oldMap.get(lead.Id));
                 }
             }
-            if(!stouchLeads.isEmpty()){
+            if(!stouchLeads.isEmpty())
+			{
                 LeadHelperKR.leadsharehierarchy(stouchLeads);
             	LeadHelperKR.handleAfterInsertOrUpdate(stouchLeads,stouchOldMap);
             }
+			LeadHelperKR.leadsharehierarchy(trigger.new);
         }
     }
 
