@@ -29949,6 +29949,14 @@
         <tab>standard-Solution</tab>
         <visibility>None</visibility>
     </tabSettings>
+	<tabSettings>
+        <tab>Employee__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+	<tabSettings>
+        <tab>Referral__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
     <tabSettings>
         <tab>standard-UserProvisioningRequest</tab>
         <visibility>None</visibility>
