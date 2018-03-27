@@ -14714,12 +14714,7 @@
         <editable>false</editable>
         <field>Event.MD__c</field>
         <readable>false</readable>
-    </fieldPermissions>  
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Event.No_of_Pax__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.Notification_Email_Flag__c</field>
