@@ -24087,7 +24087,7 @@ window.open("/apex/Consolidation_List?Id={!Campaign.Id}");
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 }
 else
 {
@@ -24158,7 +24158,7 @@ alert('something has gone wrong please contact your Administrator');
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 }
 else
 {
