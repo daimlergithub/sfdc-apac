@@ -3,7 +3,7 @@
     <available>true</available>
     <description>Email notificaiton to be sent to dealer email</description>
     <encodingKey>ISO-8859-1</encodingKey>
-	<letterhead></letterhead>
+	<letterhead>Daimler</letterhead>
     <name>Email Notification to Dealer</name>
     <style>freeForm</style>
     <subject>BBQ App Referral - {!Referral__c.Name}</subject>
