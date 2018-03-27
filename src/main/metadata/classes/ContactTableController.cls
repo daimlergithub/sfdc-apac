@@ -296,7 +296,8 @@ public class ContactTableController {
                 'Mobile_Phone_Checkbox__c',
                 'home_Phone_Checkbox__c',
                 'Work_Phone_Checkbox__c',
-                'Primary_Phone__c'
+                'Primary_Phone__c',
+				'Secondary_Email__c' // addedd for secondary email
             });
 
         }

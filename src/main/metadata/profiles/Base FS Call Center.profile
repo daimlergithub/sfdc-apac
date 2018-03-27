@@ -7208,11 +7208,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account_Link__c.Passport_No__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Person_Agree_Test_Driving_Optional__c</field>
         <readable>false</readable>
@@ -16614,11 +16609,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FS_Contract__c.Dealer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>FS_Contract__c.End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16735,16 +16725,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.Retail_FS_Borrower__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Retail_FS_Guaranteer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Sales_Person__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

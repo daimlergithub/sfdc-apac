@@ -16,7 +16,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Guaranteer__c</field>
+                <field>Guarantor__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -58,7 +58,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_FS_Guaranteer__c</field>
+                <field>Retail_FS_Guarantor__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

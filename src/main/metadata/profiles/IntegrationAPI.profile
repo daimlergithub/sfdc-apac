@@ -6564,11 +6564,7 @@
         <field>Account_Link__c.OwnerId__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account_Link__c.Passport_No__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Personal_Abroad_Agreement__c</field>
@@ -15891,12 +15887,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Dealer__c</field>
+        <field>FS_Contract__c.Contract_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Contract_ID__c</field>
+        <field>FS_Contract__c.Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15941,17 +15937,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Inactive_borrower__c</field>
+        <field>FS_Contract__c.Guarantor__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Market__c</field>
+        <field>FS_Contract__c.Inactive_borrower__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>FS_Contract__c.Inactive_guarantor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16025,9 +16026,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>FS_Contract__c.Retail_FS_Guaranteer__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>FS_Contract__c.Retail_FS_Guarantor__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

@@ -31100,6 +31100,14 @@
         <tab>standard-Case</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Report</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Dashboard</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ChannelProgram</tab>
         <visibility>DefaultOff</visibility>

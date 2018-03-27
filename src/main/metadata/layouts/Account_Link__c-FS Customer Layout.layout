@@ -122,10 +122,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Passport_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Retail_Gender__c</field>
             </layoutItems>
             <layoutItems>
@@ -245,10 +241,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>FS_Contract__c.Retail_FS_Borrower__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>FS_Contract__c.Retail_FS_Guaranteer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>

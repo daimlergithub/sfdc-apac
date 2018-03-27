@@ -1972,24 +1972,13 @@
         <apexClass>RetailTaskHelperMY</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>RetailTaskHelperMYTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>RetailTaskSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>RetailTaskSharingWrapService</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RetailTaskSharingWrapServiceBase</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RetailTaskTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4189,7 +4178,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Company_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5414,7 +5403,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Fleet__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5459,7 +5448,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Gender__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5499,7 +5488,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Hobby__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5696,12 +5685,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Latest_Sales_Dealer__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Latest_Service_Dealer__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5814,7 +5803,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Marital_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5959,7 +5948,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Occupation__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6279,7 +6268,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Preferred_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6769,7 +6758,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Special_Mark_on_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6794,9 +6783,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Account.Status__c</field>
-        <readable>true</readable>
+        <readable>True</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6874,9 +6863,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Title__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6979,7 +6968,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.VIP__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7044,7 +7033,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Website</field>
         <readable>true</readable>
     </fieldPermissions>

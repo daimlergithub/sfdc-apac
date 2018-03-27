@@ -647,32 +647,33 @@
                     <apex:inputField value="{!addressobj.Market__c }" />        
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>                          
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>          
-                    <apex:inputField value="{!addressobj.Address_Line_3__c}"/>          
-                            
-                  <apex:pageBlockSectionItem >                     
-                       <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>  
-                         <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" />        
-                    </apex:pageBlockSectionItem>
-                    
+                    <apex:inputField value="{!addressobj.Address_Line_3__c}"/>  
+                      
+				 <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Suburb__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Suburb__c}"/>
+                    </apex:pageBlockSectionItem> 
+					
                  <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.State_City__c.Label}"/>  
                          <apex:inputField value="{!AddressObj.State_City__c}" style="width:35%; white-space:none;" />        
                     </apex:pageBlockSectionItem>    
                     
-                <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Suburb__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Suburb__c}"/>
-                    </apex:pageBlockSectionItem> 
+               <apex:pageBlockSectionItem >                     
+                       <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>  
+                         <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" />        
+                    </apex:pageBlockSectionItem>
                     
                 <apex:pageBlockSectionItem rendered="true">     
                         <apex:outputLabel value="Zip/Postal Code"/>     
                          <apex:inputText id="inpZip" value="{!zip}"/>       
                 </apex:pageBlockSectionItem>
                         
-                 <apex:pageblockSectionItem >       
+               <apex:pageblockSectionItem >       
                     <apex:outputLabel value="Status"/>      
                     <apex:inputField value="{!addressobj.Status__c}"/>      
                  </apex:pageblockSectionItem>   
+				 
                  
                  <apex:pageblockSectionItem >       
                     <apex:outputLabel value="Preferred"/>       
