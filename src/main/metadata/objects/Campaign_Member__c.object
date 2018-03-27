@@ -583,7 +583,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <description>Calculated by trigger based on address title of honor.</description>
         <externalId>false</externalId>
         <label>Customer Label Name</label>
-        <length>40</length>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
