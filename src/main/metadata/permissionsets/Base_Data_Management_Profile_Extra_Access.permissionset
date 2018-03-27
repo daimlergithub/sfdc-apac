@@ -8093,7 +8093,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Company_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8178,7 +8178,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Customer_Email__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8238,7 +8238,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.FirstName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8283,7 +8283,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.LastName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
