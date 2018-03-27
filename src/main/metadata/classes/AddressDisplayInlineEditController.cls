@@ -1340,19 +1340,16 @@ If the user is Saving  same address which matches the fields returned by toleran
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'State/City is Mandatory'));        
             }       
     
-            if(addressobj.Address_Line_2__c == null )       
-            {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Addressline2));       
-                Validation = TRUE;                              
-            }       
-            else        
-            {                   
-                if(addressobj.Address_Line_2__c.length()>100)       
-                {       
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYAddresslinelen2Length));        
-                    Validation = true;                              
-                }       
-            }       
+             if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
+              {
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+                     Validation = true;                      
+             }     
+            if(String.isNotBlank(addressobj.Address_Line_3__c) && addressobj.Address_Line_3__c.length()>100)
+              {
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 3 should be less than or equal to 100 characters.'));
+                     Validation = true;                      
+             }       
                     
                   
             if(Validation == False){                

@@ -872,7 +872,7 @@
                    </tr>        
                    <!-- SN20170909 Business email 2 is not part of MY-->        
                    <tr>             
-                       <th style="text-align: Right;">{!$Label.Business_Email}</th>             
+                       <th style="text-align: Right;">{!$Label.Secondary_Email}</th>              
                        <td><apex:inputField value="{!ParAcc.Secondary_Email__c}"  rendered="{!editMode}"/>       
                            <apex:outputField value="{!ParAcc.Secondary_Email__c}"  rendered="{!!editMode}"/>     
                        </td>                                

@@ -1317,7 +1317,7 @@
                         <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>
                      
                     </apex:pageBlockSectionItem>   
-      
+					<apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
                       <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>
@@ -1357,7 +1357,6 @@
                      <apex:inputText id="inpZip" value="{!zip}"/>
                 </apex:pageblockSectionItem> 
                 
-                   <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >      
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Market__c}"/>      
