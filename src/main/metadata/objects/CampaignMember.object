@@ -356,6 +356,16 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <label>Newly Added</label>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>No_of_Pax__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Pax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Package_Description__c</fullName>
         <externalId>false</externalId>
