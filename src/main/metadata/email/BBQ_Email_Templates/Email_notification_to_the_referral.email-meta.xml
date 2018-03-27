@@ -2,6 +2,7 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <encodingKey>ISO-8859-1</encodingKey>
+	<letterhead></letterhead>
     <name>Email notification to the referral</name>
     <style>freeForm</style>
     <subject>Your Referral: {!Referral__c.Name} is submitted successfully</subject>
