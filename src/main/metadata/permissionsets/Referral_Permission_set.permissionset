@@ -29794,10 +29794,6 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Employee__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>Functionality_Access_Master__c</tab>
         <visibility>None</visibility>
     </tabSettings>
@@ -29856,10 +29852,6 @@
     <tabSettings>
         <tab>Recall__c</tab>
         <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Referral__c</tab>
-        <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
         <tab>RegionMasterInfo__c</tab>
