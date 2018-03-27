@@ -24789,11 +24789,11 @@ window.location.reload();
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }
 else
 {
-window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }</url>
     </webLinks>
 </CustomObject>
