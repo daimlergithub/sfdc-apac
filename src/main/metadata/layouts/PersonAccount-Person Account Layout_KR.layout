@@ -1000,7 +1000,6 @@
         <fields>Dealer_Lead_Status__c</fields>
 		<fields>CREATED_DATE</fields>
         <fields>UPDATEDBY_USER</fields>
-		<fields>CREATED_DATE</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
 		<sortField>CREATED_DATE</sortField> 
        <sortOrder>Desc</sortOrder> 
