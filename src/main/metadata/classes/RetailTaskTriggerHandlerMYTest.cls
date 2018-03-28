@@ -49,5 +49,30 @@ public class RetailTaskTriggerHandlerMYTest
           Group g = new Group(name='MYabcd');
           insert g ;   
 
-  }   
+  }   //Added by dhanamjaya to imporve Code coverage for TH market
+    Private static testMethod void wrapRetailTasksTHTest(){
+        //Inserting custom settings for Retail Task.which will call Handler methods
+        Trigger__c TriggerVehicleRelationshipTH=new Trigger__c(Name='RetailTaskTriggerTH',Trigger_Name__c='RetailTaskTrigger',
+                                               Trigger_Handler__c='RetailTaskTriggerHandlerTH',update__c=True,insert__c=True,delete__c=True,after__c=True, 
+                                                               before__c=True,enabled__c=True,Market__c='TH');
+        //querying "IntegrationAPI Profile"
+ 		Profile usrProfile = [SELECT Id FROM Profile WHERE Name='IntegrationAPI']; 
+        //Inserting Integration User
+       	User usr = new User(Alias = 'standt', Email='test@mbj.com',EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+                            LocaleSidKey='en_US', ProfileId = usrProfile.Id,TimeZoneSidKey='America/Los_Angeles', UserName='test@mbj.com',Market__c='TH');
+        insert usr;
+    	insert TriggerVehicleRelationshipTH;
+        system.runAs(usr){
+            Test.startTest();
+      		TriggerUtil.userCreate=false;
+            //
+     		Account acc=new Account(Lastname='dhanam',dealer_nd_code__c='12345');
+     		insert acc;
+     		Group grp=new Group(Name='TH12345');
+     		insert grp;
+    		Retail_Task__c rell = new Retail_Task__c(RecordTypeId = UtilRecordType.getRecordTypeIdByName('Retail_Task__c','Service'),Service_Dealer__c=acc.id,Related_Dealer__c=acc.id); 
+    		insert rell;  
+            Test.stopTest();
+        }
+    }
 }
