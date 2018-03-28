@@ -31106,7 +31106,7 @@
     </tabVisibilities>
 	<tabVisibilities>
         <tab>standard-Report</tab>
-        <visibility>hidden</visibility>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
 	<tabVisibilities>
         <tab>standard-Dashboard</tab>
