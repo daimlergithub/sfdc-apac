@@ -33,7 +33,6 @@ static testMethod void testAccAssignment() {
 		address.add(new Address__c(Address_Type__c='Home',Province__c='Shanghai',City__c='bangalore',District__c='test2',Block__c='test3',Customer__c=acc[0].id,Address_Line_1__c='testaddress1',Address_Line_2__c='testaddress2',ZipCode__c = '32703',TitleOfHonor__c ='To Person',preferred__c=True,Opt_In_Hardcopy__c=True,MD__c='TH'));
 		address.add(new Address__c(Address_Type__c='Home',Province__c='Shanghai',City__c='bangalore',District__c='test2',Block__c='test3',Customer__c=acc[0].id,Address_Line_1__c='testaddress1',Address_Line_2__c='testaddress2',ZipCode__c = '32703',TitleOfHonor__c ='To Person',preferred__c=True,Opt_In_Hardcopy__c=True,MD__c='TH'));
 		insert address;
-		system.debug('11111'+acc[0].id);
 		listcampaigns1.add(new Account_Link__c(Retail_Address_Reference__c=address[0].id,Name='new al',Md__c='TH',toRole__c=acc[0].id,fromrole__c=dealer.id,Retail_LastName__c='heii',Retail_Full_Name__c='dhanu',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
 		RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female'));
 		listcampaigns1.add(new Account_Link__c(Retail_Address_Reference__c=address[0].id,Name='new al',Md__c='TH',toRole__c=acc[0].id,fromrole__c=acc[1].id,Retail_LastName__c='heii',Retail_Full_Name__c='dhanu',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
@@ -45,18 +44,16 @@ static testMethod void testAccAssignment() {
 		listcampaigns1.add(new Account_Link__c(Retail_Address_Reference__c=address[0].id,Name='new al',Md__c='TH',toRole__c=acc[0].id,fromrole__c=acc[1].id,Retail_LastName__c='heii',Retail_Full_Name__c='dhanu',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
 		RecordTypeId=contacttocontactid,Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female',active__c=true));
 		insert listcampaigns1;
+        TriggerRecursiveCheck.AccountLinkCheck=true;
 		List<Account_Link__c> updatelst=new List<Account_Link__c>();
 		listcampaigns1[0].fromrole__c=dealer1.id;
-		system.debug('111113'+acc[0].id);
 			 
 		updatelst.add(listcampaigns1[0]);
+        TriggerRecursiveCheck.AccountLinkCheck=true;
 		update updatelst;
-		system.debug('tttt1'+listcampaigns1[0].Retail_Address_Reference__c);
 		Address__C a=new address__C(Address_Type__c='Business',Province__c='Shanghai',City__c='bangalore',District__c='test2',Block__c='test3',Customer__c=acc[0].id,Address_Line_1__c='testaddress1',Address_Line_2__c='testaddress2',ZipCode__c = '32703',TitleOfHonor__c ='To Person',preferred__c=True,Opt_In_Hardcopy__c=True,MD__c='TH');
 		insert a;
-		system.debug('pppppppp'+a.id+'   '+listcampaigns1[0].Retail_Address_Reference__c);
-
-		system.debug('pppppppp'+a.id+'   '+listcampaigns1[0].Retail_Address_Reference__c);
+		TriggerRecursiveCheck.AccountLinkCheck=true;
 		List<Account_link__C> ac=new List<account_link__c>();
 		for(Account_link__C ab:listcampaigns1){
 			ab.Retail_Full_Name__c='abc';
@@ -65,9 +62,11 @@ static testMethod void testAccAssignment() {
 			ac.add(ab);
 			}
 			update ac;
+        TriggerRecursiveCheck.AccountLinkCheck=true;
 			listcampaigns1[0].active__c=false;
 			listcampaigns1[0].fromrole__c=dealer1.id;
 			update listcampaigns1[0];
+        
 
 			//new TriggerAccountlinkHandlerTH().handleIntegrationTrigger(true,true,true,true,true);
 		}

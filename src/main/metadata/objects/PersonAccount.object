@@ -5707,7 +5707,10 @@
                 <fullName>Veterinarian</fullName>
                 <default>false</default>
             </values>
-
+<values>
+                <fullName>Writer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
