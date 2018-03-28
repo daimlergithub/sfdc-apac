@@ -17486,6 +17486,184 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <label>Preferred Language</label>
         <picklist>
             <controllingField>Market__c</controllingField>		
+		<picklistValues>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>English</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Korean</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hindhi</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>German</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>French</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Italian</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tagalogue</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>		
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thai</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Russian</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bahasa</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malay</fullName>
+                <default>false</default>
+                <controllingFieldValues>MY</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tamil</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cantonese</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mandarin Chinese</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hindi</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
 			
             <picklistValues>
                 <fullName>Afrikaans</fullName>
@@ -17499,132 +17677,29 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
-			 <picklistValues>
-                <fullName>Bahasa</fullName>
-                <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-          
-			      <picklistValues>
-                <fullName>Cantonese</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-           
             <picklistValues>
                 <fullName>Croatian</fullName>
                 <default>false</default>
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-			 
             <picklistValues>
                 <fullName>Dutch</fullName>
                 <default>false</default>
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
-			<picklistValues>
-                <fullName>English</fullName>
-                <default>false</default>
-                <controllingFieldValues>IN</controllingFieldValues>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			    <picklistValues>
-                <fullName>French</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>German</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			
             <picklistValues>
                 <fullName>Greek</fullName>
                 <default>false</default>
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
-			   <picklistValues>
-                <fullName>Hindhi</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Hindi</fullName>
-                <default>false</default>
-                <controllingFieldValues>IN</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-				<controllingFieldValues>NZ</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
             <picklistValues>
                 <fullName>Indonesian</fullName>
                 <default>false</default>
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			 <picklistValues>
-                <fullName>Italian</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Korean</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			 <picklistValues>
-                <fullName>Mandarin Chinese</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Macedonian</fullName>
@@ -17638,58 +17713,17 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
-			  <picklistValues>
-                <fullName>Malay</fullName>
-                <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-                     <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>			
-            <picklistValues>
-                <fullName>Portuguese</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Polish</fullName>
                 <default>false</default>
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Russian</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			
-			 <picklistValues>
-                <fullName>Spanish</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Serbian</fullName>
@@ -17709,45 +17743,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
-			   <picklistValues>
-                <fullName>Tamil</fullName>
-                <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Turkey</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Thai</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
-              <picklistValues>
-                <fullName>Tagalogue</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>		
-            </picklistValues>
-			  <picklistValues>
-                <fullName>Vietnamese</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
-                <controllingFieldValues>NZ</controllingFieldValues>
-            </picklistValues>
+
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
