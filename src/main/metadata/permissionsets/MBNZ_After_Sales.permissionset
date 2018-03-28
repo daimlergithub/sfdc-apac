@@ -3772,15 +3772,15 @@
     <classAccesses>
         <apexClass>usernotificationsetting</apexClass>
         <enabled>false</enabled>
+    </classAccesses>	
+    <classAccesses>
+        <apexClass>utilDealerLevelRecordShare</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
 	<customPermissions>
         <enabled>true</enabled>
         <name>NZGeneric</name>
     </customPermissions>
-    <classAccesses>
-        <apexClass>utilDealerLevelRecordShare</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
     <description>New Zealand: Sales Managers,Associates and Executives at wholesale</description>
     <fieldPermissions>
         <editable>false</editable>

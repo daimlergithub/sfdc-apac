@@ -3829,15 +3829,15 @@
     <classAccesses>
         <apexClass>usernotificationsetting</apexClass>
         <enabled>false</enabled>
+    </classAccesses>	
+    <classAccesses>
+        <apexClass>utilDealerLevelRecordShare</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
 	<customPermissions>
         <enabled>true</enabled>
         <name>NZGeneric</name>
     </customPermissions>
-    <classAccesses>
-        <apexClass>utilDealerLevelRecordShare</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
     <description>New Zealand Marketing Operator/Supervisor</description>
     <fieldPermissions>
         <editable>false</editable>
@@ -6715,9 +6715,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Secondary_Email__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
