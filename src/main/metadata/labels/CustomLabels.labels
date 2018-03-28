@@ -2214,6 +2214,14 @@
         <value>Company</value>
     </labels>
     <labels>
+        <fullName>CompanyAccountDedupValidation</fullName>
+        <categories>India</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CompanyAccountDedupValidation</shortDescription>
+        <value>Account Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of company account</value>
+    </labels>
+    <labels>
         <fullName>CompanyAccountSearchError</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5620,6 +5628,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <value>Merge</value>
     </labels>
     <labels>
+        <fullName>Merge_Warning_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merge Warning Text</shortDescription>
+        <value>Name and any one of the contact numbers are mandatory. Please enter proper data to avoid records getting identified as duplicate and merged</value>
+    </labels>
+    <labels>
         <fullName>Message_Approve_Failed</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>
@@ -6447,6 +6462,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>PersonAccount</shortDescription>
         <value>Person Account</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccountDedupValidation</fullName>
+        <categories>India</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccountDedupValidation</shortDescription>
+        <value>First Name , Last Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of person account</value>
     </labels>
     <labels>
         <fullName>PersonAccountSearchError</fullName>

@@ -14,8 +14,8 @@
                                 <apex:selectOption itemValue="Select" itemLabel="--Select--" />
                                 <apex:selectOption itemValue="Person Account" itemLabel="Person Account"/>
                                 <apex:selectOption itemValue="Company" itemLabel="Company"/>
-                                 <!--Add condition for rerendering section based on change of record type -->
-                                <apex:actionSupport event="onchange" reRender="personAccountPanelIN,companyAccountPanelIN,addressIN,buttonIN"/>
+                            	<!--Add condition for rerendering section based on change of record type -->
+                                <apex:actionSupport event="onchange" reRender="personAccountPanelIN,companyAccountPanelIN,addressIN,buttonIN,mergeWarning"/>
                             </apex:selectList>
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
@@ -41,17 +41,17 @@
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />       
                         <apex:outputPanel >  
-                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px;min-width:4rem" rendered="{!!isClassic}"> 
+                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCodeLtng" style="width:30px;min-width:4rem" rendered="{!!isClassic}"> 
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="PersonAccBlockIN,hmAreaCode" >
                             </apex:actionSupport>
                           </apex:inputText>
-                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCodeLtng" style="width:30px" rendered="{!isClassic}" > 
+                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" maxlength="3" style="width:30px" rendered="{!isClassic}" > 
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="PersonAccBlockIN,hmAreaCode" >
                             </apex:actionSupport>
                           </apex:inputText>
-                          <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:80px" rendered="{!If( AND(hAreaBoolean == false,isClassic == true) ,true,false)}"/>  
+                          <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" maxlength="5" style="width:80px" rendered="{!If( AND(hAreaBoolean == false,isClassic == true) ,true,false)}"/>  
                           <apex:inputText value="{!hmAreaCode}" id="hmAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If( AND(hAreaBoolean == false,isClassic == false) ,true,false)}"/>                                      
-                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px" rendered="{!isClassic}"/> 
+                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" maxlength="8" style="width:120px" rendered="{!isClassic}"/> 
 						  <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumberLtng" style="width:120px;min-width:10rem" rendered="{!!isClassic}"/>                                      
                         </apex:outputPanel>     
                     </apex:pageBlockSectionItem>        
@@ -100,7 +100,6 @@
                             <apex:inputText value="{!objAccount.Name}" />       
                         </apex:outputPanel>     
                     </apex:pageBlockSectionItem>
-                   <!-- <apex:inputField value="{!objAccount.Is_Corporate_Group__c}" /> -->
                     <apex:inputField value="{!objAccount.Corporate_Category__c}" />
                     <apex:inputField value="{!objAccount.Corporate_Group__c}" />
                     <apex:inputField value="{!objAccount.Company_Name__c}"/>               
@@ -168,7 +167,6 @@
                    <apex:inputField value="{!objAccount.CIN_Number__c}" />       
                    <apex:inputField value="{!objAccount.GSTN_Number__c}" />       
                    <apex:inputField value="{!objAccount.Data_Source__c}" />       
-                 <!--  <apex:inputField value="{!objAccount.Commercial_Reg_No__c}" />  -->
                    <apex:inputField value="{!objAccount.Market__c}"/>
                 </apex:pageBlockSection>            
                 </apex:outputPanel>
@@ -208,15 +206,11 @@
                          <apex:inputText id="slStateProvince" value="{!province}"/>     
                     </apex:pageBlockSectionItem>
                      <apex:pageBlockSectionItem >     
-                       <!-- <apex:outputLabel value="{!$ObjectType.Address__c.fields.City__c.Label}"/>     
-                        <apex:inputText value="{!AddressObj.City__c}"/> -->
                          <apex:outputLabel value="City"/>        
                          <apex:inputText id="inpDistrict" value="{!district}"/>     
                     </apex:pageBlockSectionItem>        
                     <apex:pageBlockSectionItem rendered="{!If( AND(RecordType == 'Person Account',$Permission.INGeneric) ,true,false)}">
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>
-                        <!--<apex:inputField value="{!AddressObj.Foreign_Nationals__c}" id="chkForeignNational"
-                            onclick="ForeignNationalFields(this.value)"/>  -->
                     <apex:inputField value="{!AddressObj.Foreign_Nationals__c}" id="chkForeignNational">
                         <apex:actionSupport event="onclick" action="{!ShowHideFields}" reRender="addressIN"/>
                     </apex:inputField>
@@ -247,11 +241,59 @@
         <!--  Buttons IN Start -->
                 <apex:pageBlockButtons location="bottom">
                     <apex:outputPanel id="buttonIN" >
+                        <apex:commandButton action="{!onLineDeduplicationIN}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),$Permission.INGeneric) ,true,false)}" reRender="form,msgs,frmCDM" />       
                         <apex:commandButton id="SavebtnIN" action="{!saveAccountIN}" value="{!$Label.Save_Button}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),$Permission.INGeneric) ,true,false)}" rerender="msgs"/>     
                         <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),$Permission.INGeneric) ,true,false)}"/>  
                     </apex:outputPanel>    
                 </apex:pageBlockButtons>
         <!--  Buttons IN End-->
-            </apex:pageBlock>      
+            </apex:pageBlock>
+        <apex:pageBlock title="Match Found" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">  
+            <apex:pageBlockSection columns="1" rendered="{!IF((displayAccList.size!=0 && $Permission.INGeneric), true, false)}">                 
+                <apex:pageBlockTable value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Person Account'}">       
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId !=null}">         
+                        <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.LastName}</apex:outputLink>            
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!$User.ContactId ==null}">       
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.LastName}</apex:outputLink>            
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                           
+                        <apex:outputField value="{!cr.firstName}"/>     
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Mobile__c.Label}">                           
+                        <apex:outputField value="{!cr.Mobile__c}"/>     
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
+                        <apex:outputField value="{!cr.Email__c}"/>      
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>        
+                </apex:pageBlockTable>     
+                <apex:PageBlockTable Columns="7" value="{!displayAccList}" var="cr" width="100%" rendered="{!recordType=='Company'}">      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId ==null}">       
+                        <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.Name}</apex:outputLink>            
+                    </apex:Column>          
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Work_Phone__c.Label}">                            
+                        <apex:outputField value="{!cr.Work_Phone__c}"/>      
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                            
+                        <apex:outputField value="{!cr.Email__c}"/>
+                    </apex:Column>      
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>                      
+                </apex:PageBlockTable>      
+            </apex:pageBlockSection>       
+            <apex:pageblockButtons >       
+                <apex:commandButton value="First" action="{!first}" reRender="frmCDM" disabled="{!first}"/>       
+                <apex:commandButton value="Previous" action="{!previous}" reRender="frmCDM" disabled="{!previous}"/>      
+                <apex:commandButton value="Next"  disabled="{!next}" reRender="frmCDM" action="{!next}"/>     
+                <apex:commandButton value="Last" disabled="{!last}" reRender="frmCDM" action="{!last}"/>      
+            </apex:pageblockButtons>
+        </apex:pageBlock>
+        <apex:outputPanel id="mergeWarning">
+            <apex:outputText style="font-weight:800" value="{!$Label.Merge_Warning_Text}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),$Permission.INGeneric) ,true,false)}"/>
+        </apex:outputPanel> 
     </apex:form>
 </apex:page>
