@@ -131,13 +131,14 @@ public class contactTableControllerTest {
             test.startTest();
             //ctc.UpdateAccount(); // before it will be blank then edit will parse the code
             ctc.EditAccount();
+			ctc.PhoneNumberFormatTH();
             ctc.UpdateAccount();
             test.stoptest();
             system.assertEquals(objAccount.MD__c,'TH');
         }
     }
     // Home code is not null;
-    public static testMethod void UpdateAccountTHPhoneTest() {
+    /*public static testMethod void UpdateAccountTHPhoneTest() {
         profile = [Select Id from Profile where Name = 'System Administrator'];
         usr = TestClassHelper.createUser('User2TH',profile,'TH');
         insert usr;
@@ -149,6 +150,61 @@ public class contactTableControllerTest {
             test.startTest();
             ctc.PhoneNumberFormatTH();
             ctc.UpdateAccount();
+            test.stoptest();
+            system.assertEquals(objAccount.MD__c,'TH');
+        }
+    }*/
+	public static testMethod void UpdateAccountTHPhoneTest2() {
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'TH');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
+            objAccount.Individual_Home_Phone__c = '';
+            objAccount.Fax = '12121222';
+            objAccount.Mobile__c = '';
+            objAccount.Work_Phone__c = '';
+            insert objAccount;
+            
+            ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+            
+            ContactTableController ctc = new ContactTableController(sc);
+            
+            ctc.hmCountryCode = '';
+            ctc.wkCountryCode = '';
+            ctc.mbCountryCode = '';
+            ctc.faxCountryCode = '';
+            test.startTest();
+            ctc.PhoneNumberFormatTH();
+            ctc.UpdateAccountTH();
+            test.stoptest();
+            system.assertEquals(objAccount.MD__c,'TH');
+        }
+    }
+    
+    public static testMethod void UpdateAccountTHPhoneTest3() {
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'TH');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
+            objAccount.Individual_Home_Phone__c = '';
+            objAccount.Fax = '';
+            objAccount.Mobile__c = '';
+            objAccount.Work_Phone__c = '';
+            insert objAccount;
+            
+            ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+            
+            ContactTableController ctc = new ContactTableController(sc);
+            
+            ctc.hmCountryCode = '';
+            ctc.wkCountryCode = '';
+            ctc.mbCountryCode = '';
+            ctc.faxCountryCode = '';
+            test.startTest();
+            ctc.PhoneNumberFormatTH();
+            ctc.UpdateAccountTH();
             test.stoptest();
             system.assertEquals(objAccount.MD__c,'TH');
         }
