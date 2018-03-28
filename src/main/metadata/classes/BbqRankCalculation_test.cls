@@ -2,7 +2,7 @@
 * Created By:Sarath M
 * Created Date:16-Mar-18
 * Company:Infosys Ltd
-* Description:Test class for BbqRankCalculation 
+* Description:Test class for BBq Rank Calculation
 *********************************************************************************************/
 @isTest
 public class BbqRankCalculation_test {
