@@ -5295,6 +5295,11 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Inbound</fullName>
                 <default>false</default>
@@ -13511,6 +13516,11 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Personal sales activity</fullName>
                 <default>false</default>
@@ -21151,6 +21161,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
+	<listViews>
+        <fullName>All_Accounts_KR</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Accounts</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All_Accounts_KR</fullName>
         <columns>ACCOUNT.NAME</columns>
@@ -22554,6 +22579,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25745,6 +25774,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
             <values>

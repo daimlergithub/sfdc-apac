@@ -11810,4 +11810,11 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Successful Task Generation</shortDescription>
         <value>Successfully initiated the task generation functionality.The task generation process will take about 1-2 minutes. Please refresh the page after 1-2 minutes to find generated tasks.</value>
     </labels>	
+	<labels>
+        <fullName>Successful_Task_Generation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Successful Task Generation</shortDescription>
+        <value>Successfully initiated the task generation functionality.The task generation process will take about 1-2 minutes. Please refresh the page after 1-2 minutes to find generated tasks.</value>
+    </labels>
 </CustomLabels>
