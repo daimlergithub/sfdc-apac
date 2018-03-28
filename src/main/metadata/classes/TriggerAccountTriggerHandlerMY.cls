@@ -96,7 +96,7 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         # Date: 02/20/2017
         # Author : Mohammed Touseef Ahmed
         */
-        if(isAfter && isUpdate && Usr.Profile.Name != Label.IntProfileName){
+        if(isAfter && isUpdate && Usr.Profile.Name != Label.IntProfileName && ( Util_GetPermissionList.checkAccessOnUser(Label.updateRetailCopy))){
             AccountHelperMY.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
         }
     }
