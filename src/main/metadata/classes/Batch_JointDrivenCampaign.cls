@@ -73,6 +73,7 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
         newRetail.Name = cam.Name; 
         //newRetail.Campaign_Code__c = cam.Campaign_Code__c; 
         newRetail.Campaign_Type__c  = cam.Campaign_Type__c ;
+        newRetail.Campaign_Sub_Type__c = cam.Campaign_Sub_Type__c ;
         newRetail.Parent_Campaign__c = cam.Id;
         //newRetail.OwnerId = u.Id;
         newRetail.Dealer_Name__c = par.Dealer__c;

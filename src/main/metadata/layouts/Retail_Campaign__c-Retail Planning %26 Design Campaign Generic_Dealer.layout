@@ -67,9 +67,9 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Record_Type_Name__c</field>
+                <field>RecordTypeId</field>
             </layoutItems>
 			<layoutItems>
                 <behavior>Edit</behavior>
@@ -82,10 +82,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

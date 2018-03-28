@@ -264,8 +264,8 @@
         <relatedList>Campaign.Previous_Campaign_Execution__c</relatedList>
     </relatedLists>
     <relatedLists>
-	    <customButtons>Task.Manage_Tasks</customButtons>
-        <customButtons>Task.Generate_Task</customButtons>
+	    <customButtons>Task.Manage_Tasks</customButtons>  
+		<customButtons>Task.Generate_Task</customButtons> 
         <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>

@@ -45,7 +45,9 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
 					if(Test.isRunningTest()){
 						leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);
 					}
-					leadRS.updateOwnerwithDealer(Trigger.new); 
+					if(userInfo.getUserType() != 'PowerPartner'){
+						leadRS.updateOwnerwithDealer(Trigger.new); 
+					}
 				}
                 //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community 
                 leadRS.updatecommunityURL(Trigger.new);  

@@ -15624,11 +15624,6 @@
         <field>Lead__c.Lost_Situation__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Lost_Status_Tracking__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Lost_To__c</field>
