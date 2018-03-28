@@ -3265,17 +3265,17 @@ If the user is Saving  same address which matches the fields returned by toleran
     String EndUrl=generateCDMEndPointURL();
     CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
     try{    
-       /* if(label.New_Component=='true'){
+        if(label.New_Component=='true'){
             con = new Continuation(120);     
             con.continuationMethod='processResponse';
             this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
         }
-        else*/
-		//{
+        else
+		{
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
             errorFlag=false;
-        //}
-    } catch (Exception e){
+        }
+		} catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
          CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
