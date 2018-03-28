@@ -10,7 +10,9 @@ public with sharing class VehicleEditExtension {
     public boolean profileav{set;get;}
     public Vehicle__c vehicle{get;set;}
     public String brand{get;set;}
+    public String brand1{get;set;}
     public String class1{get;set;}
+    public String class2{get;set;}
     public String model{get;set;}
     public String compBrand{get;set;}
     public String range{get;set;}
@@ -25,6 +27,7 @@ public with sharing class VehicleEditExtension {
     public map<string,string> labelNvalue=new map<string,string>();
     public map<string,string> labelNvalueclass=new map<string,string>();
     public map<string,string> labelNvaluebrand=new map<string,string>();
+    public map<string,string> labelNvaluemodel=new map<string,string>();
     
     private ApexPages.StandardController stdController;
     public String type {get;set;}
@@ -64,9 +67,16 @@ public with sharing class VehicleEditExtension {
              type='Competitor';
             }
            system.debug('***************'+vehicle.Class__c);
+           system.debug('***************'+vehicle.Brand__c);
            
            brand=vehicle.Brand__c;
+           system.debug('***************'+brand);
+           system.debug('***************0'+class1);
+           
+           
            class1=vehicle.Class__c;
+            system.debug('***************0'+class1);
+           
            model=vehicle.Model__c;
            range=Vehicle.Range__c;
            modPackage=vehicle.Modification_Package__c;
@@ -98,7 +108,7 @@ public with sharing class VehicleEditExtension {
     }
     
     
-    public List<SelectOption> getbrands()
+    /*public List<SelectOption> getbrands()
        {
          List<SelectOption> options = new List<SelectOption>();
         
@@ -123,9 +133,9 @@ public with sharing class VehicleEditExtension {
             
       return options;
     }
-     
+     */
     
-  /*  public List<SelectOption> getbrands()
+    public List<SelectOption> getbrands()
     {
         List<SelectOption> options = new List<SelectOption>();
         set<string> brandit=new set<string>();
@@ -146,17 +156,26 @@ public with sharing class VehicleEditExtension {
           }
           system.debug('optionssssss'+options.size());
         return options;
-    } */
+    } 
     
         public List<SelectOption> getclasses()
     {
         List<SelectOption> options = new List<SelectOption>();
         system.debug('&&&&&&&&&&&&&&&&&&&&&&&&&&& brand'+brand);
+        system.debug('labelNvalueclass.get(brand)---'+labelNvaluebrand.get(brand));
         set<string> brandit=new set<string>();
         if(brand!=null){
+        if(UserInfo.getLocale()=='ja_JP')
+        {
+        getbrandtype();
+        brand1=labelNvaluebrand.get(brand);
+        }
         
-         options.add(new SelectOption('',''));
-         for (Car_Model__c m : [Select toLabel(Brand__c),toLabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Brand__c=:brand] )
+        system.debug('&&&&&&&&&&&&&&&&&&&&&&&&&&& brand'+brand);
+        system.debug('&&&&&&&&&&&&&&&&&&&&&&&&&&& brand1'+brand1);
+         //options.add(new SelectOption('',''));
+         
+         for (Car_Model__c m : [Select Brand__c,tolabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Brand__c=:brand1] )
          {
           brandit.add(m.Series__c); 
          }
@@ -168,23 +187,32 @@ public with sharing class VehicleEditExtension {
           
           }
          }
+         system.debug('optionssssss'+options);
          system.debug('optionssssss'+options.size());
         return options;
     }     
     public List<SelectOption> getmodels()
     {
         List<SelectOption> options = new List<SelectOption>();
+        System.debug('@@@@@@@@@@@@@@@@@@@@@------'+class1);
+       // class1='Unknown';
         if(class1!=null){
         
          if(UserInfo.getLocale()=='ja_JP')
         {
         getclasstype();
         class1=labelNvalueclass.get(class1);
+          
+        getbrandtype();
+        brand1=labelNvaluebrand.get(brand);
         }
+       class1='Unknown';
           options.add(new SelectOption('',''));
          System.debug('@@@@@@@@@@@@@@@@@@@@@'+class1);
-             System.debug('@@@@@@@@@@@@@@@@@@@@@'+brand);
-         for (Car_Model__c m : [Select toLabel(Brand__c),toLabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Series__c=:class1 and Brand__c=:brand ] )
+         System.debug('@@@@@@@@@@@@@@@@@@@@@class2'+class2);
+         
+             System.debug('@@@@@@@@@@@@@@@@@@@@@'+brand1);
+         for (Car_Model__c m : [Select toLabel(Brand__c),toLabel(Series__c),Name,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c FROM Car_Model__c WHERE Status__c =:type and Series__c=:class1 and Brand__c=:brand1 ] )
          {
           system.debug('m'+m);
           options.add(new SelectOption(m.Name,m.Name));
@@ -381,8 +409,17 @@ public with sharing class VehicleEditExtension {
                             {
                             getaddtype();
                             class1=labelNvalue.get(class1);
+                            class1='Unknown';
+                             getbrandtype();
+                             brand=labelNvaluebrand.get(brand);
+                            // getmodeltype();
+                            // model=labelNvaluemodel.get(model);
                             }
-           list<Car_Model__c> carModelId = [select id from Car_Model__c where Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage and Status__c='Competitor' order by CreatedDate ];
+                             system.debug('I am brand hereaaaa1'+brand);
+                        system.debug('I am class1 hereaaaa1'+class1);
+                        system.debug('I am hereaaaamodel1 '+model);
+                        system.debug('I am hereaaaa modPackage'+labelNvaluemodel.get(model));
+           list<Car_Model__c> carModelId = [select id from Car_Model__c where Status__c='Competitor' and Brand__c=:brand and Series__c =:class1 and Name =:model and Range__c=:range and Mod_Pack__c=:modPackage order by CreatedDate ];//or 
            
                         System.debug('###################### carModelId'+carModelId);
                         if(!carModelId.isEmpty()){
@@ -567,6 +604,56 @@ public with sharing class VehicleEditExtension {
           }
           system.debug('options'+options);
           system.debug('labelNvalue'+labelNvalueclass);
+            
+      return options;
+    }  
+    public List<SelectOption> getbrandtype()
+       {
+         List<SelectOption> options = new List<SelectOption>();
+        
+         Schema.DescribeFieldResult fieldResult = Car_Model__c.Brand__c.getDescribe();
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+        // options.add(new selectOption('', '--None--'));
+         for( Schema.PicklistEntry f : ple)
+         {
+          if(UserInfo.getLocale()=='ja_JP')
+          {
+          
+           options.add(new SelectOption(f.getValue(), f.getLabel()));
+           labelNvaluebrand.put(f.getLabel(),f.getValue());
+           system.debug('labelNvaluebrand---'+labelNvaluebrand);
+          }else{
+           options.add(new SelectOption(f.getLabel(), f.getValue()));
+           //labelNvalue.put(f.getValue(), f.getLabel());
+           }
+          }
+          system.debug('options'+options);
+          system.debug('labelNvaluebrand'+labelNvaluebrand);
+            
+      return options;
+    }  
+    public List<SelectOption> getmodeltype()
+       {
+         List<SelectOption> options = new List<SelectOption>();
+        
+         Schema.DescribeFieldResult fieldResult = Car_Model__c.Series__c.getDescribe();
+         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+        // options.add(new selectOption('', '--None--'));
+         for( Schema.PicklistEntry f : ple)
+         {
+          if(UserInfo.getLocale()=='ja_JP')
+          {
+          
+           options.add(new SelectOption(f.getValue(), f.getLabel()));
+           labelNvaluemodel.put(f.getLabel(),f.getValue());
+           system.debug('labelNvaluemodel---'+labelNvaluemodel);
+          }else{
+           options.add(new SelectOption(f.getLabel(), f.getValue()));
+           //labelNvalue.put(f.getValue(), f.getLabel());
+           }
+          }
+          system.debug('options'+options);
+          system.debug('labelNvaluemodel'+labelNvaluemodel);
             
       return options;
     }  
