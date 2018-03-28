@@ -285,6 +285,11 @@
                         <apex:outputText value="{!row.Name}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
+					
+					 <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}" >
+                        <apex:outputText value="{!row.Temp_Address__c}" style="width:10%; white-space:none;">
+                        </apex:outputText>
+                    </apex:column>
                     
                 </apex:pageBlockTable>
                 
@@ -649,6 +654,11 @@
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>          
                     <apex:inputField value="{!addressobj.Address_Line_3__c}"/>  
                       
+				  <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Temp_Address__c}"/>
+                 </apex:pageBlockSectionItem> 
+				 
 				 <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Suburb__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Suburb__c}"/>
@@ -785,7 +795,7 @@
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
-                    <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric || $Permission.INGeneric) ),true,false)}"/> <!--oncomplete="hideTable();"-->
+                     <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric || $Permission.INGeneric || $Permission.AUGeneric || $Permission.NZGeneric) ),true,false)}"/> <!--oncomplete="hideTable();"-->
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF((market='KR' || market='JP'),true,false)}"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}" onComplete="refreshPrimaryTab();" reRender="addressPageBlockId,redirectPanel,pgmsg" rendered="{!IF(market=='TH',true,false)}"/>
                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.MYGeneric,true,false)}"/>

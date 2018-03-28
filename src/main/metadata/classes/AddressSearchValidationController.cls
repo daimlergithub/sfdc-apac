@@ -3225,8 +3225,8 @@ If the user is Saving  same address which matches the fields returned by toleran
                     errorFlag=false;
         } 
 
-      //SN20171120- the following is being removed objAccount.Email__c
-     if(Recordtype==Label.Company && string.isblank(hmphoneNumber) && errorFlag && string.isblank(mbphoneNumber)  ){        
+     
+      if(Recordtype==Label.Company && string.isblank(objAccount.Email__c) && string.isblank(wkphoneNumber) && errorFlag && string.isblank(mbphoneNumber)  ){        
                         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountSearchErrorANZ));       
                     errorFlag=false;
      }
