@@ -5027,11 +5027,6 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Personal sales activity</fullName>
-                <default>false</default>
-                <controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Response Sheet</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
@@ -13510,11 +13505,6 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal sales activity</fullName>
-                <default>false</default>
-                <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Road Assistant</fullName>
@@ -22517,10 +22507,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Personal sales activity</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Recall desk</fullName>
                 <default>false</default>
             </values>
@@ -25697,10 +25683,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
             <values>
