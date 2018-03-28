@@ -21405,11 +21405,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Rental_Receivable__c.FS_Contract__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Rental_Receivable__c.Receivable_Rentals__c</field>
         <readable>false</readable>
     </fieldPermissions>
