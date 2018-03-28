@@ -21521,21 +21521,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>All_Accounts_KR</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <label>All Accounts</label>
-        <language>en_US</language>
-        <sharedTo>
-            <roleAndSubordinates>MBK_Management</roleAndSubordinates>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>All_Accountts</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.SITE</columns>
