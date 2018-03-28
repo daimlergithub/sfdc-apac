@@ -1226,7 +1226,12 @@ public class ContactTableController {
             if (hmCountryCode == label.AUPhoneCountryCode || hmCountryCode == label.NZPhoneCountryCode ) 
             {
             localhmPhone = localhmPhone.substring(3, localhmPhone.length());
-                    if (localhmPhone.length() == 9 ) // landline
+                    if (localhmPhone.length() == 9 &&  ParAcc.MD__c == 'AU') // landline
+                    {
+                    hmAreaCode = localhmPhone.substring(0, 1);
+                    hmphoneNumber = localhmPhone.substring(1, localhmPhone.length());
+                    }
+					else if (localhmPhone.length() == 8 &&  ParAcc.MD__c == 'NZ') // landline
                     {
                     hmAreaCode = localhmPhone.substring(0, 1);
                     hmphoneNumber = localhmPhone.substring(1, localhmPhone.length());
@@ -1260,7 +1265,11 @@ public class ContactTableController {
 
             if (wkCountryCode == label.AUPhoneCountryCode || wkCountryCode == label.NZPhoneCountryCode ) {
                   localwkPhone =  localwkPhone.substring(3, localwkPhone.length());
-                if (localwkPhone.length() == 9 ){ // landline
+                if (localwkPhone.length() == 9 &&  ParAcc.MD__c == 'AU'){ // landline
+                    wkAreaCode = localwkPhone.substring(0, 1);
+                    wkphoneNumber = localwkPhone.substring(1, localwkPhone.length());
+                }
+				else if (localwkPhone.length() == 8 &&  ParAcc.MD__c == 'NZ' ){ // landline
                     wkAreaCode = localwkPhone.substring(0, 1);
                     wkphoneNumber = localwkPhone.substring(1, localwkPhone.length());
                 }
@@ -1318,135 +1327,9 @@ public class ContactTableController {
         
                 system.debug('====>Start');
 Boolean phValidate = true; 
-         String areaCodeCheck = '^([2]|[8]|[3]|[7]{1})$';
-        String phoneCheck = '^[1-9]{1}[0-9]{7}$';
-        String areaPhoneCombinedCheck = '^[0-9]{9}$';
-        String mobileCheck = '^([4]|[5])[0-9]{8}$';
-        string tollCheck = '^([1][8][0][0]|[1][3][0][0])([0-9]{6})([0-9]{0,3})';
-        string FixedCheck = '^([1][3])([0-9]{4})([0-9]{0,1})';
-        system.debug('====>Entering Validations');
-        if(ParAcc.MD__c =='NZ')
-        {
-            mobileCheck = '^([2])[0-9]{8}$';
-            areaCodeCheck = '^([3]|[4]|[6]|[7]|[9]|[2]|[2][4][0][9] {1,4})$';
-        }
+   
         
-        
-//Home Phone validation
-        if(hmCountryCode!='' && (hmCountryCode==label.AUPhoneCountryCode || hmCountryCode==label.NZPhoneCountryCode))
-        {
-               system.debug('====>if-HP');
-            System.debug('hmAreaCode+hmphoneNumber====>' + hmAreaCode+hmphoneNumber);
-            //Area code & Phone number validation
-            if(hmAreaCode != '' && hmphoneNumber == '') {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone should be in any of these format: +61 x xxxx xxxx' ));
-                phValidate = false;
-            }
-            else if(hmAreaCode != '' && hmphoneNumber != ''  && hmphoneNumber.length() <= 8 && (!(Pattern.matches(FixedCheck , hmphoneNumber ))) ){
-                     if (hmAreaCode  == '2409' && hmCountryCode ==  label.NZPhoneCountryCode ) //Ross Dependency
-                    {
-                        if(!Pattern.matches('^[1-9]{4}$',hmphoneNumber)) {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone should be in any of these format: +64 2 409 xxxx'));
-                        }
-                    }
-            
-              else if(!(Pattern.matches(areaCodeCheck, hmAreaCode) && Pattern.matches(phoneCheck, hmphoneNumber) && Pattern.matches(areaPhoneCombinedCheck, hmAreaCode+hmphoneNumber))){
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone should be in any of these format: +61 x xxxx xxxx'));
-                    phValidate = false;
-                }
-                
-            }
-             else if(hmAreaCode == '' && hmphoneNumber != '' && hmphoneNumber.length() <= 8  && (!(Pattern.matches(FixedCheck , hmphoneNumber ))) ){ //except 1800 #
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please Enter Area Code ' ));
-                phValidate = false;
-            }
-                        if(hmAreaCode == '' && hmphoneNumber != '' && hmphoneNumber.length() > 8 ){ // 1800 #/1300# 
-             if(!(Pattern.matches(tollCheck , hmphoneNumber )))        {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please Enter Six digits trail both 1800 / 1300 numbers' ));
-                phValidate = false;
-                }
-            }
-            
-            
-        }
-        if(hmCountryCode!='' && (hmCountryCode!=label.AUPhoneCountryCode || hmCountryCode==label.NZPhoneCountryCode )){
-            system.debug('====>else-HP');
-            if(hmphoneNumber != null){
-                if(!Pattern.matches('[0-9]+', hmphoneNumber)){
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone/Work Phone number only allows digits')); 
-                    phValidate = false;
-                }
-  
-            }
-        }
-        
-        //Work Phone validation
-        if(wkCountryCode!='' && (wkCountryCode==label.AUPhoneCountryCode || wkCountryCode==label.NZPhoneCountryCode) ){
-            system.debug('====>if-WP');
-            //Area code & Phone number validation
-            if((wkAreaCode != '' && wkphoneNumber == '') ){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Work Phone should be in any of these format: +61 x xxxx xxxx '));
-                phValidate = false;
-            }
-            else if(wkAreaCode != ''  && wkphoneNumber != ''  && (!(Pattern.matches(FixedCheck , hmphoneNumber ))) &&  wkphoneNumber.length() <= 8  ){
-            
-                    if (wkAreaCode  == '2409' && wkCountryCode ==  label.NZPhoneCountryCode ) //Ross Dependency
-                    {
-                        if(!Pattern.matches('^[1-9]{4}$',wkphoneNumber )) {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Work Phone should be in any of these format: +64 2 409 xxxx'));
-                        }
-                    }
-                else if(!(Pattern.matches(areaCodeCheck, wkAreaCode) && Pattern.matches(phoneCheck, wkphoneNumber) && Pattern.matches(areaPhoneCombinedCheck, wkAreaCode+wkphoneNumber))){
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Work Phone should be in any of these format: +61 x xxxx xxxx '));
-                    phValidate = false;
-                }   
-  
-            }
-             else if(wkAreaCode == '' && wkphoneNumber != '' && wkphoneNumber.length() <= 8   && (!(Pattern.matches(FixedCheck , hmphoneNumber ))) ){ //except 1800 #
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please Enter Area Code' ));
-                phValidate = false;
-            }
-                        if(wkAreaCode == '' && wkphoneNumber != '' && wkphoneNumber.length() > 8 ){ // 1800 #/1300# 
-             if(!(Pattern.matches(tollCheck , wkphoneNumber )))        {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please Enter Six digits trail both 1800 / 1300 numbers' ));
-                phValidate = false;
-                }
-            }
-            
-        }
-        if(wkCountryCode!='' && (wkCountryCode!=label.AUPhoneCountryCode || wkCountryCode==label.NZPhoneCountryCode ) ){
-            system.debug('====>else-WP');
-            //Phone number validation
-            if(wkphoneNumber != ''){
-                if(!Pattern.matches('[0-9]+', wkphoneNumber)){
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Home Phone/Work Phone number only allows digits')); 
-                    phValidate = false;
-                }
-
-            }
-        }
-        
-        //Mobile validation
-        if(mbCountryCode!='' && (mbCountryCode==label.AUPhoneCountryCode || mbCountryCode==label.NZPhoneCountryCode )){
-            system.debug('====>if-MP : ' + mbphoneNumber );
-            //Phone number validation
-            if(mbphoneNumber != ''){
-                if(!Pattern.matches(mobileCheck, mbphoneNumber)){
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Mobile Phone number only allows 9 digits and first digit should be 4 or 5')); 
-                    phValidate = false;
-                }
- 
-            }
-            
-        }
-        if(mbCountryCode!='' && (mbCountryCode!=label.AUPhoneCountryCode  || mbCountryCode==label.NZPhoneCountryCode)){
-            system.debug('====>else-MP');
-            if(!Pattern.matches('[0-9]+', mbphoneNumber)){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Mobile Phone number only allows digits')); 
-                phValidate = false;
-            }                    
-  
-        }       
+          
          string emailraw ='';
     if(ParAcc.Email__c != null  )
      {
@@ -1471,10 +1354,10 @@ Boolean phValidate = true;
         ParAcc.Email__c = emailraw; 
          }
      }
-     if(ParAcc.Email2__c != null  )
+     if(ParAcc.Secondary_Email__c != null  )
      {
          
-         emailraw = ParAcc.Email2__c; 
+         emailraw = ParAcc.Secondary_Email__c; 
         String emailRegex = '^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!}{+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'; 
         emailraw = emailraw.replace('@@', '@'); //replace @@ to single @
         emailraw = emailraw.replace('..', '.'); //replace .. to single .
@@ -1486,12 +1369,12 @@ Boolean phValidate = true;
          
          if(!Pattern.matches(emailRegex,emailraw))
          {
-                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Invalid Business Email Address'));
+                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Invalid Secondary Email Address'));
                          phValidate = false;
          }
          else 
          {
-        ParAcc.Email2__c = emailraw; 
+        ParAcc.Secondary_Email__c = emailraw; 
          }
      }
      

@@ -3827,7 +3827,7 @@
     </classAccesses>
     <customPermissions>
         <enabled>true</enabled>
-        <name>AUGeneric</name>
+        <name>NZGeneric</name>
     </customPermissions>
     <description>New Zealand Call Center Operator/Supervisor</description>
     <fieldPermissions>
@@ -6706,9 +6706,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Secondary_Email__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8326,11 +8326,7 @@
         <field>Address__c.District__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.FS_Contract__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+   
     <fieldPermissions>
         <editable>false</editable>
         <field>Address__c.FS_District__c</field>

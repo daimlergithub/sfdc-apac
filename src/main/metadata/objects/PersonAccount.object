@@ -6563,11 +6563,7 @@
             <values>
                 <fullName>Prospect</fullName>
                 <default>false</default>
-            </values>
-			<values>
-                <fullName>Deceased</fullName>
-                <default>false</default>
-            </values>
+            </values>			
 			<values>
                 <fullName>Complainant</fullName>
                 <default>false</default>

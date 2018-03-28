@@ -19347,11 +19347,6 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			 <picklistValues>
-                <fullName>Deceased</fullName>
-                <default>false</default>
-                <controllingFieldValues>AU</controllingFieldValues>
-            </picklistValues>
 			<picklistValues>
                 <fullName>Complainant</fullName>
                 <default>false</default>
@@ -27555,10 +27550,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Prospect</fullName>
                 <default>true</default>
             </values>
-			<values>
-                <fullName>Deceased</fullName>
-                <default>false</default>
-            </values>
+			
 			<values>
                 <fullName>Complainant</fullName>
                 <default>false</default>
@@ -64335,7 +64327,7 @@ LEFT (Individual_Home_Phone__c, 3) = &quot;+64&quot;,
 NOT(ISBLANK(Individual_Home_Phone__c)), 
 if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
 NOT(OR( 
-REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([3]|[4]|[6]|[7]|[9]){1}[0-9]{8}&quot;), 
+REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([3]|[4]|[6]|[7]|[9]){1}[0-9]{7}&quot;), 
 REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([1][8][0][0]|[1][3][0][0])([0-9]){6}([0-9]){0,3}&quot;), 
 REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([1][3])([0-9]){4}([0-9]){0,1}&quot;),
 REGEX(Individual_Home_Phone__c, &quot;[+0-9]{3}([2][4][0][9])([0-9]){4}&quot;)) 
@@ -64744,14 +64736,14 @@ NOT(OR(REGEX(Mobile__c, "[+0-9]{3}[0-9]{10}"),REGEX(Mobile__c, "[+0-9]{3}[0-9]{9
 $Profile.Name != &apos;IntegrationAPI&apos;, 
 LEFT ( Mobile__c, 3) = &quot;+64&quot;, 
 NOT(ISBLANK(Mobile__c)), 
-NOT(REGEX(Mobile__c, &quot;[+0-9]{3}([2])[0-9]{8}&quot;)), if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)), 
+NOT(REGEX(Mobile__c, &quot;[+0-9]{3}([2])[0-9]{7}&quot;)), if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)), 
 AND( 
 $Profile.Name != &apos;IntegrationAPI&apos;, 
 LEFT ( Mobile__c, 3)!= &quot;+64&quot;, 
 NOT(ISBLANK(Mobile__c)), 
 NOT(OR(REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{10}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{9}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{8}&quot;),REGEX(Mobile__c, &quot;[+0-9]{3}[0-9]{7}&quot;))), if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false)))</errorConditionFormula>
         <errorMessage>Mobile Phone must be in any of the following formats : 
-1. Country Code (+64) + 2 + Number(XXXXXXXX)
+1. Country Code (+64) + 2 + Number(XXXXXXX)
 2. For Intr: Country Code+ Number (XXXXXXXXXX)</errorMessage>
     </validationRules>
     <validationRules>
@@ -65234,7 +65226,7 @@ LEFT (Work_Phone__c, 3) = &quot;+64&quot;,
 NOT(ISBLANK(Work_Phone__c)), 
 if(AND(MD__c==&apos;NZ&apos;,$Permission.NZGeneric),true,false), 
 NOT(OR( 
-REGEX(Work_Phone__c, &quot;[+0-9]{3}([3]|[4]|[6]|[7]|[9]){1}[0-9]{8}&quot;), 
+REGEX(Work_Phone__c, &quot;[+0-9]{3}([3]|[4]|[6]|[7]|[9]){1}[0-9]{7}&quot;), 
 REGEX(Work_Phone__c, &quot;[+0-9]{3}([1][8][0][0]|[1][3][0][0])([0-9]){6}([0-9]){0,3}&quot;), 
 REGEX(Work_Phone__c, &quot;[+0-9]{3}([1][3])([0-9]){4}([0-9]){0,1}&quot;),
 REGEX(Work_Phone__c, &quot;[+0-9]{3}([2][4][0][9])([0-9]){4}&quot;))
