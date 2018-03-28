@@ -122,7 +122,8 @@
 			<target name="deploy05">
 				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
 			
-					<sf:typeset name="customPermissions" force="true"/>	
+					<sf:typeset name="customPermissions" force="true"/>
+					<sf:typeset name="letterhead" force="true"/>						
 					<sf:typeset name="objects"/> 	
 					<sf:typeset name="queues"/>
 					<sf:typeset name="email"/>
@@ -204,7 +205,7 @@
 <property name="typesets.circle">
 			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,Report,DataCategoryGroup,
 
-			Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard,CustomPermission
+			Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard,CustomPermission,Letterhead
 </property>
 
 <property name="typesets.not-ready">
