@@ -15165,6 +15165,8 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Accounting</fullName>
@@ -17483,8 +17485,8 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <externalId>false</externalId>
         <label>Preferred Language</label>
         <picklist>
-            <controllingField>Market__c</controllingField>
-            <picklistValues>
+            <controllingField>Market__c</controllingField>		
+		<picklistValues>
                 <fullName>Japanese</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
@@ -26919,6 +26921,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Writer</fullName>
                 <default>false</default>
             </values>
             <values>
