@@ -311,6 +311,49 @@
         <name>JP_MarketAccount_Readable_to_MBJ_IT_Dept</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
+	    <criteriaBasedRules>
+        <fullName>MBANZ_read_only</fullName>
+        <sharedTo>
+            <group>MBANZ_users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account,Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>MBANZ read only</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MBAU_read_write</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account,Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>MB AU VP and subordinates with the same role and subordinates (View and edit)</description>
+        <name>MBAU read/write</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>MBK_Account_Sharing_Rule</fullName>
         <sharedTo>
@@ -362,6 +405,28 @@
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Read</contactAccessLevel>
         <name>MBK Dealer Sharing</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+	    <criteriaBasedRules>
+        <fullName>MBNZ_read_write</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account,Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>MB NZ VP and subordinates with the same role and subordinates (View and edit)</description>
+        <name>MBNZ read/write</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>

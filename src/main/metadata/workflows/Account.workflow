@@ -211,16 +211,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
-        <fullName>Status_Deceased</fullName>
-        <description>On selecting the checkbox  Deceased and saving the record, it updates the status of customer is updated as &apos;Deceased&apos;</description>
-        <field>Status__c</field>
-        <literalValue>Deceased</literalValue>
-        <name>Status Deceased</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
     <fieldUpdates>
         <fullName>System_Data_Source</fullName>
         <field>System_Data_Source__c</field>
@@ -646,26 +636,7 @@
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-	<rules>
-        <fullName>MBANZ Customer Update as Deceased</fullName>
-        <actions>
-            <name>Status_Deceased</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Account.Deceased__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Market__c</field>
-            <operation>equals</operation>
-            <value>AU,NZ</value>
-        </criteriaItems>
-        <description>if &apos;Deceased&apos; checked, and saving the record, it updates the status of customer is updated as &apos;Deceased&apos;</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
+
 	
 	 <rules>
         <fullName>MBAU update data source_Retailer added</fullName>
