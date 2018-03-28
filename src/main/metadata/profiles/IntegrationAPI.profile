@@ -7657,7 +7657,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-<<<<<<< HEAD
         <field>Address__c.TitleOfHonor__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7687,7 +7686,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>ApplicationLogTHDFW__c.Age__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -11007,12 +11006,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>Case.Case_Attachments_Link__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>Case.Case_Belong_To_Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12044,12 +12043,12 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.MBTH_Legal_Involved__c</field>
-        <readable>true</readable>  
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.MBTH_Priority__c</field>
-        <readable>true</readable> 
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -12057,13 +12056,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
-        <field>Case.Turn_Around_Time__c</field> 
-        <readable>true</readable>
-    </fieldPermissions>
-	 <fieldPermissions>
-        <editable>true</editable>          
-        <field>Case.MBTH_Turnaround_time__c</field> 
+        <editable>true</editable>
+        <field>Case.Turn_Around_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13574,12 +13568,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case_Escalation_Matrix__mdt.Priority__c</field>
-        <readable>true</readable> 
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case_Escalation_Matrix__mdt.Record_Type__c</field>
-        <readable>true</readable> 
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -15897,12 +15886,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>FS_Contract__c.Contract_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>FS_Contract__c.Dealer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15947,12 +15936,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>FS_Contract__c.Guarantor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>FS_Contract__c.Inactive_borrower__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15962,12 +15951,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>FS_Contract__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable> 
+        <editable>true</editable>
         <field>FS_Contract__c.Net_IRR_rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16036,15 +16025,10 @@
         <field>FS_Contract__c.Retail_FS_Borrower__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions> 
+    <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.Retail_FS_Guarantor__c</field>
-        <readable>false</readable> 
-		</fieldPermissions>
-		<fieldPermissions>
-        <editable>true</editable>
-        <field>FS_Contract__c.Retail_FS_Guaranteer__c</field>
-        <readable>true</readable> 
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
