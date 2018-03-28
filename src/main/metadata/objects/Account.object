@@ -15154,6 +15154,8 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lawyer</fullName>
@@ -15188,6 +15190,8 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>   
             </picklistValues>
             <picklistValues>
                 <fullName>Pilot</fullName>
@@ -15215,6 +15219,8 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Technician</fullName>
@@ -15222,6 +15228,8 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Professionals &amp; Technical</fullName>
@@ -15323,6 +15331,8 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues> 
             </picklistValues>
             <picklistValues>
                 <fullName>Artist/Entertainer/Celebrity</fullName>
@@ -15835,7 +15845,20 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>NZ</controllingFieldValues>   
             </picklistValues>
-
+			<picklistValues>
+                <fullName>Doctor Pilot</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>   
+            </picklistValues>
+			
+			<picklistValues>
+                <fullName>Writer</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>   
+            </picklistValues>
+			
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
