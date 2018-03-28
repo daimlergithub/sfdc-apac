@@ -3,6 +3,8 @@ public Class TriggerRecursiveCheck{
     public static boolean run2 = true;
 	public static boolean AccountLinkCheck=true;
 	public static boolean ALAddressCheck=true;
+	//Rajesh - added flag to prevent referral point recalculation 
+    public static boolean ReferralCalcFlag=true;
     public static boolean runOnce(){
         if(run){
             run=false;
