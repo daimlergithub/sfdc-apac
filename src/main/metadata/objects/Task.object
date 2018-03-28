@@ -13292,29 +13292,6 @@ window.open("{!URLFOR($Site.Prefix)}/a0v/e?RecordType=OBJECT_LEAD_AFTERSALES_REC
         <url>/apex/MassAssignRecallTasks</url>
     </webLinks>
     <webLinks>
-        <fullName>Generate_Task</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Generate Task</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
-
-var result = sforce.apex.execute("generateTaskClass","taskGenerationForCM",{campnId:"{! Campaign.Id}"}); 
-
-if(result != null) 
-{
-alert("{!$Label.Successful_Task_Generation}");
-}
-else
-{
-alert(result);
-}</url>
-    </webLinks>
-    <webLinks>
         <fullName>MBTH_Survey</fullName>
         <availability>online</availability>
         <description>Survey button used to run five flows -
