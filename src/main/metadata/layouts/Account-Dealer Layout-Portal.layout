@@ -599,8 +599,8 @@
 		<fields>CREATED_DATE</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
-		<sortField>CREATED_DATE</sortField>
-        <sortOrder>Desc</sortOrder>
+		<sortField>CREATED_DATE</sortField> 
+       <sortOrder>Desc</sortOrder> 
     </relatedLists>
     <relatedLists>
         <customButtons>New_Inquiry</customButtons>

@@ -679,6 +679,8 @@ public class AccountLinkHelperKR
                     {
                     AccountShareRecord.AccountAccessLevel= 'Edit'; // Made Read to Edit as per ticket SFDCKR-1721
 					}
+					
+                     
                     AccountShareRecord.OpportunityAccessLevel= 'Edit';   
                     AccountShareRecord.RowCause='Manual';
                     AccountShareList.add(AccountShareRecord);

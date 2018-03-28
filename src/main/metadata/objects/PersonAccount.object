@@ -996,10 +996,6 @@
                 <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Personal sales activity</fullName>
-                <default>false</default>
-            </values>
             <values>
 				<fullName>Partners</fullName>
                 <default>false</default>
@@ -4582,12 +4578,12 @@
                 <fullName>Outbound Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </values>
 			<values>
                 <fullName>Personal sales activity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5459,6 +5455,259 @@
                 <fullName>enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Accountant</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Actor</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Advertising</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Analyst</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Artist</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Assistant</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Broadcaster</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Broker</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Builder</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Business Owner</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Carpenter</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Chef</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Chief Executive</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Chiropractor</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Designer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Developer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Director</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Electrician</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Engineer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Executive</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>General and Operations Managers</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Graphic designer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Influencer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Interior designer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Investor</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Journalist</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Judge</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Landscaper</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Law Enforcement</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Legislator</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Magistrate</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Member of Parliament</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Mining</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Musician</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Nurse</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Optometrist</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Paralegal</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Paramedic</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Photographer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Physiotherapist</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Plumber</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Police Officer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Principal</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Producer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Professor</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Programmer</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Psychologist</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Radio presenter</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Researcher</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Scientist</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Specialist</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Sportsperson</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Surveyor</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>TV Presenter</fullName>
+                <default>false</default>
+            </values>
+<values>
+                <fullName>Veterinarian</fullName>
+                <default>false</default>
+            </values>
+
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
@@ -6563,11 +6812,7 @@
             <values>
                 <fullName>Prospect</fullName>
                 <default>false</default>
-            </values>
-			<values>
-                <fullName>Deceased</fullName>
-                <default>false</default>
-            </values>
+            </values>			
 			<values>
                 <fullName>Complainant</fullName>
                 <default>false</default>
