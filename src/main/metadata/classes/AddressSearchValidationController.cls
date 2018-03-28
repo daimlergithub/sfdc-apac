@@ -2904,8 +2904,11 @@ If the user is Saving  same address which matches the fields returned by toleran
                 endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
                 endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
                 endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+				  
+				if(Market != 'AU' && Market != 'NZ') { // sada 2018/3/28 as part of US/2/3 and US229
                 endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
                 endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
+				}
                 if(Market == 'TH')
                     endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
             }
@@ -3098,7 +3101,7 @@ If the user is Saving  same address which matches the fields returned by toleran
             }
             
                        
-            if(objAccount.Individual_Home_Phone__c == '' && objAccount.Mobile__c == '' && objAccount.Email__c == null )
+            if(objAccount.Individual_Home_Phone__c == '' && objAccount.Mobile__c == '' &&  objAccount.Work_Phone__c  == '' && objAccount.Email__c == null )
             {        
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));       
             }
