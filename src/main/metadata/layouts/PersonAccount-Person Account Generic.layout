@@ -14,10 +14,7 @@
         <editHeading>false</editHeading>
         <label>Fields</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Title__c</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
@@ -244,6 +241,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Marital_Status__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Title__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

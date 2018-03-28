@@ -3827,7 +3827,7 @@
     </classAccesses>
     <customPermissions>
         <enabled>true</enabled>
-        <name>AUGeneric</name>
+        <name>NZGeneric</name>
     </customPermissions>
     <description>New Zealand Call Center Operator/Supervisor</description>
     <fieldPermissions>

@@ -3830,6 +3830,10 @@
         <apexClass>utilDealerLevelRecordShare</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>NZGeneric</name>
+    </customPermissions>
     <description>New Zealand Sales/BDM Operator/Supervisor</description>
     <fieldPermissions>
         <editable>false</editable>

@@ -19347,11 +19347,6 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-			 <picklistValues>
-                <fullName>Deceased</fullName>
-                <default>false</default>
-                <controllingFieldValues>AU</controllingFieldValues>
-            </picklistValues>
 			<picklistValues>
                 <fullName>Complainant</fullName>
                 <default>false</default>
@@ -27555,10 +27550,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Prospect</fullName>
                 <default>true</default>
             </values>
-			<values>
-                <fullName>Deceased</fullName>
-                <default>false</default>
-            </values>
+			
 			<values>
                 <fullName>Complainant</fullName>
                 <default>false</default>
