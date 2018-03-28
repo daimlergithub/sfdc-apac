@@ -26076,10 +26076,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>AddParticipatingDealer</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>AddToCampaign</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
