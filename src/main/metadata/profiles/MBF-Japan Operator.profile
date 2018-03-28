@@ -26071,6 +26071,10 @@
         <apexPage>AccountMergeKR</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>AddParticipatingDealer</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>AddParticipatingDealer</apexPage>
         <enabled>false</enabled>
