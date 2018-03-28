@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email notificaiton to be sent to dealer email</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+	<letterhead>Daimler</letterhead>
+    <name>Email Notification to Dealer</name>
+    <style>freeForm</style>
+    <subject>BBQ App Referral - {!Referral__c.Name}</subject>
+    <textOnly>Hi {!Referral__c.Dealer__c},
+
+
+This is to inform you that an Employee, {!Referral__c.Employee_Name__c} has referred a person {!Referral__c.First_Name__c} {!Referral__c.Last_Name__c} who is interested in the Mercedes vehicle through the BBQ Referral program.
+
+Please find the below details.
+
+Name : {!Referral__c.First_Name__c} {!Referral__c.Last_Name__c}
+
+Email : {!Referral__c.Email__c}
+
+Mobile : {!Referral__c.Phone__c}
+
+Address: {!Referral__c.Address__c}
+
+Zip-code : {!Referral__c.Zip_code__c}
+
+Model : {!Referral__c.Model_Type__c}
+
+
+Kindly contact Referral and follow up at your earliest.
+
+
+Thanks for your Support!!
+
+
+Kind Regards,
+
+BBQ App Referral Program.</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -13307,7 +13307,8 @@ var result = sforce.apex.execute("generateTaskClass","taskGenerationForCM",{camp
 
 if(result != null) 
 {
-alert('Successfully initiated the task generation functionality');
+ 
+alert("{!$Label.Successful_Task_Generation}"); 
 }
 else
 {

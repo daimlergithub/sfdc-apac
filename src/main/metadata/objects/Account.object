@@ -5290,6 +5290,11 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Inbound</fullName>
                 <default>false</default>
@@ -13522,6 +13527,11 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+			<picklistValues>
+                <fullName>Personal sales activity</fullName>
+                <default>false</default>
+                <controllingFieldValues>KR</controllingFieldValues>
+            </picklistValues>
             <picklistValues>
                 <fullName>Road Assistant</fullName>
                 <default>false</default>
@@ -21495,7 +21505,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
-    <listViews>
+	<listViews>
         <fullName>All_Accounts_KR</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.SITE</columns>
@@ -22898,6 +22908,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26085,6 +26099,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Personal sales activity</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -23,13 +23,19 @@ static testMethod void testTriggerCaseHandlerMY1() {
         ps.Name = 'Test';
         ps.Label = 'Test';
         insert ps;
-    
-        CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
-
-        SetupEntityAccess sea = new SetupEntityAccess();
-        sea.ParentId = ps.Id;
-        sea.SetupEntityId = cps.id;
-        insert sea;
+        Set<String> customperms = new Set<String>{Label.MYRetail, Label.MYGeneric, Label.CreateRetailCopy};
+        List<CustomPermission> lcps = new List<CustomPermission>([SELECT ID From CustomPermission WHERE MasterLabel IN :customperms]);
+		List<SetupEntityAccess> lsetupentity = new List<SetupEntityAccess>();
+        for(CustomPermission cps: lcps){
+            SetupEntityAccess sea = new SetupEntityAccess();
+        	sea.ParentId = ps.Id;
+        	sea.SetupEntityId = cps.id;
+            lsetupentity.add(sea);
+        }
+        
+        if(!lsetupentity.isEmpty())
+        insert lsetupentity;
+        
         CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
         cs.DEFAULT_CALLOUT_TIME__c='1000';
         cs.MAX_CALLOUT_TIME__c='5000';

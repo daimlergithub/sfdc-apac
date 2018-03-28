@@ -232,7 +232,7 @@ public without sharing class  LeadHelperBase{
 	    //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community  
     
      public static String getCommunityURL(){
-        String communityName='Daimler Community Malaysia';
+        String communityName='Dealer Community Malaysia';
          String commubaseurl='';
          boolean flag1;
     List<Network>  myNetwork = [SELECT Id,Name FROM Network];

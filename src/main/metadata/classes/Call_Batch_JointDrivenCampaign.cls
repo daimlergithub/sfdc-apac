@@ -37,7 +37,7 @@ public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTy
     // Checking Joint Driven 
     if(sid !=null)
     {
-      camList =[Select id,Name,Campaign_Code__c,Campaign_Executer__c,Campaign_Type__c,StartDate,EndDate,Status,Event_Type__c,Description,Campaign_Execution_Channels__c,ActualCost,Brand__c,Class__c,BudgetedCost  From Campaign Where Id =: sid];
+      camList =[Select id,Name,Campaign_Code__c,Campaign_Executer__c,Campaign_Type__c,Campaign_Sub_Type__c ,StartDate,EndDate,Status,Event_Type__c,Description,Campaign_Execution_Channels__c,ActualCost,Brand__c,Class__c,BudgetedCost  From Campaign Where Id =: sid];
      
     }
     if(camid !=null)
