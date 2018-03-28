@@ -10880,11 +10880,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
             <picklistValues>
                 <fullName>Fish</fullName>
                 <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sailing</fullName>
-                <default>false</default>
-            </picklistValues>
+            </picklistValues>            
             <picklistValues>
                 <fullName>Drama</fullName>
                 <default>false</default>
