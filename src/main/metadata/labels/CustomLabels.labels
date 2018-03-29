@@ -2912,7 +2912,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>emailRegex</shortDescription>
-        <value>^([a-zA-Z0-9._|#~`=?$^!'{}+-]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$</value>
+        <value>^([a-zA-Z0-9._|#~`=?$^!'{}+-]+)@([a-zA-Z0-9-._]+).([a-zA-Z]{2,4})$</value>
     </labels>
     <labels>
         <fullName>Email_Assignment</fullName>
