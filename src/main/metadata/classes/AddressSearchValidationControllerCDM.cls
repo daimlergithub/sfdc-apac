@@ -57,6 +57,23 @@ public class AddressSearchValidationControllerCDM
     Public boolean wAreaBoolean{get;set;}
     Public boolean fAreaBoolean{get;set;}
     
+    //This variable are used to hold all the account list and display list and boolean variable are used to hide and enable the buttons in the section        
+    public List<account> DedupAccountList{get;set;}     
+    public list<account> displayAccList{get;set;}       
+    public integer startindex{get;set;}     
+    public integer LastIndex{get;set;}      
+    public boolean first{get;set;}      
+    public boolean Last{get;set;}       
+    public boolean next{get;set;}       
+    public boolean previous{get;set;}       
+    
+    //Variable to hold JSON response from Informatica/CDM
+    public JSON2ApexCustomerFromCDM custSearch{get;set;}
+    //public List<JSON2ApexCustomerFromCDM> custSearch{get;set;}
+    public Boolean showCDM {get;set;}
+    public Boolean one {get;set;}
+    public Boolean deduplicated {get;set;}
+    
     // Constructor
     public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
     public static String PersonAccountRecordTypeID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordtypeID();
@@ -96,7 +113,15 @@ public class AddressSearchValidationControllerCDM
             objAccount.Market__c=market;
             LoadProvince();
         }
-        
+        DedupAccountList= new List<account>();      
+        displayAccList=new list<account>();     
+        startIndex=0;               
+        last=false;     
+        previous=false;     
+        first=false;        
+        next=false;  
+        showCDM=false;
+        deduplicated = false;
     }
     
     public Boolean getIsClassic() {
@@ -240,19 +265,6 @@ public class AddressSearchValidationControllerCDM
         boolean check=false;
         If(AddressObj.Address_Type__c != null)      
         {       
-            /* if(AddressObj.RecordType.DeveloperName == 'Person Account'){
-if(AddressObj.Country__c != 'India' && AddressObj.Country__c != '--None--' && AddressObj.Foreign_Nationals__c == false){
-ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Foreign_National_Should_Be_True));     
-}
-else if(AddressObj.Country__c == 'India' && AddressObj.Foreign_Nationals__c == true){
-ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Foreign_National_Should_Be_False));     
-}
-}
-else if(AddressObj.RecordType.DeveloperName  == 'Company'){
-if(AddressObj.Country__c != 'India' && AddressObj.Country__c != '--None--'){
-ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Company_Record_Country));     
-}
-}*/
             try     
             {       
                 if(recordType == Label.Company)                     
@@ -392,6 +404,267 @@ ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Compa
         if(String.isNOTBlank(hmCountryCode) ? hmCountryCode!=label.INPhoneCountryCode?true:false:false) hAreaBoolean=true;
         if(String.isNOTBlank(wkCountryCode) ? wkCountryCode!=label.INPhoneCountryCode?true:false :false) wAreaBoolean=true;
         
+    }
+    
+    /*
+    Online Deduplication Code for India Market added by Shashi
+    */
+    public object onLineDeduplicationIN(){ 
+        displayAccList.clear();     
+        DedupAccountList.clear();
+        Boolean errorFlag=false;
+        Continuation con=null;
+        deduplicated = true; 
+        
+        //Phone format check-while online deduplication 
+        Boolean homePhoneFormat= false;
+        Boolean workPhoneFormat= false;
+        Boolean mobilePhoneFormat= false;
+        PhoneNumberFormatCheck formatcheck = new PhoneNumberFormatCheck();   
+        objAccount.RecordTypeId = recordTypeId;   
+        phoneFieldConcatIN();   
+        homePhoneFormat = formatcheck.homePhoneFieldFormatIN(hmCountryCode,hmAreaCode,hmphoneNumber);
+        workPhoneFormat = formatcheck.workPhoneFieldFormatIN(wkCountryCode,wkAreaCode,wkphoneNumber);
+        mobilePhoneFormat = formatcheck.mobilePhoneFieldFormatIN(mbCountryCode,mbphoneNumber);
+     
+
+        if(Recordtype!=Label.PersonAccount && Recordtype!=Label.Company){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.RecordTypeError));       
+            errorFlag=true;
+        }
+        
+        else if(Recordtype== Label.PersonAccount && (string.isblank(objAccount.firstName) || string.isblank(objAccount.Lastname) || 
+                (string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber))))  {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountDedupValidation));       
+            errorFlag=true;
+        }
+        
+        else if(Recordtype==Label.Company && (string.isblank(objAccount.name) || 
+                (string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber)))){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,Label.CompanyAccountDedupValidation ));       
+            errorFlag=true;
+        }
+        else if(!homePhoneFormat || !workPhoneFormat || !mobilePhoneFormat ){
+            errorFlag=true;
+        }
+        
+        if(!errorFlag){
+                        
+            last=false;     
+            previous=false;     
+            first=false;        
+            next=false;     
+                    
+            phoneFieldConcatIN();
+            String EndUrl=generateCDMEndPointURL();
+            CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
+            System.debug('Search End Url debug:'+endurl);
+            try{    
+                if(label.New_Component=='true'){
+                    con = new Continuation(120);     
+                    con.continuationMethod='processResponse';
+                    this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
+                    system.debug('request label: '+ this.requestLabel);
+                }
+                else{
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
+                    errorFlag=false;
+                }
+            } catch (Exception e){
+                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
+                 errorFlag=false;
+                 CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
+                
+            }                   
+        }
+        return con;
+    }
+
+    
+     public String generateCDMEndPointURL(){
+        String endUrl='';
+        map<String,CDM_Integration_URLs__c> mapURLs = CDM_Integration_URLs__c.getAll();
+        For(string str: mapURLs.keyset()){
+            if(mapURLs.get(str).Country__c == Market && mapURLs.get(str).Type__c==RecordType){
+                endUrl+=mapURLs.get(str).Informatica_URL__c+'?';
+            }
+        }
+        
+        if(recordType == 'Person Account')
+        {
+            endUrl+='inp_JSON_FirstName='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
+            endUrl+='&inp_JSON_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
+            endUrl+='&inp_JSON_Mobile='+((string.isnotblank(objAccount.Mobile__c))?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_HomePhone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_WorkPhone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+            endUrl+='&inp_JSON_PAN='+((string.isnotblank(objAccount.PAN__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
+            endUrl+='&inp_JSON_Aadhar='+((string.isnotblank(objAccount.Aadhaar__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
+        }
+        else if(recordType == 'Company'){
+            endUrl+='inp_JSON_CompanyName='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
+            endUrl+='&inp_JSON_Mobile='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_HomePhone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_WorkPhone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
+            endUrl+='&inp_JSON_GSTIN='+(string.isnotblank(objAccount.GSTN_Number__c)?objAccount.GSTN_Number__c:'');
+            endUrl+='&inp_JSON_CIN='+(string.isnotblank(objAccount.CIN_Number__c)?objAccount.CIN_Number__c:'');
+        }
+        return endUrl;
+    } 
+    
+
+    public Object processResponse() {
+            HttpResponse res = Continuation.getResponse(this.requestLabel);
+            System.debug('res*** ' + res);
+          // Set the result variable that is displayed on the Visualforce page
+        try{
+            this.requestLabel = res.getBody();
+            CustomLogUtil.CustomLoggingEntry('Continuation Response Body' + res.getBody());
+            if(res.getbody()=='{}'){
+                showCDM=false;
+                CustomLogUtil.CustomLoggingEntry('Error Occured will calling ' + 'Response Body' +res.getbody());
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+            }
+            else if(res.getStatusCode()==500)
+            {
+                showCDM=false;
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + res.getstatuscode() +'-- '+res.getStatusCode());
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,Label.The_request_could_not_reach_server));
+            }
+            else
+            {
+                custSearch=JSON2ApexCustomerFromCDM.parse(res.getbody());
+                system.debug('custSearch:'+custSearch);
+                list<string> set_accounts= new list<string>();
+                For(JSON2ApexCustomerFromCDM.Out_JSON_UCID_List cust : custSearch.out_JSON_UCID_List){
+                    system.debug('cust:'+cust);
+                    Map<String, Object> m = (Map<String, Object>)JSON.deserializeUntyped(JSON.serialize(cust));
+                    if(string.valueof(m.get(Label.AdminClientNum))!=null)
+                        set_accounts.add(string.valueof(m.get(label.AdminClientNum)));
+                }
+                if(set_accounts.size()>0){
+                    showCDM=true;
+                    string querytxt='select id,firstname,UCID__c,Recordtype.name,lastname,Name,mobile__c,Individual_Home_Phone__c,Work_Phone__c,Email__c from account where <Search> in (';
+                    querytxt=querytxt.replace('<Search>',label.SearchKey); 
+                    set<String> valueSet = new set<String>();
+                    for(Integer i=0; i<set_accounts.size(); i++){
+                        valueSet.add('\'' + String.escapeSingleQuotes(set_accounts[i]) + '\'');
+                    }
+                    if (valueSet.isEmpty()){
+                        valueSet.add('\'\'');
+                    }
+                    querytxt=querytxt+ String.join(new list<String>(valueSet),',') + ') limit ' +label.limitsize;
+                    for(account acc :database.query(querytxt)){
+                        if(acc.Recordtype.name == 'Person Account' || acc.Recordtype.name == 'Company')
+                        DedupAccountList.add(acc);
+                    }
+                    last=false;     
+                    previous=false;     
+                    first=false;        
+                    next=false;
+                    LastIndex=DedupAccountList.size();      
+                    First();
+                    If(displayAccList.size()==0)
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));
+                    else if(displayAccList.size()==1)
+                        one = true;
+                    else if(displayAccList.size()>1)
+                        one = false;
+                }
+            }
+        }
+        catch (Exception e){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
+            CustomLogUtil.CustomLoggingEntry('Error Occured ' + e +'-- '+e.getMessage());
+        }
+        // Return null to re-render the original Visualforce page
+        return null;
+    }
+
+    
+    /*
+    Method to help us move to next page and setting the boolean for the respective buttons   
+    and are used to give paginated data after the search in CDM                                                          
+    */      
+    public void next(){     
+        displayAccList.clear();     
+        startIndex=startIndex+10;       
+        for(integer i=startIndex;i<(LastIndex<(startIndex+10)?lastIndex:startIndex+10); i++){       
+            displayAccList.add(DedupAccountList[i]);        
+        }       
+        if(LastIndex<(startIndex+10) ){     
+            Last=true;      
+            next=true;      
+            first=false;        
+            previous=false;     
+        }       
+        else{       
+            Last=false;     
+            next=false;     
+            first=false;        
+            previous=false;     
+        }                   
+    }     
+    /*      
+    Method: To show Previous page record       
+    */      
+    public void previous(){     
+        displayAccList.clear();     
+        startIndex=startIndex-10;       
+        for(integer i=startIndex;i<startIndex; i++){        
+            displayAccList.add(DedupAccountList[i]);        
+        }       
+        if(startIndex<10 ){     
+            Last=false;     
+            next=false;     
+            first=true;     
+            previous=true;      
+        }           
+        else{       
+            Last=false;     
+            next=false;     
+            first=true;     
+            previous=true;      
+        }               
+    }      
+    /*      
+    method to help us to go to last page        
+    */      
+    public void last(){     
+        displayAccList.clear();     
+        startIndex=(lastindex/10)*10;       
+        for(integer i=startIndex;i<(LastIndex<(startIndex+10)?lastIndex:startIndex+10); i++){       
+            displayAccList.add(DedupAccountList[i]);        
+        }       
+                
+            Last=true;      
+            next=true;      
+            first=false;        
+            previous=false;                       
+    }       
+    /*      
+    Method :Helps us to go to the first page   
+    */      
+    public void First(){        
+        displayAccList.clear();     
+        startIndex=0;       
+       for(integer i=startIndex;i<(LastIndex<=10?lastIndex:startIndex+10); i++){        
+            displayAccList.add(DedupAccountList[i]);        
+        }       
+        if(LastIndex>10){       
+            last=false;     
+            next=false;     
+            first=true;     
+            previous=true;      
+        }       
+        else{       
+        last=true;      
+            next=true;      
+            first=true;     
+            previous=true;      
+                
+        }                          
     }
     
 }

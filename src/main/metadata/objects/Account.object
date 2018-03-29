@@ -64140,7 +64140,7 @@ RecordType.DeveloperName = 'ThirdParty'
     </validationRules>
     <validationRules>
         <fullName>CompanyAccount_Mandatory_Fields</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If record type selected is “Company” then user must provide values for Name and any phone numbers</description>
         <errorConditionFormula>AND(RecordType.DeveloperName = 'Company',
 OR( ISBLANK(Name ),(ISBLANK(Mobile__c) &amp;&amp; ISBLANK( Individual_Home_Phone__c ) &amp;&amp; ISBLANK( Work_Phone__c ))),
@@ -65259,7 +65259,7 @@ AAAAAXXXXA</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PersonAccount_Mandatory_Fields</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If record type selected is “Person Account” then user must provide values for First Name, Last Name, Email Id and Mobile no. fields</description>
         <errorConditionFormula>AND(RecordType.DeveloperName = 'PersonAccount',
  OR( ISBLANK(FirstName) ,ISBLANK(LastName ), 

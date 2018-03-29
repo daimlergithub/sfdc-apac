@@ -17,7 +17,7 @@ public Class PhoneNumberFormatCheck{
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Home_Phone_Format));
             return false;
         }
-        if(hmCountryCode!='' && (hmCountryCode==label.INPhoneCountryCode)){
+        else if(hmCountryCode!='' && (hmCountryCode==label.INPhoneCountryCode)){
             //Area code & Phone number validation
             if((hmAreaCode != '' && hmphoneNumber == '') || (hmAreaCode == '' && hmphoneNumber != '')){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Home_Phone_Format));
@@ -31,11 +31,14 @@ public Class PhoneNumberFormatCheck{
             }
             
         }
-        if(hmCountryCode!='' && (hmCountryCode!=label.INPhoneCountryCode) && hmphoneNumber != null && !String.isBlank(hmphoneNumber)){
+        else if(hmCountryCode!='' && (hmCountryCode!=label.INPhoneCountryCode) && hmphoneNumber != null && !String.isBlank(hmphoneNumber)){
             try{
                 digitsPhoneNumber = Integer.valueOf(hmphoneNumber);
             }
             catch(exception e){
+                
+            }
+            if(!hmphoneNumber.isNumeric()){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.Home_Phone_Number_allows_digits_only));
                 return false;
             }
@@ -48,7 +51,7 @@ public Class PhoneNumberFormatCheck{
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Work_Phone_Format));
             return false;
         }
-        if(wkCountryCode!='' && (wkCountryCode==label.INPhoneCountryCode)){
+        else if(wkCountryCode!='' && (wkCountryCode==label.INPhoneCountryCode)){
             //Area code & Phone number validation
             if((wkAreaCode != '' && wkphoneNumber == '') || (wkAreaCode == '' && wkphoneNumber != '')){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Work_Phone_Format));
@@ -62,11 +65,8 @@ public Class PhoneNumberFormatCheck{
             }
             
         }
-        if(wkCountryCode!='' && (wkCountryCode!=label.INPhoneCountryCode) && wkphoneNumber != null && !String.isBlank(wkphoneNumber)){
-            try{
-                digitsPhoneNumber = Integer.valueOf(wkphoneNumber);
-            }
-            catch(exception e){
+        else if(wkCountryCode!='' && (wkCountryCode!=label.INPhoneCountryCode) && wkphoneNumber != null && !String.isBlank(wkphoneNumber)){
+            if(!wkphoneNumber.isNumeric()){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.Work_Phone_Number_allows_digits_only));
                 return false;
             }
@@ -79,7 +79,7 @@ public Class PhoneNumberFormatCheck{
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Fax_Format));
             return false;
         }
-        if(faxCountryCode!='' && (faxCountryCode==label.INPhoneCountryCode)){
+        else if(faxCountryCode!='' && (faxCountryCode==label.INPhoneCountryCode)){
             //Area code & Fax number validation
             if((faxAreaCode != '' && faxphoneNumber == '') || (faxAreaCode == '' && faxphoneNumber != '')){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Fax_Format));
@@ -93,11 +93,8 @@ public Class PhoneNumberFormatCheck{
             }
             
         }
-        if(faxCountryCode!='' && (faxCountryCode!=label.INPhoneCountryCode) && faxphoneNumber != null && !String.isBlank(faxphoneNumber)){
-            try{
-                digitsPhoneNumber = Integer.valueOf(faxphoneNumber);
-            }
-            catch(exception e){
+        else if(faxCountryCode!='' && (faxCountryCode!=label.INPhoneCountryCode) && faxphoneNumber != null && !String.isBlank(faxphoneNumber)){
+            if(!faxphoneNumber.isNumeric()){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.Fax_allows_digits_only));
                 return false;
             }
@@ -110,16 +107,13 @@ public Class PhoneNumberFormatCheck{
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Mobile_Phone_Format));
             return false;
         }
-        if(mbCountryCode!='' && mbCountryCode!=label.INPhoneCountryCode && mbphoneNumber != null && !String.isBlank(mbphoneNumber)){
-            try{
-                digitsPhoneNumber = Integer.valueOf(mbphoneNumber);
-            }
-            catch(exception e){
+        else if(mbCountryCode!='' && mbCountryCode!=label.INPhoneCountryCode && mbphoneNumber != null && !String.isBlank(mbphoneNumber)){
+            if(!mbphoneNumber.isNumeric()){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.Mobile_Number_allows_digits_only));
                 return false;
             }
         }
-        if(mbCountryCode!='' && (mbCountryCode==label.INPhoneCountryCode) && mbphoneNumber != ''){
+        else if(mbCountryCode!='' && (mbCountryCode==label.INPhoneCountryCode) && mbphoneNumber != ''){
             //Phone number validation
             if(!Pattern.matches(mobileCheck, mbphoneNumber)){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Mobile_Phone_Format));
