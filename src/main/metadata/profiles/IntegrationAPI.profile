@@ -31,6 +31,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Financial_Services</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Force_com</application>
         <default>false</default>
         <visible>false</visible>
@@ -565,6 +570,14 @@
     <classAccesses>
         <apexClass>Batch_insertDealer</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>BBQEmployee</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>BBQReferral</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BusinessHrHolidaysRetriever</apexClass>
@@ -9425,6 +9438,16 @@
         <field>Campaign.parentcampaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.No_of_Pax__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.No_of_Pax__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Accompany_Name__c</field>
@@ -9783,6 +9806,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Lead__c.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.No_of_Pax__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -29756,7 +29784,7 @@
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-FS Page Layout</layout>
+        <layout>Lead__c-FS Lead Generic</layout>
         <recordType>Lead__c.Finance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>

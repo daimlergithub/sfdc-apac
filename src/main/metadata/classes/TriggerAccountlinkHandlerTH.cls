@@ -13,9 +13,10 @@ public class TriggerAccountlinkHandlerTH implements TriggerHandlerIf {
         }
         if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
             System.debug('check if went inside');
-            List < Account_Link__c > acclinkr = [Select Id, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new AND fromRole__r.Dealer_Rollout_Status__c = 'Done'];
+            List < Account_Link__c > acclinkr = [Select Id,recordtypeID, toRole__r.UCID__c from Account_Link__c where id IN: trigger.new AND fromRole__r.Dealer_Rollout_Status__c = 'Done'];
             for (Account_Link__c accrec: acclinkr) {
-                if (String.isnotblank(accrec.toRole__r.UCID__c))
+                //condition added by Tejbir. FS account link should not to go to autoline.
+                if (String.isnotblank(accrec.toRole__r.UCID__c) && accrec.RecordTypeId!=Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.FS_LEAD).getRecordTypeId())
                     acclids.add(accrec.id);
             }
 
