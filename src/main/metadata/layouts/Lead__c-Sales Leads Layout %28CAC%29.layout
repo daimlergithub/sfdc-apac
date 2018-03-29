@@ -228,6 +228,10 @@
                 <behavior>Edit</behavior>
                 <field>Sales_Consultant__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lost_Status_Tracking__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
