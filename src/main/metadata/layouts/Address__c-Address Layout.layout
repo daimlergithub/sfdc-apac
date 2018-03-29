@@ -177,7 +177,7 @@
         <editHeading>true</editHeading>
         <label>New</label>
         <layoutColumns>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred__c</field>
             </layoutItems>
@@ -223,7 +223,7 @@
     <miniLayout>
         <fields>Customer__c</fields>
     </miniLayout>
-	<relatedLists>
+    <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

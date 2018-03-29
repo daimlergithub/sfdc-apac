@@ -236,16 +236,45 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <relatedList>RelatedEntityHistoryList</relatedList>
-    </relatedLists>
-    <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
+        <fields>Asset_Model__c</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>Borrower__c</fields>
+        <fields>Rental_Amount__c</fields>
+        <fields>Payment_Mode__c</fields>
+        <fields>Financed_Amount__c</fields>
+        <fields>Status__c</fields>
         <relatedList>FS_Contract__c.Retail_FS_Borrower__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
+        <fields>Building_name__c</fields>
+        <fields>Unit_No__c</fields>
+        <fields>Street_No__c</fields>
+        <fields>Street_Name__c</fields>
+        <fields>Sub_District__c</fields>
+        <fields>FS_District__c</fields>
+        <fields>State__c</fields>
+        <fields>ZipCode__c</fields>
+        <fields>Country__c</fields>
         <relatedList>Address__c.Account_Link__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Account_No__c</fields>
+        <fields>BPID__c</fields>
+        <fields>Guarantor__c</fields>
+        <fields>Bank_Name__c</fields>
+        <fields>Bank_Code__c</fields>
+        <fields>Race__c</fields>
+        <fields>Passport_No__c</fields>
+        <relatedList>Customer_Key_Credential__c.Retail_FS_Borrower__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
@@ -253,7 +282,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000Jp8S</masterLabel>
+        <masterLabel>00h0k000000SoY4</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

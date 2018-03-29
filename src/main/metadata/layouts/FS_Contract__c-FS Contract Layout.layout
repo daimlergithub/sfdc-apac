@@ -259,6 +259,10 @@
                 <behavior>Edit</behavior>
                 <field>Target_comm_Amount__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Total_IDC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -277,6 +281,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Market__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -301,6 +309,20 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Building_name__c</fields>
+        <fields>Unit_No__c</fields>
+        <fields>Street_No__c</fields>
+        <fields>Street_Name__c</fields>
+        <fields>Sub_District__c</fields>
+        <fields>FS_District__c</fields>
+        <fields>ZipCode__c</fields>
+        <fields>City__c</fields>
+        <fields>State__c</fields>
+        <relatedList>Address__c.FS_Contract__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Receivable_Charges__c</fields>
         <relatedList>Charge_Receivable__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -309,26 +331,62 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Rental__c</fields>
+        <fields>Rental_Amt__c</fields>
+        <fields>Cheque_Date__c</fields>
+        <fields>Cheque_No__c</fields>
+        <fields>Cheque_Amt__c</fields>
+        <fields>Adjusted_Amt__c</fields>
+        <fields>Status__c</fields>
+        <fields>Bank__c</fields>
+        <fields>Branch__c</fields>
         <relatedList>PDC_Detail__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Account_No__c</fields>
+        <fields>Bank__c</fields>
+        <fields>Branch_Name__c</fields>
+        <fields>Cheque_No__c</fields>
+        <fields>Comments__c</fields>
+        <fields>DescriptionDrawer_Name__c</fields>
+        <fields>Receipt_No__c</fields>
+        <fields>Payment_Mode__c</fields>
+        <fields>User__c</fields>
         <relatedList>Recievables_Paid__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Interest_Amount__c</fields>
+        <fields>Principal_Amount__c</fields>
         <relatedList>Rental_Amount__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Gross_Outstanding__c</fields>
+        <fields>Interest_Outstanding__c</fields>
+        <fields>Principal_Outstanding__c</fields>
+        <fields>Receivable_Rental_Overdue_Interest__c</fields>
+        <fields>Total_Outstanding__c</fields>
+        <fields>VATGST_on_Rentals__c</fields>
         <relatedList>Rental_OverDue__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Receivable_Rentals__c</fields>
         <relatedList>Rental_Receivable__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Due_Date__c</fields>
+        <fields>FID_Amount__c</fields>
+        <fields>Gross_Amount_Paid__c</fields>
+        <fields>Insurance_Amount__c</fields>
+        <fields>Net_Rental_Amount__c</fields>
+        <fields>Principle_Balance_Oustanding__c</fields>
+        <fields>Registration_Amount__c</fields>
+        <fields>Rental_Amount_Gross__c</fields>
+        <fields>Rental_No__c</fields>
         <relatedList>Re_Payment_Plan__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -359,7 +417,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000Japz</masterLabel>
+        <masterLabel>00h0k000000SoUB</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
