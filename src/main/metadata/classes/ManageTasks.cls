@@ -315,7 +315,7 @@ public void getstatusval() {
         User usr = new User();
         if(usrid != null && usrid != '')
         {
-        	usr = [select Id,Email,Profile.UserLicense.name from User where Id =: usrid];
+        	usr = [select Id,Email from User where Id =: usrid];
         }
         if(usr != null)
         {
@@ -335,13 +335,6 @@ public void getstatusval() {
             emailBody =  emailBody + '인입된 Task 개수: ' + taskList.size() + '</BR>';
             emailBody =  emailBody + '기한: ' + taskList[0].ActivityDate + '</BR>';
             emailBody =  emailBody + '다음 링크를 통해 해당 Task의 자세한 정보를 확인하실 수 있습니다.</BR>';
-             if(usr.Profile.UserLicense.name == 'Partner Community')
-            {
-            emailBody =  emailBody + 'MBK 사용자: <a href=' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/MBKorea/' + taskList[0].WhatId + '>' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/MBKorea/' + taskList[0].WhatId + '</a></BR>';
-            }else
-            {
-            emailBody =  emailBody + 'MBK 사용자: <a href=' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + taskList[0].WhatId + '>' + System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + taskList[0].WhatId + '</a></BR>';
-            } 
             emailBody =  emailBody + '- MBK 고객 센터 -';
             sendMail.setHtmlBody(emailBody);
             sendMail.setTargetObjectId(MonkContact.Id); 
