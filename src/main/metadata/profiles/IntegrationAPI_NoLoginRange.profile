@@ -15,7 +15,7 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <applicationVisibilities>	
+    <applicationVisibilities>
         <application>Central_Dealer_Portal</application>
         <default>false</default>
         <visible>false</visible>
@@ -1891,7 +1891,7 @@
         <apexClass>RetailTaskSharingWrapService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-     <classAccesses>
+    <classAccesses>
         <apexClass>RetailTaskTriggerHandlerJP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -12733,6 +12733,11 @@
         <field>Case.MBTH_Waiver_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Case.MBTH_Turnaround_time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.MBTH_Waiver_Type__c</field>
@@ -13088,7 +13093,7 @@
         <field>Case.Preferred_Contact_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Case.Preferred_Language__c</field>
         <readable>true</readable>
@@ -14247,6 +14252,11 @@
         <editable>false</editable>
         <field>Case_Escalation_Matrix__mdt.Record_Type__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Charge_Receivable__c.FS_Contract__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -16585,6 +16595,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>FS_Contract__c.Dealer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>FS_Contract__c.End_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16701,6 +16716,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.Retail_FS_Borrower__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_Contract__c.Retail_FS_Guaranteer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_Contract__c.Sales_Person__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22510,6 +22535,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Rental_OverDue__c.FS_Contract__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Rental_OverDue__c.Gross_Outstanding__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -22536,6 +22566,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Rental_OverDue__c.VATGST_on_Rentals__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Rental_Receivable__c.FS_Contract__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -29571,10 +29606,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Contact2Contact</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Link__c-Contact2Contact</layout>
-        <recordType>Account_Link__c.Finance_Services</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Contact2Contact JP</layout>
