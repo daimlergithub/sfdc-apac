@@ -259,10 +259,6 @@
                 <behavior>Edit</behavior>
                 <field>Target_comm_Amount__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Total_IDC__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
