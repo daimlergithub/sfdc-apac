@@ -901,6 +901,13 @@
         <shortDescription>Assigned Dealer should not be null</shortDescription>
         <value>Assigned Dealer should not be null</value>
     </labels>
+	<labels>
+        <fullName>Assigned_To</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assigned To</shortDescription>
+        <value>Assigned To</value>
+    </labels>
     <labels>
         <fullName>AttachedPdfError</fullName>
         <language>en_US</language>
@@ -2862,6 +2869,14 @@
         <protected>false</protected>
         <shortDescription>Driving experience</shortDescription>
         <value>Driving experience</value>
+    </labels>
+	<labels>
+        <fullName>Due_Date</fullName>
+        <categories>flow</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Due Date</shortDescription>
+        <value>Due Date</value>
     </labels>
     <labels>
         <fullName>Dynamic</fullName>
@@ -9787,6 +9802,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Task Start Call Time</shortDescription>
         <value>IB Start Time</value>
+    </labels>
+	<labels>
+        <fullName>Task_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Task Status</shortDescription>
+        <value>Task Status</value>
     </labels>
     <labels>
         <fullName>Task_Subject</fullName>
