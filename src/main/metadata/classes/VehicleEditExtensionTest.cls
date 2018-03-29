@@ -70,6 +70,8 @@ public with sharing class VehicleEditExtensionTest {
       cont.saveveh();
       cont.saveAndNew();
       cont.Cancel();
+      cont.getbrandtype();
+      cont.getmodeltype(); 
     }
      public static testMethod void testVehicle2()
     {
