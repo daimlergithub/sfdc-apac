@@ -43,7 +43,17 @@ public class BbqTriggerHelperBase {
     
     public static void pointCalculation(list<referral__c> refferalList,Map<id, referral__c> refNewMap, Map<id, referral__c> refOldMap){   
 
-        list<Employee__c> employeeList=[SELECT Id,ReferralsCreated__c,ReferralsWon__c,Email__c FROM Employee__c];
+        //loop and get the employees to be updated
+		Set<Id> empRefList = new Set<Id>();
+        for (Referral__c refl:refferalList){
+            if(refl.ReferredEmployee__c != null){
+                empRefList.add(refl.ReferredEmployee__c);
+            }
+        }
+        if (empRefList == null || empRefList.size() == 0) {
+            return;
+        }
+        list<Employee__c> employeeList=[SELECT Id,ReferralsCreated__c,ReferralsWon__c,Email__c FROM Employee__c where Id in : empRefList];
         system.debug('<<<empList'+employeeList);
         list<Employee__c> empList=new list<Employee__c>();
         for(referral__c ref:refferalList){
