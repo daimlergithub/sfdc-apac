@@ -1,0 +1,40 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#000000; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff" style="font-family: arial; font-size: 12pt;"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Hi&nbsp;</span></font><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;">{!Referral__c.Dealer__c}</span></font><span style="font-family: &quot;Segoe UI&quot;, sans-serif; font-size: 10pt; color: rgb(255, 255, 255);">,</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">&nbsp;</span><o:p></o:p></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff" style="font-family: arial; font-size: 12pt;"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">This is to inform you that an Employee,&nbsp;&nbsp;</span></font><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;">{!Referral__c.Employee_Name__c}&nbsp;</span></font><span style="font-family: &quot;Segoe UI&quot;, sans-serif; font-size: 10pt; color: rgb(255, 255, 255);">has referred a person&nbsp;&nbsp;</span><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;">{!Referral__c.First_Name__c}&nbsp;{!Referral__c.Last_Name__c}&nbsp;</span></font><span style="color: rgb(255, 255, 255); font-family: &quot;Segoe UI&quot;, sans-serif; font-size: 10pt;">who is interested in the
+Mercedes vehicle through the BBQ Referral program.</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Please find the below details.</span><o:p></o:p></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Name :&nbsp;</span><o:p></o:p></font><span style="color: rgb(255, 255, 255); font-family: &quot;Segoe UI&quot;, sans-serif; font-size: 13.3333px;">{!Referral__c.First_Name__c}&nbsp;{!Referral__c.Last_Name__c}</span></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff" style="font-family: arial; font-size: 12pt;"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Email :&nbsp;</span><font face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;"><o:p></o:p></span></font></font><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;">{!Referral__c.Email__c}</span></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff" style="font-family: arial; font-size: 12pt;"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Mobile :&nbsp;</span><font face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;"><o:p></o:p></span></font></font><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;">{!Referral__c.Phone__c}</span></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff" style="font-family: arial; font-size: 12pt;"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Address:&nbsp;</span><font face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;"><o:p></o:p></span></font></font><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;">{!Referral__c.Address__c}</span></font></p>
+
+<p class="MsoNormal" style="margin: 2pt 0in;"><font color="#ffffff" style="font-family: arial; font-size: 12pt;"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Zip-code :&nbsp;</span><font color="#ffffff" face="Segoe UI, sans-serif" style=""><span style="font-size: 13.3333px;"><o:p></o:p></span></font></font><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;">{!Referral__c.Zip_code__c}</span></font></p>
+
+<p class="MsoNormal" style="margin: 2pt 0in;"><font color="#ffffff" style="font-family: arial; font-size: 12pt;"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Model :&nbsp;&nbsp;</span><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;"><o:p></o:p></span></font></font><font color="#ffffff" face="Segoe UI, sans-serif"><span style="font-size: 13.3333px;">{!Referral__c.Model_Type__c}</span></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">&nbsp;</span><o:p></o:p></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Kindly contact Referral and follow up at
+your earliest.&nbsp; </span><o:p></o:p></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">&nbsp;</span><o:p></o:p></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Thanks for your Support!!</span><o:p></o:p></font></p>
+
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">&nbsp;</span><o:p></o:p></font></p>
+
+<p class="MsoNormal" style="font-family: arial; font-size: 12pt; margin: 2pt 0in;"><font color="#ffffff"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;">Kind Regards,</span><o:p></o:p></font></p>
+
+<p class="MsoNormal" style="font-family: arial; font-size: 12pt; margin: 2pt 0in;"><span style="font-size: 10pt; font-family: &quot;Segoe UI&quot;, sans-serif;"><font color="#ffffff">BBQ App Referral Program. </font></span><o:p></o:p></p><br>]]></td>
+</tr>
+</table>
