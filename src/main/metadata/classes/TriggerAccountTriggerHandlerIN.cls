@@ -48,7 +48,7 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
                 if(TriggerRecursiveCheck.run){
                     TriggerRecursiveCheck.runOnce();
                     //AccountHelperIN.createUCID(Trigger.new,trigger.isInsert);
-                    AccountHelperIN.createUpdateCDMUCID(label.InsertContext,Label.MY,Trigger.new);
+                    AccountHelperIN.createUpdateCDMUCID(label.InsertContext,Label.IN,Trigger.new);
                 }  
             }           
         }                                                                      
@@ -61,7 +61,7 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
             if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
                 if(TriggerRecursiveCheck.run){
                     TriggerRecursiveCheck.runOnce();
-                    AccountHelperIN.createUpdateCDMUCID(Label.UpdateContext,'IN',Trigger.new);
+                    AccountHelperIN.createUpdateCDMUCID(Label.UpdateContext,Label.IN,Trigger.new);
                     firstRun=false;
                 }
             }
@@ -80,7 +80,7 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
         List<Account> accountNewList = Trigger.new;
-        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == 'IN'){
+        if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == Label.IN){
             if(isBefore && isInsert){
                 AccountHelperIN.updateAccountFieldsBeforeInsertInt(Trigger.new,trigger.isInsert);
             }
