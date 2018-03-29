@@ -8721,6 +8721,16 @@
         <field>Campaign.parentcampaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.No_of_Pax__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CampaignMember.No_of_Pax__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Accompany_Name__c</field>
@@ -9039,6 +9049,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Lead__c.Updated_By_EP_Transactions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.No_of_Pax__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
