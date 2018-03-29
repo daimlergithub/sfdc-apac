@@ -77,7 +77,7 @@ public class RetailCampaignHelperBase{
     public static void parentCampaingStatusChange(List<Retail_Campaign__c> retailcamp, boolean isinsertflag){     
         Map<id,String>  idwithndcode=new Map<id,String>();
         List<Retail_Campaign__share> retcampshare=new List<Retail_Campaign__share>();   
-        for(Retail_Campaign__c re:[Select id,Close_Date__c,createdby.dealer_nd_code__C,RecordTypeId,Child_Campaign_Status__c,Parent_Campaign1__r.id,Parent_Campaign1__r.Close_Date__c,Parent_Campaign1__r.status__c from Retail_Campaign__c where id IN:retailcamp]){
+        for(Retail_Campaign__c re:[Select id,Close_Date__c,createdby.dealer_nd_code__C,RecordTypeId,Child_Campaign_Status__c,Parent_Campaign1__r.id,Parent_Campaign1__r.Close_Date__c,Parent_Campaign1__r.status__c,MD__C,createdby.Market__c from Retail_Campaign__c where id IN:retailcamp]){
            if(re.Child_Campaign_Status__c == 'Planning'){
                  retailcampaign.put(re.Parent_Campaign1__r.id,'Draft');
              }
@@ -88,7 +88,8 @@ public class RetailCampaignHelperBase{
              retailcampaign.put(re.Parent_Campaign1__r.id,'Ongoing');
              }
             if(isinsertflag&&Userinfo.getUserType()=='PowerPartner' && (re.RecordTypeId==planningRecordId || re.RecordTypeId==executionRecordId) && re.createdby.dealer_nd_code__C!=null){
-                idwithndcode.put(re.id,re.createdby.dealer_nd_code__C);
+                //idwithndcode.put(re.id,re.createdby.dealer_nd_code__C);
+				idwithndcode.put(re.id,re.createdby.Market__c+re.createdby.dealer_nd_code__C);
             }
         }       
         for(id idset : retailcampaign.keySet()){
@@ -114,4 +115,18 @@ public class RetailCampaignHelperBase{
             DMLManagerService.insertAsSystem(retcampshare);
         }
     }
+	
+	 /* Data Migration Explicit Fix - Santosh Mohanty */
+    public static void updatemarket(List<Retail_Campaign__c> campList){        
+        
+               for(Retail_Campaign__c camp : campList){
+                    if(Test.isRunningTest()){
+                        camp.isTestRunning__c=true;
+                    }
+                   if(camp.Market__c =='' || camp.Market__c==NULL){
+                     camp.Market__c=camp.MD__c;
+                  }  
+              }       
+    }
+  
 }

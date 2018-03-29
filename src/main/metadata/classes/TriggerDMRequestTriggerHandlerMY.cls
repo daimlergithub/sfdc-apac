@@ -22,6 +22,12 @@ public class TriggerDMRequestTriggerHandlerMY
             { 
                 dmobj.UpdateDMRequest(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,isUpdate,market);                        
             }
+            if (Trigger.isAfter && (Trigger.isInsert || Trigger.isUpdate))
+            { 
+			 if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
+                dmobj.shareDMRequestRecordsWithDealer(trigger.new,(Map<ID,DM_Request__c>)trigger.oldMap,market);      
+				}
+            }
         }
     }
     

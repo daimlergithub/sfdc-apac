@@ -35,13 +35,20 @@ static testMethod void testAccAssignment() {
             ps.Name = 'Test';
             ps.Label = 'Test';
             insert ps;
-    
-        CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
+ Set<String> customperms = new Set<String>{Label.MYRetail, Label.MYGeneric, Label.CreateRetailCopy,Label.LeadShareRecordswithDealers,Label.LeadAL};
+        List<CustomPermission> lcps = new List<CustomPermission>([SELECT ID From CustomPermission WHERE MasterLabel IN :customperms]);
+        List<SetupEntityAccess> lsetupentity = new List<SetupEntityAccess>();
 
-        SetupEntityAccess sea = new SetupEntityAccess();
-        sea.ParentId = ps.Id;
-        sea.SetupEntityId = cps.id;
-        insert sea;
+          for(CustomPermission cps: lcps){
+            SetupEntityAccess sea = new SetupEntityAccess();
+        	sea.ParentId = ps.Id;
+        	sea.SetupEntityId = cps.id;
+            lsetupentity.add(sea);
+        }
+       
+      if(!lsetupentity.isEmpty())
+        DMLManagerService.insertAsSystem(lsetupentity);
+		
         CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
         cs.DEFAULT_CALLOUT_TIME__c='1000';
         cs.MAX_CALLOUT_TIME__c='5000';
@@ -76,6 +83,7 @@ static testMethod void testAccAssignment() {
         dealer.Phone = '12332121';
         dealer.Dealer_GC_Code__c = 'gc code';
         dealer.Dealer_GS_Code__c = 'gs code';
+        dealer.Dealer_ND_Code__c = '12345';
         dealer.Name = 'test dealer';
         dealer.RecordTypeId = DealerRecordTypeId;
         dealer.Star_Elite_Account_Owner__c = user1.Id;
@@ -94,16 +102,17 @@ static testMethod void testAccAssignment() {
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'EAST';
         dealer.Dealer_Active__c = True;
+        dealer.Dealer_Rollout_Status__c = 'Done';
         insert dealer;
         system.assertEquals(dealer.id,[select id from account where id=:dealer.id limit 1].id);
     
-       
         Account dealer1 = new Account();
         dealer1.Dealer_Alternate_Name__c = 'Test Alternate';
         
         dealer1.Phone = '12332121';
         dealer1.Dealer_GC_Code__c = 'gc code';
         dealer1.Dealer_GS_Code__c = 'gs code';
+        dealer1.Dealer_ND_Code__c = '12345';
         dealer1.Name = 'test dealer';
       //  dealer1.Primary_Address_Reference__c=dealer.id;
         dealer1.RecordTypeId = DealerRecordTypeId;
@@ -121,8 +130,10 @@ static testMethod void testAccAssignment() {
         dealer1.Type = '0=Company';
         dealer1.Status__c = '0=contac1';
         dealer1.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
-        dealer1.Dealer_Region__c = 'EAST';
-        dealer.Dealer_Active__c = True;
+        dealer1.Dealer_Region__c = 'EAST';    
+        dealer1.Dealer_Active__c = True;
+        dealer1.Dealer_Rollout_Status__c = 'Done';
+            
         insert dealer1;
         system.assertNotEquals([select id from account where id=:dealer1.id limit 1].id,[select id from account where id=:dealer.id limit 1].id);
           contact = new Contact();
@@ -149,7 +160,7 @@ static testMethod void testAccAssignment() {
             contacts.add(contact1); 
             insert contacts;
             
-            Id p = [SELECT Id FROM Profile WHERE Name LIKE '%Portal User%' Limit 1].id;
+            Id p = [SELECT Id FROM Profile WHERE UserType = 'PowerPartner' Limit 1].id;
             portaluser = new User(alias = 'test123', email='test123@noemail.com',
                             emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',
                             localesidkey='en_US', profileid = p, country='India',IsActive =true,
@@ -181,7 +192,7 @@ static testMethod void testAccAssignment() {
         perAcc.Area_Code__c = '030';
     
         insert perAcc;
-   
+        
         accid.add(perAcc.id);
         Account company1 = new Account();
         company1.Dealer_Alternate_Name__c = 'Test Alternate';
@@ -212,8 +223,24 @@ static testMethod void testAccAssignment() {
         company1.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         company1.Dealer_Region__c = 'EAST';
         company1.Dealer_Active__c = True;
+        //company1.Sales_Address_Type__c = perAcc.id;
         insert company1;
-        
+        Address__c address2=new Address__c();
+        address2.Address_Type__c='Home';
+        address2.Province__c='test1';
+        address2.City__c='bangalore';
+        address2.District__c='test2';
+        address2.Block__c='test3';
+        address2.Address_Line_1__c='testaddress1';
+        address2.Address_Line_2__c='testaddress2';
+        address2.Customer__c=perAcc.id;
+        address2.TitleOfHonor__c = 'To Person'; 
+        address2.Preferred__c = true;
+        address2.country__c = 'Malaysia';
+        address2.ZipCode__c = '12345';
+        insert address2;
+        //company1.Primary_Address_Reference__c = perAcc.Id;
+        //update company1;
         Contact con3 = new Contact(id = contacts[0].Id, Dealer_Lead_Gate_Keeper__c = true);        
               update con3;
         
@@ -239,14 +266,15 @@ static testMethod void testAccAssignment() {
      //   lead.CAC_Lead_Status__c ='Assigned';
      
             try{
-        insert lead;
+        		insert lead;
                 lead.CAC_Lead_Status__c ='Purchased';
+                update lead;
                 lead.Purchased_CAC_Date__c=system.today();
                     }
             catch(DMLexception ex)
             {
                 Boolean expectedExceptionThrown =  ex.getMessage().contains('Script-thrown exception') ? true : false;
-System.assertEquals(expectedExceptionThrown, false);
+				System.assertEquals(expectedExceptionThrown, false);
 //OR
 //System.assertEquals(expectedExceptionThrown, true);
          //   system.assertEquals(ex.getMessage(), ex.getMessage());
@@ -276,7 +304,7 @@ System.assertEquals(expectedExceptionThrown, false);
         lead1.Lead_Type__c = 'New Car';
         lead1.RecordTypeId=afterSalesRecordTypeId;
         lead1.Dealer_Lead_Status__c='Order Placed';
-        lead1.Order_Placed_Date__c=null;
+        lead1.Order_Placed_Date__c=system.today();
         Boolean flag1=false;
         lead1.Purchased_CAC_Date__c=null;
         lead1.Bought_Vehicle_Brand__c=null;
@@ -296,14 +324,16 @@ System.assertEquals(expectedExceptionThrown, false);
         lead1.Retail_Contact__c=acclink.id;
         //lead1.Retail_Company__c=acclink.id;
         
-        lead.Assigned_Dealer__c = null;
+        lead1.Assigned_Dealer__c = null;
 
         insert lead1;
        // lead1.CAC_Lead_Status__c = 'Purchased';
      //   lead1.Purchased_CAC_Date__c=system.today();
         
        // update lead1;
-        lead.Assigned_Dealer__c = dealer1.Id;
+        lead1.Assigned_Dealer__c = dealer1.Id;
+        update lead1;
+        lead1.CAC_Lead_Status__c = 'Accepted';
         update lead1;
        // LeadHelperBase lhb= new LeadHelperBase();
       // LeadHelperBase.Leadvalidation(l1,'MY');

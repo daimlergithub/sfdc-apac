@@ -12,28 +12,58 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
         
         boolean flag=true;
         LeadHelperMY leadRS= new LeadHelperMY();
+			if(Trigger.isbefore && Trigger.isUpdate){
+                LeadHelperBase.updatemarket(Trigger.New); 
+                }
+                if(Trigger.isbefore && Trigger.isinsert){
+					LeadHelperBase.updatemarket(Trigger.New); 
+                }
         
         if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                 
             if(Trigger.isbefore && Trigger.isUpdate){
-                LeadHelperBase.updatemarket(Trigger.New);      
-                leadRS.updateOwner(Trigger.new);  
-                leadRS.updatecommunityURL(Trigger.new);
-				leadRs.updateRetailLookups(trigger.New,Label.MY);
+                if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){  
+					if(Test.isRunningTest()){				
+						leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);		
+					}					
+					leadRS.updateOwner(Trigger.new);  
+					leadRs.updateRetailLookups(trigger.New,Label.MY);
+					
+				}
+				leadRS.updatecommunityURL(Trigger.new);
+				if(Test.isRunningTest()){
+					leadRS.leadValidation(trigger.New,Label.MY);
+				}
+                
             }
             
             if(Trigger.isbefore && Trigger.isinsert){
-                leadRS.updateOwnerwithDealer(Trigger.new); 
+				if(Test.isRunningTest()){
+					leadRS.leadValidation(trigger.New,Label.MY);
+				}
+				if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
+					if(Test.isRunningTest()){
+						leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);
+					}
+					if(userInfo.getUserType() != 'PowerPartner'){
+						leadRS.updateOwnerwithDealer(Trigger.new); 
+					}
+				}
                 //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community 
                 leadRS.updatecommunityURL(Trigger.new);  
             }
             if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){ 
+                
 				
                // Added by Asish Nanda ,Test Cases : Conditions having When to Share Lead Record With Delaers
-              
+              	 if(Util_GetPermissionList.checkAccessOnUser(Label.LeadShareRecordswithDealers )){
                  leadRS.ShareRecordswithDealers(Trigger.new, Trigger.isupdate); 
+				 }
+                 leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new,true,Label.MY);
                 // Added by Asish Nanda, Test Case-  A retail Copy (Reatil Person/ Retail Company)Will be Created in Dealer account automatically , if a dealer will be assigned to Lead 
-                 leadRS.CreateRetailCopy(trigger.new, (Map < Id, Lead__C > ) Trigger.OldMap, isInsert, isUpdate,label.MY);
+                  if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
+				 leadRS.CreateRetailCopy(trigger.new, (Map < Id, Lead__C > ) Trigger.OldMap, isInsert, isUpdate,label.MY);
+				 }
 					 if (LeadHelperBase.booleanCampaignUpdate) {
 						LeadHelperBase.booleanCampaignUpdate = false;
 				
@@ -49,8 +79,9 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
 							}
 							if (ldupdate.size() > 0)
 								update ldupdate;
-							
+							 if(Util_GetPermissionList.checkAccessOnUser(Label.LeadAL )){
 							leadRS.CdmLeadcreate(trigger.new, (Map < Id, Lead__C > ) Trigger.OldMap,label.MY);
+							}
 
 						}
                 }

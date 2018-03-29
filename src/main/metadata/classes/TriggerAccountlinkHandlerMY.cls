@@ -4,7 +4,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
       
             AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
 			 if (Trigger.isbefore && Trigger.isupdate ) {               
-                if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){ 
+                 if(Util_GetPermissionList.checkAccessOnUser(Label.addressupdateRT)){  
                     acchelper.addressupdateRT(trigger.new, (Map < Id, Account_Link__c > ) trigger.oldMap);                  
                 }
             }
@@ -14,22 +14,28 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
                     acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.MY,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
                    
 				   if(Trigger.isInsert){
+				    if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
 						acchelper.afterInsertEventShareRetailCopy(Trigger.new);
 						acchelper.afterInsertEventShareAccount(Trigger.new);
+						}
 					}
 					
                 }
                 if (Trigger.isInsert  && !System.isFuture()) {
+				if(Util_GetPermissionList.checkAccessOnUser(Label.AccountLInkAL)){
                    acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.InsertContext);
+				   }
                 }
             }
 
             if (Trigger.isAfter && Trigger.isupdate ) {  
                 if (TriggerRecursiveCheck.run2 && !System.isFuture()) {
                     TriggerRecursiveCheck.runOnce2();
-                    acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext);                    
+					 if(Util_GetPermissionList.checkAccessOnUser(Label.AccountLInkAL)){
+                    acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext); 
+                    }					
                 }
-                if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){ 
+                if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){ 
                    
                     acchelper.RevokeApexSharingAfterUpdate(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap, Trigger.Old);
                 }

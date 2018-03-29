@@ -513,7 +513,7 @@
         <name>Btn_Preview_No_Questions</name>
     </customLabels>
     <customLabels>
-        <label>Eメール(会社）</label>
+        <label>勤務先Eメール</label>
         <name>Business_Email</name>
     </customLabels>
     <customLabels>
@@ -1481,6 +1481,34 @@
         <name>Elegance</name>
     </customLabels>
 	<customLabels>
+        <label>携帯電話番号</label>
+        <name>MobileAcc</name>
+    </customLabels>
+	 <customLabels>
+        <label>勤務先携帯電話番号</label>
+        <name>Work_Mobile_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>その他電話番号2</label>
+        <name>Phone_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>勤務先Eメール</label>
+        <name>Email2_Acc</name>
+    </customLabels>
+	 <customLabels>
+        <label>自宅電話番号</label>
+        <name>Home_Phone_Acc</name>
+    </customLabels>
+	 <customLabels>
+        <label>勤務先電話番号</label>
+        <name>Work_Phone_Acc</name>
+    </customLabels>
+	<customLabels>
+        <label>自宅Eメール</label>
+        <name>Email_Acc</name>
+    </customLabels>
+	<customLabels>
         <label>自宅Eメール</label>
         <name>Email</name>
     </customLabels>
@@ -1958,15 +1986,15 @@
         <name>Hobby</name>
     </customLabels>
     <customLabels>
-        <label>Eメール(自宅）</label>
+        <label>自宅Eメール</label>
         <name>Home_Email</name>
     </customLabels>	
     <customLabels>
-        <label>Mercedes me携帯電話</label>
+        <label>Mercedes Me携帯電話</label>
         <name>Mobile_3</name>
     </customLabels>
     <customLabels>
-        <label>電話番号(固定）</label>
+        <label>自宅電話番号</label>
         <name>Home_Phone</name>
     </customLabels>
     <customLabels>
@@ -2686,7 +2714,7 @@
         <name>Mileage</name>
     </customLabels>
     <customLabels>
-        <label>携帯電話</label>
+        <label>携帯電話番号</label>
         <name>Mobile</name>
     </customLabels>
 	<customLabels>
@@ -2999,7 +3027,7 @@
         <name>Ordered</name>
     </customLabels>
     <customLabels>
-        <label>Mercedes meメールアドレス</label>
+        <label>Mercedes me Eメール</label>
         <name>Other_Email</name>
     </customLabels>
     <customLabels>
@@ -3007,11 +3035,11 @@
         <name>Other_Information</name>
     </customLabels>
     <customLabels>
-        <label>その他電話1</label>
+        <label>その他電話番号1</label>
         <name>Other_Phone_1</name>
     </customLabels>
     <customLabels>
-        <label>その他電話2</label>
+        <label>その他電話番号2</label>
         <name>Other_Phone_2</name>
     </customLabels>
     <customLabels>
@@ -4624,6 +4652,10 @@
         <label>送信内容の確認　＊SPO送信時は顧客の”自宅”住所が送信されます。アカウント画面で設定ご確認ください</label>
         <name>Selected_Record</name>
     </customLabels>
+	 <customLabels>
+        <label>選択された区分の住所は、この車両顧客関係に紐付いたアカウントに登録されていません。</label>
+        <name>Selected_type_of_address_is_not_existing_for_the_corresponding_account</name>
+    </customLabels>
     <customLabels>
         <label>販売拠点</label>
         <name>SellingDealer</name>
@@ -5329,11 +5361,11 @@
         <name>WorkPhone_should_start_with_0</name>
     </customLabels>
     <customLabels>
-        <label>勤務先携帯電話</label>
+        <label>勤務先携帯電話番号</label>
         <name>Work_Mobile</name>
     </customLabels>
     <customLabels>
-        <label>勤務先電話</label>
+        <label>勤務先電話番号</label>
         <name>Work_Phone</name>
     </customLabels>
 	<customLabels>

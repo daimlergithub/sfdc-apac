@@ -39,6 +39,14 @@
                 <behavior>Edit</behavior>
                 <field>Last_Run_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>No_of_Pax__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Noof_Car_display__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -107,7 +115,6 @@
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
-    
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>

@@ -31,7 +31,8 @@
                         <apex:outputField value="{!retailtask.Service_Total_Amount__c}"/>  
                       </apex:pageBlockSectionItem>
                     </apex:pageBlockSection>
-            </apex:pageBlock>         
+            </apex:pageBlock> 
+
         </apex:outputPanel>                   
     </apex:form>
 </apex:page>

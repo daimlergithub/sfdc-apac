@@ -3,7 +3,7 @@
    Created By: Sushma */
 
 global class Batch_AutoSegmentationMY implements Database.Batchable<SObject>, Database.Stateful, Schedulable {
-    String communityName='Daimler Community MB Malaysia';
+    String communityName='Daimler Community Malaysia';
     String market=System.Label.MarketMY;
     Batch_AutoSegmentation_Generic bag=new Batch_AutoSegmentation_Generic();
     global Database.QueryLocator start(Database.BatchableContext bc) {

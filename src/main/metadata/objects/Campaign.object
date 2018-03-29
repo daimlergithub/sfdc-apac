@@ -2682,7 +2682,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
 	<fields>
         <fullName>Message__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
+        <formula>IF(BEGINS($Profile.Name, &apos;MBK&apos;), 
 HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
 HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
 		<label>Message</label>
@@ -2713,6 +2713,15 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>DateTime</type>
+    </fields>
+	<fields>
+        <fullName>No_of_Pax__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Pax</label>
+        <summarizedField>CampaignMember.No_of_Pax__c</summarizedField>
+        <summaryForeignKey>CampaignMember.CampaignId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Noof_Car_display__c</fullName>
@@ -2908,6 +2917,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+	<fields>
+        <fullName>RSVP__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Pax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Range__c</fullName>
@@ -24067,7 +24087,7 @@ window.open("/apex/Consolidation_List?Id={!Campaign.Id}");
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 }
 else
 {
@@ -24138,7 +24158,7 @@ alert('something has gone wrong please contact your Administrator');
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 }
 else
 {
@@ -24769,11 +24789,11 @@ window.location.reload();
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }
 else
 {
-window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }</url>
     </webLinks>
 </CustomObject>

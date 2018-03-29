@@ -33,7 +33,7 @@
                 <field>Retail_Fax_OptOut__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Retail_Primary_Phone__c</field>
             </layoutItems>
             <layoutItems>

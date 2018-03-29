@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+	<labels>
+        <fullName>Contact_Lead_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Lead Status</shortDescription>
+        <value>Assigned,New</value>
+    </labels>
     <labels>
         <fullName>A6_Contact_as_part_of_visiting_a_car_dealership</fullName>
         <language>en_US</language>
@@ -162,6 +169,55 @@
         <protected>false</protected>
         <shortDescription>Accept Lead / cases custom button</shortDescription>
         <value>This button is for Korea partner users only</value>
+    </labels>
+	<labels>
+        <fullName>MobileAcc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Mobile fields which are referenced in VF pages Account Creation</shortDescription>
+        <value>Mobile</value>
+    </labels>
+	<labels>
+        <fullName>Work_Mobile_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Work Mobile  fields to be referenced in VF pages</shortDescription>
+        <value>Work Mobile</value>
+    </labels>
+	 <labels>
+        <fullName>Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone </shortDescription>
+        <value>Phone</value>
+    </labels>
+	<labels>
+        <fullName>Email2_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email2</shortDescription>
+        <value>Email2</value>
+    </labels>
+	<labels>
+        <fullName>Home_Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone</shortDescription>
+        <value>Home Phone</value>
+    </labels>
+	 <labels>
+        <fullName>Work_Phone_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone</shortDescription>
+        <value>Work Phone</value>
+    </labels>
+	<labels>
+        <fullName>Email_Acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription> Email</shortDescription>
+        <value>Email</value>
     </labels>
     <labels>
         <fullName>A6_Email</fullName>
@@ -2850,6 +2906,13 @@
         <protected>false</protected>
         <shortDescription>Email2</shortDescription>
         <value>Email2</value>
+    </labels>
+	<labels>
+        <fullName>emailRegex</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>emailRegex</shortDescription>
+        <value>^([a-zA-Z0-9._|#~`=?$^!'{}+-]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$</value>
     </labels>
     <labels>
         <fullName>Email_Assignment</fullName>
@@ -7094,6 +7157,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>RET_02_01_ServiceAmountView</value>
     </labels>
     <labels>
+		<fullName>RSVP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RSVP(This is Used for RSVP implementation)</shortDescription>
+        <value>RSVP</value>
+    </labels>
+    <labels>
         <fullName>Range_Model</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9039,6 +9109,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Selected Record</shortDescription>
         <value>Selected Record</value>
     </labels>
+	<labels>
+        <fullName>Selected_type_of_address_is_not_existing_for_the_corresponding_account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selected type of address is not existing for the corresponding account</shortDescription>
+        <value>Selected type of address is not existing for the corresponding account.</value>
+    </labels>
     <labels>
         <fullName>SellingDealer</fullName>
         <language>en_US</language>
@@ -10193,6 +10270,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Vehicle</shortDescription>
         <value>Vehicle</value>
     </labels>
+	<labels>
+        <fullName>VR_Validation_Check</fullName>
+        <categories>This is used for activating and deactivating Validation Rule.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VR Validation Check</shortDescription>
+        <value>Yes</value>
+    </labels>
     <labels>
         <fullName>VehicleRelationship</fullName>
         <language>en_US</language>
@@ -10815,7 +10900,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>korea Business Hours Id</shortDescription>
-        <value>01m28000000kAjx</value>
+        <value>01mO00000004Djp</value>
     </labels>
     <labels>
         <fullName>l_AtmospherePerceptionandLighting</fullName>
@@ -11136,6 +11221,58 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>retURL</shortDescription>
         <value>retURL</value>
     </labels>
+	<labels>
+        <fullName>LeadAL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeadAL</shortDescription>
+        <value>LeadAL</value>
+    </labels>
+	<labels>
+        <fullName>LeadShareRecordswithDealers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LeadShareRecordswithDealers</shortDescription>
+        <value>LeadShareRecordswithDealers</value>
+    </labels>
+	
+	<labels>
+        <fullName>AccountLinkAL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountLinkAL</shortDescription>
+        <value>AccountLinkAL</value>
+    </labels>
+	<labels>
+        <fullName>addressupdateRT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>addressupdateRT</shortDescription>
+        <value>addressupdateRT</value>
+    </labels>
+	
+	<labels>
+        <fullName>AccCDM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccCDM</shortDescription>
+        <value>AccCDM</value>
+    </labels>
+	<labels>
+        <fullName>MYRetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYRetail</shortDescription>
+        <value>MYRetail</value>
+    </labels>
+	<labels>
+        <fullName>PreferreddALKAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PreferreddALKAddress</shortDescription>
+        <value>PreferreddALKAddress</value>
+    </labels>
+	
     <labels>
         <fullName>retURL_apex_SelectSlaveAccount_Id</fullName>
         <language>en_US</language>
@@ -11343,4 +11480,11 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>MBTHOwnercanclose</shortDescription>
         <value>Only owner/Creator can close the case</value>
     </labels>	
+	<labels>
+        <fullName>Successful_Task_Generation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Successful Task Generation</shortDescription>
+        <value>Successfully initiated the task generation functionality.The task generation process will take about 1-2 minutes. Please refresh the page after 1-2 minutes to find generated tasks.</value>
+    </labels>
 </CustomLabels>

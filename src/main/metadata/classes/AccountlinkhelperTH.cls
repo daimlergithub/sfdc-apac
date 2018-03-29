@@ -79,16 +79,19 @@ Public class AccountlinkhelperTH{
                 {
                     Set<String> fromRoleDealerCodeSet=c2cAccLinkFromRoleIdSetDealerCodeMap.get(c2cAccLinkId);
                     Set<String> toRoleDealerCodeSet=c2cAccLinkToRoleIdSetDealerCodeMap.get(c2cAccLinkId);
-                    for(String fromdealerCode:fromRoleDealerCodeSet)
+                    if(fromRoleDealerCodeSet!=null && fromRoleDealerCodeSet.size()>0 && toRoleDealerCodeSet!=null && toRoleDealerCodeSet.size()>0)
                     {
-                        if(toRoleDealerCodeSet.contains(fromdealerCode))
+                        for(String fromdealerCode:fromRoleDealerCodeSet)
                         {
-                            if(!accLinkIdDealerCodeMap.containsKey(c2cAccLinkId))
-                                accLinkIdDealerCodeMap.put(c2cAccLinkId, new Set<String>{fromdealerCode});
-                            else
-                                accLinkIdDealerCodeMap.get(c2cAccLinkId).add(fromdealerCode);
+                            if(fromdealerCode!=null && toRoleDealerCodeSet.contains(fromdealerCode))
+                            {
+                                if(!accLinkIdDealerCodeMap.containsKey(c2cAccLinkId))
+                                    accLinkIdDealerCodeMap.put(c2cAccLinkId, new Set<String>{fromdealerCode});
+                                else
+                                    accLinkIdDealerCodeMap.get(c2cAccLinkId).add(fromdealerCode);
+                            }
+                                
                         }
-                            
                     }
                 }
                 Set<String> allDealerCodeSet=new Set<String>();

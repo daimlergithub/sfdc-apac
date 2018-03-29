@@ -27,7 +27,8 @@
         <apex:outputPanel layout="block" style="overflow:auto;height:330px" >
          <apex:includeScript value="/support/console/32.0/integration.js"/>
         <apex:pageBlock id="Block">
-            <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c=='JP',true,false)}">
+          
+		    <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c=='JP',true,false)}">
            
                 <table style="width:100%" rules="rows">               
                    <tr>        
@@ -49,7 +50,27 @@
                    </tr>        
                    <!--Display market Lines end here-->     
                     
-                   
+                    <tr>        
+                       <th style="text-align: Right;">{!$Label.Home_Phone}</th>        
+                       <td><apex:inputField value="{!ParAcc.Individual_Home_Phone__c}" rendered="{!editMode}"/>
+                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c} </a> </apex:outputPanel>   
+                           
+                       </td> 
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
+                            <!--<apex:selectList size="1" value="{!selectedHomePhoneStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!homePhoneStatusList}"/>
+                           </apex:selectList>-->
+                           <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
+                       </td>     
+                       <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By__c}" />
+                                               
+                       </td>                    
+                       
+                       <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_Date__c}"/></td>            
+                   </tr>
                    
                    <tr>        
                        <th style="text-align: Right;">{!$Label.Mobile}</th>       
@@ -67,6 +88,27 @@
                        <apex:outputField value="{!ParAcc.SMS_Last_Modified_By__c}"/>           
                        </td>        
                        <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date__c}"/></td>    
+                   </tr>
+                   
+                   <tr>        
+                       <th style="text-align: Right;">{!$Label.Work_Phone} </th>                
+                       <td><apex:inputField value="{!ParAcc.Work_Phone__c}" rendered="{!editMode}" />
+                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
+                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a> </apex:outputPanel>     
+                           
+                       </td> 
+                       <td>
+                       <!--MD changes - Added by Santosh Mohanty -->
+                       <apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
+                           <!--<apex:selectList size="1" value="{!selectedWorkPhoneStatus}" rendered="{!editMode}">
+                             <apex:selectOptions value="{!workPhoneStatusList}"/>
+                           </apex:selectList> -->
+                           <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>
+                       </td>   
+                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />
+                                               
+                       </td>     
+                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
                    </tr>
                
                  <tr> 
@@ -91,27 +133,7 @@
                        </td>                  
                        <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date2__c}"/></td>        
                    </tr>
-                   <tr>        
-                       <th style="text-align: Right;">{!$Label.Home_Phone}</th>        
-                       <td><apex:inputField value="{!ParAcc.Individual_Home_Phone__c}" rendered="{!editMode}"/>
-                         <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
-                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Individual_Home_Phone__c} </a> </apex:outputPanel>   
-                           
-                       </td> 
-                       <td>
-                       <!--MD changes - Added by Santosh Mohanty -->
-                       <apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
-                            <!--<apex:selectList size="1" value="{!selectedHomePhoneStatus}" rendered="{!editMode}">
-                             <apex:selectOptions value="{!homePhoneStatusList}"/>
-                           </apex:selectList>-->
-                           <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
-                       </td>     
-                       <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_By__c}" />
-                                               
-                       </td>                    
-                       
-                       <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_Date__c}"/></td>            
-                   </tr>
+                  
                    
                   <tr>        
                        <th style="text-align: Right;">{!$Label.Other_Phone_1}</th>        
@@ -134,26 +156,7 @@
                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_Date2__c}"/></td>       
                    </tr>
                    
-                   <tr>        
-                       <th style="text-align: Right;">{!$Label.Work_Phone} </th>                
-                       <td><apex:inputField value="{!ParAcc.Work_Phone__c}" rendered="{!editMode}" />
-                       <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');
-                       javascript:sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');"> {!ParAcc.Work_Phone__c} </a> </apex:outputPanel>     
-                           
-                       </td> 
-                       <td>
-                       <!--MD changes - Added by Santosh Mohanty -->
-                       <apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
-                           <!--<apex:selectList size="1" value="{!selectedWorkPhoneStatus}" rendered="{!editMode}">
-                             <apex:selectOptions value="{!workPhoneStatusList}"/>
-                           </apex:selectList> -->
-                           <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>
-                       </td>   
-                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />
-                                               
-                       </td>     
-                       <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
-                   </tr>
+                   
                    
                   <tr>        
                        <th style="text-align: Right;">{!$Label.Other_Phone_2}</th>        

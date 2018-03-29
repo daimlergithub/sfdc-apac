@@ -59,12 +59,142 @@ public with sharing class VehicleRelationshipHelperBase{
         updateVehicleAmount(ContactIds);        
         createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);        
     } 
+     /*
+    * Added By: Asish Kumar Nanda
+    * Jira: Implement Vehicle Relationship Functionality For a Company Account
+    */
+      
+  // code for  after insert event fired and do Update vehicle amount and create Account Link.
+    Public static void OnAfterInsert_company_account(List<Vehicle_Relationship__c> vehicleRelNewRecord){
+        Set<Id> Company_AccountId=new Set<Id>();    
+        Set<Id> Company_AccountIdofVehicleRelationship=new Set<Id>(); 
+        Set<Id> VehicleIds=new Set<Id>();        
+        Set<Id> VehicleRelationshipIds=new Set<Id>(); 
+        set<Id> Company_AccountIdforValidity=new Set<Id>(); 
+              
+        for (Vehicle_Relationship__c vr : vehicleRelNewRecord){               
+            if(vr.Company_Account__c!=Null  && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.End_Date__c==Null && vr.Validity__c.equalsIgnoreCase(System.label.Yes)){              
+                Company_AccountId.add(vr.Company_Account__c);                          
+            } 
+            if(vr.Car_Relation__c==Label.Sales_Contact_Target || (string.isnotblank(vr.Car_Relation__c)?vr.Car_Relation__c.containsIgnoreCase(Label.After_Sales_Contact_Target):False) ){
+                if((!vr.Owner_Relation__c.equalsIgnoreCase(Label.Same)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Unknown)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Others))){  
+                    VehicleIds.add(vr.Vehicle_ID__c);
+                    VehicleRelationshipIds.add(vr.Id);
+                    Company_AccountIdofVehicleRelationship.add(vr.Company_Account__c);
+                }
+            } 
+            if(vr.Company_Account__c!=Null && vr.Validity__c.equalsIgnoreCase(Label.Yes)){
+                Company_AccountIdforValidity.add(vr.Company_Account__c); 
+            }
+        }  
+        updateVehicleAmount_Company(Company_AccountId);  
+    } 
+     /*
+    * Added By: Asish Kumar Nanda
+    * Jira: Implement Vehicle Relationship Functionality For a Company Account
+    */
 
-    /*
+// code for  after Update  event fired and do Update vehicle amount and create Account Link.
+
+ Public static void OnAfterUpdate_Company_Account(List<Vehicle_Relationship__c> newVehicleRelRecord,Map<Id,Vehicle_Relationship__c> oldMapVR){     
+        Set<Id> Company_AccountId=new Set<Id>();
+        Set<Id> VehicleIds=new Set<Id>();       
+        Set<Id> VehicleRelationshipIds=new Set<Id>(); 
+        set<Id> Company_AccountIdforValidity=new Set<Id>();  
+        Set<Id> Company_AccountIdofVehicleRelationship=new Set<Id>(); 
+        for (Vehicle_Relationship__c vr : newVehicleRelRecord){
+            if(vr.Company_Account__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && (vr.Validity__c.equalsIgnoreCase(System.label.Yes) || (oldMapVR.get(vr.id).Validity__c==System.label.Yes && vr.Validity__c!=System.label.Yes))){                 
+                Company_AccountId.add(vr.Company_Account__c);
+                if(oldMapVR.get(vr.id).Company_Account__c!=vr.Company_Account__c && string.isnotblank(oldMapVR.get(vr.id).Company_Account__c)){
+                    Company_AccountId.add(oldMapVR.get(vr.id).Company_Account__c);
+                }
+            } 
+            if(vr.Car_Relation__c==Label.Sales_Contact_Target || (string.isnotblank(vr.Car_Relation__c)?vr.Car_Relation__c.containsIgnoreCase(Label.After_Sales_Contact_Target):False)){
+                if(oldMapVR.get(vr.id).Owner_Relation__c!=vr.Owner_Relation__c){
+                    if((!vr.Owner_Relation__c.equalsIgnoreCase(Label.Same)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Unknown)) && (!vr.Owner_Relation__c.equalsIgnoreCase(Label.Others))){  
+                        VehicleIds.add(vr.Vehicle_ID__c);
+                        VehicleRelationshipIds.add(vr.Id);
+                        Company_AccountIdofVehicleRelationship.add(vr.Company_Account__c);
+                    }
+                }
+            }   
+            if(vr.Company_Account__c!=Null && vr.Validity__c.equalsIgnoreCase(Label.Yes)){
+                Company_AccountIdforValidity.add(vr.Company_Account__c); 
+            }  
+        }                          
+        updateVehicleAmount_Company(Company_AccountId);   
+    } 
+     /*
+    * Added By: Asish Kumar Nanda
+    * Jira: Implement Vehicle Relationship Functionality For a Company Account
+    */
+// code for  after Delete  event fired and do Update vehicle amount and create Account Link.
+
+  Public static void OnAfterDelete_Company_Account(List<Vehicle_Relationship__c> oldVehicleRelRecord){ 
+        Set<Id> Company_AccountId=new Set<Id>();  
+        Set<Id> VehicleIds=new Set<Id>();     
+                    
+        for (Vehicle_Relationship__c vr : oldVehicleRelRecord){
+            if(vr.Company_Account__c!=Null && (vr.Start_Date__c==Null || vr.Start_Date__c<=system.today()) && vr.Validity__c.equalsIgnoreCase(System.label.Yes)){              
+                Company_AccountId.add(vr.Company_Account__c);
+                VehicleIds.add(vr.Vehicle_ID__c);
+            }  
+        }                 
+        updateVehicleAmount_Company(Company_AccountId);          
+    } 
+     /*
+    * Added By: Asish Kumar Nanda
+    * Jira: Implement Vehicle Relationship Functionality For a Company Account
+    */
+// code for  updating Vehicle Amount on update event.
+
+Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){                   
+        Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
+        
+        Date todayDate = Date.today() ;  
+        for(vehicle_Relationship__c vr :[select id,Name,Company_Account__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND (End_Date__c=Null OR End_Date__c>=:todayDate) AND Company_Account__c IN : Company_AccountId AND (NOT Company_Account__c IN : setIgnoredAccounts) LIMIT 50000]){
+            if(mapVehRel !=Null && mapVehRel.containsKey(vr.Company_Account__c)) { 
+                set<Id> setVehicleIds=mapVehRel.get(vr.Company_Account__c);  
+                setVehicleIds.add(vr.Vehicle_ID__c);              
+                mapVehRel.put(vr.Company_Account__c,setVehicleIds);              
+            }
+            else{              
+                mapVehRel.put(vr.Company_Account__c,new set<Id> {vr.Vehicle_ID__c});
+            }
+        }
+        List<Account> vehicleAmountToUpdate=new List<Account>();                
+        for(Account acc : [Select Id,Vehicle_amount__c From Account Where Id IN:Company_AccountId LIMIT 50000]){
+            if(mapVehRel.get(acc.Id)!=Null){               
+                set<Id> setVehicleIds=mapVehRel.get(acc.Id);                 
+                if(setVehicleIds!=Null && setVehicleIds.size()>99){
+                    acc.vehicle_amount__c=99;
+                }
+                else{       
+                    acc.vehicle_amount__c=setVehicleIds.size();
+                    acc.Status__c=Label.Customer_Cust; 
+                }
+                vehicleAmountToUpdate.add(acc);
+            }  
+            else{
+                acc.vehicle_amount__c=0;
+                acc.Status__c=Label.ProspectStatus;   
+                vehicleAmountToUpdate.add(acc);
+            } 
+        }
+        if(!vehicleAmountToUpdate.isEmpty())
+            try{
+                DMLManagerService.updateAsSystem(vehicleAmountToUpdate);
+            }
+            catch(Exception e){
+                System.debug('Couldn\'t able to update the vehicle amount' + e.getMessage());
+            }
+    }
+      /*
     * Added By: Mohammed Touseef Ahmed
     * Desc: trigger helper code for  after update event fired and do Update vehicle amount and create Account Link.
     * Updated: September 25th, 2017
     */
+
     Public static void OnAfterUpdate(List<Vehicle_Relationship__c> newVehicleRelRecords,Map<Id,Vehicle_Relationship__c> oldMapVR){     
         Set<Id> ContactIds=new Set<Id>();
         Set<Id> VehicleIds=new Set<Id>();       
@@ -138,7 +268,7 @@ public with sharing class VehicleRelationshipHelperBase{
     Public static void updateVehicleAmount(Set<Id> ContactIds){                   
         Map<Id,set<Id>> mapVehRel = new Map<Id,set<Id>>(); 
         IgnoredAccounts();   
-		Date todayDate = Date.today() ;  
+        Date todayDate = Date.today() ;  
         for(vehicle_Relationship__c vr :[select id,Name,Contact__c,Vehicle_ID__c  from vehicle_Relationship__c Where Validity__c='Yes' AND (End_Date__c=Null OR End_Date__c>=:todayDate) AND Contact__c IN : ContactIds AND (NOT Contact__c IN : setIgnoredAccounts) LIMIT 50000]){
             if(mapVehRel !=Null && mapVehRel.containsKey(vr.Contact__c)) { 
                 set<Id> setVehicleIds=mapVehRel.get(vr.Contact__c);  
@@ -252,11 +382,11 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
         for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId &&vehicleRellist[i].md__c==Market && vehicleRellist[i].Owner_Dealer__c != null&& vehicleRellist[i].Owner_Dealer_ND_Code__c!=null;i++){
             //if user type is power partner then share only with the dealers under particular Account
             if(vehicleRellist[i].createdby.usertype=='PowerPartner'){
-                String grpName=vehicleRellist[i].createdby.Dealer_ND_Code__c;
+                String grpName= Market + vehicleRellist[i].createdby.Dealer_ND_Code__c;
                 vrseditaccesswithdealers.put(vehicleRellist[i].id,grpName);
             }
             else{
-                String grpName=vehicleRellist[i].Owner_Dealer_ND_Code__c;
+                String grpName=Market + vehicleRellist[i].Owner_Dealer_ND_Code__c;
                 vrs.put(vehicleRellist[i].id,grpName);
                 if(vehicleRellist[i].Contact__c!=null){
                      accs.put(vehicleRellist[i].Contact__c,grpName);
@@ -272,7 +402,7 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
     else{
         //if old value is null and new value is there then share with new dealer
         for(integer i=0;i<vehicleRellist.size()&&vehicleRellist[i].recordtypeid==retailCompany_RecordTypeId&&vehicleRellist[i].md__c==Market;i++){
-            String grpName=vehicleRellist[i].Owner_Dealer_ND_Code__c;
+            String grpName=Market + vehicleRellist[i].Owner_Dealer_ND_Code__c;
             if(((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&&trigger.oldmap!=null&&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
                 vrs.put(vehicleRellist[i].id,grpName);
                 if(vehicleRellist[i].Contact__c!=null){
@@ -294,7 +424,7 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
                         if(vehicleRellist[i].Vehicle_ID__c!=null){
                              vehicl.put(vehicleRellist[i].Vehicle_ID__c,grpName);
                             }
-                         String oldGgrpName=((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
+                         String oldGgrpName=Market + ((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
                         vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
                         if(vehicleRellist[i].Contact__c!=null){
                             accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGgrpName);
@@ -305,7 +435,7 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
   
             }//if trigger.old is there and trigger.new is null then revoke vehicle,VR,Account access from dealers
             else if(trigger.oldMap!=null &&((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer__c!=null&& ((Vehicle_Relationship__c)trigger.newmap.get(vehicleRellist[i].id)).Owner_Dealer__c==null){
-                 String oldGrpName=((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
+                 String oldGrpName=Market + ((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Owner_Dealer_ND_Code__c;
                  vrsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).id,oldGrpName);
                  if(vehicleRellist[i].Contact__c!=null){
                     accsrevokeaccess.put(((Vehicle_Relationship__c)trigger.oldmap.get(vehicleRellist[i].id)).Contact__c,oldGrpName);
@@ -345,17 +475,40 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
         }
     }
     if(vehicleshare.size()>0){
-        sobj.addall((List<sObject>)(vehicleshare));//vehicle relationships
+        //sobj.addall((List<sObject>)(vehicleshare));//vehicle relationships
+        try{
+            database.upsert(vehicleshare, false);
+        }
+        catch(Exception e){
+            System.debug('Failed while upserting VR share records '+e.getMessage());
+        }
     }
     if(accshare.size()>0){
-        sobj.addAll((List<sObject>)(accshare));
+        //sobj.addAll((List<sObject>)(accshare));
+        try{
+            database.upsert(accshare, false);
+        }
+        catch(Exception e){
+            System.debug('Failed while upserting Account share records '+e.getMessage());
+        }
     }
     if(vehiclestoshare.size()>0){
-        sobj.addall((List<sObject>)(vehiclestoshare));
+        //sobj.addall((List<sObject>)(vehiclestoshare));
+        try{
+            database.upsert(vehiclestoshare, false);
+        }
+        catch(Exception e){
+            System.debug('Failed while upserting Account share records '+e.getMessage());
+        }
     }
-    if(sobj.size()>0){
-        Database.insert(sobj);
-    }
+   /* if(sobj.size()>0){
+        try{
+            database.upsert(sobj,false);
+        }
+        catch(Exception e){
+            System.debug('Failed while upserting share records '+e.getMessage());
+        }
+    }*/
     gpnamesset.addall(vrsrevokeaccess.values());
     gpnamesset.addall(accsrevokeaccess.values());
     //gpnamesset.addall(vehiclerevokeaccess.values());
@@ -367,7 +520,11 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
         //Database.delete([select id from Vehicle_relationship__share where parentid IN :vrsrevokeaccess.keyset() and Userorgroupid IN:gp /*:vrsrevokeaccess.values()*/ ]);
        //Database.delete([select id from Accountshare where accountid IN :accsrevokeaccess.keyset() and Userorgroupid IN : gp/*accsrevokeaccess.values()*/ ]);
         //Database.delete([select id from Vehicle__share where parentid IN :vehiclerevokeaccess.keyset() and Userorgroupid IN :gp/*vehiclerevokeaccess.values()*/ ]);
-       Database.delete(sobjtorevokeaccess);
+        try{
+            Database.delete(sobjtorevokeaccess);
+        }catch(Exception e){
+            System.debug('Failed while deleting share records '+e.getMessage());
+        }
     }
   }
   /*End - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */  

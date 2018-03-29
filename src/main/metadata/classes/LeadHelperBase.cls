@@ -130,7 +130,7 @@ public without sharing class  LeadHelperBase{
                 l.CAC_Lead_Status__c = 'New';
 			}
         }
-        if(!ldowner.isEmpty()){
+        if(!ldowner.isEmpty() && userInfo.getUserType() != 'PowerPartner' ){
 	
             if(accId.size()>0){
                 updateOwnership(accId,ldowner,market);
@@ -232,7 +232,7 @@ public without sharing class  LeadHelperBase{
 	    //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community  
     
      public static String getCommunityURL(){
-        String communityName='Daimler Community Malaysia';
+        String communityName='Dealer Community Malaysia';
          String commubaseurl='';
          boolean flag1;
     List<Network>  myNetwork = [SELECT Id,Name FROM Network];
@@ -266,39 +266,48 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
         set < Lead__Share > leadshare = new set < Lead__share > ();
         set < id > leadsharingtorevoke = new set < id > ();
         set < String > sharingrevokefromgroups = new set < String > ();
-        List < Lead__c > leadlisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, assigned_dealer__c, assigned_dealer__r.Dealer_nd_code__c from Lead__C where id IN: leadlist];
+        List < Lead__c > leadlisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, assigned_dealer__c, assigned_dealer__r.Dealer_nd_code__c,assigned_dealer__r.MD__c,createdby.Market__c,MD__c from Lead__C where id IN: leadlist];
         
         //below if part will work at the time of insert
         for (Lead__c leadsrec: leadlisttoiterat) {
             if (!flag) {
                 //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
                 if (leadsrec.createdby.usertype == 'PowerPartner' && leadsrec.createdby.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+                    //dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+					string GrpName=leadsrec.createdby.Market__c+leadsrec.createdby.Dealer_nd_code__c;
+					//dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+					dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                 } else if (leadsrec.assigned_dealer__c != null && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+					string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+                    //dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+					dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                 }
             } else {
               
                 //if trigger new map value is filled and  oldmap assigned dealer is null then share records with new assigned value
                 if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c == null && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+                    //dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+					string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+					dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                 }
                 //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
                 else if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != ((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__c && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
-                    dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+                   string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+				   //dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
+				   dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                     //will revoke record access depends on dealer nd code  if we change the assigned dealer
                     if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c != null) {
-                        sharingrevokefromgroups.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
+                        sharingrevokefromgroups.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).MD__c+((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
                         leadsharingtorevoke.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).id);
                     }
                 }
                 //if trigger old value is filled and new value did not filled then revoke access from old Dealer
                 else if (((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c == null) {
-                    sharingrevokefromgroups.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
+                    sharingrevokefromgroups.add(leadsrec.MD__c+((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
                     leadsharingtorevoke.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).id);
                 }
                 /*
@@ -314,10 +323,12 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
         for (Group gp: [select id, name from Group where name IN: dealerndcodeset]) {
             for (Lead__C leadid: lstlead) {
                 //this if part will applicable for Salesforce users
-                if (gp.name == leadid.assigned_dealer__r.Dealer_nd_code__c) {
+				string grpname=(leadid.MD__c+leadid.assigned_dealer__r.Dealer_nd_code__c);
+				string grpCname=(leadid.createdby.Market__c+leadid.createdby.Dealer_nd_code__c );
+                if (gp.name == grpname) {
                     leadshare.add(new Lead__Share(parentid = leadid.id, UserOrGroupId = gp.id, RowCause = Schema.Lead__share.Rowcause.manual, AccessLevel = 'EDIT'));
                 } //this else part will applicable for Dealer users
-                else if (gp.name == leadid.createdby.Dealer_nd_code__c && leadid.createdby.Usertype == 'PowerPartner') {
+                else if (gp.name == grpCname && leadid.createdby.Usertype == 'PowerPartner') {
                     leadshare.add(new Lead__Share(parentid = leadid.id, UserOrGroupId = gp.id, RowCause = Schema.Lead__share.Rowcause.manual, AccessLevel = 'EDIT'));
                 }
             }
@@ -405,7 +416,7 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
             Company_Account__r.Special_Needs_Class__c, Company_Account__r.Allow_Data_Sharing2__c, Company_Account__r.Primary_Address_Reference__r.Address_Type__c,
             Company_Account__r.Primary_Address_Reference__r.Province__c, Company_Account__r.Preferred_Contact_Method__c,
             Company_Account__r.UCID__c,Company_Account__r.Salutation__c, Company_Account__r.RecordtypeId, Company_Account__r.Name, Company_Account__r.Company_Name_Native_1__c, Company_Account__r.Foundation_Date__c,Company_Account__r.Primary_Address_Reference__r.Foreign_Nationals__c,
-            Company_Account__r.Website, Company_Account__r.Vat_No__c, Company_Account__r.DMS_Customer_ID__c, Company_Account__r.Complaint_Amount__c, Company_Account__r.Sales_Sanction__c, Company_Account__r.Allow_Data_Sharing__c, Company_Account__r.PersonEmail, Company_Account__r.PersonHasOptedOutOfEmail, Company_Account__r.PersonHasOptedOutOfFax, Company_Account__r.Primary_Phone_Display__c, Company_Account__r.PersonDoNotCall, Company_Account__r.Postal_Opt_Out__c, Company_Account__r.Job__c, Company_Account__r.Personal_Agreement__c, Company_Account__r.Personal_Information_Third_Party_Release__c, Company_Account__r.Personal_Abroad_Agreement__c, Company_Account__r.Agreement_to_commit_info_processing__c, Company_Account__r.Commercial_Reg_No__c, Company_Account__r.Company_Name__c, Company_Account__r.Visit_Opt_Out__c
+            Company_Account__r.Website, Company_Account__r.Vat_No__c, Company_Account__r.DMS_Customer_ID__c, Company_Account__r.Complaint_Amount__c, Company_Account__r.Sales_Sanction__c, Company_Account__r.Allow_Data_Sharing__c, Company_Account__r.PersonEmail, Company_Account__r.PersonHasOptedOutOfEmail, Company_Account__r.PersonHasOptedOutOfFax, Company_Account__r.Primary_Phone_Display__c, Company_Account__r.PersonDoNotCall, Company_Account__r.Postal_Opt_Out__c, Company_Account__r.Job__c, Company_Account__r.Personal_Agreement__c, Company_Account__r.Personal_Information_Third_Party_Release__c, Company_Account__r.Personal_Abroad_Agreement__c, Company_Account__r.Agreement_to_commit_info_processing__c, Company_Account__r.Commercial_Reg_No__c, Company_Account__r.Company_Name__c, Company_Account__r.Visit_Opt_Out__c,Assigned_Dealer__r.Dealer_Rollout_Status__c
             from Lead__c WHERE id IN: contactId];
 			
         List < Account_Link__c > accLst = new List < Account_Link__c > ();
@@ -429,7 +440,7 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
 		}
 		*/
         for (Lead__c led: leadlst) {
-            if (led.Assigned_Dealer__c != null) {
+            if (led.Assigned_Dealer__c != null && String.isnotblank(led.Assigned_Dealer__r.Dealer_Rollout_Status__c)?(led.Assigned_Dealer__r.Dealer_Rollout_Status__c=='Done'):false) {
                 Account_Link__c acclnk = new Account_Link__c();
 				Account_Link__c cacclnk = new Account_Link__c();
                 if (led.Contact__r.RecordTypeId == PersonRecordTypeId && (!existingRC.containskey(string.valueof(led.Assigned_Dealer__c)+string.valueof(led.Contact__c)))) {
@@ -495,6 +506,9 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                         acclnk.Retail_Abroad_Agreement__c = led.Contact__r.Personal_Abroad_Agreement__c;
                         acclnk.Retail_Agreement_Info_Processing__c = led.Contact__r.Agreement_to_commit_info_processing__c;
                         acclnk.Retail_Vat_No__c = led.Contact__r.Vat_No__c;
+						if (led.Contact__r.Foundation_Date__c != null)
+                            acclnk.Retail_Foundation_Month__c = String.valueOf(led.Contact__r.Foundation_Date__c.year()) + (String.ValueOf(led.Contact__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.month())) : String.ValueOf(led.Contact__r.Foundation_Date__c.month())) + (String.ValueOf(led.Contact__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(led.Contact__r.Foundation_Date__c.day())) : String.ValueOf(led.Contact__r.Foundation_Date__c.day()));
+                    
 						if (led.Contact__r.Primary_Address_Reference__c != null) {
 							acclnk.Retail_Address_Reference__c = led.Contact__r.Primary_Address_Reference__c;
 
@@ -542,9 +556,11 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                         cacclnk.Retail_Abroad_Agreement__c = led.Company_Account__r.Personal_Abroad_Agreement__c;
                         cacclnk.Retail_Agreement_Info_Processing__c = led.Company_Account__r.Agreement_to_commit_info_processing__c;
 						cacclnk.Retail_Country__c = led.Company_Account__r.country__c;
+						if (led.Company_Account__r.Foundation_Date__c != null)
+                            cacclnk.Retail_Foundation_Month__c = String.valueOf(led.Company_Account__r.Foundation_Date__c.year()) + (String.ValueOf(led.Company_Account__r.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(led.Company_Account__r.Foundation_Date__c.month())) : String.ValueOf(led.Company_Account__r.Foundation_Date__c.month())) + (String.ValueOf(led.Company_Account__r.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(led.Company_Account__r.Foundation_Date__c.day())) : String.ValueOf(led.Company_Account__r.Foundation_Date__c.day()));
+                    
 						if(led.Company_Account__r.Primary_Address_Reference__c != null) {
-						   cacclnk.Retail_Address_Reference__c = led.Company_Account__r.Primary_Address_Reference__c;
-							
+						   cacclnk.Retail_Address_Reference__c = led.Company_Account__r.Primary_Address_Reference__c;							
 						}
                        accLst.add(cacclnk);         
                 } 
@@ -672,9 +688,9 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
 	
 	public static void autoPopulateAssignDealer(List<Lead__c> Leadlist, String Market){
 	 if (userInfo.getUserType() == 'PowerPartner' ) {
-		 User usr = [Select id, contactID,AccountID from user where contactID =: userInfo.getUserId()];
+		 User usr = [Select id, contactID,AccountID,contact.accountid from user where id =: userInfo.getUserId()];
 		 for(Lead__c le:Leadlist){
-			if(string.isblank(le.Assigned_Dealer__c)) le.Assigned_Dealer__c=usr.AccountID;		
+			if(string.isblank(le.Assigned_Dealer__c)) le.Assigned_Dealer__c=usr.contact.AccountID;		
 		} 
 	  }
 	}

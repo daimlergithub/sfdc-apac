@@ -4029,7 +4029,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
     <fields>
         <fullName>Service_Vehicle_VIN__c</fullName>
         <externalId>false</externalId>
-        <formula>Service_Vehicle__r.UsVIN__c</formula>
+        <formula>IF((MD__c=='TH' || MD__c=='MY'), Service_Vehicle__r.EuroVIN__c, Service_Vehicle__r.USVIN__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Vehicle VIN</label>
         <required>false</required>

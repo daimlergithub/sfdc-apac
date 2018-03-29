@@ -201,7 +201,7 @@
                     
                     <apex:selectList size="1" value="{!brand}" id="brandItems" >
                     <apex:selectOptions value="{!brands}"/>
-                    <apex:actionSupport event="onchange" reRender="classitems1"/>
+                    <apex:actionSupport event="onchange" reRender="classitems1,modelitems1"/>
                     </apex:selectList>     
                 </apex:pageblockSectionItem>
                
@@ -221,7 +221,7 @@
                                            <apex:selectList size="1" value="{!model}"  >
                                               <apex:selectOptions value="{!models}"/>
                                            <apex:actionSupport event="onchange" reRender="rangeitems1"/>
-                                       </apex:selectList>           
+                                       </apex:selectList>       
                                     </apex:outputPanel>
                                                                                
                                        

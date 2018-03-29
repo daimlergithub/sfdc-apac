@@ -9,5 +9,9 @@ public class TriggerTaskHelperMY{
        public static void updateCampaignMemberStatus(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate){    
             TaskHelperBase.updateCampaignMemberStatus(tasks,taskOldMap,isinsert,isupdate);
        }
+        // RSVP for Campaign Members- Asish Kumar Nanda
+      //  public static void NumberOfPax(List<Task> lstTask){
+       // TaskHelperBase.NumberOfPax(Trigger.new);
+       // }
 
 }

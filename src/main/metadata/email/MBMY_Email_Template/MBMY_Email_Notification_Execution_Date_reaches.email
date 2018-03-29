@@ -4,7 +4,7 @@ The Campaign {!Retail_Campaign__c.Name}  reached execution date.
 Please Kindly Start the Execution.
 Dealer’s Link:
 {!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
-MBTH’s Link:
+MBMY’s Link:
 {!Retail_Campaign__c.Link}
 
 Best Regards,

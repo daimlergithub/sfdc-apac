@@ -189,8 +189,10 @@ public with sharing class SendToMyMercController {
         system.debug('&&*&*&*&*&*&&&&&&&& mobile3update'+mobile3update);
         
         if(!string.isBlank(Obj.PortalEmail) ){// && (!Obj.PortalEmail.endsWith('.com') || !Obj.PortalEmail.contains('@'));
-          //String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
-      String emailRegex=  '^([a-zA-Z0-9._]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$';
+        //  String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
+        // String emailRegex=  '^([a-zA-Z0-9._]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$';
+
+        String emailRegex= Label.emailRegex;
             
             String CharSplit = Obj.PortalEmail.substringBefore('@');
             System.debug('+++++Split+++++++++++'+CharSplit );
@@ -327,7 +329,11 @@ public with sharing class SendToMyMercController {
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,Label.SendToMyMercedesJPUserErr));    
             }        
             else if(accfinal != null && !accfinal.isEmpty() && cancelpop == true){
-                update accfinal.values();
+            System.debug('%%%%%%%%%%%%%%%%%%%%%%%%% accfinal.values()'+accfinal.values());
+           // try{
+                database.update(accfinal.values(),false);
+              //  }catch(Exception e)
+              //  {}
                 if(accLinkFinal != NULL && !accLinkFinal.isEmpty()){
                     update accLinkFinal;
                 }

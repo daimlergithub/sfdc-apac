@@ -30,8 +30,12 @@
                 <field>ModelYear__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Colour__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Trim__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -56,7 +60,7 @@
                 <field>Range__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Model_Description__c</field>
             </layoutItems>
         </layoutColumns>
@@ -75,6 +79,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>FirstRegistrationDate__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Warranty_End_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Extended_Warranty_Start_Date__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Extended_Warranty_End_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

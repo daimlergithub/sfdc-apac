@@ -111,7 +111,7 @@ public without sharing class AddressHelperBase {
         } 
         for(Account acc:[select id,Primary_Address_Reference__c,Primary_Address_Display__c,Primary_Address__c from Account where id IN:accountId]){
             if(((acc.Primary_Address_Reference__c!=null)&&(newMap.containsKey(acc.Primary_Address_Reference__c))) || PreferredMap.containsKey(acc.id)){
-                if(newMap.get(acc.Primary_Address_Reference__c).Customer__c==acc.id){
+                if(PreferredMap.containsKey(acc.id)?true : newMap.get(acc.Primary_Address_Reference__c).Customer__c==acc.id){
                     Address__c addr = PreferredMap.containsKey(acc.id)?  newMap.get(PreferredMap.get(acc.id)):newMap.get(acc.Primary_Address_Reference__c);
                     //acc.Primary_Address_Display__c=add.ZipCode__c+add.Province__c+add.City__c+add.District__c+add.Block__c+add.Address_Line_1__c+add.Address_Line_2__c+add.Address_Line_3__c;
 					//acc.Primary_Address__c=acc.Primary_Address_Display__c
@@ -199,4 +199,19 @@ public without sharing class AddressHelperBase {
                       }  
                   }       
         }
+		
+	 public static void updateAddressRetailCopies(Map<id,Address__c> newMap, string MarketDiscriminator){         
+        Map<id,id> PreferredMap= new Map<id,id>();
+        for(Address__c add:newMap.values()){            
+			if(!add.preferred__c) PreferredMap.put(add.customer__c,add.id);
+        }  
+        if (PreferredMap.size()>0){
+			List<account_Link__c> UpdateRetailCopy= new List<Account_Link__c>();
+			for(account_Link__c a: [select id from Account_Link__c where Retail_Address_Reference__c in :PreferredMap.values()])
+			UpdateRetailCopy.add(a);
+			
+			DMLManagerService.updateAsSystem(UpdateRetailCopy);  
+			
+		}
+    }
 }
