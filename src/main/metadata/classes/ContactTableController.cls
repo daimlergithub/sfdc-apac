@@ -297,7 +297,7 @@ public class ContactTableController {
                 'home_Phone_Checkbox__c',
                 'Work_Phone_Checkbox__c',
                 'Primary_Phone__c',
-				'Secondary_Email__c' // addedd for secondary email
+                'Secondary_Email__c' // addedd for secondary email
             });
 
         }
@@ -657,9 +657,11 @@ public class ContactTableController {
             PhoneNumberFormatMY();
             checkcountrycode();
         }
-		else if (ParAcc.MD__c == Label.AU || ParAcc.MD__c == 'NZ') {
-            PhoneNumberFormatAU();
-            checkcountrycodeAU();
+        else if (ParAcc.MD__c == Label.AU || ParAcc.MD__c == 'NZ') { //Sada 2018/March/23 Added as part of US 2/3
+
+
+            PhoneNumberFormatANZ();
+            checkcountrycodeANZ();
         }   
         else if (ParAcc.MD__c == 'IN' || ParAcc.Market__C == 'IN')      
         {   
@@ -963,8 +965,9 @@ public class ContactTableController {
         else if (ParAcc != null && ParAcc.Md__c == Label.MY) {
             UpdateAccountMY();
         }
-		else if (ParAcc != null && (ParAcc.Md__c == Label.AU || ParAcc.Md__c == Label.NZ)) {
-            UpdateAccountAU();
+        else if (ParAcc != null && (ParAcc.Md__c == Label.AU || ParAcc.Md__c == Label.NZ)) { //Sada 2018/March/23 Added as part of US 2/3
+
+            UpdateAccountANZ();
         }    
         else if (ParAcc != null && (ParAcc.Md__c =='IN' || ParAcc.Market__C =='IN'))       
       {     
@@ -1213,8 +1216,10 @@ public class ContactTableController {
              system.debug('***********'+pickListOptionsToExclude);         
              return dependentListFinal;
       }*/
-	  
-	  public void PhoneNumberFormatAU() 
+
+
+      
+      public void PhoneNumberFormatANZ() //Sada 2018/March/23 Added as part of US 2/3
    {
         string localhmPhone, localwkPhone, localMBPhone, localFaxPhone;
         localhmPhone = string.valueOf(ParAcc.Individual_Home_Phone__c);
@@ -1231,7 +1236,7 @@ public class ContactTableController {
                     hmAreaCode = localhmPhone.substring(0, 1);
                     hmphoneNumber = localhmPhone.substring(1, localhmPhone.length());
                     }
-					else if (localhmPhone.length() == 8 &&  ParAcc.MD__c == 'NZ') // landline
+                    else if (localhmPhone.length() == 8 &&  ParAcc.MD__c == 'NZ') // landline
                     {
                     hmAreaCode = localhmPhone.substring(0, 1);
                     hmphoneNumber = localhmPhone.substring(1, localhmPhone.length());
@@ -1269,7 +1274,7 @@ public class ContactTableController {
                     wkAreaCode = localwkPhone.substring(0, 1);
                     wkphoneNumber = localwkPhone.substring(1, localwkPhone.length());
                 }
-				else if (localwkPhone.length() == 8 &&  ParAcc.MD__c == 'NZ' ){ // landline
+                else if (localwkPhone.length() == 8 &&  ParAcc.MD__c == 'NZ' ){ // landline
                     wkAreaCode = localwkPhone.substring(0, 1);
                     wkphoneNumber = localwkPhone.substring(1, localwkPhone.length());
                 }
@@ -1302,7 +1307,7 @@ public class ContactTableController {
 
 
 
-    public void checkcountrycodeAU() {
+    public void checkcountrycodeANZ() { // //Sada 2018/March/23 Added as part of US 2/3
         wAreaBoolean = false;
         fAreaBoolean = false;
         hAreaBoolean = false;
@@ -1322,7 +1327,8 @@ public class ContactTableController {
 
     }
     
-        public void UpdateAccountAU() {
+
+        public void UpdateAccountANZ() { //Sada 2018/March/23 Added as part of US 2/3
         try {
         
                 system.debug('====>Start');
