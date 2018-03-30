@@ -28,7 +28,7 @@
          <apex:includeScript value="/support/console/32.0/integration.js"/>
         <apex:pageBlock id="Block">
           
-		    <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c=='JP',true,false)}">
+            <apex:pageBlock id="myTableJP" rendered="{!If(ParAcc.MD__c=='JP',true,false)}">
            
                 <table style="width:100%" rules="rows">               
                    <tr>        
@@ -773,8 +773,11 @@
                    </tr> 
                </table>    
              </apex:pageBlock> 
-			 
-			   <apex:pageBlock id="myTableAU"  rendered="{!If(OR(ISPICKVAL($User.Market__c,'AU'),ISPICKVAL($User.Market__c,'NZ')) ,true,false)}">      
+             
+                <!--Added Table Block section as part of Userstories 2/3 on 23rd march 2018-->
+
+
+               <apex:pageBlock id="myTableANZ"  rendered="{!If(OR(ISPICKVAL($User.Market__c,'AU'),ISPICKVAL($User.Market__c,'NZ')) ,true,false)}">      
                     
                 <table style="width:100%" border="1">                       
                    <tr>             
@@ -888,7 +891,9 @@
             
                </table>         
              </apex:pageBlock>  
-			 
+             
+
+
                  <!-- MT20170909 - This code is to view the Contact related date-->     
                 <apex:pageBlock id="myTableMY" rendered="{!If(($Permission.MYGeneric),true,false)}">      
                     
@@ -1174,13 +1179,13 @@
                    <apex:outputPanel rendered="{!if(disableButtons==true,true,false)}">
                        <center>
                        <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!editMode1}" rerender="myTableJP,myTableKR,myTableTH,myTableMY,Block"  />
-                       <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,myTableTH,Block,redirectPanel,showmsg" immediate="true"/>
+                       <apex:commandbutton value="{!$Label.Cancel_Button}"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,myTableTH,myTableANZ,Block,redirectPanel,showmsg" immediate="true"/>
               
                     
              <!-- <apex:pageBlockButtons location="bottom" style="align:left;"  >-->
                   <!-- <apex:commandbutton value="{!$Label.Edit}"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!if(profilename==TRUE,(!editMode),TRUE)}" rerender="myTableJP,myTableKR,Block"  />
                    -->
-                   <apex:commandbutton value="{!$Label.Save_Button}"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,Block,redirectPanel,myTableTH,myTableMY,showmsg" />
+                   <apex:commandbutton value="{!$Label.Save_Button}"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTableJP,myTableKR,Block,redirectPanel,myTableTH,myTableMY,myTableANZ,showmsg" />
                    <apex:outputPanel id="redirectPanel">                   
                         <apex:outputText rendered="{!refreshPage}">
                             <script type="text/javascript">                            

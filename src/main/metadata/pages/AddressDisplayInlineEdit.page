@@ -214,8 +214,10 @@
                     </apex:column>
                     
                 </apex:pageBlockTable>
-				
-                 <apex:pageBlockTable id="acc_addressAU" value="{!adds}" var="row" style="width:900px;" rendered="{!IF(($Permission.AUGeneric || $Permission.NZGeneric), true, false)}">                                                                    
+                
+                <!--Sada Added table as per userstories 2/3 on Mar 23 2018 -->
+
+                 <apex:pageBlockTable id="acc_addressANZ" value="{!adds}" var="row" style="width:900px;" rendered="{!IF(($Permission.AUGeneric || $Permission.NZGeneric), true, false)}">                                                                    
                     
                     <apex:column width="8%">
                         
@@ -285,15 +287,17 @@
                         <apex:outputText value="{!row.Name}" style="width:9%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
-					
-					 <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}" >
+                    
+
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}" >
                         <apex:outputText value="{!row.Temp_Address__c}" style="width:10%; white-space:none;">
                         </apex:outputText>
                     </apex:column>
                     
                 </apex:pageBlockTable>
                 
-				
+                
+
                 <apex:pageBlockTable id="acc_addressTH" value="{!adds}" var="row" style="width:900px;" rendered="{!IF((market == 'TH' || $Permission.MYGeneric || $Permission.INGeneric), true, false)}">                                                                    
                     
                     <apex:column width="8%">
@@ -637,8 +641,9 @@
                         
                             
                 </apex:pageBlockSection>
-                
-				<apex:pageBlockSection title="Address Information" columns="2" id="pbsAU" rendered="{!IF(($Permission.AUGeneric),true,false)}">       
+				
+                <!--2018/march/23 Sada Added to AU/NZ Market as per US 2/3 -->
+                <apex:pageBlockSection title="Address Information" columns="2" id="pbsANZ" rendered="{!IF(($Permission.AUGeneric),true,false)}">       
                                                 
                     <apex:pageBlockSectionItem >        
                             
@@ -654,16 +659,18 @@
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>          
                     <apex:inputField value="{!addressobj.Address_Line_3__c}"/>  
                       
-				  <apex:pageBlockSectionItem >
+                  <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Temp_Address__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Temp_Address__c}"/>
                  </apex:pageBlockSectionItem> 
-				 
-				 <apex:pageBlockSectionItem >
+                 
+
+                 <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Suburb__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Suburb__c}"/>
                     </apex:pageBlockSectionItem> 
-					
+                    
+
                  <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.State_City__c.Label}"/>  
                          <apex:inputField value="{!AddressObj.State_City__c}" style="width:35%; white-space:none;" />        
@@ -683,7 +690,8 @@
                     <apex:outputLabel value="Status"/>      
                     <apex:inputField value="{!addressobj.Status__c}"/>      
                  </apex:pageblockSectionItem>   
-				 
+                 
+
                  
                  <apex:pageblockSectionItem >       
                     <apex:outputLabel value="Preferred"/>       
@@ -691,7 +699,8 @@
                  </apex:pageblockSectionItem> 
                  
                 </apex:pageBlockSection>
-				
+                
+
                 <!--Starts : 03012018 Namitha Added changes fr INDIA market-->
                 
                 <apex:pageBlockSection title="Address Information" columns="2" id="pbsIN" rendered="{!IF($Permission.INGeneric,true,false)}">       
@@ -801,8 +810,9 @@
                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.MYGeneric,true,false)}"/>
                    <!--03012018 Namitha Added to India Market Save option-->
                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressIN}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.INGeneric,true,false)}"/> 
-				   <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressAU}"  reRender="redirectPanel,pgmsg"   rendered="{!IF( OR($Permission.AUGeneric, $Permission.NZGeneric),true,false)}"/>                  
-				  <apex:outputPanel id="redirectPanel">                   
+                   <!--2018/march/23 Sada Added to AU/NZ Market as per US 2/3 -->
+                   <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressANZ}"  reRender="redirectPanel,pgmsg"   rendered="{!IF( OR($Permission.AUGeneric, $Permission.NZGeneric),true,false)}"/>                  
+                  <apex:outputPanel id="redirectPanel">                   
                         <apex:outputText rendered="{!refreshPage}">
                             <script type="text/javascript">
                             
