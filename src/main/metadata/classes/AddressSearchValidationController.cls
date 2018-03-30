@@ -2991,7 +2991,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 
                 objAccount.RecordTypeId = recordTypeId;         
                 ValidateAddressANZ() ;     
-                if(Validation == False)     
+                if(!Validation)     
                  {       
                 refreshPage = true; 
                 if(SaveAccountDetailsANZ() && phValidate)      

@@ -4,7 +4,7 @@ private class   CustomerMymercInterfaceControllerTest{
     Profile p = [select id,UserLicense.Name from profile where name='Partner Community User'];
        Id personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
      //Profile p = [select id,UserLicense.Name from profile where UserLicense.Name='Partner Community' limit 1];
-        Account ac = new Account(LastName = 'galaxy1',FirstName = 'First Name',phone='0123456789',Portal_Email__c='test@gmail.com',Email2__c = 'testemail2@test1.com', RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()) ;
+        Account ac = new Account(LastName = 'シュリバスタヴァ',FirstName = 'シカ',phone='0123456789',Portal_Email__c='test@gmail.com',Email2__c = 'testemail2@test1.com', RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()) ;
         insert ac; 
        Account ac1 = new Account(Name = 'First Name',phone='0123456789',Portal_Email__c='test@gmail.com',Email2__c = 'testemail2@test1.com') ;
         insert ac1; 
