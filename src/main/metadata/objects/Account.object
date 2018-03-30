@@ -64574,7 +64574,7 @@ MD__c = 'JP')</errorConditionFormula>
 NOT( ISBLANK(Foundation_Date__c)), 
 Foundation_Date__c &gt; TODAY(), 
 $Profile.Name != 'IntegrationAPI', 
-OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR' ,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR' ,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),$Permission.INGeneric))</errorConditionFormula>
         <errorDisplayField>Foundation_Date__c</errorDisplayField>
         <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
     </validationRules>
