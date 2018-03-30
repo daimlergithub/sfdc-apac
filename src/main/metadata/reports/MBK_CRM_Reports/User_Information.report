@@ -34,7 +34,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>User Information</name>
+    <name>사용자 정보</name>
     <params>
         <name>active</name>
         <value>all</value>

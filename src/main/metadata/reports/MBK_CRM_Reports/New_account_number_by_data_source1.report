@@ -20,7 +20,7 @@
         <field>Account.MBK_Data_Source__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>New account number by data source</name>
+    <name>데이터 원천별 신규 고객 수</name>
     <params>
         <name>co</name>
         <value>1</value>

@@ -19,7 +19,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Survey Report After Service Completion</name>
+    <name>서비스 완료 후 설문조사 리포트</name>
     <params>
         <name>co</name>
         <value>1</value>

@@ -41,7 +41,7 @@
         <field>Campaign.Campaign_Channels__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Target Customer Number For Outbound Camp</name>
+    <name>아웃바운드 캠페인 대상 고객 수</name>
     <params>
         <name>scopeid</name>
         <value></value>
