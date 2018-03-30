@@ -242,7 +242,7 @@
                 <apex:pageBlockButtons location="bottom">
                     <apex:outputPanel id="buttonIN" >
                         <apex:commandButton action="{!onLineDeduplicationIN}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),$Permission.INGeneric) ,true,false)}" reRender="form,msgs,frmCDM" />       
-                        <apex:commandButton id="SavebtnIN" action="{!saveAccountIN}" value="{!$Label.Save_Button}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),$Permission.INGeneric) ,true,false)}" rerender="msgs"/>     
+                        <apex:commandButton id="SavebtnIN" action="{!saveAccountIN}" value="{!$Label.Save_Button}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),$Permission.INGeneric,deduplicated==true) ,true,false)}" rerender="msgs"/>     
                         <apex:commandButton action="{!cancel}"  value="{!$Label.Cancel_Button}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),$Permission.INGeneric) ,true,false)}"/>  
                     </apex:outputPanel>    
                 </apex:pageBlockButtons>

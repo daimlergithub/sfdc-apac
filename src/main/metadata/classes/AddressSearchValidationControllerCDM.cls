@@ -414,7 +414,6 @@ public class AddressSearchValidationControllerCDM
         DedupAccountList.clear();
         Boolean errorFlag=false;
         Continuation con=null;
-        deduplicated = true; 
         
         //Phone format check-while online deduplication 
         Boolean homePhoneFormat= false;
@@ -454,7 +453,8 @@ public class AddressSearchValidationControllerCDM
             previous=false;     
             first=false;        
             next=false;     
-                    
+            deduplicated = true; 
+                
             phoneFieldConcatIN();
             String EndUrl=generateCDMEndPointURL();
             CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl );
@@ -468,13 +468,10 @@ public class AddressSearchValidationControllerCDM
                 }
                 else{
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
-                    errorFlag=false;
                 }
             } catch (Exception e){
                  ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
-                 errorFlag=false;
                  CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
-                
             }                   
         }
         return con;
