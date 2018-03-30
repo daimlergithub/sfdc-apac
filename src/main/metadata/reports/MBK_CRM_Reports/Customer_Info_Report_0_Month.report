@@ -261,7 +261,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Customer Info Report 0 Month</name>
+    <name>해당 월 등록 신규 고객 정보 리포트</name>
     <params>
         <name>co</name>
         <value>1</value>

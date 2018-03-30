@@ -59,7 +59,7 @@
         <field>Lead__c.Lead_Priority__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Created lead number by customer status</name>
+    <name>고객 상태별로 생성된 리드 수</name>
     <params>
         <name>co</name>
         <value>1</value>
