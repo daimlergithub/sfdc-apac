@@ -30314,10 +30314,6 @@
         <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-FS Page Layout</layout>
-        <recordType>Lead__c.Finance_Lead</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
     </layoutAssignments>
     <layoutAssignments>
