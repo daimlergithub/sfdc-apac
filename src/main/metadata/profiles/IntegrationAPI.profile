@@ -14325,11 +14325,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Customer_Key_Credential__c.Guaranteer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Customer_Key_Credential__c.ID_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14361,11 +14356,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Customer_Key_Credential__c.Retail_FS_Borrower__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Customer_Key_Credential__c.Retail_FS_Guaranteer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16005,7 +15995,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Dealer__c</field>
+        <field>FS_Contract__c.DealerName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16145,7 +16135,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Sales_Person__c</field>
+        <field>FS_Contract__c.SalesPersonName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
