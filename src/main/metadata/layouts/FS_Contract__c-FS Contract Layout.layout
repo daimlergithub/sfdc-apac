@@ -87,7 +87,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer__c</field>
+                <field>DealerName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -113,7 +113,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Sales_Person__c</field>
+                <field>SalesPersonName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
