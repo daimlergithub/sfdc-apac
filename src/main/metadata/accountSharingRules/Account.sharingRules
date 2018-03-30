@@ -215,9 +215,9 @@
         <opportunityAccessLevel>Read</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Dealer_Account_Share_India</fullName>
+        <fullName>Dealer_Records_Share_India</fullName>
         <sharedTo>
-            <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -232,8 +232,8 @@
         <accountAccessLevel>Read</accountAccessLevel>
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Read</contactAccessLevel>
-        <description>Share all dealer records with India users so they can assign leads and create retail copies</description>
-        <name>Dealer Account Share India</name>
+        <description>To share dealer records as read only with all MB India employees</description>
+        <name>Dealer Records Share India</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>

@@ -74,8 +74,8 @@
         
         //To check the parent retail campaign type and set car relation in vehicleRelSoql 
         public String parCampType;
-        public  String Sales =  '(Car_Relation__c=\'Sales\' or Car_Relation__c=\'Driver\' or Car_Relation__c=\'Aftersales\' or Car_Relation__c=\'Sales Contact Target\')';
-        public String AfterSalesOrFinance = '(Car_Relation__c=\'Sales\' or Car_Relation__c=\'Driver\' or Car_Relation__c=\'Aftersales\' or Car_Relation__c=\'Aftersales Contact Target 1\')';
+        public  String Sales =  '(Car_Relation__c=\'Sales\' or Car_Relation__c=\'Driver\' or Car_Relation__c=\'Aftersales\')';
+        public String AfterSalesOrFinance = '(Car_Relation__c=\'Sales\' or Car_Relation__c=\'Driver\' or Car_Relation__c=\'Aftersales\')';
         
         //To get the dynamic picklist values
         Public Set<String> retTaskStatus = new Set<String>{'Draft', 'Waiting for Approval', 'Approved', 'Rejected','In service','Expired','pullback','Save','Waiting for cancellation approval','Cancellation Approved','Cancelled','Active', 'Matured','Cancelled','Early Termination','Subrogation','Consent Termination','Forced Termination','Change of Owner'};
