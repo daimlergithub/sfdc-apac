@@ -226,6 +226,13 @@
         <shortDescription>Email2</shortDescription>
         <value>Email2</value>
     </labels>
+    <labels>
+        <fullName>EmailValidationANZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailValidationANZ</shortDescription>
+        <value>Invalid Email Address</value>
+    </labels>	
 	<labels>
         <fullName>Home_Phone_Acc</fullName>
         <language>en_US</language>
@@ -538,6 +545,14 @@
         <value>This address type already exist.</value>
     </labels>
     <labels>
+        <fullName>AddressTypeValidationANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressTypeValidationANZ</shortDescription>
+        <value>Please select address type</value>
+    </labels>	
+    <labels>
         <fullName>AddressTypeValidationIN</fullName>
         <categories>India</categories>
         <language>en_US</language>
@@ -704,6 +719,22 @@
         <shortDescription>Address Line 2 is Mandatory.</shortDescription>
         <value>Address Line 2 is Mandatory.</value>
     </labels>
+    <labels>
+        <fullName>Addressline2LengthANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Addressline2LengthANZ</shortDescription>
+        <value>Address Line 2 should be less than or equal to 100 characters.</value>
+    </labels>
+    <labels>
+        <fullName>Addressline3LengthANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Addressline3LengthANZ</shortDescription>
+        <value>Address Line 3 should be less than or equal to 100 characters.</value>
+    </labels>	
     <labels>
         <fullName>AdminClientNum</fullName>
         <language>en_US</language>
@@ -3662,6 +3693,13 @@ please contact the number below.</value>
         <shortDescription>First Name Native should not be null</shortDescription>
         <value>First Name Native should not be null</value>
     </labels>
+    <labels>
+        <fullName>First_Name_is_mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First_Name_is_mandatory</shortDescription>
+        <value>First Name is mandatory</value>
+    </labels>	
 	<labels>
         <fullName>First_Name_should_be_less_than_or_equal_to_40_letters</fullName>
         <language>en_US</language>
@@ -4831,6 +4869,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Last Name Native should not be null</shortDescription>
         <value>Last Name Native should not be null</value>
+    </labels>
+	<labels>
+        <fullName>Last_Name_is_mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last_Name_is_mandatory</shortDescription>
+        <value>Last Name is mandatory</value>
     </labels>
 	<labels>
         <fullName>Last_Name_should_be_less_than_or_equal_to_40_letters</fullName>
@@ -6838,6 +6883,21 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Post</shortDescription>
         <value>Post</value>
     </labels>
+    <labels>
+        <fullName>PostalCodeMandatoryANZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PostalCodeMandatoryANZ</shortDescription>
+        <value>Postal Code is mandatory</value>
+    </labels>
+    <labels>
+        <fullName>PostalCodeValidationANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PostalCodeValidationANZ</shortDescription>
+        <value>Please enter valid Postal code</value>
+    </labels>	
     <labels>
         <fullName>Previous</fullName>
         <language>en_US</language>
@@ -9645,6 +9705,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Special Filters</shortDescription>
         <value>Special Filters</value>
     </labels>
+    <labels>
+        <fullName>StateMandatoryANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StateMandatoryANZ</shortDescription>
+        <value>State/City is Mandatory</value>
+    </labels>	
     <labels>
         <fullName>StateProvError</fullName>
         <language>en_US</language>

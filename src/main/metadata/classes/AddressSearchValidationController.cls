@@ -107,7 +107,7 @@ public class AddressSearchValidationController
     public String faxCountryCode{get;set;}
     public String faxphoneNumber{get;set;}
     public String faxAreaCode{get;set;} 
-	public static boolean phValidate;
+    public static boolean phValidate;
     Public User u{get;set;}
     
     //PR20170918- Variable to hold JSON response from Informatica/CDM
@@ -217,7 +217,7 @@ public class AddressSearchValidationController
             wkCountryCode='+66';
             faxCountryCode='+66';
         }
-		 else if(market=='AU') //  Sada US-2/3 2018/March/22 R1  
+         else if(market=='AU') //  Sada US-2/3 2018/March/22 R1  
         {
            //   firstsave = true;   //sada - disabling save button initially 
             secondsave = false;// need to change later
@@ -241,7 +241,8 @@ public class AddressSearchValidationController
             objAccount.Market__c=market;
             LoadProvince();
         } 
-		
+
+        
         else
         {
             firstsave = false;  
@@ -2904,11 +2905,13 @@ If the user is Saving  same address which matches the fields returned by toleran
                 endUrl+='&ip_HomeTelephone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
                 endUrl+='&ip_BusinessTelephone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
                 endUrl+='&ip_PersonalEmail='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-				  
-				if(Market != 'AU' && Market != 'NZ') { // sada 2018/3/28 as part of US/2/3 and US229
+
+                  
+                if(Market != 'AU' && Market != 'NZ') { // sada 2018/3/28 as part of US/2/3 and US229
                 endUrl+='&ip_IDTYPE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
                 endUrl+='&ip_IDVALUE='+((string.isnotblank(objAccount.ID_Type__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
-				}
+
+                }
                 if(Market == 'TH')
                     endUrl+='&ip_BirthDate='+(string.isnotblank(Birthdate)?EncodingUtil.URLENCODE(Birthdate,'UTF-8'):'');
             }
@@ -2930,7 +2933,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                      endUrl+='&ip_CommercialRegisterId='+(String.isnotblank(objAccount.Commercial_Reg_No__c)?EncodingUtil.URLENCODE(objAccount.Commercial_Reg_No__c,'UTF-8'):'');
                  }
             }
-			 if(Market == 'AU' || Market == 'NZ') // sada 2018/3/22 as part of US/2/3 and US229
+             if(Market == 'AU' || Market == 'NZ') // sada 2018/3/22 as part of US/2/3 and US229
                  {
                      endUrl+='&ip_AddressUsageValue='+(string.isnotblank(AddressObj.Address_Type__c)?EncodingUtil.URLENCODE(AddressObj.Address_Type__c,'UTF-8'):'');
                      endUrl+='&ip_AddressLineOne='+(string.isnotblank(AddressObj.Address_Line_1__c)?EncodingUtil.URLENCODE(AddressObj.Address_Line_1__c,'UTF-8'):'');
@@ -2944,8 +2947,10 @@ If the user is Saving  same address which matches the fields returned by toleran
         System.debug('Endurl*** ' + endUrl);
         return endUrl;
     }
-	
-	 
+
+
+    
+     
     //  Sada US-2/3 2018/March/22 R1    
     public pagereference saveAccountANZ()       
     {       
@@ -2962,7 +2967,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 string.isnotblank(AddressObj.Address_Line_3__c) ||                      
                 string.isnotblank(Zip)) && ( addressObj.Country__c=='Australia' || addressObj.Country__c=='New Zealand') ){
                     
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select address type'));       
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressTypeValidationANZ));       
                     Validation = true; 
                 }
             
@@ -3055,7 +3060,7 @@ If the user is Saving  same address which matches the fields returned by toleran
          
          if(!Pattern.matches(emailRegex,emailraw))
          {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,'Invalid Email Address'));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error,label.EmailValidationANZ));
                  phValidate = false;
          }
          else 
@@ -3086,17 +3091,17 @@ If the user is Saving  same address which matches the fields returned by toleran
 
      if(objAccount.Name == '' && recordType == System.Label.Company)
             {        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Account Name is required'));    
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Account_Name_is_mandatory));    
                 phValidate = false;             
             }
       if(objAccount.LastName == '' && recordType == System.Label.PersonAccount)
             {        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Last Name is required'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Last_Name_is_mandatory));       
                  phValidate = false;
             }
       if(objAccount.FirstName == '' && recordType == System.Label.PersonAccount)
             {        
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'First Name is required'));       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.First_Name_is_mandatory));       
                  phValidate = false;
             }
             
@@ -3149,13 +3154,13 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {
                     if(addressobj.ZipCode__c != null  && (!Pattern.matches(ZipCheck,addressobj.ZipCode__c)))      
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter valid Postal code'));        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.PostalCodeValidationANZ));        
                          Validation = true;                             
                     }       
                                                 
                     if(addressobj.ZipCode__c == null)       
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.ZipCodeMandatory));         
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.PostalCodeMandatoryANZ));         
                         Validation = true;                              
                     }
                     
@@ -3174,17 +3179,17 @@ If the user is Saving  same address which matches the fields returned by toleran
                      } 
                     if(addressobj.State_City__c == null)      
                     {       
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateProvError));        
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateMandatoryANZ));        
                         Validation = TRUE;      
                     }       
                       if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline2LengthANZ));
                         Validation = true;                      
                     }
                      if(String.isNotBlank(addressobj.Address_Line_3__c) && addressobj.Address_Line_3__c.length()>100)
                     {
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 3 should be less than or equal to 100 characters.'));
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline3LengthANZ));
                         Validation = true;                      
                     }
                      
@@ -3271,11 +3276,12 @@ If the user is Saving  same address which matches the fields returned by toleran
             this.requestLabel =CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl,con);
         }
         else
-		{
+
+        {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.No_Match_Found));      
             errorFlag=false;
         }
-		} catch (Exception e){
+        } catch (Exception e){
          ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));       
          errorFlag=false;
          CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber()+e.getMessage());
@@ -4251,7 +4257,7 @@ public pagereference saveAccountTH()
            
     }
 
-	 //  Sada US-2/3 2018/March/22 R1    
+     //  Sada US-2/3 2018/March/22 R1    
         public void checkcountrycodeANZ(){
         wAreaBoolean=false;
         fAreaBoolean=false;
