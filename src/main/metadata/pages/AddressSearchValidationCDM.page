@@ -45,29 +45,29 @@
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="PersonAccBlockIN,hmAreaCode" >
                             </apex:actionSupport>
                           </apex:inputText>
-                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" maxlength="3" style="width:30px" rendered="{!isClassic}" > 
+                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" maxlength="5" style="width:30px" rendered="{!isClassic}" > 
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="PersonAccBlockIN,hmAreaCode" >
                             </apex:actionSupport>
                           </apex:inputText>
                           <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" maxlength="5" style="width:80px" rendered="{!If( AND(hAreaBoolean == false,isClassic == true) ,true,false)}"/>  
                           <apex:inputText value="{!hmAreaCode}" id="hmAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If( AND(hAreaBoolean == false,isClassic == false) ,true,false)}"/>                                      
-                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" maxlength="8" style="width:120px" rendered="{!isClassic}"/> 
-						  <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumberLtng" style="width:120px;min-width:10rem" rendered="{!!isClassic}"/>                                      
+                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px" rendered="{!isClassic}"/> 
+                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumberLtng" style="width:120px;min-width:10rem" rendered="{!!isClassic}"/>                                      
                         </apex:outputPanel>     
                     </apex:pageBlockSectionItem>        
                    <apex:pageBlockSectionItem >     
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />      
                         <apex:outputPanel >     
-                          <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px" rendered="{!isClassic}" />
+                          <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" maxLength="5" style="width:30px" rendered="{!isClassic}" />
                           <apex:inputText value="{!mbCountryCode}" id="mbCountryCodeLtng" style="width:30px;min-width:5rem;" rendered="{!!isClassic}"/> 
-                          <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber"  style="width:120px" rendered="{!isClassic}"/>
+                          <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber" style="width:120px" rendered="{!isClassic}"/>
                           <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumberLtng"  style="width:120px;min-width:15rem;" rendered="{!!isClassic}"/>
                         </apex:outputPanel>     
                     </apex:pageBlockSectionItem>                
                     <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />      
                         <apex:outputPanel >     
-                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" style="width:30px" rendered="{!isClassic}" >
+                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" maxLength="5" style="width:30px" rendered="{!isClassic}" >
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="PersonAccBlockIN">
                             </apex:actionSupport>
                         </apex:inputText>
@@ -75,8 +75,8 @@
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="PersonAccBlockIN">
                             </apex:actionSupport>
                         </apex:inputText>
-                        <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" style="width:80px" rendered="{!If( AND(wAreaBoolean == false,isClassic == true) ,true,false)}"/>                                      
-						<apex:inputText value="{!wkAreaCode}" id="wkAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If( AND(wAreaBoolean == false,isClassic == false) ,true,false)}"/> 
+                        <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" maxLength="5" style="width:80px" rendered="{!If( AND(wAreaBoolean == false,isClassic == true) ,true,false)}"/>                                      
+                        <apex:inputText value="{!wkAreaCode}" id="wkAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If( AND(wAreaBoolean == false,isClassic == false) ,true,false)}"/> 
                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" style="width:120px"  rendered="{!isClassic}"/>                                              
                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumberLtng" style="width:120px;min-width:10rem"  rendered="{!!isClassic}"/>
                         </apex:outputPanel>                             
@@ -106,7 +106,7 @@
                     <apex:pageBlockSectionItem >     
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />      
                         <apex:outputPanel >     
-                          <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px" rendered="{!isClassic}"/>                                      
+                          <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" maxLength="5" style="width:30px" rendered="{!isClassic}"/>                                      
                           <apex:inputText value="{!mbCountryCode}" id="mbCountryCodeLtng" style="width:30px;min-width:4rem;" rendered="{!!isClassic}"/>
                           <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber"  style="width:120px" rendered="{!isClassic}"/>
                           <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumberLtng"  style="width:120px;min-width:15rem;" rendered="{!!isClassic}"/>                             
@@ -115,7 +115,7 @@
                     <apex:pageBlockSectionItem >        
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />       
                         <apex:outputPanel >  
-                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px" rendered="{!isClassic}"> 
+                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" maxLength="5" style="width:30px" rendered="{!isClassic}"> 
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="companyBlockIN,hmAreaCode" >
                             </apex:actionSupport>
                           </apex:inputText>
@@ -123,8 +123,8 @@
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="companyBlockIN,hmAreaCode" >
                             </apex:actionSupport>
                           </apex:inputText>
-                          <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:80px" rendered="{!If( AND(hAreaBoolean == false,isClassic == true) ,true,false)}"/>
-						  <apex:inputText value="{!hmAreaCode}" id="hmAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If( AND(hAreaBoolean == false,isClassic == false) ,true,false)}"/>
+                          <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" maxLength="5" style="width:80px" rendered="{!If( AND(hAreaBoolean == false,isClassic == true) ,true,false)}"/>
+                          <apex:inputText value="{!hmAreaCode}" id="hmAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If( AND(hAreaBoolean == false,isClassic == false) ,true,false)}"/>
                           <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px" rendered="{!isClassic}"/>                                      
                           <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumberLtng" style="width:120px;min-width:10rem" rendered="{!!isClassic}"/>                                      
                         </apex:outputPanel>     
@@ -132,7 +132,7 @@
                     <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Work_Phone__c.Label}" />      
                         <apex:outputPanel >     
-                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" style="width:30px" rendered="{!isClassic}">
+                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" maxLength="5" style="width:30px" rendered="{!isClassic}">
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="companyBlockIN">
                             </apex:actionSupport>
                         </apex:inputText>
@@ -140,8 +140,8 @@
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="companyBlockIN">
                             </apex:actionSupport>
                         </apex:inputText>
-                        <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" style="width:80px" rendered="{!If(AND(wAreaBoolean == false,isClassic == true) ,true,false)}"/>
-						<apex:inputText value="{!wkAreaCode}" id="wkAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If(AND(wAreaBoolean == false,isClassic == false) ,true,false)}"/>
+                        <apex:inputText value="{!wkAreaCode}" id="wkAreaCode" maxLength="5" style="width:80px" rendered="{!If(AND(wAreaBoolean == false,isClassic == true) ,true,false)}"/>
+                        <apex:inputText value="{!wkAreaCode}" id="wkAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If(AND(wAreaBoolean == false,isClassic == false) ,true,false)}"/>
                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" style="width:120px" rendered="{!isClassic}"/>
                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumberLtng" style="width:120px;min-width:10rem" rendered="{!!isClassic}"/>   
                         </apex:outputPanel>                             
@@ -149,7 +149,7 @@
                      <apex:pageBlockSectionItem >       
                         <apex:outputLabel value="{!$Label.Fax}" />
                         <apex:outputPanel >     
-                        <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" style="width:30px" rendered="{!isClassic}">
+                        <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" maxLength="5" style="width:30px" rendered="{!isClassic}">
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="companyBlockIN">
                             </apex:actionSupport>
                         </apex:inputText>
@@ -157,10 +157,10 @@
                             <apex:actionSupport action="{!checkcountrycodeindia}" event="onchange" reRender="companyBlockIN">
                             </apex:actionSupport>
                         </apex:inputText>
-                        <apex:inputText value="{!faxAreaCode}" id="faxAreaCode" style="width:80px" rendered="{!If(AND(fAreaBoolean == false,isClassic == true) ,true,false)}"/>
-						<apex:inputText value="{!faxAreaCode}" id="faxAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If(AND(fAreaBoolean == false,isClassic == false) ,true,false)}"/>
+                        <apex:inputText value="{!faxAreaCode}" id="faxAreaCode" maxLength="5" style="width:80px" rendered="{!If(AND(fAreaBoolean == false,isClassic == true) ,true,false)}"/>
+                        <apex:inputText value="{!faxAreaCode}" id="faxAreaCodeLtng" style="width:80px;min-width:4rem" rendered="{!If(AND(fAreaBoolean == false,isClassic == false) ,true,false)}"/>
                         <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber" style="width:120px" rendered="{!isClassic}"/>
-						<apex:inputText value="{!faxphoneNumber}" id="faxphoneNumberLtng" style="width:120px;min-width:10rem" rendered="{!!isClassic}"/> 
+                        <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumberLtng" style="width:120px;min-width:10rem" rendered="{!!isClassic}"/> 
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>        
                    <apex:inputField value="{!objAccount.Email__c}" />       
