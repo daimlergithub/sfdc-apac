@@ -2,9 +2,10 @@
 * Class:                            CampaignMemberCustomHelperTH
 * Description:                      This class will handles the Custom Campaign Member functionalities
 @ CampaignmemberssharewithsubDealers() this method will Share the records to the set of users Under a particular Dealer
+@MapCampaignMemberfieldsbasedOnContact() method is used to copy few fields from account to campaignmembers
 * --------------------------------------------------------------------------------------------------------------------------------------------------
 * Date                              Name                        Modification Description
-* Created Date : 2017-10-10     Dhanamjaya D                    Created  
+* Created Date : 2017-10-10     Dhanamjaya D                     Created  
 
 =====================================================================================================================================================*/
 public class CampaignMemberCustomHelperTH{
@@ -56,6 +57,30 @@ public void  campaignMemberHelperBeforeInsert(List<Campaign_Member__c> campmembe
         for(Campaign_Member__c campaignMemberRec : oldList) {
             if(campaignMemberMap.containsKey(campaignMemberRec.Id)) {
                 campaignMemberRec.addError('You can\'t delete the Campaign Member for this Campaign Status.');
+            }
+        }
+    }
+    //This method will copy address,vehicle,vehiclerelationships,retail copy data to campaign member 
+    public static void MapCampaignMemberfieldsbasedOnContact(List<Campaign_Member__c> newlist) {     
+        Map<id,address__c> addmap =new Map<id,Address__c>();
+        Set<id> accid=new Set<id>();
+        Set<Campaign_Member__c> cmpwithcontact=new  Set<Campaign_Member__c>();
+        for(Campaign_Member__c campme:newlist){
+            if(campme.Contact_Id__c!=null)
+                accid.add(campme.Contact_Id__c);
+            //it will holds the campaign members whose criteria is matched
+            //we are going to use this in for loop
+                cmpwithcontact.add(campme);
+        }
+        //fetch the preffered address of the Customer 
+        for(Address__c add:[select id,Customer__c,Address_Line_1__c,Address_Line_2__c,Sub_District__c,District__c,Province__c,ZipCode__c from address__c where Customer__c IN :accid and Preferred__c=true and md__c='TH' limit 50000])
+            	addmap.put(add.Customer__c,add);
+        if(addmap.size()>0){
+            for(Campaign_Member__c camp:cmpwithcontact){
+                if(addmap.containskey(camp.Contact_Id__c)){
+                   camp.Address__c= addmap.get(camp.Contact_Id__c).id;
+                   camp.Customer_Complete_Address__c=addmap.get(camp.Contact_Id__c).Address_Line_1__c+','+addmap.get(camp.Contact_Id__c).Address_Line_2__c+','+addmap.get(camp.Contact_Id__c).Sub_District__c+','+addmap.get(camp.Contact_Id__c).Province__c+','+addmap.get(camp.Contact_Id__c).ZipCode__c;
+                }
             }
         }
     }
