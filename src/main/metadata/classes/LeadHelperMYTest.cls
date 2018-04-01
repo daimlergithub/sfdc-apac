@@ -331,8 +331,8 @@ static testMethod void testAccAssignment() {
      //   lead1.Purchased_CAC_Date__c=system.today();
         
        // update lead1;
-        lead1.Assigned_Dealer__c = dealer1.Id;
-        update lead1;
+      //  lead1.Assigned_Dealer__c = dealer1.Id;
+      //  update lead1;
         lead1.CAC_Lead_Status__c = 'Accepted';
         update lead1;
        // LeadHelperBase lhb= new LeadHelperBase();
