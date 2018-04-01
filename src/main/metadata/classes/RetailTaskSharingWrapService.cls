@@ -13,14 +13,14 @@ public with sharing class RetailTaskSharingWrapService {
     public RetailTaskSharingWrapService() {
     }
 
-   /**  
+   /**	
      * @Description Gets all the required fields of retail tasks then wraps those retail tasks by record type.  
      * @author  Sneha chail
      * @Date 10/26/2015(mm/dd/yy)
-     * @param  retailTasks is a list having all the new records of Retail_Task Object.
-     * @return all records having Contract,Retail Activity and service recordtype to the list 
-     * @see   TriggerRetailTaskTriggerHandler(RetailTaskSharingWrapService.wrapRetailTasks)
-     */    
+	 * @param  retailTasks is a list having all the new records of Retail_Task Object.
+	 * @return all records having Contract,Retail Activity and service recordtype to the list 
+	 * @see   TriggerRetailTaskTriggerHandler(RetailTaskSharingWrapService.wrapRetailTasks)
+	 */    
     public List<SharingWrapper> wrapRetailTasks(List<Retail_Task__c> retailTasks) {       
         List<SharingWrapper> wrappers = new List<SharingWrapper>();
         List<Retail_Task__c> contracts = new List<Retail_Task__c>();
@@ -35,7 +35,7 @@ public with sharing class RetailTaskSharingWrapService {
                   retailActivities.add(retailTask);                
                  } 
              else { 
-                    services.add(retailTask);
+             	    services.add(retailTask);
                  }
               }          
                   
@@ -53,15 +53,15 @@ public with sharing class RetailTaskSharingWrapService {
           }           
        return wrappers;
     }
-     /**    
+     /**	
      * @Description Wraps "Contract" retail tasks.
      * @Description Users to share are decidied by their access to contrats' vehicle and dealer.    
      * @author  Sneha chail
      * @Date 10/26/2015(mm/dd/yy)
-     * @param  all records having Contract recordtype to the list .
-     * @return read permission to to the dealers who has access to both related dealer and related vehicle.
-     * @see   wrapRetailTasks
-     */
+	 * @param  all records having Contract recordtype to the list .
+	 * @return read permission to to the dealers who has access to both related dealer and related vehicle.
+	 * @see   wrapRetailTasks
+	 */
   
     public List<SharingWrapper> wrapContracts(List<Retail_Task__c> contracts) { 
         UserService userService = new UserService();
@@ -70,15 +70,15 @@ public with sharing class RetailTaskSharingWrapService {
         return SharingWrapperService.wrapSharings(contract2Users, Schema.Retail_Task__Share.RowCause.Contract_Share__c,UtilConstant.read_Access);
     }
 
-    /** 
+    /**	
      * @Description Wraps "Service" retail tasks.
      *              Users to share are decidied by their access to contrats' vehicle and dealer.    
      * @author  Sneha chail
      * @Date 10/26/2015(mm/dd/yy)
-     * @param  all records having Service recordtype to the list .
-     * @return read permission to to the dealers who has access to both related dealer and related vehicle.
-     * @see   wrapRetailTasks
-     */
+	 * @param  all records having Service recordtype to the list .
+	 * @return read permission to to the dealers who has access to both related dealer and related vehicle.
+	 * @see   wrapRetailTasks
+	 */
     public List<SharingWrapper> wrapServices(List<Retail_Task__c> services) {
         User loggedInUser = [select Id, Market__c from User where Id = :UserInfo.getUserId()];
         if(loggedInUser.Market__c=='TH')
@@ -87,29 +87,29 @@ public with sharing class RetailTaskSharingWrapService {
         }
         return wrapRetailTasks(Schema.Retail_Task__Share.RowCause.Service_Share__c, services,UtilConstant.read_Access);
     }
+	
     
-    
-     /**    
+     /**	
      * @Description Wraps "Retail Activity" retail tasks.
      *              Users to share are decidied by their access to contrats' vehicle and dealer.    
      * @author  Sneha chail
      * @Date 10/26/2015(mm/dd/yy)
-     * @param  all records having Retail Activity recordtype to the list .
-     * @return read permission to to the dealers who has access to both related dealer and related vehicle.
-     * @see   wrapRetailTasks
-     */
+	 * @param  all records having Retail Activity recordtype to the list .
+	 * @return read permission to to the dealers who has access to both related dealer and related vehicle.
+	 * @see   wrapRetailTasks
+	 */
     public List<SharingWrapper> wrapRetailActivities(List<Retail_Task__c> retailActivities) {
         return wrapRetailTasks(Schema.Retail_Task__Share.RowCause.Retail_Activity_Share__c, retailActivities,UtilConstant.read_Access);
     }
-     /**   
+     /**	
      * @Description Wraps "Retail Activity" retail tasks.
      *              Users to share are decidied by their access to contrats' vehicle and dealer.    
      * @author  Sneha chail
      * @Date 10/26/2015(mm/dd/yy)
-     * @param  RowCause for Retail_task_Share__c and all records of retail_task__c object and access level
-     * @return read permission to to the dealers who has access to both related dealer and related vehicle.
-     * @see   wrapRetailTasks
-     */
+	 * @param  RowCause for Retail_task_Share__c and all records of retail_task__c object and access level
+	 * @return read permission to to the dealers who has access to both related dealer and related vehicle.
+	 * @see   wrapRetailTasks
+	 */
     private List<SharingWrapper> wrapRetailTasks(String rowCause, List<Retail_Task__c> retailTasks, String accessLevel) {
         UserService userService = new UserService();
         Map<String, Set<Id>> crmCode2Users = userService.mapCrmCode2Users(retailTasks);
@@ -140,8 +140,8 @@ public with sharing class RetailTaskSharingWrapService {
     }
     /*
      *@Specific for TH market
-     *@author tejbir Singh
-     *@Share only service recordtype of retail task according to dealer and code of users 
+	 *@author tejbir Singh
+	 *@Share only service recordtype of retail task according to dealer and code of users 
      */
     public List<SharingWrapper> wrapRetailTasksTH(List<Retail_Task__c> retailTasks)
     {
