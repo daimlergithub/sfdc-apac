@@ -16,13 +16,13 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
      public static User createAdminUser(){   
       //UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH'];            
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        User u = new User(LastName='User',country='Australia',/*UserRoleId = role.id*/firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'TH');
+        User u = new User(LastName='UserTH',country='Australia',/*UserRoleId = role.id*/firstName='BCI',ProfileId=p.Id,Alias='ainTH123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusrTH@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'TH');
         insert u;
         return u;
     }
     public static User createMYAdminUser(){               
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        User u = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com',Market__c = 'MY');
+        User u = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusr@daimler.com'+String.valueof(DateTime.now().getTime()),Market__c = 'MY');
         insert u;
         return u;
     }
@@ -31,7 +31,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     public static User createAfterSalesManager(){       
         Profile p = [select id from profile where Name='System Administrator' limit 1];
         UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH_Manager'];
-        User user1 = new User(LastName='User',UserRoleId = role.id,country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersales@test.com');
+        User user1 = new User(LastName='UserTH',UserRoleId = role.id,country='Australia',firstName='BCI',ProfileId=p.Id,Alias='ainTH123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersales@test.com'+String.valueof(DateTime.now().getTime()));
         insert user1;
         return user1;
     }
@@ -39,7 +39,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     public static User createAfterSalesManagerMY(){       
         Profile p = [select id from profile where Name='System Administrator' limit 1];
         UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH_Manager'];
-        User user1 = new User(LastName='User',UserRoleId = role.id,country='Australia', market__c = 'MY', firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersales@test.com');
+        User user1 = new User(LastName='User',UserRoleId = role.id,country='Australia', market__c = 'MY', firstName='BCI',ProfileId=p.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersales@test.com'+String.valueof(DateTime.now().getTime()));
         insert user1;
         return user1;
     }
@@ -51,7 +51,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
                               emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',
                               localesidkey='en_US', profileid = p2.id, country='Australia',IsActive =true,
                               ContactId = con,
-                              timezonesidkey='America/New_York', username='UserBAHTH1@noemail.com');
+                              timezonesidkey='America/New_York', username='UserBAHTH1@noemail.com'+String.valueof(DateTime.now().getTime()));
         Insert userB;
         return userB;
     }
@@ -62,7 +62,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         User userC = new User(alias = 'test123', email='test123@noemail.com',
                               emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',
                               localesidkey='en_US', profileid = p3.id, country='Thailand',IsActive =true,
-                              timezonesidkey='America/New_York', username='UserBAHTH2@noemail.com');
+                              timezonesidkey='America/New_York', username='UserBAHTH2@noemail.com'+String.valueof(DateTime.now().getTime()));
         Insert userC;
         return userC;
     }
