@@ -9254,12 +9254,12 @@
 	<fieldPermissions>
         <editable>false</editable>
         <field>Campaign.No_of_Pax__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>CampaignMember.No_of_Pax__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9622,9 +9622,9 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign_Member__c.No_of_Pax__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
