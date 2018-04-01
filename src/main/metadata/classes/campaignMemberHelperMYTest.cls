@@ -23,6 +23,9 @@ public class campaignMemberHelperMYTest {
             campMbr.ContactId =c.Id;           
             campMbr.Task_Generated__c = false;
             insert campMBR;
+			 TriggerCampaignMembersTriggerHandlerMY cth = new TriggerCampaignMembersTriggerHandlerMY();
+            cth.handleTrigger(true,true, true, true, true);
+             cth.handleIntegrationTrigger(true,true, true, true, true);
 
             campMemList.add(campMbr);
             campaignMemberHelperMY.beforeInsertevents(campMemList);
