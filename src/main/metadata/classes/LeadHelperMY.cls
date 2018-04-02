@@ -27,7 +27,9 @@ public without sharing  class  LeadHelperMY{
     */
     
     public  void ShareRecordswithDealers(List<lead__c> leadlist,Boolean flag){
-     helperBase.ShareRecordswithDealers(leadList,flag,market);        
+		if(System.Label.LeadShareMY=='true'){
+		helperBase.ShareRecordswithDealers(leadList,flag,market);    
+		}		
     }
     
   // Added by Asish Nanda, Test Case-  A retail Copy (Reatil Person/ Retail Company)Will be Created in Dealer account automatically , if a dealer will be assigned to Lead 
