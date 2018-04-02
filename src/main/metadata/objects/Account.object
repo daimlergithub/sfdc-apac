@@ -12585,66 +12585,6 @@ Modify Reason:
         <label>Interested Event</label>
         <picklist>
             <picklistValues>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf tournament</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Concert/Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Vehicle Launch event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion Show</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test Drive promotion</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance&amp;Investment technology seminar</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Makeup Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Goumet Club</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Domestic Trip</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>International Trip</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lifestyle Event/Workshop</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Driving Event/Test Drive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Music/Concert</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Drive events</fullName>
                 <default>false</default>
             </picklistValues>
@@ -12653,11 +12593,15 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Music</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -25814,7 +25758,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Interested_Event_MultiSelect__c</picklist>
             <values>
+                <fullName>Drive events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -64574,7 +64530,7 @@ MD__c = 'JP')</errorConditionFormula>
 NOT( ISBLANK(Foundation_Date__c)), 
 Foundation_Date__c &gt; TODAY(), 
 $Profile.Name != 'IntegrationAPI', 
-OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR' ,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
+OR(MD__c = 'JP',MD__c = 'TH',MD__c = 'KR' ,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),$Permission.INGeneric))</errorConditionFormula>
         <errorDisplayField>Foundation_Date__c</errorDisplayField>
         <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
     </validationRules>

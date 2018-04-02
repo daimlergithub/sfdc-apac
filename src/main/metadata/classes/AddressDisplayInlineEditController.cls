@@ -1,6 +1,7 @@
 public class AddressDisplayInlineEditController { 
     public boolean openPanal{get;set;}
-	
+
+  
     public List<Address__c> adds {get; set;}
     public Address__c addressobj {get; set;}
     public Boolean ShowpageBlockFlag {get;set;}
@@ -518,7 +519,8 @@ public class AddressDisplayInlineEditController {
                 addressobj.Address_Type__c = addresspicklist;
             string accountid = ApexPages.currentPage().getParameters().get('id');
             List < address__c > objAddresses = [select id, preferred__c from address__c where Customer__c =: accountid and preferred__c = true LIMIT 100];
-			
+
+      
             //commented by Tej on 12-6-2017 to implement new preferred logic
             /*for(address__c add:objAddresses)
             {               
@@ -527,8 +529,10 @@ public class AddressDisplayInlineEditController {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'There must be only one Preferred address.')); 
                     Validation = true;  
                 }               
-            }*/			
-			
+
+
+            }*/      
+      
             System.debug('8888' + addressobj.ZipCode__c + addressobj.Address_Line_1__c + addressobj.Province__c + addressobj.District__c + addressobj.Sub_District__c);
             if (addressobj.ZipCode__c == null || addressobj.ZipCode__c == System.Label.SelectPicklist) {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'ZIPCODE is mandatory.'));
@@ -1283,7 +1287,7 @@ If the user is Saving  same address which matches the fields returned by toleran
         }           
     } 
 
-	public void SaveAddressAU()     
+  public void SaveAddressANZ()     //2018/march/23 sada Added as per us 2/3 
     {       
         try     
         {       
@@ -1319,7 +1323,7 @@ If the user is Saving  same address which matches the fields returned by toleran
       
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{3,4}',addressobj.ZipCode__c)))      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter valid Postal code'));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.PostalCodeValidationANZ));        
                  Validation = true;                             
             }       
             if(addressobj.Address_Line_1__c == null)        
@@ -1337,17 +1341,17 @@ If the user is Saving  same address which matches the fields returned by toleran
             }       
             if(addressobj.State_City__c == null)      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'State/City is Mandatory'));        
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateMandatoryANZ));        
             }       
     
              if(String.isNotBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c.length()>100)
               {
-                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 2 should be less than or equal to 100 characters.'));
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline2LengthANZ));
                      Validation = true;                      
              }     
             if(String.isNotBlank(addressobj.Address_Line_3__c) && addressobj.Address_Line_3__c.length()>100)
               {
-                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Address Line 3 should be less than or equal to 100 characters.'));
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline3LengthANZ));
                      Validation = true;                      
              }       
                     

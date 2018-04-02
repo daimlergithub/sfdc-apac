@@ -2,7 +2,7 @@ Mercedes Benz Shop
 
 Dear {!Retail_Campaign__c.OwnerFullName},
 
-The following campaign implementation day came Please Start Adding campaign Members.
+The following campaign's segmentation day has come. Please start adding Campaign Members.
 
 Dealer’s Link:
 {!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 

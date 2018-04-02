@@ -1578,6 +1578,10 @@
         <apexClass>RetailtaskInlineEditController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>RetailtaskInlineEditControllerGeneric</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>RetailtaskInlineEditController_Test</apexClass>
         <enabled>false</enabled>
@@ -28816,6 +28820,10 @@
     <pageAccesses>
         <apexPage>RetailTask_inline_service_amount</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>RetailTask_inline_service_amount_generic</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>RetailTaskdealerviewForContract</apexPage>

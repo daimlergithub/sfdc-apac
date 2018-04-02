@@ -162,17 +162,16 @@ To store the Contract ID coming from RMW.</description>
         <unique>true</unique>
     </fields>
     <fields>
-        <fullName>Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <fullName>DealerName__c</fullName>
+        <description>Name of the dealer which will come from RMW.</description>
         <externalId>false</externalId>
         <label>Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>FS Contracts (Dealer)</relationshipLabel>
-        <relationshipName>FS_Contracts2</relationshipName>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>End_Date__c</fullName>
@@ -264,7 +263,7 @@ To store the Contract ID coming from RMW.</description>
     <fields>
         <fullName>Guarantor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-	<externalId>false</externalId>
+        <externalId>false</externalId>
         <label>Guarantor</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>FS Contracts (Guarantor)</relationshipLabel>
@@ -502,17 +501,16 @@ To store the Contract ID coming from RMW.</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Sales_Person__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <fullName>SalesPersonName__c</fullName>
+        <description>Name of Sales person whose value will come from RMW.</description>
         <externalId>false</externalId>
         <label>Sales Person</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>FS Contracts (Sales Person)</relationshipLabel>
-        <relationshipName>FS_Contracts3</relationshipName>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Start_Date__c</fullName>
@@ -602,6 +600,11 @@ To store the Contract ID coming from RMW.</description>
         <type>Currency</type>
     </fields>
     <label>FS Contract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>H-{000000}</displayFormat>
         <label>Contract No.</label>

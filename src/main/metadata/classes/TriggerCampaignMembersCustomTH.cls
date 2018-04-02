@@ -9,6 +9,9 @@ public class TriggerCampaignMembersCustomTH implements TriggerHandlerIf
         if(Trigger.isAfter){
                helper.CampaignmemberssharewithsubDealers(Trigger.new);
         }
+         if(Trigger.isbefore){
+               CampaignMemberCustomHelperTH.MapCampaignMemberfieldsbasedOnContact(Trigger.new);
+        }
     }
     if(Trigger.isDelete){
     CampaignMemberCustomHelperTH.beforeDeleteOperation(Trigger.old);
