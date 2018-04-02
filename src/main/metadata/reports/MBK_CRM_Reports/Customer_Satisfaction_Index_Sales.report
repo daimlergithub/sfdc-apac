@@ -77,7 +77,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Customer Satisfaction Index Sales</name>
+    <name>CSI 리포트 (Sales)</name>
     <params>
         <name>co</name>
         <value>1</value>

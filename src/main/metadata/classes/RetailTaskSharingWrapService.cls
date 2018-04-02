@@ -126,7 +126,7 @@ public with sharing class RetailTaskSharingWrapService {
     /*Specific to TH market*/
     private List<SharingWrapper> wrapRetailTasksTH(String rowCause, List<Retail_Task__c> retailTasks, String accessLevel) {
         UserService userService = new UserService();
-        List<Retail_Task__c> retailTasksLst=[select Id,Service_Dealer__c,Service_Dealer__r.Dealer_ND_Code__c from Retail_Task__c where Id IN:retailTasks];
+        List<Retail_Task__c> retailTasksLst=[select Id,Service_Dealer__c,Service_Dealer__r.Dealer_ND_Code__c,Related_Dealer__c from Retail_Task__c where Id IN:retailTasks];
         Map<String, Set<Id>> dealerNdCode2Grp = userService.mapDealerNdCode2Grp(retailTasksLst);
         Map<Id, Set<Id>> retailTask2Grp = new Map<Id, Set<Id>>();
         for(Retail_Task__c retailTask : retailTasksLst) {
@@ -160,5 +160,5 @@ public with sharing class RetailTaskSharingWrapService {
         return wrappers;
     }
      
-     
+    
 }

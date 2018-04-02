@@ -27,7 +27,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Account with Activities</name>
+    <name>활동 있는 계정</name>
     <params>
         <name>closed</name>
         <value>all</value>
