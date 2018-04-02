@@ -35,13 +35,20 @@ static testMethod void testAccAssignment() {
             ps.Name = 'Test';
             ps.Label = 'Test';
             insert ps;
-    
-        CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
+ Set<String> customperms = new Set<String>{Label.MYRetail, Label.MYGeneric, Label.CreateRetailCopy,Label.LeadShareRecordswithDealers,Label.LeadAL};
+        List<CustomPermission> lcps = new List<CustomPermission>([SELECT ID From CustomPermission WHERE MasterLabel IN :customperms]);
+        List<SetupEntityAccess> lsetupentity = new List<SetupEntityAccess>();
 
-        SetupEntityAccess sea = new SetupEntityAccess();
-        sea.ParentId = ps.Id;
-        sea.SetupEntityId = cps.id;
-        insert sea;
+          for(CustomPermission cps: lcps){
+            SetupEntityAccess sea = new SetupEntityAccess();
+        	sea.ParentId = ps.Id;
+        	sea.SetupEntityId = cps.id;
+            lsetupentity.add(sea);
+        }
+       
+      if(!lsetupentity.isEmpty())
+        DMLManagerService.insertAsSystem(lsetupentity);
+		
         CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
         cs.DEFAULT_CALLOUT_TIME__c='1000';
         cs.MAX_CALLOUT_TIME__c='5000';
@@ -324,8 +331,8 @@ static testMethod void testAccAssignment() {
      //   lead1.Purchased_CAC_Date__c=system.today();
         
        // update lead1;
-        lead1.Assigned_Dealer__c = dealer1.Id;
-        update lead1;
+      //  lead1.Assigned_Dealer__c = dealer1.Id;
+      //  update lead1;
         lead1.CAC_Lead_Status__c = 'Accepted';
         update lead1;
        // LeadHelperBase lhb= new LeadHelperBase();

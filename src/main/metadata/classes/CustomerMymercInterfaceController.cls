@@ -200,10 +200,10 @@ public with sharing class CustomerMymercInterfaceController {
          Accid = apexpages.currentpage().getparameters().get('id');
          accont = [select id,Data_Source__C, Allow_Data_Sharing2__c,Gender__c,Main_Dealer__c,RecordtypeId,email3__c,Portal_Apply_Date__c,Portal_Apply_Status__c,Portal_Apply_User__c,LastName_Native_1__c,PersonBirthdate,Email2__c,email__c,(select id,name,fromRole__r.Name,fromRole__r.Email2__c,fromRole__r.Email__c,Portal_ID__c,System__c,RecordtypeId,Primary__c,Portal_Email__c,toRole__c from Account_Links__r) from account where id =: Accid limit 1];
          system.debug('+++++++++++++++++++++'+accont );
-        // String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
-//        String emailRegex=  '^([a-zA-Z0-9._]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$';
-   String emailRegex= Label.emailRegex;
-        
+       //  String emailRegex = '^[a-zA-Z0-9._|\\\\#~`=?$^!{}+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,4}$'; 
+         //  String emailRegex=  '^([a-zA-Z0-9._]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$';
+        String emailRegex= Label.emailRegex;
+                   
         Pattern MyPattern = Pattern.compile(emailRegex);
         system.debug('++++++++++++'+accont.LastName_Native_1__c);
         if(!String.isBlank(accont.LastName_Native_1__c)){
@@ -219,13 +219,14 @@ public with sharing class CustomerMymercInterfaceController {
       {
       Newpopup=true;
       }
-      if(!string.isBlank(loginmobile) && loginmobile!=null && ( !loginmobile.startsWith('010') && !loginmobile.startsWith('020') &&  !loginmobile.startsWith('030')  &&  !loginmobile.startsWith('040')  &&  !loginmobile.startsWith('050')  && !loginmobile.startsWith('060')  && !loginmobile.startsWith('070')  &&  !loginmobile.startsWith('080') &&  !loginmobile.startsWith('090')))
+           if(cancelpop==true && !string.isBlank(loginmobile) && loginmobile!=null && ( !loginmobile.startsWith('010') && !loginmobile.startsWith('020') &&  !loginmobile.startsWith('030')  &&  !loginmobile.startsWith('040')  &&  !loginmobile.startsWith('050')  && !loginmobile.startsWith('060')  && !loginmobile.startsWith('070')  &&  !loginmobile.startsWith('080') &&  !loginmobile.startsWith('090')))
         {
         ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_Proper_Number));
             return null;
         }
-        
-       if( (MyMercEmail == NULL || string.isBlank(MyMercEmail))  && (loginmobile == NULL  || string.isBlank(loginmobile)) && okcancelpop ==true){
+
+       if( (MyMercEmail == NULL || string.isBlank(MyMercEmail))  && (loginmobile == NULL  || string.isBlank(loginmobile)) && okcancelpop ==true ){
+       
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.Please_Input_MyMercedes_Email_Id_or_Login_Mobile));
             return null;
           }
@@ -242,8 +243,10 @@ public with sharing class CustomerMymercInterfaceController {
             Boolean dotCheck = CharSplit.startsWith('.'); 
             System.debug('+++++++dotCheck+++++++++++'+dotCheck);   
             
-                     
-            if(result > 64 || dotCheck == true || MyMercEmail.contains('.@')  || MyMercEmail.contains('@.') || MyMercEmail.contains('..')  || MyMercEmail.length() >80){
+                System.debug('+++++++cancelpop+++++++++++'+cancelpop);      
+            if(cancelpop ==true && ( result > 64 || dotCheck == true || MyMercEmail.contains('.@')  || MyMercEmail.contains('@.') || MyMercEmail.contains('..')  || MyMercEmail.length() >80  )){
+
+             System.debug('+++++++MyMercEmail+++++++++++'+MyMercEmail);   
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
                 return null;
             
@@ -252,7 +255,7 @@ public with sharing class CustomerMymercInterfaceController {
             Matcher MyMatcher = MyPatternn.matcher(MyMercEmail);
             
            
-            if (!MyMatcher.matches() ){ 
+            if (!MyMatcher.matches() && cancelpop ==true  ){ 
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,Label.please_enter_valid_Email));
                 return null;    
             } else{ 

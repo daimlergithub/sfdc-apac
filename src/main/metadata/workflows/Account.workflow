@@ -211,6 +211,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	
 	<fieldUpdates>
         <fullName>Status_Deceased</fullName>
         <description>On selecting the checkbox  Deceased and saving the record, it updates the status of customer is updated as &apos;Deceased&apos;</description>
@@ -221,6 +222,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	
     <fieldUpdates>
         <fullName>System_Data_Source</fullName>
         <field>System_Data_Source__c</field>
@@ -646,13 +648,13 @@
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-	<rules>
+<rules>
         <fullName>MBANZ Customer Update as Deceased</fullName>
         <actions>
             <name>Status_Deceased</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Account.Deceased__c</field>
             <operation>equals</operation>
@@ -667,6 +669,7 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 	
+	
 	 <rules>
         <fullName>MBAU update data source_Retailer added</fullName>
         <actions>
@@ -674,7 +677,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 5)</booleanFilter>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 5) AND 6 AND 7</booleanFilter>
         <criteriaItems>
             <field>Account.Customer_Number__c</field>
             <operation>startsWith</operation>
@@ -700,6 +703,16 @@
             <operation>startsWith</operation>
             <value>C-5</value>
         </criteriaItems>
+		 <criteriaItems>
+            <field>Account.Market__c</field>
+            <operation>contains</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>contains</operation>
+            <value>Company,Person Account</value>
+        </criteriaItems>
         <description>If the customer number sequence is 
 • If customer number is between 10,000,001 – 59,999,999  = Retailer added</description>
         <triggerType>onAllChanges</triggerType>
@@ -711,7 +724,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 OR 2 OR 3 OR 4) AND 5</booleanFilter>
+        <booleanFilter>(1 OR 2 OR 3 OR 4) AND 5 AND 6 AND 7</booleanFilter>
         <criteriaItems>
             <field>Account.Customer_Number__c</field>
             <operation>startsWith</operation>
@@ -736,6 +749,16 @@
             <field>Account.Customer_Number__c</field>
             <operation>notContain</operation>
             <value>C-1</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>Account.Market__c</field>
+            <operation>contains</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>contains</operation>
+            <value>Company,Person Account</value>
         </criteriaItems>
         <description>If the customer number sequence is 
 • 1 to 10000000 this is mapped to Wholesale added

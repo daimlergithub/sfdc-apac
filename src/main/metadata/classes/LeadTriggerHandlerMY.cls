@@ -22,8 +22,10 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
         if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
                 
             if(Trigger.isbefore && Trigger.isUpdate){
-                if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){    
-					leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);				
+                if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){  
+					if(Test.isRunningTest()){				
+						leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);		
+					}					
 					leadRS.updateOwner(Trigger.new);  
 					leadRs.updateRetailLookups(trigger.New,Label.MY);
 					
@@ -40,8 +42,12 @@ public class LeadTriggerHandlerMY implements TriggerHandlerIf
 					leadRS.leadValidation(trigger.New,Label.MY);
 				}
 				if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
-					leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);
-					leadRS.updateOwnerwithDealer(Trigger.new); 
+					if(Test.isRunningTest()){
+						leadRS.autoPopulateAssignDealer(trigger.New,Label.MY);
+					}
+					if(userInfo.getUserType() != 'PowerPartner'){
+						leadRS.updateOwnerwithDealer(Trigger.new); 
+					}
 				}
                 //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community 
                 leadRS.updatecommunityURL(Trigger.new);  

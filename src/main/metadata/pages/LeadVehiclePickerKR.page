@@ -971,8 +971,10 @@
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent1DetailText == 'New' || c1_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle1',selectedCurrent1Brand,selectedCurrent1Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle1')" class="btn" value="{!$label.Clear_Button}"/> 
-        -->
+        
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle1Details != ''}}" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/>
+		-->
+		&nbsp;<input type="button" ng-click="showList('CurrentVehicle1')" class="btn" value="{!$label.Lookup_Button}"/>
         </apex:outputPanel>
         <!----------- CURRENT VEHICLE1 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent1" style="background-color:#efefef;width:500px"> 
@@ -1025,8 +1027,10 @@
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'Edit'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)"  class="btn" value="{!$label.New_Button}"/>
         &nbsp;<input type="button" ng-disabled="{{vehicleCurrent2DetailText == 'New' || c2_RecType != 'Vehicle Product'}}" ng-click="showDetail('CurrentVehicle2',selectedCurrent2Brand,selectedCurrent2Classes)" class="btn" value="{!$Label.Edit}"/>
         &nbsp;<input type="button" ng-click="clearVehicle('CurrentVehicle2')" class="btn" value="{!$label.Clear_Button}"/> 
-        -->
+        
         &nbsp;<input type="button" ng-disabled="{{CurrentVehicle2Details != ''}}" ng-click="showList('CurrentVehicle2')" class="btn" value="{!$label.Lookup_Button}"/>
+		-->
+		&nbsp;<input type="button" ng-click="showList('CurrentVehicle2')" class="btn" value="{!$label.Lookup_Button}"/>
         </apex:outputPanel>
         <!----------- CURRENT VEHICLE2 DETAILS SECTION -------->
         <div ng-if="vehicleDetailCurrent2" style="background-color:#efefef;width:500px"> 

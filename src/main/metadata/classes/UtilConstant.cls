@@ -14,6 +14,7 @@ Global with sharing class UtilConstant {
     public final static String DEALER_SALES_LEADS_READONLY = 'Dealer Sales leads ReadOnly';
     public final static String DEALER_AFTERSALES_LEADS_READONLY = 'Dealer Aftersales Leads ReadOnly';
     public final static String AFTER_SALES_LEADS = 'Aftersales Leads';
+    public final static String FS_LEAD = 'Finance Lead';
     public final static String RETAIL_SALES_LEADS = 'Retail Sales Leads';
     public final static String AS_RETAIL_CAMPAIGN = 'AS Retail Campaign';
     public final static String DEALER_LEAD_GATE_KEEPER_QUEUE = 'Dealer Lead Gate Keeper Queue';

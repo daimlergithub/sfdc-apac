@@ -9,6 +9,7 @@ public without sharing class LeadHelperTH {
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static final String retailSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.RETAIL_SALES_LEADS).getRecordTypeId();
+    private static final String fsLeadRecordTypeId= Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.FS_LEAD).getRecordTypeId();
     set < id > accId = new set < id > ();
     set < id > newmapid = new set < id > ();
 
@@ -126,7 +127,8 @@ public without sharing class LeadHelperTH {
         Set < Id > LeadIdupdate = new Set < Id > ();
         Map < Id, Lead__c > ldmap = new Map < Id, Lead__c > ([select id, Contact__r.Ucid__c, Retail_Contact__r.Retail_DMS_Customer_ID__c, Assigned_Dealer__c from Lead__c where id in: leadOldMap.keyset() AND Retail_Contact__c != null AND Retail_Contact__r.fromRole__c !=null AND Retail_Contact__r.fromRole__r.Dealer_Rollout_Status__c ='Done']);
         for (Lead__c le: leadlist) {
-            if (ldmap.containskey(le.Id)) {
+            //condition added by Tejbir. Finance lead should not go to Autoline.
+            if (ldmap.containskey(le.Id) && le.RecordTypeId!=fsLeadRecordTypeId) {
                 if (ldmap.get(le.Id).Contact__r.Ucid__c != '' && ldmap.get(le.Id).Retail_Contact__r.Retail_DMS_Customer_ID__c != '' && le.Assigned_Dealer__c != null && le.Assigned_Dealer__c == leadOldMap.get(le.id).Assigned_Dealer__c && le.MD__c == 'TH' && le.CAC_Lead_Status__c != leadOldMap.get(le.id).CAC_Lead_Status__c && le.CAC_Lead_Status__c == 'Accepted') {
 
                     LeadIdinsert.add(le.Id);

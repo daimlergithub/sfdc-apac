@@ -2682,7 +2682,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
 	<fields>
         <fullName>Message__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(BEGINS($Profile.Name, &apos;MBK&apos;), 
+        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
 HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
 HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
 		<label>Message</label>
@@ -24087,7 +24087,7 @@ window.open("/apex/Consolidation_List?Id={!Campaign.Id}");
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 }
 else
 {
@@ -24158,7 +24158,7 @@ alert('something has gone wrong please contact your Administrator');
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Campaign.Id}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_ID={!Campaign.Questionnaire__c}&amp;OBJECT_CAMPAIGN_WEBLINK_CUSTOM_QUESTIONNAIRE_LKID={!Campaign.QuestionnaireId__c}');
 }
 else
 {
@@ -24532,150 +24532,6 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // ---- END ----</url>
     </webLinks>
     <webLinks>
-        <fullName>OPRO_Label_Print_PDF</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>[OPRO]Label Print(PDF)</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
-// 
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
-
-
-// ---- BEGIN ---- 
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
-{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")}
-
-var tpArray = (function () { 
-var dmTemplate= sforce.connection.query("SELECT id,DM_Material__r.Type__c FROM campaign WHERE ID ='{!Campaign.Id}' LIMIT 1");
-records = dmTemplate.getArray("records");
-var dmmaterial_type = records[0].DM_Material__r.Type__c;
-switch(dmmaterial_type){ 
-case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
-case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
-case 'smart manual': return 'p03_DirectMailPrint';brak; 
-case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
-case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
-case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
-case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting';brak; 
-} 
-}()); 
-
-OPROARTS.Live.fF.action({ 
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
-// このパラメータを省略することはできません。 
-tp:tpArray, 
-
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
-fe:false, 
-
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-createsAttach:false, 
-
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
-// - taskSubject: 活動履歴の件名 
-// - taskComment: 活動履歴のコメント 
-// 無指定の場合は、システムの初期値が適用されます。 
-createsTask:false, 
-
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
-title:'', 
-
-// objectId: 帳票オブジェクトのIDを指定します。 
-objectId:'{!JSENCODE(Campaign.Id)}', 
-
-// OPROARTS Live - Force.com API に必要な諸パラメータです。 
-// このパラメータを編集しないでください。 
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
-}).url("https://benz.pd.oproarts.com/liveffb/action").pdf(); 
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
-    </webLinks>
-    <webLinks>
-        <fullName>OPR_Label_Print</fullName>
-        <availability>online</availability>
-        <description>OPROARTS</description>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>[OPR]Label Print</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
-// 
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
-
-
-// ---- BEGIN ---- 
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
-{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")}  
-
-var tpArray = (function () { 
-var dmTemplate= sforce.connection.query("SELECT id,DM_Material__r.Type__c FROM campaign WHERE ID ='{!Campaign.Id}' LIMIT 1");
-records = dmTemplate.getArray("records");
-var dmmaterial_type = records[0].DM_Material__r.Type__c; 
-alert('dmmaterial_type '+dmmaterial_type )
-switch(dmmaterial_type){ 
-case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
-case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
-case 'smart manual': return 'p03_DirectMailPrint';brak; 
-case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
-case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
-case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
-case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting';brak; 
-} 
-}()); 
-
-OPROARTS.Live.fF.action({ 
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
-// このパラメータを省略することはできません。 
-tp:tpArray, 
-
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
-fe:false, 
-
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-createsAttach:false, 
-
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
-// - taskSubject: 活動履歴の件名 
-// - taskComment: 活動履歴のコメント 
-// 無指定の場合は、システムの初期値が適用されます。 
-createsTask:false, 
-
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
-title:'', 
-
-// objectId: 帳票オブジェクトのIDを指定します。 
-objectId:'{!JSENCODE(Campaign.Id)}', 
-
-// OPROARTS Live - Force.com API に必要な諸パラメータです。 
-// このパラメータを編集しないでください。 
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
-}).url("https://benz.pd.oproarts.com/liveffb/action").opr(); 
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
-    </webLinks>
-    <webLinks>
         <fullName>Upload</fullName>
         <availability>online</availability>
         <description>Campaign Response Handling via File Upload</description>
@@ -24789,11 +24645,11 @@ window.location.reload();
 
 if('{!User.ContactId}' !='')
 {
-window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('{!URLFOR($Site.BaseUrl)}/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }
 else
 {
-window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
+window.open('/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg45&amp;ent=Campaign&amp;Parent={!URLENCODE(Campaign.Name)}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}');
 }</url>
     </webLinks>
 </CustomObject>

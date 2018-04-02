@@ -130,7 +130,7 @@ public without sharing class  LeadHelperBase{
                 l.CAC_Lead_Status__c = 'New';
 			}
         }
-        if(!ldowner.isEmpty()){
+        if(!ldowner.isEmpty() && userInfo.getUserType() != 'PowerPartner' ){
 	
             if(accId.size()>0){
                 updateOwnership(accId,ldowner,market);
@@ -232,7 +232,7 @@ public without sharing class  LeadHelperBase{
 	    //Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community  
     
      public static String getCommunityURL(){
-        String communityName='Daimler Community Malaysia';
+        String communityName='Dealer Community Malaysia';
          String commubaseurl='';
          boolean flag1;
     List<Network>  myNetwork = [SELECT Id,Name FROM Network];
@@ -275,7 +275,8 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                 if (leadsrec.createdby.usertype == 'PowerPartner' && leadsrec.createdby.Dealer_nd_code__c != null) {
                     //dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
 					string GrpName=leadsrec.createdby.Market__c+leadsrec.createdby.Dealer_nd_code__c;
-					dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+					//dealerndcodeset.add(leadsrec.createdby.Dealer_nd_code__c);
+					dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                 } else if (leadsrec.assigned_dealer__c != null && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
 					string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;

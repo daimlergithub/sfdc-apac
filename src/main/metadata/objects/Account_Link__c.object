@@ -48,7 +48,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-	<enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -79,16 +79,16 @@
     </fields>
     <fields>
         <fullName>Active__c</fullName>
-		<defaultValue>false</defaultValue>
-		<description>Shows this is the Activate Flag in use</description>        
+        <defaultValue>false</defaultValue>
+        <description>Shows this is the Activate Flag in use</description>
         <externalId>false</externalId>
-		<inlineHelpText>Activate Flag</inlineHelpText>
+        <inlineHelpText>Activate Flag</inlineHelpText>
         <label>Active</label>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Agreement_Date_24h_Consent_CCC__c</fullName>
         <externalId>false</externalId>
         <formula>toRole__r.Agreement_Date_for_Service_24h_Consent__c</formula>
@@ -99,28 +99,28 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	  <fields>
-        <fullName>Expiration_Date_24h_Consent_CCC__c</fullName>
+    <fields>
+        <fullName>Agreement_Date__c</fullName>
         <externalId>false</externalId>
-        <formula>toRole__r.Expiry_Date_for_Service_24h_Consent__c</formula>
+        <formula>toRole__r.Agreement_Date_for_CC_Old__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Expiration Date</label>
+        <label>Agreement Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Agreement_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
         <formula>toRole__r.Agreement_Date_for_CC_New__c</formula>
         <label>Agreement Date for CC New</label>
         <required>false</required>
-		<trackHistory>false</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Agreement_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
         <formula>toRole__r.Agreement_Date_for_Marketing_Consent__c</formula>
@@ -139,6 +139,31 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Agreement_to_commit_info_processing_KR__c</fullName>
+        <externalId>false</externalId>
+        <label>Agreement to commit info processing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>BPID__c</fullName>
@@ -161,8 +186,8 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-	</fields>
-	<fields>
+    </fields>
+    <fields>
         <fullName>CIAM_Email__c</fullName>
         <externalId>false</externalId>
         <label>CIAM Email</label>
@@ -211,7 +236,7 @@
     </fields>
     <fields>
         <fullName>CorrelationID__c</fullName>
-		<description>To Store the Correlation ID received from Auto-line through UI integration. Hidden field not to be displayed to the user.</description>
+        <description>To Store the Correlation ID received from Auto-line through UI integration. Hidden field not to be displayed to the user.</description>
         <externalId>false</externalId>
         <label>Correlation ID</label>
         <length>255</length>
@@ -278,7 +303,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-		<fullName>Dealer_ND_Code__c</fullName>
+        <fullName>Dealer_ND_Code__c</fullName>
         <externalId>false</externalId>
         <label>Dealer ND Code</label>
         <length>10</length>
@@ -288,18 +313,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>RetailDealer_ND_Code__c</fullName>
-        <externalId>false</externalId>
-        <formula>fromRole__r.Dealer_ND_Code__c</formula>
-        <label>Dealer ND Code</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>	
+    <fields>
         <fullName>Dealer_No__c</fullName>
         <externalId>false</externalId>
         <label>Dealer No.</label>
@@ -319,7 +333,29 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Expiration_Date_24h_Consent_CCC__c</fullName>
+        <externalId>false</externalId>
+        <formula>toRole__r.Expiry_Date_for_Service_24h_Consent__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>toRole__r.Expiration_Date_for_CC_Old__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Expiration_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
         <formula>toRole__r.Expiration_Date_for_CC_New__c</formula>
@@ -355,6 +391,31 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>General_Personal_Info_Mandatory__c</fullName>
+        <externalId>false</externalId>
+        <label>General Personal Info (Mandatory)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>General_Personal_Info_Sales_Marketing__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT( toRole__r.General_Personal_Info_Sales_Marketing__c)</formula>
@@ -365,7 +426,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-      <fields>
+    <fields>
         <fullName>General_Personal_Information_Mandatory__c</fullName>
         <externalId>false</externalId>
         <label>General Personal Information (Mandatory)</label>
@@ -390,7 +451,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-     <fields>
+    <fields>
         <fullName>General_Personal_Information_Optional__c</fullName>
         <externalId>false</externalId>
         <label>General Personal Information (Optional)</label>
@@ -620,7 +681,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
                 <fullName>AU</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>NZ</fullName>
                 <default>false</default>
             </picklistValues>
@@ -701,6 +762,17 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Old_UCID__c</fullName>
+        <externalId>false</externalId>
+        <label>OLDUCID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Origin__c</fullName>
         <externalId>false</externalId>
         <label>Origin</label>
@@ -724,15 +796,79 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Passport_No__c</fullName>
+        <fullName>Person_Agree_Test_Driving_Optional__c</fullName>
         <externalId>false</externalId>
-        <label>Passport No.</label>
-        <length>100</length>
+        <label>Person Agree Test Driving (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Person_Info_Custom_Service_Optional__c</fullName>
+        <externalId>false</externalId>
+        <label>Person Info Custom Service (Optional)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Personal_Abroad_Agreement_KR__c</fullName>
+        <externalId>false</externalId>
+        <label>Personal Abroad Agreement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Personal_Abroad_Agreement__c</fullName>
@@ -743,16 +879,32 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
-        <fullName>istestRunning__c</fullName>
-        <defaultValue>false</defaultValue>
+    <fields>
+        <fullName>Personal_Agreement_KR__c</fullName>
         <externalId>false</externalId>
-        <label>istestRunning</label>
+        <label>Personal Agreement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Personal_Agreement_Service_24h__c</fullName>
         <externalId>false</externalId>
         <label>Personal Agreement (Service 24h)</label>
@@ -787,6 +939,31 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Personal_Information_Third_Party_KR__c</fullName>
+        <externalId>false</externalId>
+        <label>Personal Information Third Party Release</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Personal_Information_Third_Party_Release__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -795,7 +972,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Portal_Delete_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Portal Delete Reason</label>
@@ -864,7 +1041,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Portal_Status_Change_History__c</fullName>
         <externalId>false</externalId>
         <label>Portal Status Change History</label>
@@ -1023,6 +1200,39 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>RetailDealer_ND_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>fromRole__r.Dealer_ND_Code__c</formula>
+        <label>Dealer ND Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RetailID_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>toRole__r.ID_Number__c</formula>
+        <label>ID Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RetailID_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(toRole__r.ID_Type__c)</formula>
+        <label>ID Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Retail_Abroad_Agreement__c</fullName>
         <externalId>false</externalId>
         <label>Abroad Agreement</label>
@@ -1114,14 +1324,14 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <description>Read Only</description>
         <externalId>false</externalId>
         <label>Address Reference</label>
-		<lookupFilter>		
-            <active>true</active>		
-            <filterItems>		
-                <field>Address__c.Customer__c</field>		
-                <operation>equals</operation>		
-                <valueField>$Source.toRole__c</valueField>		
-            </filterItems>		
-            <isOptional>false</isOptional>		
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Address__c.Customer__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.toRole__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Address__c</referenceTo>
         <relationshipLabel>Account Link</relationshipLabel>
@@ -1356,7 +1566,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Retail_Company_Mobile__c</fullName>
         <externalId>false</externalId>
         <label>Company Mobile</label>
@@ -1589,7 +1799,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
     <fields>
         <fullName>Retail_Delete_Flag__c</fullName>
         <defaultValue>false</defaultValue>
-		<description>Read Only</description>
+        <description>Read Only</description>
         <externalId>false</externalId>
         <label>Delete Flag</label>
         <trackHistory>false</trackHistory>
@@ -1800,19 +2010,8 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>RetailID_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>toRole__r.ID_Number__c</formula>
-        <label>ID Number</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <fields>
-		<fullName>Retail_ID_Type__c</fullName>
+        <fullName>Retail_ID_Type__c</fullName>
         <externalId>false</externalId>
         <label>ID Type</label>
         <picklist>
@@ -1851,24 +2050,12 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-	    <fields>
-        <fullName>RetailID_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>text(toRole__r.ID_Type__c)</formula>
-        <label>ID Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_Individual_Home_Phone__c</fullName>
@@ -3102,13 +3289,58 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Related_Company2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Related Company 2</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account_Link__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Retail Company</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Account Link</relationshipLabel>
+        <relationshipName>Account_Link2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Related_Company3__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Editable only by Dealer</description>
+        <externalId>false</externalId>
+        <label>Related Company 3</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account_Link__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Retail Company</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Account_Link__c</referenceTo>
+        <relationshipLabel>Account Link</relationshipLabel>
+        <relationshipName>Account_Link3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Retail_Related_Company__c</fullName>
@@ -3133,54 +3365,6 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
-        <fullName>Retail_Related_Company2__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Editable only by Dealer</description>
-        <externalId>false</externalId>
-        <label>Related Company 2</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account_Link__c.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Retail Company</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>Account_Link__c</referenceTo>
-        <relationshipLabel>Account Link</relationshipLabel>
-        <relationshipName>Account_Link2</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-   
-   <fields>
-        <fullName>Retail_Related_Company3__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Editable only by Dealer</description>
-        <externalId>false</externalId>
-        <label>Related Company 3</label>
-		 <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account_Link__c.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Retail Company</value>
-            </filterItems>
-            <isOptional>true</isOptional>
-        </lookupFilter>
-        <referenceTo>Account_Link__c</referenceTo>
-        <relationshipLabel>Account Link</relationshipLabel>
-        <relationshipName>Account_Link3</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-   
     <fields>
         <fullName>Retail_Responsible__c</fullName>
         <externalId>false</externalId>
@@ -3226,31 +3410,37 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>A</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>D</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>F</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -3347,17 +3537,6 @@ Holds National ID or Passport No. of wholesale Account</description>
         <externalId>false</externalId>
         <label>UCID</label>
         <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	 <fields>
-        <fullName>Old_UCID__c</fullName>
-        <externalId>false</externalId>
-        <label>OLDUCID</label>
-        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3582,7 +3761,7 @@ Holds National ID or Passport No. of wholesale Account</description>
             <picklistValues>
                 <fullName>Son</fullName>
                 <default>false</default>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -4089,7 +4268,32 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Targeted_Advert_Info_Optional_STCC__c</fullName>
+        <externalId>false</externalId>
+        <label>Targeted Advert Info(Optional) STCC</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Targeted_Advertising_Info_Optional__c</fullName>
         <externalId>false</externalId>
         <label>Targeted Advertising Info (Optional)</label>
@@ -4119,7 +4323,6 @@ Holds National ID or Passport No. of wholesale Account</description>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>To Be Deleted</label>
-		<trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -4135,7 +4338,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>UCID2__c</fullName>
         <externalId>false</externalId>
         <formula>toRole__r.UCID__c</formula>
@@ -4146,7 +4349,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	   <fields>
+    <fields>
         <fullName>Unique_Identification_Info_Mandatory__c</fullName>
         <externalId>false</externalId>
         <label>Unique Identification Info(Mandatory)</label>
@@ -4171,7 +4374,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-      <fields>
+    <fields>
         <fullName>Unique_Identity_Info_ThirdParty_Optional__c</fullName>
         <externalId>false</externalId>
         <label>Unique Identity Info ThirdParty-Optional</label>
@@ -4196,7 +4399,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>
         <label>Updated By EP Transactions</label>
@@ -4232,7 +4435,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Withdrawal_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
         <formula>toRole__r.Withdrawal_Date_for_Marketing_Consent__c</formula>
@@ -4241,7 +4444,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-	</fields>
+    </fields>
     <fields>
         <fullName>fromRole__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -4256,6 +4459,15 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>istestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>istestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>toRole__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -4268,233 +4480,34 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	  <fields>
-        <fullName>General_Personal_Info_Mandatory__c</fullName>
-        <externalId>false</externalId>
-        <label>General Personal Info (Mandatory)</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	 <fields>
-        <fullName>Person_Agree_Test_Driving_Optional__c</fullName>
-        <externalId>false</externalId>
-        <label>Person Agree Test Driving (Optional)</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	  <fields>
-        <fullName>Person_Info_Custom_Service_Optional__c</fullName>
-        <externalId>false</externalId>
-        <label>Person Info Custom Service (Optional)</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	 <fields>
-        <fullName>Targeted_Advert_Info_Optional_STCC__c</fullName>
-        <externalId>false</externalId>
-        <label>Targeted Advert Info(Optional) STCC</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Personal_Agreement_KR__c</fullName>
-        <externalId>false</externalId>
-        <label>Personal Agreement</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Personal_Information_Third_Party_KR__c</fullName>
-        <externalId>false</externalId>
-        <label>Personal Information Third Party Release</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	 <fields>
-        <fullName>Agreement_to_commit_info_processing_KR__c</fullName>
-        <externalId>false</externalId>
-        <label>Agreement to commit info processing</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Personal_Abroad_Agreement_KR__c</fullName>
-        <externalId>false</externalId>
-        <label>Personal Abroad Agreement</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-	<fields>
-        <fullName>Agreement_Date__c</fullName>
-        <externalId>false</externalId>
-        <formula>toRole__r.Agreement_Date_for_CC_Old__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Agreement Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	<fields>
-        <fullName>Expiration_Date__c</fullName>
-        <externalId>false</externalId>
-        <formula>toRole__r.Expiration_Date_for_CC_Old__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Expiration Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
     <label>Account Link</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Acc_Links</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBK01Ehq</group>
+            <group>MBK09Shq</group>
+            <group>MBK11Whq</group>
+            <group>MBK14Whq</group>
+            <group>MBK17Whq</group>
+            <group>MBK21Fhq</group>
+            <group>MBK26Fhq</group>
+            <group>MBK28Fhq</group>
+            <group>MBK30Whq</group>
+            <group>MBK31Shq</group>
+            <group>MBK41Fhq</group>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Account_Links</fullName>
@@ -4507,7 +4520,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <language>en_US</language>
         <sharedTo/>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>All_MBTH_Account_Links</fullName>
         <columns>NAME</columns>
         <columns>RECORDTYPE</columns>
@@ -4606,6 +4619,96 @@ Holds National ID or Passport No. of wholesale Account</description>
         <description>To link self-registered customer records</description>
         <label>Company Customer External Link</label>
         <picklistValues>
+            <picklist>Agreement_to_commit_info_processing_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_By__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Market__c</picklist>
             <values>
                 <fullName>AU</fullName>
@@ -4633,6 +4736,96 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4708,7 +4901,7 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
         </picklistValues>
         <picklistValues>
-			<picklist>Retail_ID_Type__c</picklist>
+            <picklist>Retail_ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
                 <default>false</default>
@@ -4734,7 +4927,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>			
+        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>Child</fullName>
@@ -4890,8 +5083,1312 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
-	<recordTypes>
+    <recordTypes>
+        <fullName>Contact2Contact</fullName>
+        <active>true</active>
+        <description>Company Account and Individual Account with Individual Account</description>
+        <label>Contact2Contact</label>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_By__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Source__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Type__c</picklist>
+            <values>
+                <fullName>M-Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal %28M-Care%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Business_Type__c</picklist>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Contact_Method__c</picklist>
+            <values>
+                <fullName>Letters to home address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No correspondence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_CustomerType__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_ID_Type__c</picklist>
+            <values>
+                <fullName>ID Card%2FDriving Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Officer Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Race__c</picklist>
+            <values>
+                <fullName>American</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laotian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role2__c</picklist>
+            <values>
+                <fullName>Boyfriend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Girlfriend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Son</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chauffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>My Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Shops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ContactSector</fullName>
+        <active>true</active>
+        <description>To link customer records with dealer records.</description>
+        <label>ContactSector</label>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_By__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Source__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Type__c</picklist>
+            <values>
+                <fullName>M-Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal %28M-Care%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Business_Type__c</picklist>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Contact_Method__c</picklist>
+            <values>
+                <fullName>Letters to home address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No correspondence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_CustomerType__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_ID_Type__c</picklist>
+            <values>
+                <fullName>ID Card%2FDriving Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Officer Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Race__c</picklist>
+            <values>
+                <fullName>American</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>British</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chinese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>French</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>German</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laotian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Bumi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singaporean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwanese</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnamese</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role2__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Boyfriend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daughter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Girlfriend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Son</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spouse</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>My Shops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>Finance_Services</fullName>
         <active>true</active>
         <description>To hold the FS Copy of Customer data (borrower / guarantor) for Thailand</description>
@@ -4992,7 +6489,6 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>AU</fullName>
                 <default>false</default>
             </values>
-			 
             <values>
                 <fullName>CN</fullName>
                 <default>false</default>
@@ -6313,775 +7809,101 @@ Holds National ID or Passport No. of wholesale Account</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Contact2Contact</fullName>
-        <active>true</active>
-        <description>Company Account and Individual Account with Individual Account</description>
-        <label>Contact2Contact</label>
-        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IN</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Portal_Source__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Portal_Type__c</picklist>
-            <values>
-                <fullName>M-Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal %28M-Care%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Business_Type__c</picklist>
-            <values>
-                <fullName>P</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Contact_Method__c</picklist>
-            <values>
-                <fullName>Letters to home address</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No correspondence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_CustomerType__c</picklist>
-            <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>P</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-			<picklist>Retail_ID_Type__c</picklist>
-            <values>
-                <fullName>ID Card%2FDriving Card</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National ID</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Officer Card</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Passport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>			
-            <picklist>Retail_Race__c</picklist>
-            <values>
-                <fullName>American</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bumi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>French</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>German</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Indian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Laotian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malay</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malaysian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-Bumi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Singaporean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>South Korean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Taiwanese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Role2__c</picklist>
-            <values>
-                <fullName>Boyfriend</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Colleague</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Daughter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Friend</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Girlfriend</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Son</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Owner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chauffer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Family</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Role__c</picklist>
-            <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Colleague</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Friend</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Owner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chauffer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Family</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sector__c</picklist>
-            <values>
-                <fullName>Passenger Car</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Status__c</picklist>
-            <values>
-                <fullName>My Shop</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Shops</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>ContactSector</fullName>
-        <active>true</active>
-        <description>To link customer records with dealer records.</description>
-        <label>ContactSector</label>
-        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IN</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Portal_Source__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Portal_Type__c</picklist>
-            <values>
-                <fullName>M-Care</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal %28M-Care%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Business_Type__c</picklist>
-            <values>
-                <fullName>P</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>S</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>W</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_Contact_Method__c</picklist>
-            <values>
-                <fullName>Letters to home address</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No correspondence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Retail_CustomerType__c</picklist>
-            <values>
-                <fullName>C</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>P</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>R</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-			<picklist>Retail_ID_Type__c</picklist>
-            <values>
-                <fullName>ID Card%2FDriving Card</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National ID</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Officer Card</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Passport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>			
-            <picklist>Retail_Race__c</picklist>
-            <values>
-                <fullName>American</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bumi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>French</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>German</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Indian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Japanese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Laotian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malay</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malaysian</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-Bumi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Singaporean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>South Korean</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Taiwanese</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Thai</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vietnamese</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Role2__c</picklist>
-			<values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Boyfriend</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Colleague</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Daughter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Friend</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Girlfriend</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Son</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spouse</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Role__c</picklist>
-			<values>
-                <fullName>After-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Colleague</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Friend</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand child</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Husband%E3%83%BBWife</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Relative</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sector__c</picklist>
-            <values>
-                <fullName>Passenger Car</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Status__c</picklist>
-            <values>
-                <fullName>My Shops</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
         <fullName>IndividualExternalLink</fullName>
         <active>true</active>
         <description>To link self-registered customer records with which system in which the customer registration happened</description>
         <label>Individual Customer External Link</label>
         <picklistValues>
+            <picklist>Agreement_to_commit_info_processing_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_By__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Market__c</picklist>
             <values>
                 <fullName>AU</fullName>
@@ -7089,6 +7911,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7107,8 +7933,94 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
             <values>
-                <fullName>IN</fullName>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7119,7 +8031,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
-		<picklistValues>
+        <picklistValues>
             <picklist>Portal_Status__c</picklist>
             <values>
                 <fullName>Activated</fullName>
@@ -7215,7 +8127,7 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
         </picklistValues>
         <picklistValues>
-			<picklist>Retail_ID_Type__c</picklist>
+            <picklist>Retail_ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
                 <default>false</default>
@@ -7241,7 +8153,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>			
+        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>Child</fullName>
@@ -7365,12 +8277,162 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Retail_Company</fullName>
         <active>true</active>
         <description>Customer Copy for Company Account</description>
         <label>Retail Company</label>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_By__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Market__c</picklist>
             <values>
@@ -7379,6 +8441,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7397,8 +8463,94 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
             <values>
-                <fullName>IN</fullName>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7583,7 +8735,7 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
         </picklistValues>
         <picklistValues>
-			<picklist>Retail_ID_Type__c</picklist>
+            <picklist>Retail_ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
                 <default>false</default>
@@ -7609,7 +8761,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>			
+        <picklistValues>
             <picklist>Retail_Industry__c</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -8308,6 +9460,66 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>My Shops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8318,6 +9530,96 @@ Holds National ID or Passport No. of wholesale Account</description>
         <description>Customer Copy for Person Account</description>
         <label>Retail Person</label>
         <picklistValues>
+            <picklist>Agreement_to_commit_info_processing_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_By__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Market__c</picklist>
             <values>
                 <fullName>AU</fullName>
@@ -8345,6 +9647,96 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8529,7 +9921,7 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
         </picklistValues>
         <picklistValues>
-			<picklist>Retail_ID_Type__c</picklist>
+            <picklist>Retail_ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
                 <default>false</default>
@@ -8555,7 +9947,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>			
+        <picklistValues>
             <picklist>Retail_Industry__c</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -9257,12 +10649,162 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Vehicle_External_Link</fullName>
         <active>true</active>
         <description>To capture the vehicle which were Imported</description>
         <label>Vehicle External Link</label>
+        <picklistValues>
+            <picklist>Agreement_to_commit_info_processing_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_InfoThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>General_Personal_Information_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Generated_By__c</picklist>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FS generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Market__c</picklist>
             <values>
@@ -9291,6 +10833,96 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Person_Info_Custom_Service_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Abroad_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Agreement_Service_24h__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Personal_Information_Third_Party_KR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9366,7 +10998,7 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
         </picklistValues>
         <picklistValues>
-			<picklist>Retail_ID_Type__c</picklist>
+            <picklist>Retail_ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
                 <default>false</default>
@@ -9392,7 +11024,7 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>			
+        <picklistValues>
             <picklist>Role2__c</picklist>
             <values>
                 <fullName>Child</fullName>
@@ -9548,6 +11180,66 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advert_Info_Optional_STCC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Advertising_Info_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identification_Info_Mandatory__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unique_Identity_Info_ThirdParty_Optional__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
@@ -9592,7 +11284,7 @@ Holds National ID or Passport No. of wholesale Account</description>
         <fullName>AccountLink_Market_Cannot_be_Changed</fullName>
         <active>true</active>
         <description>Market field of AccountLink should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI',NOT(isTestRunning__c))</errorConditionFormula>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI',NOT(istestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>

@@ -98,6 +98,13 @@
         <shortDescription>AUGeneric(This is used by AU Market for access check)</shortDescription>
         <value>AUGeneric</value>
     </labels>
+	<labels>
+        <fullName>CompanyAccountSearchErrorANZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Name and one of Contact Number has to be entered</shortDescription>
+        <value>Company Name and one of Contact Number has to be entered</value>
+    </labels>
     <labels>
         <fullName>AUPhoneCountryCode</fullName>
         <language>en_US</language>
@@ -219,6 +226,13 @@
         <shortDescription>Email2</shortDescription>
         <value>Email2</value>
     </labels>
+    <labels>
+        <fullName>EmailValidationANZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailValidationANZ</shortDescription>
+        <value>Invalid Email Address</value>
+    </labels>	
 	<labels>
         <fullName>Home_Phone_Acc</fullName>
         <language>en_US</language>
@@ -531,6 +545,14 @@
         <value>This address type already exist.</value>
     </labels>
     <labels>
+        <fullName>AddressTypeValidationANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressTypeValidationANZ</shortDescription>
+        <value>Please select address type</value>
+    </labels>	
+    <labels>
         <fullName>AddressTypeValidationIN</fullName>
         <categories>India</categories>
         <language>en_US</language>
@@ -697,6 +719,22 @@
         <shortDescription>Address Line 2 is Mandatory.</shortDescription>
         <value>Address Line 2 is Mandatory.</value>
     </labels>
+    <labels>
+        <fullName>Addressline2LengthANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Addressline2LengthANZ</shortDescription>
+        <value>Address Line 2 should be less than or equal to 100 characters.</value>
+    </labels>
+    <labels>
+        <fullName>Addressline3LengthANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Addressline3LengthANZ</shortDescription>
+        <value>Address Line 3 should be less than or equal to 100 characters.</value>
+    </labels>	
     <labels>
         <fullName>AdminClientNum</fullName>
         <language>en_US</language>
@@ -2207,6 +2245,14 @@
         <value>Company</value>
     </labels>
     <labels>
+        <fullName>CompanyAccountDedupValidation</fullName>
+        <categories>India</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CompanyAccountDedupValidation</shortDescription>
+        <value>Account Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of company account</value>
+    </labels>
+    <labels>
         <fullName>CompanyAccountSearchError</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2971,7 +3017,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>emailRegex</shortDescription>
-        <value>^([a-zA-Z0-9._|#~`=?$^!'{}+-]+)@([a-zA-Z0-9._]+).([a-zA-Z]{2,4})$</value>
+        <value>^([a-zA-Z0-9._|#~`=?$^!'{}+-]+)@([a-zA-Z0-9-._]+).([a-zA-Z]{2,4})$</value>
     </labels>
     <labels>
         <fullName>Email_Assignment</fullName>
@@ -3647,6 +3693,13 @@ please contact the number below.</value>
         <shortDescription>First Name Native should not be null</shortDescription>
         <value>First Name Native should not be null</value>
     </labels>
+    <labels>
+        <fullName>First_Name_is_mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First_Name_is_mandatory</shortDescription>
+        <value>First Name is mandatory</value>
+    </labels>	
 	<labels>
         <fullName>First_Name_should_be_less_than_or_equal_to_40_letters</fullName>
         <language>en_US</language>
@@ -4818,6 +4871,13 @@ please contact the number below.</value>
         <value>Last Name Native should not be null</value>
     </labels>
 	<labels>
+        <fullName>Last_Name_is_mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last_Name_is_mandatory</shortDescription>
+        <value>Last Name is mandatory</value>
+    </labels>
+	<labels>
         <fullName>Last_Name_should_be_less_than_or_equal_to_40_letters</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -5611,6 +5671,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <protected>false</protected>
         <shortDescription>Merge</shortDescription>
         <value>Merge</value>
+    </labels>
+    <labels>
+        <fullName>Merge_Warning_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merge Warning Text</shortDescription>
+        <value>Name and any one of the contact numbers are mandatory. Please enter proper data to avoid records getting identified as duplicate and merged</value>
     </labels>
     <labels>
         <fullName>Message_Approve_Failed</fullName>
@@ -6442,6 +6509,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Person Account</value>
     </labels>
     <labels>
+        <fullName>PersonAccountDedupValidation</fullName>
+        <categories>India</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccountDedupValidation</shortDescription>
+        <value>First Name , Last Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of person account</value>
+    </labels>
+    <labels>
         <fullName>PersonAccountSearchError</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6453,7 +6528,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>used in ANZ Address Search Validation Controller</shortDescription>
-        <value>For Customer Search First Name, Last Name and any of the contact information is required</value>
+        <value>First Name, Last Name and any of the contact information is required</value>
     </labels>
     <labels>
         <fullName>PersonAccount_Record_Type_From_Account</fullName>
@@ -6808,6 +6883,21 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Post</shortDescription>
         <value>Post</value>
     </labels>
+    <labels>
+        <fullName>PostalCodeMandatoryANZ</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PostalCodeMandatoryANZ</shortDescription>
+        <value>Postal Code is mandatory</value>
+    </labels>
+    <labels>
+        <fullName>PostalCodeValidationANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PostalCodeValidationANZ</shortDescription>
+        <value>Please enter valid Postal code</value>
+    </labels>	
     <labels>
         <fullName>Previous</fullName>
         <language>en_US</language>
@@ -9311,6 +9401,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Check Dedup</value>
     </labels>
     <labels>
+        <fullName>Secondary_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Secondary Email</shortDescription>
+        <value>Secondary Email</value>
+    </labels>	
+    <labels>
         <fullName>SelectPicklist</fullName>
         <categories>MBMY</categories>
         <language>en_US</language>
@@ -9608,6 +9705,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Special Filters</shortDescription>
         <value>Special Filters</value>
     </labels>
+    <labels>
+        <fullName>StateMandatoryANZ</fullName>
+        <categories>ANZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StateMandatoryANZ</shortDescription>
+        <value>State/City is Mandatory</value>
+    </labels>	
     <labels>
         <fullName>StateProvError</fullName>
         <language>en_US</language>
@@ -11802,5 +11907,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Successful Task Generation</shortDescription>
         <value>Successfully initiated the task generation functionality.The task generation process will take about 1-2 minutes. Please refresh the page after 1-2 minutes to find generated tasks.</value>
-    </labels>	
+    </labels>
+	<labels>
+        <fullName>LeadShareMY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>true</shortDescription>
+        <value>true</value>
+    </labels>
 </CustomLabels>

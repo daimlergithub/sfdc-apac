@@ -405,19 +405,6 @@
                         </apex:outputPanel>                             
                     </apex:pageBlockSectionItem> 
                                
-     <apex:pageBlockSectionItem >        
-                        <apex:outputLabel value="{!$ObjectType.Account.fields.Individual_Home_Phone__c.Label}" />       
-                        <apex:outputPanel >  
-   
-                          <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" style="width:30px" > 
-                            <apex:actionSupport action="{!checkcountrycodeANZ}" event="onchange" reRender="PersonAccBlockIN,slhmAreaCode,hmAreaCode" >
-                            </apex:actionSupport>
-                          </apex:inputText>                                   
-                          <apex:inputText value="{!hmAreaCode}" id="hmAreaCode" style="width:30px" rendered="{!!hAreaBoolean}"/>                                      
-                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" style="width:120px"/>                                      
-                                    
-                        </apex:outputPanel>     
-                    </apex:pageBlockSectionItem> 
                                                         
                     <apex:inputfield value="{!objAccount.Data_Source__c}"  />   
                     
@@ -1330,7 +1317,7 @@
                         <apex:inputField value="{!AddressObj.Address_Type__c}" style="width:35%; white-space:none;"/>
                      
                     </apex:pageBlockSectionItem>   
-      
+					<apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
                       <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}"/>
                         <apex:inputField value="{!AddressObj.Address_Line_1__c}"/>
@@ -1347,21 +1334,21 @@
                     </apex:pageBlockSectionItem>
                                         
                    
+                   <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Suburb__c.Label}"/>
+                        <apex:inputField value="{!AddressObj.Suburb__c}"/>
+                    </apex:pageBlockSectionItem>
+                                  
+                   <apex:pageBlockSectionItem >
+                       <apex:outputLabel value="{!$ObjectType.Address__c.fields.State_City__c.Label}"/>  
+                         <apex:inputField value="{!AddressObj.State_City__c}" style="width:35%; white-space:none;" />        
+                    </apex:pageBlockSectionItem>
+                      
+                    
                     <apex:pageBlockSectionItem >
                     <!-- rendered="{!IF(IsForeignNational==false,true,false)}"-->
                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Country__c.Label}"/>  
                          <apex:inputField value="{!AddressObj.Country__c}" style="width:35%; white-space:none;" />        
-                    </apex:pageBlockSectionItem>
-       
-                    <apex:pageBlockSectionItem >
-                       <apex:outputLabel value="{!$ObjectType.Address__c.fields.State_City__c.Label}"/>  
-                         <apex:inputField value="{!AddressObj.State_City__c}" style="width:35%; white-space:none;" />        
-                    </apex:pageBlockSectionItem>
-                   
-                      
-                     <apex:pageBlockSectionItem >
-                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Suburb__c.Label}"/>
-                        <apex:inputField value="{!AddressObj.Suburb__c}"/>
                     </apex:pageBlockSectionItem>
                     
                      
@@ -1370,7 +1357,6 @@
                      <apex:inputText id="inpZip" value="{!zip}"/>
                 </apex:pageblockSectionItem> 
                 
-                   <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
                     <apex:pageBlockSectionItem >      
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Market__c.Label}"/>        
                         <apex:inputField value="{!AddressObj.Market__c}"/>      
@@ -1740,7 +1726,7 @@
             <!--    <apex:pageBlock title="{!If(one,$Label.Confirmed_Match,$Label.Partial_Match)}" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">-->
                     <apex:pageBlock title="Match Found" id="frmCDM" rendered="{!If(showCDM && displayAccList.size!=0,true,false)}">
                     <apex:pageBlockSection columns="1"  rendered="{!IF(market == 'TH',true,false)}">
-                        <apex:PageBlockTable Columns="8" value="{!displayAccList}" var="Th">   
+                        <apex:PageBlockTable Columns="9" value="{!displayAccList}" var="Th">   
                             <apex:Column headerValue="{!$ObjectType.Account.fields.LastName.Label}" rendered="{!($User.ContactId !=null && recordType == 'Person Account')}">  
                                 <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!Th.Id}" rendered="{!$User.ContactId !=null}">{!Th.LastName}</apex:outputLink>    
                             </apex:Column>
@@ -1777,7 +1763,10 @@
                             </apex:Column>  
                             <apex:Column headerValue="{!$ObjectType.Account.fields.ID_Number__c.Label}" rendered="{!recordType == 'Person Account'}">                    
                                 <apex:outputField value="{!Th.ID_Number__c}"/>
-                            </apex:Column>                  
+                            </apex:Column>  
+							<apex:Column headerValue="Last Modified Date & Time" >     
+								<apex:outputField value="{!Th.Lastmodifieddate}"/>
+                            </apex:Column>  	
                         </apex:PageBlockTable>
                     </apex:pageBlockSection>
                  <!--PR20170918--End-- Introduced for Thailand-->
