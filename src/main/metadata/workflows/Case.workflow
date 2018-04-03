@@ -1336,53 +1336,6 @@
         <formula>AND(NOT(ISPICKVAL($Profile.UserType, &quot;PowerPartner&quot;)),  $Permission.MYGeneric, ISPICKVAL(Handling_Level__c, &quot;Dealer&quot;),  MD__c = &quot;MY&quot;,  SendEmailToGateKeeper__c = true,  OR(RecordType.Name = &quot;MB Complaint&quot;, RecordType.Name = &quot;Inquiry&quot;), ISCHANGED(OwnerId))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
-        <fullName>Case 48%2672H Check Notification</fullName>
-        <active>false</active>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
-        <criteriaItems>
-            <field>Case.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>MB Complaint</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Status</field>
-            <operation>notEqual</operation>
-            <value>Closed</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Repeat_Complaint_Times__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.CreateByCAC__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Dealer_Contact__c</field>
-            <operation>equals</operation>
-            <value>Yes,No</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Update_CheckFlag_After_72H</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <timeLength>72</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Update_CheckFlag_After_48H</name>
-                <type>FieldUpdate</type>
-            </actions>
-            <timeLength>48</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
 	<rules>
         <fullName>Auto Populate Eurovin TH</fullName>
         <actions>
@@ -1426,24 +1379,6 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Case Deadline Notification</fullName>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.DeadLine__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Case_need_to_be_handle_before_deadline</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Case.X15_Minutes_Before_Deadline__c</offsetFromField>
-            <timeLength>0</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
         <fullName>Case Deadline Notification JP</fullName>
         <active>true</active>
         <criteriaItems>
@@ -1464,62 +1399,6 @@
             </actions>
             <offsetFromField>Case.X15_Minutes_Before_Deadline__c</offsetFromField>
             <timeLength>0</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>Case Deadline Notification KR</fullName>
-        <active>false</active>
-        <booleanFilter>1 AND 2 AND 3 AND (4 OR 5)</booleanFilter>
-        <criteriaItems>
-            <field>Case.DeadLine__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Status</field>
-            <operation>notEqual</operation>
-            <value>Closed</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Priority</field>
-            <operation>equals</operation>
-            <value>B</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.Priority</field>
-            <operation>equals</operation>
-            <value>Yellow = 3</value>
-        </criteriaItems>
-        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 50 hours before the deadline,If the case Priority is B and Yellow = 3.</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Case_need_to_be_handle_before_deadline_KR</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Case.DeadLine__c</offsetFromField>
-            <timeLength>-50</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
-        <fullName>Case Deadline Notification KR After 240 hours</fullName>
-        <active>false</active>
-        <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
-        <formula>IF(AND(NOT(ISNULL(DeadLine__c)), MD__c=&apos;KR&apos;,NOT(ISPICKVAL( Status , &apos;Closed&apos;)),OR(ISPICKVAL(Priority, &apos;C&apos;),ISPICKVAL( Priority , &apos;Green &lt;= 2&apos;)), CreatedBy.Profile.Name &lt;&gt; &apos;Dealer Community User&apos;), true, false)</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Case_Deadline_Notification_KR_after_240_Hours</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Case.DeadLine__c</offsetFromField>
-            <timeLength>240</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
@@ -2418,54 +2297,6 @@
         <description>When RO change handling level to RO, send a email to RO.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <rules>
-        <fullName>Case%3A Update Case Origin To BMBS CAC</fullName>
-        <actions>
-            <name>Update_Case_Origin_To_CAC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Complaint_Creator_Department_toCA</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>MB Complaint</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>User.ProfileId</field>
-            <operation>startsWith</operation>
-            <value>CAC</value>
-        </criteriaItems>
-        <description>When a MB Complaint created by CAC, Update Complaint Creator Department To CAC.</description>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Case%3A Update Case Origin To Central CAC</fullName>
-        <actions>
-            <name>Update_Case_Origin_To_CAC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Complaint_Creator_Department_toCA</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>MB Complaint</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>User.ProfileId</field>
-            <operation>startsWith</operation>
-            <value>CAC</value>
-        </criteriaItems>
-        <description>When a MB Complaint created by CAC, Update Complaint Creator Department To CAC.</description>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
 	<rules>
         <fullName>Case%3A Update Complaint Creator Department To Dealer</fullName>
         <actions>
@@ -2581,17 +2412,6 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Complaint Update Notification</fullName>
-        <actions>
-            <name>Complaint_Update_Notification</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <description>Case team memeber update a case on specific fields, system will send an email to case team members.</description>
-        <formula>AND( OR( $Profile.Name == &apos;BMBS Regional CRM Manager&apos;, $Profile.Name == &apos;BMBS Service Technical Manager&apos;, $Profile.Name ==&apos;BMBS PL/WL Manager&apos;, CONTAINS($Profile.Name, &apos;Dealer&apos;)  ), AND(Urgent__c, OR(  ISCHANGED(OwnerId),   ISCHANGED(Follow_Up_Inquiry__c),  ISCHANGED(Complaint_Date__c),  ISCHANGED(Case_Involvement_MPC__c),  ISCHANGED(Case_Source__c),  ISCHANGED(ParentId),  ISCHANGED(AccountId),  ISCHANGED(Region__c),  ISCHANGED(Handling_Level__c),   ISCHANGED(Data_Source__c),  ISCHANGED(Case_Department__c),  ISCHANGED(Data_Subsource__c),  ISCHANGED(Case_Status__c),  ISCHANGED(Progress_Status__c),  ISCHANGED(Escalate_Date_to_RO__c),  ISCHANGED(Escalate_Date_to_CO__c),  ISCHANGED(Suspended_Date__c),  ISCHANGED(Suspended_Reason__c),  ISCHANGED(Overdue__c),  ISCHANGED(Overdue_Reason__c),  ISCHANGED(X1st_FP_Position_Release_Date__c),  ISCHANGED(X2nd_FP_Position_Release_Date__c),  ISCHANGED(SFPositionDate__c),  ISCHANGED(FFPositionDate__c),  ISCHANGED(Release_Date__c),  ISCHANGED(Resolved_Date__c),  ISCHANGED(Contact_Person__c),  ISCHANGED(Perferred_Contact_Number__c),  ISCHANGED(Contact_Person_Tele__c),  ISCHANGED(Perferred_Contact_Email__c),  ISCHANGED(Customer_Background_Info__c),  ISCHANGED(Government_Background__c),  ISCHANGED(Car_Owner__c),  ISCHANGED(Gender__c),  ISCHANGED(Occupation__c),  ISCHANGED(Title__c),  ISCHANGED(Owner_Tele__c),  ISCHANGED(Date_of_Birth__c),  ISCHANGED(Address__c),  ISCHANGED(Licence_Number__c),  ISCHANGED(Other_Brand__c),  ISCHANGED(Owned_MB_Vehicle__c),  ISCHANGED(Vehicle_In_Workshop__c),  ISCHANGED(Dealer_Provides_Transport__c),  ISCHANGED(Customer_Requests_Transport__c),  ISCHANGED(Selling_Dealer__c),  ISCHANGED(Order_No__c),  ISCHANGED(Last_Known_Sales_Person__c),  ISCHANGED(Date_of_Warranty_Expiry__c),  ISCHANGED(Last_Known_Mileage__c),  ISCHANGED(Date_of_1st_Registration__c),  ISCHANGED(US_VIN__c),  ISCHANGED(EU_VIN__c),  ISCHANGED(Defective_Item__c),  ISCHANGED(Defective_SubItem__c),  ISCHANGED(Car_Type__c),  ISCHANGED(Vehicle_Source__c),  ISCHANGED(Vehicle_Model__c),  ISCHANGED(Vehicle_Brand__c),  ISCHANGED(Engine_Number__c),  ISCHANGED(Vehicle_Class__c),  ISCHANGED(Special_Goodwill__c),  ISCHANGED(Goodwill_Category__c),  ISCHANGED(Goodwill_Details__c),  ISCHANGED(Goodwill_Cost__c),  ISCHANGED(Case_Dealer__c),  ISCHANGED(Dealer_Case_Category__c),  ISCHANGED(Dealer_Case_Type__c), ISCHANGED(Subject),   ISCHANGED( Ref_No_Central__c ),   ISCHANGED( Ref_No_Regional__c ),   ISCHANGED(  PR_Comment_Central_Internal__c ),   ISCHANGED( MPC_Internal_Notes__c ),   ISCHANGED(Dealer_Case_SubType__c)  )) )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>Inquiry Share to Regional Office</fullName>
         <actions>
             <name>Case_re_assigned_to_Supervisor_Team_B</name>
@@ -2620,38 +2440,6 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>New Retail Campaign Case Notification for Dealer</fullName>
-        <actions>
-            <name>Email_to_Dealer_when_Retail_Campaign_Case_is_assigned</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.Retail_Case_Notice_Dealer_Flag__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Notification to new User When add attachment</fullName>
-        <actions>
-            <name>Complaint_Update_Notification</name>
-            <type>Alert</type>
-        </actions>
-        <actions>
-            <name>update_workflow_order</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.Workflow_Order__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>Send Email to Gate Keeper</fullName>
         <actions>
             <name>Send_Email_to_Gate_Keeper</name>
@@ -2674,60 +2462,6 @@
             <value>KR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Send Email to Gate Keeper For Support Dealer1</fullName>
-        <actions>
-            <name>Send_Email_to_Gate_Keeper_For_Support_Dealer1</name>
-            <type>Alert</type>
-        </actions>
-        <actions>
-            <name>Update_Support_Dealer1_Email_FlgToFalse</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.Send_Email_Support_Dealer1_Keeper__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Send Email to Gate Keeper For Support Dealer2</fullName>
-        <actions>
-            <name>Send_Email_to_Gate_Keeper_For_Support_Dealer2</name>
-            <type>Alert</type>
-        </actions>
-        <actions>
-            <name>Update_Support_Dealer2_Email_FlgToFalse</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.Send_Email_Support_Dealer2_Keeper__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Send Email to Gate Keeper For Support Dealer3</fullName>
-        <actions>
-            <name>Send_Email_to_Gate_Keeper_For_Support_Dealer3</name>
-            <type>Alert</type>
-        </actions>
-        <actions>
-            <name>Update_Support_Dealer3_Email_FlgToFalse</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Case.Send_Email_Support_Dealer3_Keeper__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Send Email to Gate Keeper_TH</fullName>
@@ -2756,40 +2490,6 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Set Case to Overdue</fullName>
-        <actions>
-            <name>Update_Overdue_to_Yes</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
-        <criteriaItems>
-            <field>Case.DeadLine__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>JP</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Case.DeadLine__c</field>
-            <operation>greaterOrEqual</operation>
-            <value>TODAY</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <offsetFromField>Case.DeadLine__c</offsetFromField>
-            <timeLength>1</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
-    <rules>
         <fullName>Share to Regional Office</fullName>
         <actions>
             <name>Change_Case_Owner_to_CCC_Team</name>
@@ -2816,16 +2516,6 @@
             <operation>equals</operation>
             <value>True</value>
         </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Case status to %22Waiting for Response approval%22</fullName>
-        <actions>
-            <name>Status</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <formula>Owner:Queue.QueueName  &lt;&gt;  &apos;Supervisor Team B&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
