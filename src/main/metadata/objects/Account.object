@@ -279,6 +279,17 @@
         <label>SuspectAccountFields</label>
     </fieldSets>
     <fields>
+        <fullName>ACN__c</fullName>
+        <externalId>false</externalId>
+        <label>ACN</label>
+        <length>12</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ASLead_Notification_Timing__c</fullName>
         <externalId>false</externalId>
         <label>ASLead Notification Timing</label>
@@ -1067,6 +1078,38 @@ LEN( Phone ) &lt;&gt; 0
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+       <fullName>Business_Number_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Number Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Business_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Number</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Business_Unit__c</fullName>
@@ -14420,6 +14463,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
@@ -19626,6 +19680,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
@@ -24778,6 +24843,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
