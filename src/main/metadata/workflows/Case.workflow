@@ -819,15 +819,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Status</fullName>
-        <field>Status</field>
-        <literalValue>Waiting for Response approval</literalValue>
-        <name>Status</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Status_Final_approval_done</fullName>
         <field>Status</field>
         <literalValue>Final approval done</literalValue>
@@ -960,42 +951,6 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Case_Origin_To_CAC</fullName>
-        <field>Origin</field>
-        <literalValue>From CAC</literalValue>
-        <name>Update Case Origin To CAC</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_CheckFlag_After_48H</fullName>
-        <field>CheckFlag_48H__c</field>
-        <literalValue>1</literalValue>
-        <name>Update CheckFlag After 48H</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_CheckFlag_After_72H</fullName>
-        <field>CheckFlag_72H__c</field>
-        <literalValue>1</literalValue>
-        <name>Update CheckFlag After 72H</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Complaint_Creator_Department_toCA</fullName>
-        <field>Complaint_Creator_Department__c</field>
-        <literalValue>CAC</literalValue>
-        <name>Update Complaint Creator Department toCA</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
 	<fieldUpdates>
         <fullName>Update_Creator_Department_To_MBTH</fullName>
         <field>Complaint_Creator_Department__c</field>
@@ -1038,33 +993,6 @@
         <field>SendEmailToGateKeeper__c</field>
         <literalValue>1</literalValue>
         <name>Update Send email to GateKeeper</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Support_Dealer1_Email_FlgToFalse</fullName>
-        <field>Send_Email_Support_Dealer1_Keeper__c</field>
-        <literalValue>0</literalValue>
-        <name>Update Support Dealer1 Email FlgToFalse</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Support_Dealer2_Email_FlgToFalse</fullName>
-        <field>Send_Email_Support_Dealer2_Keeper__c</field>
-        <literalValue>0</literalValue>
-        <name>Update Support Dealer2 Email FlgToFalse</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Support_Dealer3_Email_FlgToFalse</fullName>
-        <field>Send_Email_Support_Dealer3_Keeper__c</field>
-        <literalValue>0</literalValue>
-        <name>Update Support Dealer3 Email FlgToFalse</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -1160,15 +1088,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Waiting_for_Final_Approval_4</fullName>
-        <field>Status</field>
-        <literalValue>Waiting for final approval</literalValue>
-        <name>Waiting for Final Approval 4</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Waiting_for_Final_Approval_5</fullName>
         <field>Status</field>
         <literalValue>Waiting for final approval</literalValue>
@@ -1229,15 +1148,6 @@
         <name>update owner manager</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>update_workflow_order</fullName>
-        <field>Workflow_Order__c</field>
-        <literalValue>0</literalValue>
-        <name>update workflow order</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
