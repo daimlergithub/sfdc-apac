@@ -64016,7 +64016,8 @@ NOT(REGEX(Business_Number__c, "[0-9]{11}"))
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI',
 if(OR (AND(MD__c=='NZ',$Permission.NZGeneric),AND(MD__c=='AU',$Permission.AUGeneric)),true,false), 
-NOT(REGEX(ACN__c, "[0-9]{9}"))
+NOT(REGEX(ACN__c, "[0-9]{9}")),
+NOT(ISBLANK(ACN__c))
 )</errorConditionFormula>
         <errorDisplayField>ACN__c</errorDisplayField>
         <errorMessage>Please enter exactly 9 Digits</errorMessage>
