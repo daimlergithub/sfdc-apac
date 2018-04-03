@@ -2307,6 +2307,17 @@
         <label>SuspectedPersonaccountfields</label>
     </fieldSets>
     <fields>
+        <fullName>ACN__c</fullName>
+        <externalId>false</externalId>
+        <label>ACN</label>
+        <length>12</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>	
+    <fields>
         <fullName>ASLead_Notification_Timing__c</fullName>
         <externalId>false</externalId>
         <label>ASLead Notification Timing</label>
@@ -3357,6 +3368,38 @@ LEN( Phone ) &lt;&gt; 0
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Business_Number_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Number Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Business_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Number</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Business_Unit__c</fullName>
@@ -22188,7 +22231,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Business_Unit__c</picklist>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+			<picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
                 <default>false</default>
@@ -28608,7 +28662,18 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Business_Unit__c</picklist>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+			<picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
                 <default>false</default>
@@ -34862,6 +34927,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
@@ -40893,6 +40969,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -47231,6 +47318,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
@@ -53284,6 +53382,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
@@ -58833,6 +58942,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
@@ -63877,6 +63997,32 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>ABNBusinessNumberValidationANZ</fullName>
+        <active>true</active>
+        <description>if user select ABN business Number Type then  the value entered in the Busienss Number is 11 digits</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI',
+if(OR (AND(MD__c=='NZ',$Permission.NZGeneric),AND(MD__c=='AU',$Permission.AUGeneric)),true,false), 
+ISPICKVAL(Business_Number_Type__c, 'ABN'),
+NOT(REGEX(Business_Number__c, "[0-9]{11}"))
+)</errorConditionFormula>
+        <errorDisplayField>Business_Number__c</errorDisplayField>
+        <errorMessage>Please enter 11 digits</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACNValidationANZ</fullName>
+        <active>true</active>
+        <description>Validates the Value Entered in ACN  are all numbers and the length is exactly 9 digits for ANZ Market</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI',
+if(OR (AND(MD__c=='NZ',$Permission.NZGeneric),AND(MD__c=='AU',$Permission.AUGeneric)),true,false), 
+NOT(REGEX(ACN__c, "[0-9]{9}")),
+NOT(ISBLANK(ACN__c))
+)</errorConditionFormula>
+        <errorDisplayField>ACN__c</errorDisplayField>
+        <errorMessage>Please enter exactly 9 Digits</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Aadhaar_Card_Format</fullName>
         <active>true</active>
         <errorConditionFormula>AND(Aadhaar__c != "", NOT( REGEX(  Aadhaar__c , "[1-9]{1}[0-9]{11}") ),$Permission.INGeneric,$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
@@ -65205,6 +65351,19 @@ MD__c = 'JP'
         <errorConditionFormula>AND(MD__c ='KR',ISBLANK(Mobile__c),RecordType.DeveloperName = 'PersonAccount',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Mobile__c</errorDisplayField>
         <errorMessage>Please enter Mobile number.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NZBNBusinessNumberValidationANZ</fullName>
+        <active>true</active>
+        <description>If Business number Type selected is NZBN, system should validate that the values entered are all numbers and the length is exactly 13 digits</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI',
+if(OR (AND(MD__c=='NZ',$Permission.NZGeneric),AND(MD__c=='AU',$Permission.AUGeneric)),true,false), 
+ISPICKVAL(Business_Number_Type__c, 'NZBN'),
+ NOT(REGEX(Business_Number__c, "[0-9]{13}"))
+)</errorConditionFormula>
+        <errorDisplayField>Business_Number__c</errorDisplayField>
+        <errorMessage>Please enter 13 digits</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PAN_card_format</fullName>
