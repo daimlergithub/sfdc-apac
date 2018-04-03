@@ -522,46 +522,10 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Change_Status_to_Final_approval_don</fullName>
-        <field>Status</field>
-        <literalValue>Final approval done</literalValue>
-        <name>Change Status to &apos;Final approval don</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Change_Status_to_Final_approval_done</fullName>
         <field>Status</field>
         <literalValue>Final approval done</literalValue>
         <name>Change Status to &apos;Final approval done&apos;</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_Status_to_Final_approval_rejec</fullName>
-        <field>Status</field>
-        <literalValue>Final approval rejected</literalValue>
-        <name>Change Status to &apos;Final approval rejec</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_Status_to_Final_approval_reject</fullName>
-        <field>Status</field>
-        <literalValue>Final approval done</literalValue>
-        <name>Change Status to &apos;Final approval reject</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_Status_to_New</fullName>
-        <field>Status</field>
-        <literalValue>New</literalValue>
-        <name>Change Status to New</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -639,24 +603,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Final_Approval_14</fullName>
-        <field>Status</field>
-        <literalValue>Final approval done</literalValue>
-        <name>Final Approval 14</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Final_Approval_15</fullName>
-        <field>Status</field>
-        <literalValue>Final approval done</literalValue>
-        <name>Final Approval 15</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Final_Approval_16</fullName>
         <field>Status</field>
         <literalValue>Final approval done</literalValue>
@@ -688,15 +634,6 @@
         <field>Status</field>
         <literalValue>Final approval done</literalValue>
         <name>Final Approval 4</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Final_Approval_5</fullName>
-        <field>Status</field>
-        <literalValue>Final approval done</literalValue>
-        <name>Final Approval 5</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -823,15 +760,6 @@
         <field>Status</field>
         <literalValue>Final approval rejected</literalValue>
         <name>Final Rejected 4</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Final_Rejected_5</fullName>
-        <field>Status</field>
-        <literalValue>Final approval rejected</literalValue>
-        <name>Final Rejected 5</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
