@@ -86,14 +86,14 @@ private class campaignMemberHelperKRTest
             campMbr.MD__c = 'KR';
             campMbr.Task_Generated__c = false;
             campMembrList.add(campMbr);
-            //campMembrMap.put(campMbr.Id,campMbr);
-            
-            
-       }
+         }
        insert campMembrList;
-       for(CampaignMember c:campMembrList){
-           campMembrMap.put(c.Id,c);
-       }
+	   CampaignMember listCampaignm =[select id,status,status__c from CampaignMember where id IN:campMembrList limit 1];
+         list<CampaignMember> oldList = new  list<CampaignMember>();
+         oldList.add(listCampaignm);
+        campMembrMap.put(listCampaignm.id, listCampaignm);
+		
+       
     }
     public static testMethod void updateCampaignMemberTest() 
     {
@@ -102,7 +102,10 @@ private class campaignMemberHelperKRTest
         campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(campExec.Id);
         system.debug('list>>>>'+campMembrList);
         system.debug('map>>>>'+campMembrMap);
-        //campaignMemberHelperKR.updatecustomstatus(campMembrList,campMembrMap);
+        try{
+        campaignMemberHelperKR.updatecustomstatus(campMembrList,campMembrMap);
+        
+        }catch(Exception e){}
         Test.stopTest();        
     }
 }
