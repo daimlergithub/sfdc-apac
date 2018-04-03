@@ -16041,6 +16041,15 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Opt_In_Mail__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In Mail</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Opt_In_Mobile__c</fullName>
         <defaultValue>false</defaultValue>
         <description>New field to be added in Kernel Template</description>
@@ -16051,10 +16060,28 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Opt_In_Phone__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In Phone</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Opt_In_SMS2__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Opt In SMS/MMS/IM 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_In_SMS3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In SMS</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
