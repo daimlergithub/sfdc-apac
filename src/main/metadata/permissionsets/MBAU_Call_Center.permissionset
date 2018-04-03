@@ -14586,11 +14586,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Customer_Key_Credential__c.Retail_FS_Guaranteer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Material__c.Active__c</field>
         <readable>false</readable>
     </fieldPermissions>
