@@ -15,10 +15,6 @@
                 <field>Borrower__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Guarantor__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Rentals_NextDue__c</field>
             </layoutItems>
@@ -51,10 +47,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_FS_Borrower__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_FS_Guarantor__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -295,6 +287,13 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>FS_Customer__c</fields>
+        <fields>FS_Customer_Copy__c</fields>
+        <fields>Relation_Type__c</fields>
+        <relatedList>FS_Contract_Relations__c.FS_Contract__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Credit__c</fields>

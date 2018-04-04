@@ -16564,6 +16564,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>FS_Contract_Relations__c.FS_Customer_Copy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_Contract_Relations__c.FS_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>FS_Contract_Relations__c.Relation_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>FS_Contract__c.Activation_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -30094,6 +30109,9 @@
         <layout>FAQ__kav-How To Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>FS_Contract_Relations__c-FS Contract Relations Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>FS_Contract__c-FS Contract Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -30774,6 +30792,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Customer_Key_Credential__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>FS_Contract_Relations__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
