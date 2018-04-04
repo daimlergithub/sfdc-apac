@@ -265,12 +265,12 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Account_No__c</fields>
-        <fields>BPID__c</fields>
+        <fields>Borrower__c</fields>
         <fields>Guarantor__c</fields>
+        <fields>Retail_FS_Guarantor__c</fields>
         <fields>Bank_Name__c</fields>
         <fields>Bank_Code__c</fields>
-        <fields>Race__c</fields>
-        <fields>Passport_No__c</fields>
+        <fields>Bank_Reg_No__c</fields>
         <relatedList>Customer_Key_Credential__c.Retail_FS_Borrower__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -282,7 +282,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0k000000SoY4</masterLabel>
+        <masterLabel>00h0l000000Jp8S</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

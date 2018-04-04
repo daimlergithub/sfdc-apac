@@ -14508,6 +14508,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Customer_Key_Credential__c.Guarantor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Customer_Key_Credential__c.ID_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14539,6 +14544,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Customer_Key_Credential__c.Retail_FS_Borrower__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Customer_Key_Credential__c.Retail_FS_Guarantor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16044,6 +16054,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>FAQ__kav.Question__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract_Relations__c.FS_Customer_Copy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract_Relations__c.FS_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract_Relations__c.Relation_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -29345,6 +29370,9 @@
         <layout>FAQ__kav-How To Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>FS_Contract_Relations__c-FS Contract Relations Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>FS_Contract__c-FS Contract Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -30402,6 +30430,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>FAQ__kav</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>FS_Contract_Relations__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
