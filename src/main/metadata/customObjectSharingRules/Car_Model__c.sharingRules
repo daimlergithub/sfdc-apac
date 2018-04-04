@@ -15,6 +15,20 @@
         <name>CarModelWithCommunityUsers</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Car_Model_Share_India</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>to share car model records with India</description>
+        <name>Car Model Share India</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_CarModel_Readable_to_MBJ_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinates>Central</roleAndSubordinates>

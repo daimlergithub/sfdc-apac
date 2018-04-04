@@ -1,0 +1,192 @@
+<!-- VF page added For Creation of Sales Leads;  Lead2Opty -->
+<apex:page standardController="opportunity" extensions="SalesLeadController">   
+    <apex:sectionHeader title="New Sales Lead" subtitle="{!opp.Name}"/>
+    <apex:form >
+        <apex:pageBlock title="Sales Lead" mode="edit">
+            <apex:pageMessages id="msg" />
+        <!--------------  Lead Info Section -------------->
+            <apex:pageBlockSection title="Lead Information" columns="2">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_LeadInfo}"  var="f">
+                            <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+        <!--------------  Dealer Info Section -------------->
+            <apex:pageBlockSection title="Dealer Information" columns="2">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DealerInfo}"  var="f">
+                            <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+        <!--------------  Lead Customer Info Section ----------
+            <apex:pageBlockSection title="Lead Customer Information" columns="2">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_CustomerInfo}"  var="f">
+                            <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>  ---->
+            
+        <!--------------  Test Lead Customer Info Section ------------>
+            <apex:pageBlockSection title="Lead Customer Information" columns="2">
+                <!--<apex:inputField value="{!opp.AccountId}" onchange="Vehrel(this.value)"/>-->
+                <apex:inputField value="{!opp.AccountId}"  required="true">
+                    <apex:actionSupport event="onchange" action="{!Vehrel}"/>
+                </apex:inputField>
+            </apex:pageBlockSection>
+            
+            
+
+        <!--------------  Lead DMS Info Section -------------->
+            <apex:pageBlockSection title="Lead DMS Information" columns="2">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DMSInfo}"  var="f">
+                            <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+        <!--------------  Vehicle Info Section -------------->      
+        <!--    <apex:pageBlockSection title="Vehicle Information" columns="2">
+                <apex:inputField value="{!opp.Bought_Vehicle_Brand__c}" required="false"/>
+                <apex:inputField value="{!opp.Bought_Vehicle_Class__c}" required="false"/>
+                <apex:inputField value="{!opp.Bought_Vehicle_Model__c}" required="false"/>
+            </apex:pageBlockSection> -->
+            
+        <!--------------  Lead Processing Info Section -------------->      
+
+            <apex:pageBlockSection title="Lead Processing Information" columns="2">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_ProcessInfo}"  var="f">
+                            <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+
+        <!--------------  Activity Date Info Section -------------->        
+            <apex:pageBlockSection title="Activity Date Information" columns="1">
+                <apex:inputField value="{!opp.Pickup_Date_Time__c}" required="false"/>
+            </apex:pageBlockSection>
+            
+        <!--------------  Date Info Section -------------->     
+            <apex:pageBlockSection title="Date Information" columns="2">
+                <apex:inputField value="{!opp.Visited_Showroom_Date_Time__c}" required="false"/>
+            </apex:pageBlockSection>
+
+        <!--------------  System Info Section -------------->     
+            <apex:pageBlockSection title="System Information" columns="2">
+                <apex:outputField value="{!opp.createdById}"/>
+                <apex:outputField value="{!opp.lastmodifiedbyId}"/>
+                <apex:inputField value="{!opp.Market__c}"/>
+            </apex:pageBlockSection>
+
+            <br></br>
+        
+            <apex:pageBlockSection title="Interested Vehicle Information" columns="1">
+             <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
+            <apex:pageMessages id="pgmsg"/>  
+                <apex:commandButton value=" Add Interested Vehicle" action="{!AddIntRecord}" reRender="pb1" rendered="{!isHide}"/>
+                <apex:pageBlockTable id="pb1" value="{!intVehicle}"  var="item" title="Vehicle Information">
+                    <apex:column headerValue="Car Model">
+                        <apex:inputField value="{!item.Car_Model__c}" onchange="UpdateModInfo(this)"/>
+                    </apex:column>
+                    <apex:column headerValue="Brand">
+                        <apex:outputLabel value="{!item.Brand__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Class">
+                        <apex:outputLabel value="{!item.Class__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Color">
+                        <apex:outputLabel value="{!item.Color__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Preferred">
+                        <apex:inputfield value="{!item.Preferred__c}" onchange="PreferredChk(this)"/>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <br></br>
+            
+            <apex:pageBlockSection title="Competitor Vehicle Information" columns="1">
+                <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
+                <apex:pageMessages id="pgmsg1"/>
+                <apex:commandButton value=" Add Competitor Vehicle" action="{!AddCompRecord}" reRender="pb2" rendered="{!isHidecomp}"/>
+                <apex:pageBlockTable id="pb2" value="{!compVehc}"  var="item" title="Vehicle Information">
+                    <apex:column headerValue="Car Model">
+                        <apex:inputField value="{!item.Car_Model_Competitor__c}" onchange="UpdateModInfo(this)"/>
+                    </apex:column>
+                    <apex:column headerValue="Brand">
+                        <apex:outputLabel value="{!item.Brand__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Class">
+                        <apex:outputLabel value="{!item.Class__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Color">
+                        <apex:outputLabel value="{!item.Color__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Preferred">
+                        <apex:inputfield value="{!item.Preferred__c}"  onchange="PreferredChkComp(this)"/>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <br></br>
+            
+            <apex:pageBlockSection title="Trade-In Vehicle Information" columns="1">
+                <apex:pageBlockTable id="pb3" value="{!tradeVehc}"  var="item" title="Vehicle Information">
+                    <apex:column headerValue="Trade-In Vehicle">
+                        <apex:inputField value="{!item.Trade_In_Vehicle__c}"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Year of Manufacture">
+                        <apex:inputField value="{!item.Year_of_Manufacture__c}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Mileage">
+                        <apex:inputField value="{!item.Mileage__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Trim">
+                        <apex:inputField value="{!item.Trim__c}" />
+                    </apex:column>
+                    
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Current Vehicles" columns="1">
+                <apex:pageBlockTable id="pb2" value="{!vehRel}"  var="item" title="Vehicle Information">
+                    <apex:column headerValue="Car Model">
+                        <apex:outputLabel value="{!item.Vehicle_Model__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Brand">
+                        <apex:outputLabel value="{!item.Vehicle_Brand__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Class">
+                        <apex:outputLabel value="{!item.Vehicle_Class__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Mileage Start">
+                        <apex:outputLabel value="{!item.Mileage_start__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Mileage">
+                        <apex:outputLabel value="{!item.Mileage_End__c}" />
+                    </apex:column>
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            
+            <apex:actionFunction name="UpdateModInfo" action="{!UpdateModInfo}" reRender="pb1,pb2,pb3">
+            </apex:actionFunction>
+			<apex:actionFunction name="PreferredChk" action="{!PreferredChk}" reRender="pgmsg,pb1,pb2,pb3">
+            </apex:actionFunction>
+			<apex:actionFunction name="PreferredChkComp" action="{!PreferredChkComp}" reRender="pgmsg1,pb1,pb2,pb3">
+            </apex:actionFunction>
+            
+			
+            <apex:pageBlockButtons >
+                <apex:commandButton value=" Save " action="{!saveOpp}" reRender="msg"/>
+                <apex:commandButton value=" Cancel" action="{!Cancel}" />
+            </apex:pageBlockButtons> 
+    </apex:pageblock> 
+    
+        <script>
+        function UpdateModelInfo(obj){      
+            UpdateModel(); 
+        }
+        </script>
+    </apex:form>
+</apex:page>
