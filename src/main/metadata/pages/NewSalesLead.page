@@ -1,0 +1,3 @@
+<!--  New Lead VF page added For Redirecting as per Record Type selection -->
+<apex:page standardController="opportunity" extensions="NewSalesLeadController" action="{!goToRecordTypePage}">
+</apex:page>
