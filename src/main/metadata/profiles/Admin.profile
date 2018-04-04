@@ -14508,6 +14508,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Customer_Key_Credential__c.Guarantor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Customer_Key_Credential__c.ID_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14539,6 +14544,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Customer_Key_Credential__c.Retail_FS_Borrower__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Customer_Key_Credential__c.Retail_FS_Guarantor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
