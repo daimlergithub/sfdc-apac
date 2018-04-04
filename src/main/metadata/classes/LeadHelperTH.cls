@@ -97,7 +97,7 @@ public without sharing class LeadHelperTH {
 
                     } else {
                         if (l.assigned_dealer__c != null && l.Received_Date_Time__c != null && l.Accepted_Date_Time__c != null) {
-                            if (l.CAC_Lead_status__C != System.label.Accepted) {
+                            if (l.CAC_Lead_status__C  == 'New') {
 
                                 l.ownerID=l.createdbyId;
                                 l.assigned_dealer__c = null;
