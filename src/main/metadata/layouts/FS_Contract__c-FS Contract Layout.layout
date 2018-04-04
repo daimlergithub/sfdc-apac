@@ -28,10 +28,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Flat_Rate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>External_Contract_ID__c</field>
             </layoutItems>
             <layoutItems>
@@ -231,18 +227,22 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Flat_Rate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Base_rate__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Target_subsidy_amount__c</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Total_IDC__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Net_IRR_rate__c</field>
@@ -289,6 +289,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+<<<<<<< HEAD
         <fields>FS_Customer__c</fields>
         <fields>FS_Customer_Copy__c</fields>
         <fields>Relation_Type__c</fields>
@@ -296,10 +297,21 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+=======
+        <fields>Credit__c</fields>
+        <fields>Debit__c</fields>
+        <fields>Transaction_Date__c</fields>
+        <fields>Transaction_Type__c</fields>
+        <fields>Transction_Description__c</fields>
+>>>>>>> 9c4a0ae2d1e18721b36d811dc211bf34a00bd53a
         <relatedList>Account_Statement__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Expiry_Date__c</fields>
+        <fields>Insurance_Broker__c</fields>
+        <fields>Insurance_Company__c</fields>
+        <fields>Issue_Date__c</fields>
         <relatedList>Asset_Invoice__c.FS_Contract__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -412,7 +424,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0k000000SoUB</masterLabel>
+        <masterLabel>00h0l000000Japz</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

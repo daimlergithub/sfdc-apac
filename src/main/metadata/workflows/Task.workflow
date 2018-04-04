@@ -47,13 +47,6 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <rules>
-        <fullName>Auto Populate Phone and Email</fullName>
-        <active>false</active>
-        <description>Autopopulate the phone and email fields based on the selected customer information</description>
-        <formula>AND(OR(WhoId  &lt;&gt; Null,WhoId  &lt;&gt; &apos;&apos;),MD__c == &apos;KR&apos;)</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
 	<rules>
         <fullName>Set Call Duration</fullName>
         <actions>

@@ -793,6 +793,13 @@
         <value>Aftersales Contact Target 2</value>
     </labels>
     <labels>
+        <fullName>Aftersales_Lead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Aftersales Lead RecordType Name</shortDescription>
+        <value>Aftersales Lead</value>
+    </labels>
+    <labels>
         <fullName>Age</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4060,11 +4067,25 @@ please contact the number below.</value>
         <value>City is Mandatory.</value>
     </labels>
     <labels>
+        <fullName>IN_Competitor_Preferred_vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_Competitor_Preferred_vehicle</shortDescription>
+        <value>Cannot select more than one Preferred Competitor Vehicle</value>
+    </labels>
+    <labels>
         <fullName>IN_Foreign_Nationals</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Foreign National validation for India market</shortDescription>
         <value>Cannot select Country as India when Foreign national checkbox is ticked.</value>
+    </labels>
+    <labels>
+        <fullName>IN_Interested_Preferred_vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_Interested_Preferred_vehicle</shortDescription>
+        <value>Cannot select more than one Preferred Interested Vehicle</value>
     </labels>
     <labels>
         <fullName>IN_Postal_Code_validation</fullName>
@@ -4079,6 +4100,13 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>State validation for INDIA Market</shortDescription>
         <value>State/Province is Mandatory.</value>
+    </labels>
+    <labels>
+        <fullName>IN_Vehicle_Info_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_Vehicle_Info_Message</shortDescription>
+        <value>Enter all the required information above for adding vehicle details.</value>
     </labels>
     <labels>
         <fullName>I_don_t_know_no_statement</fullName>
@@ -4939,6 +4967,27 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Lead Conditions</shortDescription>
         <value>Lead Conditions</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Detail_Competitor_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead_Detail_Competitor_Record_Type</shortDescription>
+        <value>Competitor</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Detail_Interested_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead_Detail_Interested_Record_Type</shortDescription>
+        <value>Interested Vehicle</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Detail_TradeIn_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead_Detail_TradeIn_Record_Type</shortDescription>
+        <value>Trade In</value>
     </labels>
     <labels>
         <fullName>Lead_Filter</fullName>
@@ -9264,6 +9313,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Sales Contact Target Sales Responsible Person</value>
     </labels>
     <labels>
+        <fullName>Sales_Lead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Lead Recordtype Name</shortDescription>
+        <value>Sales Lead</value>
+    </labels>
+    <labels>
         <fullName>Sales_Mail</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -11314,7 +11370,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>korea Business Hours Id</shortDescription>
-        <value>01mO00000004Djp</value>
+        <value>01m28000000kAjx</value>
     </labels>
     <labels>
         <fullName>l_AtmospherePerceptionandLighting</fullName>
