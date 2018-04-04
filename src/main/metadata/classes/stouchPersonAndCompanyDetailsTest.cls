@@ -41,6 +41,7 @@ public static date todate=date.valueOf('2017-11-24T10:56:01.000+0000');
             ld.contact__c=null;
             update ld;
             stouchPersonDetails.getPersonDetails();
+            request.requestBody = Blob.valueOf('{"Company_UCID__c":"'+acc.UCID__c+'","fromDate":"'+fromdate+'","toDate":"'+todate+'"}');
             stouchCompanyDetails.getPersonDetails();
         }
           test.stopTest();
