@@ -3859,10 +3859,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>AddressSearchValidationINDIA</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>AddressSelectionforExistingCustomer</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -4256,10 +4252,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>NewOpportunity</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
