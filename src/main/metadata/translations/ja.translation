@@ -160,6 +160,10 @@
         <label>お知らせ</label>
         <name>Announcements</name>
     </customLabels>
+	  <customLabels>
+        <label>リストメンテナンス開始を実施します</label>
+        <name>Are_you_sure_to_create_Retail_Campaign</name>
+    </customLabels>
 	 <customLabels>
         <label>本当に削除してよろしいですか？</label>
         <name>Are_you_sure_to_delete_this_account</name>
@@ -2465,6 +2469,22 @@
         <label>Mercedes me退会処理を実施しますか？</label>
         <name>Are_you_sure_to_delete_this_account_mym</name>
     </customLabels> 
+	 <customLabels>
+        <label>リストメンテナンス開始を実施します</label>
+        <name>Are_you_sure_to_start_List_Maintenance</name>
+    </customLabels>
+    <customLabels>
+        <label>リスト統合開始を実施します</label>
+        <name>Are_you_sure_to_start_consolidation</name>
+    </customLabels>
+    <customLabels>
+        <label>キャンペーンメンバー割り振りを実施します</label>
+        <name>Are_you_sure_to_start_distributing_to_dealer</name>
+    </customLabels>
+    <customLabels>
+        <label>メンバー情報最新化を実施します</label>
+        <name>Are_you_sure_to_start_refresh</name>
+    </customLabels>
 	<customLabels>
         <label>新車中古車区分</label>
         <name>New_Used</name>

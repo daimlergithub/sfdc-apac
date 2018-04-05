@@ -31427,6 +31427,10 @@
         <apexPage>MBKSSORedirectPage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>MBMYSSORedirectPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>MRCAccessPermissionSetFromFunctionality</apexPage>
         <enabled>true</enabled>
