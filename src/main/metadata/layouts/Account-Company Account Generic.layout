@@ -149,11 +149,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Country__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Occupation__c</field>
-            </layoutItems>
+            </layoutItems>            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Legal_Form__c</field>
