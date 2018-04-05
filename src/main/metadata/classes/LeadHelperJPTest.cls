@@ -178,7 +178,7 @@ public class LeadHelperJPTest
         lead1.Contact__c = objAccount.id;
         lead1.Assigned_Dealer__c = DealerAccount.id;
         lead1.CAC_Lead_Status__c = 'New';
-        insert lead1;
+        //insert lead1;
         
         
         lead2 = new lead__C();

@@ -185,7 +185,7 @@ public class UserHelperTHTest {
             
             User userObj2 = new User(ContactId=c2.Id,LastName='User2',country='Australia',firstName='BCI',ProfileId=profileObj.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser02@testing.com',UserName='admusr2@daimler.com',Market__c = 'TH',isActive=true);
           insert userObj2;
-        
+        new UserTriggerHandlerTH().handleIntegrationTrigger(false,false,false,false,false);
         }
         test.stopTest();
 

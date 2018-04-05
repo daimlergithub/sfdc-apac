@@ -67,7 +67,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Customer Satisfaction Index (Service) AS</name>
+    <name>CSI 리포트 (AS - 서비스)</name>
     <params>
         <name>co</name>
         <value>1</value>

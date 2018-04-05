@@ -23,20 +23,23 @@ public with sharing class VehicleRelationshipHelperMY{
         VehicleRelationshipHelperBase.OnAfterDelete(oldVehicleRelRecords);
     } 
 
-    Public static void updateAccountstatus(Set<Id> ContactIds){ 
-        VehicleRelationshipHelperBase.updateAccountstatus(ContactIds);
-    }
-
-    Public static void updateVehicleAmount(Set<Id> ContactIds){
-        VehicleRelationshipHelperBase.updateVehicleAmount(ContactIds);
-    }  
-
-    Public static void createAccountLink(Set<Id> VehicleIds,Set<Id> VehicleRelationshipIds,Set<Id> contactIdofVehicleRelationship){
-        VehicleRelationshipHelperBase.createAccountLink(VehicleIds,VehicleRelationshipIds,contactIdofVehicleRelationship);
-    }
+  
     /*Start - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */
     public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relationship__c> vehicleRellist,boolean isinsertcontext){
         VehicleRelationshipHelperBase.afterInsertUpdateSharerecordsWithDealers(vehicleRellist, isinsertcontext, Market);
     }
     /*End - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */
+	
+	public static void OnAfterDelete_Company_Account(List<Vehicle_Relationship__c> oldVehicleRelRecords){
+        VehicleRelationshipHelperBase.OnAfterDelete_Company_Account(oldVehicleRelRecords);
+    }
+	public static void OnAfterInsert_company_account(List<Vehicle_Relationship__c> vehicleRelNewRecords){
+        VehicleRelationshipHelperBase.OnAfterInsert_company_account(vehicleRelNewRecords);
+	}
+	 Public static void OnAfterUpdate_Company_Account(List<Vehicle_Relationship__c> newVehicleRelRecords,Map<Id,Vehicle_Relationship__c> oldMapVR){
+        VehicleRelationshipHelperBase.OnAfterUpdate_Company_Account(newVehicleRelRecords,oldMapVR);
+		
+    } 
+	
+		
 }

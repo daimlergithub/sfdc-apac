@@ -15,7 +15,9 @@ public class TriggerRetailCampaignHandlerMY implements TriggerHandlerIf
     
      if (Trigger.isbefore)
         { 
+			
             if(trigger.isupdate||trigger.isinsert){
+			RetailCampaignHelperBase.updatemarket(Trigger.New);
             rethelper.UpdateDealerEmail(Trigger.new);
             }
             

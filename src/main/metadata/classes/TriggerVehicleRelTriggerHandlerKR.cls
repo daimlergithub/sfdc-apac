@@ -57,10 +57,13 @@ public class TriggerVehicleRelTriggerHandlerKR implements TriggerHandlerIf{
            if(trigger.isAfter && (trigger.isInsert))
             {
               VehicleRelationshipHelperJP.OnAfterInsert(Trigger.new);
+			  VehicleRelationshipHelperKR.afterInsertEvent(trigger.new);
             }
-            if(trigger.isAfter && Trigger.isUpdate) {
+            if(trigger.isAfter && Trigger.isUpdate) 
+			{
               Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
               VehicleRelationshipHelperJP.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
+			  VehicleRelationshipHelperKR.afterUpdateEvent(Trigger.new,oldmapVehicleRelship);
             } 
            if(trigger.isAfter && Trigger.isDelete) 
             {

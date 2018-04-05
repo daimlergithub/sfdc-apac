@@ -2148,7 +2148,6 @@
             <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -2166,17 +2165,14 @@
             <picklistValues>
                 <fullName>IB call</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Social media</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
-                <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -16388,7 +16384,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>TH_child_campaign_should_bw_parent_close</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(Parent_Campaign1__c !=null,MD__c='TH',OR(Start_Date__c &lt;Parent_Campaign1__r.Start_Date__c,Close_Date__c &gt; Parent_Campaign1__r.Close_Date__c ))</errorConditionFormula>
+        <errorConditionFormula>AND(Parent_Campaign1__c !=null,OR(MD__c='TH', if( AND(MD__c=='MY', $Permission.MYDealer),true,false)),OR(Start_Date__c &lt;Parent_Campaign1__r.Start_Date__c,Close_Date__c &gt; Parent_Campaign1__r.Close_Date__c ))</errorConditionFormula>
         <errorMessage>child campaign Start and close date should be between parent start and Close Date</errorMessage>
     </validationRules>
     <validationRules>
@@ -16470,14 +16466,14 @@ var userMarket = sforce.connection.query("Select Id, Market__c from User where I
 records = userMarket.getArray("records"); 
 var accid = records[0].Market__c; 
 if(accid=='TH'){ 
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 }
 else if(accid=='{!$Label.MarketMY}')
- {  window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_NEW_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_NEW_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
+ {  window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
  }
 else
  { 
- window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
+ window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
  }</url>
     </webLinks>
     <webLinks>
@@ -16786,149 +16782,6 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 // ---- END ----</url>
     </webLinks>
     <webLinks>
-        <fullName>OPRO_Label_Print_PDF</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>[OPRO]Label Print(PDF)</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
-// 
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
-
-
-// ---- BEGIN ---- 
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
-{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
-
-var tpArray = (function () { 
-var dmTemplate= sforce.connection.query("SELECT id,DM_Template__r.Type__c FROM Retail_Campaign__c WHERE ID ='{!Retail_Campaign__c.Id}' LIMIT 1"); 
-records = dmTemplate.getArray("records"); 
-var dmmaterial_type = records[0].DM_Template__r.Type__c; 
-switch(dmmaterial_type){ 
-case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
-case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
-case 'smart manual': return 'p03_DirectMailPrint';brak; 
-case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
-case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
-case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
-case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting';brak; 
-} 
-}()); 
-
-OPROARTS.Live.fF.action({ 
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
-// このパラメータを省略することはできません。 
-tp:tpArray, 
-
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
-fe:false, 
-
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-createsAttach:false, 
-
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
-// - taskSubject: 活動履歴の件名 
-// - taskComment: 活動履歴のコメント 
-// 無指定の場合は、システムの初期値が適用されます。 
-createsTask:false, 
-
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
-title:'', 
-
-// objectId: 帳票オブジェクトのIDを指定します。 
-objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
-
-// OPROARTS Live - Force.com API に必要な諸パラメータです。 
-// このパラメータを編集しないでください。 
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
-}).url("https://benz.pd.oproarts.com/liveffb/action").pdf(); 
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
-    </webLinks>
-    <webLinks>
-        <fullName>OPR_Label_Print</fullName>
-        <availability>online</availability>
-        <description>OPROARTS</description>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>[OPR]Label Print</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
-// 
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
-
-
-// ---- BEGIN ---- 
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
-{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
-
-var tpArray = (function () { 
-var dmTemplate= sforce.connection.query("SELECT id,DM_Template__r.Type__c FROM Retail_Campaign__c WHERE ID ='{!Retail_Campaign__c.Id}' LIMIT 1"); 
-records = dmTemplate.getArray("records"); 
-var dmmaterial_type = records[0].DM_Template__r.Type__c; 
-switch(dmmaterial_type){ 
-case 'Car Book': return 'p01_VehicleCheckUp_noDate';brak; 
-case 'Price List': return 'p02_VehicleInspection_withDate';brak; 
-case 'smart manual': return 'p03_DirectMailPrint';brak; 
-case 'Letterheads envelopes and consumables': return 'p04_CompanyAccount';brak; 
-case 'MB Magazine': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
-case 'Journals and magazines': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
-case 'Entrance Ticket': return 'p07_CustomerAddressOnlyPrinting';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting';brak; 
-} 
-}()); 
-
-OPROARTS.Live.fF.action({ 
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
-// このパラメータを省略することはできません。 
-tp:tpArray, 
-
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
-fe:false, 
-
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-createsAttach:false, 
-
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
-// - taskSubject: 活動履歴の件名 
-// - taskComment: 活動履歴のコメント 
-// 無指定の場合は、システムの初期値が適用されます。 
-createsTask:false, 
-
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
-title:'', 
-
-// objectId: 帳票オブジェクトのIDを指定します。 
-objectId:'{!JSENCODE(Retail_Campaign__c.Id)}', 
-
-// OPROARTS Live - Force.com API に必要な諸パラメータです。 
-// このパラメータを編集しないでください。 
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
-}).url("https://benz.pd.oproarts.com/liveffb/action").opr(); 
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
-// ---- END ----</url>
-    </webLinks>
-    <webLinks>
         <fullName>Refresh</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -16997,6 +16850,22 @@ var marketusr={!ISPICKVAL($User.Market__c , "TH")};
 if(marketusr)
 { 
 window.open("{!URLFOR($Site.Prefix)}/apex/DealerPickerTH?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Share_To_Dealer_MY</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Share To Dealers</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+var marketusr={!ISPICKVAL($User.Market__c,'MY')}; 
+if(marketusr) 
+{ 
+window.open("{!URLFOR($Site.Prefix)}/apex/DealerPicker?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}"); 
 }</url>
     </webLinks>
     <webLinks>

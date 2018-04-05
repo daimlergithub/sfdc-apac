@@ -36,7 +36,7 @@
         <field>PRIORITY</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Created Inquiry Cases By Priorities</name>
+    <name>생성된 문의 건수별 우선 순위</name>
     <params>
         <name>units</name>
         <value>h</value>

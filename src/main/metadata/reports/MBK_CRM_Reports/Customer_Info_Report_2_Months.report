@@ -266,7 +266,7 @@
         <language>en_US</language>
     </filter>
     <format>Tabular</format>
-    <name>Customer Info Report 2 Months</name>
+    <name>최근 2개월 간 등록 고객 정보 리포트</name>
     <params>
         <name>co</name>
         <value>1</value>

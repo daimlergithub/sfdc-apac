@@ -161,14 +161,14 @@
                     <!--<apex:outputField value="{!objAccount.Market__c }" />-->
                     <apex:pageBlockSectionItem >
                     </apex:pageBlockSectionItem>
-                    <apex:inputField value="{!objAccount.Individual_Home_Phone__c}" />
-                    <apex:inputField value="{!objAccount.Mobile__c}" />
-                    <apex:inputField value="{!objAccount.Work_Phone__c}" />
-                    <apex:inputField value="{!objAccount.Mobile2__c}" />
+                    <apex:inputField label="{!$Label.Home_Phone_Acc}" value="{!objAccount.Individual_Home_Phone__c}" />
+                    <apex:inputField label="{!$Label.MobileAcc}" value="{!objAccount.Mobile__c}" />
+                    <apex:inputField label="{!$Label.Work_Phone_Acc}" value="{!objAccount.Work_Phone__c}" />
+                    <apex:inputField label="{!$Label.Work_Mobile_Acc}"  value="{!objAccount.Mobile2__c}" />
                     <apex:inputField value="{!objAccount.Home_Phone_2__c}" />
-                    <apex:inputField value="{!objAccount.Phone}" />
-                    <apex:inputField value="{!objAccount.Email__c}" />
-                    <apex:inputField value="{!objAccount.Email2__c}" />
+                    <apex:inputField label="{!$Label.Phone_Acc}" value="{!objAccount.Phone}" />
+                    <apex:inputField label="{!$Label.Email_Acc}" value="{!objAccount.Email__c}" />
+                    <apex:inputField label="{!$Label.Email2_Acc}"  value="{!objAccount.Email2__c}" />
                     <apex:inputField value="{!objAccount.VIN__c}" />
                     <!-- MD Changes Added By Santosh Mohanty-->
                     <apex:pageBlockSectionItem >
@@ -215,14 +215,14 @@
                     <!--<apex:outputField value="{!objAccount.Market__c }" />-->
                     <apex:pageBlockSectionItem >
                     </apex:pageBlockSectionItem>
-                    <apex:outputField value="{!objAccount.Individual_Home_Phone__c}" />
-                    <apex:outputField value="{!objAccount.Mobile__c}" />
-                    <apex:outputField value="{!objAccount.Work_Phone__c}" />
-                    <apex:outputField value="{!objAccount.Mobile2__c}" />
+                    <apex:outputField label="{!$Label.Home_Phone_Acc}" value="{!objAccount.Individual_Home_Phone__c}" />
+                    <apex:outputField label="{!$Label.MobileAcc}" value="{!objAccount.Mobile__c}" />
+                    <apex:outputField label="{!$Label.Work_Phone_Acc}" value="{!objAccount.Work_Phone__c}" />
+                    <apex:outputField label="{!$Label.Work_Mobile_Acc}" value="{!objAccount.Mobile2__c}" />
                     <apex:outputField value="{!objAccount.Home_Phone_2__c}" />
-                    <apex:outputField value="{!objAccount.Phone}" />
-                    <apex:outputField value="{!objAccount.Email__c}" />
-                    <apex:outputField value="{!objAccount.Email2__c}" />
+                    <apex:outputField label="{!$Label.Phone_Acc}"  value="{!objAccount.Phone}" />
+                    <apex:outputField label="{!$Label.Email_Acc}" value="{!objAccount.Email__c}" />
+                    <apex:outputField label="{!$Label.Email2_Acc}" value="{!objAccount.Email2__c}" />
                     <apex:outputField value="{!objAccount.VIN__c}" />
                     <!-- MD Changes Added By Santosh Mohanty-->
                     <apex:pageBlockSectionItem >
@@ -268,14 +268,14 @@
                 <apex:inputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:inputField value="{!objPersonAccount.LastName_Native_1__c}" />
                     <apex:inputField value="{!objPersonAccount.FirstName_Native_1__c}" />                    
-                    <apex:inputField value="{!objPersonAccount.Individual_Home_Phone__c}" />
-                    <apex:inputField value="{!objPersonAccount.Mobile__c}" />
-                    <apex:inputField value="{!objPersonAccount.Work_Phone__c}" />
-                    <apex:inputField value="{!objPersonAccount.Mobile2__c}" />
+                    <apex:inputField label="{!$Label.Home_Phone_Acc}" value="{!objPersonAccount.Individual_Home_Phone__c}" />
+                    <apex:inputField label="{!$Label.MobileAcc}" value="{!objPersonAccount.Mobile__c}" />
+                    <apex:inputField label="{!$Label.Work_Phone_Acc}" value="{!objPersonAccount.Work_Phone__c}" />
+                    <apex:inputField label="{!$Label.Work_Mobile_Acc}" value="{!objPersonAccount.Mobile2__c}" />
                     <apex:inputField value="{!objPersonAccount.Home_Phone_2__c}" />
-                    <apex:inputField value="{!objPersonAccount.Phone}" />
-                    <apex:inputField value="{!objPersonAccount.Email__c}" />
-                    <apex:inputField value="{!objPersonAccount.Email2__c}" />
+                    <apex:inputField label="{!$Label.Phone_Acc}" value="{!objPersonAccount.Phone}" />
+                    <apex:inputField label="{!$Label.Email_Acc}" value="{!objPersonAccount.Email__c}" />
+                    <apex:inputField label="{!$Label.Email2_Acc}" value="{!objPersonAccount.Email2__c}" />
                     <apex:inputField value="{!objPersonAccount.PersonBirthdate}" />
                     <apex:inputField value="{!objPersonAccount.VIN__c}" />
                     <!--MD Changes - Added by Santosh Mohanty-->
@@ -336,14 +336,14 @@
                 <apex:outputField value="{!objPersonAccount.FirstName}" /> -->
                     <apex:outputField value="{!objPersonAccount.LastName_Native_1__c}" />
                     <apex:outputField value="{!objPersonAccount.FirstName_Native_1__c}" />                    
-                    <apex:outputField value="{!objPersonAccount.Individual_Home_Phone__c}" />
-                    <apex:outputField value="{!objPersonAccount.Mobile__c}" />
-                    <apex:outputField value="{!objPersonAccount.Work_Phone__c}" />
-                    <apex:outputField value="{!objPersonAccount.Mobile2__c}" />
+                    <apex:outputField label="{!$Label.Home_Phone_Acc}" value="{!objPersonAccount.Individual_Home_Phone__c}" />
+                    <apex:outputField label="{!$Label.MobileAcc}" value="{!objPersonAccount.Mobile__c}" />
+                    <apex:outputField label="{!$Label.Work_Phone_Acc}" value="{!objPersonAccount.Work_Phone__c}" />
+                    <apex:outputField label="{!$Label.Work_Mobile_Acc}" value="{!objPersonAccount.Mobile2__c}" />
                     <apex:outputField value="{!objPersonAccount.Home_Phone_2__c}" />
-                    <apex:outputField value="{!objPersonAccount.Phone}" />
-                    <apex:outputField value="{!objPersonAccount.Email__c}" />
-                    <apex:outputField value="{!objPersonAccount.Email2__c}" />
+                    <apex:outputField label="{!$Label.Phone_Acc}" value="{!objPersonAccount.Phone}" />
+                    <apex:outputField label="{!$Label.Email_Acc}" value="{!objPersonAccount.Email__c}" />
+                    <apex:outputField label="{!$Label.Email2_Acc}" value="{!objPersonAccount.Email2__c}" />
                     <apex:outputField value="{!objPersonAccount.PersonBirthdate}" />
                     <apex:outputField value="{!objPersonAccount.VIN__c}" />
 

@@ -612,16 +612,15 @@
         <fields>Related_Dealer__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
-    <relatedLists>
+    <relatedLists>	
+        <fields>NAME</fields>
         <fields>Brand__c</fields>
-        <fields>Model_Description__c</fields>
-        <fields>Range__c</fields>
+        <fields>Model_Description__c</fields> 
         <fields>ModelYear__c</fields>
-        <fields>NextInspectionDate__c</fields>
+        <fields>MOT_Expired_Date__c</fields>
         <fields>Related_From__c</fields>
         <fields>Related_To__c</fields>
         <fields>FirstRegistrationDate__c</fields>
-        <fields>NAME</fields>
         <relatedList>Vehicle__c.Related_contact__c</relatedList>
     </relatedLists>
     <relatedLists>

@@ -27,7 +27,9 @@ public without sharing  class  LeadHelperMY{
     */
     
     public  void ShareRecordswithDealers(List<lead__c> leadlist,Boolean flag){
-     helperBase.ShareRecordswithDealers(leadList,flag,market);        
+		if(System.Label.LeadShareMY=='true'){
+		helperBase.ShareRecordswithDealers(leadList,flag,market);    
+		}		
     }
     
   // Added by Asish Nanda, Test Case-  A retail Copy (Reatil Person/ Retail Company)Will be Created in Dealer account automatically , if a dealer will be assigned to Lead 
@@ -49,5 +51,16 @@ public without sharing  class  LeadHelperMY{
 		LeadHelperBase.updateRetailLookups(Trigger.New,market);
     }
 	
+    //Added by Mrinalini Chandra
+    public void autoPopulateAssignDealer(List<Lead__c> Leadlist, String Market){
+        LeadHelperBase.autoPopulateAssignDealer(Trigger.New,market);
+    }
+    
+    public void leadValidation(List<lead__c> leadlist, String Market){
+        helperBase.leadValidation(Trigger.New,market);
+    }
 
+    public void updateAllWorkflowsActionsAfterInsert(List<lead__c> leads,boolean flag, string Market){
+        helperBase.updateAllWorkflowsActionsAfterInsert(Trigger.New,true,market);
+    }
 }

@@ -26,94 +26,118 @@ public class TriggerAccountlinkHandlerMYTest {
  public  Id AccountLink_RetailPersonRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
  public  Id AccountLink_RetailCompanyRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     
-  public static void prepareTestData(String testCase){
- // Trigger__c TriggerAccountMY=new Trigger__c(Name='TriggerAccountMY',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
-  Trigger__c TriggerAccountLinkMY=new Trigger__c(Name='TriggerAccountLink',Trigger_Name__c='TriggerAccountLink',Trigger_Handler__c='TriggerAccountlinkHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
-  List<Trigger__c> lsttrg = new List<Trigger__C>();
-  lsttrg.add(TriggerAccountLinkMY);
- // lsttrg.add(TriggerAccountMY);
-  insert lsttrg;
-  
-      CallOutHandlerSettingDFW__c coh = new CallOutHandlerSettingDFW__c();
-        coh.Name = 'CalloutValues';
-        coh.DEFAULT_CALLOUT_TIME__c = '10000';
-        coh.MAX_CALLOUT_TIME__c ='120000';  
-        coh.FAILED_STATUS__c='failed';
-        coh.JSON_CONTENT_TYPE__c ='application/json';
-        coh.KO_STATUS__c='KO';       
-        coh.OK_STATUS__c='OK';
-        coh.PLAIN_TEXT_CONTENT_TYPE__c='text/plain';
-        coh.QUEUED_STATUS__c='Queued';
-        coh.REQUEST_BODY_NAME__c='request body';
-        coh.REQUEST_CERT_NAME__c='request cert';
-        coh.REQUEST_HEADERS_NAME__c='request headers';
-        coh.RESPONSE_NAME__c='response';
-        DMLManagerService.insertAsSystem(coh);       
+public static void prepareTestData(String testCase){
+	// Trigger__c TriggerAccountMY=new Trigger__c(Name='TriggerAccountMY',Trigger_Name__c='TriggerAccount',Trigger_Handler__c='TriggerAccountTriggerHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
+	Trigger__c TriggerAccountLinkMY=new Trigger__c(Name='TriggerAccountLink',Trigger_Name__c='TriggerAccountLink',Trigger_Handler__c='TriggerAccountlinkHandlerMY',update__c=True,insert__c=True,delete__c=True,after__c=True,before__c=True,enabled__c=True,Market__c='MY');
+    List<Trigger__c> lsttrg = new List<Trigger__C>();
+    lsttrg.add(TriggerAccountLinkMY);
+    // lsttrg.add(TriggerAccountMY);
+    insert lsttrg;
+    group grp = new group(name = 'MY123456', developername = 'testndgroup');
+    insert grp;
+    group grp1 = new group(name = 'MY1234567', developername = 'testgcgroup');
+    insert grp1;
+    CallOutHandlerSettingDFW__c coh = new CallOutHandlerSettingDFW__c();
+    coh.Name = 'CalloutValues';
+    coh.DEFAULT_CALLOUT_TIME__c = '10000';
+    coh.MAX_CALLOUT_TIME__c ='120000';  
+    coh.FAILED_STATUS__c='failed';
+    coh.JSON_CONTENT_TYPE__c ='application/json';
+    coh.KO_STATUS__c='KO';       
+    coh.OK_STATUS__c='OK';
+    coh.PLAIN_TEXT_CONTENT_TYPE__c='text/plain';
+    coh.QUEUED_STATUS__c='Queued';
+    coh.REQUEST_BODY_NAME__c='request body';
+    coh.REQUEST_CERT_NAME__c='request cert';
+    coh.REQUEST_HEADERS_NAME__c='request headers';
+    coh.RESPONSE_NAME__c='response';
+    DMLManagerService.insertAsSystem(coh);       
         
-        Profile p = [SELECT Id,Name FROM Profile WHERE Name='System Administrator']; 
-        SystemSettingsDFW__c sysSet = new SystemSettingsDFW__c();
-        sysSet.Debug__c =true;
-        sysSet.Error__c = true;
-        sysSet.Info__c= true;
-        sysSet.Warning__c = true;
-        sysSet.Log_Purge__c =10;
-        sysSet.Name=p.Name;
-        DMLManagerService.insertAsSystem(sysSet);
+    Profile p = [SELECT Id,Name FROM Profile WHERE Name='System Administrator']; 
+    SystemSettingsDFW__c sysSet = new SystemSettingsDFW__c();
+    sysSet.Debug__c =true;
+    sysSet.Error__c = true;
+    sysSet.Info__c= true;
+    sysSet.Warning__c = true;
+    sysSet.Log_Purge__c =10;
+    sysSet.Name=p.Name;
+    DMLManagerService.insertAsSystem(sysSet);
         
-        us1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
-                          EmailEncodingKey='UTF-8', LastName='TestUserMY', LanguageLocaleKey='en_US', 
-                          LocaleSidKey='en_US', ProfileId = p.Id, Market__c='MY',
-                          TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
-        DMLManagerService.insertAsSystem(us1);
+    us1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                   EmailEncodingKey='UTF-8', LastName='TestUserMY', LanguageLocaleKey='en_US', 
+                   LocaleSidKey='en_US', ProfileId = p.Id, Market__c='MY',
+                   TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+    DMLManagerService.insertAsSystem(us1);
   
-  acct1= new Account(Dealer_Default_Flag__c=false,
-                               Dealer_DMS_SR_Code__c='test code 2',
-                               //Individual_Home_Phone__c = '02-202-2456',
-                               Home_Phone_2__c = '02-202-2457',Work_Phone__c = '+601212378978',
-                               Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                               City__c='Beijing',
-                               Gender__c = 'Male',
-                               Phone = '0801801110',
-                               Area_code__c = '03',
-                               MD__c = 'MY',
-                              LastName = 'galaxy1',
-                              FirstName = 'First Name1',
-                              Salutation = 'Unknown',
-                               Postal_Opt_Out__c=True,     
-                               Province__c = 'Shanghai',
-                               ZipCode__c= '32703',
-                               //Mobile__c = '918197597651',
-                               //Mobile2__c = '918197597651',
-                               Primary_Email__c = 'Email1',
-                               Primary_Fax__c = 'FAX2',
-                               Primary_Phone__c ='Other2',
-                               PersonDoNotCall=True,
-                              // ownerid=user1.id,
-                               PersonHasOptedOutOfEmail=True,
-                               Opt_In_Email__c=true,
-                               //owner=user1,
-                               PersonBirthdate=date.today(),
-                               
-                           RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
-   
-   accountList.add(acct1);
+    acct1= new Account(Dealer_Default_Flag__c=false,
+                       Dealer_DMS_SR_Code__c='test code 2',
+                       //Individual_Home_Phone__c = '02-202-2456',
+                       Home_Phone_2__c = '02-202-2457',Work_Phone__c = '+601212378978',
+                       Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                       City__c='Beijing',
+                       Gender__c = 'Male',
+                       Phone = '0801801110',
+                       Area_code__c = '03',
+                       MD__c = 'MY',
+                       LastName = 'galaxy1',
+                       FirstName = 'First Name1',
+                       Salutation = 'Unknown',
+                       Postal_Opt_Out__c=True,     
+                       Province__c = 'Shanghai',
+                       ZipCode__c= '32703',
+                       //Mobile__c = '918197597651',
+                       //Mobile2__c = '918197597651',
+                       Primary_Email__c = 'Email1',
+                       Primary_Fax__c = 'FAX2',
+                       Primary_Phone__c ='Other2',
+                       PersonDoNotCall=True,
+                       // ownerid=user1.id,
+                       PersonHasOptedOutOfEmail=True,
+                       Opt_In_Email__c=true,
+                       //owner=user1,
+                       PersonBirthdate=date.today(),
+                       dealer_nd_code__c = '123456',
+                       dealer_gc_code__c = '1234567',
+                       RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
+    
+    accountList.add(acct1);
    
    
    
 
      system.runAs(us1)
      {
-        ps = new PermissionSet();
-        ps.Name = 'Test';
-        ps.Label = 'Test';
-    insert ps;  
-    CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
-    
-    SetupEntityAccess sea = new SetupEntityAccess();
-    sea.ParentId = ps.Id;
-    sea.SetupEntityId = cps.id;
-    insert sea;  
-     
+         ps = new PermissionSet();
+         ps.Name = 'Test';
+         ps.Label = 'Test';
+         insert ps;  
+         CustomPermission cps = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYGeneric ];
+         
+         SetupEntityAccess sea = new SetupEntityAccess();
+         sea.ParentId = ps.Id;
+         sea.SetupEntityId = cps.id;
+         insert sea; 
+         
+         CustomPermission cps1 = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.addressupdateRT ];
+         
+         SetupEntityAccess sea1 = new SetupEntityAccess();
+         sea1.ParentId = ps.Id;
+         sea1.SetupEntityId = cps1.id;
+         insert sea1;  
+         
+         CustomPermission cps2 = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.MYRetail ];
+         
+         SetupEntityAccess sea2 = new SetupEntityAccess();
+         sea2.ParentId = ps.Id;
+         sea2.SetupEntityId = cps2.id;
+         insert sea2;
+         
+         CustomPermission cps3 = [SELECT ID From CustomPermission WHERE MasterLabel =: Label.AccountLInkAL ];
+         
+         SetupEntityAccess sea3 = new SetupEntityAccess();
+         sea3.ParentId = ps.Id;
+         sea3.SetupEntityId = cps3.id;
+         insert sea3;
      }
       
     market_Obj = new Market__c(Market_Code__c = 'MY', Market__c = 'Malaysia');
@@ -134,77 +158,160 @@ public class TriggerAccountlinkHandlerMYTest {
  
 public static testMethod void testHandleTriggerDelete(){
       
-      prepareTestData('');
-      TriggerUtil.userCreate=false;
-      system.runAs(user_Obj1 ){
-       
-     List<Account_Link__c> listacclk1=new List<Account_Link__c>();
-     al3= new Account_Link__c(Name='new55 al',Md__c='MY',toRole__c=acct1.id,fromrole__c=acct1.id,
-                             RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),
-                             Market__c='MY');    listacclk1.add(al3);
-    insert listacclk1;
+    prepareTestData('');
+    TriggerUtil.userCreate=false;
+    system.runAs(user_Obj1 ){
+        
+        List<Account_Link__c> listacclk1=new List<Account_Link__c>();
+        al3= new Account_Link__c(Name='new55 al',Md__c='MY',toRole__c=acct1.id,fromrole__c=acct1.id,
+                                 RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),
+                                 Market__c='MY', Dealer_ND_Code__c = '123456');    listacclk1.add(al3);
+        insert listacclk1;
                 
     }
  } 
  
  public static testMethod void testHandleTriggerInsert(){
 
-    prepareTestData('');
+     prepareTestData('');
      system.runAs(user_Obj ){
-
-    insert accountList;
-    
-    acct2 =  new Account(Dealer_Default_Flag__c=false,
-                               Dealer_DMS_SR_Code__c='test code 2',
-                               //Individual_Home_Phone__c = '02-202-2456',
-                               Home_Phone_2__c = '02-202-2457',Work_Phone__c = '+601212371111',
-                               Status__c='NoCustomer',Email__c = 'testemail123@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                               City__c='Beijing',
-                               Gender__c = 'Female',
-                               Phone = '0801801119',
-                               Area_code__c = '03',
-                               MD__c = 'MY',
-                              LastName = 'galaxy1',
-                              FirstName = 'First Name',
+         
+         insert accountList;
+         
+         acct2 =  new Account(Dealer_Default_Flag__c=false,
+                              Dealer_DMS_SR_Code__c='test code 2',
+                              //Individual_Home_Phone__c = '02-202-2456',
+                              Home_Phone_2__c = '02-202-9817',Work_Phone__c = '+601251371111',
+                              Status__c='NoCustomer',Email__c = 'testemail3@test.com',Email2__c = 'testemail3@test.com',Email3__c = 'testemail3@test.com',
+                              City__c='Beijing',
+                              Gender__c = 'Female',
+                              Phone = '0801806519',
+                              Area_code__c = '03',
+                              MD__c = 'MY',
+                              LastName = 'test LastName',
+                              FirstName = 'test FirstName',
                               Salutation = 'Unknown',
-                               Postal_Opt_Out__c=True,     
-                               Province__c = 'Shanghai',
-                               ZipCode__c= '32703',
-                               //Mobile__c = '918197597651',
-                               //Mobile2__c = '918197597651',
-                               Primary_Email__c = 'Email1',
-                               Primary_Fax__c = 'FAX2',
-                               Primary_Phone__c ='Other2',
-                               PersonDoNotCall=True,
+                              Postal_Opt_Out__c=True,     
+                              Province__c = 'Shanghai',
+                              ZipCode__c= '32703',
+                              //Mobile__c = '918197597651',
+                              //Mobile2__c = '918197597651',
+                              Primary_Email__c = 'Email1',
+                              Primary_Fax__c = 'FAX2',
+                              Primary_Phone__c ='Other2',
+                              PersonDoNotCall=True,
                               // ownerid=user1.id,
-                               PersonHasOptedOutOfEmail=True,
-                               Opt_In_Email__c=true,
-                               //owner=user1,
-                               PersonBirthdate=date.today(),
-                               
-                           RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
-    insert acct2;
-        
-        
-  
-   
-    List<Account_Link__c> listacclk1=new List<Account_Link__c>();
-    //Account accObj1 = new Account(Md__c='MY',RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605', Individual_Home_Phone__c='+60-9885857857');
-            //insert accobj1;
-           
-    al1= new Account_Link__c(Name='new al',Md__c='MY',toRole__c=acct1.id,fromrole__c=acct2.id,
-                             RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),
-                             Market__c='MY');
-            
-            
-     listacclk1.add(al1);
-     insert listacclk1; 
-     //system.debug('****Cod'+al1.Retail_Dealer_CompanyCode__c);
-     /*
-     List<Account_Link__c> updatelst=new List<Account_Link__c>();
-     al1.fromrole__c=acct2.id;
-     updatelst.add(al1);
-     update updatelst;*/
+                              PersonHasOptedOutOfEmail=True,
+                              Opt_In_Email__c=true,
+                              //owner=user1,
+                              PersonBirthdate=date.today(),
+                              dealer_nd_code__c = '123456',
+                              dealer_gc_code__c = '1234567',
+                              RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
+         insert acct2;
+         
+         Account acct3 =  new Account(Dealer_Default_Flag__c=false,
+                              Dealer_DMS_SR_Code__c='test code 2',
+                              //Individual_Home_Phone__c = '02-202-2456',
+                              Home_Phone_2__c = '02-202-7657',Work_Phone__c = '+601901371111',
+                              Status__c='NoCustomer',Email__c = 'testemail123@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                              City__c='Beijing',
+                              Gender__c = 'Male',
+                              Phone = '0801801119',
+                              Area_code__c = '03',
+                              MD__c = 'MY',
+                              LastName = 'tstLastName',
+                              FirstName = 'tstFirstName',
+                              Salutation = 'Unknown',
+                              Postal_Opt_Out__c=True,     
+                              Province__c = 'Shanghai',
+                              ZipCode__c= '32703',
+                              //Mobile__c = '918197597651',
+                              //Mobile2__c = '918197597651',
+                              Primary_Email__c = 'Email1',
+                              Primary_Fax__c = 'FAX2',
+                              Primary_Phone__c ='Other2',
+                              PersonDoNotCall=True,
+                              // ownerid=user1.id,
+                              PersonHasOptedOutOfEmail=True,
+                              Opt_In_Email__c=true,
+                              //owner=user1,
+                              PersonBirthdate=date.today(),
+                              dealer_nd_code__c = '123456',
+                              dealer_gc_code__c = '1234567',
+                              RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
+         insert acct3;
+         
+         Account acct4 =  new Account(Dealer_Default_Flag__c=false,
+                              Dealer_DMS_SR_Code__c='test code 2',
+                              //Individual_Home_Phone__c = '02-202-2456',
+                              Home_Phone_2__c = '02-202-7657',Work_Phone__c = '+601901371111',
+                              Status__c='NoCustomer',Email__c = 'testemail123@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
+                              City__c='Beijing',
+                              Gender__c = 'Female',
+                              Phone = '0801853119',
+                              Area_code__c = '03',
+                              MD__c = 'MY',
+                              LastName = 'LastName',
+                              FirstName = 'FirstName',
+                              Salutation = 'Unknown',
+                              Postal_Opt_Out__c=True,     
+                              Province__c = 'Shanghai',
+                              ZipCode__c= '32703',
+                              //Mobile__c = '918197597651',
+                              //Mobile2__c = '918197597651',
+                              Primary_Email__c = 'Email1',
+                              Primary_Fax__c = 'FAX2',
+                              Primary_Phone__c ='Other2',
+                              PersonDoNotCall=True,
+                              // ownerid=user1.id,
+                              PersonHasOptedOutOfEmail=True,
+                              Opt_In_Email__c=true,
+                              //owner=user1,
+                              PersonBirthdate=date.today(),
+                              dealer_nd_code__c = '123456',
+                              dealer_gc_code__c = '1234567',
+                              RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()); 
+         insert acct4;
+         
+         Account personAcc =  new Account(
+             FirstName='Test',
+             LastName='Person Account',
+             Md__c='MY', 
+             Individual_Home_Phone__c='+66-9885857857', 
+             RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT).getRecordTypeId()
+         );
+         
+         insert personAcc;
+         
+         List<Account_Link__c> listacclk1=new List<Account_Link__c>();
+         //Account accObj1 = new Account(Md__c='MY',RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Phone ='09874760605', Individual_Home_Phone__c='+60-9885857857');
+         //insert accobj1;
+         
+         al1= new Account_Link__c(Name='new al',Md__c='MY',toRole__c=acct2.id,fromrole__c=acct3.id, 
+                                  RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),
+                                  Market__c='MY', Dealer_ND_Code__c = '125256');
+         
+         listacclk1.add(al1);
+         
+         //system.debug('****Cod'+al1.Retail_Dealer_CompanyCode__c);
+         
+         al2= new Account_Link__c(Name='new ali',Md__c='MY',toRole__c=personAcc.id,fromrole__c=acct3.id,
+                                  RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),
+                                  Market__c='MY', Dealer_ND_Code__c = '123456');
+         listacclk1.add(al2);
+         
+         insert listacclk1; 
+         
+         List<Account_Link__c> updatelst=new List<Account_Link__c>();
+         al1.fromrole__c=acct1.id;
+         
+         al1.toRole__c=acct4.id;
+         updatelst.add(al1);
+         al2.toRole__c=acct4.id;
+         updatelst.add(al2);
+         
+         update updatelst;
      }
 }
 }

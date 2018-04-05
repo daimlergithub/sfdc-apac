@@ -75,14 +75,14 @@ public class CaseHelperBase {
     
     //Calculate total number of repeated MB complaints per account
     public void calculateComplaintAmount(List<Case> cases, string market){
-      
         Set<Id> accounts = new Set<Id>();
         List<Account> accRecords;
         for(Case c : cases){
             if(c.MD__C == market)
-                accounts.add (c.AccountId);   
+                accounts.add (c.AccountId);
+                accounts.add(Trigger.isInsert ? NULL : ((Case)Trigger.oldMap.get(c.ID)).AccountID);
         }                       
-        
+        accounts.remove(NULL);
         List<Case> case_acc = [Select Id, AccountId From Case 
                               Where (AccountId IN :accounts AND RecordTypeId =:caseMBComplaintRec_Id and MD__c =: market) LIMIT 50000]; 
         if (case_acc != null && !case_acc.isEmpty()){                                         
@@ -96,27 +96,35 @@ public class CaseHelperBase {
                 }
             }
             
-            accounts = new Set<Id>();
-            accounts = accountCaseMap.keySet();
-            accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accounts LIMIT 50000];
+           // accounts = new Set<Id>();
+           // accounts = accountCaseMap.keySet();
+            
+            /*accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accounts LIMIT 50000];
             for (Account acc : accRecords){
                List<Id> caseIds = accountCaseMap.get(acc.Id);
                acc.Complaint_Amount__c = caseIds.size();
                updateAccount.add(acc);
+            }*/
+            
+            for (ID acc : accounts){
+                updateAccount.add(new Account(id = acc, Complaint_Amount__c = (accountCaseMap.get(acc) != NULL ? accountCaseMap.get(acc).size() : 0)));
             }
           
         }else{
             Set<Id> accountIds = new Set<Id>();
-            for (Id accId : accounts){
-                accountIds.add(accId);
+            for (Id acc : accounts){
+                updateAccount.add(new Account(id = acc, Complaint_Amount__c = 0));
             }
-            accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accountIds];
+            /*accRecords = [Select Id, Complaint_Amount__c From Account Where Id IN:accountIds];
             for (Account acc : accRecords){
                acc.Complaint_Amount__c = 0;
                updateAccount.add(acc);
-            } 
+            }*/
         }
-        DMLManagerService.updateAsSystem(updateAccount);                                                                                        
+        
+        if(updateAccount.size() > 0){
+            DMLManagerService.updateAsSystem(updateAccount);   
+        }
     }
     
     //Calculate the number of Repeated Case for an account 
@@ -271,7 +279,7 @@ public class CaseHelperBase {
             Account.Special_Needs_Class__c, Account.Allow_Data_Sharing2__c, Account.Primary_Address_Reference__r.Address_Type__c,
             Account.Primary_Address_Reference__r.Province__c, Account.Preferred_Contact_Method__c, MD__c,
             Account.UCID__c, Account.Salutation__c, Account.RecordtypeId, Account.Name, Account.Company_Name_Native_1__c, Account.Foundation_Date__c, Account.Primary_Address_Reference__r.Foreign_Nationals__c,
-            Account.Website, Account.Vat_No__c, Account.DMS_Customer_ID__c, Account.Complaint_Amount__c, Account.Sales_Sanction__c, Account.Allow_Data_Sharing__c, Account.PersonEmail, Account.PersonHasOptedOutOfEmail, Account.PersonHasOptedOutOfFax, Account.Primary_Phone_Display__c, Account.PersonDoNotCall, Account.Postal_Opt_Out__c, Account.Job__c, Account.Personal_Agreement__c, Account.Personal_Information_Third_Party_Release__c, Account.Personal_Abroad_Agreement__c, Account.Agreement_to_commit_info_processing__c, Account.Commercial_Reg_No__c, Account.Company_Name__c, Account.Visit_Opt_Out__c
+            Account.Website, Account.Vat_No__c, Account.DMS_Customer_ID__c, Account.Complaint_Amount__c, Account.Sales_Sanction__c, Account.Allow_Data_Sharing__c, Account.PersonEmail, Account.PersonHasOptedOutOfEmail, Account.PersonHasOptedOutOfFax, Account.Primary_Phone_Display__c, Account.PersonDoNotCall, Account.Postal_Opt_Out__c, Account.Job__c, Account.Personal_Agreement__c, Account.Personal_Information_Third_Party_Release__c, Account.Personal_Abroad_Agreement__c, Account.Agreement_to_commit_info_processing__c, Account.Commercial_Reg_No__c, Account.Company_Name__c, Account.Visit_Opt_Out__c,Case_Dealer__r.Dealer_Rollout_Status__c
             from Case WHERE id IN: caselist
         ];
 
@@ -291,7 +299,7 @@ public class CaseHelperBase {
         }
         for (Case led: caseLst) {
             System.debug('11*');
-            if (led.Case_Dealer__c != null && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0) && (isInsert || (isUpdate && led.Case_Dealer__c != caseOldMap.get(led.id).Case_Dealer__c)) ) {
+            if (led.Case_Dealer__c != null && String.isnotblank(led.Case_Dealer__r.Dealer_Rollout_Status__c)?(led.Case_Dealer__r.Dealer_Rollout_Status__c=='Done'):false && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0) && (isInsert || (isUpdate && led.Case_Dealer__c != caseOldMap.get(led.id).Case_Dealer__c)) ) {
                 Account_Link__c acclnk = new Account_Link__c();
                 //accLst.add(acclnk);
                 System.debug('22*' + led.Account.RecordTypeId + PersonRecordTypeId);
@@ -433,23 +441,25 @@ public class CaseHelperBase {
         set < caseShare > caseshare = new set < caseShare > ();
         set < id > casesharingtorevoke = new set < id > ();
         set < String > sharingrevokefromgroups = new set < String > ();
-        List < Case > caselisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, Case_Dealer__c, Case_Dealer__r.Dealer_nd_code__c, ownerId from Case where id IN: caselist];
+        List < Case > caselisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, Case_Dealer__c, Case_Dealer__r.Dealer_nd_code__c,Case_Dealer__r.MD__c,Market__c,createdby.Market__c,ownerId from Case where id IN: caselist];
         Set < id > idset = new Set < id > ();
         for (Case c: caselisttoiterat) {
             idset.add(c.ownerid);
         }
-        Map < id, User > usr = new map < id, User > ([select id, name, Dealer_nd_code__c, usertype from user where id IN: idset]);
+        Map < id, User > usr = new map < id, User > ([select id, name, Dealer_nd_code__c, usertype,Market__c from user where id IN: idset]);
         //below if part will work at the time of insert
         for (Case casesrec: caselisttoiterat) {
             if (!flag) {
 
                 //if created by is Dealer then share those records with under that Dealer depends on dealer nd code
                 if (casesrec.createdby.usertype == 'PowerPartner' && casesrec.createdby.Dealer_nd_code__c != null) {
-                    String grpName = casesrec.createdby.Dealer_nd_code__c;
+                    //String grpName = casesrec.createdby.Dealer_nd_code__c;
+					String grpName = casesrec.createdby.Market__c+casesrec.createdby.Dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 } else if (casesrec.Case_Dealer__c != null && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
-                    String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+                    //String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+					String grpName = casesrec.Case_Dealer__r.MD__c+casesrec.Case_Dealer__r.Dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 }
@@ -459,13 +469,15 @@ public class CaseHelperBase {
                 //system.debug(((Case)trigger.oldmap.get(casesrec.id)).owner!=((Case)trigger.newmap.get(casesrec.id)).owner);
                 system.debug(((Case) trigger.oldmap.get(casesrec.id)).ownerId + '  ' + ((Case) trigger.newmap.get(casesrec.id)).ownerId);
                 if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c == null && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
-                    String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
-                    dealerndcodeset.add(grpName);
+                    //String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+					String grpName = casesrec.Case_Dealer__r.MD__c+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+					dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 }
                 //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
                 else if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != ((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__c && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
-                    String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+                    //String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
+					String grpName = casesrec.Case_Dealer__r.MD__c+casesrec.Case_Dealer__r.Dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                     //will revoke record access depends on dealer nd code  if we change the assigned dealer
@@ -479,7 +491,8 @@ public class CaseHelperBase {
                     sharingrevokefromgroups.add(((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
                     casesharingtorevoke.add(((Case) trigger.oldmap.get(casesrec.id)).id);
                 } else if (((Case) trigger.oldmap.get(casesrec.id)).ownerId != ((Case) trigger.newmap.get(casesrec.id)).ownerId) {
-                    String grpName = usr.get(casesrec.ownerid).dealer_nd_code__c;
+                   // String grpName = usr.get(casesrec.ownerid).dealer_nd_code__c;
+				    String grpName = usr.get(casesrec.ownerid).Market__c+usr.get(casesrec.ownerid).dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 }
@@ -488,8 +501,10 @@ public class CaseHelperBase {
         for (Group gp: [select id, name from Group where name IN: dealerndcodeset]) {
             for (Case caseid: lstcase) {
                 //this if part will applicable for Salesforce users
-                String grpName = caseid.Case_Dealer__r.Dealer_nd_code__c;
-                String createdGrpName = caseid.createdby.Dealer_nd_code__c;
+                //String grpName = caseid.Case_Dealer__r.Dealer_nd_code__c;
+                //String createdGrpName = caseid.createdby.Dealer_nd_code__c;
+				String grpName = caseid.Case_Dealer__r.MD__c+caseid.Case_Dealer__r.Dealer_nd_code__c;
+                String createdGrpName = caseid.createdby.Market__c+caseid.createdby.Dealer_nd_code__c;
                 if (gp.name == grpName) {
                     caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseShare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
                 } //this else part will applicable for Dealer users

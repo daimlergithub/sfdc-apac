@@ -12,33 +12,35 @@ Usages       : Test class for code coverage related to campaignMemberHelperKR cl
 @isTest
 private class campaignMemberHelperKRTest 
 {
-	public static string campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+    public static string campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
     public static String campDsgRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
     public static String campExcRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
     public static Id dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-    public static list<CampaignMember> campMembrList;
+    public static list<CampaignMember> campMembrList=new list<CampaignMember>();
     public static list<Contact> contList;
+    public static Campaign campExec;
+    public static map<Id, CampaignMember> campMembrMap = new map<Id, CampaignMember>();
     
     public static void testDataPreparation()
     {
-    	contList = new list<Contact>();
-    	campMembrList = new list<CampaignMember>();
-    	
-    	Campaign campPlng = new Campaign();
-	    campPlng.RecordTypeId = campPlngRecTypId;
-	    campPlng.Name = 'Test Campaign Planning';
-	    campPlng.Type = 'Other';
-	    campPlng.Status = 'Planning';
-	    campPlng.StartDate = System.today();
-	    campPlng.EndDate = System.today()+30;
-	    campPlng.Campaign_Executer__c='Retail';
-	    campPlng.Campaign_Objectives__c = 'camobjectives';
-	    campPlng.Description = 'Test Campaign Planning Description';
-	    campPlng.Campaign_Execution_Channels__c='eMail';
-	    campPlng.Campaign_Type__c = 'After Sales';
-	    insert campPlng;
-	    
-	    Campaign campDsgn = new Campaign();
+        contList = new list<Contact>();
+       // campMembrList = new list<CampaignMember>();
+        
+        Campaign campPlng = new Campaign();
+        campPlng.RecordTypeId = campPlngRecTypId;
+        campPlng.Name = 'Test Campaign Planning';
+        campPlng.Type = 'Other';
+        campPlng.Status = 'Planning';
+        campPlng.StartDate = System.today();
+        campPlng.EndDate = System.today()+30;
+        campPlng.Campaign_Executer__c='Retail';
+        campPlng.Campaign_Objectives__c = 'camobjectives';
+        campPlng.Description = 'Test Campaign Planning Description';
+        campPlng.Campaign_Execution_Channels__c='eMail';
+        campPlng.Campaign_Type__c = 'After Sales';
+        insert campPlng;
+        
+        Campaign campDsgn = new Campaign();
         campDsgn.Name = 'Test Campaign Design'; 
         campDsgn.CAC_Frequency_Category__c = 'Ad Hoc';
         campDsgn.Repeat_From__c = System.today(); 
@@ -46,7 +48,7 @@ private class campaignMemberHelperKRTest
         campDsgn.RecordTypeId = campDsgRecTypId;
         insert campDsgn;
         
-        Campaign campExec = new Campaign();
+        campExec = new Campaign();
         campExec.IsActive = true; 
         campExec.Name = 'Test Campaign'; 
         campExec.Task_Created_By__c = 'Contact';
@@ -65,31 +67,42 @@ private class campaignMemberHelperKRTest
         
         for(integer i=0; i<=5; i++)
         {
-        	Contact cont = new Contact();
-	        cont.AccountId = dealer.Id; 
-	        cont.LastName = 'Test Contact'; 
-	        cont.Phone = '1234-5678-9876'; 
-	        cont.email = 'test@contact.com';
-	        contList.add(cont);
+            Contact cont = new Contact();
+            cont.AccountId = dealer.Id; 
+            cont.LastName = 'Test Contact'; 
+            cont.Phone = '1234-5678-9876'; 
+            cont.email = 'test@contact.com';
+            contList.add(cont);
         }
        insert contList;
        
        for(contact con : contList)
-       { 
-	        CampaignMember campMbr = new CampaignMember();
-	        campMbr.CampaignId = campExec.Id;
-	        campMbr.ContactId = con.Id;           
-	        campMbr.Status = 'Send';
-	        campMbr.Task_Generated__c = false;
-	        campMembrList.add(campMbr);
+       {           
+            CampaignMember campMbr = new CampaignMember();
+            campMbr.CampaignId = campExec.Id;
+            campMbr.ContactId = con.Id;           
+            campMbr.Status = 'Responded';
+            campMbr.Status__c = '발송함';
+            campMbr.MD__c = 'KR';
+            campMbr.Task_Generated__c = false;
+            campMembrList.add(campMbr);
+            //campMembrMap.put(campMbr.Id,campMbr);
+            
+            
        }
        insert campMembrList;
+       for(CampaignMember c:campMembrList){
+           campMembrMap.put(c.Id,c);
+       }
     }
-    static testMethod void updateCampaignMemberTest() 
+    public static testMethod void updateCampaignMemberTest() 
     {
         Test.startTest();
         testDataPreparation();
-        campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(campMembrList);
+        campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(campExec.Id);
+        system.debug('list>>>>'+campMembrList);
+        system.debug('map>>>>'+campMembrMap);
+        //campaignMemberHelperKR.updatecustomstatus(campMembrList,campMembrMap);
         Test.stopTest();        
     }
 }

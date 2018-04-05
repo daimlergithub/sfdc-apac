@@ -344,19 +344,6 @@
         <fields>Portal_Message_Opt_Out__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
-	<relatedLists>
-        <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Product_Name__c</fields>
-        <fields>Status__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>VIN_Link__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <fields>ApplicationDate__c</fields>
-        <fields>ContractNumber__c</fields>
-        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
-    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
@@ -371,7 +358,7 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>UsVIN__c</fields>
+        <fields>Euro_Vin__c</fields>
         <fields>Car_Relation__c</fields>
         <fields>Vehicle_Model__c</fields>
         <fields>New_Used__c</fields>
@@ -407,20 +394,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Product_Name__c</fields>
-        <fields>Status__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>VIN_Link__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <fields>ApplicationDate__c</fields>
-        <fields>ContractNumber__c</fields>
-        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
@@ -452,6 +425,19 @@
         <fields>Campaign__c</fields>
         <relatedList>SurveyTaker__c.Contact__c</relatedList>
     </relatedLists>
+	<relatedLists>
+	    <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Service_Vehicle_VIN__c</fields>
+        <fields>Service_Number__c</fields>
+		<fields>Service_Date__c</fields>
+        <fields>Service_Code__c</fields>
+        <fields>Service_Date_In__c</fields>
+        <fields>Service_Date_Out__c</fields>
+        <fields>Service_Mileage__c</fields>
+        <fields>Service_Vehicle__c</fields>
+        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
@@ -465,6 +451,15 @@
         <fields>TASK.PRIORITY</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>Campaign_Name__c</fields>
+        <fields>Campaign_Type__c</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <fields>LAST_UPDATE</fields>
+        <fields>Campaign_Execution_Date__c</fields>
+        <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

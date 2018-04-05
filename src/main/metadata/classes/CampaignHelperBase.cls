@@ -166,6 +166,55 @@ public class CampaignHelperBase {
             }
         }
     }
+    
+// RSVP for Campaign Members- Asish Kumar Nanda
+    public static void rollup(List<Campaign> newCMlist, List<Campaign> oldCMlist, Boolean insertflag, Boolean updateflag, Boolean deleteflag, String market)
+    {
+        
+    Id cmpExeReTpIdS =RecordTypeAccessService.getRecordTypeId('Campaign',Label.Campaign_Execution_Simple);
+    Set<ID> sCampaignIDs=new Set<ID>();
+    Map<Id,Campaign> McmRevDel=new Map<Id,Campaign>();
+  
+    if(deleteflag)
+    {
+        for (Campaign itr : oldCMlist)  
+        {
+            if(string.isNotBlank(itr.parentid))
+                sCampaignIDs.add(itr.Parentid);
+        }
+    }
+    else
+    {
+        for(Campaign itr:newCMlist)
+        {
+             if(string.isNotBlank(itr.parentid))
+                sCampaignIDs.add(itr.Parentid);
+        }
+        
+    }
+     
+    if(sCampaignIDs.size()>0){
+    for(AggregateResult results : [select Parentid,Sum(No_of_Pax__c) totrevups from Campaign where Parentid in :sCampaignIDs group by  Parentid ]){
+        McmRevDel.put(String.valueof(results.get('Parentid')),new Campaign(id=String.valueOf(results.get('Parentid')),RSVP__c=(Integer.valueOf(results.get('totrevups')))));
+        }
+    
+   List<Campaign> CampaignList = new List<Campaign>();
+   CampaignList.addall(McmRevDel.values());
+ 
+
+    if(CampaignList!=null && !CampaignList.IsEmpty()){
+   DMLManagerService.updateAsSystem(CampaignList);
+   }
+    
+    
+    
+    } 
+    }
+    
+    
+    
+    
+ 
     /* Data Migration Explicit Fix - Santosh Mohanty */
     public static void updatemarket(List<Campaign> campList){        
         

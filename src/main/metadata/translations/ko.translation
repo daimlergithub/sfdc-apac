@@ -390,6 +390,10 @@
         <label><!-- Assigned Dealer --></label>
         <name>Assigned_Dealer</name>
     </customLabels>
+	<customLabels>
+        <label>담당자</label>
+        <name>Assigned_To</name>
+    </customLabels>
     <customLabels>
         <label>이 PDF 첨부 파일에 오류가 있습니다.</label>
         <name>AttachedPdfError</name>
@@ -1291,6 +1295,10 @@
     <customLabels>
         <label><!-- Driving experience --></label>
         <name>Driving_experience</name>
+    </customLabels>
+	<customLabels>
+        <label>기한</label>
+        <name>Due_Date</name>
     </customLabels>
     <customLabels>
         <label><!-- Dynamic --></label>
@@ -2517,7 +2525,7 @@
         <name>Overall_impression</name>
     </customLabels>
     <customLabels>
-        <label><!-- Owner --></label>
+        <label>담당자</label>
         <name>Owner</name>
     </customLabels>
     <customLabels>
@@ -4124,6 +4132,10 @@
         <label>설문조사 이름</label>
         <name>Survey_Name</name>
     </customLabels>
+	<customLabels>
+        <label>작업 생성 기능이 성공적으로 개시되었습니다.작업 생성 절차는 약 1-2분이 소요될 예정입니다. 1-2분 후 페이지를 새로고침하여 생성된 작업을 확인할 수 있습니다.</label>
+        <name>Successful_Task_Generation</name>
+    </customLabels>
     <customLabels>
         <label><!-- Survey Response --></label>
         <name>Survey_Response</name>
@@ -4264,6 +4276,10 @@ SMS를 사용할 수 없습니다. 확인 후 다시 시도하세요.</label>
     <customLabels>
         <label>인바운드 시작 시간</label>
         <name>Task_Start_Call_Time</name>
+    </customLabels>
+	<customLabels>
+        <label>작업 상태</label>
+        <name>Task_Status</name>
     </customLabels>
     <customLabels>
         <label>인바운드 작업</label>

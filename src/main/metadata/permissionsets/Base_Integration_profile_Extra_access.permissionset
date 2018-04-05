@@ -2624,6 +2624,14 @@
         <enabled>true</enabled>
         <name>onLineDeduplication</name>
     </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>PreferreddALKAddress</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
+        <name>RSVP</name>
+    </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
         <name>updateAccountlinks</name>
@@ -7342,6 +7350,11 @@
         <field>Campaign.Next_Run_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.No_of_Pax__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.NumberOfContacts</field>
@@ -7430,6 +7443,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Questionnaire__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.RSVP__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7730,6 +7748,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>CampaignMember.Newly_Added__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>CampaignMember.No_of_Pax__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8060,7 +8083,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Company_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8145,7 +8168,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.Customer_Email__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8205,7 +8228,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.FirstName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8250,7 +8273,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_Member__c.LastName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8351,6 +8374,11 @@
         <editable>false</editable>
         <field>Campaign_Member__c.Next_MOT_Date__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.No_of_Pax__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -18735,7 +18763,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Branch_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19015,7 +19043,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Description__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19710,7 +19738,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Related_Contact__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19740,7 +19768,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Retail_CreatedDate__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19755,7 +19783,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Retail_LastModifiedDate__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19785,7 +19813,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Service_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19795,7 +19823,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Service_Currency__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19810,17 +19838,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Service_Date_In__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Service_Date_Out__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Service_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19835,7 +19863,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Service_Invoice_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19845,12 +19873,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Service_Mileage__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Service_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -23597,6 +23625,16 @@
         <field>Vehicle__c.EuroVIN__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Extended_Warranty_End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Extended_Warranty_Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.FinanceExpiryDate__c</field>
@@ -24219,6 +24257,10 @@
     <pageAccesses>
         <apexPage>CustomerMymercInterface</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>DealerPicker</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>DMSendResult</apexPage>

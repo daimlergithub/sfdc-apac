@@ -16,9 +16,17 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Required</behavior>
+                <field>Service_Number__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Date_In__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -46,13 +54,13 @@
                 <behavior>Edit</behavior>
                 <field>Service_Mileage__c</field>
             </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
-                <field>Account__c</field>
+                <field>Branch_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Related_Contact__c</field>
+                <field>Account__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -89,35 +97,16 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Service Amount and Details</label>
-        <layoutColumns>
+		<layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Related_Dealer__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Service_Currency__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Service_Labour_Amount__c</field>
+                <height>200</height>
+                <page>RetailTask_inline_service_amount_generic</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Description__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Service_Parts_Amount__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Service_Total_Amount__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
