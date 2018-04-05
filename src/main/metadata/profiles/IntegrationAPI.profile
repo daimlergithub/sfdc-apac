@@ -16133,6 +16133,11 @@
         <field>FS_Contract__c.Residual_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>false</editable>
+		<field>FS_Contract__c.Retail_FS_Borrower__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>FS_Contract__c.SalesPersonName__c</field>
@@ -32937,6 +32942,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>EP_Log_Interface__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>FS_Contract__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
