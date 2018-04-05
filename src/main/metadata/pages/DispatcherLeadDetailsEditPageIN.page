@@ -1,0 +1,9 @@
+<!--
+** Page		: DispatcherLeadDetailsEditPageIN 
+** Description	: Page to redirect lead edit page on the basis of recordType
+** Created By	: Prem Kumar
+** Date			: 29/03/2018
+**-->
+
+<apex:page standardController="Lead_Details__c" extensions="DispatcherLeadDetailsEditCtrlIN" action="{!goToRecordTypePage}">
+</apex:page>

@@ -22,7 +22,7 @@ public class ConvertToTask1ControllerTest
         User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
         System.runAs (thisUser) {
             usr = new User(
-                Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+                Username = System.now().millisecond() + 'CTTCampaignTestDU@Daimler-test.com',
                 FirstName = 'firstname',
                 ProfileId = p.Id,            
                 Alias = 'test123',
@@ -162,7 +162,7 @@ public class ConvertToTask1ControllerTest
         User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
         System.runAs (thisUser) {
             usr = new User(
-                Username = System.now().millisecond() + 'testDaimlerddddUser@Daimler-test.com',
+                Username = System.now().millisecond() + 'RetailCampaignDaimlerddddUser@Daimler-test.com',
                 FirstName = 'firstname',
                 ProfileId = p.Id,            
                 Alias = 'test123',
@@ -281,7 +281,7 @@ public class ConvertToTask1ControllerTest
          User thisUser1= TestUtils.createAdminUser();  
         System.runAs (thisUser1) {
             usr = new User(
-                Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+                Username = System.now().millisecond() + 'CTTT1CThaiCtestDaimlerUser@Daimler-test.com',
                 FirstName = 'firstname',
                 ProfileId = p.Id,            
                 Alias = 'test123',

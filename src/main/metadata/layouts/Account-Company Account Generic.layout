@@ -88,7 +88,11 @@
                 <behavior>Edit</behavior>
                 <field>Corporate_Group__c</field>
             </layoutItems>
-        </layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Business_Number_Type__c</field>
+            </layoutItems>
+		</layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -162,6 +166,14 @@
                 <behavior>Readonly</behavior>
                 <field>Created_by_Dealership__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Business_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ACN__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -223,6 +235,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Complaint_Amount__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MB_Online_Audit_Tracking__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
