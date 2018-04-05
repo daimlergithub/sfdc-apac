@@ -18,7 +18,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <comment>To redirect user to opportunity custom edit pages where user can add/update related lead detail records.</comment>
+        <content>DispatcherLeadDetailsEditPageIN</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Follow</actionName>

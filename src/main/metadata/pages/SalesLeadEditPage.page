@@ -10,7 +10,7 @@
     
         <!--------------  Lead Info Section -------------->
             <apex:pageBlockSection title="Lead Information" columns="2">
-                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericAftersales_LeadInfo}"  var="f">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_LeadInfo}"  var="f">
                     <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"  rendered="{!IF(AND(f.label != 'Lead Record Type',f.label != 'Lead Owner'),true,false)}"/>
                     <apex:outputField value="{!opp[f.fieldPath]}" rendered="{!IF(OR(f.label == 'Lead Record Type',f.label == 'Lead Owner'),true,false)}"/>
                 </apex:repeat>
@@ -18,61 +18,42 @@
             
         <!--------------  Dealer Info Section -------------->
             <apex:pageBlockSection title="Dealer Information" columns="2">
-                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericAftersales_DealerInfo}"  var="f">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DealerInfo}"  var="f">
                     <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
 
         <!--------------  Lead Customer Info Section -------------->
             <apex:pageBlockSection title="Lead Customer Information" columns="2">
-                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericAftersales_CustomerInfo}"  var="f">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_CustomerInfo}"  var="f">
                     <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
             
-        <!--------------  Lead Request Info Section -------------->
-        <apex:pageBlockSection title="Lead Request Information" columns="2">
-            <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericAftersales_LeadRequest}"  var="f">
-                <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
-            </apex:repeat>
-        </apex:pageBlockSection>   
-
         <apex:pageBlockSection title="Lead DMS Information" columns="2">
-            <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericAftersales_LeadDMS}"  var="f">
+            <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DMSInfo}"  var="f">
                 <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
             </apex:repeat>
         </apex:pageBlockSection>  
             
-        <!--------------  Vehicle Info Section -------------->      
+        <!--------------  Vehicle Info Section --------------    !--> 
             <apex:pageBlockSection title="Vehicle Information" columns="2">
-                <apex:inputField value="{!opp.Bought_Vehicle_Brand__c}" required="false"/>
+                <apex:inputField value="{!opp.Description}" required="false"/>
+                <apex:inputField value="{!opp.Purchased_Vehicle__c}" required="false"/>
             </apex:pageBlockSection>
-            
-        <!--------------  Activity Date Info Section -------------->        
-        <apex:pageBlockSection title="Activity Date Information" columns="2">
-            <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericAftersales_ActivityInfo}"  var="f">
-                <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
-            </apex:repeat>
-        </apex:pageBlockSection> 
-        
-        <!--------------  Description Info Section -------------->      
-            <apex:pageBlockSection title="Description Information" columns="2">
-            <apex:inputField value="{!opp.Dealer_Comment__c}" required="false"/>
-            <apex:inputField value="{!opp.Lead_Additional_Service__c}" required="false"/>
-            </apex:pageBlockSection>
-            
+                              
 
         <!--------------  Lead Processing Info Section -------------->      
         <apex:pageBlockSection title="Lead Processing Information" columns="2">
-            <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericAftersales_LeadProces}"  var="f">
+            <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_ProcessInfo}"  var="f">
                 <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
             </apex:repeat>
         </apex:pageBlockSection> 
             
         <!--------------  Date Info Section -------------->     
-        <!--    <apex:pageBlockSection title="Date Information" columns="2">
+            <apex:pageBlockSection title="Date Information" columns="2">
                 <apex:inputField value="{!opp.Visited_Showroom_Date_Time__c}" required="false"/>
-            </apex:pageBlockSection>    -->
+            </apex:pageBlockSection>    
 
         <!--------------  System Info Section -------------->     
             <apex:pageBlockSection title="System Information" columns="2">

@@ -379,12 +379,17 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Lead_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Lead_Source__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Is_Active__c</field>
+            <field>Lead_Sub_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -404,6 +409,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Referal_Referee_Note__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Lead_Desired_Service__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -414,17 +424,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Lead_Type__c</field>
+            <field>Is_Active__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Lost_Situation__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Lead_Sub_Type__c</field>
+            <field>Lost_to_Co_Dealer_Name__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -434,12 +439,27 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>CampaignId</field>
+            <field>Lost_To_Competitor_Name__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Lost_Reason_text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_OEM_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CampaignId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Situation__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -714,6 +734,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Referal_Referee_Note__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Lost_Reason_text__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -805,6 +830,11 @@
         </displayedFields>
         <displayedFields>
             <field>Preferred_Contact_Time__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Market__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -990,6 +1020,14 @@
         <label>Average Driving</label>
         <picklist>
             <picklistValues>
+                <fullName>Under 500</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>500-1000</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>1000-2000</fullName>
                 <default>false</default>
             </picklistValues>
@@ -998,19 +1036,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>500-1000</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Greater than 5000</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Under 500</fullName>
-                <default>false</default>
-            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
-            <sorted>true</sorted>
+            <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -4401,6 +4431,7 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Referral</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Response Sheet</fullName>
@@ -6557,6 +6588,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Referal_Referee_Note__c</fullName>
+        <externalId>false</externalId>
+        <label>Referal/Referee Note</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Registration_No__c</fullName>
         <externalId>false</externalId>
         <label>Registration No.</label>
@@ -6730,7 +6772,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <description>Once Customer confirms Service booking status will be changed to service booking . This field will also get updated from OSB system in future</description>
                 <closed>false</closed>
                 <forecastCategory>Pipeline</forecastCategory>
-                <probability>10</probability>
+                <probability>40</probability>
                 <won>false</won>
             </picklistValues>
             <picklistValues>
@@ -6739,7 +6781,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <description>Once lead is sent to DMS system</description>
                 <closed>false</closed>
                 <forecastCategory>Pipeline</forecastCategory>
-                <probability>10</probability>
+                <probability>40</probability>
                 <won>false</won>
             </picklistValues>
             <picklistValues>
@@ -6780,70 +6822,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <closed>true</closed>
                 <forecastCategory>Omitted</forecastCategory>
                 <probability>0</probability>
-                <won>false</won>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prospecting</fullName>
-                <default>false</default>
-                <closed>false</closed>
-                <forecastCategory>Pipeline</forecastCategory>
-                <probability>10</probability>
-                <won>false</won>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Qualification</fullName>
-                <default>false</default>
-                <closed>false</closed>
-                <forecastCategory>Pipeline</forecastCategory>
-                <probability>10</probability>
-                <won>false</won>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Needs Analysis</fullName>
-                <default>false</default>
-                <closed>false</closed>
-                <forecastCategory>Pipeline</forecastCategory>
-                <probability>20</probability>
-                <won>false</won>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Value Proposition</fullName>
-                <default>false</default>
-                <closed>false</closed>
-                <forecastCategory>Pipeline</forecastCategory>
-                <probability>50</probability>
-                <won>false</won>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Id. Decision Makers</fullName>
-                <default>false</default>
-                <closed>false</closed>
-                <forecastCategory>Pipeline</forecastCategory>
-                <probability>60</probability>
-                <won>false</won>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Perception Analysis</fullName>
-                <default>false</default>
-                <closed>false</closed>
-                <forecastCategory>Pipeline</forecastCategory>
-                <probability>70</probability>
-                <won>false</won>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Proposal/Price Quote</fullName>
-                <default>false</default>
-                <closed>false</closed>
-                <forecastCategory>Pipeline</forecastCategory>
-                <probability>75</probability>
-                <won>false</won>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Negotiation/Review</fullName>
-                <default>false</default>
-                <closed>false</closed>
-                <forecastCategory>Pipeline</forecastCategory>
-                <probability>90</probability>
                 <won>false</won>
             </picklistValues>
             <sorted>false</sorted>
@@ -14992,7 +14970,7 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
     <validationRules>
         <fullName>Lead_Type_SubType_LeadSource_Mandatory</fullName>
         <active>true</active>
-        <description>Lead Type,Sub Type and Lead source(Datasource) is mandatory</description>
+        <description>Lead Type,Sub Type and Lead source is mandatory</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', $Permission.INGeneric, OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
 ISPICKVAL( Lead_Type__c ,'') || (ISPICKVAL( Lead_Sub_Type__c ,"" ))|| (ISPICKVAL(  Lead_Source__c ,"" )))</errorConditionFormula>
@@ -15021,7 +14999,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Lost_Dealer_Required_Check</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric, OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads'),MD__c = 'IN', 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric, OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),MD__c = 'IN', 
 ISPICKVAL(StageName,"Closed Lost"), 
 ISNULL(Lost_Date__c) 
 )</errorConditionFormula>
@@ -15068,7 +15046,7 @@ LEN( Account_address__c )=0)
     </validationRules>
     <validationRules>
         <fullName>Test_Drive_Required_Check</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Test drive date is mandatory when stage is test drive completed</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', $Permission.INGeneric, OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
 ISPICKVAL(StageName,"Test drive completed"), 
@@ -15081,15 +15059,9 @@ ISNULL(Test_Drive_Date__c)
         <fullName>Test_drive_date_mandatory_no_future_date</fullName>
         <active>true</active>
         <description>Test drive date is mandatory when stage is test drive completed</description>
-        <errorConditionFormula>(ISNULL(Test_Drive_Date__c)&amp;&amp;
-ISPICKVAL(StageName ,'Test drive completed')) ||
-
-
-
-
-((Test_Drive_Date__c &gt;today())&amp;&amp;
-ISPICKVAL(StageName ,'Test drive completed'))</errorConditionFormula>
-        <errorMessage>If Lead Status is Test Drive, Test Drive Date is required.</errorMessage>
+        <errorConditionFormula>((Test_Drive_Date__c &gt;today())&amp;&amp;
+ISPICKVAL(StageName ,&apos;Test drive completed&apos;))</errorConditionFormula>
+        <errorMessage>Test drive date cannot be future date , when Test Drive is completed</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>DeliveryStatus</fullName>
