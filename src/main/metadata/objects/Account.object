@@ -9242,6 +9242,18 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>MB_Online_Audit_Tracking__c</fullName>
+        <description>stores the concatenation of (add_user, add_date, last_updated,last_update_changed_by) for MB Online in ANZ market</description>
+        <externalId>false</externalId>
+        <label>MB Online Audit Tracking</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>	
+    <fields>
         <fullName>MB_Replacement_Date__c</fullName>
         <externalId>false</externalId>
         <label>MB Replacement Date</label>
