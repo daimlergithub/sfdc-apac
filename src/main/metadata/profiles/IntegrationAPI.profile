@@ -16055,11 +16055,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Guarantor__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>FS_Contract__c.Inactive_borrower__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16137,16 +16132,6 @@
         <editable>true</editable>
         <field>FS_Contract__c.Residual_Amount__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>FS_Contract__c.Retail_FS_Borrower__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Retail_FS_Guarantor__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
