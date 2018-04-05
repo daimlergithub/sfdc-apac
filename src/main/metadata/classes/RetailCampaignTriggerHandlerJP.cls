@@ -34,7 +34,7 @@ public class RetailCampaignTriggerHandlerJP
          if(Trigger.isAfter && Trigger.isInsert)
         {
            //RetailCampaignHelper.afterInsertCopyRetailCampaign(Trigger.New);
-           RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
+        //   RetailCampaignHelper.emailNotificationRetail(Trigger.New); 
             RetailCampaignHelper.updateLogic(Trigger.New); 
             RetailCampaignHelper.afterInsertRetailCampaignSharing(Trigger.New);
             RetailCampaignHelper.jointDrivenRetailCampaignSharing(Trigger.New);
