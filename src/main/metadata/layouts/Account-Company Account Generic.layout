@@ -236,6 +236,10 @@
                 <behavior>Edit</behavior>
                 <field>Complaint_Amount__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MB_Online_Audit_Tracking__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

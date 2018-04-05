@@ -7,6 +7,20 @@
         <shortDescription>Contact Lead Status</shortDescription>
         <value>Assigned,New</value>
     </labels>
+	 <labels>
+        <fullName>masterLeadMerge</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Master</shortDescription>
+        <value>Master</value>
+    </labels>
+	<labels>
+        <fullName>slaveLeadMerge</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Slave</shortDescription>
+        <value>Slave</value>
+    </labels>
     <labels>
         <fullName>A6_Contact_as_part_of_visiting_a_car_dealership</fullName>
         <language>en_US</language>
@@ -29,6 +43,34 @@
         <protected>false</protected>
         <shortDescription>Mym page</shortDescription>
         <value>Are you sure to delete this account?</value>
+    </labels>
+	 <labels>
+        <fullName>Are_you_sure_to_start_List_Maintenance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure to start List Maintenance?</shortDescription>
+        <value>Are you sure to start List Maintenance?</value>
+    </labels>
+    <labels>
+        <fullName>Are_you_sure_to_start_consolidation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure to start consolidation?</shortDescription>
+        <value>Are you sure to start consolidation?</value>
+    </labels>
+    <labels>
+        <fullName>Are_you_sure_to_start_distributing_to_dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure to start distributing to dealer?</shortDescription>
+        <value>Are you sure to start distributing to dealer?</value>
+    </labels>
+    <labels>
+        <fullName>Are_you_sure_to_start_refresh</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure to start refresh?</shortDescription>
+        <value>Are you sure to start refresh?</value>
     </labels>
 	<labels>
         <fullName>New_Used</fullName>
@@ -854,6 +896,13 @@
         <protected>false</protected>
         <shortDescription>Announcement</shortDescription>
         <value>Announcements</value>
+    </labels>
+	<labels>
+        <fullName>Are_you_sure_to_create_Retail_Campaign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you sure to create Retail Campaign?</shortDescription>
+        <value>Are you sure to create Retail Campaign?</value>
     </labels>
 	<labels>
         <fullName>Are_you_sure_to_delete_this_account</fullName>
