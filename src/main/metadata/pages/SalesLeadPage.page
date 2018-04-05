@@ -25,7 +25,7 @@
                 </apex:repeat>
             </apex:pageBlockSection>  ---->
             
-        <!--------------  Test Lead Customer Info Section ------------>
+        <!--------------  Lead Customer Info Section ------------>
             <apex:pageBlockSection title="Lead Customer Information" columns="2">
                 <!--<apex:inputField value="{!opp.AccountId}" onchange="Vehrel(this.value)"/>-->
                 <apex:inputField value="{!opp.AccountId}"  required="true">
@@ -43,11 +43,10 @@
             </apex:pageBlockSection>
             
         <!--------------  Vehicle Info Section -------------->      
-        <!--    <apex:pageBlockSection title="Vehicle Information" columns="2">
-                <apex:inputField value="{!opp.Bought_Vehicle_Brand__c}" required="false"/>
-                <apex:inputField value="{!opp.Bought_Vehicle_Class__c}" required="false"/>
-                <apex:inputField value="{!opp.Bought_Vehicle_Model__c}" required="false"/>
-            </apex:pageBlockSection> -->
+            <apex:pageBlockSection title="Vehicle Information" columns="2">
+                <apex:inputField value="{!opp.Description}" required="false"/>
+                <apex:inputField value="{!opp.Purchased_Vehicle__c}" required="false"/>
+            </apex:pageBlockSection>
             
         <!--------------  Lead Processing Info Section -------------->      
 

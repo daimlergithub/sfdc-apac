@@ -28587,6 +28587,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>DispatcherLeadDetailsEditPageIN</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>DuplicateCheckPage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>

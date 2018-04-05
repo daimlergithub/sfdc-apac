@@ -1,8 +1,8 @@
 /**
-** Class		: AfterSalesLeadEditController 
-** Description	: AfterSales edit page controller
-** Created By	: Prem Kumar
-** Date			: 29/03/2018
+** Class        : AfterSalesLeadEditController 
+** Description  : AfterSales edit page controller
+** Created By   : Prem Kumar
+** Date         : 29/03/2018
 **/
 
 public with sharing class AfterSalesLeadEditController {
@@ -32,7 +32,7 @@ public with sharing class AfterSalesLeadEditController {
         opp=[SELECT id,Name ,RecordType.Name,StageName,Case__c,CreatedDate,Campaign.Name,Visited_Showroom_Date_Time__c,Market__c, Type_of_Sale__c,
              Lead_Additional_Service__c,Pickup_Date_Time__c,Order_Placed_Date__c,Quotation_Date__c,Quotation_Amount__c,Order_No__c,
              Order_Print_Date__c,Order_Confirmation_Date__c,Registration_No__c,Network_Registration_Date__c,Bought_Vehicle_Brand__c,Next_Contact_Customer_Date__c,
-             Bought_Vehicle_Class__c,Bought_Vehicle_Model__c,Invoice_Number__c,Invoice_Date__c,Purchase_Time__c,Received_Date_Time__c,
+             Referal_Referee_Note__c,Bought_Vehicle_Class__c,Bought_Vehicle_Model__c,Invoice_Number__c,Invoice_Date__c,Purchase_Time__c,Received_Date_Time__c,
              Invoice_Amount__c,Qualified_Date_Time__c,UCID__c,Desired_Contact_Date__c,Price_Range__c,Test_Drive_Date__c,Preferred_Contact_Time__c,Assigned_Service_Advisor__c,
              Accepted_Date_Time__c,Purchase_Date__c,Quotation_Print_Date__c,Quotation_No__c,Assigned_Date_Time__c,Preferred_Contact_Method__c,
              Lead_Latest_Phase__c,Contact__c,Sales_Consultant__c,Dealer_Comment__c,Customer_Preferred_Representative__c,
@@ -40,7 +40,8 @@ public with sharing class AfterSalesLeadEditController {
              CAC_Lost_Reason__c,Lead_DataSubSource__c,Lost_Reason_text__c,Lead_Desired_Service__c,Last_Successful_Call__c,
              Lead_Source__c,Lead_Priority__c,Lost_To__c,Lost_Situation__c,Lead_No__c,Allow_Data_Sharing__c,OwnerId,Is_Active__c,LeadSource,AccountId,Payment_Mode__c,Lost_Date__c,CreatedById,LastModifiedById,Service_Requested_date__c,Quotation_No_History__c,
              WIP_Number__c,WIP_Created_Date__c,Job_Card_Number__c,Job_Card_Date__c,Check_In_Date__c,Check_Out_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c,Finance_Proposal_Date__c,Insurance_Proposal_Date__c,Service_Program_Proposal_Date__c,Simple_Estimation_Date__c,
-             Finance_Product_Name__c,Trade_in_Date__c,Finance_Quotation_No_History__c,Finance_Quotation_Date__c,Finance_Quotation_No__c,CA_Updated_Date__c,Quotation_Model__c,Service_date__c,Preferred_Delivery_Date__c FROM opportunity WHERE Id =: ApexPages.currentPage().getParameters().get('id')];
+             Finance_Product_Name__c,Trade_in_Date__c,Finance_Quotation_No_History__c,Finance_Quotation_Date__c,Finance_Quotation_No__c,CA_Updated_Date__c,Quotation_Model__c,Service_date__c,Preferred_Delivery_Date__c,Lost_to_Co_Dealer_Name__c,Lost_To_Competitor_Name__c,Lost_to_OEM_Name__c
+             FROM opportunity WHERE Id =: ApexPages.currentPage().getParameters().get('id')];
                
         currentVehicleList = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
         for(Lead_Details__c ld : [Select Id, recordTypeId, Car_Model_Competitor__c, Brand__c, Car_Model__c, Class__c, Color__c, Market__c, Mileage__c, Preferred__c, Related_Lead__c, Trade_In_Vehicle__c, Trim__c, Type__c, Vehicle_Model_Type__c, Year_of_Manufacture__c From Lead_Details__c Where Related_Lead__c =: ApexPages.currentPage().getParameters().get('id')]){
@@ -150,7 +151,8 @@ public with sharing class AfterSalesLeadEditController {
                 Update opp;
             }
             catch(DmlException de){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, de.getMessage()));
+                ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,de.getDMLMessage(0)));      
+                return null;
             }
             PageReference oppPage = new ApexPages.StandardController(opp).view();
             oppPage.setRedirect(true);
