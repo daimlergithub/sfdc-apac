@@ -90,7 +90,7 @@
                 <field>Finance_Address__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>List_Maintenance_CM_Status__c</field>
             </layoutItems>
             <layoutItems>
