@@ -218,7 +218,12 @@
                 <field>Vehicle_Amount__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MB_Online_Audit_Tracking__c</field>
+            </layoutItems>
+         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
