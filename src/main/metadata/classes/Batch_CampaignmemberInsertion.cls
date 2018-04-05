@@ -1,11 +1,13 @@
 global class Batch_CampaignmemberInsertion implements Database.Batchable<sObject> ,Database.stateful{
   global final set<id> campid; 
   global final Map<id,Retail_campaign__c> Maplist; 
+   global final List<Retail_Campaign__c> retCampList; 
     
-    global Batch_CampaignmemberInsertion( Map<id,Retail_Campaign__c> newmaplist,Set<id> campeid){
+    global Batch_CampaignmemberInsertion( Map<id,Retail_Campaign__c> newmaplist,Set<id> campeid,List<Retail_Campaign__c> retCampList){
     
       campid = campeid;
       Maplist = newmaplist;
+      retCampList=retCampList;
         
     }
     
@@ -117,7 +119,10 @@ global class Batch_CampaignmemberInsertion implements Database.Batchable<sObject
     
     global void finish(Database.BatchableContext BC){
     
-      
+      if(retCampList!=null)
+      {
+      RetailCampaignHelper.emailNotificationRetail(retCampList);
+      }
     }
 
 }

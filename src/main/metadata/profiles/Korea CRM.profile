@@ -1310,11 +1310,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ServiceRetailTask</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ServiceRetailTaskTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ShareAccountLinksToDealerTest</apexClass>
@@ -28151,7 +28151,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ServiceRetailTask</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SiteLogin</apexPage>

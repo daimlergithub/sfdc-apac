@@ -132,6 +132,8 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
     
      Set<id> retailId = New Set<id>();
        Map<Id,Retail_Campaign__c> maplist = New Map<Id,Retail_Campaign__c>();
+       if(retailCampaign !=null)
+       {
        For(Retail_Campaign__c remain : retailCampaign){
        
           retailId.add(remain.id);
@@ -139,10 +141,16 @@ global class Batch_JointDrivenCampaign implements Database.Batchable<sObject>,Da
        
        }   
        if(!Test.isRunningTest()){
-     Batch_CampaignmemberInsertion   batcher = new Batch_CampaignmemberInsertion (maplist,campid);
+       if(retailCampaign !=null)
+       {
+       Batch_CampaignmemberInsertion   batcher = new Batch_CampaignmemberInsertion (maplist,campid,retailCampaign);
             Database.executeBatch(batcher,1);  
+       }
+     
     
     }
+       }
+       
     
     
     }

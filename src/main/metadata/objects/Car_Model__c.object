@@ -156,9 +156,11 @@
             <picklistValues>
                 <fullName>ESTATE</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -179,25 +181,31 @@
             <picklistValues>
                 <fullName>ROADSTER</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SEDAN</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SHOOTING BRAKE</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -211,9 +219,59 @@
             <picklistValues>
                 <fullName>SUV</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+   <picklistValues>
+                <fullName>HATCH</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SPORTS TOURER</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COUPÉ</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CABRIOLET</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SALOON</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ALL-TERRAIN</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WAGON</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CAB-CHASSIS</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1622,12 +1680,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))))</defaultValue>
     <fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'IN') ,'IN',
+IF(ISPICKVAL($User.Market__c, 'NZ') ,'NZ',
 IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -1657,6 +1716,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3061,6 +3124,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Updated By EP Transactions</label>
         <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Variant__c</fullName>
+        <externalId>false</externalId>
+        <label>Variant</label>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
