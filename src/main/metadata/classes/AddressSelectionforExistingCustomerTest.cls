@@ -45,7 +45,7 @@ public class AddressSelectionforExistingCustomerTest {
         Profile DealerDelegated = [select Id from Profile where Name = 'Japan Dealer Company Manager' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = 'ASECDTest1'+System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -143,7 +143,7 @@ public class AddressSelectionforExistingCustomerTest {
         Profile DealerDelegated = [select Id from Profile where Name = 'Japan Dealer Company Manager' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = 'ASECDTest'+System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -234,7 +234,7 @@ public class AddressSelectionforExistingCustomerTest {
         Profile DealerDelegated = [select Id from Profile where Name = 'Japan Dealer Company Manager' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username ='ASECDTest2'+ System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -328,7 +328,7 @@ public static testMethod void DealerTest3()
         Profile DealerDelegated = [select Id from Profile where Name = 'System Administrator' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = 'ASECDTest3'+System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -423,7 +423,7 @@ public static testMethod void DealerTest3()
         Profile DealerDelegated = [select Id from Profile where Name = 'System Administrator' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = 'ASECDTest4'+System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -516,7 +516,7 @@ public static testMethod void DealerTest3()
         Profile DealerDelegated = [select Id from Profile where Name = 'Japan Dealer Company Manager' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = 'ASECDTest5'+System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -608,7 +608,7 @@ public static testMethod void DealerTest3()
         Profile DealerDelegated = [select Id from Profile where Name = 'System Administrator' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username ='ASECDTest6'+ System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -701,7 +701,7 @@ public static testMethod void DealerTest3()
         Profile DealerDelegated = [select Id from Profile where Name = 'System Administrator' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = 'ASECDTest7'+System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            

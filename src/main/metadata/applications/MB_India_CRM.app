@@ -4,7 +4,7 @@
     <description>Kaaviya - Added for India non console users</description>
     <label>MB India CRM</label>
     <tab>standard-Account</tab>
-    <tab>Lead__c</tab>
+    <tab>standard-Opportunity</tab>
     <tab>standard-Case</tab>
     <tab>Tasks</tab>
     <tab>standard-Campaign</tab>

@@ -14078,6 +14078,18 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>MB_Online_Audit_Tracking__c</fullName>
+        <description>stores the concatenation of (add_user, add_date, last_updated,last_update_changed_by) for MB Online in ANZ market</description>
+        <externalId>false</externalId>
+        <label>MB Online Audit Tracking</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MB_Replacement_Date__c</fullName>
         <externalId>false</externalId>
         <label>MB Replacement Date</label>
@@ -16041,6 +16053,15 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Opt_In_Mail__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In Mail</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Opt_In_Mobile__c</fullName>
         <defaultValue>false</defaultValue>
         <description>New field to be added in Kernel Template</description>
@@ -16051,10 +16072,28 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Opt_In_Phone__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In Phone</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Opt_In_SMS2__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Opt In SMS/MMS/IM 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_In_SMS3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In SMS</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -63997,12 +64036,12 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
-        <fullName>ABNBusinessNumberValidationANZ</fullName>
+        <fullName>ABNBusinessNumberValidation</fullName>
         <active>true</active>
         <description>if user select ABN business Number Type then  the value entered in the Busienss Number is 11 digits</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI',
-if(OR (AND(MD__c=='NZ',$Permission.NZGeneric),AND(MD__c=='AU',$Permission.AUGeneric)),true,false), 
+if(AND(MD__c=='AU',$Permission.AUGeneric),true,false), 
 ISPICKVAL(Business_Number_Type__c, 'ABN'),
 NOT(REGEX(Business_Number__c, "[0-9]{11}"))
 )</errorConditionFormula>
@@ -64010,12 +64049,12 @@ NOT(REGEX(Business_Number__c, "[0-9]{11}"))
         <errorMessage>Please enter 11 digits</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>ACNValidationANZ</fullName>
+        <fullName>ACNValidation</fullName>
         <active>true</active>
         <description>Validates the Value Entered in ACN  are all numbers and the length is exactly 9 digits for ANZ Market</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI',
-if(OR (AND(MD__c=='NZ',$Permission.NZGeneric),AND(MD__c=='AU',$Permission.AUGeneric)),true,false), 
+if(AND(MD__c=='AU',$Permission.AUGeneric),true,false), 
 NOT(REGEX(ACN__c, "[0-9]{9}")),
 NOT(ISBLANK(ACN__c))
 )</errorConditionFormula>
@@ -64132,6 +64171,32 @@ if($Permission.INGeneric,true,false)
  OR(LEN(Branch_name_Native__c)=1,NOT(REGEX( Branch_name_Native__c, "[ァア・ィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ－ー ]*"))))</errorConditionFormula>
         <errorDisplayField>Branch_name_Native__c</errorDisplayField>
         <errorMessage>Branch name native should not be single byte and should be ""Kana"" characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BusinessNumberTypeValidationAU</fullName>
+        <active>true</active>
+        <description>if Business Nubmer Type  ABN is allowed for AU Market</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI',
+if(AND(MD__c=='AU',$Permission.AUGeneric),true,false),  
+NOT(ISPICKVAL(Business_Number_Type__c, 'ABN')),
+NOT(ISBLANK(TEXT(Business_Number_Type__c)))
+)</errorConditionFormula>
+        <errorDisplayField>Business_Number_Type__c</errorDisplayField>
+        <errorMessage>Business Number Type 'ABN' is allowed for AU Market.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BusinessNumberTypeValidationNZ</fullName>
+        <active>true</active>
+        <description>if Business Nubmer Type 'NZBN' is allowed for NZ Market</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI',
+if(AND(MD__c=='NZ',$Permission.NZGeneric) ,true,false), 
+NOT(ISPICKVAL(Business_Number_Type__c, 'NZBN')),
+NOT(ISBLANK(TEXT(Business_Number_Type__c)))
+)</errorConditionFormula>
+        <errorDisplayField>Business_Number_Type__c</errorDisplayField>
+        <errorMessage>Business Number Type 'NZBN' is allowed for NZ Market.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CIN_Number_NoOfDigit_100Char</fullName>
@@ -65353,12 +65418,12 @@ MD__c = 'JP'
         <errorMessage>Please enter Mobile number.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>NZBNBusinessNumberValidationANZ</fullName>
+        <fullName>NZBNBusinessNumberValidation</fullName>
         <active>true</active>
         <description>If Business number Type selected is NZBN, system should validate that the values entered are all numbers and the length is exactly 13 digits</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI',
-if(OR (AND(MD__c=='NZ',$Permission.NZGeneric),AND(MD__c=='AU',$Permission.AUGeneric)),true,false), 
+if(AND(MD__c=='NZ',$Permission.NZGeneric) ,true,false), 
 ISPICKVAL(Business_Number_Type__c, 'NZBN'),
  NOT(REGEX(Business_Number__c, "[0-9]{13}"))
 )</errorConditionFormula>

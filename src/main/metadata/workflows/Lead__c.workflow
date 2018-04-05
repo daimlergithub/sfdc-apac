@@ -1552,7 +1552,7 @@ Purchased_Date_Time__c
     <rules>
         <fullName>MBTH_Reassigned Lead %28Reverse Forwarding%29</fullName>
         <active>true</active>
-        <formula>AND(NOT(ISPICKVAL(CAC_Lead_Status__c ,'Accepted')),MD__c ='TH',OR(RecordType.Name ='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'), Assigned_Dealer__c &lt;&gt; NULL)</formula>
+        <formula>AND(ISPICKVAL(CAC_Lead_Status__c ,'New'),MD__c ='TH',OR(RecordType.Name ='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'), Assigned_Dealer__c &lt;&gt; NULL)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>

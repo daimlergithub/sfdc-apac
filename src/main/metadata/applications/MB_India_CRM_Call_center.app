@@ -126,7 +126,7 @@
     <saveUserSessions>true</saveUserSessions>
     <tab>standard-home</tab>
     <tab>standard-Account</tab>
-    <tab>Lead__c</tab>
+    <tab>standard-Opportunity</tab>
     <tab>standard-Case</tab>
     <tab>Tasks</tab>
     <tab>standard-Campaign</tab>
@@ -139,9 +139,6 @@
     <workspaceMappings>
         <mapping>
             <tab>Account_Link__c</tab>
-        </mapping>
-        <mapping>
-            <tab>Lead__c</tab>
         </mapping>
         <mapping>
             <tab>Recall__c</tab>
@@ -169,6 +166,9 @@
         </mapping>
         <mapping>
             <tab>standard-Knowledge</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-Opportunity</tab>
         </mapping>
         <mapping>
             <tab>standard-home</tab>

@@ -15950,6 +15950,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>FS_Contract_Relations__c.FS_Customer_Copy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract_Relations__c.FS_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract_Relations__c.Relation_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>FS_Contract__c.Activation_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16040,11 +16055,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Guarantor__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>FS_Contract__c.Inactive_borrower__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16123,16 +16133,11 @@
         <field>FS_Contract__c.Residual_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>FS_Contract__c.Retail_FS_Borrower__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Retail_FS_Guarantor__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+	<fieldPermissions>
+		<editable>false</editable>
+		<field>FS_Contract__c.Retail_FS_Borrower__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>FS_Contract__c.SalesPersonName__c</field>
@@ -29732,6 +29737,9 @@
         <layout>FAQ__kav-How To Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>FS_Contract_Relations__c-FS Contract Relations Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>FS_Contract__c-FS Contract Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -30774,6 +30782,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>FAQ__kav</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>FS_Contract_Relations__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -32925,6 +32942,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>EP_Log_Interface__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>FS_Contract__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
