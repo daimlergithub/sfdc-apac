@@ -20,6 +20,14 @@
         <label><!-- Force.com --></label>
         <name>Force_com</name>
     </customApplications>
+	<customLabels>
+        <label>マスタ</label>
+        <name>masterLeadMerge</name>
+    </customLabels> 
+	<customLabels>
+        <label>削除または自</label>
+        <name>slaveLeadMerge</name>
+    </customLabels> 
     <customApplications>
         <label><!-- MBF Call Center --></label>
         <name>MBF_Call_Center</name>
