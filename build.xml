@@ -50,7 +50,7 @@
 											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 </target>
 
-<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy07, deploy09, postDestructiveChanges">
+<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, postDestructiveChanges">
 <!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">-->
 <sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
@@ -119,7 +119,7 @@
 					<sf:typeset name="callCenters"/>
 				</deploy>
 			</target>
-<!-- 			<target name="deploy05">
+ 			<target name="deploy05">
 				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
 			
 					<sf:typeset name="customPermissions" force="true"/>
@@ -140,7 +140,7 @@
 					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 						
 				</deploy>
-			</target> -->
+			</target> 
 			<target name="deploy07">
 				<deploy runAllTests="${sfdc.runAllTests}">
 				<sf:typeset name="letterhead"/>                                          
