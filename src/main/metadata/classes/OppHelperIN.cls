@@ -36,18 +36,14 @@ public without sharing  class  OppHelperIN{
         OppHelperBase.CheckRetailCopy( leadlist,  leadOldMap,  isInsert,  isUpdate, market);
     }
   
-   // Added by Asish Nanda to get a dynamic Url in Email For Dealer Gate Keeper to login to Malaysia Dealer Community 
-    public void updatecommunityURL(List<Lead__c> Leadlist){
-        LeadHelperBase.updatecommunityurl(Leadlist, Market);
-    }
-  
+   
     public void CdmLeadcreate(List < Opportunity> leadlist, map < id, Opportunity> leadOldMap,string market)
     {
         helperBase.CdmLeadcreate(leadlist, leadOldMap,market);
     }
   
     public void updateRetailLookups(List < Opportunity> leadlist,string market){
-    LeadHelperBase.updateRetailLookups(Trigger.New,market);
+    oppHelperbase.updateRetailLookups(Trigger.New,market);
     }
     //Added by Shashi- To check the address is available when the status of Opportunity is 'Order Placed'
     public void checkAddress(List<Opportunity> oppList){
