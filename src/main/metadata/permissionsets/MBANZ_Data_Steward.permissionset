@@ -26524,11 +26524,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.avayajp__AgentID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.avayajp__Called__c</field>
         <readable>false</readable>
     </fieldPermissions>
