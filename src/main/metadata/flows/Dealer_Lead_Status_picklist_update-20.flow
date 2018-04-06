@@ -255,7 +255,7 @@
                 <stringValue>IF ( ISPICKVAL( [Lead__c].Lead_Latest_Phase__c, &apos;Quotation&apos; )  &amp;&amp; ISCHANGED ( [Lead__c].Lead_Latest_Phase__c ),&apos;Quotation&apos;,
 IF ( ISPICKVAL( [Lead__c].Lead_Latest_Phase__c, &apos;Order Placed&apos; ) &amp;&amp; ISCHANGED ( [Lead__c].Lead_Latest_Phase__c ), &apos;Order Placed&apos;, 
 IF ( ISPICKVAL( [Lead__c].Lead_Latest_Phase__c, &apos;Order Confirmed&apos; ) &amp;&amp; ISCHANGED ( [Lead__c].Lead_Latest_Phase__c ), &apos;Order Confirmed&apos;, 
-IF ( ISPICKVAL( [Lead__c].Lead_Latest_Phase__c, &apos;Assigned%2FAccepted&apos; ) &amp;&amp; ISCHANGED ( [Lead__c].Lead_Latest_Phase__c ), &apos;Assigned%2FAccepted&apos;,
+IF ( ISPICKVAL( [Lead__c].Lead_Latest_Phase__c, &apos;Assigned/Accepted&apos; ) &amp;&amp; ISCHANGED ( [Lead__c].Lead_Latest_Phase__c ), &apos;Assigned/Accepted&apos;,
 IF ( ISPICKVAL( [Lead__c].Lead_Latest_Phase__c, &apos;Invoiced&apos; ) &amp;&amp; ISCHANGED ( [Lead__c].Lead_Latest_Phase__c ), &apos;Invoiced&apos;, TEXT( [Lead__c].Dealer_Lead_Status__c )))))))</stringValue>
             </value>
         </processMetadataValues>
@@ -264,7 +264,7 @@ IF ( ISPICKVAL( [Lead__c].Lead_Latest_Phase__c, &apos;Invoiced&apos; ) &amp;&amp
         <expression>IF ( ISPICKVAL( {!myVariable_current.Lead_Latest_Phase__c}, &apos;Quotation&apos; )  &amp;&amp; ISCHANGED ( {!myVariable_current.Lead_Latest_Phase__c} ),&apos;Quotation&apos;,
 IF ( ISPICKVAL( {!myVariable_current.Lead_Latest_Phase__c}, &apos;Order Placed&apos; ) &amp;&amp; ISCHANGED ( {!myVariable_current.Lead_Latest_Phase__c} ), &apos;Order Placed&apos;, 
 IF ( ISPICKVAL( {!myVariable_current.Lead_Latest_Phase__c}, &apos;Order Confirmed&apos; ) &amp;&amp; ISCHANGED ( {!myVariable_current.Lead_Latest_Phase__c} ), &apos;Order Confirmed&apos;, 
-IF ( ISPICKVAL( {!myVariable_current.Lead_Latest_Phase__c}, &apos;Assigned%2FAccepted&apos; ) &amp;&amp; ISCHANGED ( {!myVariable_current.Lead_Latest_Phase__c} ), &apos;Assigned%2FAccepted&apos;, 
+IF ( ISPICKVAL( {!myVariable_current.Lead_Latest_Phase__c}, &apos;Assigned/Accepted&apos; ) &amp;&amp; ISCHANGED ( {!myVariable_current.Lead_Latest_Phase__c} ), &apos;Assigned/Accepted&apos;, 
 IF ( ISPICKVAL( {!myVariable_current.Lead_Latest_Phase__c}, &apos;Invoiced&apos; ) &amp;&amp; ISCHANGED ( {!myVariable_current.Lead_Latest_Phase__c} ), &apos;Invoiced&apos;, TEXT( {!myVariable_current.Dealer_Lead_Status__c} ))))))</expression>
     </formulas>
     <formulas>
