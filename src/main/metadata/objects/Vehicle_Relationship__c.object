@@ -65,49 +65,6 @@
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
-	<fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Activated_Date__c</fullName>
         <externalId>false</externalId>
@@ -2570,6 +2527,53 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_MainUsage
             </picklistValues>
             <picklistValues>
                 <fullName>Personal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;IN&apos;) ,&apos;IN&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;&apos;)))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IN</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

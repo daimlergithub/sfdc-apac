@@ -10363,11 +10363,59 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Agility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alternative Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Compact package %2F Compact plus package</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Daimler Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Company Car SPM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Rental Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Car Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealer Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10379,7 +10427,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fuso Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HP</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10387,7 +10455,23 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lifestyle accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBRent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBTH Event</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10407,6 +10491,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>P2P</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Parts inquiry</fullName>
                 <default>false</default>
             </values>
@@ -10415,11 +10503,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Product Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Repeated Repair</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Service Package</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14316,7 +14412,27 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <picklistValues>
             <picklist>Lead_Sub_Type__c</picklist>
             <values>
+                <fullName>Accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accessories %26 Collection Warranty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accident repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agility</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Alternative Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Compact package %2F Compact plus package</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14364,6 +14480,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Exchange %26 refund</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Fuso Company Car</fullName>
                 <default>false</default>
             </values>
@@ -14376,7 +14496,67 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>General Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Gift Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ISP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lifestyle accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBRent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBTH Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maintenance reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Service reservation %26 inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other service reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P2P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pick-up %26 delivery</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14384,7 +14564,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Repeated Repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Package</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Test Drive Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle noise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty %26 recall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty plus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14901,6 +15105,9 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
     <searchLayouts>
         <customTabListAdditionalFields>OPPORTUNITY.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OPPORTUNITY.RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CORE.USERS.FULL_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OPPORTUNITY.STAGE_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>OPPORTUNITY.CLOSE_DATE</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>OPPORTUNITY.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
