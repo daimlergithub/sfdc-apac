@@ -376,6 +376,19 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>OPPORTUNITY.NAME</fields>
+        <fields>Lead_No__c</fields>
+        <fields>OPPORTUNITY.STAGE_NAME</fields>
+        <fields>OPPORTUNITY.RECORDTYPE</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>OPPORTUNITY.CREATED_DATE</fields>
+        <fields>Lead_Latest_Phase__c</fields>
+        <fields>OPPORTUNITY.CLOSE_DATE</fields>
+        <relatedList>RelatedOpportunityList</relatedList>
+        <sortField>OPPORTUNITY.CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Contact__c</fields>
