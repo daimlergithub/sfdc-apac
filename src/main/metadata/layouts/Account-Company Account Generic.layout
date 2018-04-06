@@ -240,6 +240,10 @@
                 <behavior>Edit</behavior>
                 <field>MB_Online_Id__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tenure__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

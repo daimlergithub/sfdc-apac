@@ -10498,7 +10498,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>CampaignMember.MBTH_Status__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -18568,7 +18568,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.MBTH_Preferred_drop_by__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
