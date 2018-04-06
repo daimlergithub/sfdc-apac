@@ -887,6 +887,63 @@
                        </td>            
                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date2__c}"/></td>              
                    </tr>        
+                   <!-- 2018/April/6 Soumya W added as part of MBANZ-199 Start --> 
+                     <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Email}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_Email__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_Email__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
+                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       </td>        
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
+                                                    
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Email_Opt_IN_Last_Update_date__c}"/></td>              
+                   </tr>  
+                   
+                     <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Phone}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_Phone__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_Phone__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
+                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       </td>        
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
+                                                    
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Phone_Opt_IN_Last_Update_date__c}"/></td>              
+                   </tr>  
+                   
+                     <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_SMS}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_SMS3__c}"  rendered="{!editMode}"/>       
+                           <apex:outputField value="{!ParAcc.Opt_In_SMS3__c}"  rendered="{!!editMode}"/>     
+                       </td>                                
+                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
+                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       </td>        
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
+                                                    
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.SMS_Opt_IN_Last_Update_date__c}"/></td>              
+                   </tr>  
+                   
+                     <tr>             
+                       <th style="text-align: Right;">{!$Label.Opt_In_Mail}</th>              
+                       <td><apex:inputField value="{!ParAcc.Opt_In_Mail__c}"  rendered="{!editMode}"/>       
+                          <apex:outputField value="{!ParAcc.Opt_In_Mail__c}"  rendered="{!!editMode}"/>
+                       </td>                                
+                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
+                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       </td>        
+                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
+                                                    
+                       </td>            
+                       <td><apex:outputField value="{!ParAcc.Mail_Opt_IN_Last_Update_date__c}"/></td>              
+                   </tr>  
+                   <!-- 2018/April/6 Soumya W added as part of MBANZ-199 End -->    
                         
             
                </table>         

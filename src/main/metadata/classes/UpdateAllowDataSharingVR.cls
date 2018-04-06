@@ -16,7 +16,7 @@ global class UpdateAllowDataSharingVR implements Database.Batchable<sObject>,Sch
     //START METHOD 
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id, Allow_Data_Sharing__c, Contact__r.Allow_Data_Sharing2__c, Contact__r.MB_Customer_Info_Remove__c 
-                                         FROM Vehicle_Relationship__c where Contact__r.SystemModStamp >= last_n_days:7 AND MD__c = 'JP' 
+                                         FROM Vehicle_Relationship__c where MD__c = 'JP' 
                                          and (((Contact__r.Allow_Data_Sharing2__c = 'No' or Contact__r.MB_Customer_Info_Remove__c = true) and Allow_Data_Sharing__c = true) 
                                          or ((Contact__r.Allow_Data_Sharing2__c != 'No' and Contact__r.MB_Customer_Info_Remove__c = false) and Allow_Data_Sharing__c = false))]);
     }

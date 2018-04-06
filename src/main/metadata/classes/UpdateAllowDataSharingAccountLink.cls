@@ -18,7 +18,7 @@ global class UpdateAllowDataSharingAccountLink implements Database.Batchable<sOb
         return Database.getQueryLocator([SELECT Id, Retail_Allow_Data_Sharing__c, fromRole__r.Allow_Data_Sharing2__c, 
                                          toRole__r.Allow_Data_Sharing2__c, fromRole__r.MB_Customer_Info_Remove__c, 
                                          toRole__r.MB_Customer_Info_Remove__c 
-                                         FROM Account_Link__c where (fromRole__r.SystemModStamp >= last_n_days:7 OR toRole__r.SystemModStamp >= last_n_days:7) AND MD__c = 'JP' 
+                                         FROM Account_Link__c where MD__c = 'JP' 
                                          and (((fromRole__r.Allow_Data_Sharing2__c = 'No' or 
                                          toRole__r.Allow_Data_Sharing2__c = 'No' or 
                                          fromRole__r.MB_Customer_Info_Remove__c = true or 
