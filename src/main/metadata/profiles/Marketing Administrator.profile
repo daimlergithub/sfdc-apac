@@ -3,7 +3,7 @@
     <applicationVisibilities>
         <application>Access_Management</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Call_Center_Console_Generic</application>
