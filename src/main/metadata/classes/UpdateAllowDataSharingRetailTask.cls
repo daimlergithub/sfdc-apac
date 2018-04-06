@@ -17,7 +17,7 @@ global class UpdateAllowDataSharingRetailTask implements Database.Batchable<sObj
     //START METHOD 
     global Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([SELECT Id, Allow_Data_Sharing__c, Account__r.Allow_Data_Sharing2__c, Account__r.MB_Customer_Info_Remove__c, Related_Contact__r.Allow_Data_Sharing2__c, Related_Contact__r.MB_Customer_Info_Remove__c 
-                                         FROM Retail_Task__c where Account__r.SystemModStamp >= last_n_days:7 AND MD__c = 'JP' 
+                                         FROM Retail_Task__c where MD__c = 'JP' 
                                          and (((Account__r.Allow_Data_Sharing2__c = 'No' or Account__r.MB_Customer_Info_Remove__c = true or 
                                                Related_Contact__r.Allow_Data_Sharing2__c = 'No' or Related_Contact__r.MB_Customer_Info_Remove__c = true) and Allow_Data_Sharing__c = true) 
                                          or ((Account__r.Allow_Data_Sharing2__c != 'No' and Account__r.MB_Customer_Info_Remove__c != true and 
