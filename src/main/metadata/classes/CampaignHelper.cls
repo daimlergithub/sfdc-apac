@@ -740,39 +740,39 @@ Datetime dt = DateTime.newInstance(dte, Time.newInstance(0, 0, 0, 0));
         /* END Batch Execution */
     
     }
-	
-	public static void updateDueDateOnCampaignTask(list<Campaign> campaignList, map<Id, Campaign> campaignOldMap)
-	{
-		list<Task> taskList = new list<Task>();
-		list<Task> updateTaskList = new list<Task>();
-		Id obCallTaskId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-    	Id obTaskId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
-		if(campaignOldMap != null && !campaignOldMap.isEMpty())
-		{
-			taskList = [select Id,ActivityDate, Status, RecordtypeId from Task where WhatId in : campaignOldMap.keySet()];
-		}
-		if(campaignList != null && !campaignList.isEmpty() && taskList != null && !taskList.isEmpty())
-		{
-			for(Campaign campgn: campaignList)
-			{
-				if(campgn.EndDate != campaignOldMap.get(campgn.Id).EndDate)
-				{
-					for(Task tsk : taskList)
-					{
-						if((tsk.RecordtypeId != obCallTaskId || tsk.RecordtypeId != obTaskId) && tsk.Status != 'Cancelled')
-						{
-							tsk.ActivityDate = campgn.EndDate;
-							updateTaskList.add(tsk);
-						}
-					}
-				}				
-			}
-		}
-		if(updateTaskList != null && !updateTaskList.isEmpty())
-		{
-			update updateTaskList;
-		}		
-	}
+    
+    public static void updateDueDateOnCampaignTask(list<Campaign> campaignList, map<Id, Campaign> campaignOldMap)
+    {
+        list<Task> taskList = new list<Task>();
+        list<Task> updateTaskList = new list<Task>();
+        Id obCallTaskId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+        Id obTaskId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
+        if(campaignOldMap != null && !campaignOldMap.isEMpty())
+        {
+            taskList = [select Id,ActivityDate, Status, RecordtypeId from Task where WhatId in : campaignOldMap.keySet()];
+        }
+        if(campaignList != null && !campaignList.isEmpty() && taskList != null && !taskList.isEmpty())
+        {
+            for(Campaign campgn: campaignList)
+            {
+                if(campgn.EndDate != campaignOldMap.get(campgn.Id).EndDate)
+                {
+                    for(Task tsk : taskList)
+                    {
+                        if((tsk.RecordtypeId != obCallTaskId || tsk.RecordtypeId != obTaskId) && tsk.Status != 'Cancelled')
+                        {
+                            tsk.ActivityDate = campgn.EndDate;
+                            updateTaskList.add(tsk);
+                        }
+                    }
+                }               
+            }
+        }
+        if(updateTaskList != null && !updateTaskList.isEmpty())
+        {
+            update updateTaskList;
+        }       
+    }
     
     
      /**
@@ -1166,88 +1166,88 @@ if( isInsert && Camp.RecordTypeId == childCampaign || (isUpdate && Camp.RecordTy
     }
    
   /*********************************************************************************
-	Method Name  : shareCampaignPlainingAndDesignRecordsWithDealers
-	Created By   : 
-	Created Date : 13th November 2017
-	Project      : Daimler APAC
-	Usages       : This method would share the Campaign records to the dealer based on below 2 conditions.
-				   1. Campaign Planning and Campaign Design records will be shared with all Dealers.
-				   2. Campaign Execution will be shared with Dealers who have retail copy of the customer 
-				      who are associated as campaign member to the Campaign Exection. Dealer company as well gets the access.
-	
-	***********************************************************************************/
-	   
+    Method Name  : shareCampaignPlainingAndDesignRecordsWithDealers
+    Created By   : 
+    Created Date : 13th November 2017
+    Project      : Daimler APAC
+    Usages       : This method would share the Campaign records to the dealer based on below 2 conditions.
+                   1. Campaign Planning and Campaign Design records will be shared with all Dealers.
+                   2. Campaign Execution will be shared with Dealers who have retail copy of the customer 
+                      who are associated as campaign member to the Campaign Exection. Dealer company as well gets the access.
+    
+    ***********************************************************************************/
+       
     public static void shareCampaignPlainingAndDesignRecordsWithDealers (list<Campaign> campaignList)
     {
-    	if(userinfo.getUserType()!= 'PowerPartner')
-    	{
-    		Id campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
-	        Id campDsgnRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
-	        Id campExeRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution MBK - Wholesale to Dealer').getRecordTypeId();
-			Id dealerAccntRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	    	list<CampaignShare> insertCampaignShareList = new list<CampaignShare>();
-	    	set<string> dealerNDCodeSet = new set<string>();
-	    	set<string> dealerCompNDCodeSet = new set<string>();
-	    	set<Id> dealerCompGroupIdSet = new set<Id>();
-	    	list<Group> dealerGroupList = new list<Group>();
-	    	list<Account> dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccntRecTypId and MD__c = 'KR'];
-	    	
-	    	if(!dealerAccountList.isEmpty() && dealerAccountList != null)
-	    	{
-	    		for(Account dlrAcnt : dealerAccountList)
-		    	{
-		    		if(dlrAcnt.Dealer_Type__c == 'Company')
-		    		{
-		    			dealerCompNDCodeSet.add(dlrAcnt.Dealer_ND_Code__c);
-		    		}
-		    		dealerNDCodeSet.add(dlrAcnt.Dealer_ND_Code__c);
-		    	}
-	    	}
-	    	if(!dealerNDCodeSet.isEmpty() && dealerNDCodeSet != null)
-	    	{
-	    		dealerGroupList = [select Id, Name from Group where Name in : dealerNDCodeSet];
-	    	}
-	    	
-	    	for(Campaign campn: campaignList)
-	    	{
-	    		if(campn.recordtypeId == campPlngRecTypId || campn.recordtypeId == campDsgnRecTypId)
-	    		{
-	    			for(Group dlrGrp : dealerGroupList)
-	    			{
-	    				CampaignShare campShare = new CampaignShare();
-	    				campShare.CampaignId = campn.Id;
-	    				campShare.CampaignAccessLevel = 'Read';
-	    				campShare.UserOrGroupId  = dlrGrp.Id;
-	    				insertCampaignShareList.add(campShare);
-	    			}
-	    		}
-	    		else if(campn.recordtypeId == campExeRecTypId)
-	    		{
-	    			for(Group dlrGrp : dealerGroupList)
-	    			{
-	    				if(dealerCompNDCodeSet.contains(dlrGrp.Name))
-	    				{
-	    					CampaignShare campShare = new CampaignShare();
-		    				campShare.CampaignId = campn.Id;
-		    				campShare.CampaignAccessLevel = 'Read';
-		    				campShare.UserOrGroupId  = dlrGrp.Id;
-		    				insertCampaignShareList.add(campShare);
-	    				}
-	    			}
-	    		}
-	    	}
-	    	if(!insertCampaignShareList.isEmpty() && insertCampaignShareList != null)
-	    	{
-	    		insert insertCampaignShareList;
-	    	}
-    	}
+        if(userinfo.getUserType()!= 'PowerPartner')
+        {
+            Id campPlngRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+            Id campDsgnRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
+            Id campExeRecTypId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution MBK - Wholesale to Dealer').getRecordTypeId();
+            Id dealerAccntRecTypId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            list<CampaignShare> insertCampaignShareList = new list<CampaignShare>();
+            set<string> dealerNDCodeSet = new set<string>();
+            set<string> dealerCompNDCodeSet = new set<string>();
+            set<Id> dealerCompGroupIdSet = new set<Id>();
+            list<Group> dealerGroupList = new list<Group>();
+            list<Account> dealerAccountList = [select Id, Dealer_ND_Code__c, Dealer_Type__c from Account where recordtypeId =: dealerAccntRecTypId and MD__c = 'KR'];
+            
+            if(!dealerAccountList.isEmpty() && dealerAccountList != null)
+            {
+                for(Account dlrAcnt : dealerAccountList)
+                {
+                    if(dlrAcnt.Dealer_Type__c == 'Company')
+                    {
+                        dealerCompNDCodeSet.add(dlrAcnt.Dealer_ND_Code__c);
+                    }
+                    dealerNDCodeSet.add(dlrAcnt.Dealer_ND_Code__c);
+                }
+            }
+            if(!dealerNDCodeSet.isEmpty() && dealerNDCodeSet != null)
+            {
+                dealerGroupList = [select Id, Name from Group where Name in : dealerNDCodeSet];
+            }
+            
+            for(Campaign campn: campaignList)
+            {
+                if(campn.recordtypeId == campPlngRecTypId || campn.recordtypeId == campDsgnRecTypId)
+                {
+                    for(Group dlrGrp : dealerGroupList)
+                    {
+                        CampaignShare campShare = new CampaignShare();
+                        campShare.CampaignId = campn.Id;
+                        campShare.CampaignAccessLevel = 'Read';
+                        campShare.UserOrGroupId  = dlrGrp.Id;
+                        insertCampaignShareList.add(campShare);
+                    }
+                }
+                else if(campn.recordtypeId == campExeRecTypId)
+                {
+                    for(Group dlrGrp : dealerGroupList)
+                    {
+                        if(dealerCompNDCodeSet.contains(dlrGrp.Name))
+                        {
+                            CampaignShare campShare = new CampaignShare();
+                            campShare.CampaignId = campn.Id;
+                            campShare.CampaignAccessLevel = 'Read';
+                            campShare.UserOrGroupId  = dlrGrp.Id;
+                            insertCampaignShareList.add(campShare);
+                        }
+                    }
+                }
+            }
+            if(!insertCampaignShareList.isEmpty() && insertCampaignShareList != null)
+            {
+                insert insertCampaignShareList;
+            }
+        }
     }
-	
-	/*
-	   Description : SFDCKR-1558 campaign sharing for dealers
-	   Release-K10
-	*/
-	
+    
+    /*
+       Description : SFDCKR-1558 campaign sharing for dealers
+       Release-K10
+    */
+    
 public static void afterInsertSharefromSCtoMan(list<Campaign> campaignNew)
 {
 if(userinfo.getUserType()== 'PowerPartner')
@@ -1256,6 +1256,8 @@ Set<ID> getownerId = new Set<ID>();
 set<id> tlid= new set<id>();
 set<string> DHQshare= new set<String>();
 Set<String> getDealerGCCode= new Set<String>();
+Set<String> getSCNDCode= new Set<String>();
+Set<String> SCProfile= new Set<String>();
 Set<String> getDealerNDCode= new Set<String>();
 Set<String> getDealerRoleCode= new Set<String>();
 List<CampaignShare> campshare = new List<CampaignShare>();
@@ -1280,16 +1282,21 @@ system.debug('i am here');
     
     System.debug('getDealerRoleCode---'+getownerId);
    
-    Map<ID, User> usershare = new Map<ID, User>([Select Id,Dealer_ND_Code__c,Contact.Account.Dealer_Type__c,Contact.Account.Dealer_GC_Code__c,Dealer_GC_Code__c,MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c, Contact.Dealer_Complaint_Gate_Keeper__c, Contact.Dealer_Lead_Gate_Keeper__c from User where id in: getownerId and Market__c = 'KR']);
+    Map<ID, User> usershare = new Map<ID, User>([Select Id,Dealer_ND_Code__c,Contact.Account.Dealer_Type__c,Contact.Account.Dealer_GC_Code__c,Dealer_GC_Code__c,
+                                                 MBK_Partner_Roles__c,MBK_Reporting_Partner_User__c,MBK_Reporting_Partner_User__r.MBK_Reporting_Partner_User__c, 
+                                                 Contact.Dealer_Complaint_Gate_Keeper__c, Contact.Dealer_Lead_Gate_Keeper__c, ProfileId
+                                                 from User where id in: getownerId and Market__c = 'KR']);
     System.debug('ownerlist---'+usershare);
     
-    
-
     if(usershare != null)
     {
       for(User u : usershare.values())
       {
          getDealerGCCode.add(u.Dealer_GC_Code__c);
+         
+         getSCNDCode.add(u.Dealer_ND_Code__c);
+         SCProfile.add(u.ProfileId);
+         system.debug('getSCNDCode is'+getSCNDCode);
         if(u.MBK_Partner_Roles__c == 'Team Leader' || u.MBK_Partner_Roles__c == 'Sales Manager')
         {
           tlid.add(u.id);
@@ -1302,7 +1309,14 @@ system.debug('i am here');
     }
     system.debug('tliddd----'+tlid);
     List<Account> acc =[Select id,Dealer_ND_Code__c,Dealer_GC_Code__c,Dealer_Type__c from Account where Dealer_GC_Code__c IN: getDealerGCCode and Dealer_Type__c='Company' and MD__c = 'KR' and recordtypeid =: dealerRecTypId];
+    
+    List<Account> acc1 =[Select id,Dealer_ND_Code__c,Dealer_GC_Code__c,Dealer_Type__c from Account where Dealer_ND_Code__c IN: getSCNDCode and Dealer_Type__c='Outlet' and MD__c = 'KR' and recordtypeid =: dealerRecTypId];
+    
+    String profilename=[Select Id,Name from Profile where Id=:SCProfile].Name;
+    
     system.debug('acc---'+acc);
+    system.debug('Account details---'+acc1);
+    system.debug('profilename---'+profilename);
     for(Account acclis : acc)
     {
       if(acclis.Dealer_Type__c == 'Company')
@@ -1310,6 +1324,16 @@ system.debug('i am here');
        getDealerNDCode.add(acclis.Dealer_ND_Code__c);
        }
     }
+    
+    for(Account acclis1 : acc1)
+    {
+      if(acclis1.Dealer_Type__c == 'Outlet' && profilename == 'MBK  Dealer service center' && profilename !=null)
+       {
+       system.debug('I am under the outlet loop');
+       getDealerNDCode.add(acclis1.Dealer_ND_Code__c);
+       }
+    }
+    
     
     
     if(!tlid.isEmpty() && tlid != null)
@@ -1380,7 +1404,7 @@ system.debug('i am here');
                 campshare.add(shareRec1); 
              
              }
-           }    		
+           }            
       }
      
      // IF Team Leader Share Process  
@@ -1438,9 +1462,9 @@ system.debug('i am here');
                  topDqshareRec.CampaignAccessLevel = 'Edit';
                  campshare.add(topDqshareRec);
                }
-			    
+                
             }  
-        if((camsdq.recordtypeId == campPlngRecTypId || camsdq.recordtypeId == campDsgnRecTypId || camsdq.recordtypeId == campExeRecTypId) && dqshare.Contact.Account.Dealer_Type__c == 'Company')
+        if((camsdq.recordtypeId == campPlngRecTypId || camsdq.recordtypeId == campDsgnRecTypId || camsdq.recordtypeId == campExeRecTypId) && (dqshare.Contact.Account.Dealer_Type__c == 'Company' || dqshare.Contact.Account.Dealer_Type__c == 'Outlet'))
                {
                 for(id NDgroup:assgroupMap.values())
                { 
@@ -1450,7 +1474,7 @@ system.debug('i am here');
                 shareRec1.CampaignAccessLevel  = 'Edit';
                 campshare.add(shareRec1); 
                }
-               }  			
+               }            
             
      }  
      system.debug('campshare --'+campshare);
