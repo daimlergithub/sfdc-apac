@@ -233,14 +233,15 @@
         
         <apex:panelGrid columns="2" width="1000px">
                 <apex:pageblocksection columns="1" >
-				{!$Label.masterLeadMerge}
+                
+                  <apex:outputLabel value="{!$Label.masterLeadMerge}" style="padding-left:210px"></apex:outputLabel> 
                    <apex:repeat value="{!$ObjectType.Lead__c.FieldSets.LeadMergeReadonlyFieldsSet}" var="ci"> 
                        <apex:outputfield value="{!Master[ci]}" /> 
                    </apex:repeat>
                     </apex:pageblocksection>
                     
                      <apex:pageblocksection columns="1" >
-					 {!$Label.slaveLeadMerge}
+                    <apex:outputLabel value="{!$Label.slaveLeadMerge}" style="padding-left:210px"></apex:outputLabel> 
                     <apex:repeat value="{!$ObjectType.Lead__c.FieldSets.LeadMergeReadonlyFieldsSet}" var="ci"> 
                        <apex:outputfield value="{!Slave[ci]}" /> 
                    </apex:repeat>
