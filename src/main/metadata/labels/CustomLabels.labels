@@ -3831,6 +3831,14 @@ please contact the number below.</value>
         <value>From the experience with Mercedes-Benz during this event, which word would best describe Mercedes-Benz? (Max.3 attributes)</value>
     </labels>
     <labels>
+        <fullName>GSTIN_Format</fullName>
+        <categories>IN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GSTIN Format</shortDescription>
+        <value>GSTIN# number should be in the format XXAAAAAXXXXAXAX</value>
+    </labels>
+    <labels>
         <fullName>Garage_information_and_specifications_have_you_heard</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6515,6 +6523,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Owner Sales Responsible Person</shortDescription>
         <value>Owner Sales Responsible Person</value>
+    </labels>
+    <labels>
+        <fullName>PAN_Format</fullName>
+        <categories>IN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PAN Format</shortDescription>
+        <value>PAN details should be as per the below format:AAAAAXXXXA</value>
     </labels>
     <labels>
         <fullName>POM_advertisement</fullName>
@@ -12019,5 +12035,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>true</shortDescription>
         <value>true</value>
+    </labels>
+    <labels>
+        <fullName>Aadhar_Format</fullName>
+        <categories>IN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Aadhar Format</shortDescription>
+        <value>Aadhaar Card number should be as per the below format XXXXXXXXXXXX , the first digit should be non zero and no entry can be an alphabet</value>
     </labels>
 </CustomLabels>
