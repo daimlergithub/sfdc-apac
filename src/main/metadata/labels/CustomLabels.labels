@@ -6430,6 +6430,34 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Operation</value>
     </labels>
     <labels>
+        <fullName>Opt_In_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opt In Email</shortDescription>
+        <value>Opt In Email</value>
+    </labels>
+    <labels>
+        <fullName>Opt_In_Mail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opt In Mail</shortDescription>
+        <value>Opt In Mail</value>
+    </labels>
+    <labels>
+        <fullName>Opt_In_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opt In Phone</shortDescription>
+        <value>Opt In Phone</value>
+    </labels>
+    <labels>
+        <fullName>Opt_In_SMS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opt In SMS</shortDescription>
+        <value>Opt In SMS</value>
+    </labels>
+    <labels>
         <fullName>OrderNumber</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
