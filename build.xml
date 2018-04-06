@@ -119,7 +119,7 @@
 					<sf:typeset name="callCenters"/>
 				</deploy>
 			</target>
-			<target name="deploy05">
+ 			<target name="deploy05">
 				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
 			
 					<sf:typeset name="customPermissions" force="true"/>
@@ -140,7 +140,7 @@
 					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
 						
 				</deploy>
-			</target>
+			</target> 
 			<target name="deploy07">
 				<deploy runAllTests="${sfdc.runAllTests}">
 				<sf:typeset name="letterhead"/>                                          

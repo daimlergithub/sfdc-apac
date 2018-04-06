@@ -3,7 +3,7 @@
 ** OverRides Standard Account Creation "New" Button For India Market.
 ** Creates new Account.
 ** Created By: Shashi Goswami
-** Date: 12018/03/15
+** Date: 2018/03/15
 **/
 public class AddressSearchValidationControllerCDM
 {
@@ -73,6 +73,11 @@ public class AddressSearchValidationControllerCDM
     public Boolean showCDM {get;set;}
     public Boolean one {get;set;}
     public Boolean deduplicated {get;set;}
+    
+    //ID proof format
+    public String panFormat = '^[A-Za-z]{5}[0-9]{4}[A-z]{1}$';
+    public String aadharFormat = '^[1-9]{1}[0-9]{11}$';
+    public String gstinFormat = '^[0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}[0-9]{1}[A-Za-z]{1}[0-9]{1}$'; 
     
     // Constructor
     public static String companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordtypeID();
@@ -425,8 +430,23 @@ public class AddressSearchValidationControllerCDM
         homePhoneFormat = formatcheck.homePhoneFieldFormatIN(hmCountryCode,hmAreaCode,hmphoneNumber);
         workPhoneFormat = formatcheck.workPhoneFieldFormatIN(wkCountryCode,wkAreaCode,wkphoneNumber);
         mobilePhoneFormat = formatcheck.mobilePhoneFieldFormatIN(mbCountryCode,mbphoneNumber);
-     
-
+     	
+        //Pan format check 
+        if(objAccount.PAN__c != null && string.isnotblank(objAccount.PAN__c) && !Pattern.matches(panFormat,objAccount.PAN__c)){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.PAN_Format));
+        	errorFlag=true;
+        }
+        //Aadhar number format check
+        if(objAccount.Aadhaar__c != null && string.isnotblank(objAccount.Aadhaar__c) && !Pattern.matches(aadharFormat,objAccount.Aadhaar__c )){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.Aadhar_Format));
+        	errorFlag=true;
+        }
+        //GSTIN format check
+        if(objAccount.GSTN_Number__c != null && string.isnotblank(objAccount.GSTN_Number__c) && !Pattern.matches(gstinFormat,objAccount.GSTN_Number__c )){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.GSTIN_Format));
+        	errorFlag=true;
+        }
+        
         if(Recordtype!=Label.PersonAccount && Recordtype!=Label.Company){
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.RecordTypeError));       
             errorFlag=true;
@@ -476,7 +496,7 @@ public class AddressSearchValidationControllerCDM
         }
         return con;
     }
-
+	
     
      public String generateCDMEndPointURL(){
         String endUrl='';
@@ -489,23 +509,23 @@ public class AddressSearchValidationControllerCDM
         
         if(recordType == 'Person Account')
         {
-            endUrl+='inp_JSON_FirstName='+((string.isnotblank(objAccount.firstname))?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
-            endUrl+='&inp_JSON_LastName='+((string.isnotblank(objAccount.LastName))?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
-            endUrl+='&inp_JSON_Mobile='+((string.isnotblank(objAccount.Mobile__c))?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_HomePhone='+((string.isnotblank(objAccount.Individual_Home_Phone__c ))?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+            endUrl+='inp_JSON_FirstName='+(string.isnotblank(objAccount.firstname)?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
+            endUrl+='&inp_JSON_LastName='+(string.isnotblank(objAccount.LastName)?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
+            endUrl+='&inp_JSON_Mobile='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_HomePhone='+(string.isnotblank(objAccount.Individual_Home_Phone__c )?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
             endUrl+='&inp_JSON_WorkPhone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-            endUrl+='&inp_JSON_PAN='+((string.isnotblank(objAccount.PAN__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Type__c,'UTF-8'):''); 
-            endUrl+='&inp_JSON_Aadhar='+((string.isnotblank(objAccount.Aadhaar__c)&& string.isnotblank(objAccount.ID_Number__c))?EncodingUtil.URLENCODE(objAccount.ID_Number__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?EncodingUtil.URLENCODE(objAccount.Email__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_PAN='+(string.isnotblank(objAccount.PAN__c)?EncodingUtil.URLENCODE(objAccount.PAN__c,'UTF-8'):''); 
+            endUrl+='&inp_JSON_Aadhar='+(string.isnotblank(objAccount.Aadhaar__c)?EncodingUtil.URLENCODE(objAccount.Aadhaar__c,'UTF-8'):'');
         }
         else if(recordType == 'Company'){
             endUrl+='inp_JSON_CompanyName='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
             endUrl+='&inp_JSON_Mobile='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
             endUrl+='&inp_JSON_HomePhone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
             endUrl+='&inp_JSON_WorkPhone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?objAccount.Email__c:'');
-            endUrl+='&inp_JSON_GSTIN='+(string.isnotblank(objAccount.GSTN_Number__c)?objAccount.GSTN_Number__c:'');
-            endUrl+='&inp_JSON_CIN='+(string.isnotblank(objAccount.CIN_Number__c)?objAccount.CIN_Number__c:'');
+            endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?EncodingUtil.URLENCODE(objAccount.Email__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_GSTIN='+(string.isnotblank(objAccount.GSTN_Number__c)?EncodingUtil.URLENCODE(objAccount.GSTN_Number__c,'UTF-8'):'');
+            endUrl+='&inp_JSON_CIN='+(string.isnotblank(objAccount.CIN_Number__c)?EncodingUtil.URLENCODE(objAccount.CIN_Number__c,'UTF-8'):'');
         }
         return endUrl;
     } 

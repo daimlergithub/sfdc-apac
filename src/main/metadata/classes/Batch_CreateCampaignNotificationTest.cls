@@ -43,6 +43,7 @@ public class Batch_CreateCampaignNotificationTest
     }
     public static testMethod void Batch_CampaignmemberInsertion_test()
     {
+    List<Retail_Campaign__c> listretcam=new List<Retail_Campaign__c>();
       Map<Id,Retail_campaign__c> retCamp = new Map<Id,Retail_campaign__c>();
       Set<id>cempId = new Set<id>();
       Account   DealerAccount= new Account();
@@ -81,6 +82,24 @@ public class Batch_CreateCampaignNotificationTest
     
     
     insert campobj;
+    
+     Retail_Campaign__c campobj1= new Retail_Campaign__c();
+    campobj1.RecordTypeId = RetailcentmarcampRecordTypeId;
+    campobj1.Name = 'camptest1';
+   // campobj.Parent_Campaign1__c = top.id;
+    campobj1.MD__C = 'JP';
+    listretcam.add(campobj1);
+    
+    
+     Retail_Campaign__c campobj2= new Retail_Campaign__c();
+    campobj2.RecordTypeId = RetailcentmarcampRecordTypeId;
+    campobj2.Name = 'camptest1';
+   // campobj.Parent_Campaign1__c = top.id;
+    campobj2.MD__C = 'JP';
+    
+    listretcam.add(campobj2);
+    insert listretcam;
+    
   Campaign_Member__c  cm=new Campaign_Member__c();
     cm.Retail_Campaign_Id__c=campobj.id;
     cm.Status__c = 'Ready';
@@ -90,8 +109,8 @@ public class Batch_CreateCampaignNotificationTest
     insert cm;   
     test.starttest();
     retCamp.put(DealerAccount.id,campobj);
-    Batch_CampaignmemberInsertion batcher = new Batch_CampaignmemberInsertion(retCamp,cempId);
-            Database.executeBatch(batcher, 300);
+    Batch_CampaignmemberInsertion batcher = new Batch_CampaignmemberInsertion(retCamp,cempId,listretcam);
+       Database.executeBatch(batcher, 300);
      test.stoptest();
     }
 }

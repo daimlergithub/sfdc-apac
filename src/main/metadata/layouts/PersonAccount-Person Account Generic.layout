@@ -223,6 +223,14 @@
                 <behavior>Edit</behavior>
                 <field>MB_Online_Audit_Tracking__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MB_Online_Id__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tenure__c</field>
+            </layoutItems>
          </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -436,6 +444,19 @@
         <fields>CASES.STATUS</fields>
         <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>OPPORTUNITY.NAME</fields>
+        <fields>Lead_No__c</fields>
+        <fields>OPPORTUNITY.RECORDTYPE</fields>
+        <fields>OPPORTUNITY.STAGE_NAME</fields>
+        <fields>Assigned_Dealer__c</fields>
+        <fields>Lead_Latest_Phase__c</fields>
+        <fields>OPPORTUNITY.CREATED_DATE</fields>
+        <fields>OPPORTUNITY.CLOSE_DATE</fields>
+        <relatedList>RelatedOpportunityList</relatedList>
+        <sortField>OPPORTUNITY.CREATED_DATE</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

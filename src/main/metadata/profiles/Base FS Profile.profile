@@ -30140,6 +30140,21 @@
         <layout>LeadComment__c-Lead Comment Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead_Details__c-Competitor Lead Details Page Layout</layout>
+        <recordType>Lead_Details__c.Competitor</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead_Details__c-Interested Vehicle Details Page Layout</layout>
+        <recordType>Lead_Details__c.Interested_Vehicle</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead_Details__c-Lead Details Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead_Details__c-Trade in Lead Details Page Layout</layout>
+        <recordType>Lead_Details__c.Trade_In</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead_Product__c-Lead Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -30208,7 +30223,15 @@
         <layout>OB_Task_Handing__c-OB Task Handing Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-After-Sales Lead Generic</layout>
+        <recordType>Opportunity.Aftersales_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Sales Lead Opportunity Layout - Generic</layout>
+        <recordType>Opportunity.Sales_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OpportunityLineItem-Opportunity Product Layout</layout>
@@ -30854,6 +30877,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Rental_OverDue__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Opportunity</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -31936,6 +31968,22 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Lead_Details__c.Competitor</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Lead_Details__c.Interested_Vehicle</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead_Details__c.Trade_In</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Lead__c.After_Sales_Leads_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -31974,6 +32022,17 @@
         <default>false</default>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Aftersales_Lead</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Opportunity.Sales_Lead</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>

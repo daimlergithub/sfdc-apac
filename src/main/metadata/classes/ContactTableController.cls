@@ -297,7 +297,11 @@ public class ContactTableController {
                 'home_Phone_Checkbox__c',
                 'Work_Phone_Checkbox__c',
                 'Primary_Phone__c',
-                'Secondary_Email__c' // addedd for secondary email
+                'Secondary_Email__c', // addedd for secondary email
+                'Opt_In_Email__c', //Soumya W 2018/April/6  added as part of MBANZ-199  
+                'Opt_In_SMS3__c', //Soumya W 2018/April/6 added as part of MBANZ-199  
+                'Opt_In_Phone__c', //Soumya W 2018/April/6 added as part of MBANZ-199  
+                'Opt_In_Mail__c' //Soumya W 2018/April/6 added as part of MBANZ-199  
             });
 
         }

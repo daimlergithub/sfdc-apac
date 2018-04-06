@@ -9133,6 +9133,15 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Email_Opt_IN_Last_Update_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Opt IN Last Update date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Email_Opt_Out_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Email Opt Out Reason</label>
@@ -14090,6 +14099,18 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MB_Online_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>MB Online Id</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MB_Replacement_Date__c</fullName>
         <externalId>false</externalId>
         <label>MB Replacement Date</label>
@@ -14454,6 +14475,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Mail_Opt_IN_Last_Update_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Mail Opt IN Last Update date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Main_Dealer__c</fullName>
@@ -17102,6 +17132,15 @@ Modify Reason:
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Phone_Opt_IN_Last_Update_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Opt IN Last Update date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Place_of_Birth__c</fullName>
         <externalId>false</externalId>
         <label>Place of Birth</label>
@@ -19101,6 +19140,15 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>SMS_Opt_IN_Last_Update_date__c</fullName>
+        <externalId>false</externalId>
+        <label>SMS Opt IN Last Update date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>SalesLead_Notification_Timing__c</fullName>
         <externalId>false</externalId>
         <label>SalesLead Notification Timing</label>
@@ -20014,6 +20062,18 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Tenure__c</fullName>
+        <externalId>false</externalId>
+        <label>Tenure</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>TickerSymbol</fullName>
