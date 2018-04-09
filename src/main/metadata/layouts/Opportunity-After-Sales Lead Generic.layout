@@ -39,14 +39,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CAC_Lost_Reason__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lost_Reason_text__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Escalated_flag__c</field>
             </layoutItems>
             <layoutItems>
@@ -72,6 +64,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Is_Active__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lead_Temperature__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lead_Age__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -114,6 +114,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CampaignId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CAC_Lost_Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lost_Reason_text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -306,13 +314,21 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Description</field>
+                <field>Current_Vehicle_1_Text__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Current_Vehicle_2_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Purchased_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -338,10 +354,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Simple_Estimation_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Trade_in_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -384,6 +396,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Finance_Quotation_No_History__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Trade_in_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -472,6 +488,22 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>All Vehicle Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>300</height>
+                <page>OpportunityInlineVehicle</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
         <label>Custom Links</label>
         <layoutColumns/>
@@ -494,6 +526,7 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>RECORDTYPE</fields>
         <fields>Brand__c</fields>
         <fields>Car_Model__c</fields>

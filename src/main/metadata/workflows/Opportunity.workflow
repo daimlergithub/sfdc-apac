@@ -21,6 +21,15 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Order_Placed_Date_Update</fullName>
+        <field>Order_Placed_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Order Placed Date_Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Populate_Assigned_Date_Time</fullName>
         <field>Assigned_Date_Time__c</field>
         <formula>now()</formula>
@@ -155,7 +164,7 @@
     <rules>
         <fullName>Update Lead Escalated flag</fullName>
         <active>true</active>
-        <description>Update Lead Escalated flag</description>
+        <description>Update Lead Escalated flag if an assigned opportunity is not accepted in 24 hours</description>
         <formula>AND(ISPICKVAL(StageName, &apos;Assigned&apos;),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;,ISNULL(Accepted_Date_Time__c))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -175,7 +184,8 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(StageName, &apos;Qualified&apos;),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <description>Update qualified date when status is made qualified</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Qualified&apos;), ISNULL(Qualified_Date_Time__c), $Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -186,7 +196,18 @@
         </actions>
         <active>true</active>
         <description>When the lead status is set to &quot;Lost&quot; then the &quot;Lead Lost &quot; date time field need to be updated with current time</description>
-        <formula>AND(ISPICKVAL(StageName, &apos;Closed Lost&apos;),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(ISPICKVAL(StageName, &apos;Closed Lost&apos;), ISNULL(Lost_Date__c),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Order Placed Date</fullName>
+        <actions>
+            <name>Order_Placed_Date_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update order placed date when status is made Order placed</description>
+        <formula>AND(ISPICKVAL(StageName, &apos;Order placed&apos;), ISNULL(Order_Placed_Date__c), $Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -197,7 +218,7 @@
         </actions>
         <active>true</active>
         <description>When status is made Closed Won, the purchase date need to be updated</description>
-        <formula>AND(ISPICKVAL(StageName, &apos;Closed Won&apos;),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(ISPICKVAL(StageName, &apos;Closed Won&apos;), ISNULL(Purchase_Date__c),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <tasks>

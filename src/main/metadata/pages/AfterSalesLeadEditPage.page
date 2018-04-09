@@ -1,6 +1,6 @@
 <!-- Edit page of After Sales Leads -->
 <apex:page standardController="opportunity" extensions="AfterSalesLeadEditController">
-    <apex:sectionHeader title="New AfterSales Lead" subtitle="{!opp.Name}"/>
+    <apex:sectionHeader title="Edit AfterSales Lead" subtitle="{!opp.Name}"/>
     <apex:outputPanel id="errmsg">
         <apex:pageMessages />
     </apex:outputPanel>
@@ -43,7 +43,10 @@
             
         <!--------------  Vehicle Info Section -------------->      
             <apex:pageBlockSection title="Vehicle Information" columns="2">
-                <apex:inputField value="{!opp.Bought_Vehicle_Brand__c}" required="false"/>
+                <apex:inputField value="{!opp.Current_Vehicle_1_Text__c}" required="false"/>
+                <apex:inputField value="{!opp.Description}" required="false"/>
+                <apex:inputField value="{!opp.Current_Vehicle_2_Text__c}" required="false"/>
+                <apex:inputField value="{!opp.Purchased_Vehicle__c}" required="false"/>
             </apex:pageBlockSection>
             
         <!--------------  Activity Date Info Section -------------->        
@@ -79,15 +82,17 @@
                 <apex:inputField value="{!opp.Market__c}"/>
             </apex:pageBlockSection>
 
+            <apex:pageMessages id="msg1" />
         
             <br></br>
             
             <apex:pageBlockSection title="Interested Vehicle Information" columns="1">
+                <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
                 <apex:pageMessages id="pgmsg"/>
-                <apex:commandButton value=" Add Interested Vehicle" action="{!addIntRecord}" reRender="pb1"/>
+                <apex:commandButton value=" Add Interested Vehicle" action="{!addIntRecord}" reRender="pb1,pgmsg"/>
                 <apex:pageBlockTable id="pb1" value="{!intVehicleList}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Car Model">
-                        <apex:inputField value="{!item.Car_Model__c}" onchange="UpdateModelInfo(this)"/>
+                        <apex:inputField value="{!item.Car_Model__c}" onchange="UpdateModInfo(this)"/>
                     </apex:column>
                     <apex:column headerValue="Brand">
                         <apex:outputLabel value="{!item.Brand__c}" />
@@ -99,7 +104,7 @@
                         <apex:outputLabel value="{!item.Color__c}" />
                     </apex:column>
                     <apex:column headerValue="Preferred">
-                        <apex:inputfield value="{!item.Preferred__c}" onchange="UpdateModelInfo(this)"/>
+                        <apex:inputfield value="{!item.Preferred__c}" onchange="checkIntVehiclePreferred(this)"/>
                     </apex:column>
                     
                 </apex:pageBlockTable>       
@@ -108,11 +113,12 @@
             <br></br>
             
             <apex:pageBlockSection title="Competitor Vehicle Information" columns="1">
+                <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
                 <apex:pageMessages id="pgmsg1"/>
-                <apex:commandButton value=" Add Competitor Vehicle" action="{!addCompRecord}" reRender="pb2"/>
+                <apex:commandButton value=" Add Competitor Vehicle" action="{!addCompRecord}" reRender="pb2,pgmsg1"/>
                 <apex:pageBlockTable id="pb2" value="{!compVehicleList}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Car Model">
-                        <apex:inputField value="{!item.Car_Model_Competitor__c}" onchange="UpdateModelInfo(this)"/>
+                        <apex:inputField value="{!item.Car_Model_Competitor__c}" onchange="UpdateModInfo(this)"/>
                     </apex:column>
                     <apex:column headerValue="Brand">
                         <apex:outputLabel value="{!item.Brand__c}" />
@@ -124,7 +130,7 @@
                         <apex:outputLabel value="{!item.Color__c}" />
                     </apex:column>
                     <apex:column headerValue="Preferred">
-                        <apex:inputfield value="{!item.Preferred__c}" onchange="UpdateModelInfo(this)"/>
+                        <apex:inputfield value="{!item.Preferred__c}" onchange="checkCompVehiclePreferred(this)"/>
                     </apex:column>
                     
                 </apex:pageBlockTable>       
@@ -135,18 +141,18 @@
             <apex:pageBlockSection title="Trade-In Vehicle Information" columns="1">
                 <apex:pageBlockTable id="pb3" value="{!tradeInVehicles}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Trade-In Vehicle">
-                        <apex:inputField value="{!item.Trade_In_Vehicle__c}" onchange="UpdateModelInfo(this)"/>
+                        <apex:inputField value="{!item.Trade_In_Vehicle__c}" onchange="UpdateModInfo(this)"/>
                     </apex:column>
 
                     <apex:column headerValue="Year of Manufacture">
-                        <apex:inputField value="{!item.Year_of_Manufacture__c}" onchange="UpdateModelInfo(this)"/>
+                        <apex:inputField value="{!item.Year_of_Manufacture__c}" onchange="UpdateModInfo(this)"/>
                     </apex:column>
                     
                     <apex:column headerValue="Mileage">
-                        <apex:inputField value="{!item.Mileage__c}" onchange="UpdateModelInfo(this)"/>
+                        <apex:inputField value="{!item.Mileage__c}" onchange="UpdateModInfo(this)"/>
                     </apex:column>
                     <apex:column headerValue="Trim">
-                        <apex:inputField value="{!item.Trim__c}" onchange="UpdateModelInfo(this)"/>
+                        <apex:inputField value="{!item.Trim__c}" onchange="UpdateModInfo(this)"/>
                     </apex:column>
                     
                 </apex:pageBlockTable>       
@@ -172,11 +178,15 @@
                 </apex:pageBlockTable>       
             </apex:pageBlockSection>
             
-            <apex:actionFunction name="UpdateModel" action="{!UpdateModInfo}" reRender="pb1,pb2,pb3,pgmsg,pgmsg1,errmsg">
+            <apex:actionFunction name="UpdateModInfo" action="{!UpdateModInfoCtrl}" reRender="pb1,pb2,pb3">
+            </apex:actionFunction>
+			<apex:actionFunction name="checkIntVehiclePreferred" action="{!checkIntVehiclePreferred}" reRender="pgmsg,pb1,pb2,pb3">
+            </apex:actionFunction>
+			<apex:actionFunction name="checkCompVehiclePreferred" action="{!checkCompVehiclePreferred}" reRender="pgmsg1,pb1,pb2,pb3">
             </apex:actionFunction>
             
             <apex:pageBlockButtons >
-                <apex:commandButton value=" Save " action="{!saveOpp}" reRender="errmsg"/>
+                <apex:commandButton value=" Save " action="{!saveOpp}" reRender="errmsg,msg1"/>
                 <apex:commandButton value=" Cancel" action="{!Cancel}" />
             </apex:pageBlockButtons> 
     </apex:pageblock> 

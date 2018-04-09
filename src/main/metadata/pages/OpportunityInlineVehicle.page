@@ -1,0 +1,100 @@
+<apex:page standardController="Opportunity" extensions="OpportunityInlineVehicleController" >
+  <apex:form >
+      <apex:pageBlock rendered="{!IF($Permission.INGeneric, true, false)}">
+          <!-- Interested Vehicle -->
+          <apex:pageBlockSection title="Interested Vehicle Information" columns="1" >
+                <apex:pageBlockTable id="pb1" value="{!allIntVehicles}" var="intveh" style="width:900px;" >
+                    <apex:column headerValue="Car Model">
+                        <apex:outputField value="{!intveh.Car_Model__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Brand">
+                        <apex:outputField value="{!intveh.Brand__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Class">
+                        <apex:outputField value="{!intveh.Class__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Color">
+                        <apex:outputField value="{!intveh.Color__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Preferred">
+                        <apex:outputField value="{!intveh.Preferred__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <!-- Competetor Vehicle -->
+            <apex:pageBlockSection title="Competetor Vehicle Information" columns="1" >
+                <apex:pageBlockTable id="pb2" value="{!allCompVehicles}" var="compveh" style="width:900px;" >
+                    <apex:column headerValue="Car Model">
+                        <apex:outputField value="{!compveh.Car_Model_Competitor__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Brand">
+                        <apex:outputField value="{!compveh.Brand__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Class">
+                        <apex:outputField value="{!compveh.Class__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Color">
+                        <apex:outputField value="{!compveh.Color__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Preferred">
+                        <apex:outputField value="{!compveh.Preferred__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <!-- Trade In Vehicle -->
+            <apex:pageBlockSection title="Trade In Vehicle Information" columns="1" >
+                <apex:pageBlockTable id="pb3" value="{!allTradeVehicles}" var="tradeveh" style="width:900px;" >
+                    <apex:column headerValue="Trade-In Vehicle">
+                        <apex:outputField value="{!tradeveh.Trade_In_Vehicle__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Year of Manufacture">
+                        <apex:outputField value="{!tradeveh.Year_of_Manufacture__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Mileage">
+                        <apex:outputField value="{!tradeveh.Mileage__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    <apex:column headerValue="Trim">
+                        <apex:outputField value="{!tradeveh.Trim__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                </apex:pageBlockTable>       
+            </apex:pageBlockSection>
+            
+            <!-- Current Vehicle -->
+           <apex:pageBlockSection title="Current Vehicle Information" columns="1" >
+                <apex:pageBlockTable id="pb4" value="{!currentVehicleList}"  var="currveh" style="width:900px;" >
+                    <apex:column headerValue="Car Model">
+                        <apex:outputLabel value="{!currveh.Vehicle_Model__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Brand">
+                        <apex:outputLabel value="{!currveh.Vehicle_Brand__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Class">
+                        <apex:outputLabel value="{!currveh.Vehicle_Class__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Mileage Start">
+                        <apex:outputLabel value="{!currveh.Mileage_start__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Mileage">
+                        <apex:outputLabel value="{!currveh.Mileage_End__c}" />
+                    </apex:column>
+                </apex:pageBlockTable>        
+            </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

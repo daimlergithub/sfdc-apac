@@ -50,11 +50,11 @@ public with sharing class SalesLeadController {
         tradeVehc.add(tld);
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_TradeIn_Record_Type);
         tld.RecordTypeId = leadrecTypeId;
+
     }
     
     //To add more records for Interested Vehicle
     public PageReference AddIntRecord() {
-        
         Lead_Details__c ld = new Lead_Details__c();
         ld.type__c = 'Interested';
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
@@ -99,7 +99,6 @@ public with sharing class SalesLeadController {
     //Function to populate current Vehicle details of the specif contact selected.
     public void Vehrel(){
         //set<id> currveh = new set<id>();
-        system.debug('2---');
         system.debug('contact: ' + opp.AccountID);
         
         vehRel = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];

@@ -19203,6 +19203,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Account_Email_c__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Account_address__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19272,9 +19277,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Case__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19320,6 +19325,16 @@
         <editable>false</editable>
         <field>Opportunity.CurrentGenerators__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Current_Vehicle_1_Text__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Current_Vehicle_2_Text__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19382,7 +19397,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Finance_Product_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19459,7 +19474,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Is_Active__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19472,18 +19487,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Last_Successful_Call__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.LeadSource</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Lead_Additional_Service__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Lead_Age__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19502,7 +19522,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Lead_Latest_Phase__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19517,13 +19537,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Lead_Source__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Lead_Sub_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Lead_Temperature__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -19542,9 +19567,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Opportunity.Lost_Situation__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19552,9 +19577,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Lost_To__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19684,7 +19709,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Purchase_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -19734,11 +19759,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Received_Date_Time__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Referal_Referee_Name__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.Referal_Referee_Name__c</field>
+        <field>Opportunity.Referal_Referee_Note__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -28583,11 +28613,11 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>DispatcherLeadEditPageIN</apexPage>
+        <apexPage>DispatcherLeadDetailsEditPageIN</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>DispatcherLeadDetailsEditPageIN</apexPage>
+        <apexPage>DispatcherLeadEditPageIN</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -28809,6 +28839,10 @@
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>OpportunityInlineVehicle</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>OwnerLookup</apexPage>
