@@ -24025,7 +24025,7 @@ IsActive = True
 
 var myWindow = window.open("/apex/AddParticipatingDealer?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=1000");</url>
     </webLinks>
-    <webLinks>
+     <webLinks>
         <fullName>Consolidate_List_Maintenance</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -24043,12 +24043,21 @@ var qre = sforce.connection.query("Select id,Approve_the_List__c,Campaign__c Fro
 
 var qrerecords = qre.getArray("records"); 
 
+if(confirm("{!$Label.Are_you_sure_to_start_consolidation}")) { 
 if(qrerecords.length&gt;0){ 
+
 window.open("/apex/ConsolidationDisplayList?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=500,height=500"); 
+    window.top.location.reload();
+
+//window.open("/apex/ConsolidationDisplayList?Id={!Campaign.Id}", "_blank","resizable=yes,top=250,left=500,width=500,height=500"); 
 
 }else if(qrerecords.length== 0) { 
 window.open("/apex/Consolidation_List?Id={!Campaign.Id}"); 
-}</url>
+}
+}else
+  {
+    window.top.location.reload();
+  }</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Batch_Tasks</fullName>
@@ -24246,7 +24255,7 @@ if(("{!Campaign.RecordType}" == "Central Marketing Campaign" || "{!Campaign.Reco
   }
 }</url>
     </webLinks>
-    <webLinks>
+   <webLinks>
         <fullName>Distribution_to_Dealer</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -24255,16 +24264,25 @@ if(("{!Campaign.RecordType}" == "Central Marketing Campaign" || "{!Campaign.Reco
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+ 
 var campaignID = "{!Campaign.Id}"; 
 var qre = sforce.connection.query("Select id,Distribution_is_completed__c From Campaign WHERE Id = '{!Campaign.Id}' AND Distribution_is_completed__c = false "); 
 
 var qrerecords = qre.getArray("records"); 
 
 if(qrerecords.length&gt;0){ 
-
+if(confirm("{!$Label.Are_you_sure_to_start_distributing_to_dealer}")) { 
 var show = sforce.apex.execute("CampaignMemberDisribution","cmDistributionToDealer",{camid:campaignID}); 
-location.reload(); 
+    window.top.location.reload();
+}
+ else
+  {
+    window.location.reload();
+  }
+
+//var show = sforce.apex.execute("CampaignMemberDisribution","cmDistributionToDealer",{camid:campaignID}); 
+//location.reload(); 
 
 }else 
 { 
@@ -24329,7 +24347,7 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
 } 
 } else { alert('Invalid Dealer'); }</url>
     </webLinks>
-    <webLinks>
+     <webLinks>
         <fullName>List_Ready_Maintenance</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -24338,13 +24356,19 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/32.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
 
      if({! Campaign.Ready_for_List_Maintenance__c } == false)
      {
           var c = new sforce.SObject("Campaign");
           c.id = "{!Campaign.Id}";
           c.Ready_for_List_Maintenance__c  = true;
-          result = sforce.connection.update([c]);
+
+if(confirm("{!$Label.Are_you_sure_to_start_List_Maintenance}")) {
+ result = sforce.connection.update([c]);
+  window.top.location.reload();
+
+    //   result = sforce.connection.update([c]);
           if ( result[0].getBoolean( "success" ) )
           {
                window.location.reload();
@@ -24353,11 +24377,16 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
           {
                alert( result[0].errors.message);
           }
-     }
-     else
-     {
-          alert("Already True");
-     }</url>
+ }
+  else
+  {
+    window.location.reload();
+  }
+ }
+else
+{
+        alert("Already True");
+}</url>
     </webLinks>
     <webLinks>
         <fullName>MBTH_Create_Child_Campaign</fullName>
@@ -24606,12 +24635,12 @@ var myWindow = window.open("/dataImporter/dataImporter.app?objectSelection=Campa
         <protected>false</protected>
         <url>/701/e?RecordType=01228000001Dg46&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}&amp;cancelURL={!Campaign.Id}</url>
     </webLinks> 
-	<webLinks>
+	 <webLinks>
         <fullName>Retail_Campaign_Creation</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>Retail Campaign Creation	</masterLabel>
+        <masterLabel>Retail Campaign Creation</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
@@ -24624,12 +24653,18 @@ alert('Please push "Consolidation List Maintenance" button first');
 } 
 if(listcompleted == true) 
 { 
+if(confirm("{!$Label.Are_you_sure_to_create_Retail_Campaign}")) { 
 var resultMsg= 
 sforce.apex.execute("Call_Batch_JointDrivenCampaign","Batch_JointDrivenCampaign",{camid:"{!Campaign.Id}"}); 
- 
-window.location.reload(); 
+    window.top.location.reload();
 }
-</url>
+
+
+//var resultMsg= 
+sforce.apex.execute("Call_Batch_JointDrivenCampaign","Batch_JointDrivenCampaign",{camid:"{!Campaign.Id}"}); 
+
+window.location.reload(); 
+}</url>
     </webLinks>
 	<webLinks>
         <fullName>Create_Simple_Execution_Generic</fullName>
