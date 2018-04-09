@@ -55,6 +55,29 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Charge_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Charge Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Composite_Charge_Receivable_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <formula>FS_Contract__r.Borrower__r.BPID__c+"-"+ FS_Contract__r.Contract_ID__c+"-"+ Charge_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Composite Charge Receivable Identifier</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Contract__c</fullName>
         <externalId>false</externalId>
         <label>FS Contract</label>
@@ -81,9 +104,10 @@
     </fields>
     <label>Charge Receivable</label>
     <nameField>
+        <displayFormat>CR-{000000}</displayFormat>
         <label>Charge Receivable Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Charge Receivables</pluralLabel>
     <searchLayouts/>
