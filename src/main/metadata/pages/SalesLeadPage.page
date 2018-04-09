@@ -44,7 +44,9 @@
             
         <!--------------  Vehicle Info Section -------------->      
             <apex:pageBlockSection title="Vehicle Information" columns="2">
+                <apex:inputField value="{!opp.Current_Vehicle_1_Text__c}" required="false"/>
                 <apex:inputField value="{!opp.Description}" required="false"/>
+                <apex:inputField value="{!opp.Current_Vehicle_2_Text__c}" required="false"/>
                 <apex:inputField value="{!opp.Purchased_Vehicle__c}" required="false"/>
             </apex:pageBlockSection>
             
@@ -72,7 +74,7 @@
                 <apex:outputField value="{!opp.lastmodifiedbyId}"/>
                 <apex:inputField value="{!opp.Market__c}"/>
             </apex:pageBlockSection>
-
+            <apex:pageMessages id="msg1" />
             <br></br>
         
             <apex:pageBlockSection title="Interested Vehicle Information" columns="1">
@@ -177,7 +179,7 @@
             
 			
             <apex:pageBlockButtons >
-                <apex:commandButton value=" Save " action="{!saveOpp}" reRender="msg"/>
+                <apex:commandButton value=" Save " action="{!saveOpp}" reRender="msg,msg1"/>
                 <apex:commandButton value=" Cancel" action="{!Cancel}" />
             </apex:pageBlockButtons> 
     </apex:pageblock> 
