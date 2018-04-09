@@ -467,21 +467,7 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>RECORDTYPE</fields>
-        <fields>Brand__c</fields>
-        <fields>Car_Model__c</fields>
-        <fields>Car_Model_Competitor__c</fields>
-        <fields>Class__c</fields>
-        <fields>Trim__c</fields>
-        <fields>Preferred__c</fields>
-        <fields>Year_of_Manufacture__c</fields>
-        <fields>Mileage__c</fields>
-        <fields>Trade_In_Vehicle__c</fields>
-        <relatedList>Lead_Details__c.Related_Lead__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedContentNoteList</relatedList>
+        <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
@@ -517,7 +503,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000OJCW</masterLabel>
+        <masterLabel>00hO0000000bEbL</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
