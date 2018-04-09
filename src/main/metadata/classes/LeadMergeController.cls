@@ -31,8 +31,8 @@ public class LeadMergeController{
     private Map<String, Schema.SObjectField> fieldNamesMap = Lead__c.sObjectType.getDescribe().fields.getMap(); 
             
      public static id isMasterSelected{ get; set; } 
-	  Public static id  masterids{ get; set; }
-	  Public static id  Slaveids{ get; set; }
+      Public static id  masterids{ get; set; }
+      Public static id  Slaveids{ get; set; }
     public static id isSlaveSelected{ get; set; } 
     public Lead__c selectedslavelead        {get; set;}
     Public static Id Leadslaveids{get;set;}
@@ -209,10 +209,10 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
            system.debug('+++++++++ SlaveSelectedIdExisting_Contract__c '+ slave.Existing_Contract__c );     
             system.debug('+++++++++ Dealer_Lead_Status__c '+  Master.Dealer_Lead_Status__c );
            system.debug('+++++++++ Dealer_Lead_Status__c '+ slave.Dealer_Lead_Status__c );     
-		   masterids=ApexPages.currentPage().getParameters().get('Id');  
-		    slaveids=ApexPages.currentPage().getParameters().get('selectedValue');   
-			system.debug('++++++ masterids ctedId'+  masterids);
-			           system.debug('+++slaveids Id'+ slaveids);  
+           masterids=ApexPages.currentPage().getParameters().get('Id');  
+            slaveids=ApexPages.currentPage().getParameters().get('selectedValue');   
+            system.debug('++++++ masterids ctedId'+  masterids);
+                       system.debug('+++slaveids Id'+ slaveids);  
 
 
           
@@ -371,7 +371,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
         soql+='Id';
         System.debug('%^%^%^%^%^%^%^%^%^%^%^% soql query'+soql);
         return Database.query(soql + 
-            ',Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Dealer_Lead_Status__c,Lead_Possibility__c,Lead_Possibility_text__c,Quotation_Number_History__c,Order_Confirmation_Date__c,Purchased_VIN__c,LastModifiedBy.UserName,Network_Registration_Date__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
+            ',UCID__c,Lead_Latest_Phase__c,AfterSales_VIN__c,Existing_Contract_End_Date__c,Customer_Intention__c,Finance_Closing_Option__c,Existing_Contract__c,Existing_Contract_No__c,Finance_Closing_Reason__c,DMS_Sent_Flag__c,Interested_Vehicle__r.Brand__c,Interested_Vehicle__r.Class__c,Dealer_Lead_Status__c,Lead_Possibility__c,Lead_Possibility_text__c,Quotation_Number_History__c,Order_Confirmation_Date__c,Purchased_VIN__c,LastModifiedBy.UserName,Network_Registration_Date__c,Interested_Vehicle__r.Model_Description__c ,Interested_Vehicle__r.UsVIN__c,Interested_Competitor_Vehicle__r.Brand__c,Interested_Competitor_Vehicle__r.Class__c,Interested_Competitor_Vehicle__r.Model_Description__c,Interested_Competitor_Vehicle__r.UsVIN__c,Current_Vehicle_1__r.Brand__c,Current_Vehicle_1__r.Class__c,Current_Vehicle_1__r.Model_Description__c,Current_Vehicle_1__r.UsVIN__c,Purchased_Vehicle__r.Brand__c,Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchased_Vehicle__r.UsVIN__c,recordType.developerName,name  FROM Lead__c WHERE Id =\''+leadId+'\''+'AND RecordtypeId=\''+leads.recordtypeId+'\'');
     }
     /** 
      * @Description : Populate fieldLabel and fieldAPI 
