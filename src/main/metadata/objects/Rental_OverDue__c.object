@@ -55,6 +55,18 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Composite_RentalOverDue_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <formula>FS_Contract__r.Borrower__r.BPID__c+"-"+ FS_Contract__r.Contract_ID__c+"-"+ Rental_ID__c+"-"+ Overdue_Seq_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Composite RentalOverDue Identifier</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Contract__c</fullName>
         <externalId>false</externalId>
         <label>FS Contract</label>
@@ -91,6 +103,17 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Overdue_Seq_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Overdue Seq ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Principal_Outstanding__c</fullName>
         <externalId>false</externalId>
         <label>Principal Outstanding</label>
@@ -111,6 +134,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rental_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Rental ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Total_Outstanding__c</fullName>
@@ -136,9 +170,10 @@
     </fields>
     <label>Rental OverDue</label>
     <nameField>
+        <displayFormat>RO-{000000}</displayFormat>
         <label>Rental OverDue Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Rental OverDues</pluralLabel>
     <searchLayouts/>
