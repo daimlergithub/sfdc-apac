@@ -130,6 +130,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Composite_PDC_Identifier__c</fullName>
+        <description>This field will store combination of BPID,Contract ID and PDC ID.</description>
+        <externalId>false</externalId>
+        <formula>FS_Contract__r.Borrower__r.BPID__c+"-"+ FS_Contract__r.Contract_ID__c+"-"+ PDC_ID__c+"-"+ PDC_SEQ__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Composite PDC Identifier</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Contract__c</fullName>
         <externalId>false</externalId>
         <label>FS Contract</label>
@@ -148,6 +161,29 @@
         <externalId>false</externalId>
         <label>Old Status</label>
         <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PDC_ID__c</fullName>
+        <description>It will store PDC Id coming from RMW.</description>
+        <externalId>false</externalId>
+        <label>PDC ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PDC_SEQ__c</fullName>
+        <externalId>false</externalId>
+        <label>PDC SEQ</label>
+        <length>3</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
