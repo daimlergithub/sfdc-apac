@@ -21701,6 +21701,39 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
+	<listViews>
+        <fullName>All_Malaysia_Account</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>UCID__c</columns>
+        <columns>PC_PHONE3</columns>
+        <columns>PC_PHONE4</columns>
+        <columns>Work_Phone__c</columns>
+        <columns>ID_Number__c</columns>
+        <columns>PC_EMAIL</columns>
+        <columns>Primary_Address_Display__c</columns>
+        <columns>ACCOUNT.RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </filters>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.PersonAccount</value>
+        </filters>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Company</value>
+        </filters>
+        <label>All Malaysia Account</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All_dealers_MBK</fullName>
         <columns>ACCOUNT.NAME</columns>
