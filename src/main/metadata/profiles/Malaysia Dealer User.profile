@@ -29243,8 +29243,8 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Article</object>
-        <viewAllRecords>Article__kav</viewAllRecords>
+        <object>Article__kav</object>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
 	<objectPermissions>
         <allowCreate>true</allowCreate>
