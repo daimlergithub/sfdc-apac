@@ -29226,7 +29226,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Article</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>Article__kav</viewAllRecords>
     </objectPermissions>
 	<objectPermissions>
         <allowCreate>true</allowCreate>
@@ -29234,7 +29234,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>Articles</object>
+        <object>MYArticle__kav</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
