@@ -840,24 +840,22 @@
                 <fullName>Sales</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>After Sales</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales and After Sales</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales -&gt; Crosspoint</fullName>
@@ -883,7 +881,6 @@
                 <fullName>Other</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -988,6 +985,7 @@
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Marketing</fullName>
@@ -8782,6 +8780,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>Finance</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Idle Hour Promotion</fullName>
                 <default>false</default>
@@ -11771,6 +11773,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </values>
             <values>
                 <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
