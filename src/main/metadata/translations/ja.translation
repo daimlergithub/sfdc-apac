@@ -133,7 +133,7 @@
         <name>masterLeadMerge</name>
     </customLabels> 
 	<customLabels>
-        <label>削除または自</label>
+        <label>削除または自動</label>
         <name>slaveLeadMerge</name>
     </customLabels> 
     <customLabels>
