@@ -121,9 +121,10 @@
     </fields>
     <label>Account Statement</label>
     <nameField>
+        <displayFormat>AS-{000000}</displayFormat>
         <label>Account Statement Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Account Statements</pluralLabel>
     <searchLayouts/>

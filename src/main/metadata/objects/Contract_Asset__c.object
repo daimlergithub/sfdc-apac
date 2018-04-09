@@ -70,9 +70,10 @@
     </fields>
     <label>Contract Asset</label>
     <nameField>
+        <displayFormat>CA-{000000}</displayFormat>
         <label>Contract Asset Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Contract Assets</pluralLabel>
     <searchLayouts/>

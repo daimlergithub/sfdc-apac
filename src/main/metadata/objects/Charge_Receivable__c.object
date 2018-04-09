@@ -81,9 +81,10 @@
     </fields>
     <label>Charge Receivable</label>
     <nameField>
+        <displayFormat>CR-{000000}</displayFormat>
         <label>Charge Receivable Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Charge Receivables</pluralLabel>
     <searchLayouts/>

@@ -110,9 +110,10 @@
     </fields>
     <label>Asset Invoice</label>
     <nameField>
+        <displayFormat>AI-{000000}</displayFormat>
         <label>Asset Invoice Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Asset Invoices</pluralLabel>
     <searchLayouts/>

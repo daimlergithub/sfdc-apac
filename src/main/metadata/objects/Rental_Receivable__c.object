@@ -81,9 +81,10 @@
     </fields>
     <label>Rental Receivable</label>
     <nameField>
+        <displayFormat>RR-{000000}</displayFormat>
         <label>Rental Receivable Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Rental Receivables</pluralLabel>
     <searchLayouts/>

@@ -190,9 +190,10 @@
     </fields>
     <label>PDC Detail</label>
     <nameField>
+        <displayFormat>PDC-{000000}</displayFormat>
         <label>PDC Detail Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>PDC Details</pluralLabel>
     <searchLayouts/>

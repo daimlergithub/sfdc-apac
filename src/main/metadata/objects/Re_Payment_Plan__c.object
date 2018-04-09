@@ -191,9 +191,10 @@
     </fields>
     <label>Re Payment Plan</label>
     <nameField>
+        <displayFormat>RPP-{000000}</displayFormat>
         <label>Re Payment Plan Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Re Payment Plans</pluralLabel>
     <searchLayouts/>

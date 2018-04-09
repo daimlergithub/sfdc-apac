@@ -262,9 +262,10 @@
     </fields>
     <label>Receivables Paid</label>
     <nameField>
+        <displayFormat>RP-{000000}</displayFormat>
         <label>Recievables Paid Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Receivables Paid</pluralLabel>
     <searchLayouts/>

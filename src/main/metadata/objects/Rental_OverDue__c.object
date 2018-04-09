@@ -136,9 +136,10 @@
     </fields>
     <label>Rental OverDue</label>
     <nameField>
+        <displayFormat>RO-{000000}</displayFormat>
         <label>Rental OverDue Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Rental OverDues</pluralLabel>
     <searchLayouts/>
