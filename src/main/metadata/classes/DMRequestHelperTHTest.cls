@@ -23,8 +23,7 @@ public class DMRequestHelperTHTest {
         cs.Name = 'CalloutValues';
         insert cs;
         Profile taskprofile = [select id from profile where Name = 'System Administrator' limit 1];
-        //User user = new User(LastName = 'User', country = 'Australia', firstName = 'BCI', ProfileId = taskprofile.Id, Alias = 'Taskain1', EmailEncodingKey = 'UTF-8', TimeZoneSidKey = 'America/New_York', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US', Email = 'Ibtesamuddin_Mtest@infosys.com', UserName = 'sam@test.com.dev01' + String.valueof(DateTime.now().getTime()), Market__c = 'TH');
-        //insert user;
+        
         System.runas(usr) {
             Profile profileCAC = [select Id from Profile where Name =: 'IntegrationAPI'];
             usr = new User();
@@ -90,19 +89,25 @@ public class DMRequestHelperTHTest {
     }
 
     public static testMethod void UpdateDMRequestTest() {
+        
      system.runAs(usr) {
+         Test.startTest();
         createTestData();
         createDMRequest();
-        test.startTest();
+        
         dmr.Sending_Address__c = 'Other Address 1';
         update dmr;
-        test.stopTest();
+        
         dmr = [select District__c from DM_Request__c where id =: dmr.id];
         system.assertEquals(dmr.District__c, 'test');
+        Test.stopTest();
         }
+        
     }
     public static testMethod void updateStatusTest(){
+        
        system.runAs(usr){
+           Test.startTest();
             createTestData();
             createDMRequest();
             DM_Request__c dmr1 = new DM_Request__c();
@@ -117,12 +122,14 @@ public class DMRequestHelperTHTest {
             dmr1.Status2__c = 'Success';
             dmr1.Status1__c = 'to be sent';
             insert dmr1;
-            test.startTest();
+            
             dmr1.Status2__c = 'to be sent';
             update dmr1;
-            test.stopTest();
+            
             dmr = [select Status2__c from DM_Request__c where id =: dmr1.id];
             system.assertEquals(dmr.Status2__c, 'Duplicate');
+            Test.stopTest();
         }
+        
     }
 }
