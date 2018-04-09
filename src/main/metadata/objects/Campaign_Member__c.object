@@ -1872,7 +1872,7 @@ window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYP
 alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
-    <webLinks>
+     <webLinks>
         <fullName>Refresh</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -1883,9 +1883,15 @@ alert('You cannot create campaign members for this campaign status');
         <requireRowSelection>true</requireRowSelection>
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-var campaignID = "{!Campaign.Id}";  
+var campaignID = "{!Campaign.Id}";
+//if(confirm('Are you sure?')) {
+if(confirm("{!$Label.Are_you_sure_to_start_refresh}")) { 
 var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID}); 
-location.reload();</url>
+    window.top.location.reload();
+}
+//var campaignID = "{!Campaign.Id}";  
+//var show = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshcampaignmember",{camid:campaignID}); 
+//location.reload();</url>
     </webLinks>
     <webLinks>
         <fullName>RetailCampaignExport</fullName>
@@ -1920,8 +1926,14 @@ else
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var retcampaignid = "{!Retail_Campaign__c.Id}";
+if(confirm("{!$Label.Are_you_sure_to_start_refresh}")) { 
 var show1 = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshretcampaignmember",{retcamid:retcampaignid});
-location.reload();</url>
+    window.top.location.reload();
+}
+
+//var retcampaignid = "{!Retail_Campaign__c.Id}";
+var show1 = sforce.apex.execute("Updatecampaignmemwithrefresh","Refreshretcampaignmember",{retcamid:retcampaignid});
+//location.reload();</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Campaign_Member</fullName>
