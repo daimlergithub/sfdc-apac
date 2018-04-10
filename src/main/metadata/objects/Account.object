@@ -21703,6 +21703,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </listViews>
 	<listViews>
         <fullName>All_Malaysia_Account</fullName>
+		<booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <columns>ACCOUNT.NAME</columns>
         <columns>UCID__c</columns>
         <columns>PC_PHONE3</columns>
