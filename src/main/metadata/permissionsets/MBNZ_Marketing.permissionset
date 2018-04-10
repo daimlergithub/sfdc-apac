@@ -1271,6 +1271,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DispatcherLeadDetailsEditCtrlIN</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DispatcherLeadEditControllerIN</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
         <apexClass>Duplicatecheck_controller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -28708,6 +28716,14 @@
     <pageAccesses>
         <apexPage>DealerSearchPage</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>DispatcherLeadDetailsEditPageIN</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>DispatcherLeadEditPageIN</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>DuplicateCheckPage</apexPage>
