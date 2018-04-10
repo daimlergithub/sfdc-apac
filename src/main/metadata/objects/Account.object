@@ -29910,33 +29910,6 @@ ISPICKVAL(  Gender__c , 'Male'))
         <errorDisplayField>Gender__c</errorDisplayField>
         <errorMessage>Please compare the value of salution and gender, and fill in the appropriate values.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Mobile_NoOfDigits_Length_14</fullName>
-        <active>true</active>
-        <description>Mobile phone number must be in any of the following formats : 
-Country Code (+90) And Mobile Number 10 (5xxxxxxxxx) digits only. Starting with 5.</description>
-        <errorConditionFormula>AND( 
-$Profile.Name != 'IntegrationAPI', 
-(ISPICKVAL(Market__c,'TR')), 
-NOT(ISBLANK(Mobile__c)), 
-OR( 
-NOT 
-( 
-REGEX(Mobile__c, "[+0-9]*") 
-) , 
-AND( 
-LEFT ( Mobile__c, 3) = "+90", 
-NOT 
-( 
-REGEX(Mobile__c, "[+90]{3}[5]{1}[0-9]{9}") 
-) 
-) 
-) 
-)</errorConditionFormula>
-        <errorDisplayField>Mobile__c</errorDisplayField>
-        <errorMessage>Mobile phone number must be in any of the following formats : 
-Country Code (+90) And Mobile Number 10 (5xxxxxxxxx) digits only. Starting with 5.</errorMessage>
-    </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
         <availability>online</availability>
@@ -30387,4 +30360,3 @@ window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account
 }</url>
     </webLinks>
 </CustomObject>
-    
