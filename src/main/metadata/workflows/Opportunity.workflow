@@ -129,7 +129,7 @@
         </actions>
         <active>true</active>
         <description>If a preferred contact date is added, then a task needs to be created for that user for that day</description>
-        <formula>AND($Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;, NOT(ISNULL(Preferred_Contact_Time__c)),ISCHANGED(Preferred_Contact_Time__c))</formula>
+        <formula>AND($Permission.INGeneric,     $Profile.Name != &apos;IntegrationAPI&apos;,     NOT(ISNULL(Preferred_Contact_Time__c)),     OR((ISCHANGED(Preferred_Contact_Time__c)),      ISNEW()))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

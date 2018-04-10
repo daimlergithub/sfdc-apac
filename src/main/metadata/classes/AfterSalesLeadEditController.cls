@@ -34,7 +34,7 @@ public with sharing class AfterSalesLeadEditController {
              Lead_Additional_Service__c,Pickup_Date_Time__c,Order_Placed_Date__c,Quotation_Date__c,Quotation_Amount__c,Order_No__c, Lost_To_Competitor_Name__c,
              Order_Print_Date__c,Order_Confirmation_Date__c,Registration_No__c,Network_Registration_Date__c,Bought_Vehicle_Brand__c,Next_Contact_Customer_Date__c,
              Bought_Vehicle_Class__c,Bought_Vehicle_Model__c,Invoice_Number__c,Invoice_Date__c,Purchase_Time__c,Received_Date_Time__c,
-             Invoice_Amount__c,Qualified_Date_Time__c,UCID__c,Desired_Contact_Date__c,Price_Range__c,Test_Drive_Date__c,Preferred_Contact_Time__c,Assigned_Service_Advisor__c,
+             Invoice_Amount__c,Qualified_Date_Time__c,UCID__c,UCID_account__c,Desired_Contact_Date__c,Price_Range__c,Test_Drive_Date__c,Preferred_Contact_Time__c,Assigned_Service_Advisor__c,
              Accepted_Date_Time__c,Purchase_Date__c,Quotation_Print_Date__c,Quotation_No__c,Assigned_Date_Time__c,Preferred_Contact_Method__c,
              Lead_Latest_Phase__c,Contact__c,Sales_Consultant__c,Dealer_Comment__c,Customer_Preferred_Representative__c, Referal_Referee_Note__c,Description,Purchased_Vehicle__c,
              Customer_Specified_Dealer__c,Lead_Type__c,Assigned_Dealer__c,CloseDate,Lead_Sub_Type__c,Lead_DataSource__c,Handover_Date__c, Lost_to_OEM_Name__c,
@@ -168,6 +168,7 @@ public with sharing class AfterSalesLeadEditController {
     
     // To save the lead record and upsert all the associated lead details record.
     public PageReference saveOpp(){
+        UpdateModInfoCtrl();
         List<Lead_Details__c> finalAllVehicleList = new List<Lead_Details__c>();
         for(Lead_Details__c ledDet : allVehiclesList){
             if(!(ledDet.Car_Model__c == null && ledDet.Car_Model_Competitor__c == null && ledDet.RecordTypeId != UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_TradeIn_Record_Type)))

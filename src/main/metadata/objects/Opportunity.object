@@ -239,7 +239,7 @@
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>UCID__c</field>
+            <field>UCID_account__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -900,7 +900,7 @@
         <fullName>Account_Email_c__c</fullName>
         <description>Account Email id</description>
         <externalId>false</externalId>
-        <formula>Account.PersonEmail</formula>
+        <formula>Account.Email__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Email ID</label>
         <required>false</required>
@@ -7178,10 +7178,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <fullName>UCID__c</fullName>
         <description>Unique Customer Identification.</description>
         <externalId>false</externalId>
-        <label>UCID</label>
+        <label>UCID_old</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UCID_account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account.UCID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UCID</label>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -14894,18 +14905,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OPPORTUNITY.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.FULL_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.STAGE_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.CLOSE_DATE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Account_email_Id_mandatory_order_placed</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', $Permission.INGeneric, OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
-ISPICKVAL(StageName, "Order placed")&amp;&amp; ISBLANK( Account_Email_c__c ))</errorConditionFormula>
-        <errorMessage>At least one  email Id is mandatory on account.</errorMessage>
+ISPICKVAL(StageName, 'Order placed'),ISBLANK(Account_Email_c__c))</errorConditionFormula>
+        <errorDisplayField>Accepted_Date_Time__c</errorDisplayField>
+        <errorMessage>At least one Email ID and Address is mandatory on account level, when the status is order Placed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Closed_won_should_syn_with_Edealer</fullName>
@@ -15024,8 +15036,9 @@ OR(ISPICKVAL(StageName ,'Order Placed'),ISPICKVAL(StageName ,'Service Booking'))
         <active>true</active>
         <description>When the Lead needs to moved to order placed/booking   , then the system should display an error message ,if there is no address and email id present at the account level.</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', $Permission.INGeneric, OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
-ISPICKVAL(StageName, "Order placed")&amp;&amp; ISBLANK(Account_address__c ))</errorConditionFormula>
-        <errorMessage>At least one Address is mandatory on account.</errorMessage>
+(ISPICKVAL(StageName, "Order placed")&amp;&amp; ISBLANK(Account_address__c ))|| 
+(ISPICKVAL(StageName, "Order placed")&amp;&amp; ISBLANK( Account_Email_c__c )))</errorConditionFormula>
+        <errorMessage>At least one Email ID and Address is mandatory on account , when the status is order Placed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Test_Drive_Required_Check</fullName>
