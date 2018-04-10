@@ -409,6 +409,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AfterSalesLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AfterSalesLeadEditController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
         <apexClass>AnnouncementController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1241,6 +1249,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DispatcherLeadDetailsEditCtrlIN</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DispatcherLeadEditControllerIN</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
         <apexClass>Duplicatecheck_controller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1741,6 +1757,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>NewSalesLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
         <apexClass>NewVehicleRelationshipController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2021,6 +2041,14 @@
         <apexClass>SSORedirectControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>SalesLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SalesLeadEditController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
     <classAccesses>
         <apexClass>ScheduleCampCompletion</apexClass>
         <enabled>false</enabled>
@@ -28216,6 +28244,24 @@
         <readable>false</readable>
     </fieldPermissions>
     <label>MBNZ After Sales</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Lead__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Opportunity</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>	
     <pageAccesses>
         <apexPage>ALKDeleteConformationpage</apexPage>
         <enabled>false</enabled>
@@ -28264,6 +28310,14 @@
         <apexPage>AddressSelectionforExistingCustomer</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>AfterSalesLeadEditPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AfterSalesLeadPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
     <pageAccesses>
         <apexPage>AnnouncementsPage</apexPage>
         <enabled>false</enabled>
@@ -28427,6 +28481,14 @@
     <pageAccesses>
         <apexPage>DealerSearchPage</apexPage>
         <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>DispatcherLeadDetailsEditPageIN</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>DispatcherLeadEditPageIN</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>DuplicateCheckPage</apexPage>
@@ -28641,6 +28703,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>NewSalesLead</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
+    <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -28732,6 +28798,14 @@
         <apexPage>SSORedirectPage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>SalesLeadEditPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SalesLeadPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
     <pageAccesses>
         <apexPage>Segmentation</apexPage>
         <enabled>false</enabled>
@@ -29244,6 +29318,14 @@
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Opportunity.Aftersales_Lead</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Opportunity.Sales_Lead</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>	
     <recordTypeVisibilities>
         <recordType>PersonAccount.PersonAccount</recordType>
         <visible>false</visible>
