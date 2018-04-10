@@ -427,6 +427,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AfterSalesLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AfterSalesLeadEditController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
         <apexClass>AnnouncementController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1767,6 +1775,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>NewSalesLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
         <apexClass>NewVehicleRelationshipController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2058,6 +2070,14 @@
         <apexClass>SSORedirectControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>SalesLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SalesLeadEditController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
     <classAccesses>
         <apexClass>ScheduleCampCompletion</apexClass>
         <enabled>false</enabled>
@@ -28434,12 +28454,21 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Lead__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Lead__c</object>
+        <object>Opportunity</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -28508,6 +28537,14 @@
         <apexPage>AddressSelectionforExistingCustomer</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>AfterSalesLeadEditPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AfterSalesLeadPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
     <pageAccesses>
         <apexPage>AnnouncementsPage</apexPage>
         <enabled>false</enabled>
@@ -28889,6 +28926,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>NewSalesLead</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
+    <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -28980,6 +29021,14 @@
         <apexPage>SSORedirectPage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>SalesLeadEditPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SalesLeadPage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
     <pageAccesses>
         <apexPage>Segmentation</apexPage>
         <enabled>false</enabled>
@@ -29491,6 +29540,14 @@
     <recordTypeVisibilities>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
         <visible>false</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <recordType>Opportunity.Aftersales_Lead</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Opportunity.Sales_Lead</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>PersonAccount.PersonAccount</recordType>
