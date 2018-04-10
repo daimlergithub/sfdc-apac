@@ -151,7 +151,7 @@ Public With Sharing class AccountTable{
        //runQuery();
         Setcon = new ApexPages.StandardSetController(Database.query(soql));
         
-        setCon.setpagesize(10);
+        setCon.setpagesize(100);
         noOfRecords = setCon.getResultSize();
        getAccount();
     }
