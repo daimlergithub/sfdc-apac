@@ -31034,10 +31034,6 @@
         <tab>Account_Link__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-	<tabVisibilities>
-        <tab>Knowledge</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
     <tabVisibilities>
         <tab>Campaign_Lead__c</tab>
         <visibility>DefaultOff</visibility>
@@ -31133,6 +31129,10 @@
 	<tabVisibilities>
         <tab>standard-Dashboard</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+	<tabVisibilities>
+        <tab>standard-Knowledge</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ChannelProgram</tab>

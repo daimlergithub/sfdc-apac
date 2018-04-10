@@ -31035,7 +31035,7 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
 	<tabVisibilities>
-        <tab>Knowledge</tab>
+        <tab>standard-Knowledge</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
