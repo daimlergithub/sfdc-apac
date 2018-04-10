@@ -55,6 +55,29 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Asset_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Asset ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Composite_Contract_Asset_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <formula>FS_Contract__r.Borrower__r.BPID__c+"-"+ FS_Contract__r.Contract_ID__c+"-"+ Asset_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Composite Contract Asset Identifier</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Contract__c</fullName>
         <externalId>false</externalId>
         <label>FS Contract</label>
@@ -70,9 +93,10 @@
     </fields>
     <label>Contract Asset</label>
     <nameField>
+        <displayFormat>CA-{000000}</displayFormat>
         <label>Contract Asset Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Contract Assets</pluralLabel>
     <searchLayouts/>

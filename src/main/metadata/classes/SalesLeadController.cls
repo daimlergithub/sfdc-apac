@@ -32,8 +32,9 @@ public with sharing class SalesLeadController {
     public list<Lead_Details__c> tradeVehc {get;set;}
     public list<Lead_Details__c> allVehicles = new list<Lead_Details__c>();
     public list<Vehicle_Relationship__c> vehRel {get;set;}
-    
+     ApexPages.StandardController stdController;
     public SalesLeadController(ApexPages.StandardController controller) {
+    
         if(chk != 1)isHide = true;
         if(chkcomp != 1)isHidecomp = true;
         opp = new opportunity();
