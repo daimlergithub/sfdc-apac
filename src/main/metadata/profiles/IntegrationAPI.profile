@@ -3116,6 +3116,11 @@
         <field>Account.Mobile_Phone_Checkbox__c</field>
         <readable>true</readable>
 </fieldPermissions>
+<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Lastest_Consent_Date__c</field>
+        <readable>true</readable>
+</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
