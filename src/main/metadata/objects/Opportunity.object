@@ -478,6 +478,16 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Express_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Form_Title__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>GenericAftersales_LeadInfo</label>
     </fieldSets>
     <fieldSets>
@@ -830,6 +840,11 @@
         </displayedFields>
         <displayedFields>
             <field>Payment_Mode__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Form_Title__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -3262,6 +3277,16 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Express_Service__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Vehicle marked as 'Express Service' are attended faster</description>
+        <externalId>false</externalId>
+        <label>Express Service</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Finance_Product_Name__c</fullName>
         <externalId>false</externalId>
         <label>Finance Product Name</label>
@@ -3383,6 +3408,18 @@
         <externalId>false</externalId>
         <label>Finance Quotation No</label>
         <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Form_Title__c</fullName>
+        <description>Capture Form title included in Leads</description>
+        <externalId>false</externalId>
+        <label>Form Title</label>
+        <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>

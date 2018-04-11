@@ -159,6 +159,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Delivery_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Form_Title__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
