@@ -19802,6 +19802,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.Express_Service__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.Finance_Product_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19825,6 +19830,11 @@
         <field>Opportunity.Finance_Quotation_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Form_Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Handover_Date__c</field>
