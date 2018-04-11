@@ -19406,6 +19406,18 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Social_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Social ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Social_Media_Parameter__c</fullName>
         <description>Social Media Account Paramenter</description>
         <externalId>false</externalId>

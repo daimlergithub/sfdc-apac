@@ -4072,6 +4072,19 @@ TEXT(StageName) != "Closed Lost"
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Km_service_due__c</fullName>
+        <description>capture information from Form CMS</description>
+        <externalId>false</externalId>
+        <label>Km service due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Last_Successful_Call__c</fullName>
         <externalId>false</externalId>
         <label>Last Successful Call</label>
@@ -5284,6 +5297,18 @@ TEXT(StageName) != "Closed Lost"
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Lead_Mobile__c</fullName>
+        <description>Captures the Mobile from Form CMS. It will be read only field.</description>
+        <externalId>false</externalId>
+        <label>Lead Mobile</label>
+        <length>12</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Lead_No__c</fullName>
         <description>Unique lead number in opportunities</description>
         <displayFormat>L-P{000000000}</displayFormat>
@@ -5914,6 +5939,38 @@ TEXT(StageName) != "Closed Lost"
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Lead_eMail__c</fullName>
+        <description>Captures the eMail from Form CMS. It will be read only field.</description>
+        <externalId>false</externalId>
+        <label>Lead eMail</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Loan_car_required__c</fullName>
+        <externalId>false</externalId>
+        <label>Loan car required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Lost_Date__c</fullName>
         <externalId>false</externalId>
         <label>Lost Date</label>
@@ -6480,6 +6537,48 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Preferred_Pick_up_times__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Pick-up times</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_drop_off__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred drop off</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Price_Range__c</fullName>
         <externalId>false</externalId>
         <label>Price Range</label>
@@ -6895,6 +6994,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Registration_number__c</fullName>
+        <description>capture registration information from Form CMS</description>
+        <externalId>false</externalId>
+        <label>Registration number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Related_Leads__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -7235,6 +7346,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>VIN_number__c</fullName>
+        <description>capture VIN information from Form CMS</description>
+        <externalId>false</externalId>
+        <label>VIN number</label>
+        <length>17</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Visited_Showroom_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Visited Showroom Date Time</label>
@@ -7263,6 +7386,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year__c</fullName>
+        <description>Capture Year information from Form CMS</description>
+        <externalId>false</externalId>
+        <label>Year</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Year_of_manufacture__c</fullName>
@@ -10716,6 +10849,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Loan_car_required__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Situation__c</picklist>
             <values>
                 <fullName>Lead Merge</fullName>
@@ -10898,6 +11042,28 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Pick_up_times__c</picklist>
+            <values>
+                <fullName>AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_drop_off__c</picklist>
+            <values>
+                <fullName>AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14461,6 +14627,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Loan_car_required__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_Situation__c</picklist>
             <values>
                 <fullName>Changed car in same company</fullName>
@@ -14659,6 +14836,28 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Pick_up_times__c</picklist>
+            <values>
+                <fullName>AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_drop_off__c</picklist>
+            <values>
+                <fullName>AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PM</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
