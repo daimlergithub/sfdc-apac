@@ -104,7 +104,7 @@ public class RetailCampaignHelperTH{
              retailcampaign.put(re.Parent_Campaign1__r.id,'Ongoing');
              }
             if(isinsertflag&&Userinfo.getUserType()=='PowerPartner' && (re.RecordTypeId==planningRecordId || re.RecordTypeId==executionRecordId) && re.createdby.dealer_nd_code__C!=null){
-                idwithndcode.put(re.id,re.createdby.dealer_nd_code__C);
+                idwithndcode.put(re.id,'TH'+re.createdby.dealer_nd_code__C);
             }
         }       
         for(id idset : retailcampaign.keySet()){
