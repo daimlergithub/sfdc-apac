@@ -75,8 +75,8 @@ var answer=confirm('{!$Label.Did_you_Get_Agreement_From_Customer_Login_Mobile_is
                       <apex:outputText value="{!eachWrap.PortalEmail}" ID="txtName1" rendered="{!IF(eachWrap.vehicleRelationship != null, true, false)}"/>
                     </apex:column>
                       <apex:column headerValue="{!$Label.Login_Mobile}">
-                        <apex:inputText id="inptid" value="{!eachWrap.loginmobile}" rendered="{!IF(eachWrap.vehicleRelationship == null, true, false)}"/>
-                        <apex:outputText value="{!mobile3}" rendered="{!IF(eachWrap.vehicleRelationship != null, true, false)}" />
+                        <apex:inputText id="inptid" value="{!eachWrap.loginmobile}" rendered="{!IF(eachWrap.loginmobile== null, true, false)}"/>
+                        <apex:outputText value="{!eachWrap.loginmobile}" rendered="{!IF(eachWrap.vehicleRelationship != null, true, false)}" />
                         </apex:column> 
                     <apex:column >
                    <apex:commandLink value="{!$Label.Emails}" action="{!showPopup}" reRender="one">
