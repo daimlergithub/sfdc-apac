@@ -378,7 +378,7 @@ public with sharing class SendToMyMercController {
         public Id AccountId {set;get;}
         public ID VID{get;set;}
         public Id VehRelId;
-        public AccountWrapper(Id VIDVar,String PortalEmailVar,String personalEmailVar,String accountDataVar,String vehicleRelationshipVar,String accountLinkVar,string carrel,string reson,Id accid,Id vehid,boolean isMyMercVis,string loginmobile){
+        public AccountWrapper(Id VIDVar,String PortalEmailVar,String personalEmailVar,String accountDataVar,String vehicleRelationshipVar,String accountLinkVar,string carrel,string reson,Id accid,Id vehid,boolean isMyMercVis,string loginmobiles){
             accountData = accountDataVar;
             vehicleRelationship = vehicleRelationshipVar;
             accountLink = accountLinkVar;
@@ -392,7 +392,7 @@ public with sharing class SendToMyMercController {
             accountLink = accountLinkVar;
             PortalEmail = PortalEmailVar;
             VID = VIDVar;  
-            loginmobile=loginmobile;
+            loginmobile=loginmobiles;
         }
     }    
 }
