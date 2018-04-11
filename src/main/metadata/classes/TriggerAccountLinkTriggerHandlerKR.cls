@@ -15,14 +15,14 @@ public class TriggerAccountLinkTriggerHandlerKR
             system.debug('Trigger 4 :');
             system.debug('Leadutil.testadd='+Leadutil.testadd);
             Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
-            if(Leadutil.testadd=false){
+            //if(Leadutil.testadd=false){
                AccountLinkHelperKR.afterUpdateEvent(Trigger.new, oldmap);
                AccountLinkHelperKR.updateRetailPositionfromC2C(Trigger.isUpdate, Trigger.isAfter ,Trigger.isInsert, trigger.new);
                AccountLinkHelperKR.ExportNotification(Trigger.new, oldmap);
                system.debug('Entered After TRIGGER');
                //AccountLinkHelperKR.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
                system.debug('Trigger 5 :');
-            }
+            //}
         }     
         if(isBefore && isInsert)
         {        
