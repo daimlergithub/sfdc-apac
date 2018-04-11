@@ -47,7 +47,8 @@ public class SurveyTakerHelperKR
 			if(surveyTkrList != null && !surveyTkrList.isEMpty() && dealergrps != null && !dealergrps.isEmpty())
 			{
 				for(SurveyTaker__c suvTkr : surveyTkrList)
-				{
+				{   
+				    if(suvTkr.md__c=='KR'){
 					for(Group dlrGrp : dealergrps)
 					{
 						SurveyTaker__Share shreSuvTkr = new SurveyTaker__Share();
@@ -55,6 +56,7 @@ public class SurveyTakerHelperKR
 		                shreSuvTkr.AccessLevel = 'Edit';
 		                shreSuvTkr.UserOrGroupId = dlrGrp.Id;
 		                shreSurTkerList.add(shreSuvTkr);
+					}
 					}
 				}
 			}
@@ -66,6 +68,7 @@ public class SurveyTakerHelperKR
 			{
 				for(SurveyTaker__c suvTkr : surveyTkrList)
 				{
+				    if(suvTkr.md__c=='KR'){
 					for(Group dlrGrp : dealergrps)
 					{
 						SurveyTaker__Share shreSuvTkr = new SurveyTaker__Share();
@@ -73,6 +76,7 @@ public class SurveyTakerHelperKR
 		                shreSuvTkr.AccessLevel = 'Edit';
 		                shreSuvTkr.UserOrGroupId = dlrGrp.Id;
 		                shreSurTkerList.add(shreSuvTkr);
+					}
 					}
 				}
 			}
