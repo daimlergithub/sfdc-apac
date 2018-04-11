@@ -30,7 +30,8 @@
                 </apex:repeat>
             </apex:pageBlockSection>
             
-        <apex:pageBlockSection title="Lead DMS Information" columns="2">
+		<!--Sada removed this section for AU/NZ as per US MBANZ-142/137 -->	
+        <apex:pageBlockSection title="Lead DMS Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
             <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DMSInfo}"  var="f">
                 <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
             </apex:repeat>

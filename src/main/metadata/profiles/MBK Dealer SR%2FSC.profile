@@ -15622,7 +15622,7 @@
         <readable>false</readable>
     </fieldPermissions>
 	<fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead__c.Lost_Status_Tracking__c</field>
         <readable>true</readable>
     </fieldPermissions>
