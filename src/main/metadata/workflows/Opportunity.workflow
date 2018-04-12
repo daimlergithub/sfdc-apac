@@ -39,6 +39,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Stage_ClosedWon</fullName>
+        <description>Update to closed won</description>
+        <field>StageName</field>
+        <literalValue>Closed Won</literalValue>
+        <name>Stage ClosedWon</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Assigned_Time</fullName>
         <description>When lead status = Assigned. Update the assigned time to current time</description>
         <field>Assigned_Date_Time__c</field>
@@ -220,6 +230,26 @@
         <description>When status is made Closed Won, the purchase date need to be updated</description>
         <formula>AND(ISPICKVAL(StageName, &apos;Closed Won&apos;), ISNULL(Purchase_Date__c),$Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update stage to Closed Won ANZ</fullName>
+        <actions>
+            <name>Stage_ClosedWon</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Invoiced</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.Market__c</field>
+            <operation>equals</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <description>update Stage &apos;Invoiced&apos; are updated to &apos;Closed Won&apos; stage as per MBANZ-150</description>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <tasks>
         <fullName>Follow_up</fullName>
