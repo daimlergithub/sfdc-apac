@@ -27,6 +27,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Entity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Last_Successful_Call__c</field>
             </layoutItems>
             <layoutItems>
@@ -261,6 +265,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Assigned_Service_Advisor__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Assigned_Service_Parts_Advisor__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

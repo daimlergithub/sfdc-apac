@@ -127,6 +127,10 @@
                 <behavior>Readonly</behavior>
                 <field>ClosedDate</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MBTH_Escalated_to_MBTH__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

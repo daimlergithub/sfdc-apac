@@ -8768,19 +8768,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
-            <values>
+            <!--<values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Familiarization workshop for new vehicle owners</fullName>
                 <default>false</default>
-            </values>
+            </values>-->
             <values>
                 <fullName>Finance</fullName>
                 <default>false</default>
             </values>
-			<values>
+			<!--<values>
                 <fullName>Marketing</fullName>
                 <default>false</default>
             </values>
@@ -8819,12 +8819,12 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <values>
                 <fullName>Promotion on Technical accessories and collections</fullName>
                 <default>false</default>
-            </values>
+            </values>-->
             <values>
                 <fullName>Sales</fullName>
                 <default>false</default>
             </values>
-            <values>
+            <!--<values>
                 <fullName>Service Product Promotion</fullName>
                 <default>false</default>
             </values>
@@ -8835,7 +8835,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <values>
                 <fullName>VEP%28Seasonal Check%29</fullName>
                 <default>false</default>
-            </values>
+            </values>-->
         </picklistValues>
         <picklistValues>
             <picklist>Car_Model__c</picklist>
@@ -15938,6 +15938,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <searchResultsAdditionalFields>Driven__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Plan_Start_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Plan_End_Date__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>Dealer_Name__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>

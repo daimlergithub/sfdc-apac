@@ -359,6 +359,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Entity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Allow_Data_Sharing__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -569,6 +574,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Assigned_Service_Parts_Advisor__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Preferred_Contact_Method__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -580,6 +590,11 @@
         <description>Generic Sales Layout - Lead Customer Information</description>
         <displayedFields>
             <field>AccountId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contact__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -707,6 +722,11 @@
             <field>StageName</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Entity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Case__c</field>
@@ -1031,6 +1051,28 @@
         </lookupFilter>
         <referenceTo>User</referenceTo>
         <relationshipName>Service_Advisor_Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_Service_Parts_Advisor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Service &amp; parts advisor assigned to the Lead</description>
+        <externalId>false</externalId>
+        <label>Assigned Service &amp; Parts Advisor</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Assigned_Dealer__c</valueField>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Service_Parts_Advisor_Leads</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
@@ -3263,6 +3305,31 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Entity__c</fullName>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cars /Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Escalated_flag__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Escalated flag will be updated to true if Lead status is not Accepted ,After 24 hours of Assiged date,</description>
@@ -4306,7 +4373,9 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>3rd Party</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>3rd party data</fullName>
@@ -4328,7 +4397,9 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Car Configurator</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CCC</fullName>
@@ -4358,7 +4429,9 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-mail</fullName>
@@ -4384,7 +4457,9 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>IB Call</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Internet</fullName>
@@ -4491,12 +4566,16 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>OB Call</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Online Service Booking</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Online Stock Search</fullName>
@@ -4591,7 +4670,9 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Test Drive Booking</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>TV</fullName>
@@ -4601,7 +4682,9 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Walk in</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Web/Mobile Phone</fullName>
@@ -4610,7 +4693,9 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Web forms</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Website</fullName>
@@ -5405,7 +5490,7 @@ TEXT(StageName) != "Closed Lost"
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>	
         <fullName>Lead_Sub_Type__c</fullName>
         <externalId>false</externalId>
         <label>Lead Sub-Type</label>
@@ -5635,6 +5720,10 @@ TEXT(StageName) != "Closed Lost"
                 <controllingFieldValues>AS - Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>others</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
@@ -5713,6 +5802,10 @@ TEXT(StageName) != "Closed Lost"
                 <controllingFieldValues>Car Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
+                <fullName>service contract should be changed to service plans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Service Inquiry</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
@@ -5762,7 +5855,7 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Trade Club</fullName>
                 <default>false</default>
-                <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Cars Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Trade In</fullName>
@@ -5830,33 +5923,41 @@ TEXT(StageName) != "Closed Lost"
         <externalId>false</externalId>
         <label>Lead Type</label>
         <picklist>
+			<controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Activities</fullName>
                 <default>false</default>
+				<controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS – Accessories &amp; Collection</fullName>
                 <default>false</default>
+				<controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS - Activity</fullName>
                 <default>false</default>
+				<controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS – Event &amp; Campaign</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS – Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS – Package Inquiry</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS - Product</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS - Service</fullName>
@@ -5865,14 +5966,25 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Car Service</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cars Parts</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cars Service</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>FS - Mobility</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance</fullName>
@@ -5881,30 +5993,49 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Insurance and Warranty leads</fullName>
                 <default>false</default>
+				<controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance Renewal</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Need Follow Up</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Car</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>No Need Follow Up</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Product</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Activities</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales Activity</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales New Car</fullName>
@@ -5913,23 +6044,44 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Sales Used Car</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>TA&amp;C</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>UsedCar</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Used Car</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>Vans Parts</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans Service</fullName>
+                <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>			
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>true</sorted>
         </picklist>
@@ -6195,7 +6347,8 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))))</defaultValue>
         <description>Market Discriminator</description>
         <externalId>false</externalId>
         <label>MD</label>
@@ -6242,7 +6395,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -6274,6 +6428,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <fullName>IN</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </picklistValues>			
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -9320,6 +9478,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2FVans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Finance_Product_Name__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -10800,8 +10973,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <fullName>Trade In</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Warranty %26 recall</fullName>
+            <values>  
+				<fullName>Warranty %26 recall</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10822,6 +10995,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>service contract should be changed to</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>service contract should be changed to service plans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10847,6 +11024,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <fullName>Cars Parts</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Cars Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans Service</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Loan_car_required__c</picklist>
@@ -10942,7 +11131,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <fullName>IN</fullName>
                 <default>false</default>
             </values>
-            <values>
+			 <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -10952,6 +11141,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13126,6 +13319,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Entity__c</picklist>
+            <values>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cars %2FVans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Finance_Product_Name__c</picklist>
             <values>
                 <fullName>Close End Lease</fullName>
@@ -14583,6 +14791,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Register your interest</fullName>
                 <default>false</default>
             </values>
@@ -14617,6 +14829,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                 <fullName>New Car</fullName>
                 <default>true</default>
             </values>
+            <values>
+                <fullName>Sales Activities</fullName>
+				<default>false</default>
+            </values>			
             <values>
                 <fullName>TA%26C</fullName>
                 <default>false</default>
@@ -14746,6 +14962,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
             </values>
             <values>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15148,6 +15368,48 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>ANZ_Contact_Mandatory_Sales_Leads</fullName>
+        <active>true</active>
+        <description>Contact is mandatory for Sales Leads.</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), RecordType.Name = 'Sales Lead', 
+ISBLANK(Contact__c))</errorConditionFormula>
+        <errorMessage>Please fill Contact to proceed further</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ANZ_LeadStatus_LeadType_Mandatory</fullName>
+        <active>true</active>
+        <description>Lead Status, Lead Type is mandatory for Sales Leads.</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), OR(RecordType.Name = 'Sales Lead'), 
+ISPICKVAL( Lead_Type__c ,'') )</errorConditionFormula>
+        <errorMessage>Please fill Lead Type to proceed further</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ANZ_Lead_Status_Check_After_Assigned</fullName>
+        <active>true</active>
+        <description>Before assigning dealer, Lead Status can not be Assigned.</description>
+        <errorConditionFormula>AND( 
+OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
+ISPICKVAL( StageName ,'Assigned'), 
+(ISBLANK(Assigned_Dealer__c)), 
+OR($Permission.AUGeneric,$Permission.NZGeneric), 
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>StageName</errorDisplayField>
+        <errorMessage>Before assigning dealer, Lead Status can not be Assigned.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ANZ_Lost_Reason_is_mandatory</fullName>
+        <active>true</active>
+        <description>When status of lead is marked as 'Closed -Lost' then 'Lost Reason' is mandatory.</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+OR($Permission.INGeneric,$Permission.INGeneric),
+OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
+ISPICKVAL(StageName ,'Closed Lost') &amp;&amp;  ISPICKVAL(CAC_Lost_Reason__c,"" ))</errorConditionFormula>
+        <errorMessage>Lost reason field is mandatory, if the Lead status is Lost</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Account_email_Id_mandatory_order_placed</fullName>
         <active>false</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', $Permission.INGeneric, OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
@@ -15233,7 +15495,9 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Lost_Dealer_Required_Check</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric, OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
+OR($Permission.INGeneric,$Permission.AUGeneric,$Permission.NZGeneric),
+OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
 ISPICKVAL(StageName,"Closed Lost"), 
 ISNULL(Lost_Date__c) 
 )</errorConditionFormula>

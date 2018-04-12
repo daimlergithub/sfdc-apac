@@ -5439,6 +5439,11 @@
         <field>Account.Outlet_General_GroupID__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Outlet_General_Group_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Owner_Relation__c</field>
@@ -8499,6 +8504,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset_Invoice__c.Issue_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Asset_Invoice__c.Policy_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17379,6 +17389,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Home_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.House_Type_and_Grage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

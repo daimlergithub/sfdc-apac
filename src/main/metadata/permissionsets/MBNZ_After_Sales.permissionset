@@ -19646,6 +19646,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Assigned_Service_Parts_Advisor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Average_Driving__c</field>
         <readable>false</readable>
@@ -19711,9 +19716,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Opportunity.Contact__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -19790,6 +19795,11 @@
         <field>Opportunity.Drop_off_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Entity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Escalated_flag__c</field>
