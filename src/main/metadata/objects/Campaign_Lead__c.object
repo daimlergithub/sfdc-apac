@@ -1463,7 +1463,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
             <filterItems>
                 <field>Retail_Campaign__c.Dealer_Name__r.Dealer_ND_Code__c</field>
                 <operation>equals</operation>
-                <value>User.Dealer_ND_Code__c</value>
+                <value>$User.Dealer_ND_Code__c</value>
             </filterItems>             
             <filterItems>
                 <field>$Profile.Name</field>
