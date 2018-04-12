@@ -1806,78 +1806,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>MBTH_Update Lost%28CAC%29 Date Time</fullName>
-        <actions>
-            <name>MBTH_Update_Lost_CAC_Date_Time</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <booleanFilter>(1 OR 2) AND (3 OR 4) AND 5</booleanFilter>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>MY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.CAC_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Lost((CCC)</value>
-        </criteriaItems>
-        <description>When the lead status is set to "Lost(CAC)" then the "Lead Lost (CAC) " date time field need to be updated with current time</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>MBTH_Update Lost%28Dealer%29 Date Time</fullName>
-        <actions>
-            <name>MBTH_Update_Lost_Dealer_Date_Time</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Retail Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Lost(Dealer)</value>
-        </criteriaItems>
-        <description>When the Dealer lead status is set to "Lost(Dealer)" then the "Dealer lost " date time field</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>MBTH_Update Purchased Date Time</fullName>
         <actions>
             <name>Update_Purchased_Date_Time</name>
@@ -1901,82 +1829,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
             <value>MY</value>
         </criteriaItems>
         <description>When the Dealer  lead status is set to "Purchased" then the "Purchased " date time field need to be updated with current time</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>MBTH_Update Purchased%28CAC%29 Date Time</fullName>
-        <actions>
-            <name>Update_CAC_purchased_date_time</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <booleanFilter>(1 OR 2) AND (3 OR 4) AND 5</booleanFilter>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>MY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.CAC_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Purchased</value>
-        </criteriaItems>
-        <description>When the wholesale lead status is set to "Purchased"then the Purchased date time field need to be updated with current time</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>MBTH_Update Test Drive Date Time</fullName>
-        <actions>
-            <name>MBTH_Update_Test_Drive_Date_Time</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <booleanFilter>(1 OR 2) AND (3 OR 4 OR 5) AND 6</booleanFilter>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>MY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Retail Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Test Drive</value>
-        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2065,52 +1917,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <formula>AND(ISNEW(),  CONTAINS($Profile.Name , 'Partner Community'),  MD__c = 'JP' )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <rules>
-        <fullName>Reassigned lead to Non-BDC</fullName>
-        <actions>
-            <name>Update_Lead_Accepted_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Lead_Assigned_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Lead_Recieved_Date_Time_to_Now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Lead__c.LastModifiedById</field>
-            <operation>notEqual</operation>
-            <value>Liam Huang</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>notEqual</operation>
-            <value>Accepted</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Sales Lead 3 months notification</fullName>
-        <actions>
-            <name>Send_email_if_the_after_sales_lead_is_not_closed_in_3_weeks</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <formula>IF(((ISPICKVAL(Owner:User.UserType ,'Standard') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Lost(CAC)') &amp;&amp; !ISPICKVAL(CAC_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; RecordType.Name == 'Sales Leads') ||  (ISPICKVAL( Owner:User.UserType ,'PowerPartner') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Purchased(Only Non BDC)') &amp;&amp; !ISPICKVAL( Dealer_Lead_Status__c ,'Lost') &amp;&amp; RecordType.Name == 'Sales Leads')) &amp;&amp; Text($User.Market__c) == 'KR',  true, false)</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <timeLength>90</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
 	<rules>
         <fullName>SendindEmailNotificationtoServiceAdvisor</fullName>
         <actions>
@@ -2196,25 +2002,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Social Media Leads Binding</fullName>
-        <actions>
-            <name>Link_Social_Media_Leads</name>
-            <type>OutboundMessage</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Lead__c.Lead_DataSource__c</field>
-            <operation>equals</operation>
-            <value>Web/Mobile Phone</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.Lead_DataSubSource__c</field>
-            <operation>equals</operation>
-            <value>Weibo,WeChat</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
         <fullName>TH_Email notification when interested vehicle have changed</fullName>
         <actions>
             <name>TH_Email_notification_when_interested_vehicle_have_changed</name>
@@ -2261,24 +2048,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <active>true</active>
         <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)"), MD__c = 'KR'),AND(MD__c="TH",ISPICKVAL(CAC_Lead_Status__c,"Contact Failed For 3 Days"),or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Dealer Aftersales Manager and Dealer Owner Email Field</fullName>
-        <actions>
-            <name>Update_Dealer_Aftersales_Manager_Email</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Dealer_Owner_Email</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads</value>
-        </criteriaItems>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Dealer Lead Status</fullName>
