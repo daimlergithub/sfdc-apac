@@ -1336,16 +1336,6 @@ Purchased_Date_Time__c
         </workflowTimeTriggers>
     </rules>
     <rules>
-        <fullName>Email notification when purchase time have changed</fullName>
-        <actions>
-            <name>Email_notification_when_purchase_time_have_changed</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', MD__c = 'KR' )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>JP_Automatic Task Creation</fullName>
         <actions>
             <name>Lead_Customer_Intention_OB_Call_Task</name>
@@ -1354,30 +1344,6 @@ Purchased_Date_Time__c
         <active>true</active>
         <formula>AND( CONTAINS($Profile.Name,'MBF'),MD__c='JP', RecordType.Name ='Sales Leads', NOT(ISNULL(Existing_Contract__c)),  ISPICKVAL(Existing_Contract__r.Status__c,'Active'),ISPICKVAL(Existing_Contract__r.Sales_Type__c, 'Retail'),NOT(ispickval(Customer_Intention__c ,'')), AND(NOT(IsPICKVAL(Finance_Product_Name__c,'Re-loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Start Up Plan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Normal Loan')) ,NOT(IsPICKVAL(Finance_Product_Name__c,'Dual Auto Loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Welcome Plan Plus')),NOT(IsPICKVAL(Finance_Product_Name__c,'Super Welcome Plan Plus'))))</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Lead Escalation Process Definition - Wholesale CCC</fullName>
-        <active>false</active>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads,Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Escalated_after_24hrs</name>
-                <type>Alert</type>
-            </actions>
-            <offsetFromField>Lead__c.LastModifiedDate</offsetFromField>
-            <timeLength>24</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Lead Owner is Changed</fullName>
@@ -1439,16 +1405,6 @@ Purchased_Date_Time__c
             <value>JP</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>Leads fields update</fullName>
-        <actions>
-            <name>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>MBTH-AfterSales To Send a e mail to wholesale users when the checkbox Important Leadchecked%2E</fullName>
@@ -1518,16 +1474,6 @@ Purchased_Date_Time__c
         </criteriaItems>
         <description>When the “Dealer Lead status" is "Purchased" then the "CAC Lead Status" need to be updated as purchased.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>MBTH_Email notification when interested vehicle have changed</fullName>
-        <actions>
-            <name>MBTH_Email_notification_when_interested_vehicle_have_changed</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'Salesforce', MD__c = 'TH',OR(RecordType.Name = 'Sales Leads',RecordType.Name = 'Aftersales Leads',RecordType.Name = 'Retail Sales Leads'),  OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>MBTH_Lead Escalation if dealer not assigned</fullName>
@@ -1860,36 +1806,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>MBTH_Update Contact Failed For 3 Days Date Time</fullName>
-        <actions>
-            <name>TH_Update_ContactFailed_Date_Time_to_now</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-		 <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>Contact Failed For 3 Days</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>MY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads,Retail Sales Leads,Sales Leads</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>MBTH_Update Lost%28CAC%29 Date Time</fullName>
         <actions>
             <name>MBTH_Update_Lost_CAC_Date_Time</name>
@@ -2082,56 +1998,6 @@ Note: lost status will be updated in auto line  (part of sari)</description>
         <active>true</active>
         <formula>AND(ISPICKVAL(CAC_Lead_Status__c,"Accepted") ,MD__c='MY',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads'))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>MBTH_Update first contact customer datetime</fullName>
-        <actions>
-            <name>Update_first_customercontacted_date_time</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <booleanFilter>(1 OR 2) AND (3 OR 4) AND (5 OR 6)</booleanFilter>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Aftersales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Sales Leads</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>MY</value>
-        </criteriaItems>
-		<criteriaItems>
-            <field>Lead__c.MD__c</field>
-            <operation>equals</operation>
-            <value>TH</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.CAC_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>First Contact Customer</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.Dealer_Lead_Status__c</field>
-            <operation>equals</operation>
-            <value>First Contact Customer</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
-        <fullName>MBTH_update DealerName</fullName>
-        <actions>
-            <name>MBTH_update_recordowner_email</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <formula>AND(MD__c='TH',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads'))</formula>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>No modification is made in 10 days %28All Modifications%29</fullName>
