@@ -804,7 +804,7 @@
                             <td>{!$ObjectType.Vehicle__c.Label}</td>
                             <td>
                                 <select onchange="showCriteria(this);"> 
-                                   <option value="Car_Model__r.Model_Name__c">Model</option>                                                                     
+                                   <option value="Car_Model__r.Series_Description__c">Model</option>                                                                     
                                    <!--<option value="Range__c">{!$ObjectType.Vehicle__c.Fields.Range__c.Label}</option>-->
                                    <option value="Model_Description__c">{!$ObjectType.Vehicle__c.Fields.Model_Description__c.Label}</option>
                                    <!--<option value="Modification_Package__c">{!$ObjectType.Vehicle__c.Fields.Modification_Package__c.Label}</option>-->
