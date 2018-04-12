@@ -19870,6 +19870,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.Express_Service__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.Finance_Product_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -19893,6 +19898,11 @@
         <field>Opportunity.Finance_Quotation_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Form_Title__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Handover_Date__c</field>
@@ -19960,6 +19970,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Km_service_due__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Last_Successful_Call__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -20000,6 +20015,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Lead_Mobile__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Lead_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -20028,6 +20048,16 @@
         <field>Opportunity.Lead_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Lead_eMail__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Loan_car_required__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Lost_Date__c</field>
@@ -20165,6 +20195,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.Preferred_Pick_up_times__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Preferred_drop_off__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.Price_Range__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -20248,6 +20288,11 @@
         <field>Opportunity.Registration_No__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Registration_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Related_Leads__c</field>
@@ -20334,6 +20379,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.VIN_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Visited_Showroom_Date_Time__c</field>
         <readable>true</readable>
@@ -20348,6 +20398,11 @@
         <field>Opportunity.WIP_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Year_of_manufacture__c</field>

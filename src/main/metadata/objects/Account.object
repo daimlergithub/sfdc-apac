@@ -16291,6 +16291,17 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Outlet_General_Group_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Outlet General Group Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>OwnerId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -19404,6 +19415,18 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Social_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Social ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Social_Media_Parameter__c</fullName>
@@ -64472,7 +64495,7 @@ NOT(Dealer_Active__c)
         <fullName>Data_Source_is_mandatory</fullName>
         <active>true</active>
         <description>MBK Data_Source__c is mandatory while creating person account.</description>
-        <errorConditionFormula>AND( OR(ISPICKVAL(MBK_Data_Source__c,''),!ISNEW()),MD__c='KR',RecordType.DeveloperName = 'PersonAccount' ,$Profile.Name != 'IntegrationAPI', ISPICKVAL(MBK_Data_Source__c, ""))</errorConditionFormula>
+        <errorConditionFormula>AND( OR(ISPICKVAL(MBK_Data_Source__c,''),!ISNEW()),MD__c='KR',OR(RecordType.DeveloperName = 'PersonAccount',RecordType.DeveloperName = 'Company'),$Profile.Name != 'IntegrationAPI', ISPICKVAL(MBK_Data_Source__c, ""))</errorConditionFormula>
         <errorDisplayField>MBK_Data_Source__c</errorDisplayField>
         <errorMessage>Please enter Data Source.</errorMessage>
     </validationRules>
