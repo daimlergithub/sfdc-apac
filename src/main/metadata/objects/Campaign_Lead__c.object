@@ -1472,7 +1472,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
             </filterItems>
 			 <filterItems>
                 <field>$Profile.Name</field>
-                <operation>doesnotcontain</operation>
+                <operation>notcontain</operation>
                 <value>Japan Dealer</value>
             </filterItems>
             <infoMessage>Value does not exist or does not match filter criteria..</infoMessage>
