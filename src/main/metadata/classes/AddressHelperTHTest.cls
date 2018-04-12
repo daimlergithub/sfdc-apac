@@ -1,4 +1,4 @@
-@isTest public with sharing class addresshelperTHTest {
+@isTest public with sharing class AddressHelperTHTest {
 
     public static User user1 = TestUtils.createAdminUser();
     public static User user2 = TestUtils.IntegrationAPIUser();
