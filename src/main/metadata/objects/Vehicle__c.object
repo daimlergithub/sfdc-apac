@@ -138,6 +138,67 @@
         </displayedFields>
         <label>Vehicle Details</label>
     </fieldSets>
+	<fields>
+        <fullName>MC_Connect_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Mc Connect Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>false</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>AMG__c</fullName>
         <defaultValue>false</defaultValue>
@@ -301,7 +362,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>ROADSTER</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Limousine</fullName>
                 <default>false</default>
             </picklistValues>
@@ -313,7 +374,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Hatch</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Pullman</fullName>
                 <default>false</default>
             </picklistValues>
@@ -349,7 +410,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Saloon</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Car</fullName>
                 <default>false</default>
             </picklistValues>
@@ -357,11 +418,11 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Default</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Panel Van</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Tipper</fullName>
                 <default>false</default>
             </picklistValues>
@@ -369,7 +430,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Rigid</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Prime Mover</fullName>
                 <default>false</default>
             </picklistValues>
@@ -381,7 +442,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <fullName>Pick up</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Van</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2227,6 +2288,28 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CommissionNumber"</descr
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	    <fields>
+        <fullName>contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Person Account</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Vehicles (Account)</relationshipLabel>
+        <relationshipName>Vehicles2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Cost_Centre__c</fullName>
         <externalId>false</externalId>
@@ -2366,7 +2449,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_EuroVIN
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>Extended_Warranty_End_Date__c</fullName>
         <externalId>false</externalId>
         <label>Extended Warranty End Date</label>
@@ -2943,15 +3026,6 @@ DATE(YEAR(FirstRegistrationDate__c) + 3, Month(FirstRegistrationDate__c),Day(Fir
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>LastInspectionDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastInspectionDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>LastServiceDate__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -2970,6 +3044,24 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>	
+	<fields>
+        <fullName>LastInspectionDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastInspectionDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>LastWorkDate__c</fullName>
+        <externalId>false</externalId>
+        <label>LastWorkDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>LastServiceMileage__c</fullName>
@@ -2982,15 +3074,6 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>LastWorkDate__c</fullName>
-        <externalId>false</externalId>
-        <label>LastWorkDate</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Latest_Contract_Date__c</fullName>
@@ -3058,15 +3141,6 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>MC_Connect_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Mc Connect Flag</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
@@ -3090,49 +3164,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'),'TH', IF(ISPICKVAL($User.Market__c, 'KR'),'K
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'TR', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>ModelYear__c</fullName>
@@ -5902,14 +5933,14 @@ Modify Reason:
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: 'Manual' or 'Automatic' transmission 
+Function: &apos;Manual&apos; or &apos;Automatic&apos; transmission 
 Used in: Pagelayouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_TransmissionÃ¢â‚¬Å“</description>
+Attribute in Data Dictionary object Vehicle isÃ¢â‚¬ÂVehicle_TransmissionÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>Transmission</label>
         <picklist>
@@ -6365,7 +6396,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>YA_Vehicle_Magic_No__c</fullName>
         <externalId>false</externalId>
         <label>YA Vehicle Magic No</label>
@@ -6373,37 +6404,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>contact__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Contact</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Person Account</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Vehicles (Account)</relationshipLabel>
-        <relationshipName>Vehicles2</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>isTestRunning__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>isTestRunning</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>last_update_changed_by__c</fullName>
@@ -6426,7 +6426,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>DateTime</type>
     </fields>
     <label>Vehicle</label>
-    <listViews>
+	<listViews>
         <fullName>All_MBTH_Vehicles</fullName>
         <columns>NAME</columns>
         <columns>RECORDTYPE</columns>
@@ -6465,7 +6465,8 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <filterScope>Everything</filterScope>
         <label>All Vehicles</label>
         <language>en_US</language>
-        <sharedTo/>
+        <sharedTo>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>New_Created_Vehicles</fullName>
@@ -6500,6 +6501,34 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <active>true</active>
         <description>Competitor Vehicle</description>
         <label>Competitor</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -6558,7 +6587,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMC</fullName>
@@ -8199,33 +8228,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>ModelYear__c</picklist>
             <values>
                 <fullName>%3C1980</fullName>
@@ -8499,7 +8501,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
-            </values>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Valid__c</picklist>
@@ -8559,6 +8561,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <active>true</active>
         <description>MB vehicle</description>
         <label>MB</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -9690,33 +9719,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11725,6 +11727,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <fullName>Self_Registered</fullName>
         <active>true</active>
         <label>Self Registered</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -13416,33 +13445,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15503,6 +15505,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <fullName>Vehicle_Product</fullName>
         <active>true</active>
         <label>Vehicle Product</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -17202,33 +17231,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19270,10 +19272,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Repossessed</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Vehicle Required</fullName>
                 <default>false</default>
             </values>
@@ -19283,6 +19281,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>Vehicle to be ordered</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Repossessed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19314,6 +19316,33 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <active>true</active>
         <description>Soft deleted vehicle</description>
         <label>Vehicle Soft Deleted</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
@@ -21009,33 +21038,6 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>ModelYear__c</picklist>
             <values>
                 <fullName>%3C1980</fullName>
@@ -22449,7 +22451,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>UsVIN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Brand__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Range__c</customTabListAdditionalFields>
@@ -22486,6 +22488,14 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
+	<validationRules>
+        <fullName>Vehicle_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Vehicle  should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>CP_EURO_VIN_Lenght_Check</fullName>
         <active>true</active>
@@ -22584,14 +22594,6 @@ $Profile.Name != 'IntegrationAPI',MD__c='KR' )</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>It's not allowed to change UsVIN for a vehicle from interface.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Vehicle_Market_Cannot_be_Changed</fullName>
-        <active>true</active>
-        <description>Market field of Vehicle  should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
-        <errorDisplayField>Market__c</errorDisplayField>
-        <errorMessage>You are allowed to create record for your home market only</errorMessage>
-    </validationRules>
     <webLinks>
         <fullName>Change_Contact_Target</fullName>
         <availability>online</availability>
@@ -22629,6 +22631,25 @@ alert("{!$Label.ChangeContacttarget}");
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>Send_to_MyMercedes</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send to MyMercedes</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+if('{!User.Market__c}' != 'JP')
+{
+   alert("{!$Label.Check_DuplicatesErrorMsg}");
+}
+else
+{
+window.open('{!URLFOR($Site.Prefix)}/apex/SendVehicleInfoMyMercedes?id={!Vehicle__c.Id}');
+}</url>
+    </webLinks>
+	<webLinks>
         <fullName>EditVehicle</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -22650,6 +22671,87 @@ window.open("{!URLFOR($Site.Prefix)}/apex/Edit_Vehicle?id={!Vehicle__c.Id}");
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>Send_to_SPO</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send to SPO</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+
+if('{!User.Market__c}' != 'JP')
+{
+   alert("{!$Label.Check_DuplicatesErrorMsg}");
+}
+else
+{
+var qre = sforce.connection.query("SELECT Id,Car_Relation__c,Portal_Apply_Status__c,Contact__c,Source_Lead__c,Source_Lead__r.Lead_Sub_Type__c FROM Vehicle_Relationship__c WHERE (Portal_Apply_Status__c=null AND End_Date__c=null AND (Car_Relation__c='Purchaser' AND Contact__c!=null)) AND Source_Lead__r.Lead_Sub_Type__c=null AND Vehicle_ID__c='{!Vehicle__c.Id}'");
+
+var qrerecords = qre.getArray("records");
+
+if(qrerecords.length&gt;0){
+
+alert('{!$Label.s8_Please_operate_My_Mercedes_Registration_first}');
+
+
+}
+else{
+var firstRegistration='{!Vehicle__c.FirstRegistrationDate__c}';
+var qr = sforce.connection.query("select Id,MOT_USER_NAME__c,MOT_User_Address__c,MOT_Owner_Name__c,MOT_Owner_Address__c,Registration_Number__c,Registration_Date__c,Car_Relation__c,Vehicle_ID__r.FirstRegistrationDate__c from Vehicle_Relationship__c where Vehicle_ID__c='{!Vehicle__c.Id}' AND Car_Relation__c='Purchaser' AND End_Date__c=null");
+
+var records = qr.getArray("records");
+
+if(records.length&gt;0 &amp;&amp; (records[0].MOT_USER_NAME__c!= null &amp;&amp; records[0].MOT_USER_NAME__c!='') &amp;&amp; (records[0].MOT_User_Address__c!= null &amp;&amp; records[0].MOT_User_Address__c!='') &amp;&amp; 
+(records[0].MOT_Owner_Name__c!= null &amp;&amp; records[0].MOT_Owner_Name__c!= '') &amp;&amp; (records[0].MOT_Owner_Address__c!= null &amp;&amp; records[0].MOT_Owner_Address__c!= '') &amp;&amp; records[0].Registration_Number__c!= null &amp;&amp; records[0].Registration_Date__c!= null &amp;&amp; firstRegistration!=''){
+window.open("{!URLFOR($Site.Prefix)}/apex/SendVehicleInformationtoSPOJP?Id={!Vehicle__c.Id}");
+}
+else {
+alert('{!$Label.Send_to_spo_translate}');
+}
+}
+}</url>
+    </webLinks> 
+	 <webLinks>
+        <fullName>TerminateVehicleRelationships</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Terminate Vehicle Relationships</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+{!REQUIRESCRIPT("/support/console/25.0/integration.js")} 
+
+if('{!User.Market__c}' != 'JP')
+{
+   alert("{!$Label.Check_DuplicatesErrorMsg}");
+}
+else
+{
+var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
+records = ReferraAccepted.getArray("records");
+if(records != ''){
+	if(typeof(srcUp) == 'function'){
+		if (sforce.console.isInConsole()) {
+			srcUp('/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}');			
+		} else
+		{
+			window.open('/apex/TerminateVehicleRelationship?id={!Vehicle__c.Id}','_self');
+		} 
+	}
+	else{
+			window.open("{!URLFOR($Site.Prefix)}/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}",target = "_self");
+		}
+}
+else{
+alert("{!$Label.ChangeContacttarget}");
+}
+}</url>
+    </webLinks>
+	<webLinks>
         <fullName>Recall_Check</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -22701,106 +22803,6 @@ alert(alrt);
 }else
 {
 alert('This button is for korea users');
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Send_to_MyMercedes</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Send to MyMercedes</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-if('{!User.Market__c}' != 'JP')
-{
-   alert("{!$Label.Check_DuplicatesErrorMsg}");
-}
-else
-{
-window.open('{!URLFOR($Site.Prefix)}/apex/SendVehicleInfoMyMercedes?id={!Vehicle__c.Id}');
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Send_to_SPO</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Send to SPO</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-
-if('{!User.Market__c}' != 'JP')
-{
-   alert("{!$Label.Check_DuplicatesErrorMsg}");
-}
-else
-{
-var qre = sforce.connection.query("SELECT Id,Car_Relation__c,Portal_Apply_Status__c,Contact__c,Source_Lead__c,Source_Lead__r.Lead_Sub_Type__c FROM Vehicle_Relationship__c WHERE (Portal_Apply_Status__c=null AND End_Date__c=null AND (Car_Relation__c='Purchaser' AND Contact__c!=null)) AND Source_Lead__r.Lead_Sub_Type__c=null AND Vehicle_ID__c='{!Vehicle__c.Id}'");
-
-var qrerecords = qre.getArray("records");
-
-if(qrerecords.length&gt;0){
-
-alert('{!$Label.s8_Please_operate_My_Mercedes_Registration_first}');
-
-
-}
-else{
-var firstRegistration='{!Vehicle__c.FirstRegistrationDate__c}';
-var qr = sforce.connection.query("select Id,MOT_USER_NAME__c,MOT_User_Address__c,MOT_Owner_Name__c,MOT_Owner_Address__c,Registration_Number__c,Registration_Date__c,Car_Relation__c,Vehicle_ID__r.FirstRegistrationDate__c from Vehicle_Relationship__c where Vehicle_ID__c='{!Vehicle__c.Id}' AND Car_Relation__c='Purchaser' AND End_Date__c=null");
-
-var records = qr.getArray("records");
-
-if(records.length&gt;0 &amp;&amp; (records[0].MOT_USER_NAME__c!= null &amp;&amp; records[0].MOT_USER_NAME__c!='') &amp;&amp; (records[0].MOT_User_Address__c!= null &amp;&amp; records[0].MOT_User_Address__c!='') &amp;&amp; 
-(records[0].MOT_Owner_Name__c!= null &amp;&amp; records[0].MOT_Owner_Name__c!= '') &amp;&amp; (records[0].MOT_Owner_Address__c!= null &amp;&amp; records[0].MOT_Owner_Address__c!= '') &amp;&amp; records[0].Registration_Number__c!= null &amp;&amp; records[0].Registration_Date__c!= null &amp;&amp; firstRegistration!=''){
-window.open("{!URLFOR($Site.Prefix)}/apex/SendVehicleInformationtoSPOJP?Id={!Vehicle__c.Id}");
-}
-else {
-alert('{!$Label.Send_to_spo_translate}');
-}
-}
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>TerminateVehicleRelationships</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Terminate Vehicle Relationships</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
-{!REQUIRESCRIPT("/support/console/25.0/integration.js")} 
-
-if('{!User.Market__c}' != 'JP')
-{
-   alert("{!$Label.Check_DuplicatesErrorMsg}");
-}
-else
-{
-var ReferraAccepted = sforce.connection.query("SELECT id,Name,Vehicle_ID__c,End_Date__c,Car_Relation__c from Vehicle_Relationship__c where Vehicle_ID__c ='{!Vehicle__c.Id}' AND End_Date__c=null");
-records = ReferraAccepted.getArray("records");
-if(records != ''){
-	if(typeof(srcUp) == 'function'){
-		if (sforce.console.isInConsole()) {
-			srcUp('/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}');			
-		} else
-		{
-			window.open('/apex/TerminateVehicleRelationship?id={!Vehicle__c.Id}','_self');
-		} 
-	}
-	else{
-			window.open("{!URLFOR($Site.Prefix)}/apex/TerminateVehicleRelationship?Id={!Vehicle__c.Id}",target = "_self");
-		}
-}
-else{
-alert("{!$Label.ChangeContacttarget}");
-}
 }</url>
     </webLinks>
 </CustomObject>
