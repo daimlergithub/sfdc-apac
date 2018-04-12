@@ -1,61 +1,80 @@
-@isTest
-public class AddressHelperTHTest{
-    
-    static testMethod void testAccAssignment() {
-    Profile p1 = [select id from profile where Name='System Administrator' limit 1];
-    User user1 = new User(LastName='User',country='Australia',firstName='BCI',ProfileId=p1.Id,Alias='ain123',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='sam@usgboral.com.dev01');
-    insert user1;
-    
-    User user2 = new User(LastName='GEORGE',country='Australia',ProfileId=p1.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
-    insert user2;
-   
-    System.runAs (user1) {
-   
-      
-        
-        //testDataSetup.IntialCustomSetting(user1.id,user2.id);
-        test.starttest();
-        Account acc=new Account();
-        acc.owner=user1;
-        acc.Phone='09844650654';
-        acc.Name ='Test';
-        acc.Mobile__c ='1234567890';
-        acc.Data_Source__c  ='Test4';
+@isTest public with sharing class addresshelperTHTest {
+
+    public static User user1 = TestUtils.createAdminUser();
+    public static User user2 = TestUtils.IntegrationAPIUser();
+
+    public static void creatTestData() {
+        List < Sobject > sobj = new List < sObject > ();
+        List < Campaign > campaignList = new List < Campaign > ();
+        Map < Id, Campaign > campaignMap = new Map < Id, Campaign > ();
+
+        Trigger__c tr = new Trigger__C(name = 'TriggerAddressTH', after__c = true, before__c = true, delete__c = true, enabled__c = true, insert__c = true, Market__c = 'TH', Trigger_Handler__c = 'TriggerAddressTriggerHandlerTH', Trigger_Name__c = 'TriggerAddress', update__c = true);
+        sobj.add(tr);
+        insert sobj;
+
+        Account acc = new Account();
+        acc.owner = user1;
+        acc.Phone = '09844650654';
+        acc.Name = 'Test';
+        acc.Mobile__c = '1234567890';
+        acc.Data_Source__c = 'Test4';
         insert acc;
-        
-        Address__c address=new Address__c();
-        address.Address_Type__c='Home';
-        address.Province__c='test1';
-        address.City__c='bangalore';
-        address.District__c='test2';
-        address.Block__c='test3';
-        address.Address_Line_1__c='testaddress1';
-        address.Address_Line_2__c='testaddress2';
-        address.Customer__c=acc.id;
-        address.TitleOfHonor__c ='To Person';  
-        address.preferred__c=True;
-        address.MD__c='KR';
-            
+
+        Address__c address = new Address__c();
+        address.Address_Type__c = 'Home';
+        address.Province__c = 'test1';
+        address.City__c = 'bangalore';
+        address.District__c = 'test2';
+        address.Block__c = 'test3';
+        address.Address_Line_1__c = 'testaddress1';
+        address.Address_Line_2__c = 'testaddress2';
+        address.Customer__c = acc.id;
+        address.TitleOfHonor__c = 'To Person';
+        address.preferred__c = True;
+        address.MD__c = 'TH';
         insert address;
-        address.Address_Type__c='Business';
+
+        Address__c address1 = new Address__c();
+        address1.Address_Type__c = 'Other Address 1';
+        address1.Province__c = 'test1';
+        address1.City__c = 'bangalore';
+        address1.District__c = 'test2';
+        address1.Block__c = 'test3';
+        address1.Address_Line_1__c = 'testaddress1';
+        address1.Address_Line_2__c = 'testaddress2';
+        address1.Customer__c = acc.id;
+        address1.TitleOfHonor__c = 'To Person';
+        address1.preferred__c = false;
+        address1.MD__c = 'TH';
+
+        insert address1;
+        address.Address_Type__c = 'Business';
         update address;
-        
-        acc.Primary_Address_Reference__c=address.id;
+
+        acc.Primary_Address_Reference__c = address.id;
         update acc;
-        list<address__c> list1=new list<address__c>();
+        list < address__c > list1 = new list < address__c > ();
         list1.add(address);
-        
-        //AddressHelperTH ad=new AddressHelperTH ();
-        map<id,address__c> addmap=new map<id,address__c>();
-        addmap.put(address.id,address);
+
+        map < id, address__c > addmap = new map < id, address__c > ();
+        addmap.put(address.id, address);
         AddressHelperTH.updateAddressOnAccount(list1);
-        AddressHelperTH.validateSameAddressType(list1,addmap,true,true);
-        AddressHelperTH.validateSameAddressType(list1,addmap,False,False);
+        AddressHelperTH.validateSameAddressType(list1, addmap, true, true);
+        AddressHelperTH.validateSameAddressType(list1, addmap, False, False);
         AddressHelperTH.updatePrimaryAddressOnAccount(addmap);
         AddressHelperTH.updateAccountonDeletion(list1);
-        test.stopTest();
-   
+        AddressHelperTH.updateSalesAddressAccount(addmap);
+
+        delete address;
 
     }
-  }
+
+    public static testMethod void VehicleRelationshipHelperTHTestMethod() {
+        System.runAs(user1) {
+            test.startTest();
+            creatTestData();
+            test.stopTest();
+        }
     }
+
+}
