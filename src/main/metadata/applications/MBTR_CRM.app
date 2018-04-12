@@ -13,5 +13,4 @@
     <tab>Retail_Task__c</tab>
     <tab>Retail_Campaign__c</tab>
     <tab>Account_Link__c</tab>
-    <tab>Campaign_Member__c</tab>
 </CustomApplication>

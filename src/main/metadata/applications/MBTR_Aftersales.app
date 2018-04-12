@@ -17,6 +17,5 @@
     <tab>standard-Product2</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
-    <tab>standard-WaveHome</tab>
-    <tab>Campaign_Member__c</tab>
+    <tab>standard-WaveHome</tab>   
 </CustomApplication>
