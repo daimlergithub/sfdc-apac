@@ -8506,6 +8506,11 @@
         <field>Asset_Invoice__c.Issue_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Asset_Invoice__c.Policy_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Attribute__c.Attribute_Category__c</field>
