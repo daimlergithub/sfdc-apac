@@ -279,6 +279,17 @@
         <label>SuspectAccountFields</label>
     </fieldSets>
     <fields>
+        <fullName>ACN__c</fullName>
+        <externalId>false</externalId>
+        <label>ACN</label>
+        <length>12</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ASLead_Notification_Timing__c</fullName>
         <externalId>false</externalId>
         <label>ASLead Notification Timing</label>
@@ -1067,6 +1078,38 @@ LEN( Phone ) &lt;&gt; 0
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+       <fullName>Business_Number_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Number Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Business_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Number</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Business_Unit__c</fullName>
@@ -5633,6 +5676,15 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Email_Opt_IN_Last_Update_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Opt IN Last Update date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Email_Opt_Out_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Email Opt Out Reason</label>
@@ -9199,6 +9251,30 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>MB_Online_Audit_Tracking__c</fullName>
+        <description>stores the concatenation of (add_user, add_date, last_updated,last_update_changed_by) for MB Online in ANZ market</description>
+        <externalId>false</externalId>
+        <label>MB Online Audit Tracking</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MB_Online_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>MB Online Id</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>	
+    <fields>
         <fullName>MB_Replacement_Date__c</fullName>
         <externalId>false</externalId>
         <label>MB Replacement Date</label>
@@ -9414,6 +9490,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Mail_Opt_IN_Last_Update_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Mail Opt IN Last Update date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Main_Dealer__c</fullName>
@@ -10023,10 +10108,38 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Opt_In_Mail__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In Mail</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+
+    <fields>
+        <fullName>Opt_In_Phone__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In Phone</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Opt_In_SMS2__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Opt In SMS/MMS/IM 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_In_SMS3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Opt In SMS</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -10849,6 +10962,15 @@ Modify Reason:
         <fullName>Phone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Phone_Opt_IN_Last_Update_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Opt IN Last Update date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Place_of_Birth__c</fullName>
@@ -12240,6 +12362,15 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>SMS_Opt_IN_Last_Update_date__c</fullName>
+        <externalId>false</externalId>
+        <label>SMS Opt IN Last Update date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>SalesLead_Notification_Timing__c</fullName>
         <externalId>false</externalId>
         <label>SalesLead Notification Timing</label>
@@ -12803,6 +12934,18 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Tenure__c</fullName>
+        <externalId>false</externalId>
+        <label>Tenure</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>TickerSymbol</fullName>
@@ -14427,6 +14570,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19637,6 +19791,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
                 <fullName>Alliance</fullName>
@@ -24789,6 +24954,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Number_Type__c</picklist>
+            <values>
+                <fullName>ABN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZBN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -6249,6 +6249,11 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.No_of_Pax__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Noof_Car_display__c</field>
         <readable>true</readable>
@@ -6573,6 +6578,11 @@
         <field>CampaignMember.Newly_Added__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>CampaignMember.No_of_Pax__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Package_Description__c</field>
@@ -6623,6 +6633,11 @@
         <field>CampaignMember.Status_Change_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>	
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.No_of_Pax__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.market__c</field>
