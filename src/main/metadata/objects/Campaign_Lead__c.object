@@ -1475,7 +1475,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
                 <operation>notcontains</operation>
                 <value>Japan Dealer</value>
             </filterItems>
-            <infoMessage>Value does not exist or does not match filter criteria.</infoMessage>
+            <infoMessage>Value does not exist or does not match filter criteria..</infoMessage>
             <isOptional>true</isOptional>
         </lookupFilter>
         <referenceTo>Retail_Campaign__c</referenceTo>
