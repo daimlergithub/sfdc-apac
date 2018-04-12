@@ -64495,7 +64495,7 @@ NOT(Dealer_Active__c)
         <fullName>Data_Source_is_mandatory</fullName>
         <active>true</active>
         <description>MBK Data_Source__c is mandatory while creating person account.</description>
-        <errorConditionFormula>AND( OR(ISPICKVAL(MBK_Data_Source__c,''),!ISNEW()),MD__c='KR',RecordType.DeveloperName = 'PersonAccount' ,$Profile.Name != 'IntegrationAPI', ISPICKVAL(MBK_Data_Source__c, ""))</errorConditionFormula>
+        <errorConditionFormula>AND( OR(ISPICKVAL(MBK_Data_Source__c,''),!ISNEW()),MD__c='KR',OR(RecordType.DeveloperName = 'PersonAccount',RecordType.DeveloperName = 'Company'),$Profile.Name != 'IntegrationAPI', ISPICKVAL(MBK_Data_Source__c, ""))</errorConditionFormula>
         <errorDisplayField>MBK_Data_Source__c</errorDisplayField>
         <errorMessage>Please enter Data Source.</errorMessage>
     </validationRules>
