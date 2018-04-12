@@ -5316,6 +5316,11 @@
         <field>Account.Outlet_General_GroupID__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Outlet_General_Group_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Owner_Relation__c</field>
@@ -17271,6 +17276,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Home_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.House_Type_and_Grage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
