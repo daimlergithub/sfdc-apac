@@ -195,7 +195,9 @@
         </actions>
         <active>true</active>
         <description>Update qualified date when status is made qualified</description>
-        <formula>AND(ISPICKVAL(StageName, &apos;Qualified&apos;), ISNULL(Qualified_Date_Time__c), $Permission.INGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
+        <formula>AND(ISPICKVAL(StageName, &apos;Qualified&apos;), ISNULL(Qualified_Date_Time__c), 
+OR($Permission.INGeneric,$Permission.AUGeneric,$Permission.NZGeneric),
+$Profile.Name != &apos;IntegrationAPI&apos;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
