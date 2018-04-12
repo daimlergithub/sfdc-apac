@@ -88,16 +88,6 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>DAW_ID__c</fullName>
-        <externalId>false</externalId>
-        <label>DAW ID</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>DMS_UserID__c</fullName>
         <externalId>false</externalId>
         <label>DMS User ID</label>
@@ -177,6 +167,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>DAW_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>DAW ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>	
     <fields>
         <fullName>Flight_Ticket_Budget__c</fullName>
         <externalId>false</externalId>
@@ -382,7 +382,7 @@
                 <fullName>AU</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>NZ</fullName>
                 <default>false</default>
             </picklistValues>
@@ -408,10 +408,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>IN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TR</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -570,21 +566,21 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>User_Profile__c</fullName>
-        <externalId>false</externalId>
-        <formula>Profile.Name</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>User Profile</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>User_Role__c</fullName>
         <externalId>false</externalId>
         <formula>$UserRole.DeveloperName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>User Role</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>User_Profile__c</fullName>
+        <externalId>false</externalId>
+        <formula>Profile.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>User Profile</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -635,6 +631,86 @@
         <scale>2</scale>
         <type>Currency</type>
     </fields>
+  <!--  <fields>
+        <fullName>et4ae5__Default_ET_Page__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Marketing Cloud Page</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>et4ae5__Default_MID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>@deprecated</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ExactTargetForAppExchangeAdmin__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marketing Cloud for AppExchange Admin</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ExactTargetForAppExchangeUser__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marketing Cloud for AppExchange User</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ExactTargetUsername__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marketing Cloud Username</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ExactTarget_OAuth_Token__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>@deprecated</label>
+        <length>175</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>all</maskType>
+        <required>false</required>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ValidExactTargetAdmin__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Valid Marketing Cloud Admin</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>et4ae5__ValidExactTargetUser__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Valid Marketing Cloud User</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>-->
     <listViews>
         <fullName>ActiveBPUsers</fullName>
         <columns>FULL_NAME</columns>
@@ -812,7 +888,7 @@
         <label>Active Portal Users</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
+ <!--   <listViews>
         <fullName>Active_Portal_Users_CCC_Retail</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>
@@ -833,6 +909,16 @@
             <operation>contains</operation>
             <value>MBK</value>
         </filters>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.USERNAME</field>
+            <operation>notContain</operation>
+            <value>test</value>
+        </filters>
         <label>Active Portal Users_CCC Retail</label>
         <language>en_US</language>
     </listViews>
@@ -847,6 +933,11 @@
         <columns>CORE.USERS.ACTIVE</columns>
         <filterScope>Everything</filterScope>
         <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
             <field>CORE.PROFILE.NAME</field>
             <operation>contains</operation>
             <value>Korea</value>
@@ -858,7 +949,7 @@
         </filters>
         <label>Active SFDC Users_MBK</label>
         <language>en_US</language>
-    </listViews>
+    </listViews>-->
     <listViews>
         <fullName>AdminUsers</fullName>
         <columns>FULL_NAME</columns>
@@ -1201,35 +1292,6 @@
             <value>OB Test</value>
         </filters>
         <label>OB Test Users</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>PROD</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER.NAME</columns>
-        <columns>CREATED_BY_NAME</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>CORE.USERS.EMAIL</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>CORE.USERS.USERNAME</columns>
-        <columns>CORE.USERS.LAST_LOGIN</columns>
-        <columns>CORE.USER_ROLE.NAME</columns>
-        <columns>CORE.USERS.ACTIVE</columns>
-        <columns>CORE.PROFILE.NAME</columns>
-        <columns>MANAGER</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>FULL_NAME</field>
-            <operation>contains</operation>
-            <value>PROD</value>
-        </filters>
-        <filters>
-            <field>CORE.USERS.EMAIL</field>
-            <operation>equals</operation>
-            <value>seongho.kim@daimler.com</value>
-        </filters>
-        <label>Full name with PROD and Kim's email</label>
         <language>en_US</language>
     </listViews>
     <listViews>
