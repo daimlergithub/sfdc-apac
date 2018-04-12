@@ -44,6 +44,10 @@
                 <behavior>Edit</behavior>
                 <field>Dealer_Legal_NativeCode__c</field>
             </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Outlet_General_GroupID__c</field>
+            </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
             </layoutItems>
@@ -179,6 +183,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>MBJ_Yanase_Code__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Outlet_General_Group_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
