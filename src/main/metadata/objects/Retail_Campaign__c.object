@@ -15938,6 +15938,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <searchResultsAdditionalFields>Driven__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Plan_Start_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Plan_End_Date__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>Dealer_Name__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
