@@ -56,6 +56,15 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
+	<fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Activated_Date__c</fullName>
         <externalId>false</externalId>
@@ -236,7 +245,7 @@
         <description>/* 
 Created by: Amy Liang 
 Used by: Vehicle Relationship
-Function: Person's relationship to the vehicle
+Function: Person&apos;s relationship to the vehicle
 Used in: Pagelayouts, Reports 
 
 Modify History 
@@ -245,7 +254,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRelation“</description>
         <externalId>false</externalId>
-        <inlineHelpText>Person's relationship to the vehicle</inlineHelpText>
+        <inlineHelpText>Person&apos;s relationship to the vehicle</inlineHelpText>
         <label>Car Relation</label>
         <picklist>
             <controllingField>Market__c</controllingField>
@@ -498,7 +507,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Comment__c</fullName>
         <externalId>false</externalId>
         <label>Comment</label>
@@ -516,7 +525,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Company_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1566,86 +1575,86 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <externalId>false</externalId>
         <label>Democar flag</label>
         <picklist>
-            <controllingField>Market__c</controllingField>
+			<controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Demo Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+                <default>false</default>   
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Alternative Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+                <default>false</default>   
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Car Rental</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Company Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Employee Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer Employee Lease</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Company Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Daimler Employee Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Daimler Employee Lease</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso Company Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso Employee Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso Employee Lease</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gift Car</fullName>
-                <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+                <default>false</default> 
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Daimler Company Car SPM</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MBJ Online Sales</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Daimler Company Car</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
+				<controllingFieldValues>JP</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2529,14 +2538,13 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_MainUsage
     </fields>
     <fields>
         <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'IN') ,'IN',
-IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'TR', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;IN&apos;) ,&apos;IN&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;, 
+IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,&apos;&apos;)))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -2687,10 +2695,11 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Owner_Dealer_ND_Code__c</fullName>
+		<fullName>Owner_Dealer_ND_Code__c</fullName>
         <description>Retrieves Owner Dealer ND Code</description>
         <externalId>false</externalId>
         <formula>Owner_Dealer__r.Dealer_ND_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
         <label>Owner Dealer ND Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2698,7 +2707,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+    <fields>	
         <fullName>Owner_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>To indicates which dealer owns the vehicle relationship</description>
@@ -2843,7 +2852,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Past_Selling_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3765,7 +3774,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Purchase
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Recall_DM__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -3939,7 +3948,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleREl_Replacem
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Retail_company__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -4833,7 +4842,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>Vehicle_Phone1__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Mobile'),Contact__r.Mobile__c,IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Work Mobile'),Contact__r.Mobile2__c,IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Home Phone'),Contact__r.Individual_Home_Phone__c,IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Work Phone'),Contact__r.Work_Phone__c,IF(ISPICKVAL(Vehicle_Phone_picklist__c,'Home Phone 2'),Contact__r.Home_Phone_2__c,'')))))</formula>
@@ -4873,7 +4882,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Mobile</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
@@ -4884,7 +4893,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Work Mobile</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
@@ -4895,7 +4904,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
                 <fullName>Other Phone</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
@@ -4932,7 +4941,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>Vehicle_fax_display__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(vehicle_fax_picklist__c,'FAX'),Contact__r.Fax,(IF(ISPICKVAL(vehicle_fax_picklist__c,'Work FAX'),Contact__r.Fax2__c,'')))</formula>
@@ -5156,15 +5165,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>isTestRunning__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>isTestRunning</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>vehicle_address__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -5329,7 +5329,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Picklist</type>
     </fields>
     <label>Vehicle Relationship</label>
-    <listViews>
+	<listViews>
         <fullName>All_MBTH_Vehicle_Relationships</fullName>
         <columns>NAME</columns>
         <columns>Contact__c</columns>
@@ -5355,135 +5355,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <sharedTo>
             <group>THUsers</group>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>All_Vehicle_Relationships</fullName>
-        <columns>NAME</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>OWNER.FIRST_NAME</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Market__c</field>
-            <operation>equals</operation>
-            <value>KR</value>
-        </filters>
-        <label>All Vehicle Relationships</label>
-        <language>en_US</language>
-        <sharedTo>
-            <group>MBK01E</group>
-            <group>MBK01Ehq</group>
-            <group>MBK01Esc</group>
-            <group>MBK01W</group>
-            <group>MBK02L</group>
-            <group>MBK02S</group>
-            <group>MBK02W</group>
-            <group>MBK03F</group>
-            <group>MBK03L</group>
-            <group>MBK03W</group>
-            <group>MBK04F</group>
-            <group>MBK04Fsc</group>
-            <group>MBK04L</group>
-            <group>MBK04S</group>
-            <group>MBK04W</group>
-            <group>MBK05W</group>
-            <group>MBK06W</group>
-            <group>MBK06Wsc</group>
-            <group>MBK06Wuc</group>
-            <group>MBK07S</group>
-            <group>MBK07W</group>
-            <group>MBK08S</group>
-            <group>MBK09E</group>
-            <group>MBK09S</group>
-            <group>MBK09Shq</group>
-            <group>MBK09W</group>
-            <group>MBK10S</group>
-            <group>MBK10W</group>
-            <group>MBK11W</group>
-            <group>MBK11Whq</group>
-            <group>MBK11Wsc</group>
-            <group>MBK12S</group>
-            <group>MBK12W</group>
-            <group>MBK14S</group>
-            <group>MBK14W</group>
-            <group>MBK14Whq</group>
-            <group>MBK14Wsc</group>
-            <group>MBK15W</group>
-            <group>MBK15Wsc</group>
-            <group>MBK16W</group>
-            <group>MBK17W</group>
-            <group>MBK17Whq</group>
-            <group>MBK17Wsc</group>
-            <group>MBK18W</group>
-            <group>MBK18Wsc</group>
-            <group>MBK21F</group>
-            <group>MBK21Fhq</group>
-            <group>MBK21Fsc</group>
-            <group>MBK21W</group>
-            <group>MBK26F</group>
-            <group>MBK26Fhq</group>
-            <group>MBK26Fhq1</group>
-            <group>MBK26Fsc</group>
-            <group>MBK26W</group>
-            <group>MBK28F</group>
-            <group>MBK28Fhq</group>
-            <group>MBK28Fsc</group>
-            <group>MBK28Fuc</group>
-            <group>MBK30W</group>
-            <group>MBK30Whq</group>
-            <group>MBK30Wsc</group>
-            <group>MBK30Wuc</group>
-            <group>MBK311sr</group>
-            <group>MBK31S</group>
-            <group>MBK31Shq</group>
-            <group>MBK31Ssc</group>
-            <group>MBK31W</group>
-            <group>MBK32F</group>
-            <group>MBK32Fsc</group>
-            <group>MBK32W</group>
-            <group>MBK33S</group>
-            <group>MBK33W</group>
-            <group>MBK33Wuc</group>
-            <group>MBK34S</group>
-            <group>MBK35W</group>
-            <group>MBK35Wsc</group>
-            <group>MBK36W</group>
-            <group>MBK36Wsc</group>
-            <group>MBK37W</group>
-            <group>MBK37Wsc</group>
-            <group>MBK38S</group>
-            <group>MBK38Ssc</group>
-            <group>MBK41F</group>
-            <group>MBK41Fhq</group>
-            <group>MBK48W</group>
-            <group>MBK49F</group>
-            <group>MBK49Fsc</group>
-            <group>MBK49Fuc</group>
-            <group>MBK50S</group>
-            <group>MBK52S</group>
-            <group>MBK53W</group>
-            <group>MBK53Wsc</group>
-            <group>MBK54W</group>
-            <group>MBK55F</group>
-            <group>MBK55Fsc</group>
-            <group>MBK55W</group>
-            <group>MBK55Wsc</group>
-            <group>MBK55Wuc</group>
-            <group>MBK56F</group>
-            <group>MBK56Fsc</group>
-            <group>MBK56S</group>
-            <group>MBK56W</group>
-            <group>MBK57S</group>
-            <group>MBK57W</group>
-            <group>MBK58S</group>
-            <group>MBK58W</group>
-            <group>MBK59S</group>
-            <group>MBK59W</group>
-            <group>MBK59Wsc</group>
-            <group>MBK60W</group>
-            <group>MBK61S</group>
-            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -5550,6 +5421,33 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <active>true</active>
         <description>Active vehicle relationship</description>
         <label>Vehicle Relationship</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Additional_Offer__c</picklist>
             <values>
@@ -5606,11 +5504,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Alternative Car</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Daimler Company Car</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Daimler Company Car SPM</fullName>
                 <default>false</default>
             </values>
@@ -5658,7 +5556,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Gift Car</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>MBJ Online Sales</fullName>
                 <default>false</default>
             </values>
@@ -5783,33 +5681,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Taxi</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6123,24 +5994,24 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Home Phone</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Home Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
+			<values>
                 <fullName>Mobile</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Phone</fullName>
+                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Work Mobile</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Work Phone</fullName>
+			<values>
+                <fullName>Home Phone 2</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Other Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6230,6 +6101,33 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <fullName>Vehicle_Relationship_Retail</fullName>
         <active>true</active>
         <label>Vehicle Relationship Retail</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Additional_Offer__c</picklist>
             <values>
@@ -6447,33 +6345,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Taxi</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6915,6 +6786,33 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <active>true</active>
         <description>Soft deleted vehicle relationship</description>
         <label>Vehicle Relationship Soft Deleted</label>
+		<picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Additional_Offer__c</picklist>
             <values>
@@ -6991,11 +6889,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Alternative Car</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Daimler Company Car</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>Daimler Company Car SPM</fullName>
                 <default>false</default>
             </values>
@@ -7043,7 +6941,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>Gift Car</fullName>
                 <default>false</default>
             </values>
-            <values>
+			<values>
                 <fullName>MBJ Online Sales</fullName>
                 <default>false</default>
             </values>
@@ -7164,33 +7062,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Taxi</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7654,20 +7525,36 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
+	 <validationRules>
+        <fullName>Recall_DM_can_be_set_for_After_Sales</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(MD__c ='JP', $Profile.Name !="IntegrationAPI", Recall_DM__c = TRUE, NOT((ISPICKVAL(Car_Relation__c,'Aftersales Contact Target 1'))))</errorConditionFormula>
+        <errorDisplayField>Car_Relation__c</errorDisplayField>
+        <errorMessage>Recall DM can be set for After Sales Contact record.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>contact_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Changes related to SFDCJP-3175</description>
+        <errorConditionFormula>AND(OR($Profile.Name ='Japan Dealer Company Manager', $Profile.Name ='Japan Dealer Sales Manager', $Profile.Name ='Japan Dealer Sales Representative', $Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),( MD__c = 'JP'), 
+NOT(ISBLANK(PRIORVALUE(Contact__c))),NOT(ISNEW()),ISCHANGED(Contact__c))</errorConditionFormula>
+        <errorDisplayField>Contact__c</errorDisplayField>
+        <errorMessage>contact Can't be changed</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>VechRelation_Market_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>Market field of Vehicle Relationship  should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>End_Date_Cannot_be_deleted</fullName>
         <active>true</active>
         <errorConditionFormula>AND(!ISNEW(), ISCHANGED( End_Date__c ), ISNULL( End_Date__c ), MD__c = 'JP' , $Profile.Name != 'IntegrationAPI', $Profile.Name != 'Japan IT Department', $Profile.Name != 'Japan Data Management')</errorConditionFormula>
         <errorDisplayField>End_Date__c</errorDisplayField>
         <errorMessage>End Date Cannot be deleted</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>End_Date_cannot_be_before_Start_Date_MY</fullName>
-        <active>true</active>
-        <description>End Date cannot be before Start date.</description>
-        <errorConditionFormula>AND(!ISNEW(), ISCHANGED(End_Date__c), NOT(ISNULL(End_Date__c)), End_Date__c &lt; Start_Date__c, UPPER(MD__c)=='MY', $Permission.MYGeneric)</errorConditionFormula>
-        <errorDisplayField>End_Date__c</errorDisplayField>
-        <errorMessage>End Date cannot be before Start date.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>End_Reason_Required</fullName>
@@ -7678,55 +7565,15 @@ AND End reason is null.</description>
         <errorDisplayField>End_Reason__c</errorDisplayField>
         <errorMessage>End Reason is mandatory, if End Date is selected.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Recall_DM_can_be_set_for_After_Sales</fullName>
+	<validationRules>
+        <fullName>End_Date_cannot_be_before_Start_Date_MY</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(MD__c ='JP', $Profile.Name !="IntegrationAPI", Recall_DM__c = TRUE, NOT((ISPICKVAL(Car_Relation__c,'Aftersales Contact Target 1'))))</errorConditionFormula>
-        <errorDisplayField>Car_Relation__c</errorDisplayField>
-        <errorMessage>Recall DM can be set for After Sales Contact record.</errorMessage>
+        <description>End Date cannot be before Start date.</description>
+        <errorConditionFormula>AND(!ISNEW(), ISCHANGED(End_Date__c), NOT(ISNULL(End_Date__c)), End_Date__c &lt; Start_Date__c, UPPER(MD__c)=='MY', $Permission.MYGeneric)
+		</errorConditionFormula>
+        <errorDisplayField>End_Date__c</errorDisplayField>
+        <errorMessage>End Date cannot be before Start date.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>VechRelation_Market_Cannot_be_Changed</fullName>
-        <active>true</active>
-        <description>Market field of Vehicle Relationship  should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
-        <errorDisplayField>Market__c</errorDisplayField>
-        <errorMessage>You are allowed to create record for your home market only</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>contact_cannot_be_changed</fullName>
-        <active>true</active>
-        <description>Changes related to SFDCJP-3175</description>
-        <errorConditionFormula>AND(OR($Profile.Name ='Japan Dealer Company Manager', $Profile.Name ='Japan Dealer Sales Manager', $Profile.Name ='Japan Dealer Sales Representative', $Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),( MD__c = 'JP'), 
-NOT(ISBLANK(PRIORVALUE(Contact__c))),NOT(ISNEW()),ISCHANGED(Contact__c))</errorConditionFormula>
-        <errorDisplayField>Contact__c</errorDisplayField>
-        <errorMessage>contact Can't be changed</errorMessage>
-    </validationRules>
-    <webLinks>
-        <fullName>AfterSales_Lead</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>New AfterSales Leads</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
-{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
-if('{!User.ContactId}' =='') { 
-
-window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID={!Vehicle_Relationship__c.Vehicle_ID__c} '); 
-} 
-if('{!User.ContactId}' !='') 
-{ 
-var ContactObject = sforce.connection.query("SELECT Id,AccountId,Account.Name FROM Contact WHERE Id = '{!$User.ContactId}'"); 
-records = ContactObject.getArray("records"); 
-var accid = records[0].AccountID; 
-var accname = records[0].Account.Name; 
-
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID="+accid+"&amp;OBJECT_CASE_CASE_DEALER_ID="+accname+"&amp;OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID={!Vehicle_Relationship__c.Vehicle_ID__c} ") 
-}</url>
-    </webLinks>
     <webLinks>
         <fullName>New_Complaint</fullName>
         <availability>online</availability>
@@ -7742,7 +7589,35 @@ window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERS
 &amp;cas4_lkid={!Vehicle_Relationship__c.ContactId__c}
 &amp;CF00NN0000000Uktz={!Vehicle_Relationship__c.Vehicle_ID__c}
 &amp;CF00NN0000000Uktz_lkid={!Vehicle_Relationship__c.Vehicle_IDId__c}</url>
+    </webLinks>	
+    <webLinks>
+        <fullName>AfterSales_Lead</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New AfterSales Leads</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>
+		{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
+if('{!User.ContactId}' =='') { 
+
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID={!Vehicle_Relationship__c.Vehicle_ID__c} '); 
+} 
+if('{!User.ContactId}' !='') 
+{ 
+var ContactObject = sforce.connection.query("SELECT Id,AccountId,Account.Name FROM Contact WHERE Id = '{!$User.ContactId}'"); 
+records = ContactObject.getArray("records"); 
+var accid = records[0].AccountID; 
+var accname = records[0].Account.Name; 
+
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID="+accid+"&amp;OBJECT_CASE_CASE_DEALER_ID="+accname+"&amp;OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID={!Vehicle_Relationship__c.Vehicle_ID__c} ") 
+}
+		</url>
     </webLinks>
+
     <webLinks>
         <fullName>New_Vehicle_Relationship</fullName>
         <availability>online</availability>
