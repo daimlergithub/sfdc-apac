@@ -1457,6 +1457,27 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , "Lost")
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Retail Campaign</label>
+		 <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter> 
+            <filterItems>
+                <field>Retail_Campaign__r.Dealer_Name__r.Dealer_ND_Code__c</field>
+                <operation>equals</operation>
+                <value>Dealer</value>
+            </filterItems>             
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>IntegrationAPI</value>
+            </filterItems>
+			 <filterItems>
+                <field>$Profile.Name</field>
+                <operation>notcontains</operation>
+                <value>Japan Dealer</value>
+            </filterItems>
+            <infoMessage>Value does not exist or does not match filter criteria.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
         <referenceTo>Retail_Campaign__c</referenceTo>
         <relationshipLabel>Campaign Leads</relationshipLabel>
         <relationshipName>Campaign_Leads</relationshipName>
