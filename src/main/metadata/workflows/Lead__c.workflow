@@ -312,28 +312,6 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	    <fieldUpdates>
-        <fullName>MBTH_Update_Lost_CAC_Date_Time</fullName>
-        <field>Lost_CAC_Date_Time__c</field>
-        <formula>IF ( 
-ISBLANK(Lost_CAC_Date_Time__c), 
-NOW(), 
-Lost_CAC_Date_Time__c
-)</formula>
-        <name>MBTH_Update Lost(CAC) Date Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Approve_Lead_Creation</fullName>
-        <field>CAC_Lead_Status__c</field>
-        <literalValue>Approved</literalValue>
-        <name>Approve Lead Creation</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
     <fieldUpdates>
         <fullName>Assigned_Date_Time_to_Current_Time</fullName>
         <field>Assigned_Date_Time__c</field>
@@ -406,24 +384,6 @@ Lost_CAC_Date_Time__c
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_CAC_Lead_Status_to_Approved</fullName>
-        <field>CAC_Lead_Status__c</field>
-        <literalValue>Approved</literalValue>
-        <name>Change CAC Lead Status to Approved</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_CAC_Lead_Status_to_Approving</fullName>
-        <field>CAC_Lead_Status__c</field>
-        <literalValue>Approving</literalValue>
-        <name>Change CAC Lead Status to Approving</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
 	<fieldUpdates>
         <fullName>MBTH_Update_Order_Placed_Date_Time</fullName>
         <field>Order_Placed_Date_Time__c</field>
@@ -433,42 +393,6 @@ Lost_CAC_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_CAC_Lead_Status_to_Initial</fullName>
-        <field>CAC_Lead_Status__c</field>
-        <literalValue>New</literalValue>
-        <name>Change CAC Lead Status to Initial</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_CAC_Lead_Status_to_New</fullName>
-        <field>CAC_Lead_Status__c</field>
-        <literalValue>New</literalValue>
-        <name>Change CAC Lead Status to New</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_status_to_approving</fullName>
-        <field>CAC_Lead_Status__c</field>
-        <literalValue>Approving</literalValue>
-        <name>Change status to approving</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_status_to_new</fullName>
-        <field>CAC_Lead_Status__c</field>
-        <literalValue>New</literalValue>
-        <name>Change status to new</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>DealerLead_status_to_Purchased_Aftersale</fullName>
@@ -525,38 +449,10 @@ Lost_CAC_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>MBTH_Update_Lost_Dealer_Date_Time</fullName>
-        <field>Lost_Dealer_Date_Time__c</field>
-        <formula>IF(ISBLANK(Lost_Dealer_Date_Time__c),NOW(),Lost_Dealer_Date_Time__c)</formula>
-        <name>MBTH_Update Lost(Dealer) Date Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>MBTH_Update_Test_Drive_Date_Time</fullName>
-        <field>Test_Drive_Date_Time__c</field>
-        <formula>IF(ISBLANK(Test_Drive_Date_Time__c),NOW(),Test_Drive_Date_Time__c)</formula>
-        <name>MBTH_Update Test Drive Date Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>MBTH_Update_owner_Email</fullName>
         <field>MBTH_record_Owner_Manager_Email__c</field>
         <formula>CreatedBy.Manager.Email</formula>
         <name>MBTH_Update owner Email</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>MBTH_update_recordowner_email</fullName>
-        <description>update record owner email id</description>
-        <field>MBTH_record_Owner_Manager_Email__c</field>
-        <formula>Owner:User.Email</formula>
-        <name>MBTH_update_recordowner_email</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -754,19 +650,6 @@ Lost_CAC_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_CAC_purchased_date_time</fullName>
-        <field>Purchased_CAC_Date_Time__c</field>
-        <formula>IF ( 
-ISBLANK(Purchased_CAC_Date_Time__c), 
-NOW(), 
-Purchased_CAC_Date_Time__c
-)</formula>
-        <name>Update CAC purchased date time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Contact_Failed_Date_Time_to_Now</fullName>
         <field>Contact_Failed_For_3_Days_Date__c</field>
         <formula>TODAY()</formula>
@@ -812,15 +695,6 @@ Purchased_CAC_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Dealer_Aftersales_Manager_Email</fullName>
-        <field>Dealer_Aftersales_Manager_Email__c</field>
-        <formula>Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c</formula>
-        <name>Update Dealer Aftersales Manager Email</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Dealer_Lead_Status_to</fullName>
         <field>Dealer_Lead_Status__c</field>
         <literalValue>Order Placed</literalValue>
@@ -845,15 +719,6 @@ Purchased_CAC_Date_Time__c
         <name>Update Dealer Lead Status to Assigned</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Dealer_Owner_Email</fullName>
-        <field>Dealer_Owner_Email__c</field>
-        <formula>Assigned_Dealer__r.Owner.Email</formula>
-        <name>Update Dealer Owner Email</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -889,15 +754,6 @@ Purchased_CAC_Date_Time__c
         <field>Assigned_Date_Time__c</field>
         <formula>NOW()</formula>
         <name>Update Lead Assigned Date Time to Now</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Lead_Lost_Date_Time</fullName>
-        <field>Lead_Lost_Date_Time__c</field>
-        <formula>now()</formula>
-        <name>Update Lead Lost Date Time</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -1145,15 +1001,6 @@ Purchased_Date_Time__c
         <name>Update dealer status to Ongoing</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_first_customercontacted_date_time</fullName>
-        <field>First_Contact_Customer_Date_Time__c</field>
-        <formula>now()</formula>
-        <name>Update first customercontacted date time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
