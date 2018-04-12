@@ -1,6 +1,6 @@
 Dear Dealer, 
 
-The Campaign: {!Retail_Campaign__c.Name} has reached execution date.
+The Campaign: {!Retail_Campaign__c.Name}  has reached execution date.
 Please start the Execution.
 Dealer’s Link:
 {!Retail_Campaign__c.CommunityURL__c}{!Retail_Campaign__c.Id} 
