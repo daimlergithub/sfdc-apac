@@ -16805,6 +16805,11 @@
         <field>Lead__c.Monthly_Payment__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.CampaignMember__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Nature_of_Request__c</field>
