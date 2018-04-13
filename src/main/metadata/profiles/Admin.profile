@@ -10215,6 +10215,11 @@
         <field>Campaign_Member__c.Status_Change_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Finance_ContactName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Charge_Receivable__c.FS_Contract__c</field>
