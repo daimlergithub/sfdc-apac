@@ -5577,7 +5577,10 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Product</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Accessories &amp; Collection Warranty</fullName>
@@ -5603,16 +5606,20 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Brochure Request</fullName>
                 <default>false</default>
                 <controllingFieldValues>Activities</controllingFieldValues>
+				<controllingFieldValues>Sales Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Capped Price Servicing</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>car care</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
                 <controllingFieldValues>Service</controllingFieldValues>
             </picklistValues>
@@ -5630,6 +5637,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Collection</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -5703,6 +5711,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Event Activation</fullName>
                 <default>false</default>
                 <controllingFieldValues>Activities</controllingFieldValues>
+				<controllingFieldValues>Sales Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event related inquiry</fullName>
@@ -5718,6 +5727,8 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Express Service</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>				
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso Company Car</fullName>
@@ -5736,6 +5747,8 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gift Car</fullName>
@@ -5754,6 +5767,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Leasing</fullName>
@@ -5808,15 +5822,19 @@ TEXT(StageName) != "Closed Lost"
                 <controllingFieldValues>AS – Others</controllingFieldValues>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other service reservation</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>P2P</fullName>
@@ -5828,6 +5846,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Pick - up &amp; delivery</fullName>
@@ -5838,6 +5857,8 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Product Information</fullName>
@@ -5849,23 +5870,29 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Register your interest</fullName>
                 <default>false</default>
                 <controllingFieldValues>Activities</controllingFieldValues>
+				<controllingFieldValues>Sales Activity</controllingFieldValues>
                 <controllingFieldValues>New Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>remove lifestyle accessories</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				
             </picklistValues>
             <picklistValues>
                 <fullName>Repeated Repair</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Scheduled services</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>service contract</fullName>
@@ -5880,16 +5907,21 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>service contract should be changed to service plans</fullName>
                 <default>false</default>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Inquiry</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Loyalty</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Package</fullName>
@@ -5906,6 +5938,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Product</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
                 <controllingFieldValues>Service</controllingFieldValues>
             </picklistValues>
@@ -5913,6 +5946,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Technical Accessories</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -5932,11 +5966,12 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Trade Club</fullName>
                 <default>false</default>
 				<controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Trade In</fullName>
                 <default>false</default>
-                <controllingFieldValues>Used Car</controllingFieldValues>
+                <controllingFieldValues>Sales Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle accessories</fullName>
@@ -5953,6 +5988,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Warranty plus</fullName>
@@ -5964,16 +6000,44 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>WebParts</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wholesale Fleet Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>accident repair</fullName>
+                <default>false</default>           
+				<controllingFieldValues>Vans Service</controllingFieldValues>				
+            </picklistValues>
+			<picklistValues>
+                <fullName>maintenance reservation</fullName>
+                <default>false</default>                
+				<controllingFieldValues>Vans Service</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Other service reservation</fullName>
+                <default>false</default>                
+				<controllingFieldValues>Vans Service</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>accessories &amp; collection warranty</fullName>
+                <default>false</default>         
+				<controllingFieldValues>Cars Parts</controllingFieldValues>                
+				<controllingFieldValues>Vans Parts</controllingFieldValues>				
+            </picklistValues>
+			<picklistValues>
+                <fullName>Warranty &amp; Recall</fullName>
+                <default>false</default>                
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>true</sorted>
@@ -14915,6 +14979,22 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Used Car</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Need Follow Up</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No Need Follow Up</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Sales Used Car</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Sales Activity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
