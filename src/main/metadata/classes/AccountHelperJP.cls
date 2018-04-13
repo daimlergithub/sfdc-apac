@@ -1170,4 +1170,56 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
          
          
     }
+    
+    /* This method is created as part of changes related to SFDCJP-3344 */
+      public static void ChangePublicGroupName(Map<Id,Account> OldMap,List<Account> NewMap)
+      {
+          set<String> oldpublicGroup=new set<String>();
+          String NewpublicGroup;
+          List<Group> existingGroup=new List<Group>();
+           List<Group> UpdateexistingGroup=new List<Group>();
+           Id dealerRecordtypeID=Schema.SObjectType.Account.getRecordtypeInfosByName().get('Dealer').getRecordTypeId();
+          System.debug('%%%%%%%%%%%% OldMap'+OldMap);
+           System.debug('%%%%%%%%%%%% NewMap'+NewMap);
+          for(Account acc:NewMap)
+          {
+              if(acc.RecordTypeId==dealerRecordtypeID)
+              {
+                   oldpublicGroup.add(Oldmap.get(Acc.Id).name);
+              }
+             
+              System.debug('%%%%%%%%%%%% oldpublicGroup'+oldpublicGroup);
+             // Account oldacc=Trigger.oldMap.get(acc.ID);
+            if(Oldmap.get(Acc.Id).name!=acc.name && acc.RecordTypeId==dealerRecordtypeID  && Oldmap.get(Acc.Id).RecordTypeId ==acc.RecordTypeId)
+             {
+                 NewpublicGroup=acc.Name;
+                 System.debug('%%%%%%%%%%%% NewpublicGroup'+NewpublicGroup);
+             }
+            System.debug('%%%%%%%%%%%% NewpublicGroup'+NewpublicGroup);
+          }
+          System.debug('%%%%%%%%%%%% NewpublicGroup'+NewpublicGroup);
+          if(NewpublicGroup !=null)
+          {
+              existingGroup=[Select id,Name,DeveloperName from Group Where name=:oldpublicGroup];
+                System.debug('%%%%%%%%%%%% existingGroup'+existingGroup);
+              if(NewpublicGroup !=null && existingGroup !=null)
+              {
+                  for(Group grp:existingGroup)
+                  {
+                      NewpublicGroup.remove('{');
+                      NewpublicGroup.remove('}');
+                       System.debug('%%%%%%%%%%%% existingGroup'+NewpublicGroup);
+                      grp.name=String.valueof(NewpublicGroup);
+                      UpdateexistingGroup.add(grp);
+                  }
+              }
+          }
+          System.debug('%%%%%%%%%%%% UpdateexistingGroup'+UpdateexistingGroup);
+          if(UpdateexistingGroup !=null)
+          {
+              update UpdateexistingGroup;
+          }
+          
+      }
+
 }
