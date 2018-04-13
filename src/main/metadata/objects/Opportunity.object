@@ -5593,6 +5593,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Agility</fullName>
@@ -6012,12 +6013,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Wholesale Fleet Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
-                <fullName>accident repair</fullName>
-                <default>false</default>           
-				<controllingFieldValues>Vans Service</controllingFieldValues>				
-            </picklistValues>
+            </picklistValues>			
 			<picklistValues>
                 <fullName>maintenance reservation</fullName>
                 <default>false</default>                
