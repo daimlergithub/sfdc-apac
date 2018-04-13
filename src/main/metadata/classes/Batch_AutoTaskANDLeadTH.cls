@@ -75,6 +75,7 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
         leadRec.Retail_Campaign_Name__c = campaignId;
         leadRec.CAC_Lead_Status__c = 'New';
         leadRec.Lead_DataSource__c='Dealer Outlet';
+      leadRec.campaignmember__c=campaignMember.Name;
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
         leadRec.Lead_Sub_Type__c = campaignMember.Lead_Sub_Type__c;
