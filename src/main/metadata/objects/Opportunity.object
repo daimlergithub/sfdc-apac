@@ -6015,11 +6015,6 @@ TEXT(StageName) != "Closed Lost"
                 <controllingFieldValues>New Car</controllingFieldValues>
             </picklistValues>			
 			<picklistValues>
-                <fullName>maintenance reservation</fullName>
-                <default>false</default>                
-				<controllingFieldValues>Vans Service</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
                 <fullName>Other service reservation</fullName>
                 <default>false</default>                
 				<controllingFieldValues>Vans Service</controllingFieldValues>
