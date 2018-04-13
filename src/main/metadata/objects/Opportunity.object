@@ -6013,23 +6013,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Wholesale Fleet Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
-            </picklistValues>			
-			<picklistValues>
-                <fullName>Other service reservation</fullName>
-                <default>false</default>                
-				<controllingFieldValues>Vans Service</controllingFieldValues>
-            </picklistValues>
-			<picklistValues>
-                <fullName>accessories &amp; collection warranty</fullName>
-                <default>false</default>         
-				<controllingFieldValues>Cars Parts</controllingFieldValues>                
-				<controllingFieldValues>Vans Parts</controllingFieldValues>				
-            </picklistValues>
-			<picklistValues>
-                <fullName>Warranty &amp; Recall</fullName>
-                <default>false</default>                
-				<controllingFieldValues>Vans Service</controllingFieldValues>
-            </picklistValues>
+            </picklistValues>		
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>true</sorted>
         </picklist>
