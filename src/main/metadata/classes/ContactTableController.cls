@@ -301,7 +301,11 @@ public class ContactTableController {
                 'Opt_In_Email__c', //Soumya W 2018/April/6  added as part of MBANZ-199  
                 'Opt_In_SMS3__c', //Soumya W 2018/April/6 added as part of MBANZ-199  
                 'Opt_In_Phone__c', //Soumya W 2018/April/6 added as part of MBANZ-199  
-                'Opt_In_Mail__c' //Soumya W 2018/April/6 added as part of MBANZ-199  
+                'Opt_In_Mail__c', //Soumya W 2018/April/6 added as part of MBANZ-199 
+				'Email_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
+				'SMS_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
+				'Phone_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
+				'Mail_Opt_IN_Last_Update_date__c'//Soumya W 2018/April/9 added as part of MBANZ-199				
             });
 
         }
