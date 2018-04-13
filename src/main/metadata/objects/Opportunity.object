@@ -15445,7 +15445,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>ANZ_Contact_Mandatory_Sales_Leads</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Contact is mandatory for Sales Leads.</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), RecordType.Name = 'Sales Lead', 
