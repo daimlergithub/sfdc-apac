@@ -641,6 +641,17 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Finance_ContactName__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.Account__r.LastName &amp;' '&amp; Contract__r.Account__r.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Finance ContactName</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Finance_Product__c</fullName>
         <externalId>false</externalId>
