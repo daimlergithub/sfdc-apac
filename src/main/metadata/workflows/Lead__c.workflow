@@ -1031,19 +1031,6 @@ Purchased_Date_Time__c
         <protected>false</protected>
     </fieldUpdates>
     <outboundMessages>
-        <fullName>Link_Social_Media_Leads</fullName>
-        <apiVersion>28.0</apiVersion>
-        <endpointUrl>https://benz.social360.com.cn/LinkLead.asmx</endpointUrl>
-        <fields>Contact__c</fields>
-        <fields>Id</fields>
-        <fields>RecordTypeId</fields>
-        <includeSessionId>false</includeSessionId>
-        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
-        <name>Link Social Media Leads</name>
-        <protected>false</protected>
-        <useDeadLetterQueue>false</useDeadLetterQueue>
-    </outboundMessages>
-    <outboundMessages>
         <fullName>Send_Assigned_Dealer_to_EP</fullName>
         <apiVersion>27.0</apiVersion>
         <endpointUrl>https://crm.mercedes-benz.com.cn/webservices/LmsExportNotification</endpointUrl>
