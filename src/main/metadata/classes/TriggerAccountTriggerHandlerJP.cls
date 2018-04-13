@@ -37,7 +37,8 @@ implements TriggerHandlerIf
             AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
             AccountHelperJP.updateCompanyAccountNameBeforeInsert(Trigger.new,Trigger.isInsert,trigger.isupdate);
             AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-			 AccountHelperJP.ChangeSoftDeletedRecordsOwner(Trigger.new);
+             AccountHelperJP.ChangeSoftDeletedRecordsOwner(Trigger.new);
+              AccountHelperJP.ChangePublicGroupName((Map<Id,Account>)Trigger.OldMap,Trigger.New);
         }
         if(isAfter && isInsert && !System.isFuture())
         {
@@ -64,7 +65,7 @@ implements TriggerHandlerIf
                 LeadUtil.vrTrigger = false;
                 AccountHelperJP.UpdateVRonAccount(trigger.new,(Map<Id,Account>)Trigger.OldMap);
             }
-			 AccountHelperJP.deletesharingforSoftDeletedRecords(trigger.new);
+             AccountHelperJP.deletesharingforSoftDeletedRecords(trigger.new);
         }
         
         if(isAfter && isDelete && !System.isFuture())
@@ -95,7 +96,8 @@ implements TriggerHandlerIf
                 AccountHelperJP.updatePrimaryContactInformationBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
                 
                 AccountHelperJP.updatePrimaryAddressdisplay(Trigger.new,(Map<Id,Account>)Trigger.OldMap,trigger.isUpdate);
-				 AccountHelperJP.ChangeSoftDeletedRecordsOwner(Trigger.new);
+                 AccountHelperJP.ChangeSoftDeletedRecordsOwner(Trigger.new);
+                  AccountHelperJP.ChangePublicGroupName((Map<Id,Account>)Trigger.OldMap,Trigger.New);
             } 
             if(isAfter && isUpdate && !System.isFuture())
             {   
