@@ -1560,7 +1560,7 @@
             <apex:column value="{!item.add.Address_Line_1__c}"/> 
             <apex:column value="{!item.add.Address_Line_2__c}"/>           
         </apex:pageBlockTable>
-        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="JpaddressIds" rendered="{!IF((market == 'JP'|| market == 'KR' && DisplayAutoFill == true), true, false)}">    
+        <apex:pageBlockTable value="{!mapAddressResponse}" var="item" id="JpaddressIds" rendered="{!IF((market == 'JP' && DisplayAutoFill == true), true, false)}">    
             <apex:column >
                 <apex:inputCheckbox value="{!item.isSelected}" id="checkedone" Onclick="unCheckOther(this);"/>
             </apex:column>        
@@ -1575,7 +1575,7 @@
     </apex:pageBlock>  
         </div>
         <div>
-            <apex:pageBlock title="{!$Label.Confirmed_Match}" id="cnfm"   rendered="{!if(And(market=='JP',Readonly,show) ,True,false)}" >
+            <apex:pageBlock title="{!$Label.Confirmed_Match}" id="cnfm"   rendered="{!if(And(market=='JP'|| market == 'KR',Readonly,show) ,True,false)}" >
                 <!--PR20170918--Start-- Modified for Thailand(Will be modified shortly)-->
                 <!--<apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!IF((market == 'TH' || market == 'JP'), true, false)}">-->
                 <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">
