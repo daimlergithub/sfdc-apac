@@ -17,7 +17,7 @@ JIRA NO             :    SFDCJP-1036 & 1041
             left: 50%;
             padding:10px;
             position: absolute;
-            width: 200px;
+            width: 250px;
             margin-left: -250px;
             top:200px;
         }
@@ -78,7 +78,7 @@ JIRA NO             :    SFDCJP-1036 & 1041
                      <apex:column value="{!cMember.campaignMember.Contract_Number__c}" headerValue="{!$Label.Contract_Number}"/>
                       <apex:column value="{!cMember.campaignMember.Source_of_CM_Response__c}" headerValue="{!$Label.Source_of_CM_Response}"/>
             </apex:pageBlockTable>
-            <apex:pageBlockButtons location="bottom">
+            <apex:pageBlockButtons location="{!IF(u.market__c != 'TH', 'bottom', '')}">
                 <apex:commandButton action="{!showPopup}" value="{!$Label.Convert_To_Lead}" rerender="tstpopup"/>
                 <apex:commandButton action="{!cancel}" value="{!$Label.CL_Cancel}"/>
             </apex:pageBlockButtons>
@@ -91,6 +91,7 @@ JIRA NO             :    SFDCJP-1036 & 1041
                     <apex:selectOptions Value="{!items}"  /><br/>
                 </apex:selectList>
                 <apex:commandButton id="save" value="Next" action="{!convertToLead}" status="actStatusId" onclick="disableOnSubmit(this);" /> 
+                 <apex:commandButton id="cancelpop" value="Cancel" action="{!CancelPop}" status="actStatusId" onclick="disableOnSubmit(this);" rendered="{!IF(u.market__c == 'TH', true, false)}"/> 
                 <apex:actionStatus id="actStatusId" style="align:center;">
                 <apex:facet name="start" >
                   <img src="/img/loading.gif" />                   
@@ -100,4 +101,3 @@ JIRA NO             :    SFDCJP-1036 & 1041
         </apex:outputPanel>
     </apex:form>
 </apex:page>
-                             
