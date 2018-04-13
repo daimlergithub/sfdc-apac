@@ -205,6 +205,7 @@ public  with sharing class coverttolead1controller
         leadRec.Finance_Total_V_Price_Tax__c=campaignMember.Total_Vehicle_Price_with_tax__c;
         leadRec.Purchase_Time__c=campaignMember.Purchase_Timing__c;
         leadRec.Lead_Desired_Service__c=campaignMember.Lead_Desired_Service__c;
+		leadRec.campaignmember__c=usr.market__c=='TH'?campaignMember.Name:'';      
         if(campaignMember.Contract__c !=null && campaignMember.Contract__r.Finance_Contractor__r.RecordType.Name =='Company')
         {
          leadRec.Company_Account__c = campaignMember.Contract__r.Finance_Contractor__c;

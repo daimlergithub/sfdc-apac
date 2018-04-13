@@ -409,6 +409,10 @@
                 <behavior>Readonly</behavior>
                 <field>Related_Configuration_Codes__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>House_Type_and_Grage__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

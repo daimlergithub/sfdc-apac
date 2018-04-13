@@ -438,6 +438,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+		<displayedFields>
+            <field>Lost_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Referal_Referee_Note__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -775,6 +780,11 @@
         </displayedFields>
         <displayedFields>
             <field>CAC_Lost_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lost_Sub_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2917,6 +2927,72 @@
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	
+	
+	
+	<fields>
+        <fullName>Lost_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Lost Sub Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Alternate MB dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Changed mind/not interested/not ready	</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Competitor due to price</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Competitor due to product	</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Competitor due to service support	</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Contact attempt made</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Customer already attempted Retailer</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Hoax/Child</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Monetary reasons/trade in/finance</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Response time too long</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Vehicle unavailable/Future stock delay</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Wrong/Invalid contact details</fullName>
+                <default>false</default>
+            </picklistValues>
+	</picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
@@ -15369,7 +15445,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>ANZ_Contact_Mandatory_Sales_Leads</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Contact is mandatory for Sales Leads.</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), RecordType.Name = 'Sales Lead', 
@@ -15398,17 +15474,32 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>StageName</errorDisplayField>
         <errorMessage>Before assigning dealer, Lead Status can not be Assigned.</errorMessage>
     </validationRules>
-    <validationRules>
+    
+	<validationRules>
         <fullName>ANZ_Lost_Reason_is_mandatory</fullName>
         <active>true</active>
         <description>When status of lead is marked as 'Closed -Lost' then 'Lost Reason' is mandatory.</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', 
-OR($Permission.INGeneric,$Permission.INGeneric),
+OR($Permission.AUGeneric,$Permission.NZGeneric),
 OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
 ISPICKVAL(StageName ,'Closed Lost') &amp;&amp;  ISPICKVAL(CAC_Lost_Reason__c,"" ))</errorConditionFormula>
         <errorMessage>Lost reason field is mandatory, if the Lead status is Lost</errorMessage>
     </validationRules>
+	
+	<validationRules>
+        <fullName>ANZ_Lost_Subtype_Lost_Reason_Mandatory</fullName>
+        <active>true</active>
+        <description>If the status is</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+OR($Permission.AUGeneric,$Permission.NZGeneric),
+OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
+ISPICKVAL( StageName ,'Closed Lost') &amp;&amp; (ISPICKVAL(CAC_Lost_Reason__c,"" ) ||ISPICKVAL(Lost_Sub_Type__c,"" )) )</errorConditionFormula>
+        <errorMessage>Lost sub type and Reason is mandatory when status is "Closed Lost"</errorMessage>
+    </validationRules>
+	
+	
     <validationRules>
         <fullName>Account_email_Id_mandatory_order_placed</fullName>
         <active>false</active>

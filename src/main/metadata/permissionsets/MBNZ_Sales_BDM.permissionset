@@ -19790,6 +19790,11 @@
         <field>Opportunity.CAC_Lost_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Lost_Sub_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.CA_Updated_Date__c</field>

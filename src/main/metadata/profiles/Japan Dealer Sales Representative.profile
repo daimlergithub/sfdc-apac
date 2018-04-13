@@ -2430,27 +2430,27 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Task__c.Outstanding_Balance_amount__c</field>
+        <field>Campaign_Member__c.Outstanding_Balance_amount__c</field>
         <readable>True</readable>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Task__c.Proto_Market_Value_amount__c</field>
+        <field>Campaign_Member__c.Proto_Market_Value_amount__c</field>
         <readable>True</readable>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Task__c.Cross_point_month_and_year__c</field>
+        <field>Campaign_Member__c.Cross_point_month_and_year__c</field>
         <readable>True</readable>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Task__c.Evaluation_Result_P1_P2_Blank__c</field>
+        <field>Campaign_Member__c.Evaluation_Result_P1_P2_Blank__c</field>
         <readable>True</readable>
     </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
-        <field>Retail_Task__c.Final_GAP_Amount__c</field>
+        <field>Campaign_Member__c.Final_GAP_Amount__c</field>
         <readable>True</readable>
     </fieldPermissions>
 	<fieldPermissions>
