@@ -17451,6 +17451,11 @@
         <field>Lead__c.Interest_Rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.CampaignMember__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Interested_Body_Type__c</field>

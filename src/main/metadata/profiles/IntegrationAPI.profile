@@ -3366,6 +3366,26 @@
         <field>Account.CMS_Dealer_BPID__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Targeted_Advert_Info_Optional_STCCC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.General_Personal_Info_Mandatory__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Person_Info_Custom_Service_Optional__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+       <editable>true</editable>
+       <field>Account.Person_Agree_Test_Driving_Optional__c</field>
+       <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.CMS_SAP_No__c</field>
@@ -16731,6 +16751,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.CA_Application_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.CampaignMember__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

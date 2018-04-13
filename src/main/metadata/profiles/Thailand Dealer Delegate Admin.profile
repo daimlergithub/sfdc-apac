@@ -15905,6 +15905,11 @@
         <field>Lead__c.Created_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.CampaignMember__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Credit_Limit_Request__c</field>
