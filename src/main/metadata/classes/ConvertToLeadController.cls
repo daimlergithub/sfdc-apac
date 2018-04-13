@@ -21,6 +21,7 @@ public class ConvertToLeadController
     List<Campaign_Member__c> camListToUpdate = new List<Campaign_Member__c>();
     Public Static Boolean Campaigncheck = true;
     Public Static Boolean RetailCampaignid = true;
+    public user u;
     @testvisible private String objectAPIName;
      public boolean displayPopup {get; set;}     
     
@@ -33,6 +34,7 @@ public class ConvertToLeadController
     
     public ConvertToLeadController() 
     {
+         u=[select id,market__c from user where id =:userinfo.getUserId()];
        System.debug('HIIII');
         leadRT = 'Sales Leads';
         leadRT1 ='Aftersales Leads';
@@ -242,7 +244,9 @@ public class ConvertToLeadController
        leadRec.Lead_DataSource__c='Dealer Outlet';
         }
 
-       
+        if(u.market__c=='TH'){
+         leadRec.campaignmember__c=campaignMember.Name;
+        }
         leadRec.Contact__c = campaignMember.Contact_Id__c;
         leadRec.Lead_Type__c = campaignMember.Lead_Type__c;
         leadRec.Lead_Sub_Type__c = campaignMember.Lead_Sub_Type__c;
