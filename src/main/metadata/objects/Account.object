@@ -64806,11 +64806,11 @@ RecordType.Name=&apos;Person Account&apos;),true,false)</errorConditionFormula>
         <fullName>First_And_Last_Name_Format</fullName>
         <active>true</active>
         <description>First Name and Last Name fields must not contain any special character other than alphabets and digits</description>
-       <errorConditionFormula>OR(
+        <errorConditionFormula>OR(
 AND(
 OR(
-NOT(REGEX( FirstName ,"^[a-z  A-Z 0-9]*$")),
-NOT(REGEX( LastName ,"^[a-z  A-Z 0-9]*$"))
+NOT(REGEX( FirstName ,"^[a-z  A-Z]*$")),
+NOT(REGEX( LastName ,"^[a-z  A-Z]*$"))
 ),
 $Profile.Name != 'IntegrationAPI',
 $Permission.INGeneric
@@ -64823,7 +64823,7 @@ NOT(REGEX( LastName ,"^[a-z A-Z 0-9 \\- . ']*$"))
 $Profile.Name != 'IntegrationAPI',
 OR($Permission.AUGeneric, $Permission.NZGeneric)
 ))</errorConditionFormula>
-        <errorMessage>First Name and Last Name fields must not contain any special character than alphabets and digits</errorMessage>
+        <errorMessage>First Name and Last Name fields must not contain any special character and numbers</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>First_Name_Fullchar</fullName>
