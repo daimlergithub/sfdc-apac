@@ -781,7 +781,12 @@ public class AddressDisplayInlineEditController {
             {       
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_Postal_Code_validation));        
                  Validation = true;                             
-            } 
+            }
+            if(addressobj.Country__c == 'India' && addressobj.District__c!= null && addressobj.District__c!= ''  && (!Pattern.matches('^[a-z A-Z]*$',addressobj.District__c)))      
+            {       
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.IN_City_Field_Format));        
+                 Validation = true;                             
+            }
                  
             if(addressobj.Address_Line_1__c != null && addressobj.Address_Line_1__c.length()>100)       
             {                   
