@@ -4117,6 +4117,13 @@ please contact the number below.</value>
         <value>For Address creation, Address Line 1, Country, State, City, Zip code are mandatory.</value>
     </labels>
     <labels>
+        <fullName>IN_City_Field_Format</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_City_Field_Format</shortDescription>
+        <value>City field must not contain any special Characters and Digits</value>
+    </labels>
+    <labels>
         <fullName>IN_City_Vaidation</fullName>
         <language>en_US</language>
         <protected>false</protected>
