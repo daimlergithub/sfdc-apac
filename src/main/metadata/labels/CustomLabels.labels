@@ -580,6 +580,13 @@
         <value>Addresses</value>
     </labels>
     <labels>
+        <fullName>AddressInvalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressInvalid</shortDescription>
+        <value>Invalid Address!</value>
+    </labels>
+    <labels>
         <fullName>AddressTypeError</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2316,6 +2323,13 @@
         <value>For Company Search Name and one of Contact Number has to be entered</value>
     </labels>
     <labels>
+        <fullName>CompanyAccountSearchErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CompanyAccountSearchErrorMessage</shortDescription>
+        <value>For Company Search Name, Work Phone , Status, Data Source and City has to be entered.</value>
+    </labels>
+    <labels>
         <fullName>Company_Account_Information</fullName>
         <categories>AccountCreationPage</categories>
         <language>en_US</language>
@@ -2979,6 +2993,13 @@
         <protected>false</protected>
         <shortDescription>Districe Native should not be null</shortDescription>
         <value>Districe Native should not be null</value>
+    </labels>
+    <labels>
+        <fullName>DistrictError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DistrictError</shortDescription>
+        <value>District is Mandatory.</value>
     </labels>
     <labels>
         <fullName>District_should_not_be_null</fullName>
@@ -6688,6 +6709,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>First Name, Last Name and any of the contact information is required</value>
     </labels>
     <labels>
+        <fullName>PersonAccountSearchErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccountSearchErrorMessage</shortDescription>
+        <value>For Customer Search First Name, Last Name, Status, Data Source and City is required</value>
+    </labels>
+    <labels>
         <fullName>PersonAccount_Record_Type_From_Account</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9855,6 +9883,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Slave Record</value>
     </labels>
     <labels>
+        <fullName>SocialIdError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SocialIdError</shortDescription>
+        <value>Enter valid Social ID Number.</value>
+    </labels>
+    <labels>
         <fullName>Somewhat_disappointed</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
@@ -10149,6 +10184,62 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>TH_purchased_vehicle_related_information</shortDescription>
         <value>Please enter purchased vehicle related information as the lead the Lead status is set as Purchased</value>
+    </labels>
+    <labels>
+        <fullName>TRAddressMandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRAddressMandatory</shortDescription>
+        <value>As you have opted for Postal opt in, Address Line 1 and Address Line 2 are Mandatory.</value>
+    </labels>
+    <labels>
+        <fullName>TRCountry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRCountry</shortDescription>
+        <value>Turkey</value>
+    </labels>
+    <labels>
+        <fullName>TREmail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TREmail</shortDescription>
+        <value>As you have opted for Email, Please enter the Email address.</value>
+    </labels>
+    <labels>
+        <fullName>TRGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRGeneric</shortDescription>
+        <value>TRGeneric</value>
+    </labels>
+    <labels>
+        <fullName>TRPhone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRPhone</shortDescription>
+        <value>As you have opted for Phone, Please enter atleast one contact Information.</value>
+    </labels>
+    <labels>
+        <fullName>TRPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRPhoneCountryCode</shortDescription>
+        <value>+90</value>
+    </labels>
+    <labels>
+        <fullName>TRSMS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRSMS</shortDescription>
+        <value>As you have opted for SMS, Please enter a valid Mobile Number.</value>
+    </labels>
+    <labels>
+        <fullName>TRZipCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRZipCode</shortDescription>
+        <value>ZIP CODE should be 5 digits.</value>
     </labels>
     <labels>
         <fullName>TargetVIN</fullName>
@@ -10704,6 +10795,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>User Notification Settings</shortDescription>
         <value>User Notification Settings</value>
+    </labels>
+    <labels>
+        <fullName>VATNoError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VATNoError</shortDescription>
+        <value>Enter valid Vat Number.</value>
     </labels>
     <labels>
         <fullName>VEP_Seasonal_Check</fullName>
@@ -11444,6 +11542,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Need contact Information</shortDescription>
         <value>Please Enter Atleast one contact Information</value>
+    </labels>
+    <labels>
+        <fullName>contact_invalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>contact_invalid</shortDescription>
+        <value>Invalid Country Code for Contact Information</value>
     </labels>
     <labels>
         <fullName>delete_confirmation_message</fullName>
