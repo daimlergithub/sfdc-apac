@@ -14626,7 +14626,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR','')))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -14664,7 +14665,11 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </picklistValues>
 			<picklistValues>
                 <fullName>NZ</fullName>
-            <default>false</default>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TR</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -26847,11 +26852,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>NZ</fullName>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -33174,11 +33183,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>NZ</fullName>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39224,11 +39237,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>NZ</fullName>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45533,11 +45550,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>NZ</fullName>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -51643,11 +51664,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>NZ</fullName>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -57228,11 +57253,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>NZ</fullName>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62590,11 +62619,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>NZ</fullName>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
