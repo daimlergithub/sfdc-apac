@@ -1,5 +1,5 @@
 <!--  New Create Account VF page added For Creation of After Sales Leads -->
-<apex:page standardController="opportunity" extensions="AfterSalesLeadController">
+<apex:page standardController="opportunity" extensions="AfterSalesLeadController" lightningStylesheets="true">
     <apex:sectionHeader title="New AfterSales Lead" subtitle="{!opp.Name}"/>
     <apex:form >
         <apex:pageBlock title="AfterSales Lead" mode="edit">
@@ -30,7 +30,7 @@
             <apex:pageBlockSection title="Lead Customer Information" columns="2">
                 <!--<apex:inputField value="{!opp.AccountId}" onchange="Vehrel(this.value)"/>-->
                 <apex:inputField value="{!opp.AccountId}" required="true">
-                    <apex:actionSupport event="onchange" action="{!Vehrel}"/>
+                    <apex:actionSupport event="onchange" action="{!Vehrel}" rerender="pb4"/>
                 </apex:inputField>
             </apex:pageBlockSection>
             
@@ -166,7 +166,7 @@
             </apex:pageBlockSection>
             
             <apex:pageBlockSection title="Current Vehicles" columns="1">
-                <apex:pageBlockTable id="pb2" value="{!vehRel}"  var="item" title="Vehicle Information">
+                <apex:pageBlockTable id="pb4" value="{!vehRel}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Car Model">
                         <apex:outputLabel value="{!item.Vehicle_Model__c}" />
                     </apex:column>
