@@ -5667,6 +5667,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
 				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -5863,6 +5864,8 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+                <controllingFieldValues>Cars Service</controllingFieldValues>
+                <controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MBJ Online Sales</fullName>
@@ -5910,6 +5913,7 @@ TEXT(StageName) != "Closed Lost"
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
 				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>P2P</fullName>
@@ -5996,6 +6000,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Service Loyalty</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
 				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -6064,6 +6069,7 @@ TEXT(StageName) != "Closed Lost"
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
 				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Warranty plus</fullName>
@@ -11364,6 +11370,61 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Lost_Sub_Type__c</picklist>
+            <values>
+                <fullName>Alternate MB dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Changed mind%2Fnot interested%2Fnot ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to service support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact attempt made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer already attempted Retailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoax%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monetary reasons%2Ftrade in%2Ffinance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response time too long</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle unavailable%2FFuture stock delay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong%2FInvalid contact details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_To_Competitor_Name__c</picklist>
             <values>
                 <fullName>Audi</fullName>
@@ -15197,6 +15258,61 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Transferred for house moving</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lost_Sub_Type__c</picklist>
+            <values>
+                <fullName>Alternate MB dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Changed mind%2Fnot interested%2Fnot ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to service support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact attempt made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer already attempted Retailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoax%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monetary reasons%2Ftrade in%2Ffinance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response time too long</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle unavailable%2FFuture stock delay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong%2FInvalid contact details</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
