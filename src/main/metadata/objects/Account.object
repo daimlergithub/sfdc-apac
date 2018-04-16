@@ -17256,6 +17256,15 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Postal_Opt_In__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Postal Opt In</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Postal_Opt_Out_Last_Modified_Date__c</fullName>
         <description>Used by the Merge logic, added as part of Merge requirements</description>
         <externalId>false</externalId>
