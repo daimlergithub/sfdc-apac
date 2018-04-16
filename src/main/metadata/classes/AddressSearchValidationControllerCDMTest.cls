@@ -11,6 +11,7 @@ public class AddressSearchValidationControllerCDMTest {
     public static Account personAcc;
     public static Account personAcc1;
     public static Address__C addressobj ;
+    public JSON2ApexCustomerFromCDM custSearch{get;set;}
     public static user usr;
     public static User user1;
     public static User user_Obj; 
@@ -24,7 +25,7 @@ public class AddressSearchValidationControllerCDMTest {
         ApexPages.currentPage().getParameters().put('recordType','Person Account');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
-        
+        PageReference pageRef = Page.AddressSearchValidationCDM;
         INAcccontroller.market = 'IN';
         INAcccontroller.objAccount = objAccount;
         INAcccontroller.objAccount.Individual_Home_Phone__c=null;
@@ -75,6 +76,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.Addressobj.Address_Type__c = 'Home';
         INAcccontroller.ShowHideFields();
         INAcccontroller.LoadDistrict();
+        INAcccontroller.LoadProvince();
         INAcccontroller.selectedRecordTypeValue();
         INAcccontroller.checkForeignNational();
         INAcccontroller.checkcountrycodeindia();
@@ -86,12 +88,16 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.processResponse();
         INAcccontroller.cancel();
         INAcccontroller.getIsClassic();
+        INAcccontroller.show=true;
+        INAcccontroller.one=true;
+        INAcccontroller.showCDM=false;
+        
         /*
-        INAcccontroller.next();
-        INAcccontroller.previous();
-        INAcccontroller.last();
-        INAcccontroller.First();
-        */
+INAcccontroller.next();
+INAcccontroller.previous();
+INAcccontroller.last();
+INAcccontroller.First();
+*/
         test.stopTest();
     }
     
@@ -101,7 +107,7 @@ public class AddressSearchValidationControllerCDMTest {
         ApexPages.currentPage().getParameters().put('recordType','Person Account');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
-        
+        PageReference pageRef = Page.AddressSearchValidationCDM;
         INAcccontroller.market = 'IN';
         INAcccontroller.objAccount = objAccount;
         INAcccontroller.objAccount.Individual_Home_Phone__c=null;
@@ -112,7 +118,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.objAccount.Phone='null'; 
         INAcccontroller.objAccount.Email__c=null; 
         INAcccontroller.objAccount.Email2__c='test@test.com';
-         INAcccontroller.objAccount.Generated_by__c= 'MBIL'; 
+        INAcccontroller.objAccount.Generated_by__c= 'MBIL'; 
         INAcccontroller.RecordType = 'Person Account';
         test.startTest();      
         INAcccontroller.hmphoneNumber= ''; 
@@ -149,9 +155,10 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.Addressobj.Address_Line_1__c='asdf';
         INAcccontroller.Addressobj.Address_Line_2__c='';
         INAcccontroller.Addressobj.Address_Line_3__c='';
-        INAcccontroller.Addressobj.Foreign_Nationals__c = false;
+        INAcccontroller.Addressobj.Foreign_Nationals__c = true;
         INAcccontroller.ShowHideFields();
         INAcccontroller.LoadDistrict();
+        INAcccontroller.LoadProvince();
         INAcccontroller.selectedRecordTypeValue();
         INAcccontroller.checkForeignNational();
         INAcccontroller.checkcountrycodeindia();
@@ -171,7 +178,7 @@ public class AddressSearchValidationControllerCDMTest {
         ApexPages.currentPage().getParameters().put('recordType','Person Account');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
-        
+        PageReference pageRef = Page.AddressSearchValidationCDM;
         INAcccontroller.market = 'IN';
         INAcccontroller.objAccount = objAccount;
         INAcccontroller.objAccount.Individual_Home_Phone__c=null;
@@ -221,6 +228,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.Addressobj.Address_Type__c = 'Home';
         INAcccontroller.ShowHideFields();
         INAcccontroller.LoadDistrict();
+        INAcccontroller.LoadProvince();
         INAcccontroller.selectedRecordTypeValue();
         INAcccontroller.checkForeignNational();
         INAcccontroller.checkcountrycodeindia();
@@ -239,7 +247,7 @@ public class AddressSearchValidationControllerCDMTest {
         ApexPages.currentPage().getParameters().put('recordType','Person Account');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
-        
+        PageReference pageRef = Page.AddressSearchValidationCDM;
         INAcccontroller.market = 'IN';
         INAcccontroller.objAccount = objAccount;
         INAcccontroller.objAccount.Individual_Home_Phone__c=null;
@@ -275,7 +283,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.objAccount.PAN__c='ABCDE1234F';
         INAcccontroller.objAccount.Aadhaar__c='123456789012';
         //INAcccontroller.addresspicklist = 'Home';
-        INAcccontroller.country='China';
+        INAcccontroller.country='India';
         INAcccontroller.province='test';
         INAcccontroller.objAccount.id=null; 
         INAcccontroller.district='test';
@@ -285,9 +293,10 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.Addressobj.Address_Line_2__c='';
         INAcccontroller.Addressobj.Address_Line_3__c='';
         INAcccontroller.Addressobj.Country__c='China';
-        INAcccontroller.Addressobj.Foreign_Nationals__c = false;        
+        INAcccontroller.Addressobj.Foreign_Nationals__c =false;        
         INAcccontroller.ShowHideFields();
         INAcccontroller.LoadDistrict();
+        INAcccontroller.LoadProvince();
         INAcccontroller.selectedRecordTypeValue();
         INAcccontroller.checkForeignNational();
         INAcccontroller.checkcountrycodeindia();
@@ -307,7 +316,7 @@ public class AddressSearchValidationControllerCDMTest {
         ApexPages.currentPage().getParameters().put('recordType','Company');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
-        
+        PageReference pageRef = Page.AddressSearchValidationCDM;
         INAcccontroller.market = 'IN';
         INAcccontroller.objAccount = objAccount;
         INAcccontroller.objAccount.Individual_Home_Phone__c=null;
@@ -338,6 +347,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.objAccount.Name = '';
         INAcccontroller.ShowHideFields();
         INAcccontroller.LoadDistrict();
+        INAcccontroller.LoadProvince();
         INAcccontroller.selectedRecordTypeValue();
         INAcccontroller.checkForeignNational();
         INAcccontroller.checkcountrycodeindia();
@@ -358,7 +368,7 @@ public class AddressSearchValidationControllerCDMTest {
         ApexPages.currentPage().getParameters().put('recordType','Company');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
-        
+        PageReference pageRef = Page.AddressSearchValidationCDM;
         INAcccontroller.market = 'IN';
         INAcccontroller.objAccount = objAccount;
         INAcccontroller.objAccount.Individual_Home_Phone__c=null;
@@ -390,6 +400,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.objAccount.Name = '';
         INAcccontroller.ShowHideFields();
         INAcccontroller.LoadDistrict();
+        INAcccontroller.LoadProvince();
         INAcccontroller.selectedRecordTypeValue();
         INAcccontroller.checkForeignNational();
         INAcccontroller.checkcountrycodeindia();
@@ -402,14 +413,14 @@ public class AddressSearchValidationControllerCDMTest {
         test.stopTest();
     }
     
-  
+    
     @IsTest
     private static void testSaveAccount7() {
         createTestData();
         ApexPages.currentPage().getParameters().put('recordType','Company');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
-        
+        PageReference pageRef = Page.AddressSearchValidationCDM;
         INAcccontroller.market = 'IN';
         INAcccontroller.objAccount = objAccount;
         INAcccontroller.objAccount.Individual_Home_Phone__c=null;
@@ -439,6 +450,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.objAccount.Name = '';
         INAcccontroller.ShowHideFields();
         INAcccontroller.LoadDistrict();
+        INAcccontroller.LoadProvince();
         INAcccontroller.selectedRecordTypeValue();
         INAcccontroller.checkForeignNational();
         INAcccontroller.checkcountrycodeindia();
@@ -490,6 +502,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.objAccount.Name = '';
         INAcccontroller.ShowHideFields();
         INAcccontroller.LoadDistrict();
+        INAcccontroller.LoadProvince();
         INAcccontroller.selectedRecordTypeValue();
         INAcccontroller.checkForeignNational();
         INAcccontroller.checkcountrycodeindia();
@@ -501,8 +514,8 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.saveAccountIN();
         test.stopTest();
     }
-       
-  @IsTest
+    
+    @IsTest
     private static void testSaveAccount9() {
         createTestData();
         ApexPages.currentPage().getParameters().put('recordType','Test');
@@ -519,7 +532,7 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.objAccount.Phone='+911234567890'; 
         INAcccontroller.objAccount.Email__c=null; 
         INAcccontroller.objAccount.Email2__c='test@test.com'; 
-        INAcccontroller.objAccount.Country__c = 'China';
+        INAcccontroller.objAccount.Country__c = 'India';
         INAcccontroller.RecordType = 'Company';
         test.startTest();      
         INAcccontroller.hmphoneNumber= '02345678'; 
@@ -541,17 +554,12 @@ public class AddressSearchValidationControllerCDMTest {
     }
     
     @IsTest
-    private static void testJasonClass() {
-        JSON2ApexCustomerFromCDM.parse('{ "name":"Prem", "age":25, "city":"New York" }');
-    }
-    
-    @IsTest
-    private static void testPagination() {
+    private static void testSaveAccount10() {
         createTestData();
         ApexPages.currentPage().getParameters().put('recordType','Person Account');
         ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
         AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
-        
+        PageReference pageRef = Page.AddressSearchValidationCDM;
         INAcccontroller.market = 'IN';
         INAcccontroller.objAccount = objAccount;
         INAcccontroller.objAccount.Individual_Home_Phone__c=null;
@@ -562,73 +570,203 @@ public class AddressSearchValidationControllerCDMTest {
         INAcccontroller.objAccount.Phone='+911234567890'; 
         INAcccontroller.objAccount.Email__c=null; 
         INAcccontroller.objAccount.Email2__c='test@test.com'; 
-        INAcccontroller.objAccount.Generated_by__c= 'Dealer';
+        INAcccontroller.objAccount.Country__c = 'India';
         INAcccontroller.RecordType = 'Person Account';
         test.startTest();      
-        INAcccontroller.hmphoneNumber= '12345678'; 
-        INAcccontroller.wkphoneNumber= '12345678';
-        INAcccontroller.mbphoneNumber= '1234567890';
-        INAcccontroller.faxphoneNumber= '12345678';
-        INAcccontroller.wkAreaCode='12';
+        INAcccontroller.hmphoneNumber= '02345678'; 
+        INAcccontroller.wkphoneNumber= '02345678';
+        INAcccontroller.mbphoneNumber= '02345678';
+        INAcccontroller.wkAreaCode='02';
         INAcccontroller.wkCountryCode='+91';
-        INAcccontroller.hmAreaCode='12';
+        INAcccontroller.hmAreaCode='02';
         INAcccontroller.hmCountryCode='+91';
         INAcccontroller.mbAreaCode='';
         INAcccontroller.mbCountryCode='+91';
-        INAcccontroller.faxAreaCode='12';
+        INAcccontroller.faxAreaCode='01';
         INAcccontroller.faxCountryCode='+91';
         INAcccontroller.objAccount.id=null; 
-        //INAcccontroller.addresspicklist = 'Home';
-        INAcccontroller.objAccount.Work_Phone__c='+911234567890'; 
-        INAcccontroller.objAccount.Home_Phone_2__c='+911234567890'; 
-        INAcccontroller.objAccount.Individual_Home_Phone__c='+911234567890'; 
-        INAcccontroller.objAccount.Fax='+911234567890';
-        INAcccontroller.objAccount.Email__c='test@test.com';
-        INAcccontroller.objAccount.id=null; 
-        INAcccontroller.objAccount.PAN__c='ABCDE1234F';
-        INAcccontroller.objAccount.Aadhaar__c='123456789012';
-        //INAcccontroller.addresspicklist = 'Home';
-        INAcccontroller.country='India';
-        INAcccontroller.province='test';
-        INAcccontroller.objAccount.id=null; 
-        INAcccontroller.district='test';
-        INAcccontroller.subdistrict='test';
-        INAcccontroller.zip='123456';
-        INAcccontroller.Addressobj.Address_Line_1__c='asdf';
-        INAcccontroller.Addressobj.Address_Line_2__c='zxcv';
-        INAcccontroller.Addressobj.Address_Line_3__c='qwer';
         INAcccontroller.Addressobj.Foreign_Nationals__c = true;
-        INAcccontroller.Addressobj.Country__c = 'India';
         INAcccontroller.Addressobj.Address_Type__c = 'Home';
-        INAcccontroller.ShowHideFields();
-        INAcccontroller.LoadDistrict();
-        INAcccontroller.selectedRecordTypeValue();
+        INAcccontroller.objAccount.GSTN_Number__c='12AAAAA1234A1A1';
+        INAcccontroller.objAccount.Name = '';
         INAcccontroller.checkForeignNational();
-        INAcccontroller.checkcountrycodeindia();
-        INAcccontroller.phoneFieldConcatIN();
-        INAcccontroller.SaveAccountDetailsIN();
-        INAcccontroller.saveAccountIN();
-        INAcccontroller.onLineDeduplicationIN();
-        INAcccontroller.generateCDMEndPointURL();
-        INAcccontroller.processResponse();
-        INAcccontroller.cancel();
-        INAcccontroller.getIsClassic();
-        INAcccontroller.DedupAccountList.add(personAcc);
-        INAcccontroller.displayAccList.clear();  
-        INAcccontroller.startIndex=0;  
-        INAcccontroller.lastindex=100;
-        INAcccontroller.last=false;     
-        INAcccontroller.previous=false;     
-        INAcccontroller.first=false;        
-        INAcccontroller.next=false; 
-        //INAcccontroller.next();
-        INAcccontroller.previous();
-        INAcccontroller.last();
-        //INAcccontroller.First();
         
         test.stopTest();
     }
+    @IsTest
+    private static void testSaveAccount11() {
+        createTestData();
+        ApexPages.currentPage().getParameters().put('recordType','Person Account');
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
+        PageReference pageRef = Page.AddressSearchValidationCDM;
+        INAcccontroller.market = 'IN';
+        INAcccontroller.objAccount = objAccount;
+        INAcccontroller.objAccount.Individual_Home_Phone__c=null;
+        INAcccontroller.objAccount.id=null;
+        INAcccontroller.objAccount.Mobile__c='';         
+        INAcccontroller.objAccount.Work_Phone__c=null; 
+        INAcccontroller.objAccount.Home_Phone_2__c=null; 
+        INAcccontroller.objAccount.Phone='+911234567890'; 
+        INAcccontroller.objAccount.Email__c=null; 
+        INAcccontroller.objAccount.Email2__c='test@test.com'; 
+        INAcccontroller.objAccount.Country__c = 'India';
+        INAcccontroller.RecordType = 'Person Account';
+        test.startTest();      
+        INAcccontroller.hmphoneNumber= '02345678'; 
+        INAcccontroller.wkphoneNumber= '02345678';
+        INAcccontroller.mbphoneNumber= '02345678';
+        INAcccontroller.wkAreaCode='02';
+        INAcccontroller.wkCountryCode='+91';
+        INAcccontroller.hmAreaCode='02';
+        INAcccontroller.hmCountryCode='+91';
+        INAcccontroller.mbAreaCode='';
+        INAcccontroller.mbCountryCode='+91';
+        INAcccontroller.faxAreaCode='01';
+        INAcccontroller.faxCountryCode='+91';
+        INAcccontroller.objAccount.id=null; 
+        INAcccontroller.Addressobj.Foreign_Nationals__c = true;
+        INAcccontroller.Addressobj.Address_Type__c = 'Home';
+        INAcccontroller.objAccount.GSTN_Number__c='12AAAAA1234A1A1';
+        INAcccontroller.objAccount.Name = '';
+        INAcccontroller.phoneFieldConcatIN();
+        
+        test.stopTest();
+    }
+    @IsTest
+    private static void testJasonClass() {
+        JSON2ApexCustomerFromCDM.parse('{ "name":"Prem", "age":25, "city":"New York" }');
+    }
     
+    @IsTest
+    private static void testPagination() {
+        createTestData();
+        Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+        user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='IN',
+                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user1 );
+        system.runas(user1){
+            List<account> acclist= new list<account>();
+            for(integer i=0;i<12;i++){
+                personAcc =new Account();
+                personAcc.firstname= 'John';
+                personAcc.lastname= 'Leamos';
+                personAcc.mobile__c= '+666465';
+                personAcc.ID_Number__c='12312';     
+                personAcc.UCID__c='12345'+i;
+                personAcc.market__c='IN';
+                acclist.add(personAcc);
+            }
+            
+            test.startTest();
+            ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+            AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            INAcccontroller.market = 'IN';
+            INAcccontroller.objPersonAccount = personAcc;
+            INAcccontroller.recordType = 'Person Account';
+            INAcccontroller.selectedRecordType = 'Person Account';
+            INAcccontroller.objAccount = personAcc; 
+            INAcccontroller.DedupAccountList.addall(acclist);
+            INAcccontroller.LastIndex=acclist.size();
+            INAcccontroller.last=false;     
+            INAcccontroller.previous=false;     
+            INAcccontroller.first=false;        
+            INAcccontroller.next=false; 
+            INAcccontroller.First();
+            INAcccontroller.next();
+            INAcccontroller.previous();
+            INAcccontroller.last();
+           
+            test.stopTest();
+        }
+    }   
+            
+       /*
+        static testmethod void testOnLineDeduplicationCDMIN(){
+            //Person Account
+            Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
+             user user1 = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                              EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                              LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='IN',
+                              TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            DMLManagerService.insertAsSystem(user1 );
+            CDM_Integration_URLs__c cdm=new CDM_Integration_URLs__c();
+             cdm.Country__c='IN';
+             cdm.type__c='Person Account';
+             cdm.Context__c='Person Account';
+             cdm.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-IN-SearchPersonAccount?';
+             cdm.Name='SearchPersonAccount';
+             insert cdm;
+             CDM_Integration_URLs__c cdm1=new CDM_Integration_URLs__c();
+             cdm1.Country__c='IN';
+             cdm1.type__c='Company';
+             cdm1.Context__c='Company';
+             cdm1.Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-IN-SearchCompanyAccount?';
+             cdm1.Name='SearchCompanyAccount';
+             insert cdm1;
+             CallOutHandlerSettingDFW__c cs=new CallOutHandlerSettingDFW__c();
+             cs.DEFAULT_CALLOUT_TIME__c='1000';
+             cs.MAX_CALLOUT_TIME__c='5000';
+             cs.Name='CalloutValues';
+             insert cs;
+             
+               personAcc =new Account();
+            personAcc.firstname= 'John';
+            personAcc.lastname= 'Leamos';
+            personAcc.mobile__c= '+911234567890';
+            personAcc.ID_Number__c='12312';
+            personAcc.UCID__c='12345';
+            personAcc.market__c='IN';
+              ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+        AddressSearchValidationControllerCDM INAcccontroller= new AddressSearchValidationControllerCDM(objSc);
+            INAcccontroller.market='IN';
+            INAcccontroller.objPersonAccount = personAcc;
+            INAcccontroller.recordType = 'Person Account';
+            INAcccontroller.selectedRecordType = 'Person Account';
+           INAcccontroller.objAccount = personAcc;
+            
+          
+             
+          
+            Continuation cont2 = (Continuation)INAcccontroller.onLineDeduplicationIN();
+            Map<String, HttpRequest> requests = cont2.getRequests();
+            system.assert(requests.size() == 1);
+            system.assert(requests.get(INAcccontroller.requestLabel) != null);
+            HttpResponse response = new HttpResponse();
+            response.setBody('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":'+personAcc.UCID__c+',"AdminClientNum":"'+personAcc.id+'"}]}');  
+            Test.setContinuationResponse(INAcccontroller.requestLabel, response);
+             Object result = Test.invokeContinuationMethod(INAcccontroller, cont2);
+             System.assertEquals(null, result);
+            
+            personAcc1 = new Account();
+            personAcc1.Name='New Organization';
+            personAcc1.Company_Name__c='New Organization';
+            personAcc1.Work_Phone__c='123456';
+            personAcc1.Name='New Organization';
+             ApexPages.StandardController objSc1 = new ApexPages.StandardController(personAcc1);
+        AddressSearchValidationControllerCDM INAcccontroller1= new AddressSearchValidationControllerCDM(objSc1);
+           INAcccontroller1.objPersonAccount = personAcc1;
+            INAcccontroller1.recordType = 'Company';
+            INAcccontroller1.selectedRecordType = 'Company';
+            INAcccontroller1.objAccount = personAcc1;
+            INAcccontroller1.hmphoneNumber='02345678';
+           Continuation conti3 = (Continuation)INAcccontroller1.onLineDeduplicationIN();
+            Map<String, HttpRequest> requests1 = conti3.getRequests();
+            system.assert(requests1.size() == 1);
+            system.assert(requests1.get(INAcccontroller1.requestLabel) != null);
+            HttpResponse response1 = new HttpResponse();
+            response1.setBody('{"OP_UCID":[{"IdentificationTypeValue":"UCID","IdentificationNum":'+personAcc1.CDM_UCID__c+',"AdminClientNum":"2018-05-87987"}]}');  
+            Test.setContinuationResponse(INAcccontroller1.requestLabel, response1);
+             Object result1 = Test.invokeContinuationMethod(INAcccontroller1, conti3);
+             System.assertEquals(null, result1);
+          
+            }
+            */
+        
+            
     
     static void createTestData(){
         Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
@@ -843,7 +981,7 @@ public class AddressSearchValidationControllerCDMTest {
             personAcc.City__c='Test';
             personAcc.ID_Type__c='National ID';
             personAcc.ID_Number__c='1234567891234';
-            if(us.market__c=='TH'||us.market__c=='KR'){
+            if(us.market__c=='TH'||us.market__c=='KR'||us.market__c=='IN'){
                 personAcc.ZipCode__c = '42877';
                 
             }
