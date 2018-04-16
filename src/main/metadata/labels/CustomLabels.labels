@@ -10186,6 +10186,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Please enter purchased vehicle related information as the lead the Lead status is set as Purchased</value>
     </labels>
     <labels>
+        <fullName>TR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR</shortDescription>
+        <value>TR</value>
+    </labels>
+    <labels>
         <fullName>TRAddressMandatory</fullName>
         <language>en_US</language>
         <protected>false</protected>
