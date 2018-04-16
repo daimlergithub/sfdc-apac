@@ -1863,6 +1863,33 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK
 }
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>Convert_to_Lead_MY</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Convert To Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var marketusr={!ISPICKVAL($User.Market__c , "MY")};
+if(marketusr){
+ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLeadMY?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}");
+}else{
+ var aid = "{!Account.Id}";
+if(aid != '')
+{
+  window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLeadMY?CampaignId={!Account.Id}");
+}
+else
+{
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLeadMY?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}");
+}
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Convert_to_lead1</fullName>
         <availability>online</availability>
