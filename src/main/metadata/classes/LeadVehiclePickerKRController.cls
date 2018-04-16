@@ -583,7 +583,7 @@ global without sharing class LeadVehiclePickerKRController {
          
         System.debug('I am in my remote method...' +vehicleDetails);
         Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
-    carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
+    carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') AND MD__c = 'KR' ORDER BY CreatedDate ASC NULLS LAST];
     Lead__c lead = [Select Id, Interested_Vehicle__c,Interested_Competitor_Vehicle__c, Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c  from Lead__c Where Id =:vehicleAttributes.get('CurrentRecordId')];
         if(vehicleAttributes.get('Lookup') == 'false'){ 
             System.debug('The Vehicle Attributes...' +vehicleAttributes);
