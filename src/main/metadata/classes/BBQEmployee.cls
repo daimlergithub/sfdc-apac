@@ -5,7 +5,8 @@ Global class BBQEmployee {
         RestRequest request = RestContext.request;
         String email = request.requestURI.substring(request.requestURI.lastIndexOf('/')+1);
         Employee__c emp=[select id,Points__c,Rank__c,email__c,No_of_closed_Won__c,No_of_referral__c,
-        Rank_of_Employee_with_closed_won__c,Rank_of_Employee_with_referrals_made__c from Employee__c where email__c=:email];
+        				Rank_of_Employee_with_closed_won__c,Rank_of_Employee_with_referrals_made__c,ReferralsCreated__c,ReferralsWon__c 
+                        from Employee__c where email__c=:email];
         Map<String,String> response=new Map<String,String>();
         response.put('Email', emp.Email__c);
         response.put('Points', String.valueOf(emp.Points__c));
@@ -14,6 +15,8 @@ Global class BBQEmployee {
         response.put('NoofreferralscreatedthisQuarter', String.valueOf(emp.No_of_referral__c));
         response.put('RankofEmployeewithclosedwon', String.valueOf(emp.Rank_of_Employee_with_closed_won__c));
         response.put('RankofEmployeewithreferralsmade', String.valueOf(emp.Rank_of_Employee_with_referrals_made__c));
+        response.put('TotalNoOfReferralsCreated', String.valueOf(emp.ReferralsCreated__c));
+        response.put('TotalNoOfReferralsWon', String.valueOf(emp.ReferralsWon__c));
         
         return response;
     }

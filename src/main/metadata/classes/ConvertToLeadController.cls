@@ -21,7 +21,8 @@ public class ConvertToLeadController
     List<Campaign_Member__c> camListToUpdate = new List<Campaign_Member__c>();
     Public Static Boolean Campaigncheck = true;
     Public Static Boolean RetailCampaignid = true;
-    public user u;
+    public string url;
+    public user u{set;get;}
     @testvisible private String objectAPIName;
      public boolean displayPopup {get; set;}     
     
@@ -29,7 +30,9 @@ public class ConvertToLeadController
         displayPopup = false;    
     }     
     public void showPopup() {        
-        displayPopup = true;    
+        displayPopup = true;   
+        url=ApexPages.currentPage().getUrl();
+        system.debug('urlllllllll'+url);
     }
     
     public ConvertToLeadController() 
@@ -78,7 +81,9 @@ public class ConvertToLeadController
             this.isSelected = false;
         }
     }
-    
+    public PageReference CancelPop() {
+    return new PageReference('/' + campaignId);
+        }
     public PageReference cancel() {
         return new PageReference('/' + campaignId);
     }
@@ -324,6 +329,5 @@ public class ConvertToLeadController
         }
          
         return cLeadRec;
-    }
-    
+    }    
 }

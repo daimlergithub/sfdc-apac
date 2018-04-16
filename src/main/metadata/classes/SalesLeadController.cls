@@ -32,12 +32,14 @@ public with sharing class SalesLeadController {
     public list<Lead_Details__c> tradeVehc {get;set;}
     public list<Lead_Details__c> allVehicles = new list<Lead_Details__c>();
     public list<Vehicle_Relationship__c> vehRel {get;set;}
-     ApexPages.StandardController stdController;
+    ApexPages.StandardController stdController;
     public SalesLeadController(ApexPages.StandardController controller) {
-    
         if(chk != 1)isHide = true;
         if(chkcomp != 1)isHidecomp = true;
         opp = new opportunity();
+        string accID = ApexPages.currentPage().getParameters().get('accID');
+        if(accID.length() != 0)
+            opp.accountId = accID; 
         recTypeId = UtilRecordType.getRecordTypeIdByName('Opportunity', System.Label.Sales_Lead);
         User uObj = [SELECT Id,Market__c  FROM User WHERE Id=:UserInfo.getUserId()] ;
         opp.RecordTypeId = recTypeId;
@@ -49,33 +51,33 @@ public with sharing class SalesLeadController {
         Lead_Details__c tld = new Lead_Details__c();
         tld.type__c = 'Trade In';
         tradeVehc.add(tld);
+
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_TradeIn_Record_Type);
         tld.RecordTypeId = leadrecTypeId;
 
     }
     
-    //To add more records for Interested Vehicle
-    public PageReference AddIntRecord() {
+        //To add more records for Interested Vehicle
+        public PageReference AddIntRecord() {
         Lead_Details__c ld = new Lead_Details__c();
         ld.type__c = 'Interested';
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
         ld.RecordTypeId = leadrecTypeId;
         intVehicle.add(ld);
         return null;
-    }
+        }
     
-    //To add more records for Competitor Vehicle
-    public PageReference AddCompRecord() {
-        
+        //To add more records for Competitor Vehicle
+        public PageReference AddCompRecord() {
         Lead_Details__c cld = new Lead_Details__c();
         cld.type__c = 'Competitor';
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
         cld.RecordTypeId = leadrecTypeId;
         compVehc.add(cld);
         return null;
-    }
+        }
     
-    public void UpdateModInfo(){
+        public void UpdateModInfo(){
         set<id> carModel = new set<id>();
         set<id> compModel = new set<id>();
         allVehicles.addall(intVehicle);
@@ -99,13 +101,20 @@ public with sharing class SalesLeadController {
     
     //Function to populate current Vehicle details of the specif contact selected.
     public void Vehrel(){
-        //set<id> currveh = new set<id>();
         system.debug('contact: ' + opp.AccountID);
         
         vehRel = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
         system.debug('vehRel: ' + vehRel);
-        //  return vehRel;
-        //0015D0000092jWxQAI
+    }
+    //function to check Vehicle make in Tradin info is numeric.
+    public void Vehmake(){
+        valSuccess = true;
+          string  yom = tradeVehc[0].Year_of_Manufacture__c;
+        if (yom != null && (!yom.isNumeric() || yom.length() != 4))
+        {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, System.Label.IN_Year_Of_Make));
+            valSuccess = false;
+        }
     }
     
     public void PreferredChk(){
@@ -161,11 +170,12 @@ public with sharing class SalesLeadController {
     }
     
     public pageReference saveOpp(){
+        Vehmake();
         system.debug('valSuccess: '+valSuccess);
         if(valSuccess) {
             try{
                 DMLManagerService.insertAsSystem(opp);
-            }
+             }
             catch (DmlException e){
                 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
             }
@@ -179,21 +189,24 @@ public with sharing class SalesLeadController {
                 system.debug('comptmodel:' + compVehc[i].Car_Model__c);
                 if(compVehc[i].Car_Model_Competitor__c != null) allVehicles.add(compVehc[i]);
             }
+            system.debug('trade size' + tradeVehc.size());
             for(integer i=0;i<tradeVehc.size();i++){
-                system.debug('trademodel:' + tradeVehc[i].Car_Model__c);
+                system.debug('trademodel:' + tradeVehc[i].Trade_In_Vehicle__c);
                 if(tradeVehc[i].Trade_In_Vehicle__c != null) allVehicles.add(tradeVehc[i]);
             }
             
             for(Lead_Details__c l :allVehicles){
                 l.Related_Lead__c = opp.id;
             }
+
             try{
                 Insert allVehicles;
             }
             catch(DmlException e){
                 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
             }
-        }        
+
+        }    
         PageReference oppPage = new ApexPages.StandardController(opp).view();
         oppPage.setRedirect(true);
         return oppPage;
