@@ -9285,19 +9285,23 @@ IMAGE("/resource/RedLed","RedLed"),""))))</formula>
             <picklistValues>
                 <fullName>Valid</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Invalid</fullName>
                 <default>false</default>
+				<controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+				<controllingFieldValues>NZ</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>

@@ -13,6 +13,19 @@
         <accessLevel>Edit</accessLevel>
         <name>Campaign Member Sharing TH</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Campaign_Member_Sharing_MY</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>Campaign Member Sharing MY</name>
+    </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>MBJ_Campaign_Member_Share</fullName>
         <sharedTo>
