@@ -5,12 +5,19 @@
         <apex:pageBlock title="Sales Lead" mode="edit">
             <apex:pageMessages id="msg" />
         <!--------------  Lead Info Section -------------->
-            <apex:pageBlockSection title="Lead Information" columns="2">
+        <!--Sada Commented for ANZ Market as per Defect DF-17-->
+			<apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_LeadInfo}"  var="f">
                             <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
             
+            <apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.ANZSales_LeadInfo}"  var="f">
+                            <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+			
         <!--------------  Dealer Info Section -------------->
             <apex:pageBlockSection title="Dealer Information" columns="2">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DealerInfo}"  var="f">

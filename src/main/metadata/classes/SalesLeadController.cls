@@ -54,7 +54,11 @@ public with sharing class SalesLeadController {
 
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_TradeIn_Record_Type);
         tld.RecordTypeId = leadrecTypeId;
-
+	
+       if ( opp.market__c =='AU' || opp.market__c == 'NZ'){ //Sada Added as per Defect DF-17 for ANZ Market 
+            Date dueDate = System.today() +90;  
+                  opp.CloseDate =dueDate ;
+            }
     }
     
         //To add more records for Interested Vehicle
