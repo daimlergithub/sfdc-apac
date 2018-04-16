@@ -82,7 +82,7 @@
             <apex:pageBlockSection title="Interested Vehicle Information" columns="1">
              <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
             <apex:pageMessages id="pgmsg"/>  
-                <apex:commandButton value=" Add Interested Vehicle" action="{!AddIntRecord}" reRender="pb1" rendered="{!isHide}"/>
+                <apex:commandButton value=" Add Interested Vehicle" action="{!AddIntRecord}" reRender="pb1, pgmsg" rendered="{!isHide}"/>
                 <apex:pageBlockTable id="pb1" value="{!intVehicle}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Car Model">
                         <apex:inputField value="{!item.Car_Model__c}" onchange="UpdateModInfo(this)"/>
@@ -108,7 +108,7 @@
             <apex:pageBlockSection title="Competitor Vehicle Information" columns="1">
                 <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
                 <apex:pageMessages id="pgmsg1"/>
-                <apex:commandButton value=" Add Competitor Vehicle" action="{!AddCompRecord}" reRender="pb2" rendered="{!isHidecomp}"/>
+                <apex:commandButton value=" Add Competitor Vehicle" action="{!AddCompRecord}" reRender="pb2, pgmsg1" rendered="{!isHidecomp}"/>
                 <apex:pageBlockTable id="pb2" value="{!compVehc}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Car Model">
                         <apex:inputField value="{!item.Car_Model_Competitor__c}" onchange="UpdateModInfo(this)"/>
