@@ -64355,92 +64355,6 @@ NOT(ISBLANK(TEXT(Business_Number_Type__c)))
         <errorMessage>CIN Number should be less than or equal to 100 characters.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>CP_Contact_Background_Check</fullName>
-        <active>false</active>
-        <description>/* 
-Created by: Mouse Liu
-Used by:  US-CP-001
-Function: 
-1. CP means Contact Portfolio 
-2. Contact Backgroud can only be filled, if Gov Background is flaged. 
-Used in: 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/</description>
-        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-AND ($Profile.Name != 'IntegrationAPI',
-	RecordType.Name = 'Person Account',
-	Gov_Background__c = false,
-	
-	AND (
-		NOT(ISNULL(Contact_Background__c)),
-		NOT(ISBLANK(Contact_Background__c))
-	)
-)</errorConditionFormula>
-        <errorDisplayField>Gov_Background__c</errorDisplayField>
-        <errorMessage>If Gov Background is not flaged, Contact Background could't be filled.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>CP_Customer_Phone_Check</fullName>
-        <active>false</active>
-        <description>/* 
-Created by: Mouse Liu
-Used by: Person Account Record Type (US-CP-001)
-Function: 1. At least 1 customer must have at least one phone field populated
-		  2. CP means Contact Portfolio 
-Used in: 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/</description>
-        <errorConditionFormula>OR ( 
-AND ( 
-OR ( 
-ISNULL(Phone), 
-ISBLANK(Phone) 
-), 
-OR ( 
-ISNULL(PersonOtherPhone), 
-ISBLANK(PersonOtherPhone) 
-), 
-OR ( 
-ISNULL(PersonHomePhone), 
-ISBLANK(PersonHomePhone) 
-), 
-OR ( 
-ISNULL(PersonMobilePhone), 
-ISBLANK(PersonMobilePhone) 
-), 
-$Profile.Name &lt;&gt; 'IntegrationAPI', 
-RecordType.DeveloperName = 'PersonAccount'
-),
-AND ( 
-OR ( 
-ISNULL(Retail_Fax__c), 
-ISBLANK(Retail_Fax__c) 
-), 
-OR ( 
-ISNULL(Retail_Home_Phone__c), 
-ISBLANK(Retail_Home_Phone__c) 
-), 
-OR ( 
-ISNULL(Retail_Mobile__c), 
-ISBLANK(Retail_Mobile__c) 
-), 
-OR ( 
-ISNULL(Retail_Work_Phone__c), 
-ISBLANK(Retail_Work_Phone__c) 
-), 
-$Profile.Name &lt;&gt; 'IntegrationAPI', 
-RecordType.DeveloperName = 'ThirdParty' 
-)
-)</errorConditionFormula>
-        <errorMessage>Customer must have at least one phone field populated.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Commercial_Reg_No_Or_Vat_No_Validation</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -64482,17 +64396,6 @@ REGEX(Company_Name_Native_1__c, "[ァアィイゥウェエォオカガキギク�
 MD__c = 'JP',RecordType.DeveloperName ='Company')</errorConditionFormula>
         <errorDisplayField>Company_Name_Native_1__c</errorDisplayField>
         <errorMessage>Company Name Native should be KANA Characters</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Couldnot_change_Dealer_Group</fullName>
-        <active>false</active>
-        <description>HLD Dealer 004</description>
-        <errorConditionFormula>AND(
-ISCHANGED(Dealer_Group__c),
-$Profile.Name != 'IntegrationAPI',
-NOT(Dealer_Active__c)
-)</errorConditionFormula>
-        <errorMessage>You couldn't update Dealer Group when Dealer is inactive.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Customer_Lifecycle_Phase_Discard</fullName>
@@ -64585,35 +64488,11 @@ AND(RecordType.DeveloperName = 'Dealer', ISCHANGED(Name), $Profile.Name != 'Inte
         <errorMessage>Please enter Value for Details of Acquisition</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Digits_Validation_For_Extension_Number</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT( ISNUMBER(Extension_Number__c) ), 
-NOT( ISBLANK(Extension_Number__c) ) )</errorConditionFormula>
-        <errorDisplayField>Extension_Number__c</errorDisplayField>
-        <errorMessage>Phone number must contain digits only.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Digits_Validation_For_Retail_Home_Phone</fullName>
         <active>false</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Home_Phone__c) ),
       NOT( ISBLANK(Retail_Home_Phone__c) ) )</errorConditionFormula>
         <errorDisplayField>Retail_Home_Phone__c</errorDisplayField>
-        <errorMessage>Phone number must contain digits only.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Digits_Validation_for_Retail_Mobile</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Mobile__c) ), 
-NOT( ISBLANK(Retail_Mobile__c ) ) )</errorConditionFormula>
-        <errorDisplayField>Retail_Mobile__c</errorDisplayField>
-        <errorMessage>Phone number must contain digits only.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Digits_Validation_for_Retail_Work_Phone</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Work_Phone__c) ), 
-NOT( ISBLANK(Retail_Work_Phone__c) ) )</errorConditionFormula>
-        <errorDisplayField>Retail_Work_Phone__c</errorDisplayField>
         <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>
@@ -64624,25 +64503,6 @@ NOT( ISBLANK(Retail_Work_Phone__c) ) )</errorConditionFormula>
 OR(Do_Not_Call_Reason__c=null,Do_Not_Call_Reason__c=""))</errorConditionFormula>
         <errorDisplayField>Do_Not_Call_Reason__c</errorDisplayField>
         <errorMessage>If PersonDoNotCall is Checked, "Do Not Call Reason" is mandatory.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Driver_License_Year</fullName>
-        <active>false</active>
-        <description>The driver's license year is not in correct format</description>
-        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-AND(
-OR(
-AND(
-NOT(REGEX( Driver_License_Year__c , "[0-9]{4}")),
-NOT( ISBLANK(Driver_License_Year__c ) )
-),
-AND(REGEX( Driver_License_Year__c , "[0-9]{4}"), 
-DATE(VALUE(Driver_License_Year__c), 1, 1) &gt; TODAY()  )
-),
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
-        <errorDisplayField>Driver_License_Year__c</errorDisplayField>
-        <errorMessage>The driver's license year is not in correct format</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Email3_Other_EMail</fullName>
@@ -64780,25 +64640,6 @@ MD__c = 'JP'
         <errorMessage>Fax should start with "0".</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Fax_Validation</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Fax__c) ), 
-NOT( ISBLANK(Retail_Fax__c) ) )</errorConditionFormula>
-        <errorDisplayField>Retail_Fax__c</errorDisplayField>
-        <errorMessage>Fax must contain digits only.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Fax_Validation_TH</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND(NOT( ISNUMBER(Fax) ), 
-		NOT( ISBLANK(Fax) ) ,
-		$Profile.Name != 'IntegrationAPI', 
-		MD__c = 'TH'
-		)</errorConditionFormula>
-        <errorDisplayField>Fax</errorDisplayField>
-        <errorMessage>Fax must contain digits only.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Finance_Sanction_Comment_required</fullName>
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Finance_Sanction__c),ISNEW()),
@@ -64809,15 +64650,6 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>Finance_Sanction_Comment__c</errorDisplayField>
         <errorMessage>If YH Flag(Finance) is checked, YH memo needs to be entered.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>FirstName_Mandatory</fullName>
-        <active>false</active>
-        <description>First Name is mandatory while creating person account.</description>
-        <errorConditionFormula>AND(MD__c ='KR',ISBLANK(FirstName),RecordType.DeveloperName = 'PersonAccount',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
-        <errorDisplayField>FirstName</errorDisplayField>
-        <errorMessage>Please enter First Name.</errorMessage>
-    </validationRules>
-	
     <validationRules>
         <fullName>FirstName_NoOfDigits</fullName>
         <active>true</active>
@@ -65092,26 +64924,6 @@ Free call # : 1800 + [XXXXXX] + 3 digits overdial.
 Smart Call #: 1300 + [XXXXXX] + 3 digits overdial.
 Smart Call #: 13 + [XXXX] + 1 digit overdial.
 Valid Area Code: 3,4,6,7 and 9</errorMessage>
-    </validationRules>
-	
-    <validationRules>
-        <fullName>HomePhone_Format_TH</fullName>
-        <active>false</active>
-        <description>Home Phone must be in any of the following formats :	
-1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</description>
-        <errorConditionFormula>AND( 
-$Profile.Name != 'IntegrationAPI', 
-MD__c = 'TH', 
-LEFT ( Individual_Home_Phone__c, 3) = "+66", 
-NOT(ISBLANK(Individual_Home_Phone__c)), 
-NOT( 
-( 
-REGEX(Individual_Home_Phone__c, "[+0-9]{3}[0-9]{8}") 
-) 
-) 
-)</errorConditionFormula>
-        <errorMessage>Home Phone must be in any of the following formats :	
-1. Province code (+xx) And PhoneNumber 8 (xxxxxxxxx)digits only</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Home_Phone_2_NoChar</fullName>
