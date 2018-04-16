@@ -11507,7 +11507,7 @@ alert(updateResult[0].errors.message);
 }
 var correlation = "{!Account_Link__c.CorrelationID__c}";
 
-if(correlation != " " || correlation !=null){
+if(correlation != ''){
 updateAccountLink();
 
 }
