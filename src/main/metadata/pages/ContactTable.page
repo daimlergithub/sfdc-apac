@@ -852,9 +852,8 @@
                        </apex:outputPanel>          
                                                            
                        </td>        
-                       <td><apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />        
-                           <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>       
-                       </td>        
+                       <td>    <!-- Soumya Removed status as per Defect DF-19  on 2018/April/16-->
+					   </td>       
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />        
                                                     
                        </td>            
