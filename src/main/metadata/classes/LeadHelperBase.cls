@@ -165,19 +165,25 @@ public without sharing class  LeadHelperBase{
         }
     }
 
-    //this method is common for before update and before insert of leadreassigning functionality   
+     //this method is common for before update and before insert of leadreassigning functionality   
     public Static void updateOwnership(set<id> acc, List<Lead__c> leadlist, string Market){
-        Map<id, id> accUserMap = new Map<id, id>();
+        Map<id, user> accUserMap = new Map<id, user>();
         if(acc.size()>0){
-            accUserMap = getAccountToDLGKUser(acc);
+            accUserMap = getAccountToDLGKUserNew(acc);
         }
         for(Lead__c lists:leadlist){
-            if(accUserMap.get(lists.assigned_dealer__c) !=null && lists.md__c==Market){
-                lists.ownerID = accUserMap.get(lists.assigned_dealer__c); 
-            } 
-			else if(lists.assigned_dealer__c!=null &&  accUserMap.get(lists.assigned_dealer__c) ==null){
-              //  lists.addError('The Dealer Lead Gate Keeper user is either not present or is inactive.');
-            }														 
+      for(user i: accUserMap.values()){
+        if(lists.recordtypeid==salesRecordTypeId){
+          if(lists.assigned_dealer__c !=null && lists.md__c==Market && lists.assigned_dealer__c==i.accountid && i.contact.Dealer_Lead_Gate_Keeper__c==true){
+            lists.ownerID = i.id; 
+          } 
+        }
+        else if(lists.recordtypeid==afterSalesRecordTypeId){
+          if(lists.assigned_dealer__c !=null && lists.md__c==Market && lists.assigned_dealer__c==i.accountid && i.contact.Dealer_Aftersales_Manager__c==true){
+            lists.ownerID = i.id; 
+          } 
+        }
+      }
         }
     }
 	
@@ -195,7 +201,22 @@ public without sharing class  LeadHelperBase{
         
         return mAccToDLGKUser;
     }															  
-
+	
+	public Static Map<ID, user> getAccountToDLGKUserNew(Set<ID> Accid){
+        Map<ID,ID> mAccToDLGKUser = new Map<ID,ID>();
+        Map<ID,user> mContactToUsr = new Map<ID,user>();
+        
+        for(User user : [Select id, contact.AccountID, ContactID,contact.Dealer_Aftersales_Manager__c,contact.Dealer_Lead_Gate_Keeper__c from user where contact.AccountID in :Accid and isActive = true]){
+            mContactToUsr.put(user.contactID, user);
+        }
+        
+       /* for(Contact con : [Select id, AccountID,Dealer_Aftersales_Manager__c,Dealer_Lead_Gate_Keeper__c from contact where AccountID in :Accid and ( Dealer_Lead_Gate_Keeper__c = true || Dealer_Aftersales_Manager__c=true)]){
+            mAccToDLGKUser.put(con.AccountID, mContactToUsr.get(con.id));
+        }
+        */
+        return mContactToUsr;
+    }  
+	
     /* Data Migration Explicit Fix - Santosh Mohanty */
     public static void updatemarket(List<Lead__c> leadList){       
         
