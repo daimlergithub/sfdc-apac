@@ -1,4 +1,4 @@
-<apex:page standardController="Opportunity" extensions="OpportunityInlineVehicleController" >
+<apex:page standardController="Opportunity" extensions="OpportunityInlineVehicleController" lightningStylesheets="true">
   <apex:form >
       <apex:pageBlock rendered="{!IF($Permission.INGeneric, true, false)}">
           <!-- Interested Vehicle -->
