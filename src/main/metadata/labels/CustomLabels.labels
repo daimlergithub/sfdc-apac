@@ -4173,6 +4173,14 @@ please contact the number below.</value>
         <value>Enter all the required information above for adding vehicle details.</value>
     </labels>
     <labels>
+        <fullName>IN_Year_Of_Make</fullName>
+        <categories>IN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_Year_Of_Make</shortDescription>
+        <value>Year of manufacture in Trade-in Section should be Numeric and 4 digit long.</value>
+    </labels>
+    <labels>
         <fullName>I_don_t_know_no_statement</fullName>
         <language>en_US</language>
         <protected>false</protected>
