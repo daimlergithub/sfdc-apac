@@ -138,10 +138,6 @@
                 <behavior>Edit</behavior>
                 <field>Foundation_Date__c</field>
             </layoutItems>
-			 <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Deceased__c</field>
-            </layoutItems>
 			<layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
