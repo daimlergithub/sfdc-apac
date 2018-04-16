@@ -5661,6 +5661,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Accident repair</fullName>
@@ -15781,7 +15782,7 @@ ISBLANK(Contact__c))</errorConditionFormula>
         <active>true</active>
         <description>Lead Status, Lead Type is mandatory for Sales Leads.</description>
         <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), OR(RecordType.Name = 'Sales Lead'), 
+$Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
 ISPICKVAL( Lead_Type__c ,'') )</errorConditionFormula>
         <errorMessage>Please fill Lead Type to proceed further</errorMessage>
     </validationRules>
