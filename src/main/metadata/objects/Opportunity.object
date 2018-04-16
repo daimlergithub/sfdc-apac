@@ -68,7 +68,7 @@
         <values>
             <fullName>Closed Won</fullName>
             <default>false</default>
-        </values>
+        </values>		
         <values>
             <fullName>New</fullName>
             <default>false</default>
@@ -104,12 +104,12 @@
         <values>
             <fullName>Closed Lost</fullName>
             <default>false</default>
-        </values>
+        </values>		
         <values>
             <fullName>Closed Won</fullName>
             <default>false</default>
-        </values>
-        <values>
+        </values>		
+		<values>
             <fullName>Invoiced</fullName>
             <default>false</default>
         </values>
@@ -501,6 +501,161 @@
         <label>GenericAftersales_LeadInfo</label>
     </fieldSets>
     <fieldSets>
+        <fullName>ANZAftersales_LeadInfo</fullName>
+        <description>ANZ Lead information section for generic aftersales lead layout</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_No__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StageName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Entity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Case__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Last_Successful_Call__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Source__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_DataSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Priority__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_DataSubSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type_of_Sale__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Desired_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Average_Driving__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_To__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CAC_Lost_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lost_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Referal_Referee_Note__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Reason_text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Is_Active__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CampaignId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Situation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Delivery_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_To_Competitor_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_Co_Dealer_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_OEM_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Express_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Form_Title__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ANZAftersales_LeadInfo</label>
+    </fieldSets>	
+    <fieldSets>
         <fullName>GenericAftersales_LeadProces</fullName>
         <description>generic aftersales lead layout lead processing information</description>
         <displayedFields>
@@ -880,6 +1035,171 @@
         </displayedFields>
         <label>Sales Lead Generic Lead Info</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>ANZSales_LeadInfo</fullName>
+        <description>Used in new Sales lead and Edit Sales lead - Generic layout</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_No__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StageName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Entity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Case__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Priority__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_DataSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type_of_Sale__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Desired_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Referal_Referee_Note__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CAC_Lost_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lost_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_DataSubSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Contact_Time__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Reason_text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Test_Drive_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Last_Successful_Call__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_To__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Situation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CampaignId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Is_Active__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_To_Competitor_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Average_Driving__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_Co_Dealer_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Referal_Referee_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Delivery_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_OEM_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payment_Mode__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Form_Title__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ANZ Sales Lead Info</label>
+    </fieldSets>	
     <fieldSets>
         <fullName>GenericSales_ProcessInfo</fullName>
         <description>Generic Sales Layout - Processing Info</description>
@@ -2792,8 +3112,64 @@
         <externalId>false</externalId>
         <label>Lost Reason</label>
         <picklist>
+         <picklistValues>
+                <fullName>Customer can not be reached</fullName>
+                <default>false</default>
+            </picklistValues>	
+            <picklistValues>
+                <fullName>Interest Lost</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Out of Campaign Period</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>Bought other brand</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Price not accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Out of Stock</fullName>
+                <default>false</default>
+            </picklistValues>	
+            <picklistValues>
+                <fullName>Financing failed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unsatisfied with service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Double lead</fullName>
+                <default>false</default>
+            </picklistValues>		
+            <picklistValues>
+                <fullName>Other reasons</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Bought in ISP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase plan postponed</fullName>
+                <default>false</default>
+            </picklistValues>		
+            <picklistValues>
+                <fullName>Bought MB Parts elsewhere</fullName>
+                <default>false</default>
+            </picklistValues>	
+            <picklistValues>
+                <fullName>Location is not convenient</fullName>
+                <default>false</default>
+            </picklistValues>			
+			<picklistValues>
+                <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2801,19 +3177,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Bought MB Parts elsewhere</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bought other brand</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Cash Payment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer can not be reached</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2825,15 +3189,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Double lead</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Duplicate for un-reported show-up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Financing failed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2849,23 +3205,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Interest Lost</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid customer data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>ISP to Purchased under Service Contract</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Lead Merge</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Location is not convenient</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2885,27 +3229,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Other reasons</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Out of Campaign Period</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Out of Stock</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Price not accepted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Purchased Vehicle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purchase plan postponed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2936,20 +3260,13 @@
                 <fullName>Unsatisfied with Salesperson service</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Unsatisfied with service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>true</sorted>
+             <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	
-	
-	
 	<fields>
         <fullName>Lost_Sub_Type__c</fullName>
         <externalId>false</externalId>
@@ -7619,14 +7936,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <won>false</won>
             </picklistValues>
             <picklistValues>
-                <fullName>Closed Won</fullName>
-                <default>false</default>
-                <closed>true</closed>
-                <forecastCategory>Closed</forecastCategory>
-                <probability>100</probability>
-                <won>true</won>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Closed Lost</fullName>
                 <default>false</default>
                 <closed>true</closed>
@@ -7634,6 +7943,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <probability>0</probability>
                 <won>false</won>
             </picklistValues>
+            <picklistValues>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+                <closed>true</closed>
+                <forecastCategory>Closed</forecastCategory>
+                <probability>100</probability>
+                <won>true</won>
+            </picklistValues>			
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9560,39 +9877,39 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-                <fullName>Bought MB Parts elsewhere</fullName>
+                <fullName>Customer can not be reached</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bought in ISP</fullName>
+                <fullName>Interest Lost</fullName>
+                <default>false</default>
+            </values>	
+            <values>
+                <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Customer can not be reached</fullName>
+			<values>
+                <fullName>Price not accepted</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Double lead</fullName>
+			<values>
+                <fullName>Out of Stock</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Financing failed</fullName>
                 <default>false</default>
-            </values>
+            </values>	
             <values>
-                <fullName>Interest Lost</fullName>
+                <fullName>Unsatisfied with service</fullName>
                 <default>false</default>
-            </values>
+            </values>		
             <values>
-                <fullName>Invalid customer data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Location is not convenient</fullName>
+                <fullName>Double lead</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9600,15 +9917,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Out of Campaign Period</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Out of Stock</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Price not accepted</fullName>
+                <fullName>Bought in ISP</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9616,11 +9925,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsatisfied with service</fullName>
+                <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Bought MB Parts elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location is not convenient</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
-        <picklistValues>
+	     <picklistValues>
             <picklist>Competitor_Vehicle_Brand__c</picklist>
             <values>
                 <fullName>Audi</fullName>
@@ -13460,39 +13777,39 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-                <fullName>Bought MB Parts elsewhere</fullName>
+                <fullName>Customer can not be reached</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bought in ISP</fullName>
+                <fullName>Interest Lost</fullName>
+                <default>false</default>
+            </values>	
+            <values>
+                <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Customer can not be reached</fullName>
+			<values>
+                <fullName>Price not accepted</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Double lead</fullName>
+			<values>
+                <fullName>Out of Stock</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Financing failed</fullName>
                 <default>false</default>
-            </values>
+            </values>	
             <values>
-                <fullName>Interest Lost</fullName>
+                <fullName>Unsatisfied with service</fullName>
                 <default>false</default>
-            </values>
+            </values>		
             <values>
-                <fullName>Invalid customer data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Location is not convenient</fullName>
+                <fullName>Double lead</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13500,15 +13817,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Out of Campaign Period</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Out of Stock</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Price not accepted</fullName>
+                <fullName>Bought in ISP</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13516,11 +13825,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsatisfied with service</fullName>
+                <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Bought MB Parts elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location is not convenient</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Competitor_Vehicle_Brand__c</picklist>
             <values>
                 <fullName>Audi</fullName>
@@ -15821,7 +16138,7 @@ $Profile.Name != 'IntegrationAPI',
 OR($Permission.AUGeneric,$Permission.NZGeneric),
 OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
 ISPICKVAL( StageName ,'Closed Lost') &amp;&amp; (ISPICKVAL(CAC_Lost_Reason__c,"" ) ||ISPICKVAL(Lost_Sub_Type__c,"" )) )</errorConditionFormula>
-        <errorMessage>Lost sub type and Reason is mandatory when status is "Closed Lost"</errorMessage>
+        <errorMessage>Lost sub type and Reason is mandatory when stage is Closed Lost</errorMessage>
     </validationRules>
 	
 	

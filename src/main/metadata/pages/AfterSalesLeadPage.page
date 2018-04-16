@@ -5,11 +5,17 @@
         <apex:pageBlock title="AfterSales Lead" mode="edit">
             <apex:pageMessages id="msg" />
         <!--------------  Lead Info Section -------------->
-            <apex:pageBlockSection title="Lead Information" columns="2">
+		<!--Sada Commented for ANZ Market as per Defect DF-17-->
+			<apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericAftersales_LeadInfo}"  var="f">
                     <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}" rendered="{!IF(AND(f.label != 'Lead Record Type',f.label != 'Lead Owner'),true,false)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
+            <apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.ANZAftersales_LeadInfo}"  var="f">
+                    <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}" rendered="{!IF(AND(f.label != 'Lead Record Type',f.label != 'Lead Owner'),true,false)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection> 
           
         <!--------------  Dealer Info Section -------------->
             <apex:pageBlockSection title="Dealer Information" columns="2">
