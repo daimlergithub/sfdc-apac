@@ -3706,6 +3706,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>OpportunityInlineVehicleController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+    <classAccesses>
         <apexClass>revokesharingToRetailCopies</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -5146,7 +5150,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Email_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5896,7 +5900,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Mobile_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -29481,6 +29485,10 @@
         <apexPage>NewVehicleRelationship</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>OpportunityInlineVehicle</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>	
     <pageAccesses>
         <apexPage>OwnerLookup</apexPage>
         <enabled>false</enabled>

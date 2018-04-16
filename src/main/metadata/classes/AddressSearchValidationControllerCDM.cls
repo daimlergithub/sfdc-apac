@@ -24,16 +24,19 @@ public class AddressSearchValidationControllerCDM
     public Boolean Editmode {get;set;}
     public Boolean personrectype {get;set;}
     public Boolean companyrectype {get;set;}
-    
+    public List <SelectOption> lstDistrict {get;set;}
+    public List < SelectOption > lstSubDistrict {get;set;}
+    public List < SelectOption > lstCity {get;set;}
     public String requestLabel{get;set;}
     public String LanguageSelected{get; set;}
     public List<SelectOption> lstProvince{get; set;}
     //public List<SelectOption> lstCountry{get; set;}        
-    public List<SelectOption> lstDistrict{get; set;}
+    public boolean Address_Validated_Flag {get;set;}
     Public Boolean Validation;
-    
+    public String addresspicklist {get;set;}
     public String country {get; set;}
     public String district {get;set;}
+    public String city {get;set;}
     public String subdistrict {get;set;}
     public String zip {get;set;}
     public String province {get;set;}
@@ -51,7 +54,8 @@ public class AddressSearchValidationControllerCDM
     public String faxphoneNumber{get;set;}
     public String faxAreaCode{get;set;} 
     Public User u{get;set;}
-    
+    public boolean firstsave {get;set;}
+    public boolean secondsave {get;set;}
     public String market{get;set;}
     public boolean hAreaBoolean{get;set;}
     Public boolean wAreaBoolean{get;set;}
@@ -118,6 +122,36 @@ public class AddressSearchValidationControllerCDM
             objAccount.Market__c=market;
             LoadProvince();
         }
+        //Added for Turkey Market
+        if (market == Label.TR) {
+            firstsave = false;
+            secondsave = true;
+            mbCountryCode = Label.TRPhoneCountryCode;
+            hmCountryCode = Label.TRPhoneCountryCode;
+            wkCountryCode = Label.TRPhoneCountryCode;
+            faxCountryCode = Label.TRPhoneCountryCode;
+            AddressObj.Country__c = Label.TRCountry;
+            objAccount.Country__c = Label.TRCountry;
+            objAccount.MD__C = market;
+            objAccount.Status__c = Label.ProspectStatus;
+           
+            lstCity = new List < SelectOption > ();
+            Set < string > setCities = new set < string > ();
+            lstCity.add(new SelectOption('--Select--', '--Select--'));
+            for (RegionMasterInfo__c lsttempProvince: [select id, City__c from RegionMasterInfo__c where Market__c =: market order by City__c asc]) {
+                if (!setCities.contains(lsttempProvince.City__c)) {
+                    lstCity.add(new SelectOption(lsttempProvince.City__c, lsttempProvince.City__c));
+                    setCities.add(lsttempProvince.City__c);
+                }
+            }
+            lstProvince = new List < SelectOption > ();
+            lstDistrict = new List < SelectOption > ();
+            district = '--Select--';
+            province = '--Select--';
+        } else {
+            firstsave = false;
+            secondsave = true;
+        }
         DedupAccountList= new List<account>();      
         displayAccList=new list<account>();     
         startIndex=0;               
@@ -178,7 +212,7 @@ public class AddressSearchValidationControllerCDM
     
     public void ShowHideFields()
     {
-        if(market == System.Label.IN)
+        if(market == System.Label.IN ||market == System.Label.TR)
         {
             if(AddressObj.Foreign_Nationals__c == true ){
                 
@@ -186,7 +220,16 @@ public class AddressSearchValidationControllerCDM
                 AddressObj.Country__c = '--None--';
                 province='';
                 district='';
-                
+                zip = '';
+                city = '';
+
+            }
+            else if (market == System.Label.TR && AddressObj.Country__c != Label.TRCountry) {
+                IsForeignNational = true;
+                district = '';
+                province = '';
+                zip = '';
+                city = '';
             }
             else{
                 IsForeignNational=false;
@@ -211,6 +254,7 @@ public class AddressSearchValidationControllerCDM
         u = [SELECT Id,Market__c,ContactId  FROM User WHERE Id=:UserInfo.getUserId()] ;
         
         market = u.Market__c;
+
     }
     
     public Boolean checkForeignNational(){
@@ -236,6 +280,414 @@ public class AddressSearchValidationControllerCDM
         }
         return true;
     }
+    
+    //Social Id Validation for Turkey Market
+     Public boolean validateSocialIdTR() {
+        Integer x1 = 0, x2 = 0, x3 = 0, x4 = 0, x5 = 0, x6 = 0, x7 = 0, x8 = 0, x9 = 0, x10 = 0, x11 = 0;
+        String socId = String.valueof(objAccount.Social_Id__c);
+        if (objAccount.Social_Id__c != null && socId != '' && string.valueof(objAccount.Social_Id__c).length() == 11 && string.valueof(objAccount.Social_Id__c).isNumeric()) {
+            x1 = Integer.valueOf(socId.mid(0, 1));
+            x2 = Integer.valueOf(socId.mid(1, 1));
+            x3 = Integer.valueOf(socId.mid(2, 1));
+            x4 = Integer.valueOf(socId.mid(3, 1));
+            x5 = Integer.valueOf(socId.mid(4, 1));
+            x6 = Integer.valueOf(socId.mid(5, 1));
+            x7 = Integer.valueOf(socId.mid(6, 1));
+            x8 = Integer.valueOf(socId.mid(7, 1));
+            x9 = Integer.valueOf(socId.mid(8, 1));
+            x10 = Integer.valueOf(socId.mid(9, 1));
+            x11 = Integer.valueOf(socId.mid(10, 1));
+            Integer temp1 = ((x1 + x3 + x5 + x7 + x9) * 7) - (x2 + x4 + x6 + x8);
+            Integer temp2 = math.mod(temp1, 10);
+            Integer temp3 = (x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x9 + x10 + x11);
+            Integer temp4 = math.mod(temp3, 10);
+            if (x10 == temp2 && x11 == temp4) {
+                return true;
+            } else return false;
+        } else
+            return false;
+       // return false;
+    }
+    //VAT No Validation for Turkey Market
+    Public boolean validateVATNoTR() {
+        Integer x1 = 0, x2 = 0, x3 = 0, x4 = 0, x5 = 0, x6 = 0, x7 = 0, x8 = 0, x9 = 0;
+        Integer x11 = 0, x22 = 0, x33 = 0, x44 = 0, x55 = 0, x66 = 0, x77 = 0, x88 = 0, x99 = 0,V_Last_Digit = 0, toplam = 0;
+        String socId = String.valueof(objAccount.Vat_No__c);
+        system.debug(socId+'------>');
+        if (objAccount.Vat_No__c != null && socId != '' && string.valueof(objAccount.Vat_No__c).length() == 10 && string.valueof(objAccount.Vat_No__c).isNumeric()) {
+            x1 = Math.Mod((Integer.valueOf(socId.mid(0, 1))+9),10);
+            x2 = Math.Mod((Integer.valueOf(socId.mid(1, 1))+8),10);
+            x3 = Math.Mod((Integer.valueOf(socId.mid(2, 1))+7),10);
+            x4 = Math.Mod((Integer.valueOf(socId.mid(3, 1))+6),10);
+            x5 = Math.Mod((Integer.valueOf(socId.mid(4, 1))+5),10);
+            x6 = Math.Mod((Integer.valueOf(socId.mid(5, 1))+4),10);
+            x7 = Math.Mod((Integer.valueOf(socId.mid(6, 1))+3),10);
+            x8 = Math.Mod((Integer.valueOf(socId.mid(7, 1))+2),10);
+            x9 = Math.Mod((Integer.valueOf(socId.mid(8, 1))+1),10);
+            V_Last_Digit = Integer.valueOf(socId.mid(9, 1));
+            x11 = Math.Mod((x1*512),9);
+            x22 = Math.Mod((x2*256),9);
+            x33 = Math.Mod((x3*128),9);
+            x44 = Math.Mod((x4*64),9);
+            x55 = Math.Mod((x5*32),9);
+            x66 = Math.Mod((x6*16),9);
+            x77 = Math.Mod((x7*8),9);
+            x88 = Math.Mod((x8*4),9);
+            x99 = Math.Mod((x9*2),9);
+            if(x1 != 0 &&  x11 == 0) x11 = 9;
+            if(x2 != 0 &&  x22 == 0) x22 = 9;
+            if(x3 != 0 &&  x33 == 0) x33 = 9;
+            if(x4 != 0 &&  x44 == 0) x44 = 9;
+            if(x5 != 0 &&  x55 == 0) x55 = 9;
+            if(x6 != 0 &&  x66 == 0) x66 = 9;
+            if(x7 != 0 &&  x77 == 0) x77 = 9;
+            if(x8 != 0 &&  x88 == 0) x88 = 9;
+            if(x9 != 0 &&  x99 == 0) x99 = 9;
+            toplam = x11 + x22 + x33 + x44 + x55 + x66 + x77 + x88 + x99;
+            
+            if (Math.mod(toplam,10) == 0)  toplam = 0;
+            else toplam = (10 - Math.mod(toplam,10));
+            if(toplam == V_Last_Digit) return true;
+            else return false;
+        } else
+            return false;
+        //return false;
+    }
+ 
+    /**  Save Account based on two scenarios        
+     * 1. With Validated Address information record.     
+     * 2.Without Address record.     
+     **  Created By: Hildaa    
+     **  Date:
+     **/
+    public pagereference saveAccountTR() {
+        if (addresspicklist != null)
+            AddressObj.Address_Type__c = addresspicklist;
+        Validation = false;
+        if ((objAccount.Name == null || objAccount.Data_Source__c == null || objAccount.Status__c == null || wkphoneNumber == null || city == '--Select--' || city == null) && Recordtype == Label.Company) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CompanyAccountSearchErrorMessage));
+            validation = true;
+        } else if ((objAccount.FirstName == null || objAccount.LastName == null || objAccount.Data_Source__c == null || objAccount.Status__c == null || city == '--Select--' || city == null) && Recordtype == Label.PersonAccount) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchErrorMessage));
+            validation = true;
+        } else if (objAccount.Social_Id__c != null && !validateSocialIdTR()) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.SocialIdError));
+            validation = true;
+        }
+        else if (objAccount.Vat_No__c != null && !validateVATNoTR()) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.VATNOError));
+            validation = true;
+        }
+        else if (objAccount.Email__c == null && objAccount.Opt_In_Email__c && recordType != label.Company) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TREmail));
+            validation = true;
+        }
+        else if (objAccount.Opt_In_SMS__c  && objAccount.Mobile__c ==  null && recordType != label.Company) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRSMS));
+            validation = true;
+        }
+        else if (objAccount.Opt_In_Mobile__c == null && (hmphoneNumber == null && mbphoneNumber == null && wkphoneNumber == null) && recordType != label.Company) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRPhone));
+            validation = true;
+        }
+        else if(Recordtype == Label.PersonAccount && !objAccount.opt_in_email__c && !objAccount.opt_in_mobile__c && !objAccount.opt_in_sms__c && !objAccount.Postal_Opt_In__c)
+            {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter a valid DoC before saving!'));
+                    validation = true;
+            }
+        system.debug(validateSocialIdTR() + ' final result');
+        // Save record without Address record if no value is Entered in Address section     
+        if (city == null || city == '--Select--') {
+            if (string.isnotblank(AddressObj.Address_Line_1__c) ||
+                string.isnotblank(AddressObj.Address_Line_2__c) || string.isnotblank(AddressObj.Address_Line_3__c) ||
+                string.isnotblank(district) ||
+                string.isnotblank(Zip) ||
+                string.isnotblank(province)){
+
+
+
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select the City'));
+                Validation = true;
+            } else {
+                if (SaveAccountDetailsTR()) {
+                    PageReference pageRef = new PageReference('/' + objAccount.Id);
+                    return PageRef;
+                }
+            }
+        }
+
+        // Save record with Address details Validating the Address Details 
+        boolean check = false;
+        If(city != null || city != '--Select--') {
+
+            try {
+                if (recordType == Label.Company)
+                    recordTypeId = RecordTypeAccessService.getRecordTypeId('Account', Label.Company);
+                else
+                    recordTypeId = RecordTypeAccessService.getRecordTypeId('Account', Label.PersonAccount);
+
+
+                objAccount.RecordTypeId = recordTypeId;
+                ValidateAddressTR();
+
+                if (Validation == False) {
+                    refreshPage = true;
+                    if (SaveAccountDetailsTR()) {
+                        AddressObj.Customer__c = objAccount.id;
+                        AddressObj.Preferred__c = true;
+                        DMLManagerService.insertAsSystem(AddressObj);
+                        //insert AddressObj;      
+                        PageReference pageRef = new PageReference('/' + objAccount.Id);
+                        return PageRef;
+                    }
+                }
+            } catch (DMLException e) {
+
+                refreshPage = false;
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getDMlMessage(0));
+            }
+        }
+        return null;
+    }
+    public void optInFields() {
+        if(!objAccount.opt_in_mobile__c){
+            if(!objAccount.opt_in_sms__c)
+                objAccount.Mobile__c='';
+            objAccount.Individual_Home_Phone__c='';
+            objAccount.Work_Phone__c='';
+        }
+        if(!objAccount.opt_in_sms__c){
+            if(!objAccount.opt_in_mobile__c){
+                objAccount.Mobile__c='';
+            }
+        }
+        if(!objAccount.opt_in_email__c){
+            objAccount.Email__c='';
+        }
+            
+    }
+    public void phoneFieldConcatTR() {
+
+        if (String.isBlank(hmphoneNumber)) objAccount.Individual_Home_Phone__c = '';
+        else if (hmCountryCode != '' && hmphoneNumber != '' && hmCountryCode == label.TRPhoneCountryCode) objAccount.Individual_Home_Phone__c = hmCountryCode + hmphoneNumber;
+        else objAccount.Individual_Home_Phone__c = hmCountryCode + hmphoneNumber;
+
+        if (String.isBlank(wkphoneNumber)) objAccount.Work_Phone__c = '';
+        else if (wkCountryCode != '' && wkphoneNumber != '' && wkCountryCode == label.TRPhoneCountryCode) objAccount.Work_Phone__c = wkCountryCode + wkphoneNumber;
+        else objAccount.Work_Phone__c = wkCountryCode + wkphoneNumber;
+
+        if ((String.isBlank(mbphoneNumber))) objAccount.Mobile__c = '';
+        else if (mbCountryCode != '' && mbphoneNumber != '' && mbCountryCode == label.TRPhoneCountryCode) objAccount.Mobile__c = mbCountryCode + mbphoneNumber;
+        else objAccount.Mobile__c = mbCountryCode + mbphoneNumber;
+
+        /*if((String.isBlank(faxphoneNumber))) objAccount.fax='';       
+        else if(faxCountryCode!='' && faxphoneNumber!='' && faxCountryCode==label.TRPhoneCountryCode) objAccount.fax=faxCountryCode+faxAreaCode+faxphoneNumber;        
+        else objAccount.fax=faxCountryCode+faxphoneNumber;  */
+
+    }
+    //Saves the Account relaed details for Turkey Market      
+    //Created By : Hildaa     
+    //Date: 02/19/2018      
+
+    public boolean SaveAccountDetailsTR() {
+
+        try {
+            if (recordType == label.Company)
+                recordTypeId = RecordTypeAccessService.getRecordTypeId('Account', Label.Company);
+            else
+                recordTypeId = RecordTypeAccessService.getRecordTypeId('Account', Label.PersonAccount);
+
+            //HN20171008- to set status for person account as Prospect 
+            /*if(recordType == Label.PersonAccount){
+                 objAccount.status__C = Label.ProspectStatus;
+             }   //end code here modification by Honey   */
+
+            objAccount.RecordTypeId = recordTypeId;
+            phoneFieldConcatTR();
+            //if(recordType != label.Company)
+                //optInFields();
+            /*if (objAccount.Individual_Home_Phone__c.trim() == '' && objAccount.Mobile__c.trim() == '' && objAccount.Work_Phone__c.trim() == '' && objAccount.Email__c == null) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));
+            } else*/ if ((objAccount.Individual_Home_Phone__c.trim() != '' && !objAccount.Individual_Home_Phone__c.startsWith('+')) ||
+                (objAccount.Mobile__c.trim() != '' && !objAccount.Mobile__c.startsWith('+')) ||
+                (objAccount.Work_Phone__c.trim() != '' && !objAccount.Work_Phone__c.startsWith('+')))
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_invalid));
+
+            else {
+                refreshPage = true;
+                DMLManagerService.insertAsSystem(objAccount);
+                // insert objAccount ;     
+                return true;
+            }
+        } catch (DMLException e) {
+
+            refreshPage = false;
+            if (e.getdmlMessage(0).contains('bad field')) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please remove the firstname , lastname  for saving company account and account name for person account'));
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
+            } else {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e);
+            }
+            return false;
+        }
+        return false;
+    }
+    public void ValidateAddressTR() {
+        try {
+
+            if (province != '' && province != '--Select--')
+                addressobj.Province__c = province;
+            if (district != '' && district != '--Select--')
+                addressobj.District__c = district;
+            if (zip != '')
+                addressobj.ZipCode__c = zip;
+            if (city != '' && city != '--Select--')
+                addressobj.City__c = city;
+            if (zip != '' && zip != '--Select--' && addressobj.market__c == label.TR)
+                addressobj.ZipCode__c = zip;
+
+            if (AddressObj.Address_Type__c != null &&
+                (AddressObj.Address_Line_1__c == null ||
+                    AddressObj.Address_Line_2__c == null ||
+                    province == null ||
+                    district == null ||
+                    zip == null || AddressObj.Country__c == null)
+            ) {
+                Validation = TRUE;
+                Address_Validated_Flag = False;
+
+            }
+
+
+            if (addressobj.ZipCode__c != null && (!Pattern.matches('^[0-9]{5,6}$', addressobj.ZipCode__c))) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.TRZipCode));
+                Validation = true;
+            }
+            if ((addressobj.Address_Line_2__c == null || addressobj.Address_Line_1__c == null) && (objAccount.Postal_Opt_In__c) && recordType != label.Company) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.TRAddressMandatory));
+                Validation = true;
+            }
+
+            /*if (addressobj.ZipCode__c == null) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.ZipCodeMandatory));
+                Validation = true;
+            }
+            if (addressobj.Address_Line_1__c == null) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline1Mandatory));
+                Validation = true;
+            }*/
+            if ((addressobj.Address_Line_1__c != null && (!Pattern.matches('[A-Za-z0-9/,]*', addressobj.Address_Line_1__c))) ||
+                (addressobj.Address_Line_2__c != null && (!Pattern.matches('[A-Za-z0-9/,]*', addressobj.Address_Line_2__c)))
+            ) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressInvalid));
+                Validation = true;
+            } else if (addressobj.Address_Line_1__c != null && addressobj.Address_Line_1__c.length() > 100) {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddressline1Length));
+                    Validation = true;
+                }
+            else {
+                if (addressobj.Address_Line_2__c != null && addressobj.Address_Line_2__c.length() > 100) {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddresslinelen2Length));
+                    Validation = true;
+                }
+            }
+            /*if (addressobj.Province__c == null) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.StateProvError));
+                Validation = TRUE;
+            }
+            if (addressobj.District__c == null) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.CityError));
+                Validation = TRUE;
+            }
+
+            if (addressobj.Address_Line_2__c == null) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline2));
+                Validation = TRUE;
+            }else {*/ 
+
+                
+            //}
+        } catch (exception e) {
+
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getdmlMessage(0)));
+
+            CustomLogUtil.CustomLoggingEntry('error' + e);
+        }
+    }
+     /*
+     Online de duplication for TR Market  
+    */
+    public object onLineDeduplicationTR() {
+        displayAccList.clear();
+        DedupAccountList.clear();
+        Boolean errorFlag = true;
+        boolean mandatoryFlag = True;
+        boolean recordCheck = true;
+        Continuation con = null;
+        system.debug('$$$$$ TR Market $$$$$');
+        if (Recordtype != Label.PersonAccount && Recordtype != Label.Company) {
+            recordCheck = false;
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.RecordTypeError));
+        }
+
+       
+        if (recordCheck && mandatoryFlag) {
+            system.debug('inside online dedupe '+objAccount.FirstName+' ' +objAccount.LastName);
+            if ((objAccount.Name == null || String.isBlank(objAccount.Name) || objAccount.Data_Source__c == null || objAccount.Status__c == null || wkphoneNumber == null || city == '--Select--' || city == null) && Recordtype == Label.Company) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CompanyAccountSearchErrorMessage));
+                errorFlag = false;
+            } else if ((objAccount.FirstName == null || objAccount.LastName == null || String.isBlank(objAccount.FirstName) || String.isBlank(objAccount.LastName) ||  objAccount.Data_Source__c == null || objAccount.Status__c == null || city == '--Select--' || city == null) && Recordtype == Label.PersonAccount) {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchErrorMessage));
+                    errorFlag = false;
+            } else if (objAccount.Social_Id__c != null && !validateSocialIdTR()) {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.SocialIdError));
+                    errorFlag = false;
+            }
+            else if (objAccount.Vat_No__c != null && !validateVATNoTR()) {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.VATNOError));
+                    errorFlag = false;
+        }
+        else if(Recordtype == Label.PersonAccount && !objAccount.opt_in_email__c && !objAccount.opt_in_mobile__c && !objAccount.opt_in_sms__c && !objAccount.Postal_Opt_In__c)
+            {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter a valid DoC before saving!'));
+                    errorFlag = false;
+            }
+        }
+        if (errorFlag && mandatoryFlag && recordCheck) {
+            firstsave = true;
+            secondsave = false;
+            last = false;
+            previous = false;
+            first = false;
+            next = false;
+            phoneFieldConcatTR();
+            String EndUrl = generateCDMEndPointURL();
+            system.debug(EndUrl +' ---->');
+            CustomLogUtil.CustomLoggingEntry('Search End Url' + endurl);
+            try {
+                if (label.New_Component == 'true') {
+                    con = new Continuation(120);
+                    con.continuationMethod = 'processResponse';
+                    this.requestLabel = CalloutHandlerService.onLineDeduplicationCDMCallout(EndUrl, con);
+                } else {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning, Label.No_Match_Found));
+                    errorFlag = false;
+                }
+            } catch (Exception e) {
+                system.debug('error'+ ' ---> '+ e.getlinenumber() + e.getMessage());
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.InformaticaError));
+                errorFlag = false;
+                
+                CustomLogUtil.CustomLoggingEntry('Error Occured ' + e.getlinenumber() + e.getMessage());
+
+            }
+        }
+        return con;
+    }
+    
+    
     //Adding for India (By Shashi)
     
     public pagereference saveAccountIN()       
@@ -430,7 +882,7 @@ public class AddressSearchValidationControllerCDM
         homePhoneFormat = formatcheck.homePhoneFieldFormatIN(hmCountryCode,hmAreaCode,hmphoneNumber);
         workPhoneFormat = formatcheck.workPhoneFieldFormatIN(wkCountryCode,wkAreaCode,wkphoneNumber);
         mobilePhoneFormat = formatcheck.mobilePhoneFieldFormatIN(mbCountryCode,mbphoneNumber);
-     	
+        
         //Pan format check 
         if(objAccount.PAN__c != null && string.isnotblank(objAccount.PAN__c) && !Pattern.matches(panFormat,objAccount.PAN__c)){
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.PAN_Format));
@@ -509,23 +961,40 @@ public class AddressSearchValidationControllerCDM
         
         if(recordType == 'Person Account')
         {
-            endUrl+='inp_JSON_FirstName='+(string.isnotblank(objAccount.firstname)?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
-            endUrl+='&inp_JSON_LastName='+(string.isnotblank(objAccount.LastName)?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
-            endUrl+='&inp_JSON_Mobile='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_HomePhone='+(string.isnotblank(objAccount.Individual_Home_Phone__c )?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_WorkPhone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?EncodingUtil.URLENCODE(objAccount.Email__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_PAN='+(string.isnotblank(objAccount.PAN__c)?EncodingUtil.URLENCODE(objAccount.PAN__c,'UTF-8'):''); 
-            endUrl+='&inp_JSON_Aadhar='+(string.isnotblank(objAccount.Aadhaar__c)?EncodingUtil.URLENCODE(objAccount.Aadhaar__c,'UTF-8'):'');
+            if(market == System.Label.IN){
+                endUrl+='inp_JSON_FirstName='+(string.isnotblank(objAccount.firstname)?EncodingUtil.URLENCODE(objAccount.FirstName,'UTF-8'):'');
+                endUrl+='&inp_JSON_LastName='+(string.isnotblank(objAccount.LastName)?EncodingUtil.URLENCODE(objAccount.LastName,'UTF-8'):'');
+                endUrl+='&inp_JSON_Mobile='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_HomePhone='+(string.isnotblank(objAccount.Individual_Home_Phone__c )?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_WorkPhone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?EncodingUtil.URLENCODE(objAccount.Email__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_PAN='+(string.isnotblank(objAccount.PAN__c)?EncodingUtil.URLENCODE(objAccount.PAN__c,'UTF-8'):''); 
+                endUrl+='&inp_JSON_Aadhar='+(string.isnotblank(objAccount.Aadhaar__c)?EncodingUtil.URLENCODE(objAccount.Aadhaar__c,'UTF-8'):'');
+            }
+            else if(market == System.Label.TR){
+                endUrl += 'in_JSON_FirstName=' + ((string.isnotblank(objAccount.firstname)) ? EncodingUtil.URLENCODE(objAccount.FirstName, 'UTF-8') : '');
+                endUrl += '&in_JSON_LastName=' + ((string.isnotblank(objAccount.LastName)) ? EncodingUtil.URLENCODE(objAccount.LastName, 'UTF-8') : '');
+                endUrl += '&in_JSON_Mobile=' + ((string.isnotblank(objAccount.Mobile__c)) ? EncodingUtil.URLENCODE(objAccount.Mobile__c, 'UTF-8') : '');
+                endUrl += '&in_JSON_Email=' + (string.isnotblank(objAccount.Email__c) ? objAccount.Email__c : '');
+                endUrl += '&in_JSON_SocialID=' + (string.isnotblank(String.valueof(objAccount.Social_Id__c)) ?  EncodingUtil.URLENCODE(String.valueof(objAccount.Social_Id__c), 'UTF-8') : '');
+            }
         }
         else if(recordType == 'Company'){
-            endUrl+='inp_JSON_CompanyName='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
-            endUrl+='&inp_JSON_Mobile='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_HomePhone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_WorkPhone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?EncodingUtil.URLENCODE(objAccount.Email__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_GSTIN='+(string.isnotblank(objAccount.GSTN_Number__c)?EncodingUtil.URLENCODE(objAccount.GSTN_Number__c,'UTF-8'):'');
-            endUrl+='&inp_JSON_CIN='+(string.isnotblank(objAccount.CIN_Number__c)?EncodingUtil.URLENCODE(objAccount.CIN_Number__c,'UTF-8'):'');
+             if(market == System.Label.IN){
+                endUrl+='inp_JSON_CompanyName='+(string.isnotblank(objAccount.Name)?EncodingUtil.URLENCODE(objAccount.Name,'UTF-8'):'');
+                endUrl+='&inp_JSON_Mobile='+(string.isnotblank(objAccount.Mobile__c)?EncodingUtil.URLENCODE(objAccount.Mobile__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_HomePhone='+(string.isnotblank(objAccount.Individual_Home_Phone__c)?EncodingUtil.URLENCODE(objAccount.Individual_Home_Phone__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_WorkPhone='+(string.isnotblank(objAccount.Work_Phone__c)?EncodingUtil.URLENCODE(objAccount.Work_Phone__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_Email='+(string.isnotblank(objAccount.Email__c)?EncodingUtil.URLENCODE(objAccount.Email__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_GSTIN='+(string.isnotblank(objAccount.GSTN_Number__c)?EncodingUtil.URLENCODE(objAccount.GSTN_Number__c,'UTF-8'):'');
+                endUrl+='&inp_JSON_CIN='+(string.isnotblank(objAccount.CIN_Number__c)?EncodingUtil.URLENCODE(objAccount.CIN_Number__c,'UTF-8'):'');
+             }
+            else if(market == System.Label.TR){
+                endUrl += 'in_JSON_CompanyName=' + (string.isnotblank(objAccount.Name) ? EncodingUtil.URLENCODE(objAccount.Name, 'UTF-8') : '');
+                endUrl += '&in_JSON_WorkPhone=' + (string.isnotblank(objAccount.Work_Phone__c) ? EncodingUtil.URLENCODE(objAccount.Work_Phone__c, 'UTF-8') : '');
+                endUrl += '&in_JSON_VATNo=' + (string.isnotblank(String.valueof(objAccount.Vat_No__c)) ? EncodingUtil.URLENCODE(String.valueof(objAccount.Vat_No__c), 'UTF-8') : '');
+                endUrl += '&in_JSON_City=' + (string.isnotblank(city) ? EncodingUtil.URLENCODE(city, 'UTF-8')  : '');
+            }
         }
         return endUrl;
     } 
