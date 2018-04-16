@@ -185,6 +185,7 @@
         <customButtons>RetailCampaignExport</customButtons>
         <customButtons>Upload_Campaign_Member_Response</customButtons>
         <customButtons>Convert_To_Task</customButtons>
+		<customButtons>Convert_to_Lead_MY</customButtons>
         <customButtons>New_Campaign_Member</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
