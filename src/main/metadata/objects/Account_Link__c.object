@@ -657,7 +657,8 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
 IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
-IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',
+IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','')))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -691,6 +692,10 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TR</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4738,6 +4743,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -5267,6 +5276,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5903,6 +5916,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -6511,6 +6528,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7933,6 +7954,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -8461,6 +8486,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9649,6 +9678,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -10835,6 +10868,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -11470,7 +11507,7 @@ alert(updateResult[0].errors.message);
 }
 var correlation = "{!Account_Link__c.CorrelationID__c}";
 
-if(correlation != " " || correlation !=null){
+if(correlation != ''){
 updateAccountLink();
 
 }

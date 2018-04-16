@@ -526,7 +526,7 @@ function survey5(){
 
 </script>
 <apex:form >
-    <apex:pageBlock title="SURVEYS">
+    <apex:pageBlock title="SURVEYS" rendered="{!TEXT($User.Market__c) =='TH'}">
         <apex:pageBlockSection >
             <apex:outputLink onclick="survey1();" >After Event Survey</apex:outputLink>
             <br/>
@@ -539,6 +539,9 @@ function survey5(){
             <apex:outputLink onclick="survey5();" >Welcome call Survey</apex:outputLink>
             <br/>
         </apex:pageBlockSection>
+    </apex:pageBlock>
+	<apex:pageBlock rendered="{!TEXT($User.Market__c) =='MY'}">
+        <apex:outputLabel>Sorry! We do not have surveys for Malaysia!</apex:outputLabel>
     </apex:pageBlock>
 </apex:form>
 </apex:page>

@@ -14,7 +14,7 @@ Global class BBQReferral {
     Global static Map<String,String> createReferral(String Email, String FirstName, String LastName,String Market,String Phone,
                                                     String Address,String Dealer,String Agreement, String ModelType,
                                                     String Zipcode,String EmployeeMail,String typeOfVehicle,
-                                                    String FirstNameNative,String LastNameNative,String CustomerType){
+                                                    String FirstNameNative,String LastNameNative,String CustomerType,String CompanyName){
         Map<String,String> response=new Map<String,String>();
         Employee__c emp=[select id from Employee__c where email__c=:EmployeeMail];
         Referral__c ref=new Referral__c();
@@ -35,6 +35,7 @@ Global class BBQReferral {
             ref.Customer_Type__c=CustomerType;                                       
         if(!String.isBlank(typeOfVehicle))
             ref.Type_of_Vehicle__c=typeOfVehicle;
+        //ref.Company_Name__c=CompanyName;
         try{
            insert ref; 
         }
