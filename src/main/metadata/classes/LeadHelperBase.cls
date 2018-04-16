@@ -174,12 +174,12 @@ public without sharing class  LeadHelperBase{
         for(Lead__c lists:leadlist){
       for(user i: accUserMap.values()){
         if(lists.recordtypeid==salesRecordTypeId){
-          if(lists.assigned_dealer__c !=null && lists.md__c==Market && lists.assigned_dealer__c==i.accountid && i.contact.Dealer_Lead_Gate_Keeper__c==true){
+          if(lists.assigned_dealer__c !=null && lists.md__c==Market && lists.assigned_dealer__c==i.contact.AccountID && i.contact.Dealer_Lead_Gate_Keeper__c==true){
             lists.ownerID = i.id; 
           } 
         }
         else if(lists.recordtypeid==afterSalesRecordTypeId){
-          if(lists.assigned_dealer__c !=null && lists.md__c==Market && lists.assigned_dealer__c==i.accountid && i.contact.Dealer_Aftersales_Manager__c==true){
+          if(lists.assigned_dealer__c !=null && lists.md__c==Market && lists.assigned_dealer__c==i.contact.AccountID && i.contact.Dealer_Aftersales_Manager__c==true){
             lists.ownerID = i.id; 
           } 
         }
