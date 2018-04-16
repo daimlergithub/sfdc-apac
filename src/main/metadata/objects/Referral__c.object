@@ -83,11 +83,30 @@
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
+	<fields>
+        <fullName>Company_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
         <label>Customer Type</label>
         <picklist>
+			<picklistValues>
+                <fullName>Private Customer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Customer</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Personal</fullName>
                 <default>false</default>
@@ -103,6 +122,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Dealer_Email_address__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Email address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer__c</fullName>
@@ -143,7 +172,7 @@
     <fields>
         <fullName>First_Name_Native__c</fullName>
         <externalId>false</externalId>
-        <label>First Name (Kanji)</label>
+        <label>First Name Native</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -188,7 +217,7 @@
     <fields>
         <fullName>Last_Name_Native__c</fullName>
         <externalId>false</externalId>
-        <label>Last Name (Kanji)</label>
+        <label>Last Name Native</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
