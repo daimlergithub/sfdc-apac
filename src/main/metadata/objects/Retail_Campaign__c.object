@@ -15934,6 +15934,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Close_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Type__c</customTabListAdditionalFields>
+		<lookupDialogsAdditionalFields>Dealer_Name__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Record_Type_Name__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Driven__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Plan_Start_Date__c</searchResultsAdditionalFields>
