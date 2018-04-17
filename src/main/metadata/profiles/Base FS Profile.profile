@@ -16663,6 +16663,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract__c.Financial_Product_Group__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.Financial_Product__c</field>
         <readable>true</readable>
