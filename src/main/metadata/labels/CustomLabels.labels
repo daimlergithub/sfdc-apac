@@ -7,6 +7,13 @@
         <shortDescription>Contact Lead Status</shortDescription>
         <value>Assigned,New</value>
     </labels>
+	<labels>
+        <fullName>Auto_Batch_Campaign_Member_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Auto_Batch_Campaign_Member_Status</shortDescription>
+        <value>Ready,Executed</value>
+    </labels>
 	 <labels>
         <fullName>masterLeadMerge</fullName>
         <language>en_US</language>
