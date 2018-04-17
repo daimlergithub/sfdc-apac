@@ -107,14 +107,6 @@
                 <fullName>Corporate Customer</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Personal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
@@ -288,6 +280,10 @@
             <picklistValues>
                 <fullName>CN</fullName>
                 <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>JP</fullName>
@@ -299,6 +295,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>TR</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

@@ -2147,6 +2147,7 @@
                 <fullName>Lead</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
@@ -16641,6 +16642,51 @@ window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;
 
 }
 }</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_Retail_Campaign_MY</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Retail Campaign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "xdomain/xdomain.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/41.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "support/console/41.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/41.0/apex.js")} 
+if({!Campaign.IsActive}){ 
+if('{!Campaign.MD__c}' == 'MY') { 
+window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?CF00N2800000A9Cpq={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9Cpq_lkid={!Campaign.Id}&amp;00N2800000Ikqac	={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;00N2800000IkqaO={!Campaign.Description}&amp;retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg4F&amp;ent={!Retail_Campaign__c.Id}'); 
+} 
+} 
+else{ 
+if (confirm('To create Retail Campaign, related WS Campaign needs to be activated. Do you want to Proceed ?')) 
+{ 
+if('{!Campaign.Id}'!=null &amp;&amp; '{!Campaign.Id}'!='' &amp;&amp; '{!Campaign.Id}'!='undefined') 
+{ 
+var campaignObj = new sforce.SObject("Campaign"); 
+campaignObj.Id="{!Campaign.Id}"; 
+campaignObj.Activate_for_retail_campaign__c=true; 
+campaignObj.IsActive=true; 
+result = sforce.connection.update([campaignObj]); 
+if(result[0].success === "true"){ 
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+'a16/e?CF00N2800000A9Cpq={!Campaign.Name}&amp;CF00N2800000A9Cpq_lkid={!Campaign.Id}&amp;00N2800000Ikqac	={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;00N2800000IkqaO={!Campaign.Description}&amp;retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg4F&amp;ent={!Retail_Campaign__c.Id}',"_self"; 
+} 
+else{ 
+alert(result[0].errors.message); 
+} 
+} 
+} 
+}
+
+
+
+
+
+
+</url>
     </webLinks>
     <webLinks>
         <fullName>OPRO_DM_Print_OPR</fullName>
