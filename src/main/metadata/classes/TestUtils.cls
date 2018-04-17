@@ -107,6 +107,145 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         return rm;
     } 
     
+// Create Dealer Account(India)
+    public static Account createDealerAccount(Id accRecordTypeId){
+        Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = accRecordTypeId);
+        insert dealerAcc;
+        return dealerAcc;
+    }
+    
+    // Create generic Opportunity record(India)
+    public static Opportunity createGenericOpportunity(User u, Account acc, Id oppRecordTypeId, String market){
+        /*
+        DescribeFieldResult describeType = Opportunity.Lead_Type__c.getDescribe();
+        List<PicklistEntry> typeValues = describeType.getPicklistValues();
+        DescribeFieldResult describeSubType = Opportunity.Lead_Sub_Type__c.getDescribe();
+        List<PicklistEntry> subTypeValues = describeSubType.getPicklistValues();
+    */
+        Opportunity opp = new Opportunity();
+        opp.AccountId = acc.Id;
+        opp.StageName = 'New';
+        opp.Market__c = market;
+        opp.Name = 'Generic Opportunity';
+        opp.RecordTypeId = oppRecordTypeId;
+        opp.CloseDate = Date.newInstance(2018, 4, 17);
+        if(UtilRecordType.getRecordTypeNameById('Opportunity', oppRecordTypeId) == 'Sales Lead'){
+            opp.Lead_Type__c = 'Activities';
+            opp.Lead_Sub_Type__c = 'Test Drive';
+            opp.Lead_DataSource__c = 'Event';
+        }
+        else{
+            opp.Lead_Type__c = 'Car Service';
+            opp.Lead_Sub_Type__c = 'Others';
+            opp.Lead_DataSource__c = 'Event';
+        }
+        //opp.Lead_Type__c = typeValues[0].getValue();
+        //opp.Lead_Sub_Type__c = subTypeValues[0].getValue();
+        insert opp;
+        return opp;
+    }
+    
+    // Create generic bulk Opportunity record(India)
+    public static List<Opportunity> createGenericBulkOpportunity(User u, Account acc, Id oppRecordTypeId, String market, Integer count){
+        List<Opportunity> oppList = new List<Opportunity>();
+        String add = 'A';
+        string dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = dealerRecordTypeId, Market__c = 'IN');
+        insert dealerAcc;
+        Contact con = new Contact(FirstName = 'First', LastName = 'Last', AccountId = dealerAcc.Id);
+        insert con;
+        for(Integer i=0; i<count; i++){
+            add += 'B';
+            Opportunity opp = new Opportunity();
+            opp.AccountId = acc.Id;
+            opp.StageName = 'New';
+            opp.Market__c = market;
+            opp.Name = 'Test' + add;
+            opp.RecordTypeId = oppRecordTypeId;
+            opp.Sales_Consultant__c = con.Id;
+            opp.Assigned_Dealer__c = dealerAcc.Id;
+            opp.CloseDate = Date.newInstance(2018, 4, 17);
+            if(UtilRecordType.getRecordTypeNameById('Opportunity', oppRecordTypeId) == 'Sales Lead'){
+                opp.Lead_Type__c = 'Activities';
+                opp.Lead_Sub_Type__c = 'Test Drive';
+                opp.Lead_DataSource__c = 'Event';
+            }
+            else{
+                opp.Lead_Type__c = 'Car Service';
+                opp.Lead_Sub_Type__c = 'Others';
+                opp.Lead_DataSource__c = 'Event';
+            }
+            oppList.add(opp);
+        }
+        insert oppList;
+        return oppList;
+    }
+        
+    // Create bulk Car Model Records(India)
+    public static List<Car_Model__c> createBulkCarModel(Integer n){
+        List<Car_Model__c> cModelList = new List<Car_Model__c>();
+        for(Integer i=0; i<5; i++){
+            Car_Model__c cm = new Car_Model__c();
+            cm.Name = 'Mercedes-Benz' + i;
+            cm.Brand__c = 'Mercedes-Benz';
+            cm.Series__c = 'A' + 1;
+            cm.Status__c = 'Own Sellable';
+            cm.Colour__c = 'Blue';
+            cm.Trim__c = 'Small';
+            cModelList.add(cm);
+        }
+        for(Integer i=0; i<5; i++){
+            Car_Model__c cm = new Car_Model__c();
+            cm.Name = 'BMW GT Series' + i;
+            cm.Brand__c = 'BMW';
+            cm.Series__c = 'GT' + 1;
+            cm.Status__c = 'Competitor';
+            cm.Colour__c = 'Blue';
+            cm.Trim__c = 'Small';
+            cModelList.add(cm);
+        }
+        insert cModelList;
+        return cModelList;
+    }
+    
+    // Create bulk Lead Details Records(India)
+    public static List<Lead_Details__c> createBulkLeadDetails(Opportunity opp, List<Car_Model__c> cmList){
+        List<Lead_Details__c> ldList = new List<Lead_Details__c>();
+        for(Car_Model__c cm : cmList){
+            Lead_Details__c lDet = new Lead_Details__c();
+            if(cm.Status__c == 'Own Sellable'){
+                lDet.Car_Model__c = cm.Id;
+                lDet.Related_Lead__c = opp.Id;
+                lDet.Brand__c = cm.Brand__c;
+                lDet.Color__c = cm.Colour__c;
+                lDet.Trim__c = cm.Trim__c;
+                lDet.Mileage__c = '40';
+                lDet.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
+                ldList.add(lDet);
+            }
+            else if(cm.Status__c == 'Competitor'){
+                lDet.Car_Model_Competitor__c = cm.Id;
+                lDet.Related_Lead__c = opp.Id;
+                lDet.Brand__c = cm.Brand__c;
+                lDet.Color__c = cm.Colour__c;
+                lDet.Trim__c = cm.Trim__c;
+                lDet.Mileage__c = '40';
+                lDet.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
+                ldList.add(lDet);
+            } 
+        }
+        Lead_Details__c lDet1 = new Lead_Details__c();
+        lDet1.Trade_In_Vehicle__c = 'Trade In Vehicle';
+        lDet1.Related_Lead__c = opp.Id;
+        lDet1.Trim__c = 'Medium';
+        lDet1.Year_of_Manufacture__c = '1234';
+        lDet1.Mileage__c = '40';
+        lDet1.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
+        ldList.add(lDet1);
+        insert ldList;
+        return ldList;
+    }
+    
     // Create generic company account
     public static Account createGenericAccount(User u, String zipCode, Id accRecordTypeId, String mobile){
         Account genericAccount = new Account();
