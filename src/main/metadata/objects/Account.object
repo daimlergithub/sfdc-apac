@@ -17118,6 +17118,7 @@ Modify Reason:
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>No</fullName>
@@ -17126,6 +17127,7 @@ Modify Reason:
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Withdrawn</fullName>
@@ -19897,16 +19899,19 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
+			
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ex-Customer</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -19917,6 +19922,7 @@ Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</descrip
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
 				<controllingFieldValues>AU</controllingFieldValues>
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
