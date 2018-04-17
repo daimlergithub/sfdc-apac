@@ -40,7 +40,13 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert u;
         return u;
     }
-
+ public static User createAfterSalesManagerTR(){       
+        Profile p = [select id from profile where Name='System Administrator' limit 1];
+        UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH_Manager'];
+        User user1 = new User(LastName='User',UserRoleId = role.id,country='Australia', market__c = 'TR', firstName='BCI',ProfileId=p.Id,Alias='ain1TR',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersalesTR@test.com');
+        insert user1;
+        return user1;
+    }
     // After Sales Manager User Creation
     public static User createAfterSalesManager(){       
         Profile p = [select id from profile where Name='System Administrator' limit 1];
@@ -446,6 +452,28 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert address;
         return address;
     }
+    
+     // Creation of Address
+    public static Address__c createAddressTR(Id AccId){                   
+        Address__c address=new Address__c();
+        address.Address_Type__c='Home';
+        address.Province__c='Shanghai';
+        address.City__c='bangalore';
+        address.District__c='test2';
+        address.Block__c='test3';
+        address.Address_Line_1__c='testaddress1';
+        address.Address_Line_2__c='testaddress2';
+        address.ZipCode__c = '32703';
+        address.Customer__c=AccId;
+        address.TitleOfHonor__c ='To Person';  
+        address.preferred__c=True;
+        address.Opt_In_Hardcopy__c=True;
+        address.Market__c='TR';
+        address.MD__c='TR';
+        insert address;
+        return address;
+    }
+    
     
     public static Address__c createAddressMY(Id AccId){                   
         Address__c address=new Address__c();
