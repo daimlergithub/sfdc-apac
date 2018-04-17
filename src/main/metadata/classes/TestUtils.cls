@@ -34,7 +34,12 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert u;
         return u;
     }
-
+    public static User createTRAdminUser(){               
+        Profile p = [select id from profile where Name='System Administrator' limit 1];
+        User u = new User(LastName='User',country='Turkey',firstName='BCI',ProfileId=p.Id,Alias='ain1TR',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusrTR@daimler.com',Market__c = 'TR');
+        insert u;
+        return u;
+    }
 
     // After Sales Manager User Creation
     public static User createAfterSalesManager(){       
@@ -342,7 +347,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         a.Phone                    = sPhone;
         a.Individual_Home_Phone__c = sPhone;
         a.MD__c                    = u.market__c;
-        a.Market__c				   = u.Market__c;
+        a.Market__c                = u.Market__c;
         a.ownerid                  = u.id;
         a.PersonBirthdate          = date.newInstance(iYear,03,18); // Modified By laqshay Arora
         a.Foundation_Date__c       = date.today();
