@@ -168,6 +168,10 @@
             <picklistValues>
                 <fullName>IN</fullName>
                 <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>TR</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SG</fullName>
