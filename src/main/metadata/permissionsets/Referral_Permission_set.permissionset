@@ -14190,11 +14190,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Customer_Key_Credential__c.Guaranteer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Customer_Key_Credential__c.ID_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14226,11 +14221,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Customer_Key_Credential__c.Retail_FS_Borrower__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Customer_Key_Credential__c.Retail_FS_Guaranteer__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15229,12 +15219,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Employee__c.No_of_closed_Won__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Employee__c.No_of_referral__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15249,27 +15239,27 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Employee__c.Rank__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Employee__c.Rank_of_Employee_with_closed_won__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Employee__c.Rank_of_Employee_with_referrals_made__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Employee__c.ReferralsCreated__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Employee__c.ReferralsWon__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15890,11 +15880,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>FS_Contract__c.Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>FS_Contract__c.End_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16011,11 +15996,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>FS_Contract__c.Retail_FS_Borrower__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>FS_Contract__c.Sales_Person__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -21201,6 +21181,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Referral__c.Customer_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Referral__c.Dealer_Email_address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Referral__c.Company_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -28381,7 +28371,7 @@
     <label>Referral Permission set</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>

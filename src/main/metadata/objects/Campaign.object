@@ -24661,7 +24661,7 @@ sforce.apex.execute("Call_Batch_JointDrivenCampaign","Batch_JointDrivenCampaign"
 
 
 //var resultMsg= 
-sforce.apex.execute("Call_Batch_JointDrivenCampaign","Batch_JointDrivenCampaign",{camid:"{!Campaign.Id}"}); 
+//sforce.apex.execute("Call_Batch_JointDrivenCampaign","Batch_JointDrivenCampaign",{camid:"{!Campaign.Id}"}); 
 
 window.location.reload(); 
 }</url>
