@@ -22,10 +22,6 @@
                 <field>Execution_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Child_Campaign_Status__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Segmentation_Date__c</field>
             </layoutItems>
@@ -129,6 +125,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Child_Campaign_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
