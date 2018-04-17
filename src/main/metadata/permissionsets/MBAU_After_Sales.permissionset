@@ -5131,6 +5131,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Email_Opt_IN_Last_Update_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Email_Opt_Out_Reason__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5816,6 +5821,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Mail_Opt_IN_Last_Update_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Main_Dealer__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6219,6 +6229,11 @@
         <field>Account.Phone</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Phone_Opt_IN_Last_Update_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Place_of_Birth__c</field>
@@ -6701,6 +6716,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.SMS_Opt_IN_Last_Update_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>	
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.SalesLead_Notification_Timing__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -7127,7 +7147,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Work_Phone_Last_Modified_By__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7137,7 +7157,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Work_Phone_Last_Modified_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
