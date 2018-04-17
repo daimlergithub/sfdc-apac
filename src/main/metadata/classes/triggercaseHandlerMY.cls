@@ -20,13 +20,15 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
         if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
         
             if(trigger.isinsert && trigger.isbefore){
-            CaseHelperMYInstance.countRepeatComplaintCase(trigger.new,true,market);
-            CaseHelperMYInstance.updateCaseDeadLineAmount(trigger.new,market,null);
-			 if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
-            CaseHelperMYInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true, market);
-            CaseHelperMYInstance.updateCaseCreator(trigger.new, market);
-            
-            CaseHelperMYInstance.changeDealerAccount(Trigger.New, market);
+				CaseHelperMYInstance.countRepeatComplaintCase(trigger.new,true,market);
+				CaseHelperMYInstance.updateCaseDeadLineAmount(trigger.new,market,null);
+			if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
+               CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
+			   }
+			if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
+				CaseHelperMYInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true, market);
+				CaseHelperMYInstance.updateCaseCreator(trigger.new, market);
+				CaseHelperMYInstance.changeDealerAccount(Trigger.New, market);
 			}
 			CaseHelperMYInstance.updatecommunityurl(Trigger.New, market);
            // CaseHelperMYInstance.updatemarket(Trigger.New);
@@ -35,6 +37,9 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
                CaseHelperMYInstance.updatemarket(Trigger.New);
                CaseHelperMYInstance.updatecommunityurl(Trigger.New, market);
                CaseHelperMYInstance.updateCaseDeadLineAmount(trigger.new,market,(Map<Id,Case>)trigger.oldMap);
+			   if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
+				CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
+			   }
                CaseHelperMYInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false, market);
            }
           
@@ -43,23 +48,20 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
                CaseHelperMYInstance.calculateComplaintAmount(trigger.old,market);
             }
             else if (trigger.isInsert){
-			  if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
-               CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
-			   }
+		/*	  if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
+					CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
+			   }*/
                CaseHelperMYInstance.calculateComplaintAmount(trigger.new,market); 
              
             }else if (trigger.isUpdate){
-			  if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
-               CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
-			   }
                CaseHelperMYInstance.calculateComplaintAmount(trigger.new,market);
             }
         }
         //share Record start
         if(Trigger.isafter && (Trigger.isinsert||Trigger.isUpdate)){
-		if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
-            CaseHelperMYInstance.ShareRecordswithDealers(Trigger.new,Trigger.isupdate, market);
-			}
+			if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
+				CaseHelperMYInstance.ShareRecordswithDealers(Trigger.new,Trigger.isupdate, market);
+				}
         }
         //share Record end
        }     
