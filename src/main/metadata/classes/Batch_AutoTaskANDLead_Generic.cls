@@ -8,11 +8,16 @@ global class Batch_AutoTaskANDLead_Generic{
  public static String sales='Sales Leads';
  public static String aftersales='Aftersales Leads';
  public static Id obCall = RecordTypeAccessService.getRecordTypeId('Task','OB Call');
-String leadRTId= [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :sales].id;
-String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :aftersales].id;
+ String leadRTId= RecordTypeAccessService.getRecordTypeId('Lead__c','Sales Leads');
+ String leadRTId1 = RecordTypeAccessService.getRecordTypeId('Lead__c','Aftersales Leads');
   global Database.QueryLocator method1(Database.BatchableContext bc, string market) {
   if (market==System.Label.MarketMY){
-        return DataBase.getQueryLocator('SELECT id,Contact_Id__r.Work_Phone__c,Retail_Campaign_Id__r.Campaign_Code__c,Contact_Id__r.Mobile__c,Contact_Id__r.Primary_Phone__c,Contact_Id__r.Individual_Home_Phone__c,Auto_creation_of_tasks__c,Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype,Name,Convert_To_Lead_Flag__c,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Preferred_Dealer__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Retail_Campaign_Id__r.Execution_Type__c,Campaign_ID__r.OwnerId,Contact_Id__r.personcontactid,Retail_Campaign_Id__c,Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c FROM Campaign_Member__c WHERE  Retail_Campaign_Id__r.Execution_Start_Date__c=:todaydate and  (Status__c = \'Ready\' OR Status__c = \'Executed\' ) AND md__c=:market');
+	String CMStatus = System.Label.Auto_Batch_Campaign_Member_Status;
+		List<String> cmsts = String.isNotBlank(CMStatus) ? CMStatus.split(',') : NULL;
+		if(cmsts != NULL && !cmsts.isEmpty()){
+			return DataBase.getQueryLocator('SELECT id,Contact_Id__r.Work_Phone__c,Retail_Campaign_Id__r.Campaign_Code__c,Contact_Id__r.Mobile__c,Contact_Id__r.Primary_Phone__c,Contact_Id__r.Individual_Home_Phone__c,Auto_creation_of_tasks__c,Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype,Name,Convert_To_Lead_Flag__c,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Preferred_Dealer__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Retail_Campaign_Id__r.Execution_Type__c,Campaign_ID__r.OwnerId,Contact_Id__r.personcontactid,Retail_Campaign_Id__c,Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c, Lead_Sub_Type__c, Interested_Model__c FROM Campaign_Member__c WHERE  Retail_Campaign_Id__r.Execution_Start_Date__c=:todaydate and  status__c IN :cmsts AND md__c=:market');
+		}
+		return null;
   }
   else{
         return DataBase.getQueryLocator('SELECT id,Contact_Id__r.Work_Phone__c,Retail_Campaign_Id__r.Campaign_Code__c,Contact_Id__r.Mobile__c,Contact_Id__r.Primary_Phone__c,Contact_Id__r.Individual_Home_Phone__c,Auto_creation_of_tasks__c,Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype,Name,Convert_To_Lead_Flag__c,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c,Contract_Number__c,Contact_Id__r.Name,Campaign_ID__r.Name,UsVIN__c,Contact_Id__r.OwnerId,Model__c,Vehicle__c,Campaign_ID__r.Execution_Type__c,Campaign_ID__r.Segmentation_Base__c,Finance_Product__c,Campaign_ID__r.parent.Campaign_Type__c ,Campaign__r.Parent.Campaign_Type__c,Preferred_Dealer__c,Term__c,RV_Ballon__c,Total_Vehicle_Price_without_tax__c,Purchase_Timing__c,Lead_Desired_Service__c,Total_Vehicle_Price_with_tax__c,Interest_Rate__c,Cross_Point_Model__c,Monthly_Payment__c,Retail_Campaign_Id__r.Execution_Type__c,Campaign_ID__r.OwnerId,Contact_Id__r.personcontactid,Retail_Campaign_Id__c,Retail_Campaign_Id__r.OwnerId,Contract_Phone1_1__c,Contract_Phone2_2__c,Contact_Id__c,Company_Name__c,Contract__c ,Lead_Type__c,Retail_Campaign_Id__r.MBTH_Approval_Status__c, Lead_Sub_Type__c, Interested_Model__c FROM Campaign_Member__c WHERE  Retail_Campaign_Id__r.Execution_Start_Date__c=:todaydate and  (Status__c = \'Ready\' OR Status__c = \'Executed\' ) AND md__c=\'TH\' AND (Retail_Campaign_Id__r.MBTH_Approval_Status__c!=\'Submitted\' OR Retail_Campaign_Id__r.MBTH_Approval_Status__c!=\'Rejected\')');
@@ -53,7 +58,7 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
         taskstoInsert.add(taskrec);
         campmember.Auto_creation_of_tasks__c= true;
         }
-        /*else if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='Lead' && campmember.Convert_To_Lead_Flag__c!=True &&(campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'||campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='PowerPartner')){
+        else if(campmember.Retail_Campaign_Id__r.Execution_Type__c=='Lead' && campmember.Convert_To_Lead_Flag__c!=True &&(campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='Standard'||campmember.Retail_Campaign_Id__r.Parent_Campaign1__r.createdby.usertype=='PowerPartner')){
              Lead__c duplicate = checkDuplicate(campmember, existingLeadList);
               if(duplicate.Id == null){
                   leadListToInsert.add(setLeadRecordFields(campmember.Retail_Campaign_Id__c,campmember));
@@ -74,11 +79,11 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
                leadList.add(duplicate);
                
               }
-        }*/
+        }
       }
-      /*if(leadListToInsert.size() > 0){
+      if(leadListToInsert.size() > 0){
       insert leadListToInsert;
-      }*/
+      }
       if(taskstoInsert.size()>0)
       {
       insert taskstoInsert;
@@ -90,7 +95,7 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
        
       // insertCampaignLeadRecords(leadListToInsert, leadList);
   }
-  /*public Lead__c setLeadRecordFields(String campaignId, Campaign_Member__c campaignMember) {
+  public Lead__c setLeadRecordFields(String campaignId, Campaign_Member__c campaignMember) {
         Lead__c leadRec = new Lead__c();
         leadRec.Retail_Campaign_Name__c = campaignId;
         leadRec.CAC_Lead_Status__c = 'New';
@@ -141,7 +146,7 @@ String leadRTId1 = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilCon
          return duplicateLeadRec;
      }
      
-     public void insertCampaignLeadRecords(List<Lead__c> insertedLeadList, List<Lead__c> leadList) {
+    /* public void insertCampaignLeadRecords(List<Lead__c> insertedLeadList, List<Lead__c> leadList) {
         List<Campaign_Lead__c> cLeadList = new List<Campaign_Lead__c>();
         for(Lead__c leadRec : insertedLeadList){
             cLeadList.add(setCampaignRec(leadRec));
