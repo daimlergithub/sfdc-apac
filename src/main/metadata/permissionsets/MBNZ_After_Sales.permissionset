@@ -4039,8 +4039,8 @@
         <field>Account.Bus_Offered_Service__c</field>
         <readable>false</readable>
     </fieldPermissions>
-   <fieldPermissions>
-        <editable>false</editable>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Business_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>	

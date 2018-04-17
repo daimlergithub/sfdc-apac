@@ -2166,7 +2166,7 @@ AND(ISCHANGED(OwnerId), (MD__c == &apos;MY&apos;))
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)"),MD__c = 'KR'),AND(ISPICKVAL(CAC_Lead_Status__c,"Lost(Dealer)"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
+        <formula>OR(AND(ISPICKVAL(Dealer_Lead_Status__c,"Lost"),MD__c = 'KR'),AND(ISPICKVAL(CAC_Lead_Status__c,"Lost(Dealer)"),MD__c = 'TH',OR(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads',RecordType.Name='Retail Sales Leads')))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

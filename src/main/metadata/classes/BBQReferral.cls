@@ -35,7 +35,7 @@ Global class BBQReferral {
             ref.Customer_Type__c=CustomerType;                                       
         if(!String.isBlank(typeOfVehicle))
             ref.Type_of_Vehicle__c=typeOfVehicle;
-        //ref.Company_Name__c=CompanyName;
+        ref.Company_Name__c=CompanyName;
         try{
            insert ref; 
         }
