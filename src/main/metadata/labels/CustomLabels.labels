@@ -8124,8 +8124,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Retention Lead Owner</shortDescription>
         <value>00G0l0000013SRN</value>
     </labels>
-    </labels>
-    <labels>
+	<labels>
         <fullName>S5</fullName>
         <language>en_US</language>
         <protected>false</protected>
