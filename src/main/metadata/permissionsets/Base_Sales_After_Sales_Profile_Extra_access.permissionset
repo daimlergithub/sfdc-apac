@@ -24871,6 +24871,10 @@
         <apexPage>ConvertToLead</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>ConvertToLeadMY</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>ConvertToTask</apexPage>
         <enabled>false</enabled>
