@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
 	<labels>
         <fullName>Contact_Lead_Status</fullName>
@@ -6,6 +6,13 @@
         <protected>false</protected>
         <shortDescription>Contact Lead Status</shortDescription>
         <value>Assigned,New</value>
+    </labels>
+	<labels>
+        <fullName>Auto_Batch_Campaign_Member_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Auto_Batch_Campaign_Member_Status</shortDescription>
+        <value>Ready,Executed</value>
     </labels>
 	 <labels>
         <fullName>masterLeadMerge</fullName>
@@ -8109,6 +8116,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Retail copy is already present</shortDescription>
         <value>Retail copy is already present</value>
+    </labels>
+    <labels>
+        <fullName>Retention_Lead_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retention Lead Owner</shortDescription>
+        <value>00G0l0000013SRN</value>
+    </labels>
     </labels>
     <labels>
         <fullName>S5</fullName>

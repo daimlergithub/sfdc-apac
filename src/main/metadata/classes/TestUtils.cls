@@ -175,6 +175,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
             opp.RecordTypeId = oppRecordTypeId;
             opp.Sales_Consultant__c = con.Id;
             opp.Assigned_Dealer__c = dealerAcc.Id;
+            opp.Assigned_Service_Advisor__c = u.Id;
             opp.CloseDate = Date.newInstance(2018, 4, 17);
             if(UtilRecordType.getRecordTypeNameById('Opportunity', oppRecordTypeId) == 'Sales Lead'){
                 opp.Lead_Type__c = 'Activities';
