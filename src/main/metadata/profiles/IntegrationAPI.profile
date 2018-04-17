@@ -1397,6 +1397,31 @@
         <readable>true</readable>
     </fieldPermissions>	   
 	<fieldPermissions>
+        <editable>True</editable>
+        <field>Retail_Task__c.Outstanding_Balance_amount__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Retail_Task__c.Proto_Market_Value_amount__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Retail_Task__c.Cross_point_month_and_year__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Retail_Task__c.Evaluation_Result_P1_P2_Blank__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Retail_Task__c.Final_GAP_Amount__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Market__c</field>
         <readable>true</readable>
@@ -3744,6 +3769,11 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Outlet_General_GroupID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Outlet_General_Group_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6244,6 +6274,11 @@
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.No_of_Pax__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Noof_Car_display__c</field>
         <readable>true</readable>
@@ -6568,6 +6603,11 @@
         <field>CampaignMember.Newly_Added__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>CampaignMember.No_of_Pax__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>CampaignMember.Package_Description__c</field>
@@ -6618,6 +6658,36 @@
         <field>CampaignMember.Status_Change_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>	
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign_Member__c.No_of_Pax__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign_Member__c.Outstanding_Balance_amount__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign_Member__c.Proto_Market_Value_amount__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign_Member__c.Cross_point_month_and_year__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign_Member__c.Evaluation_Result_P1_P2_Blank__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>True</editable>
+        <field>Campaign_Member__c.Final_GAP_Amount__c</field>
+        <readable>True</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.market__c</field>
@@ -6631,6 +6701,11 @@
 	<fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Member__c.Status_Change_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign_Member__c.Finance_ContactName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12791,6 +12866,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Home_Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	 <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.House_Type_and_Grage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

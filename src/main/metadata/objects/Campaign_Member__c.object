@@ -165,6 +165,61 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <type>Lookup</type>
     </fields>
 	<fields>
+        <fullName>Outstanding_Balance_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Outstanding Balance amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Proto_Market_Value_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Proto Market Value amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Cross_point_month_and_year__c</fullName>
+        <externalId>false</externalId>
+        <label>Cross point month and year</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Evaluation_Result_P1_P2_Blank__c</fullName>
+        <externalId>false</externalId>
+        <label>Evaluation Result P1/P2/Blank</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Final_GAP_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Final GAP Amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
         <externalId>false</externalId>
         <label>Created By EP Transaction</label>
@@ -583,7 +638,7 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <description>Calculated by trigger based on address title of honor.</description>
         <externalId>false</externalId>
         <label>Customer Label Name</label>
-        <length>40</length>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -636,6 +691,17 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Finance Address</label>
         <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Finance_ContactName__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.Account__r.LastName &amp;' '&amp; Contract__r.Account__r.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Finance ContactName</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -935,6 +1001,17 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>No_of_Pax__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Pax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>

@@ -22,5 +22,6 @@
     <tab>Attribute__c</tab>
     <tab>Car_Model_Attribute__c</tab>
     <tab>SMSReplyHistory__c</tab>
-    <tab>Account_Link__c</tab>
+    <tab>Account_Link__c</tab>	
+	<tab>Vehicle_Relationship__c</tab>	
 </CustomApplication>

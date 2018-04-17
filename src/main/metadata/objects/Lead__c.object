@@ -4820,6 +4820,17 @@ Collectioner_Name__r.HomePhone
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>House_Type_and_Grage__c</fullName>
+        <externalId>false</externalId>
+        <label>House Type and Garage</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Instructor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>

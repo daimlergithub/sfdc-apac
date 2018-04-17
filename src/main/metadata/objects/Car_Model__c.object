@@ -1597,6 +1597,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Variant__c</fullName>
+        <externalId>false</externalId>
+        <label>Variant</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vehicle_Group__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Group</label>

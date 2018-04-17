@@ -158,6 +158,7 @@
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Campaign"/>
+				<sf:include name="CampaignMember"/>
 				<sf:include name="Retail_Campaign__c"/>
 			</sf:typeset>
 		</deploy>
