@@ -856,6 +856,25 @@
 				<fullName>3rd party data</fullName>
                 <default>false</default>
             </values>
+	     <values>
+                <fullName>Bayi Organizasyonu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bayi Saha Ziyareti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bayi Walk-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bayiye Gelen Arama</fullName>
+                <default>false</default>
+            </values>
+	    
+	    
+	    
             <values>								   
                 <fullName>Campaign</fullName>
                 <default>false</default>
@@ -912,6 +931,10 @@
                 <fullName>Letter</fullName>
                 <default>false</default>
             </values>
+	     <values>
+                <fullName>Internet %2F Dijital</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
@@ -928,6 +951,19 @@
                 <fullName>MB website</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>MBT Etkinliği</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBT Personeli Yönlendirmesi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBT Saha Ziyareti</fullName>
+                <default>false</default>
+            </values>
+	    
             <values>
                 <fullName>MCare</fullName>
                 <default>false</default>
@@ -950,6 +986,10 @@
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
+                <default>false</default>
+            </values>
+	    <values>
+                <fullName>Mercedes me Portal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1000,7 +1040,11 @@
 				<fullName>Partners</fullName>
                 <default>false</default>
             </values>
-            <values>							 
+            <values>
+                <fullName>Past Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Recall desk</fullName>
                 <default>false</default>
             </values>
@@ -1010,6 +1054,10 @@
             </values>
             <values>
                 <fullName>Road Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SUP %28Self Update Platform%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1062,6 +1110,10 @@
             </values>
 			 <values>
                 <fullName>Wholesale added</fullName>
+                <default>false</default>
+            </values>
+	     <values>
+                <fullName>Çağrı Merkezi</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5142,6 +5194,10 @@
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11320,6 +11376,10 @@
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>							  
             <picklist>Mobile_Status__c</picklist>
@@ -16532,6 +16592,10 @@
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
 		<picklistValues>		
             <picklist>Mobile_Status__c</picklist>
@@ -21580,6 +21644,11 @@
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+	    
         </picklistValues>
         <picklistValues>
             <picklist>Marital_Status__c</picklist>
