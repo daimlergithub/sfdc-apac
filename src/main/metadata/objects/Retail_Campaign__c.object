@@ -16634,7 +16634,6 @@ if('{!Campaign.Id}'!=null &amp;&amp; '{!Campaign.Id}'!='' &amp;&amp; '{!Campaign
 var campaignObj = new sforce.SObject("Campaign");
 campaignObj.id="{!Campaign.Id}";
 campaignObj.Activate_for_retail_campaign__c=true;
-campaignObj.IsActive=true;
 result = sforce.connection.update([campaignObj]);
 window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;Name={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;ent={!Retail_Campaign__c.Id}","_self";
 

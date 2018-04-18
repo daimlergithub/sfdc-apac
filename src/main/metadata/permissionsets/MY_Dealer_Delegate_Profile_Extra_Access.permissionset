@@ -27018,8 +27018,16 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>ConvertToLeadMY</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
         <apexPage>ConvertToTask</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
+    </pageAccesses>
+	<pageAccesses>
+        <apexPage>RetailCampaignSegmentation_TH</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ConvertToTask1</apexPage>
