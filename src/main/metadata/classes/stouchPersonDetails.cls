@@ -69,11 +69,11 @@ global without sharing class stouchPersonDetails {
         
         personDetails.put('Personal_UCID__c', String.ISBlank(acc.Ucid__c)?' ':acc.Ucid__c);
         personDetails.put('LastName', String.ISBlank(acc.LastName)?' ':acc.LastName);
-        personDetails.put('PersonMobilePhone', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c.remove('-'));
+        personDetails.put('PersonMobilePhone', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c);
         personDetails.put('PersonEmail', String.ISBlank(acc.Email__c)?' ':acc.Email__c);
         personDetails.put('PersonBirthdate', String.ISBlank(String.valueof(acc.PersonBirthdate))?' ':(Object)acc.PersonBirthdate);
-        personDetails.put('PersonHomePhone', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c.remove('-'));
-        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c.remove('-'));
+        personDetails.put('PersonHomePhone', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c);
+        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c);
         personDetails.put('MBK_Data_Source__c', String.ISBlank(acc.MBK_Data_Source__c)?' ':acc.MBK_Data_Source__c);
         
         personDetails.put('PersonMailingPostalCode', ' ');
