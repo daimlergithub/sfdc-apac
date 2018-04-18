@@ -96,9 +96,9 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         # Date: 02/20/2017
         # Author : Mohammed Touseef Ahmed
         */
-        if(isAfter && isUpdate && Usr.Profile.Name != Label.IntProfileName && ( Util_GetPermissionList.checkAccessOnUser(Label.updateRetailCopy))){
+       /* if(isAfter && isUpdate && Usr.Profile.Name != Label.IntProfileName && ( Util_GetPermissionList.checkAccessOnUser(Label.updateRetailCopy))){
             AccountHelperMY.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
-        }
+        }*/
     }
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
@@ -108,18 +108,14 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
         if(!isDelete && !accountNewList.isEmpty() && accountNewList.size() > 0 && accountNewList[0].MD__c == label.MY)
         {
             if(isBefore && isInsert){
-                //AccountHelperMY.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
 				AccountHelperMY.updateAccountFieldsBeforeInsertInt(Trigger.new,trigger.isInsert);
             }
         
         if(isBefore && isUpdate){
             AccountHelperMY.updateAccountFieldsBeforeIntUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
             AccountHelperMY.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
-           // AccountHelperMY.updateOnDoNotCall(Trigger.new);
-            //AccountHelperMY.updateOnPostalOptout(Trigger.new);
-           // AccountHelperMY.updateOnEmailOptout(Trigger.new);
             AccountHelperMY.updateAgeRange(Trigger.new);
-         //   AccountHelperMY.activeContracts(Trigger.new);
+         
             }
 			
 			/*	
@@ -130,7 +126,9 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
             */
             if(isAfter && isupdate && !accountNewList.isEmpty() && accountNewList.size() > 0)
             {
-                AccountHelperMY.createAccountLinkCDM(accountNewList,(Map<Id,Account>)Trigger.OldMap);
+                AccountHelperMY.createAccountLinkCDM(accountNewList,(Map<Id,Account>)Trigger.OldMap);			
+				AccountHelperMY.updateRetailCopy(isUpdate, isInsert, isAfter, trigger.new);
+        
             }   
         }
     }
