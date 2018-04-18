@@ -1381,7 +1381,37 @@
         <field>Dealer_Locator__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
-		<fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Campaign_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Completion_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Damage_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Estimated_Working_Hours__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Vehicle_Registration_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Recall__c.Market__c</field>
         <readable>true</readable>
