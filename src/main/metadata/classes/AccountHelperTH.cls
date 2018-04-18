@@ -1132,4 +1132,58 @@ It would be replaced by Informatica/Middleware  */
             }
         }
     }
+    
+    //share accounts after merging
+    public static void shareAccountMerge(List<Account> accLst)
+    {
+        List<ID> softDeletedAccountIdLst=new List<Id>();
+        List<String> UCIDLst=new List<String>();
+        for(Account acc:accLst)
+        {
+            softDeletedAccountIdLst.add(acc.Id);
+            UCIDLst.add(acc.UCID__c);
+        }
+        List<Account> goldenAccountLst=[select Id,UCID__c from Account where ID NOT IN:softDeletedAccountIdLst and UCID__c IN:UCIDLst];
+        List<Account_Link__c> accLinkLst=[Select fromRole__c,toRole__r.UCID__c,RetailDealer_ND_Code__c from Account_Link__c where toRole__c IN:softDeletedAccountIdLst and (recordtypeId=:retailPerson_RecordTypeId or recordTypeId=:retailCompany_RecordTypeId)];
+        List<String> grpNameLst=new List<String>();
+        Map<String,String> softDeletedAccountUCID2GrpNameMap=new Map<String,String>();
+        if(accLinkLst!=null && accLinkLst.size()>0)
+        {
+            for(Account_Link__c accLink:accLinkLst)
+            {
+                String grpName='TH'+accLink.RetailDealer_ND_Code__c;
+                grpNameLst.add(grpName);
+                softDeletedAccountUCID2GrpNameMap.put(accLink.toRole__r.UCID__c, grpName);
+            }
+        }
+        if(grpNameLst!=null && grpNameLst.size()>0)
+        {
+            List<Group> grpLst=[select Id,Name from Group where Name IN:grpNameLst];
+            Map<String,Id> grpNameGrpIdMap=new Map<String,Id>();
+            if(grpLst!=null && grpLst.size()>0)
+            {
+                for(Group grpObj:grpLst)
+                {
+                    grpNameGrpIdMap.put(grpObj.Name, grpObj.Id);
+                }
+            }
+            List<AccountShare> accShareLst=new List<AccountShare>();
+            if(goldenAccountLst!=null && goldenAccountLst.size()>0)
+            {
+               
+                for(Account accObj:goldenAccountLst)
+                {
+                    AccountShare accShare=new AccountShare();
+                    accShare.AccountId=accObj.Id;
+                    accShare.UserOrGroupId=grpNameGrpIdMap.get(softDeletedAccountUCID2GrpNameMap.get(accObj.UCID__c));
+                    accShare.AccountAccessLevel='Edit';
+                    accShare.CaseAccessLevel='None';
+                    accShare.OpportunityAccessLevel='None';
+                    accShareLst.add(accShare);
+                }
+            }
+            if(accShareLst!=null && accShareLst.size()>0)
+                insert accShareLst;
+        }
+    }
 }

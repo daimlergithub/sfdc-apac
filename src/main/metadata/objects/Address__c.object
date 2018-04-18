@@ -1749,6 +1749,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
@@ -2157,6 +2161,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
@@ -2193,6 +2201,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2558,6 +2570,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
                 <default>false</default>
             </values>
             <values>

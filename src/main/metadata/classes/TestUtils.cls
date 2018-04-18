@@ -262,9 +262,13 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     public static Account createGenericAccount(User u, String zipCode, Id accRecordTypeId, String mobile){
         Account genericAccount = new Account();
         genericAccount.RecordtypeId = accRecordTypeId;
-        genericAccount.Name = 'Test Generic Account';
-        //genericAccount.FirstName = 'Test Generic fName';
-        //genericAccount.LastName = 'Test Generic lName';
+        if(accRecordTypeId == Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId()){
+            genericAccount.Name = 'Test Generic Account';
+        }
+        else{
+            genericAccount.FirstName = 'Test Generic fName';
+            genericAccount.LastName = 'Test Generic lName';            
+        }
         genericAccount.Status__c = 'Active';
         genericAccount.Province__c = 'Province1';
         genericAccount.City__c = 'Test';
@@ -304,12 +308,32 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert addressobj;
         return addressobj;
     }
-    
+    // Create generic Address Record
+    public static Address__C createGenericAddressRecord(Account acc, String zipCode, String market, String city, String state, String cntry){
+        Address__C addressobj = new Address__C();
+        addressobj.Address_Type__c = 'Home';
+        addressobj.Address_Line_1__c = 'line 1';
+        addressobj.Address_Line_2__c = 'line 2';
+        addressobj.Address_Line_3__c = 'line 3';
+        addressobj.Block__c = 'Block';
+        addressobj.District__c = city;
+        addressobj.State__c = state;
+        addressobj.Customer__c = acc.id;
+        addressobj.ZipCode__c = zipCode;
+        addressobj.Province__c ='Maharashtra';
+        addressobj.TitleOfHonor__c = 'To Person';
+        addressobj.Market__c = market;
+        addressobj.Foreign_Nationals__c=false;
+        addressobj.Country__c = cntry;
+        addressobj.Preferred__c = true;
+        insert addressobj;
+        return addressobj;
+    }
     /* Creation of Generic methods by India - End */
     
     /* Creation of test records in various objects  - Begin  */
     // Creation of a person account
-     public static Account createPersonAccountAsUserAsOwner(user U){      
+    public static Account createPersonAccountAsUserAsOwner(user U){      
         Account a = new Account(FirstName = u.FirstName,LastName = u.LastName);
         a.Dealer_Default_Flag__c   = false;
         a.Dealer_DMS_SR_Code__c    = 'test code 2';
@@ -325,6 +349,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         a.Individual_Home_Phone__c = '+6612323789';
         a.Area_code__c             = '0101';
         a.MD__c                    = u.market__c;  // Modified by Laqshay Arora
+        a.Market__c                = u.market__c;  // Modified by Hildaa
         a.Postal_Opt_Out__c        = True;
         a.Province__c              = 'Shanghai';
         a.ZipCode__c               = '32703';
@@ -415,6 +440,13 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     // Creation of Contact
     public static Contact createContact(String name, Id acc){           
         Contact con = new Contact(LastName =name,AccountId = acc);
+        insert con;
+        return con;
+    }
+    
+    // Creation of Contact
+    public static Contact createContactTR(String name, Id acc){           
+        Contact con = new Contact(LastName =name,AccountId = acc,Market__c='TR');
         insert con;
         return con;
     }

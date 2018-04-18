@@ -125,6 +125,8 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
     
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
      List<Account> accountNewList2 = Trigger.new ; 
+        Map<Id,SObject> accountOldMap= Trigger.oldMap;
+        List<Account> changedUCIDaccountLst=new List<Account>();
         List<Account> accountNewList = new List<Account>(); 
         if(accountNewList2!= null && accountNewList2.size() >0)
         {
@@ -133,6 +135,9 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
                 if(aTH.MD__c == 'TH')  
                 {
                     accountNewList.add(aTH);
+                    Account oldAcc=(Account)accountOldMap.get(aTH.Id);
+                    if(oldAcc!=null && oldAcc.UCID__c!=aTH.UCID__c)
+                        changedUCIDaccountLst.add(aTH);
                 }
             }
         }
@@ -156,6 +161,8 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
             {
                 AccountHelperTH.DealerCommAccountlinkcreatecdm(accountNewList,(Map<Id,Account>)Trigger.OldMap);
 				AccountHelperTH.updateRetailCopy(isUpdate, isInsert, isAfter, accountNewList);
+                if(changedUCIDaccountLst!=null && !changedUCIDaccountLst.isEmpty() && changedUCIDaccountLst.size()>0)
+                    AccountHelperTH.shareAccountMerge(changedUCIDaccountLst);
             }
         }
 
