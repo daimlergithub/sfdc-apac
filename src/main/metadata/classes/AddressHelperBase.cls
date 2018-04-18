@@ -207,11 +207,23 @@ public without sharing class AddressHelperBase {
         }  
         if (PreferredMap.size()>0){
 			List<account_Link__c> UpdateRetailCopy= new List<Account_Link__c>();
-			for(account_Link__c a: [select id from Account_Link__c where Retail_Address_Reference__c in :PreferredMap.values()])
-			UpdateRetailCopy.add(a);
-			
+			for(account_Link__c al: [select id,Retail_Address_Type__c,Retail_Address_Reference__c,Retail_City__c,Retail_Address_Line_1__c,Retail_Address_Line_2__c,
+			Retail_Address_Line_3__c,Retail_Province__c,Retail_Distinct__c,Retail_ZipCode__c,Retail_Address_CreatedDate__c,Retail_Address_LastModifiedDate__c
+			from Account_Link__c where Retail_Address_Reference__c in :PreferredMap.values()]){
+				   al.Retail_Address_Type__c = newMap.get(al.Retail_Address_Reference__c).Address_Type__c;
+                    al.Retail_Province__c =(newMap.get(al.Retail_Address_Reference__c).Province__c !=null ?(newMap.get(al.Retail_Address_Reference__c).Province__c): '') ;
+                    al.Retail_City__c = (newMap.get(al.Retail_Address_Reference__c).District__c != null ? newMap.get(al.Retail_Address_Reference__c).District__c:'').left(35);
+                    al.Retail_Distinct__c = ((newMap.get(al.Retail_Address_Reference__c).District__c!=null ? newMap.get(al.Retail_Address_Reference__c).District__c : '')+' '+(newMap.get(al.Retail_Address_Reference__c).Block__c!= null ?newMap.get(al.Retail_Address_Reference__c).Block__c : '')).left(35);
+                    al.Retail_Address_Line_1__c = ((newMap.get(al.Retail_Address_Reference__c).Address_Line_1__c)!=null?newMap.get(al.Retail_Address_Reference__c).Address_Line_1__c:'').left(35);
+                    al.Retail_Address_Line_2__c = ((newMap.get(al.Retail_Address_Reference__c).Address_Line_2__c)!=null?newMap.get(al.Retail_Address_Reference__c).Address_Line_2__c:'').left(35);
+                    al.Retail_Address_Line_3__c = ((newMap.get(al.Retail_Address_Reference__c).Address_Line_3__c)!=null?newMap.get(al.Retail_Address_Reference__c).Address_Line_3__c:'').left(35);
+                    al.Retail_ZipCode__c = (newMap.get(al.Retail_Address_Reference__c).ZipCode__c!=null ? newMap.get(al.Retail_Address_Reference__c).ZipCode__c : '' );
+                    al.Retail_Address_CreatedDate__c = Date.ValueOf(newMap.get(al.Retail_Address_Reference__c).CreatedDate);
+                    al.Retail_Address_LastModifiedDate__c = Date.ValueOf(newMap.get(al.Retail_Address_Reference__c).LastModifiedDate);
+                
+				UpdateRetailCopy.add(al);
+			}
 			DMLManagerService.updateAsSystem(UpdateRetailCopy);  
-			
 		}
     }
 }
