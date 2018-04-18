@@ -7731,6 +7731,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>RSVP(This is Used for RSVP implementation)</shortDescription>
         <value>RSVP</value>
     </labels>
+	<labels>
+		<fullName>ALAddressUpdate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ALAddressUpdate</shortDescription>
+        <value>ALAddressUpdate</value>
+    </labels>
     <labels>
         <fullName>Range_Model</fullName>
         <language>en_US</language>

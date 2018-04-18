@@ -2586,6 +2586,10 @@
     </customPermissions>
 	<customPermissions>
         <enabled>true</enabled>
+        <name>ALAddressUpdate</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
         <name>LeadAL</name>
     </customPermissions>
 	<customPermissions>

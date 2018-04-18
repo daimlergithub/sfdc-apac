@@ -2594,6 +2594,10 @@
     </customPermissions>
 	<customPermissions>
         <enabled>true</enabled>
+        <name>ALAddressUpdate</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
         <name>MYRetail</name>
     </customPermissions>
 	<customPermissions>

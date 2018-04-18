@@ -3403,6 +3403,10 @@
     </customPermissions>
 	<customPermissions>
         <enabled>true</enabled>
+        <name>ALAddressUpdate</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
         <name>PreferreddALKAddress</name>
     </customPermissions>
     <customPermissions>

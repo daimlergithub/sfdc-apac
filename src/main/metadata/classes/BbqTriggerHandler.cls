@@ -17,6 +17,12 @@ public class BbqTriggerHandler implements TriggerHandlerIf
                 BbqTriggerHelperBase.pointCalculation(Trigger.new,(Map<id,Referral__c>)Trigger.newMap,(Map<id,Referral__c>)Trigger.oldMap);
             }
         }
+        if(trigger.isBefore){
+            if(trigger.isinsert){
+                BbqTriggerHelperBase.autoPopulateDealerEmailAddress(trigger.new);
+            }
+        }
+            
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){    
         List<Referral__c> ReferralList = Trigger.new;
@@ -31,7 +37,12 @@ public class BbqTriggerHandler implements TriggerHandlerIf
                 else if(trigger.isUpdate){                
                     BbqTriggerHelperBase.pointCalculation(Trigger.new,(Map<id,Referral__c>)Trigger.newMap,(Map<id,Referral__c>)Trigger.oldMap);
                 }
-            }          
+            }     
+            if(trigger.isBefore){
+                if(trigger.isinsert){
+                    BbqTriggerHelperBase.autoPopulateDealerEmailAddress(trigger.new);
+                }
+            }
             
         }
         
