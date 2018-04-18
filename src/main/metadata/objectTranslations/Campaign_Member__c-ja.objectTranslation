@@ -133,6 +133,26 @@
         <label>住所</label>
         <name>Customer_Complete_Address__c</name>
     </fields>
+	<fields>
+        <label>クロスポイント評価年月</label>
+        <name>Cross_point_month_and_year__c</name>
+	</fields>
+	<fields>
+        <label>評価P1またはP2またはブランク</label>
+        <name>Evaluation_Result_P1_P2_Blank__c</name>
+	</fields>
+	<fields>
+        <label>最終差額</label>
+        <name>Final_GAP_Amount__c</name>
+	</fields>
+	<fields>
+        <label>四半期末時点　残高</label>
+        <name>Outstanding_Balance_amount__c</name>
+	</fields>
+	<fields>
+        <label>中古車相場価格</label>
+        <name>Proto_Market_Value_amount__c</name>
+	</fields>
     <fields>
         <label>顧客メールアドレス</label>
         <name>Customer_Email__c</name>
