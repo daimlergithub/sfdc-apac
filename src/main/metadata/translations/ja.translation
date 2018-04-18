@@ -133,7 +133,7 @@
         <name>masterLeadMerge</name>
     </customLabels> 
 	<customLabels>
-        <label>削除または自動</label>
+        <label>削除または自動計算</label>
         <name>slaveLeadMerge</name>
     </customLabels> 
     <customLabels>
@@ -161,7 +161,7 @@
         <name>Announcements</name>
     </customLabels>
 	  <customLabels>
-        <label>リストメンテナンス開始を実施します</label>
+        <label> 販売店キャンペーンメンバー追加を実施します</label>
         <name>Are_you_sure_to_create_Retail_Campaign</name>
     </customLabels>
 	 <customLabels>

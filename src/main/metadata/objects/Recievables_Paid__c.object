@@ -121,6 +121,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Composite_Receipt_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <formula>FS_Contract__r.Borrower__r.BPID__c+"-"+FS_Contract__r.Contract_ID__c+"-"+Receipt_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Composite Receipt Identifier</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Customer__c</fullName>
         <externalId>false</externalId>
         <label>Customer</label>
@@ -186,6 +198,18 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Receipt_ID__c</fullName>
+        <description>Receipt Id will come from RMW.</description>
+        <externalId>false</externalId>
+        <label>Receipt ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Receipt_No__c</fullName>
@@ -262,9 +286,10 @@
     </fields>
     <label>Receivables Paid</label>
     <nameField>
+        <displayFormat>RP-{000000}</displayFormat>
         <label>Recievables Paid Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Receivables Paid</pluralLabel>
     <searchLayouts/>

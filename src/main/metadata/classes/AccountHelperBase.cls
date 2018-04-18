@@ -137,6 +137,19 @@ public class AccountHelperBase{
                     Acc.Email_Last_Modified_By3__c = UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = System.now();
                 }
+				//Sada 2018/April/17 added as per Defect DF18
+                if(Acc.Opt_In_Email__c!= Null ){
+                    Acc.Email_Opt_IN_Last_Update_date__c = System.now();
+                }
+                if(Acc.Opt_In_Phone__c!= Null ){
+                    Acc.Phone_Opt_IN_Last_Update_date__c = System.now();
+                }
+                if(Acc.Opt_In_SMS3__c!= Null ){
+                    Acc.SMS_Opt_IN_Last_Update_date__c = System.now();
+                }
+                if(Acc.Opt_In_Mail__c!= Null){
+                    Acc.Mail_Opt_IN_Last_Update_date__c = System.now();
+                }
                
               
             }
@@ -182,6 +195,19 @@ public class AccountHelperBase{
                     Acc.Email_Last_Modified_By3__c = string.isnotblank(Acc.Email_Last_Modified_By3__c)?Acc.Email_Last_Modified_By3__c:UserInfo.getName();
                     Acc.Email_Last_Modified_Date3__c = Acc.Email_Last_Modified_Date3__c!=null?Acc.Email_Last_Modified_Date3__c:System.now();
                 }
+				//Sada 2018/April/17 added as per Defect DF18
+                if(Acc.Opt_In_Email__c!= Null ){
+                    Acc.Email_Opt_IN_Last_Update_date__c = Acc.Email_Opt_IN_Last_Update_date__c!=null?Acc.Email_Opt_IN_Last_Update_date__c:System.now();
+                }
+                if(Acc.Opt_In_Phone__c!= Null ){
+                    Acc.Phone_Opt_IN_Last_Update_date__c = Acc.Phone_Opt_IN_Last_Update_date__c!=null?Acc.Phone_Opt_IN_Last_Update_date__c:System.now();
+                }
+                if(Acc.Opt_In_SMS3__c!= Null ){
+                    Acc.SMS_Opt_IN_Last_Update_date__c = Acc.SMS_Opt_IN_Last_Update_date__c!=null?Acc.SMS_Opt_IN_Last_Update_date__c:System.now();                  
+                }
+                if(Acc.Opt_In_Mail__c!= Null ){
+                Acc.Mail_Opt_IN_Last_Update_date__c = Acc.Mail_Opt_IN_Last_Update_date__c!=null?Acc.Mail_Opt_IN_Last_Update_date__c:System.now();                   
+                }  
                
               
             }
@@ -228,6 +254,19 @@ public class AccountHelperBase{
                     Acc.SMS_Last_Modified_By2__c = UserInfo.getName();
                     Acc.SMS_Last_Modified_Date2__c = Acc.SMS_Last_Modified_Date2__c!=null?Acc.SMS_Last_Modified_Date2__c:System.now();
                 }
+				//Sada 2018/April/17 added as per Defect DF18
+               if(Acc.Opt_In_Email__c != OldAcc.Opt_In_Email__c){
+                    Acc.Email_Opt_IN_Last_Update_date__c = Acc.Email_Opt_IN_Last_Update_date__c!=null?Acc.Email_Opt_IN_Last_Update_date__c:System.now();
+                }                
+                if(Acc.Opt_In_Phone__c != OldAcc.Opt_In_Phone__c){
+                    Acc.Phone_Opt_IN_Last_Update_date__c = Acc.Phone_Opt_IN_Last_Update_date__c!=null?Acc.Phone_Opt_IN_Last_Update_date__c:System.now();
+                }
+                if(Acc.Opt_In_SMS3__c != OldAcc.Opt_In_SMS3__c){
+                    Acc.SMS_Opt_IN_Last_Update_date__c = Acc.SMS_Opt_IN_Last_Update_date__c!=null?Acc.SMS_Opt_IN_Last_Update_date__c:System.now();                  
+                }
+                if(Acc.Opt_In_Mail__c != OldAcc.Opt_In_Mail__c){
+                   Acc.Mail_Opt_IN_Last_Update_date__c = Acc.Mail_Opt_IN_Last_Update_date__c!=null?Acc.Mail_Opt_IN_Last_Update_date__c:System.now();                    
+                } 
             }
         }
     }
@@ -421,6 +460,19 @@ public class AccountHelperBase{
                 if(Acc.Mobile2__c!= OldAcc.Mobile2__c ){
                     Acc.SMS_Last_Modified_By2__c = UserInfo.getName();
                     Acc.SMS_Last_Modified_Date2__c = System.now();
+                }
+				//Sada 2018/April/17 added as per Defect DF18
+                if(Acc.Opt_In_Email__c != OldAcc.Opt_In_Email__c){
+                    Acc.Email_Opt_IN_Last_Update_date__c= System.now();
+                }                
+                if(Acc.Opt_In_Phone__c != OldAcc.Opt_In_Phone__c){
+                    Acc.Phone_Opt_IN_Last_Update_date__c= System.now();
+                }
+                if(Acc.Opt_In_SMS3__c != OldAcc.Opt_In_SMS3__c){
+                    Acc.SMS_Opt_IN_Last_Update_date__c= System.now();
+                }
+                if(Acc.Opt_In_Mail__c != OldAcc.Opt_In_Mail__c){
+                    Acc.Mail_Opt_IN_Last_Update_date__c= System.now();
                 }
             }
         }
@@ -944,5 +996,26 @@ public class AccountHelperBase{
                 acc.Market__c=acc.MD__c;
             }  
         }       
+    }
+    
+    
+    public static void updateAccountStatusFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
+            for(Account Acc : listNewAccounts){
+                Account OldAcc = accountOldMap.get(Acc.id);
+                
+                
+                if(Acc.Email__c!= OldAcc.Email__c){
+                    //Acc.PersonEmail = Acc.Email__c;
+                    Acc.Email_Status__c = '';
+                }
+
+                if(Acc.Mobile__c != OldAcc.Mobile__c){
+                    Acc.Mobile_Status__c = '';
+                    
+                }   
+                
+            }
+        }
     }
 }

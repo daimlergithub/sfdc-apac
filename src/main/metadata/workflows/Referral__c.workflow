@@ -2,9 +2,12 @@
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
         <fullName>Email_notification_to_Dealer_when_referral_is_submitted</fullName>
-        <ccEmails>sreddy823@gmail.com</ccEmails>
         <description>Email notification to Dealer when referral is submitted</description>
         <protected>false</protected>
+        <recipients>
+            <field>Dealer_Email_address__c</field>
+            <type>email</type>
+        </recipients>
         <senderType>CurrentUser</senderType>
         <template>BBQ_Email_Templates/Email_Notification_to_Dealer</template>
     </alerts>
@@ -27,16 +30,11 @@
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Referral__c.Market__c</field>
-            <operation>equals</operation>
-            <value>SG</value>
-        </criteriaItems>
-        <criteriaItems>
             <field>Referral__c.Status__c</field>
             <operation>equals</operation>
             <value>Submitted</value>
         </criteriaItems>
-        <description>Send Email to dealer when the referral is created &amp; market is SG</description>
+        <description>Send Email to dealer when the referral is created</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

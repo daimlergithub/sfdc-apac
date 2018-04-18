@@ -15935,6 +15935,11 @@
         <field>Lead__c.Current_Vehicle_2_Text__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.CampaignMember__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Current_Vehicle_2__c</field>

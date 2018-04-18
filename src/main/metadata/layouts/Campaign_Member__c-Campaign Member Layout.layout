@@ -290,6 +290,18 @@
         <editHeading>true</editHeading>
         <label>MBF Crosspoint Information</label>
         <layoutColumns>
+		  <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cross_point_month_and_year__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Proto_Market_Value_amount__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Evaluation_Result_P1_P2_Blank__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Cross_Point_Model__c</field>
@@ -314,6 +326,17 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+		 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Outstanding_Balance_amount__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Final_GAP_Amount__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Term__c</field>
@@ -333,6 +356,9 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RV_Ballon__c</field>
+            </layoutItems>
+			 <layoutItems>
+                <emptySpace>true</emptySpace>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

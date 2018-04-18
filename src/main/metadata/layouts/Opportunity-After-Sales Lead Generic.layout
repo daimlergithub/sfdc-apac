@@ -27,6 +27,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Entity__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Last_Successful_Call__c</field>
             </layoutItems>
             <layoutItems>
@@ -72,6 +76,30 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lead_Age__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Express_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Form_Title__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Year__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>VIN_number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Loan_car_required__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Pick_up_times__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -119,6 +147,10 @@
                 <behavior>Edit</behavior>
                 <field>CAC_Lost_Reason__c</field>
             </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lost_Sub_Type__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Reason_text__c</field>
@@ -146,6 +178,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Probability</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Registration_number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Km_service_due__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_drop_off__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -187,11 +231,19 @@
                 <behavior>Readonly</behavior>
                 <field>Account_address__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_eMail__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>UCID__c</field>
+                <field>UCID_account__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lead_Mobile__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -217,6 +269,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Assigned_Service_Advisor__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Assigned_Service_Parts_Advisor__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -526,21 +582,7 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>RECORDTYPE</fields>
-        <fields>Brand__c</fields>
-        <fields>Car_Model__c</fields>
-        <fields>Car_Model_Competitor__c</fields>
-        <fields>Class__c</fields>
-        <fields>Trim__c</fields>
-        <fields>Preferred__c</fields>
-        <fields>Year_of_Manufacture__c</fields>
-        <fields>Mileage__c</fields>
-        <fields>Trade_In_Vehicle__c</fields>
-        <relatedList>Lead_Details__c.Related_Lead__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedContentNoteList</relatedList>
+        <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
@@ -576,7 +618,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0l000000OJCV</masterLabel>
+        <masterLabel>00hO0000000bEbK</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -151,7 +151,7 @@ Public With Sharing class AccountTable{
        //runQuery();
         Setcon = new ApexPages.StandardSetController(Database.query(soql));
         
-        setCon.setpagesize(10);
+        setCon.setpagesize(100);
         noOfRecords = setCon.getResultSize();
        getAccount();
     }
@@ -165,7 +165,7 @@ Public With Sharing class AccountTable{
         }
         
         Batch_insertDealer  batcher = new Batch_insertDealer (accid, CamId );
-            Database.executeBatch(batcher, 50);
+            Database.executeBatch(batcher, 10);
         
     }
     Public List<AddingParticipatingDealer> getAccount(){
@@ -271,7 +271,7 @@ Public With Sharing class AccountTable{
         }
         
        Batch_insertDealer  batcher = new Batch_insertDealer (SetAccounts, CamId );
-            Database.executeBatch(batcher, 200);
+            Database.executeBatch(batcher, 10);
        
        
         //Insert parDealer;

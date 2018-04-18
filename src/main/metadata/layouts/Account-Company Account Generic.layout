@@ -68,7 +68,7 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Radio_Station__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Entity__c</field>
             </layoutItems>
@@ -92,7 +92,7 @@
                 <behavior>Edit</behavior>
                 <field>Business_Number_Type__c</field>
             </layoutItems>
-		</layoutColumns>
+        </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -138,18 +138,14 @@
                 <behavior>Edit</behavior>
                 <field>Foundation_Date__c</field>
             </layoutItems>
-			 <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Deceased__c</field>
-            </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Country__c</field>
-            </layoutItems>            
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Legal_Form__c</field>
@@ -461,7 +457,7 @@
         <fields>Campaign__c</fields>
         <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Campaign_Name__c</fields>
         <fields>Campaign_Type__c</fields>
@@ -469,6 +465,20 @@
         <fields>LAST_UPDATE</fields>
         <fields>Campaign_Execution_Type__c</fields>
         <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Record_Type_Name__c</fields>
+        <fields>Status__c</fields>
+        <fields>Child_Campaign_Status__c</fields>
+        <fields>Start_Date__c</fields>
+        <fields>Close_Date__c</fields>
+        <fields>Campaign_Type__c</fields>
+        <relatedList>Retail_Campaign__c.Dealer_Name__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>

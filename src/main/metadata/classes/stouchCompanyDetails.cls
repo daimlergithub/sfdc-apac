@@ -20,7 +20,7 @@ global class stouchCompanyDetails {
         leadMaps.put('Re_visit__c', (leads==null || String.ISBlank(String.valueOf(leads.Re_visit__c)))?' ':(Object)leads.Re_visit__c);
         leadMaps.put('Preferred_Contact_Time__c',' ');
         if(leads!=null && leads.Preferred_Contact_Time__c!=null)
-            leadMaps.put('Preferred_Contact_Time__c', leads.Preferred_Contact_Time__c.format('yyyy-MM-dd\'T\'hh:mm:ss\'Z\'','GMT'));
+            leadMaps.put('Preferred_Contact_Time__c', leads.Preferred_Contact_Time__c.format('yyyy-MM-dd\'T\'HH:mm:ss\'Z\'','GMT'));
         leadMaps.put('Preferred_Contact_Date__c', (leads==null || String.ISBlank(leads.Preferred_Contact_Date__c))?' ':leads.Preferred_Contact_Date__c);
         leadMaps.put('Current_Vehicle_1_Text__c', (leads==null || String.ISBlank(leads.Current_Vehicle_1_Text__c))?' ':leads.Current_Vehicle_1_Text__c);
         leadMaps.put('Current_Vehicle_2_Text__c', (leads==null || String.ISBlank(leads.Current_Vehicle_2_Text__c))?' ':leads.Current_Vehicle_2_Text__c);
@@ -29,7 +29,7 @@ global class stouchCompanyDetails {
         leadMaps.put('Dealer_Comments__c', (leads==null || String.ISBlank(leads.Dealer_Comments__c))?' ':leads.Dealer_Comments__c);
         leadMaps.put('LastModifiedDate',' ');
         if(leads!=null)
-            leadMaps.put('LastModifiedDate', leads.LastModifiedDate.format('yyyy-MM-dd\'T\'hh:mm:ss\'Z\'','GMT'));
+            leadMaps.put('LastModifiedDate', leads.LastModifiedDate.format('yyyy-MM-dd\'T\'HH:mm:ss\'Z\'','GMT'));
         leadMaps.put('Customer_Type__c',(leads==null || String.ISBlank(leads.Customer_Type__c))?' ':leads.Customer_Type__c);
         leadMaps.put('Purchase_Time__c',(leads==null || String.ISBlank(leads.Purchase_Time__c))?' ':leads.Purchase_Time__c);
         leadMaps.put('DealerID', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_ND_Code__c))?' ':leads.Assigned_dealer__r.Dealer_ND_Code__c);
@@ -102,10 +102,10 @@ global class stouchCompanyDetails {
         personDetails.put('Personal_Abroad_Agreement__c', String.ISBlank(acc.Personal_Abroad_Agreement__c)?' ':acc.Personal_Abroad_Agreement__c);
         personDetails.put('Personal_Agreement_commit__c', String.ISBlank(acc.Agreement_to_commit_info_processing__c)?' ':acc.Agreement_to_commit_info_processing__c);
         
-        personDetails.put('CompanyMobile', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c.remove('-'));
+        personDetails.put('CompanyMobile', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c);
         personDetails.put('CompanyEmail', String.ISBlank(acc.Email__c)?' ':acc.Email__c);
-        personDetails.put('Individual_Home_Phone__c', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c.remove('-'));
-        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c.remove('-'));
+        personDetails.put('Individual_Home_Phone__c', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c);
+        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c);
         
         List<Object> leadList=new List<Object>();
         List<Id> userIds=new List<Id>();

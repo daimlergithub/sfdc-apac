@@ -304,6 +304,9 @@
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+
+                <controllingFieldValues>TR</controllingFieldValues>
+			
 				<controllingFieldValues>AU</controllingFieldValues>	
 				<controllingFieldValues>NZ</controllingFieldValues>					
             </picklistValues>
@@ -315,6 +318,7 @@
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
 				<controllingFieldValues>AU</controllingFieldValues>	
 				<controllingFieldValues>NZ</controllingFieldValues>				
             </picklistValues>
@@ -447,6 +451,7 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Korea</fullName>
@@ -454,6 +459,7 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Australia</fullName>
@@ -473,6 +479,7 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Thailand</fullName>
@@ -480,6 +487,7 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Singapore</fullName>
@@ -487,6 +495,7 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vietnam</fullName>
@@ -499,23 +508,32 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Brunei</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Indonesia</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>India</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -727,7 +745,8 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
 IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -765,6 +784,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TR</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1764,6 +1787,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Province__c</picklist>
@@ -2565,11 +2592,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>NZ</fullName>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

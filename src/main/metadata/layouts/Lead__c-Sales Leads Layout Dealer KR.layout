@@ -27,10 +27,6 @@
                 <behavior>Edit</behavior>
                 <field>Fax__c</field>
             </layoutItems>
-			<layoutItems>
-+                <behavior>Edit</behavior>
-+                <field>Lost_Status_Tracking__c</field>
-+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -115,6 +111,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CAC_Lead_Status__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lost_Status_Tracking__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>

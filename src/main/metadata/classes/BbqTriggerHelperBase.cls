@@ -4,7 +4,8 @@
 * Company:Infosys Ltd
 * Description: 
 1)Task creation: Create task to the call center supervisior after the referral is created.
-2) Point calculation: Update the referralCreated and referralWon fields after the record is inserted or updated.		
+2) Point calculation: Update the referralCreated and referralWon fields after the record is inserted or updated.
+3) autoPopulateDealerEmailAddress: To update the dealerEmail address based on the market and dealer name.
 *********************************************************************************************/
 public class BbqTriggerHelperBase {    
     public static void taskCreation(list<referral__c> refNew){     
@@ -12,14 +13,13 @@ public class BbqTriggerHelperBase {
         Integer activityDays=integer.valueOf(bbqTask.taskActivityDate__c);
         String recordType=bbqTask.taskRecordType__c;        
         Integer reminderDays=integer.valueOf(bbqTask.taskReminderDate__c);
-   		Id TaskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(recordType).getRecordTypeId();
+        Id TaskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(recordType).getRecordTypeId();
         Map<string, BbqCreateTask__c> bbqCT = BbqCreateTask__c.getAll();  
         List<Task> taskList = new List<Task>();
         For (referral__c ref:refNew){
-           if (ref.Status__c == 'Submitted'){               
-                //BbqCreateTask__c bbqCT = BbqCreateTask__c.getValues(ref.Market__c);			//get out of loopp	      
-               
-               Task tsk =new Task();    
+            if (ref.Status__c == 'Submitted'){               
+                //BbqCreateTask__c bbqCT = BbqCreateTask__c.getValues(ref.Market__c);//get out of loopp	      
+               	Task tsk =new Task();    
                 tsk.RecordTypeId     = TaskRecTypeId;
                 tsk.WhatId           = ref.Id; 
                 if (bbqCT!=null && ref.Market__c!=null && bbqCT.get(ref.Market__c) != null){
@@ -33,18 +33,30 @@ public class BbqTriggerHelperBase {
                 tsk.IsReminderSet    = true;
                 tsk.ReminderDateTime = System.today().addDays(reminderDays);
                 if (bbqCT.get(ref.Market__c) != null)
-                	taskList.add(tsk);               
+                    taskList.add(tsk);               
             }
         }
         if (!taskList.isEmpty()){
             Database.insert(taskList, false);
         }        
+    }    
+    public static void autoPopulateDealerEmailAddress(list<referral__c> referralList){        
+        Map<string, BbqDealerData__c> bbqDD = BbqDealerData__c.getAll();
+        list<referral__c> refList=new list<referral__c>();
+        for(referral__c ref:referralList){
+            if(ref.Dealer__c!=null){
+                string dealer=ref.Dealer__c.toUpperCase();
+                string dealerSeq=ref.Market__c+'-'+dealer;
+                if(bbqDD.get(dealerSeq)!=null){
+                    ref.Dealer_Email_address__c=bbqDD.get(dealerSeq).Dealer_Email__c;
+                }
+            }
+            refList.add(ref);
+        }
     }
-    
-    public static void pointCalculation(list<referral__c> refferalList,Map<id, referral__c> refNewMap, Map<id, referral__c> refOldMap){   
-
+    public static void pointCalculation(list<referral__c> refferalList,Map<id, referral__c> refNewMap, Map<id, referral__c> refOldMap){  
         //loop and get the employees to be updated
-		Set<Id> empRefList = new Set<Id>();
+        Set<Id> empRefList = new Set<Id>();
         for (Referral__c refl:refferalList){
             if(refl.ReferredEmployee__c != null){
                 empRefList.add(refl.ReferredEmployee__c);
@@ -54,21 +66,21 @@ public class BbqTriggerHelperBase {
             return;
         }
         list<Employee__c> employeeList=[SELECT Id,ReferralsCreated__c,ReferralsWon__c,Email__c FROM Employee__c where Id in : empRefList];
-        system.debug('<<<empList'+employeeList);
         list<Employee__c> empList=new list<Employee__c>();
         for(referral__c ref:refferalList){
             for(Employee__c emp: employeeList){
                 if(ref.ReferredEmployee__c == emp.id){
-					if(trigger.Isinsert){
+                    if(trigger.Isinsert){
                         emp.ReferralsCreated__c=emp.ReferralsCreated__c+1;
                     }
                     if(ref.Status__c=='Won' && (refOldMap.get(ref.id).status__c != refNewMap.get(ref.id).status__c)){
-                        emp.ReferralsWon__c=emp.ReferralsWon__c+1;                        
+                        emp.ReferralsWon__c=emp.ReferralsWon__c+1;
                     }
-                	empList.add(emp); 
+                    empList.add(emp); 
                 }	
             }            
-        }
+        }			
+        
         if(empList.size()>0){
             try{
                 update empList;
@@ -77,6 +89,6 @@ public class BbqTriggerHelperBase {
                 system.debug('<<<Exception e--->'+e);
                 CustomLogUtil.DebugException(e);
             }
-        }       
-    }
+        } 
+    } 
 }

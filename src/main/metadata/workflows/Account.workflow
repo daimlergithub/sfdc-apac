@@ -65,14 +65,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_Preferred_Phone</fullName>
-        <field>Preferred_Phone__c</field>
-        <name>Change Preferred Phone</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>	
 	<fieldUpdates>
         <fullName>Change_Status_To_Prospect</fullName>
         <field>Status__c</field>
@@ -211,18 +203,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	
-	<fieldUpdates>
-        <fullName>Status_Deceased</fullName>
-        <description>On selecting the checkbox  Deceased and saving the record, it updates the status of customer is updated as &apos;Deceased&apos;</description>
-        <field>Status__c</field>
-        <literalValue>Unknown</literalValue>
-        <name>Status Deceased</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-	
     <fieldUpdates>
         <fullName>System_Data_Source</fullName>
         <field>System_Data_Source__c</field>
@@ -247,15 +227,6 @@
         <field>System_Data_Source__c</field>
         <formula>&apos;Salesforce&apos;</formula>
         <name>System Data Source 2</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>UpdateDataSource</fullName>
-        <field>System_Data_Source__c</field>
-        <formula>&apos;Salesforce&apos;</formula>
-        <name>UpdateDataSource</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -304,15 +275,6 @@
         <field>Country__c</field>
         <literalValue>Australia</literalValue>
         <name>Update Country Field AU</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Country_Field_JP</fullName>
-        <field>Country__c</field>
-        <literalValue>Japan</literalValue>
-        <name>Update Country Field JP</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -386,15 +348,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Preferred_Language_Field_JP</fullName>
-        <field>Preferred_Language__c</field>
-        <literalValue>Japanese</literalValue>
-        <name>Update Preferred Language Field JP</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Preferred_Language_Field_KR</fullName>
         <field>Preferred_Language__c</field>
         <literalValue>Korean</literalValue>
@@ -421,15 +374,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>UpdatedConsentUser</fullName>
-        <field>Updated_Consent_User__c</field>
-        <formula>$User.Username</formula>
-        <name>UpdatedConsentUser</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>WorkPhone_Update</fullName>
@@ -601,17 +545,6 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Change Preferred phone to null</fullName>
-        <actions>
-            <name>Change_Preferred_Phone</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <description>When field “Preferred contact method” value is set to others from “Phone”,the field value changes to null</description>
-        <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>Home Phone Checkbox autopopulate</fullName>
         <actions>
             <name>Sales_Tel_field_auto_populate</name>
@@ -648,29 +581,7 @@
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-<rules>
-        <fullName>MBANZ Customer Update as Deceased</fullName>
-        <actions>
-            <name>Status_Deceased</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Account.Deceased__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Market__c</field>
-            <operation>equals</operation>
-            <value>AU,NZ</value>
-        </criteriaItems>
-        <description>if &apos;Deceased&apos; checked, and saving the record, it updates the status of customer is updated as &apos;Deceased&apos;</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-	
-	
-	 <rules>
+	<rules>
         <fullName>MBAU update data source_Retailer added</fullName>
         <actions>
             <name>update_data_source_Retail_added</name>
@@ -908,26 +819,6 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Send Assigned Leads to Dealer Everyday</fullName>
-        <actions>
-            <name>Dealer_Email_Notification_on_Amount_of_Assigned_Leads</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <description>/* 
-Created by: Mouse Liu 
-Used by: Lead__c (US-Lead-14) 
-Function: Send Assigned Dealer Amount to dealer everyday
-Used in: 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/</description>
-        <formula>AND (     Assigned_Lead_Amount_of_Everyday__c &gt; 0,     ISCHANGED(Assigned_Lead_Amount_of_Everyday__c) )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>Update Allow Data Sharing</fullName>
         <actions>
             <name>Update_Allow_Data_Sharing</name>
@@ -984,21 +875,6 @@ ISCHANGED( Phone ), ISCHANGED( Fax ), ISCHANGED( Fax2__c ), ISCHANGED( Email3__c
 ISCHANGED(Main_Dealer__c)
 )</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Preferred Language and Country JP</fullName>
-        <actions>
-            <name>Update_Country_Field_JP</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Preferred_Language_Field_JP</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for JP</description>
-        <formula>ISPICKVAL($User.Market__c,&apos;JP&apos;)</formula>
-        <triggerType>onCreateOnly</triggerType>
     </rules>
 	<rules>
         <fullName>Update Preferred Language and Country AU</fullName>

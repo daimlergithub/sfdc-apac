@@ -3403,6 +3403,10 @@
     </customPermissions>
 	<customPermissions>
         <enabled>true</enabled>
+        <name>ALAddressUpdate</name>
+    </customPermissions>
+	<customPermissions>
+        <enabled>true</enabled>
         <name>PreferreddALKAddress</name>
     </customPermissions>
     <customPermissions>
@@ -26730,6 +26734,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.Warranty_Start_Date__c</field>
+        <readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Extended_Warranty_End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Extended_Warranty_Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

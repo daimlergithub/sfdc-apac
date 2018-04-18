@@ -410,6 +410,10 @@
                 <fullName>IN</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>

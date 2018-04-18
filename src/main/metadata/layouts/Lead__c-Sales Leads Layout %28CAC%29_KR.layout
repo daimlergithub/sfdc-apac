@@ -52,10 +52,10 @@
                 <behavior>Readonly</behavior>
                 <field>Is_Assigned__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Lead_Status__c</field>
-            </layoutItems>
+			<layoutItems>
++                <behavior>Edit</behavior>
++                <field>Lost_Status_Tracking__c</field>
++            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Dealer_Date__c</field>
@@ -112,10 +112,6 @@
                 <behavior>Edit</behavior>
                 <field>Invoice_Date__c</field>
             </layoutItems>
-			<layoutItems>
-+                <behavior>Edit</behavior>
-+                <field>Lost_Status_Tracking__c</field>
-+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -141,6 +137,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>CAC_Lost_Reason__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Lead_Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

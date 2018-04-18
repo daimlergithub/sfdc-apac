@@ -4284,6 +4284,15 @@ public PageReference goToMarketSpecificPage() {
                 vfpage = pageSetting.VFPageName__c;
             }
         }
+        else if(market != null && market != '' && market == Label.TR){
+            List<CreateAccountVFSetting__mdt> lstpageSetting = [select VFPageName__c from CreateAccountVFSetting__mdt where market__c = :Label.TR limit 1];
+            if (lstpageSetting.size() > 0){
+                pageSetting = lstpageSetting[0];
+            }
+            if (pageSetting != null){
+                vfpage = pageSetting.VFPageName__c;
+            }
+        }
         if (vfpage != null && vfpage != ''){
              PageReference accPage = new PageReference('/apex/'+ vfpage);
              accPage.setRedirect(true);

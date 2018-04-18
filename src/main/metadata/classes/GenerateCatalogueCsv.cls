@@ -62,7 +62,7 @@ the Status of DM requests to "Sent". Creates Task and assigns to the Logged In U
         DMRequests = [select id,TitleOfHonor__c,Status1__c,Status2__c,Status3__c,Zip_Code__c,Province__c,Additional_Address__c,Address__c,Name,Customer_Name__c,Customer_Name__r.ZipCode__c,Attention__c,
                       Customer_Name__r.Name,Customer_Name__r.RecordType.Name,Customer_Name__r.Company_Name__c,Expected_DM_Material1__r.Preliminary_Flag__c,Expected_DM_Material1__r.Label_Printing_Name__c ,Expected_DM_Material2__r.Preliminary_Flag__c,Expected_DM_Material3__r.Preliminary_Flag__c,
                       Customer_Name__r.Main_Dealer__r.Dealer_Address_CN__c,Customer_Name__r.Main_Dealer__r.Phone,Delivery_Type__c,Customer_Name__r.Main_Dealer__r.Name,
-                      Expected_DM_Material2__r.Label_Printing_Name__c,Expected_DM_Material3__r.Label_Printing_Name__c, status__c,Expected_DM_Material1__r.Print_Due_Date__c,Expected_DM_Material2__r.Print_Due_Date__c,Expected_DM_Material3__r.Print_Due_Date__c from DM_Request__c where Status__c = 'to be sent' Limit 1000];
+                      Expected_DM_Material2__r.Label_Printing_Name__c,Expected_DM_Material3__r.Label_Printing_Name__c, status__c,Expected_DM_Material1__r.Print_Due_Date__c,Expected_DM_Material2__r.Print_Due_Date__c,Expected_DM_Material3__r.Print_Due_Date__c from DM_Request__c where Status__c = 'to be sent' and md__c='JP' Limit 1000];
         
         
         if(!DMRequests.isEmpty())

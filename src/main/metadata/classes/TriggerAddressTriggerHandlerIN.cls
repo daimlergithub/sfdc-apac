@@ -24,7 +24,7 @@ public class TriggerAddressTriggerHandlerIN implements TriggerHandlerIf{
       }
         }
         //update primary address on account
-        if ((isAfter && isUpdate)){
+        if ((isAfter && (isInsert || isUpdate))){
             system.debug('inside after trigger before util check');
             if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
                 system.debug('inside after trigger');
@@ -38,20 +38,6 @@ public class TriggerAddressTriggerHandlerIN implements TriggerHandlerIf{
       }
         }
         
-        if(isBefore && isInsert){     
-      if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){    
-        AddressHelperIN.updateAddressOnAccount(trigger.new);
-      }
-        }
-
-        if(isBefore && isUpdate){
-          
-               
-      if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){    
-        
-        AddressHelperIN.updateAddressOnAccount(trigger.new);
-      }
-        }
 
         if(isAfter && isinsert){
       if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){

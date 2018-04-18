@@ -657,7 +657,8 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
 IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
 IF(ISPICKVAL($User.Market__c, 'NZ'), 'NZ',
-IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',
+IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','')))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -691,6 +692,10 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TR</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1829,6 +1834,15 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY',''))))))))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Retail_Email_OptIn__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Email OptIn</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Retail_Email_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -2893,6 +2907,15 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Retail_Phone_OptIn__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Phone OptIn</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Retail_Phone_OptOut__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -2912,6 +2935,15 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_Postal_OptIn__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail Postal OptIn</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Retail_Postal_OptOut__c</fullName>
@@ -3375,6 +3407,24 @@ Holds National ID or Passport No. of wholesale Account</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Retail_SMS_OptIn__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail SMS OptIn</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Retail_SMS_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Retail SMS OptOut</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Retail_Sales_Consultant__c</fullName>
@@ -4738,6 +4788,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -5267,6 +5321,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5903,6 +5961,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -6511,6 +6573,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7933,6 +7999,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -8461,6 +8531,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9649,6 +9723,10 @@ Holds National ID or Passport No. of wholesale Account</description>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Person_Agree_Test_Driving_Optional__c</picklist>
@@ -10833,6 +10911,10 @@ Holds National ID or Passport No. of wholesale Account</description>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

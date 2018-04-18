@@ -21,7 +21,7 @@ global without sharing class stouchPersonDetails {
         leadMaps.put('Re_visit__c', (leads==null || String.ISBlank(String.valueOf(leads.Re_visit__c)))?' ':(Object)leads.Re_visit__c);
         leadMaps.put('Preferred_Contact_Time__c',' ');
         if(leads!=null && leads.Preferred_Contact_Time__c!=null)
-            leadMaps.put('Preferred_Contact_Time__c', leads.Preferred_Contact_Time__c.format('yyyy-MM-dd\'T\'hh:mm:ss\'Z\'','GMT'));
+            leadMaps.put('Preferred_Contact_Time__c', leads.Preferred_Contact_Time__c.format('yyyy-MM-dd\'T\'HH:mm:ss\'Z\'','GMT'));
         leadMaps.put('Preferred_Contact_Date__c', (leads==null || String.ISBlank(leads.Preferred_Contact_Date__c))?' ':leads.Preferred_Contact_Date__c);
         leadMaps.put('Current_Vehicle_1_Text__c', (leads==null || String.ISBlank(leads.Current_Vehicle_1_Text__c))?' ':leads.Current_Vehicle_1_Text__c);
         leadMaps.put('Current_Vehicle_2_Text__c', (leads==null || String.ISBlank(leads.Current_Vehicle_2_Text__c))?' ':leads.Current_Vehicle_2_Text__c);
@@ -30,7 +30,7 @@ global without sharing class stouchPersonDetails {
         leadMaps.put('Dealer_Comments__c', (leads==null || String.ISBlank(leads.Dealer_Comments__c))?' ':leads.Dealer_Comments__c);
         leadMaps.put('LastModifiedDate',' ');
         if(leads!=null)
-            leadMaps.put('LastModifiedDate', leads.LastModifiedDate.format('yyyy-MM-dd\'T\'hh:mm:ss\'Z\'','GMT'));
+            leadMaps.put('LastModifiedDate', leads.LastModifiedDate.format('yyyy-MM-dd\'T\'HH:mm:ss\'Z\'','GMT'));
         leadMaps.put('Customer_Type__c',(leads==null || String.ISBlank(leads.Customer_Type__c))?' ':leads.Customer_Type__c);
         leadMaps.put('Purchase_Time__c',(leads==null || String.ISBlank(leads.Purchase_Time__c))?' ':leads.Purchase_Time__c);
         leadMaps.put('Owner', (leads==null || String.ISBlank(Users.get(leads.OwnerId).FederationIdentifier))?' ':Users.get(leads.OwnerId).FederationIdentifier);
@@ -53,9 +53,7 @@ global without sharing class stouchPersonDetails {
         Map<String,Object> personDetails=new Map<String,Object>();
         Account acc=[select id,Ucid__c,LastName,Mobile__c,Email__c,PersonBirthdate,Individual_Home_Phone__c,
                      Work_Phone__c,(select id,Address_Line_1__c,City__c,Zipcode__c,Province__c,District__c,
-                     Address_Line_2__c,Address_Type__c from Addresses__r order by LastModifiedDate limit 1), 
-                     Personal_Information_Third_Party_Release__c,Personal_Agreement__c,Personal_Abroad_Agreement__c,
-                     Agreement_to_commit_info_processing__c,DMS_Retailer_ID__c,DMS_Customer_ID__c,
+                     Address_Line_2__c,Address_Type__c from Addresses__r order by LastModifiedDate limit 1), DMS_Retailer_ID__c,DMS_Customer_ID__c,
                      (select id,fromRole__c,OwnerId,fromRole__r.DMS_Retailer_ID__c,Retail_DMS_Customer_Id__c from Account_Links__r where recordtypeid=:retailPersonId),
                      MBK_Data_Source__c,(select id,Name,Dealer_Lead_status__c,Lead_Type__c,Source_Campaign__c,
                      Lead_Priority__c,Interested_Vehicle_Note__c,Re_visit__c,Preferred_Contact_Time__c,Preferred_Contact_Date__c,
@@ -63,17 +61,19 @@ global without sharing class stouchPersonDetails {
                      LastModifiedDate,Customer_Type__c,Purchase_Time__c,OwnerId,Assigned_dealer__c,Assigned_dealer__r.Dealer_GC_Code__c,Assigned_dealer__r.Dealer_ND_Code__c,
                      Assigned_dealer__r.Dealer_GS_Code__c,MBK_Lead_DataSource__c,Trade_in_Vehicle_Text2__c from Lead_Contact__r where CAC_Lead_Status__c != 'Lost(CAC)' or(Lost_CAC_Date_Time__c>=:date.valueOf(fromDate) and Lost_CAC_Date_Time__c<=:date.valueOf(toDate))) 
                      ,Agreement_Date_for_Marketing_Consent__c,Withdrawal_Date_for_Marketing_Consent__c,General_Personal_Info_Mandatory__c,
-                     Person_Agree_Test_Driving_Optional__c,Person_Info_Custom_Service_Optional__c,Targeted_Advert_Info_Optional_STCCC__c,Gender__c
+                     Person_Agree_Test_Driving_Optional__c,Person_Info_Custom_Service_Optional__c,Targeted_Advert_Info_Optional_STCCC__c,Gender__c,
+                     General_Personal_Information_Mandatory__c,General_Personal_Information_Optional__c,Unique_Identification_Info_Mandatory__c,
+                     General_Personal_InfoThirdParty_Optional__c,Unique_Identity_Info_ThirdParty_Optional__c,Targeted_Advertising_Info_Optional__c
                      from Account where ucid__c=:ucid limit 1];
         Account acc2=[select id,(select id,fromRole__r.Company_Name__c,fromRole__r.Ucid__c from Account_Links__r where RecordTypeid=:contactToContactRecordTypeId order by lastmodifieddate desc limit 1) from Account where ucid__c=:ucid limit 1];
         
         personDetails.put('Personal_UCID__c', String.ISBlank(acc.Ucid__c)?' ':acc.Ucid__c);
         personDetails.put('LastName', String.ISBlank(acc.LastName)?' ':acc.LastName);
-        personDetails.put('PersonMobilePhone', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c.remove('-'));
+        personDetails.put('PersonMobilePhone', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c);
         personDetails.put('PersonEmail', String.ISBlank(acc.Email__c)?' ':acc.Email__c);
         personDetails.put('PersonBirthdate', String.ISBlank(String.valueof(acc.PersonBirthdate))?' ':(Object)acc.PersonBirthdate);
-        personDetails.put('PersonHomePhone', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c.remove('-'));
-        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c.remove('-'));
+        personDetails.put('PersonHomePhone', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c);
+        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c);
         personDetails.put('MBK_Data_Source__c', String.ISBlank(acc.MBK_Data_Source__c)?' ':acc.MBK_Data_Source__c);
         
         personDetails.put('PersonMailingPostalCode', ' ');
@@ -108,7 +108,14 @@ global without sharing class stouchPersonDetails {
         personDetails.put('Targeted_Advert_Info_Optional_STCCC__c',String.ISBlank(acc.Targeted_Advert_Info_Optional_STCCC__c)?' ':acc.Targeted_Advert_Info_Optional_STCCC__c);
         personDetails.put('Gender__c',String.ISBlank(acc.Gender__c)?' ':acc.Gender__c);
         
+        personDetails.put('General_Personal_Information_Mandatory__c',acc.General_Personal_Information_Mandatory__c==null?' ':string.valueOf(acc.General_Personal_Information_Mandatory__c));
+        personDetails.put('General_Personal_Information_Optional__c',acc.General_Personal_Information_Optional__c==null?' ':string.valueOf(acc.General_Personal_Information_Optional__c));
+        personDetails.put('Unique_Identification_Info_Mandatory__c',acc.Unique_Identification_Info_Mandatory__c==null?' ':string.valueOf(acc.Unique_Identification_Info_Mandatory__c));
+        personDetails.put('General_Personal_InfoThirdParty_Optional__c',acc.General_Personal_InfoThirdParty_Optional__c==null?' ':string.valueOf(acc.General_Personal_InfoThirdParty_Optional__c));
+        personDetails.put('Unique_Identity_Info_ThirdParty_Optional__c',acc.Unique_Identity_Info_ThirdParty_Optional__c==null?' ':string.valueOf(acc.Unique_Identity_Info_ThirdParty_Optional__c));
+        personDetails.put('Targeted_Advertising_Info_Optional__c',acc.Targeted_Advertising_Info_Optional__c==null?' ':string.valueOf(acc.Targeted_Advertising_Info_Optional__c));
         
+            
         personDetails.put('Owner', ' ');
         personDetails.put('RetailerID',' ');
         personDetails.put('PersonalDMSID',' ');

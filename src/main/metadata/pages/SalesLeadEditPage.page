@@ -30,7 +30,8 @@
                 </apex:repeat>
             </apex:pageBlockSection>
             
-        <apex:pageBlockSection title="Lead DMS Information" columns="2">
+		<!--Sada removed this section for AU/NZ as per US MBANZ-142/137 -->	
+        <apex:pageBlockSection title="Lead DMS Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
             <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DMSInfo}"  var="f">
                 <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
             </apex:repeat>
@@ -122,18 +123,18 @@
             <apex:pageBlockSection title="Trade-In Vehicle Information" columns="1">
                 <apex:pageBlockTable id="pb3" value="{!tradeInVehicles}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Trade-In Vehicle">
-                        <apex:inputField value="{!item.Trade_In_Vehicle__c}" onchange="UpdateModInfo(this)"/>
+                        <apex:inputField value="{!item.Trade_In_Vehicle__c}"/>
                     </apex:column>
 
                     <apex:column headerValue="Year of Manufacture">
-                        <apex:inputField value="{!item.Year_of_Manufacture__c}" onchange="UpdateModInfo(this)"/>
+                        <apex:inputField value="{!item.Year_of_Manufacture__c}" />
                     </apex:column>
                     
                     <apex:column headerValue="Mileage">
-                        <apex:inputField value="{!item.Mileage__c}" onchange="UpdateModInfo(this)"/>
+                        <apex:inputField value="{!item.Mileage__c}"/>
                     </apex:column>
                     <apex:column headerValue="Trim">
-                        <apex:inputField value="{!item.Trim__c}" onchange="UpdateModInfo(this)"/>
+                        <apex:inputField value="{!item.Trim__c}"/>
                     </apex:column>
                     
                 </apex:pageBlockTable>       
