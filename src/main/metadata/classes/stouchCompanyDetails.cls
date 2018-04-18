@@ -102,10 +102,10 @@ global class stouchCompanyDetails {
         personDetails.put('Personal_Abroad_Agreement__c', String.ISBlank(acc.Personal_Abroad_Agreement__c)?' ':acc.Personal_Abroad_Agreement__c);
         personDetails.put('Personal_Agreement_commit__c', String.ISBlank(acc.Agreement_to_commit_info_processing__c)?' ':acc.Agreement_to_commit_info_processing__c);
         
-        personDetails.put('CompanyMobile', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c.remove('-'));
+        personDetails.put('CompanyMobile', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c);
         personDetails.put('CompanyEmail', String.ISBlank(acc.Email__c)?' ':acc.Email__c);
-        personDetails.put('Individual_Home_Phone__c', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c.remove('-'));
-        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c.remove('-'));
+        personDetails.put('Individual_Home_Phone__c', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c);
+        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c);
         
         List<Object> leadList=new List<Object>();
         List<Id> userIds=new List<Id>();

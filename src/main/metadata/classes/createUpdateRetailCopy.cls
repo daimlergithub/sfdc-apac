@@ -623,4 +623,18 @@ public class createUpdateRetailCopy
             upsert accLinkList;
         }
     }
+	 public static void UpdateRetailCopyAddress(set<Id> accIds ,Map<Id,Id> accountMap)
+    {
+      List<account_link__c> aclnkList=[Select id,Retail_Address_Reference__c,torole__c from account_link__c where torole__c IN:accIds and (Recordtypeid =: AccountLink_RetailPersonRecordTypeId or Recordtypeid =: AccountLink_RetailCompanyRecordTypeId)];
+      List<account_link__c> aclnList = new List<account_link__c>();
+       if(aclnkList.size() > 0){
+          for(account_link__c al:aclnkList){
+              al.Retail_Address_Reference__c = accountMap.get(al.torole__c);
+              aclnList.add(al);
+          }
+       }
+      if(aclnList.size()>0){
+        update aclnList;
+      }
+    }
 }
