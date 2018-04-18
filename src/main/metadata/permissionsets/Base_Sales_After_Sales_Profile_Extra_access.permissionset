@@ -2632,6 +2632,10 @@
         <enabled>true</enabled>
         <name>RSVP</name>
     </customPermissions>
+	 <customPermissions>
+        <enabled>true</enabled>
+        <name>ALAddressUpdate</name>
+    </customPermissions>
     <customPermissions>
         <enabled>true</enabled>
         <name>updateAccountlinks</name>
