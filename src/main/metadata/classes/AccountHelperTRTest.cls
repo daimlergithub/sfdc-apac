@@ -90,7 +90,7 @@ public class AccountHelperTRTest {
             
             acc1 = TestUtils.createCompanyAccount(user2);
             acc2 = TestUtils.createPersonAccountAsUserAsOwner(user2);
-            con = TestUtils.createContact('TestCon',acc1.id);
+            con = TestUtils.createContactTR('TestCon',acc1.id);
             address = TestUtils.createAddressTR(acc1.id);
             
         } 

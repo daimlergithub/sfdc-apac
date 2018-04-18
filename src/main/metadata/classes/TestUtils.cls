@@ -349,6 +349,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         a.Individual_Home_Phone__c = '+6612323789';
         a.Area_code__c             = '0101';
         a.MD__c                    = u.market__c;  // Modified by Laqshay Arora
+        a.Market__c                = u.market__c;  // Modified by Hildaa
         a.Postal_Opt_Out__c        = True;
         a.Province__c              = 'Shanghai';
         a.ZipCode__c               = '32703';
@@ -439,6 +440,13 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     // Creation of Contact
     public static Contact createContact(String name, Id acc){           
         Contact con = new Contact(LastName =name,AccountId = acc);
+        insert con;
+        return con;
+    }
+    
+    // Creation of Contact
+    public static Contact createContactTR(String name, Id acc){           
+        Contact con = new Contact(LastName =name,AccountId = acc,Market__c='TR');
         insert con;
         return con;
     }
