@@ -1137,7 +1137,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
          
         for(Account acct : softAccountList)
         {
-            if(acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
+            if((acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId) && (acct.MD__c == 'JP' || acct.MD__c == 'KR'))
             {
                 deletedAccId.add(acct.Id);
                  
