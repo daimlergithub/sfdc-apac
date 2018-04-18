@@ -1121,7 +1121,7 @@
                    <tr>             
                        <th style="text-align: Right;">{!$Label.Mobile}</th>             
                        <td>     
-                         <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" rendered="{!editMode}" style="width:30px"/>       
+                         <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" rendered="{!if(editMode && mbCountryCode!= null, true,false)}" style="width:30px"/>       
                          <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber" rendered="{!editMode}" style="width:120px"/>       
                                 
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');       
@@ -1139,7 +1139,7 @@
                    <tr>             
                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>             
                        <td>     
-                         <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" rendered="{!editMode}" style="width:30px"/>       
+                         <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" rendered="{!if(editMode && hmCountryCode != null, true,false)}" style="width:30px"/>       
                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" rendered="{!editMode}" style="width:120px"/>       
                                 
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');        
@@ -1156,7 +1156,7 @@
                    <tr>             
                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                        
                        <td>     
-                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!editMode}" style="width:30px"/>       
+                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!if(editMode && wkCountryCode != null, true,false)}" style="width:30px"/>       
                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" rendered="{!editMode}" style="width:120px"/>        
                                 
                        <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');     
@@ -1204,7 +1204,7 @@
                     <tr>                
                        <th style="text-align: Right;">{!$Label.Fax}</th>            
                        <td>     
-                         <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" rendered="{!editMode}" style="width:30px"/>     
+                         <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" rendered="{!if(editMode && faxCountryCode != null, true,false)}" style="width:30px"/>     
                          <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber" rendered="{!editMode}" style="width:120px"/>     
                                 
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.fax}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');     
