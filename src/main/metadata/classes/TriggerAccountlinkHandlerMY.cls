@@ -35,8 +35,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
                     acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext); 
                     }					
                 }
-                if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){ 
-                   
+                if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){                    
                     acchelper.RevokeApexSharingAfterUpdate(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap, Trigger.Old);
                 }
             }

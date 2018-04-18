@@ -23,6 +23,7 @@ public class AccountHelperJP
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static Id accsoftdeletdCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('CompanySoftDeleted').getRecordTypeId();
+	public static Id accsoftdeletdCompany_RecordTypeId1 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company Soft Deleted').getRecordTypeId();
     public static Id accsoftdeletdPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Soft Deleted').getRecordTypeId();
     public static boolean persongroup1 = false;
     public static boolean persongroup2 = false;
@@ -1041,7 +1042,10 @@ public class AccountHelperJP
 public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAccountmap,boolean isInsert, boolean isUpdate)
     {
         set<id> insrtaccids = new set<id>();
+		set<id> updateAclnkids = new set<id>();
         List<Account_Link__c> updateextaccLinkList = new List<Account_Link__c>();
+        Map<Id,List<Account_Link__c>> updateAccountLinkMap = new Map<Id,List<Account_Link__c>>();
+        Map<Id,Id> updateAccountMap = new Map<Id,Id>();
         string corelnId;
         if(!accLst.isEmpty() && accLst != null)
         {
@@ -1057,6 +1061,11 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             }
             else if(acc.MD__c == 'JP' && isUpdate && !updateextaccLinkList.isEmpty() && updateextaccLinkList != null)
             {
+				if((acc.Primary_Address_Reference__c != oldAccountmap.get(Acc.id).Primary_Address_Reference__c) && acc.Primary_Address_Reference__c != null)
+				{
+                    updateAclnkids.add(acc.id);
+                    updateAccountMap.put(acc.id,acc.Primary_Address_Reference__c);
+                }
                 if(oldAccountmap.get(Acc.id).LastName !=  acc.LastName || oldAccountmap.get(Acc.id).FirstName != acc.FirstName || oldAccountmap.get(Acc.id).LastName_Native_1__c != acc.LastName_Native_1__c || oldAccountmap.get(Acc.id).FirstName_Native_1__c != acc.FirstName_Native_1__c)
                 {
                     insrtaccids.add(acc.id); //Adding accountId's to set
@@ -1112,6 +1121,10 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             }
             system.debug('insrtaccids>>>>' + insrtaccids);
         }
+		if(!updateAclnkids.isEmpty() && updateAclnkids != null){
+            createUpdateRetailCopy.UpdateRetailCopyAddress(updateAclnkids,updateAccountMap);
+        
+        }
         if(!insrtaccids.isEmpty() && insrtaccids != null)
         {
             system.debug('INsretddsadasd>>>>>');
@@ -1125,7 +1138,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
          
         for(Account acct : softAccountList)
         {
-            if(acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
+            if((acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId1) && (acct.MD__c == 'JP' || acct.MD__c == 'KR'))
             {
                 deletedAccId.add(acct.Id);
                  

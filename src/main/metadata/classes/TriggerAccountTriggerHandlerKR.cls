@@ -62,6 +62,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             AccountHelperJP.entityNotifyUpdate('UPDATE',ListAccNew[0].Id,ListAccNew[0].MD__c,serializedObject);
             //#SFDCKR-846
             AccountHelperKR.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new,(Map<Id,Account>)Trigger.OldMap); 
+			AccountHelperJP.deletesharingforSoftDeletedRecords(trigger.new);
             
         }
         
@@ -101,6 +102,10 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             {
 			//SFDCKR-1207 as per SFDCKR-1721 moved it to Integration user
             AccountHelperKR.shareDealeroutletsWithDealerCompany(trigger.new);
+			}
+			if(isAfter && isUpdate && !System.isFuture())
+            {
+			AccountHelperJP.deletesharingforSoftDeletedRecords(trigger.new);
 			}
         }
     }

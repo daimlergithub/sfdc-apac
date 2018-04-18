@@ -2230,7 +2230,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {
                     system.debug('Entered>>>>');
                     MBKrefreshPage= true;
-                    //AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                    AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.MBK_ONLINE_DEDUP_CHECKUP));
                 }
             }
@@ -2483,7 +2483,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {
                     system.debug('Entered>>>>');
                     MBKrefreshPage= true;
-                    //AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                    AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.MBK_ONLINE_DEDUP_CHECKUP));
                 }
             }
