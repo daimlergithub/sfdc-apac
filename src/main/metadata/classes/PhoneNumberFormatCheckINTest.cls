@@ -6,7 +6,7 @@
 **/
 @IsTest
 public class PhoneNumberFormatCheckINTest {
-	public static Account objAccount;
+    public static Account objAccount;
     public static Account objAccount1;
     public static Account personAcc;
     public static Account personAcc1;
@@ -377,4 +377,125 @@ public class PhoneNumberFormatCheckINTest {
             insert addressobj;
         }
     }
+    
+    @IsTest
+    private static void formatPositiveTestIndiaPhoneNumber(){
+        Account accPerson = new Account();
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('recordType','Person Account');
+        ApexPages.StandardController sc = new ApexPages.StandardController(accPerson);
+        AddressSearchValidationControllerCDM con = new AddressSearchValidationControllerCDM(sc);
+        accPerson.FirstName='TestFirst';
+        accPerson.LastName='TestLast';
+        con.market = 'IN';   
+        con.hmphoneNumber= '12341234'; 
+        con.wkphoneNumber= '12341234';
+        con.mbphoneNumber= '1234123412';
+        con.faxphoneNumber= '12341234';
+        con.wkAreaCode='88';
+        con.wkCountryCode='+91';
+        con.hmAreaCode='88';
+        con.hmCountryCode='+91';
+        con.mbCountryCode='+91';
+        con.faxAreaCode='88';
+        con.faxCountryCode='+91';
+        con.saveAccountIN();
+        test.stopTest();
+    }
+    
+    @IsTest
+    private static void formatNegativeTestNullCountryCode(){
+        Account accPerson = new Account();
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('recordType','Person Account');
+        ApexPages.StandardController sc = new ApexPages.StandardController(accPerson);
+        AddressSearchValidationControllerCDM con = new AddressSearchValidationControllerCDM(sc);
+        accPerson.FirstName='TestFirst';
+        accPerson.LastName='TestLast';
+        con.market = 'IN';   
+        con.hmphoneNumber= '12341234'; 
+        con.wkphoneNumber= '12341234';
+        con.mbphoneNumber= '12341234';
+        con.faxphoneNumber= '12341234';
+        con.wkAreaCode='88';
+        con.wkCountryCode='';
+        con.hmAreaCode='88';
+        con.hmCountryCode='';
+        con.mbCountryCode='';
+        con.faxAreaCode='88';
+        con.faxCountryCode='';
+        con.saveAccountIN();
+        test.stopTest();
+    }
+    
+    @IsTest
+    private static void formatNegativeTestIndiaPhoneNumber(){
+        Account accPerson = new Account();
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('recordType','Person Account');
+        ApexPages.StandardController sc = new ApexPages.StandardController(accPerson);
+        AddressSearchValidationControllerCDM con = new AddressSearchValidationControllerCDM(sc);
+        accPerson.FirstName='TestFirst';
+        accPerson.LastName='TestLast';
+        con.market = 'IN';   
+        con.hmphoneNumber= '12341234'; 
+        con.wkphoneNumber= '12341234';
+        con.mbphoneNumber= '12341234';
+        con.faxphoneNumber= '12341234';
+        con.wkAreaCode='';
+        con.wkCountryCode='+91';
+        con.hmAreaCode='';
+        con.hmCountryCode='+91';
+        con.mbCountryCode='+91';
+        con.faxAreaCode='';
+        con.faxCountryCode='+91';
+        con.saveAccountIN();
+        test.stopTest();
+    }
+    
+    @IsTest
+    private static void formatNegativeTestIndiaPhoneNumberPattern(){
+        Account accPerson = new Account();
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('recordType','Company');
+        ApexPages.StandardController sc = new ApexPages.StandardController(accPerson);
+        AddressSearchValidationControllerCDM con = new AddressSearchValidationControllerCDM(sc);
+        accPerson.Name='TestFirst';
+        //accPerson.LastName='TestLast';
+        con.recordType = 'Company';
+        con.market = 'IN';   
+        con.hmphoneNumber= '1234123'; 
+        con.wkphoneNumber= '1234123';
+        con.mbphoneNumber= '1234123';
+        con.faxphoneNumber= '12341ab';
+        con.wkAreaCode='88';
+        con.wkCountryCode='+91';
+        con.hmAreaCode='88';
+        con.hmCountryCode='+91';
+        con.mbCountryCode='+91';
+        con.faxAreaCode='';
+        con.faxCountryCode='12';
+        con.saveAccountIN();
+        test.stopTest();
+    }
+    @IsTest
+    private static void formatNegativeTestDetailPhoneNumberPattern(){
+        Account accPerson = new Account();
+        accPerson.FirstName='TestFirst';
+        accPerson.LastName='TestLast';
+        accPerson.Mobile__c='+92123';
+        insert accPerson;
+        test.startTest();
+        ApexPages.StandardController sc = new ApexPages.StandardController(accPerson);
+        ContactTableController con = new ContactTableController(sc);
+        con.hmphoneNumber= '1234123ab'; 
+        con.hmCountryCode='+8';
+        con.wkphoneNumber= '1234123';
+        con.wkCountryCode='12';
+        con.mbCountryCode='+91';
+        con.mbphoneNumber= '123412';
+        con.UpdateAccountIN();
+        test.stopTest();
+    }
+    
 }
