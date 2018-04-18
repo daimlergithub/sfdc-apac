@@ -678,39 +678,67 @@ public class ContactTableController {
     }
     //PHONE FORMAT FOR INDIA
     public void PhoneNumberFormatIN(){                 
-    string localhmPhone,localwkPhone,localMBPhone,localFaxPhone;        
-    localhmPhone=string.valueOf(ParAcc.Individual_Home_Phone__c);       
-    localwkPhone=string.valueOf(ParAcc.Work_Phone__c);     
-    localMBPhone=string.valueOf(ParAcc.Mobile__c);     
-    localFaxPhone=string.valueOf(ParAcc.fax);     
-    if ((!String.IsBlank(localhmPhone))&&(localhmPhone.length()>3)){       
-        hmCountryCode=localhmPhone.substring(0,3);      
-            hmphoneNumber = localhmPhone.substring(3,localhmPhone.length());
-    }
-    else{               
-        hmCountryCode='+91';
-    }       
-    if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3)){ 
-        wkCountryCode=localwkPhone.substring(0,3);  
-        wkphoneNumber=localwkPhone.substring(3,localwkPhone.length());         
-    }
-    else{
-        wkCountryCode='+91';
-    }       
-    if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3)){        
-        mbCountryCode=localMBPhone.substring(0,3);              
-        mbphoneNumber=localMBPhone.substring(3,localMBPhone.length());        
-    }
-    else{
-        mbCountryCode='+91';
-    }
-    if ((!String.IsBlank(localFaxPhone)) && (localFaxPhone.length()>3)){        
-        faxCountryCode=localFaxPhone.substring(0,3);            
-        faxphoneNumber=localFaxPhone.substring(3,localFaxPhone.length());
-    }
-    else{
-        faxCountryCode='+91';
-    }   
+        string localhmPhone,localwkPhone,localMBPhone,localFaxPhone;        
+        localhmPhone=string.valueOf(ParAcc.Individual_Home_Phone__c);       
+        localwkPhone=string.valueOf(ParAcc.Work_Phone__c);     
+        localMBPhone=string.valueOf(ParAcc.Mobile__c);     
+        localFaxPhone=string.valueOf(ParAcc.fax);     
+        if ((!String.IsBlank(localhmPhone)) && (localhmPhone.length()>3)){       
+            if(localhmPhone.substring(0,3) == '+91'){
+                hmCountryCode=localhmPhone.substring(0,3);      
+                hmphoneNumber = localhmPhone.substring(3,localhmPhone.length());
+            }
+            else if(localhmPhone.substring(0,3) != '+91'){
+                hmCountryCode=null;
+                hmphoneNumber = localhmPhone;
+            }
+        }
+        else{               
+            hmCountryCode=null;
+            hmphoneNumber = localhmPhone;
+        }       
+        if ((!String.IsBlank(localwkPhone)) && (localwkPhone.length()>3)){ 
+            if(localwkPhone.substring(0,3) == '+91'){
+                wkCountryCode=localwkPhone.substring(0,3);  
+                wkphoneNumber=localwkPhone.substring(3,localwkPhone.length());       
+            }
+            else if(localwkPhone.substring(0,3) != '+91'){
+                wkCountryCode=null;
+                wkphoneNumber = localwkPhone;
+            }  
+        }
+        else{
+            wkCountryCode=null;
+            wkphoneNumber = localwkPhone;
+        }       
+        if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3)){        
+            if(localMBPhone.substring(0,3) == '+91'){
+                mbCountryCode=localMBPhone.substring(0,3);              
+                mbphoneNumber=localMBPhone.substring(3,localMBPhone.length()); 
+            } 
+            else if(localMBPhone.substring(0,3) != '+91'){
+                mbCountryCode=null;
+                mbphoneNumber = localMBPhone;
+            }      
+        }
+        else{
+            mbCountryCode=null;
+            mbphoneNumber = localMBPhone;
+        }
+        if ((!String.IsBlank(localFaxPhone)) && (localFaxPhone.length()>3)){        
+            if(localFaxPhone.substring(0,3) == '+91'){
+                faxCountryCode=localFaxPhone.substring(0,3);            
+                faxphoneNumber=localFaxPhone.substring(3,localFaxPhone.length());
+            }
+            else if(localFaxPhone.substring(0,3) != '+91'){
+                faxCountryCode=null;
+                faxphoneNumber = localFaxPhone;
+            }
+        }
+        else{
+            faxCountryCode=null;
+            faxphoneNumber = localFaxPhone;
+        }   
     }
     public void UpdateAccountTH() {
         try {
@@ -866,39 +894,74 @@ public class ContactTableController {
         Boolean mobilePhoneCheck= false;
         Boolean faxCheck=false;
         PhoneNumberFormatCheck checkFormat = new PhoneNumberFormatCheck();
-        homePhoneCheck=checkFormat.detailPagePhoneFormat(hmCountryCode,hmphoneNumber);
-        workPhoneCheck=checkFormat.detailPagePhoneFormat(wkCountryCode,wkphoneNumber);
-        mobilePhoneCheck=checkFormat.detailPagePhoneFormat(mbCountryCode,mbphoneNumber);
-        faxCheck=checkFormat.detailPagePhoneFormat(faxCountryCode,faxphoneNumber);
+        if(String.isNotBlank(hmCountryCode) && hmCountryCode != null){
+            homePhoneCheck=checkFormat.detailPagePhoneFormat(hmCountryCode+hmphoneNumber);
+        }
+        else{
+            homePhoneCheck=checkFormat.detailPagePhoneFormat(hmphoneNumber);
+        }
+        if(String.isNotBlank(wkCountryCode) && wkCountryCode != null){
+            workPhoneCheck=checkFormat.detailPagePhoneFormat(wkCountryCode+wkphoneNumber);
+        }
+        else{
+            workPhoneCheck=checkFormat.detailPagePhoneFormat(wkphoneNumber);
+        }
+        //workPhoneCheck=checkFormat.detailPagePhoneFormat(wkCountryCode+wkphoneNumber);
+        if(String.isNotBlank(mbCountryCode) && mbCountryCode != null){
+            mobilePhoneCheck=checkFormat.detailPagePhoneFormat(mbCountryCode+mbphoneNumber);
+        }
+        else{
+            mobilePhoneCheck=checkFormat.detailPagePhoneFormat(mbphoneNumber);
+        }
+        //mobilePhoneCheck=checkFormat.detailPagePhoneFormat(mbCountryCode+mbphoneNumber);
+        if(String.isNotBlank(faxCountryCode) && faxCountryCode!= null){
+            faxCheck=checkFormat.detailPagePhoneFormat(faxCountryCode+faxphoneNumber);
+        }
+        else{
+            faxCheck=checkFormat.detailPagePhoneFormat(faxphoneNumber);
+        }
+        //faxCheck=checkFormat.detailPagePhoneFormat(faxCountryCode+faxphoneNumber);
         if(homePhoneCheck && workPhoneCheck && mobilePhoneCheck && faxCheck){
             if(String.isBlank(hmphoneNumber)){                     
                 ParAcc.Individual_Home_Phone__c='';      
-            }     
+            } 
+            else if(String.isNotBlank(hmCountryCode) && String.isNotBlank(hmphoneNumber)){
+                ParAcc.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;
+            }    
             else{             
-                ParAcc.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;     
+                ParAcc.Individual_Home_Phone__c=hmphoneNumber;     
             }                                 
             if(String.isBlank(wkphoneNumber)){                     
                 ParAcc.Work_Phone__c='';     
             }     
+            else if(String.isNotBlank(wkCountryCode) && String.isNotBlank(wkphoneNumber)){
+                ParAcc.Work_Phone__c=wkCountryCode+wkphoneNumber;
+            }    
             else{         
-                ParAcc.Work_Phone__c=wkCountryCode+wkphoneNumber;                                                                
+                ParAcc.Work_Phone__c=wkphoneNumber;                                                                
             }             
             if((String.isBlank(mbphoneNumber))){                     
                 ParAcc.Mobile__c='';     
             }     
+            else if(String.isNotBlank(mbCountryCode) && String.isNotBlank(mbphoneNumber)){
+                ParAcc.Mobile__c=mbCountryCode+mbphoneNumber;
+            }    
             else{     
-                ParAcc.Mobile__c=mbCountryCode+mbphoneNumber;        
+                ParAcc.Mobile__c=mbphoneNumber;        
             }             
             if((String.isBlank(faxphoneNumber))){                     
                 ParAcc.fax='';       
             }     
+            else if(String.isNotBlank(faxCountryCode) && String.isNotBlank(faxphoneNumber)){
+                ParAcc.fax=faxCountryCode+faxphoneNumber;
+            }    
             else{         
-                ParAcc.fax=faxCountryCode+faxphoneNumber;        
+                ParAcc.fax=faxphoneNumber;        
             }             
             try{            
-                if(ParAcc.Individual_Home_Phone__c == '' && ParAcc.Mobile__c == '' && ParAcc.Work_Phone__c == '' && ParAcc.Email__c == null){       
+                if(ParAcc.Individual_Home_Phone__c == '' && ParAcc.Mobile__c == '' && ParAcc.Work_Phone__c == ''){       
                     refreshPage = false;              
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));        
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.IN_Phone_Numbers));        
                 }
                 else{       
                     if(ParAcc != null)     

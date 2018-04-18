@@ -4180,6 +4180,13 @@ please contact the number below.</value>
         <value>Cannot select more than one Preferred Interested Vehicle</value>
     </labels>
     <labels>
+        <fullName>IN_Phone_Numbers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_Phone_Numbers</shortDescription>
+        <value>Atleast ONE Phone Number is mandatory for Account Creation</value>
+    </labels>
+    <labels>
         <fullName>IN_Postal_Code_validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6794,7 +6801,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>PhoneService</shortDescription>
         <value>Phone (Service)</value>
     </labels>
-	<labels>
+    <labels>
+        <fullName>Phone_Number_Starts_With_Sign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone Number Starts With + Sign</shortDescription>
+        <value>Home Phone number, Work Phone number, Fax number and Mobile Phone number should start with + sign.</value>
+    </labels>
+    <labels>
         <fullName>Phone_should_be_less_than_or_equal_to_11_digits</fullName>
         <language>en_US</language>
         <protected>false</protected>

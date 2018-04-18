@@ -70,6 +70,7 @@ public class TriggerAccountlinkHandlerTRTest {
                            Phone = '0801801110',
                            Area_code__c = '03',
                            MD__c = 'TR',
+                           Market__c = 'TR',
                            LastName = 'galaxy1',
                            FirstName = 'First Name1',
                            Salutation = 'Unknown',

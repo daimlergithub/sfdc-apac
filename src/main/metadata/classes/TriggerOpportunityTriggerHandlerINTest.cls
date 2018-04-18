@@ -10,6 +10,7 @@ public class TriggerOpportunityTriggerHandlerINTest {
     private static List<Opportunity> oppUpdateList = new List<Opportunity>();
     private static Account companyAcc;
     private static Opportunity oppSales;
+    private static Opportunity oppSalesP;
     private static Opportunity oppAfterSales;
     private static user usr;
     public static PermissionSet ps;
@@ -62,7 +63,7 @@ public class TriggerOpportunityTriggerHandlerINTest {
                             TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
         DMLManagerService.insertAsSystem(usr);
         
-        companyAcc = TestUtils.createGenericAccount(usr, '123456', companyAccRecordTypeId, '1234567890');
+        companyAcc = TestUtils.createGenericAccount(usr, '123456', companyAccRecordTypeId, '1234567890');        
         string dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = dealerRecordTypeId, Market__c = 'IN');
         insert dealerAcc;
@@ -117,14 +118,15 @@ public class TriggerOpportunityTriggerHandlerINTest {
     
     public static testMethod void testHandleTriggerInsert(){
         test.startTest();
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
-        insert updatecustomsettings;
-        prepareTestData('');
-        system.runAs(user_Obj ){
+        User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
+        System.runAs(usr){
+            prepareTestData('');
+            List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
+            insert updatecustomsettings;
             ps1 = new PermissionSet(Name = 'Test1', Label = 'Test1');
             insert ps1;
             // provide India Specific permissions
-            TestUtils.providePermissionsIN(user_Obj, ps1, 'INGeneric');
+            TestUtils.providePermissionsIN(usr, ps1, 'INGeneric');
             insert oppList;
         }
         test.stopTest();
@@ -132,16 +134,17 @@ public class TriggerOpportunityTriggerHandlerINTest {
     
     public static testMethod void testHandleTriggerUpdate(){
         test.startTest();
-        List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
-        insert updatecustomsettings;
-        prepareTestData('');
-        system.runAs(user_Obj ){
+        User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
+        System.runAs(usr){
+            prepareTestData('');
+            List<Trigger__c> updatecustomsettings =  UtilCustomSettingskernel.customSettingDetails();
+            insert updatecustomsettings;
             ps2 = new PermissionSet(Name = 'Test2', Label = 'Test2');
             insert ps2; 
             // provide India Specific permissions
-            TestUtils.providePermissionsIN(user_Obj, ps2, 'INGeneric');
+            TestUtils.providePermissionsIN(usr, ps2, 'INGeneric');
             insert oppList;
-            Opportunity tempOpp = TestUtils.createGenericOpportunity(user_Obj, companyAcc, salesLeadRecordTypeId, 'IN');
+            Opportunity tempOpp = TestUtils.createGenericOpportunity(usr, companyAcc, salesLeadRecordTypeId, 'IN');
             List<Opportunity> opptyList = [SELECT Id,Name FROM Opportunity limit 10];
             for(Opportunity opp : opptyList){
                 opp.Type_of_Sale__c = 'Government';
@@ -153,9 +156,9 @@ public class TriggerOpportunityTriggerHandlerINTest {
             }
             OppHelperBase.booleanCampaignUpdate = true;
             update oppUpdateList; 
+            TriggerOpportunityTriggerHandlerIN to =new TriggerOpportunityTriggerHandlerIN();
+            to.handleIntegrationTrigger(True,True,True,True,True);
         }
-        TriggerOpportunityTriggerHandlerIN to =new TriggerOpportunityTriggerHandlerIN();
-        to.handleIntegrationTrigger(True,True,True,True,True);
         test.stopTest();
     } 
 }

@@ -125,29 +125,24 @@ public Class PhoneNumberFormatCheck{
     }
 
     //Check phone format in Contact Table of account detail page
-    public boolean detailPagePhoneFormat(String countryCode, String phoneNumber){
-        if(countryCode =='' && phoneNumber != ''){
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Contact_Format));
+    public boolean detailPagePhoneFormat(String phoneNumber){
+        if(phoneNumber != '' && !String.isBlank(phoneNumber) && !phoneNumber.startsWith('+')){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.Phone_Number_Starts_With_Sign));
             return false;
         }
-        if(countryCode!='' && (countryCode==label.INPhoneCountryCode)){
-            //Phone number validation
-            if(phoneNumber != ''){
-                if(!Pattern.matches(mobileCheck, phoneNumber)){
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Contact_Format_First_Digit_NonZero));
-                    return false;
-                }
+        else if(phoneNumber != '' && !String.isBlank(phoneNumber) && phoneNumber.length()>3 && phoneNumber.startsWith('+91')){
+            phoneNumber = phoneNumber.substring(3,phoneNumber.length());
+            if(phoneNumber != '' && !String.isBlank(phoneNumber) && !Pattern.matches(mobileCheck, phoneNumber)){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Contact_Format_First_Digit_NonZero));
+                return false;
             }
         }
-        if(countryCode!='' && (countryCode!=label.INPhoneCountryCode) && (phoneNumber != '' && !String.isBlank(phoneNumber))){
-            try{
-                digitsPhoneNumber = Integer.valueOf(phoneNumber);
-            }
-            catch(exception e){
+        else if(phoneNumber != '' && !String.isBlank(phoneNumber) && phoneNumber.length()>1){
+            phoneNumber = phoneNumber.substring(1,phoneNumber.length());
+            if(!phoneNumber.isNumeric()){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, Label.India_Contact_Format_allows_only_digits));
                 return false;
             }
-
         }
         return true;
     }
