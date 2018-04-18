@@ -997,4 +997,25 @@ public class AccountHelperBase{
             }  
         }       
     }
+    
+    
+    public static void updateAccountStatusFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
+        If(!listNewAccounts.isEmpty() && listNewAccounts != Null){
+            for(Account Acc : listNewAccounts){
+                Account OldAcc = accountOldMap.get(Acc.id);
+                
+                
+                if(Acc.Email__c!= OldAcc.Email__c){
+                    //Acc.PersonEmail = Acc.Email__c;
+                    Acc.Email_Status__c = '';
+                }
+
+                if(Acc.Mobile__c != OldAcc.Mobile__c){
+                    Acc.Mobile_Status__c = '';
+                    
+                }   
+                
+            }
+        }
+    }
 }

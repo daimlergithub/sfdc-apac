@@ -227,6 +227,177 @@ public class contactTableControllerTest {
         }
     }
     
+    public static testMethod void UpdateAccountANZTest1() {
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'AU');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
+            objAccount.Individual_Home_Phone__c = '';
+            objAccount.Fax = '';
+            objAccount.Mobile__c = '';
+            objAccount.Work_Phone__c = '';
+            objAccount.MD__C ='AU';
+            insert objAccount;
+            
+            ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+            
+            ContactTableController ctc = new ContactTableController(sc);
+            
+            ctc.hmCountryCode = '';
+            ctc.wkCountryCode = '';
+            ctc.mbCountryCode = '';
+            ctc.faxCountryCode = '';
+            test.startTest();
+            ctc.EditAccount();
+            ctc.UpdateAccount();
+            test.stoptest();
+            system.assertEquals(objAccount.MD__c,'AU');
+        }
+    }
+	
+   public static testMethod void UpdateAccountANZTest2() {
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'AU');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
+            objAccount.Individual_Home_Phone__c = '+61234567894';
+            objAccount.Fax = '';
+            objAccount.Mobile__c = '+61485745689';
+            objAccount.Work_Phone__c = '+61236547896';
+            objAccount.MD__C ='AU';
+            insert objAccount;
+            
+            ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+            
+            ContactTableController ctc = new ContactTableController(sc);
+            
+            ctc.hmCountryCode = '+61';
+            ctc.wkCountryCode = '+61';
+            ctc.mbCountryCode = '+61';
+            ctc.faxCountryCode = '';
+            test.startTest();
+            ctc.PhoneNumberFormatANZ();
+            ctc.UpdateAccountANZ();
+            test.stoptest();
+            system.assertEquals(objAccount.MD__c,'AU');
+        }
+    }    
+ public static testMethod void UpdateAccountANZTest3() {
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'NZ');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
+            objAccount.Individual_Home_Phone__c = '+642409894';
+            objAccount.Fax = '';
+            objAccount.Mobile__c = '+6428574569';
+            objAccount.Work_Phone__c = '+6423647896';
+            objAccount.MD__C ='NZ';
+            insert objAccount;
+            
+            ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+            
+            ContactTableController ctc = new ContactTableController(sc);
+            
+            ctc.hmCountryCode = '+64';
+            ctc.wkCountryCode = '+64';
+            ctc.mbCountryCode = '+64';
+            ctc.faxCountryCode = '';
+            test.startTest();
+            ctc.PhoneNumberFormatANZ();
+            ctc.UpdateAccountANZ();
+            test.stoptest();
+            system.assertEquals(objAccount.MD__c,'NZ');
+            
+        }
+    } 
+ public static testMethod void UpdateAccountANZTest4() {
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'NZ');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
+            objAccount.Individual_Home_Phone__c = '+6423647896';
+            objAccount.Fax = '';
+            objAccount.Mobile__c = '+6448574569';
+            objAccount.Work_Phone__c = '+642409894';
+            objAccount.MD__C ='NZ';
+            insert objAccount;
+            
+            ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+            
+            ContactTableController ctc = new ContactTableController(sc);
+            
+            ctc.hmCountryCode = '+64';
+            ctc.wkCountryCode = '+64';
+            ctc.mbCountryCode = '+64';
+            ctc.faxCountryCode = '';
+            test.startTest();
+            ctc.checkcountrycodeANZ();
+            ctc.PhoneNumberFormatANZ();
+            ctc.UpdateAccountANZ();
+            test.stoptest();
+            system.assertEquals(objAccount.MD__c,'NZ');
+        }
+    }   
+ public static testMethod void UpdateAccountANZTest5() {
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'NZ');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
+            objAccount.Individual_Home_Phone__c = '+6425472894';
+            objAccount.Fax = '';
+            objAccount.Mobile__c = '+6448574569';
+            objAccount.Work_Phone__c = '+6423647896';
+            objAccount.MD__C ='NZ';
+            insert objAccount;
+            
+            ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+            
+            ContactTableController ctc = new ContactTableController(sc);
+            
+            ctc.hmCountryCode = '+64';
+            ctc.wkCountryCode = '+64';
+            ctc.mbCountryCode = '+64';
+            ctc.faxCountryCode = '';
+            test.startTest();
+            ctc.PhoneNumberFormatANZ();
+            ctc.UpdateAccountANZ();
+            test.stoptest();
+            system.assertEquals(objAccount.MD__c,'NZ');
+        }
+    }   
+
+  public static testMethod void UpdateAccountANZTest7() {
+        profile = [Select Id from Profile where Name = 'System Administrator'];
+        usr = TestClassHelper.createUser('User2TH',profile,'AU');
+        insert usr;
+        system.runAs(usr){
+            objAccount = TestClassHelper.CreateAccount(usr.Market__c,'FirstName','LastName');
+            objAccount.Individual_Home_Phone__c = '';
+            objAccount.Fax = '';
+            objAccount.Secondary_Email__c = 'test@test.com';
+            objAccount.Work_Phone__c = '';
+            objAccount.MD__C ='AU';
+            insert objAccount;
+            
+            ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+            
+            ContactTableController ctc = new ContactTableController(sc);
+            
+            ctc.hmCountryCode = '';
+            ctc.wkCountryCode = '';
+            ctc.mbCountryCode = '';
+            ctc.faxCountryCode = '';
+            test.startTest();
+            ctc.UpdateAccountANZ();
+            test.stoptest();
+            system.assertEquals(objAccount.MD__c,'AU');
+        }
+    }    
    //SB2017
     /*
       Name:Sushma Bharti
