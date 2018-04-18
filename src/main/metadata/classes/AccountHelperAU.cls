@@ -27,6 +27,7 @@ public class AccountHelperAU{
     public static void updateAccountFieldsBeforeUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){
         AccountHelperBase.updateAccountFieldsBeforeUpdate(listNewAccounts,accountOldMap,isUpdate);
         AccountHelperBase.updateMarketingFields(listNewAccounts);
+		AccountHelperBase.updateAccountStatusFieldsBeforeUpdate(listNewAccounts,accountOldMap,isUpdate); // sada Added as part of Defect DF-47
     }
   
     public static void updateAccountFieldsBeforeIntUpdate(list<Account> listNewAccounts,map<id,Account> accountOldMap,boolean isUpdate){

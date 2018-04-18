@@ -23,6 +23,7 @@ public class AccountHelperJP
     public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     public static Id accsoftdeletdCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('CompanySoftDeleted').getRecordTypeId();
+	public static Id accsoftdeletdCompany_RecordTypeId1 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company Soft Deleted').getRecordTypeId();
     public static Id accsoftdeletdPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Soft Deleted').getRecordTypeId();
     public static boolean persongroup1 = false;
     public static boolean persongroup2 = false;
@@ -1137,7 +1138,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
          
         for(Account acct : softAccountList)
         {
-            if(acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
+            if((acct.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId1) && (acct.MD__c == 'JP' || acct.MD__c == 'KR'))
             {
                 deletedAccId.add(acct.Id);
                  

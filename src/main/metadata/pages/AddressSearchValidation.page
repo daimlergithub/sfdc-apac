@@ -406,7 +406,6 @@
                     </apex:pageBlockSectionItem> 
                                
                                                         
-                    <apex:inputfield value="{!objAccount.Data_Source__c}"  />   
                     
                     <apex:pageBlockSectionItem >
                     
@@ -499,7 +498,6 @@
                     <apex:inputField value="{!objAccount.Email__c}" />
                     <apex:inputField value="{!objAccount.PersonBirthdate}" />
                     <apex:inputField value="{!objAccount.Status__c}" /> 
-                    <apex:inputfield value="{!objAccount.Data_Source__c}"  /> 
                    <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
                        <apex:inputField value="{!objAccount.Market__c}"/>
