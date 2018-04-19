@@ -301,4 +301,26 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                    if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
                    }
      }
+	  Public static void OnAfterUpdateCreateC2CRetailCopy(List<Account_Link__c> newALRecords,Map<Id,Account_Link__c> oldMapAL){
+    List<Account_Link__c> lnewAL = new List<Account_Link__c>();
+    for(Account_Link__c al : [Select ID, Retail_Related_Company__c, Retail_Related_Company__r.toRole__c, toRole__c, recordtypeID from Account_Link__c where ID IN :newALRecords]){
+        if(al.Retail_Related_Company__c != NULL && al.Retail_Related_Company__c != oldMapAL.get(al.ID).Retail_Related_Company__c && al.recordtypeID == accRetailPerson_RecordTypeId){
+            Account_Link__c newAL = new Account_Link__c();
+            newAL.fromRole__c = al.Retail_Related_Company__r.toRole__c;
+            newAL.Role__c = 'Company';
+            newAL.toRole__c = al.toRole__c;
+            newAL.Role2__c = 'Employee';
+            newAL.Active__c = true;
+            newAL.recordtypeID = C2C_RecordTypeId;
+            lnewAL.add(newAL);
+        }
+    }
+    if(!lnewAL.isEmpty()){
+        try{
+            insert lnewAL;
+        }catch(Exception e){
+            System.debug('Failed to insert C2C retail copies '+e.getMessage());
+        }
+    }
+}
 }

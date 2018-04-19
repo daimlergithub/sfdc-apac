@@ -37,6 +37,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
                 }
                 if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){                    
                     acchelper.RevokeApexSharingAfterUpdate(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap, Trigger.Old);
+					acchelper.OnAfterUpdateCreateC2CRetailCopy(Trigger.new, (Map < Id, Account_Link__c > ) Trigger.oldmap);
                 }
             }
        

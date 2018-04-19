@@ -400,6 +400,8 @@
         <fields>CREATED_DATE</fields>
         <fields>Expected_Registration_Date__c</fields>
         <relatedList>Lead__c.Company_Account__c</relatedList>
+		<sortField>Name</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
