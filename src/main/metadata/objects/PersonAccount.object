@@ -856,24 +856,6 @@
 				<fullName>3rd party data</fullName>
                 <default>false</default>
             </values>
-	     <values>
-                <fullName>Bayi Organizasyonu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayi Saha Ziyareti</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayi Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayiye Gelen Arama</fullName>
-                <default>false</default>
-            </values>
-	    
-	    
 	    
             <values>								   
                 <fullName>Campaign</fullName>
@@ -895,6 +877,10 @@
                 <fullName>Dealer Outlet</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Dealer Walk-in</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
@@ -905,6 +891,10 @@
             </values>
             <values>
                 <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Referral</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -932,7 +922,7 @@
                 <default>false</default>
             </values>
 	     <values>
-                <fullName>Internet %2F Dijital</fullName>
+                <fullName>Internet %2F Digital</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -951,18 +941,7 @@
                 <fullName>MB website</fullName>
                 <default>false</default>
             </values>
-	    <values>
-                <fullName>MBT Etkinliği</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBT Personeli Yönlendirmesi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBT Saha Ziyareti</fullName>
-                <default>false</default>
-            </values>
+	    
 	    
             <values>
                 <fullName>MCare</fullName>
@@ -988,10 +967,7 @@
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
-	    <values>
-                <fullName>Mercedes me Portal</fullName>
-                <default>false</default>
-            </values>
+	    
             <values>
 				<fullName>Mercedes-Benz</fullName>
                 <default>false</default>
@@ -1028,7 +1004,11 @@
 				<fullName>OB Call</fullName>
                 <default>false</default>
             </values>
-            <values>							
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -1100,10 +1080,7 @@
                 <fullName>Mercedes me connect Consultation</fullName>
                 <default>false</default>
             </values>
-			<values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>			 
+			 
 			 <values>
                 <fullName>Retailer added</fullName>
                 <default>false</default>
@@ -1112,10 +1089,7 @@
                 <fullName>Wholesale added</fullName>
                 <default>false</default>
             </values>
-	     <values>
-                <fullName>Çağrı Merkezi</fullName>
-                <default>false</default>
-            </values>
+	    
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -6109,7 +6083,13 @@
                 <fullName>Yes</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
+	
+	
 		<picklistValues>
             <picklist>Personal_Agreement_CC_Old__c</picklist>
             <values>
