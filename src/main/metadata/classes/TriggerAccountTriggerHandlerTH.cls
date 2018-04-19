@@ -132,7 +132,7 @@ public class TriggerAccountTriggerHandlerTH implements TriggerHandlerIf{
         {
             for(Account aTH : accountNewList2)
             {
-                if(aTH.MD__c == 'TH'&&isAfter && isupdate)  
+                if(aTH.MD__c == 'TH' && isAfter && isupdate)  
                 {
                     accountNewList.add(aTH);
                     if(accountOldMap!=null && accountOldMap.size()>0)
