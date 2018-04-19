@@ -230,7 +230,7 @@ public class ConvertToLeadControllerGeneric
         } 
         
         If (userinfo.getUserType() != 'PowerPartner'){
-         leadRec.CAC_Lead_Status__c = 'Approved';
+         leadRec.CAC_Lead_Status__c = 'New';
          leadRec.Lead_DataSource__c='Campaign';
          } else {
         leadRec.CAC_Lead_Status__c = 'New';
