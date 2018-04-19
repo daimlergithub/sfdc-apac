@@ -80,7 +80,9 @@ public class TriggerAccountTriggerHandlerMY implements TriggerHandlerIf{
                 AccountHelperMY.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
            
             }
-            
+             if(Util_GetPermissionList.checkAccessOnUser(Label.ALPreferredAddressUpdate)){
+                AccountHelperMY.updatePrimaryAddressDetailsOnALK(Trigger.new,(Map<Id,Account>)Trigger.OldMap);
+            }
         }
         if(isAfter && isDelete && !System.isFuture())
         {

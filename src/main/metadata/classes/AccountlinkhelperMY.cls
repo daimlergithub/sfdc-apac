@@ -25,4 +25,7 @@ public class AccountlinkhelperMY{
 	public void InvokeCDMAccountlinkContaxt(List<Account_link__C> acclinklist,String Market,string context ){
         AccountLinkHelperBase.CDMAccountlinkContextGroup(acclinklist,market,context );
     }
+	 public void OnAfterUpdateCreateC2CRetailCopy(List<Account_Link__c> alinks,Map<id,Account_Link__c> oldals){
+        AccountLinkHelperBase.OnAfterUpdateCreateC2CRetailCopy(alinks,oldals);
+    }
 }

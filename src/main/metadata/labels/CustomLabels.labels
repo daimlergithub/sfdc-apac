@@ -15,6 +15,20 @@
         <value>Ready,Executed</value>
     </labels>
 	 <labels>
+        <fullName>ALPreferredAddressUpdate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ALPreferredAddressUpdate</shortDescription>
+        <value>ALPreferredAddressUpdate</value>
+    </labels>
+	<labels>
+        <fullName>Car_relation_selling_dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Car relation selling dealer</shortDescription>
+        <value>Purchaser,Sales</value>
+    </labels>
+	<labels>
         <fullName>masterLeadMerge</fullName>
         <language>en_US</language>
         <protected>false</protected>

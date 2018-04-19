@@ -648,6 +648,8 @@
         <fields>CREATED_DATE</fields>
         <fields>Expected_Registration_Date__c</fields>
         <relatedList>Lead__c.Assigned_Dealer__c</relatedList>
+		<sortField>Name</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>

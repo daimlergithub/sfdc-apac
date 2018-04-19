@@ -40,6 +40,19 @@ public with sharing class VehicleRelationshipHelperMY{
         VehicleRelationshipHelperBase.OnAfterUpdate_Company_Account(newVehicleRelRecords,oldMapVR);
 		
     } 
+	 Public static void OnBeforeUpdate(List<Vehicle_Relationship__c> newVehicleRelRecords,Map<Id,Vehicle_Relationship__c> oldMapVR){
+    String carRelation = System.label.Car_relation_selling_dealer;
+    List<String> cr = String.isNotBlank(carRelation) ? carRelation.split(',') : NULL;
+    Set<String> scr = new Set<String>();
+    scr.addAll(cr);
+    if(scr != NULL && !scr.isEmpty()){
+        for(Vehicle_Relationship__c vr : newVehicleRelRecords){
+            if(scr.contains(vr.Car_Relation__c)){
+                vr.Selling_Dealer__c = oldMapVR.get(vr.ID).Selling_Dealer__c;
+            }
+        }
+    }    
+}
 	
 		
 }
