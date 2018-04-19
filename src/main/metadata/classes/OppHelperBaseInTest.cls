@@ -22,7 +22,9 @@ public class OppHelperBaseInTest {
         DMLManagerService.insertAsSystem(usr);
         System.runAs(usr){
             Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = dealerRecordTypeId, Market__c = 'IN');
+            dealerAcc.Dealer_nd_code__c = 'DLRIN123';
             insert dealerAcc;
+            Group gp = TestUtils.CreateTHGroup('INDLRIN123');
             Contact con = new Contact(FirstName = 'First', LastName = 'Last', AccountId = dealerAcc.Id);
             insert con;
             Account companyAcc = TestUtils.createGenericAccount(usr, '123456', companyAccRecordTypeId, '1234567890');
@@ -43,9 +45,14 @@ public class OppHelperBaseInTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name, Primary_Address_Reference__c From Account Where recordTypeId =: companyAccRecordTypeId limit 1];
+            Account peracc = [Select Id, Primary_Address_Reference__c From Account Where recordTypeId =: personAccRecordTypeId limit 1];
+            Account dlracc = [select id from Account where recordtypeid =: dealerRecordTypeId limit 1];
             Address__c accAddress = TestUtils.createGenericAddressRecord(acc, '123456', 'IN', 'Pune', 'Maharashtra', 'India');
+            Address__c peraccAddress = TestUtils.createGenericAddressRecord(peracc, '123456', 'IN', 'Pune', 'Maharashtra', 'India');
             acc.Primary_Address_Reference__c = accAddress.Id;
+            peracc.Primary_Address_Reference__c = peraccAddress.Id;
             update acc;
+            update peracc;
             List<Opportunity> opptyList = [select Id, AccountId, Name, Sales_Consultant__c, recordTypeId, Assigned_Dealer__c, Createdby.usertype, 
                                            createdby.Dealer_nd_code__c, assigned_dealer__r.Dealer_nd_code__c, assigned_dealer__r.MD__c, Assigned_Service_Advisor__c,
                                            createdby.Market__c,MD__c From Opportunity limit 20];
@@ -57,6 +64,8 @@ public class OppHelperBaseInTest {
             oppObj.updateOwnerwithDealer(opptyList, 'IN'); 
             for(Opportunity opp : opptyList){
                 opp.TrackingNumber__c = 'asdf';
+                opp.md__c = 'IN';
+                opp.assigned_dealer__c = dlracc.id;
             }
             oppObj.CdmLeadcreate(opptyList, oppMap, 'IN');
             OppHelperBase.updatemarket(opptyList);
