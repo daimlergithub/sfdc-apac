@@ -15780,11 +15780,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>QuestionList__c.Choices__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Re_Payment_Plan__c.Composite_Rental_Identifier__c</field>
         <readable>true</readable>
