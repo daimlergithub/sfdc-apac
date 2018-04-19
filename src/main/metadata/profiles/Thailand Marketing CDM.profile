@@ -25705,6 +25705,11 @@
         <field>Vehicle_Relationship__c.Created_By_EP_Transaction__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Current_Mileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Customer_Type__c</field>

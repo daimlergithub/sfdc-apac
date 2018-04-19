@@ -167,7 +167,7 @@ Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAccountLink',Trigger_Name_
         //vehicleDetials = JSON.serialize(tempMap_New);
         //LeadVehiclePickerKRController.updateVehicleDetails(vehicleDetials);
          Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
-		 lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails];
+         lead_VehicleDetails = [Select Brand__c, Class__c, Model__c, Model_Description__c,Colour__c, Trim__c, NextMileage__c From Vehicle__c Where Id =:leadDetails];
         for (String vehicle : vehicleTypes){
         
             String leadId = testLead.Id;
@@ -282,7 +282,7 @@ Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAccountLink',Trigger_Name_
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerKRController vpc = new LeadVehiclePickerKRController(sc);
         Map<String,String> tempMap = new Map<String,String>();
-		Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+        Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
         for(String vehicle : vehicleTypes){
             tempMap.put('Id',testVehicleMB.Id);
             tempMap.put('VehicleType',vehicle);
@@ -324,7 +324,9 @@ Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAccountLink',Trigger_Name_
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerKRController vpc = new LeadVehiclePickerKRController(sc);
         test.startTest();
-		Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+        Car_Model__c cm = new Car_Model__c(Brand__c ='AMG',Series__c='A-CLASS',Name='A160',MD__c='KR');
+        insert cm;
+        Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
         for (String vehicle : vehicleTypes){
             String leadId = testLead.Id;
             String vehicleDetials;      
@@ -393,7 +395,7 @@ Trigger__c TriggerAddress=new Trigger__c(Name='TriggerAccountLink',Trigger_Name_
         ApexPages.StandardController sc = new ApexPages.StandardController(testLead);
         LeadVehiclePickerKRController vpc = new LeadVehiclePickerKRController(sc);
         Map<String,String> tempMap = new Map<String,String>();
-		Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
+        Lead__c leadDetails = [Select Interested_Vehicle__c,Interested_Competitor_Vehicle__c,Current_Vehicle_1__c,Current_Vehicle_2__c,Trade_In_Vehicle__c,Purchased_Vehicle__c from Lead__c where Id =:testLead.Id];
         for(String vehicle : vehicleTypes){
         
             if (!vehicle.equalsIgnoreCase(utilConst.COMPETITOR_VEHICLE)){
