@@ -11591,6 +11591,17 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Prospect2Customer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Whether it's prospect-turned-customer (for MC Welcome journey)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether it's prospect-turned-customer</inlineHelpText>
+        <label>Prospect2Customer</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Province__c</fullName>
         <description>/* 
