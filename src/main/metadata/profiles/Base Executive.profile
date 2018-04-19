@@ -10984,7 +10984,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Campaign_Member__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -30621,7 +30621,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ConvertToTask</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ConvertToTask1</apexPage>
