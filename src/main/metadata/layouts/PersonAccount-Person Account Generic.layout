@@ -468,8 +468,6 @@
         <fields>Lead_DataSource__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Lead__c.Contact__c</relatedList>
-        <sortField>Drop_off_Time__c</sortField>
-        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>

@@ -64319,7 +64319,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>Customer_Lifecycle_Phase__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Sales_Address_Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Display__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Primary_Phone_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Email_Display__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Customer_LastUpdatedDate__c</searchResultsAdditionalFields>
     </searchLayouts>

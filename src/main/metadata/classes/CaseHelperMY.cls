@@ -48,4 +48,16 @@ public class CaseHelperMY {
     public void ShareRecordswithDealers(List<case> cases, boolean isUpdate, String market){
         caseHelperBaseInstance.ShareRecordswithDealers(cases, isUpdate, market);
     }
+	 public void beforeInsertUpdateVehicleInfo(List<Case> lcase){
+        for(Case cs : lcase){
+        if(cs.vehicle__c != NULL && cs.Current_Vehicle_1__c == NULL)
+        cs.Current_Vehicle_1__c = cs.vehicle__c;
+        if(cs.vehicle__c == NULL && cs.Current_Vehicle_1__c != NULL)
+        cs.vehicle__c = cs.Current_Vehicle_1__c;
+        if(cs.vehicle__c == NULL && cs.Purchased_Vehicle__c != NULL)
+        cs.vehicle__c = cs.Purchased_Vehicle__c;
+        if(cs.vehicle__c == NULL && cs.Purchased_Vehicle__c != NULL && cs.Current_Vehicle_1__c != NULL)
+        cs.vehicle__c = cs.Current_Vehicle_1__c;
+        }
+    }
 }
