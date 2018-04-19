@@ -122,5 +122,41 @@
             test.stopTest();
         }
     }
+    
+    //testMethod for sharing after account Merge
+    static testMethod void shareAfterAccountMergeTest()
+    {
+        System.runAs(user2)
+        {
+            
+            test.startTest();
+            Id dealerType =RecordTypeAccessService.getRecordTypeid('Account','Dealer');
+            TriggerUtil.userCreate = false;
+            Trigger__c tr = new Trigger__C(Name = 'TriggerAccountTH', after__c = true, before__c = true, delete__c = true, enabled__c = true, insert__c = true, update__c = true, Market__c = 'TH', Trigger_Handler__c = 'TriggerAccountTriggerHandlerTH', Trigger_Name__c = 'TriggerAccount');
+       		insert tr;
+            Account goldenAcc = TestUtils.createCompanyAccount(user2);
+            goldenAcc.MD__c='TH';
+            goldenAcc.UCID__c='123456';
+            update goldenAcc;
+            Account dealer1 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='12435');
+        	insert dealer1;
+            
+            Account duplicateAcc = TestUtils.createCompanyAccount(user2);
+            System.debug('***duplicateAcc'+duplicateAcc.Id);
+            duplicateAcc.MD__c='TH';
+            duplicateAcc.UCID__c='1234';
+            update duplicateAcc;
+            
+            Account_Link__c Acclink = TestUtils.createAccLink('Retail Company', duplicateAcc.Id); //company account
+            Acclink.fromRole__c=dealer1.Id;
+            update Acclink;
+            String grpName='TH'+dealer1.Dealer_ND_Code__c;
+            Group grp=TestUtils.CreateTHGroup(grpName);
+            duplicateAcc.UCID__c='123456';
+            update duplicateAcc;
+            test.stopTest();
+        }
+    }
+    
 
 }
