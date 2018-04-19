@@ -137,7 +137,7 @@ public without sharing class createRetailCopy {
 
         AccId = ApexPages.currentPage().getParameters().get('id');
 
-        accList = [Select Id, MD__c, LastModifiedDate, Foundation_Date__c, ID_Type__c,ID_Number__c,Country__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c, LastName_Native_1__c, FirstName_Native_1__c, Special_Needs_Class__c, Preferred_Language__c, Allow_Data_Sharing2__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c, Company_Name__c,Race__c,Title__c from account where id =: AccId];
+        accList = [Select Id, MD__c, LastModifiedDate, Foundation_Date__c, ID_Type__c,ID_Number__c,Country__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c,Postal_Opt_In__c, LastName_Native_1__c, FirstName_Native_1__c,SMSOptOut__pc, Special_Needs_Class__c, Preferred_Language__c, Allow_Data_Sharing2__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c,Opt_In_Email__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c,Opt_In_SMS__c,Updated_Consent_User__c, First_Consent_User__c,First_Consent_Date__c,Updated_Consent_Date__c,Company_Name__c,Race__c,Title__c from account where id =: AccId];
         accc = [Select id, Main_Dealer__c from account where id =: account.Main_Dealer__c limit 1];
         system.debug('+++++++++' + addId);
         System.debug('##################' + accc);
@@ -178,10 +178,14 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_Address_Reference__c = addId;
                         newAlk.fromRole__c = DealeAccId;
                         newAlk.RecordTypeId = alkPerson_RecordTypeId;
-                        if (accList.MD__c == 'TH') {
+                        //Added condition for TR  Market
+                        if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
                             if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
+                                //Added for TR market
+                                 if(accList.Market__c == 'TR')
+                                    newAlk.Retail_City__c = SelectedAdd[0].City__c ;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                                 newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                                 newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
@@ -239,6 +243,15 @@ public without sharing class createRetailCopy {
                             if(accList.Foundation_Date__c != null)
                             {
                                 newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                            }
+                             //additions for TR Market
+                            if(accList.Market__c == 'TR') {
+                                newAlk.Retail_First_Consent_Date__c = accList.First_Consent_Date__c;
+                                newAlk.Retail_Updated_Consent_Date__c = accList.Updated_Consent_Date__c;
+                                newAlk.Retail_First_Consent_User__c = accList.First_Consent_User__c;
+                                newAlk.Retail_Updated_Consent_User__c = accList.Updated_Consent_User__c;
+                                newAlk.Retail_Opt_In_Mobile__c = accList.Opt_In_SMS__c;
+                                newAlk.Retail_Full_Name_Title__c = accList.LastName + ' ' + accList.FirstName;
                             }
                         }
                         // if market is MY
@@ -302,7 +315,7 @@ public without sharing class createRetailCopy {
                             newAlk.Retail_Agreement_Info_Processing__c = accList.Agreement_to_commit_info_processing__c;
                             newAlk.Retail_Vat_No__c = accList.Vat_No__c;
                             if(accList.Foundation_Date__c != null)
-							{
+                            {
                                 newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
                             }
                         }
@@ -317,10 +330,14 @@ public without sharing class createRetailCopy {
                         newAlk.Retail_Address_Reference__c = addId;
                         newAlk.fromRole__c = DealeAccId;
                         newAlk.RecordTypeId = alkCompany_RecordTypeId;
-                        if (accList.MD__c == 'TH') {
+                        //Added condition for TR Market
+                        if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
                             if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                                 newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                                 newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
+                                //Added for TR market
+                                 if(accList.Market__c == 'TR')
+                                    newAlk.Retail_City__c = SelectedAdd[0].City__c ;
                                 newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                                 newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                                 newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
@@ -360,6 +377,15 @@ public without sharing class createRetailCopy {
                             if(accList.Foundation_Date__c != null)
                             {
                                 newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
+                            }
+                               //additions for TR Market
+                            if(accList.Market__c == 'TR') {
+                                newAlk.Retail_Preferred_Contact_Method__c = accList.Preferred_Contact_Method__c;
+                                newAlk.Retail_First_Consent_Date__c = accList.First_Consent_Date__c;
+                                newAlk.Retail_Updated_Consent_Date__c = accList.Updated_Consent_Date__c;
+                                newAlk.Retail_First_Consent_User__c = accList.First_Consent_User__c;
+                                newAlk.Retail_Updated_Consent_User__c = accList.Updated_Consent_User__c;
+                                newAlk.Retail_Opt_In_Mobile__c = accList.Opt_In_SMS__c;
                             }
                              
                         }
@@ -452,10 +478,14 @@ public without sharing class createRetailCopy {
                     newAlk.Retail_Address_Reference__c = addId;
                     newAlk.fromRole__c = account.Main_Dealer__c;
                     newAlk.RecordTypeId = alkPerson_RecordTypeId;
-                    if (accList.MD__c == 'TH') {
+                    //Added TR Condition
+                    if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
                         if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
+                            //Added for TR market
+                            if(accList.Market__c == 'TR')
+                                newAlk.Retail_City__c = SelectedAdd[0].City__c ;
                             newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                             newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                             newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
@@ -514,6 +544,22 @@ public without sharing class createRetailCopy {
                             {
                                 newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
                             }
+                             //additions for TR Market
+                        if(accList.Market__c == 'TR') {
+                            newAlk.Retail_First_Consent_Date__c = accList.First_Consent_Date__c;
+                            newAlk.Retail_Updated_Consent_Date__c = accList.Updated_Consent_Date__c;
+                            newAlk.Retail_First_Consent_User__c = accList.First_Consent_User__c;
+                            newAlk.Retail_Updated_Consent_User__c = accList.Updated_Consent_User__c;
+                            newAlk.Retail_Opt_In_Mobile__c = accList.Opt_In_SMS__c;
+                            newAlk.Retail_Email_OptIn__c = accList.Opt_In_Email__c;
+                            newAlk.Retail_Email__c = accList.Email__c;
+                          
+                            newAlk.Retail_SMS_OptIn__c = accList.Opt_In_SMS__c;
+                            newAlk.Retail_SMS_OptOut__c = accList.SMSOptOut__pc;
+                            newAlk.Retail_Mobile__c = accList.Mobile__c;
+                            
+                            newAlk.Retail_Postal_OptIn__c = accList.Postal_Opt_In__c;
+                        }
                     }
                     // if market is MY
                         if (accList.MD__c == 'MY' || Util_getPermissions.checkCustomPermission(Label.INGeneric)) {
@@ -592,10 +638,14 @@ public without sharing class createRetailCopy {
                     newAlk.Retail_Address_Reference__c = addId;
                     newAlk.fromRole__c = account.Main_Dealer__c;
                     newAlk.RecordTypeId = alkCompany_RecordTypeId;
-                    if (accList.MD__c == 'TH') {
+                    //Added condition for TR market
+                    if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
                         if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
                             newAlk.Retail_Province__c = SelectedAdd[0].Province__c;
                             newAlk.Retail_City__c = SelectedAdd[0].Sub_District__c;
+                            //Added for TR market
+                            if(accList.Market__c == 'TR')
+                                newAlk.Retail_City__c = SelectedAdd[0].City__c ;
                             newAlk.Retail_Distinct__c = SelectedAdd[0].District__c;
                             newAlk.Retail_Address_Line_1__c = SelectedAdd[0].Address_Line_1__c;
                             newAlk.Retail_Address_Line_2__c = SelectedAdd[0].Address_Line_2__c;
@@ -636,6 +686,21 @@ public without sharing class createRetailCopy {
                             {
                                 newAlk.Retail_Foundation_Month__c = String.valueOf(accList.Foundation_Date__c.year()) + (String.ValueOf(accList.Foundation_Date__c.month()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.month())) :String.ValueOf(accList.Foundation_Date__c.month())) + (String.ValueOf(accList.Foundation_Date__c.day()).length() == 1 ? ('0' + String.ValueOf(accList.Foundation_Date__c.day())) :String.ValueOf(accList.Foundation_Date__c.day()));
                             }
+                            //additions for TR market
+                        if(accList.Market__c == 'TR') {
+                            newAlk.Retail_Preferred_Contact_Method__c = accList.Preferred_Contact_Method__c;
+                            newAlk.Retail_First_Consent_Date__c = accList.First_Consent_Date__c;
+                            newAlk.Retail_Updated_Consent_Date__c = accList.Updated_Consent_Date__c;
+                            newAlk.Retail_First_Consent_User__c = accList.First_Consent_User__c;
+                            newAlk.Retail_Updated_Consent_User__c = accList.Updated_Consent_User__c;
+                            newAlk.Retail_Opt_In_Mobile__c = accList.Opt_In_SMS__c;
+                           
+                            newAlk.Retail_SMS_OptIn__c = accList.Opt_In_SMS__c;
+                            newAlk.Retail_SMS_OptOut__c = accList.SMSOptOut__pc;
+                            
+                            newAlk.Retail_Postal_OptIn__c = accList.Postal_Opt_In__c;
+                            
+                        }
                         
                         //newAlk.Retail_Foundation_Month__c=    acclist.Foundation_Date__c ;
                     }

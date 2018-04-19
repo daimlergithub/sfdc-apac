@@ -8113,6 +8113,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Done</fullName>
@@ -8120,6 +8121,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>In_Progress</fullName>
@@ -8127,12 +8129,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>none</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
