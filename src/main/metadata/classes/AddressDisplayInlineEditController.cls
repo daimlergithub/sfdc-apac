@@ -18,6 +18,8 @@ public class AddressDisplayInlineEditController {
     Public Boolean Validation;
     Public Boolean profilename{get;set;}
     public Boolean Communityuser{get;set;}
+    public String City{get; set;}
+     public List<SelectOption> lstCity{get; set;}
     public List<SelectOption> lstDistrict{get; set;}
     public List<SelectOption> lstSubDistrict{get; set;}
     public List<SelectOption> lstZip{get; set;}
@@ -63,7 +65,21 @@ public class AddressDisplayInlineEditController {
             Communityuser = true;
         }
     } 
-    
+    //Added for TR Market
+    public void LoadCity()
+      {
+        lstCity=new List<SelectOption>();
+        Set<string> setCity = new set<string>();
+        lstCity.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
+        for(RegionMasterInfo__c lsttempcity : [select id,city__c from RegionMasterInfo__c where Market__c=:market order by city__c asc ])
+        {
+            if(!setCity.contains(lsttempcity.city__c))
+            {
+                lstCity.add(new SelectOption(lsttempcity.city__c,lsttempcity.city__c));
+                setCity.add(lsttempcity.city__c);
+            }
+        }
+    }   
     public void LoadProvince()
       {     
          if(LanguageSelected=='' || LanguageSelected ==null )       
@@ -71,6 +87,7 @@ public class AddressDisplayInlineEditController {
         lstProvince=new List<SelectOption>();
         Set<string> setProvinces = new set<string>();
         lstProvince.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
+        if(Market != Label.TR) {
         for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected  and Market__c=:market order by Province__c asc])
         {
             if(!setProvinces.contains(lsttempProvince.Province__c))
@@ -82,6 +99,18 @@ public class AddressDisplayInlineEditController {
         lstDistrict=new List<SelectOption>();
         lstSubDistrict=new List<SelectOption>();
         lstZip=new List<SelectOption>();
+        }
+        //Added for TR Market
+        else if (market == Label.TR){
+             for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where city__c=:city  and Market__c=:market order by Province__c asc])
+            {
+                if(!setProvinces.contains(lsttempProvince.Province__c))
+                {
+                    lstProvince.add(new SelectOption(lsttempProvince.Province__c,lsttempProvince.Province__c));
+                    setProvinces.add(lsttempProvince.Province__c);
+                }
+            }
+        }
       }
       
       public void LoadDistrict()
@@ -90,7 +119,8 @@ public class AddressDisplayInlineEditController {
               LanguageSelected ='English';   
         lstDistrict=new List<SelectOption>();
         Set<string> setDistricts = new set<string>();
-        lstDistrict.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));        
+        lstDistrict.add(new SelectOption(System.Label.SelectPicklist,System.Label.SelectPicklist));
+        if(Market != Label.TR){        
         for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Province__c=:province  and Market__c=:market order by District__c asc])
         {
             //Added null check for india market as city/district is not a picklist for India
@@ -105,6 +135,18 @@ public class AddressDisplayInlineEditController {
         }
         lstSubDistrict=new List<SelectOption>();
         lstZip=new List<SelectOption>();
+        }
+        //Added for TR Market
+        else if (Market == Label.TR){
+            for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where city__c=:city and Province__c=:province  and Market__c=:market order by District__c asc])
+            {
+                if(!setDistricts.contains(lsttempDistrict.District__c))
+                {
+                    lstDistrict.add(new SelectOption(lsttempDistrict.District__c,lsttempDistrict.District__c));
+                    setDistricts.add(lsttempDistrict.District__c);
+                }
+            }
+        }
       }
       
       public void LoadSubDistrict()
@@ -174,6 +216,20 @@ public class AddressDisplayInlineEditController {
             else
                 IsForeignNational=false;
         }
+        //Added for TR Market
+        else if(market == System.Label.TR)
+       {  
+            if(AddressObj.Country__c!=Label.TRCountry){
+                IsForeignNational=true;
+                city='';
+                district='';
+                province='';
+                zip='';
+                
+            }
+            else
+                IsForeignNational=false;
+        }
       }
       
     public void updateHidefields(){
@@ -194,6 +250,20 @@ public class AddressDisplayInlineEditController {
                 IsForeignNational=false;
                
             }
+        }
+          //Added for TR Market
+        else if(market == System.Label.TR)
+       {  
+            if(AddressObj.Country__c!=Label.TRCountry){
+                IsForeignNational=true;
+                city='';
+                district='';
+                province='';
+                zip='';
+                
+            }
+            else
+                IsForeignNational=false;
         }
         
     }                              
@@ -295,6 +365,15 @@ public class AddressDisplayInlineEditController {
                 LoadProvince();
                 LoadDistrict();
             }
+            //Added for TR Market
+            if(market == 'TR')
+            {
+                addressobj.Country__c='Turkey';
+                LoadCity();
+                LoadProvince();
+                LoadDistrict();
+                updateHidefields();
+            }
             
             
     }
@@ -372,12 +451,20 @@ public class AddressDisplayInlineEditController {
                     if(AddressObj.Country__c == 'India')AddressObj.Country__c = '--None--';
                 }
              }
+             //Added for TR Market
+             if(market == 'TR')
+            {
+                LoadCity();
+                LoadProvince();
+                LoadDistrict();
+                updateHidefields();
+            }
             if(market=='TH' || Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
              { 
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
                    
-                    if(market=='TH')
+                    if(market=='TH'&&addressobj.Foreign_Nationals__c !=true)
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
                     else  if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
@@ -664,7 +751,10 @@ public class AddressDisplayInlineEditController {
       
             if(addressobj.ZipCode__c != null  && (!Pattern.matches('^[0-9]{5,6}$',addressobj.ZipCode__c)))      
             {       
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));        
+                 if(market != label.TR)
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.MYZipCode));  
+                 else if(market == label.TR)
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRZipCode));  
                  Validation = true;                             
             }       
             if(addressobj.Address_Line_1__c == null)        
@@ -703,7 +793,12 @@ public class AddressDisplayInlineEditController {
                     Validation = true;                              
                 }       
             }       
-                    
+            //added by veena to check addresstype check when address line 1 and 2 are given by user  
+            if(Market == Label.TR && (!String.isBlank(addressobj.Address_Line_1__c) || String.isBlank(addressobj.Address_Line_2__c))&&(addressobj.Address_Type__c == null)){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation)); 
+                    Validation = true;
+                
+            }        
                   
             if(Validation == False){                
                 refreshPage = true;         

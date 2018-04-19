@@ -4,10 +4,10 @@ public class BBQReferralTest {
         BBQEmployee.createEmployee('narendra@infosys.com', 'Narendra ','Nimmana','JP','123456789','narendra@infosys.com.dev',
                                    'FirstNameNative','LastNameNative','Sfdc','Infosys');
         BBQReferral.createReferral('RefferralEmail@infy.com','Narendra ','Nimmana','JP','123456789','Address','Dealer','True',
-                                  'A-Class','12345','narendra@infosys.com','New Car','fNative','lNative','Personal');
+                                  'A-Class','12345','narendra@infosys.com','New Car','fNative','lNative','Private Customer','Infosys');
         try{
             BBQReferral.createReferral('RefferralEmail@infy.com','Narendra ','Nimmana','JP1','123456789','Address','Dealer','True',
-                                  'A-Class','12345','narendra@infosys.com','New Car','fNative','lNative','Personal');
+                                  'A-Class','12345','narendra@infosys.com','New Car','fNative','lNative','Private Customer','Infosys');
         }
         Catch(Exception e){}
         RestRequest req = new RestRequest();
