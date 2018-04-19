@@ -176,7 +176,7 @@ public with sharing class AddressHelperJP {
         
           }
     @Future(callout=true)
-    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
+    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject) 
     {
         string sfdcMarketDiscriminator = 'JP';
         string orgId=UserInfo.getOrganizationId();

@@ -188,6 +188,7 @@ public class AccountHelperKRTest {
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
                                 MD__c = 'KR',
+                                MBK_Data_Source__c='Advertisement',
                                 OwnerId = usr.id,
                                 Vat_No__c='12345',
                                  Foundation_Date__c=system.today()-1,
@@ -323,6 +324,7 @@ public class AccountHelperKRTest {
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
                                 MD__c = 'KR',
+                                MBK_Data_Source__c='Advertisement',
                                 Vat_No__c='12345',
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
                                insert personAcc14;
@@ -347,7 +349,7 @@ public class AccountHelperKRTest {
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
                                 MD__c = 'KR',
-                                
+                                MBK_Data_Source__c='Advertisement',
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        
      listcampaigns.add(personAcc13);
@@ -420,6 +422,7 @@ public class AccountHelperKRTest {
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
                                 MD__c = 'KR',
+                                MBK_Data_Source__c='Advertisement',
                                 Vat_No__c='12345',
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
                                insert personAcc14;
@@ -444,7 +447,7 @@ public class AccountHelperKRTest {
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
                                 MD__c = 'KR',
-                                
+                                MBK_Data_Source__c='Advertisement',
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        
      listcampaigns.add(personAcc13);
@@ -630,6 +633,7 @@ public class AccountHelperKRTest {
                                 Primary_Phone__c ='Other2',
                                 MD__c = 'KR',
                                 Commercial_Reg_No__c='1567',
+                                MBK_Data_Source__c='Advertisement',
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
        
      listcampaigns.add(personAcc13);

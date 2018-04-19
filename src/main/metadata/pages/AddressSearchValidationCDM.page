@@ -496,7 +496,8 @@
                     </apex:outputPanel> 
                 <!--  Buttons IN End-->     
                 <!--  Buttons TR Start -->
-                <apex:outputPanel id="buttonTR" >       
+                <apex:outputPanel id="buttonTR" >
+                        <apex:actionFunction name="rerendersection" reRender="form" />
                  <!--- Added Button for Turkey-->
                         <apex:commandButton action="{!onLineDeduplicationTR}" value="{!$Label.OnLine_Deduplication}" rendered="{!If(AND(OR(RecordType == 'Person Account',RecordType == 'Company'),ISPICKVAL($User.Market__c,'TR')) ,true,false)}" reRender="form,msgs" oncomplete="rerendersection()" />
                  <!--END-->

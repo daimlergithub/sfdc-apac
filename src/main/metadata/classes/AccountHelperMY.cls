@@ -92,6 +92,9 @@ public class AccountHelperMY{
     public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject){
         AccountHelperBase.entityNotifyUpdate(updateType,sfdcId,MarketDiscriminator,serlializedObject);    
     }
+	 public static void updatePrimaryAddressDetailsOnALK(List<Account> newAcc, Map<ID, Account> oldAccMap){
+        AccountHelperBase.updatePrimaryAddressDetailsOnALK(newAcc, oldAccMap);
+    } 
     
          /**
      *SN20171411-  SM1-177

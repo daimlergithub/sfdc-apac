@@ -375,6 +375,16 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Update_Prospect2Customer</fullName>
+        <description>Update Prospect2Customer to true (as trigger for MC Welcome journey)</description>
+        <field>Prospect2Customer__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Prospect2Customer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>WorkPhone_Update</fullName>
         <field>Work_Phone__c</field>
@@ -823,6 +833,17 @@
             <value>Person Account</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
+        <fullName>Prospect changed to Customer</fullName>
+        <actions>
+            <name>Update_Prospect2Customer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Prospect changed to Customer (for MC Welcome journey)</description>
+        <formula>ISCHANGED(Status__c) &amp;&amp; ISPICKVAL(Status__c, &apos;Customer&apos;) &amp;&amp; MD__c = &apos;TH&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Allow Data Sharing</fullName>
