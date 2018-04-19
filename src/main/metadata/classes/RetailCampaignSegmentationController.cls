@@ -94,7 +94,7 @@
         public Set<String> accStatus = new Set<String>{'Customer', 'Prospect'};
         public Set<String> LeadDealerStatus = new Set<String>{'Not Started','On-going','Order Placed','Purchased(Only Non BDC)','Lost'};
         public Set<String> retTaskType = new Set<String>{'Standard Warranty','Used Car Warranty','Loan','Lease','Service Program'};
-       public Set<String> retProductName = new Set<String>{'Maintenance Plus','smart Maintenance Pack Start Plan','smart Maintenance Pack Second Plan','smart Maintenance Pack EV Plan','smart touring support 2 years Plan','smart touring support 3 years Plan','smart touring support 6 years Plan','MyMercedes Support','smart Maintenance Pack EV Start Plan','smart Maintenance Pack EV Second Plan','Maintenanec Plus Light','smart Maintenance','smart Maintenane Plus','Warranty Plus','Touring support Plus'};
+       public Set<String> retProductName = new Set<String>{'Maintenance Plus','Maintenance Plus Ligh','smart Maintenance Pack Start Plan','smart Maintenance Pack Second Plan','smart Maintenance Pack EV Plan','smart touring support 2 years Plan','smart touring support 3 years Plan','smart touring support 6 years Plan','MyMercedes Support','smart Maintenance Pack EV Start Plan','smart Maintenance Pack EV Second Plan','Maintenanec Plus Light','smart Maintenance','smart Maintenane Plus','Warranty Plus','Touring support Plus'};
         //public Set<String> retProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus) ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
         public Set<String> retFinanceProductName = new Set<String>{'Welcome Plan','Welcome Plan Plus','Open End Lease','Open End Lease (Select)','Open End Lease (Select Plus)  ','Close End Lease','Close End Lease (Mileage Plan Select)','Close End Lease (Mileage Plan Select Plus)','Close End Lease (Mileage Plan)','Re-lease (Open End)','Re-lease (Close End Mileage Plan)','Re-lease (Close End)','Re-loan','Super Welcome Plan','Super Welcome Plan Plus','Start Up Plan','Normal Loan','Dual Auto Loan'};
 
@@ -729,6 +729,7 @@
                 if(segmentationBase == 'Vehicle' ){
                 saveQuery += ' AND Vehicle_Id__c IN: vehIdSet1 ';
                 Query += ' AND Vehicle_Id__c ('+ VehRetCopySoql +')';
+                system.debug('RERERERERER'+Query);
                 }
                 if(segmentationBase == 'Contract'){
                   saveQuery += ' AND Related_Contact__c IN : vehicleRelCopyMain';
@@ -860,7 +861,7 @@
                 system.debug('FinalAccountSoql>>>>>>>>'+accountSoql);
                 system.debug('FinalAccountSoql>>>>>>>>'+accountIdSet.size());
                 system.debug('FinalAccountSoql>>>>>>>>'+accountIdSet);
-               // List<account> accList = Database.Query(accountSoql+' LIMIT 10000');
+               // List<account> accList = Database.Query(accountSoql+' LIMIT 1000');
                // system.debug('>>>>>'+accList.size());
                saveQuery = saveQuery.replace('AND AND','AND');
                system.debug('++++++++++++'+saveQuery );
@@ -869,7 +870,7 @@
                 saveQuery = saveQuery.replace('AND ','');
                 }
                 system.debug('++++++++++++'+saveQuery );
-                List<account> accList = Database.Query(saveQuery+' LIMIT 2000');
+                List<account> accList = Database.Query(saveQuery+' LIMIT 1000');
                 Map<Id,Account> accIdAccountMap = new Map<Id,Account>();
                 for(Account acc : accList){
                     accIdToGetRetailPerson.add(acc.Id);
@@ -885,7 +886,7 @@
                     
                 }
                 system.debug('accLinkRetaiPersonList'+accIdToGetRetailPerson);
-                accLinkRetaiPersonList = [SELECT Id,toRole__c,fromRole__c,Selling_Dealer__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Consultant__c FROM Account_Link__c WHERE RecordType.Name = 'Retail Person' AND toRole__c IN : accIdToGetRetailPerson];
+                accLinkRetaiPersonList = [SELECT Id,toRole__c,fromRole__c,Selling_Dealer__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Consultant__c FROM Account_Link__c WHERE RecordType.Name = 'Retail Person' AND toRole__c IN : accIdToGetRetailPerson LIMIT 1000];
                 system.debug('accLinkRetaiPersonList'+accLinkRetaiPersonList);
                 system.debug('accLinkRetaiPersonList'+accLinkRetaiPersonList.size());
                 if(selectedValue == 'Outlet'){
@@ -995,7 +996,7 @@
                 system.debug('finalRetailTaskSoql>>>>'+RetailTaskSoql);
                 system.debug('+++++++++++'+saveQuery );
                 //List<Retail_Task__c> retTaskList = Database.query(RetailTaskSoql+ ' limit 10000'); 
-                List<Retail_Task__c> retTaskList = Database.query(saveQuery+ ' limit 2000');
+                List<Retail_Task__c> retTaskList = Database.query(saveQuery+ ' limit 1000');
                 con = new ApexPages.StandardSetController(retTaskList);
                 con.setPageSize(100); 
                 noOfRecords = con.getResultSize();
@@ -1012,7 +1013,7 @@
             
             else{
             
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, label.Cannot_extract_records_with_this_filter_condition_Please_change_filter_condition));
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, label.Matched_records_are_too_much_please_add_more_criteria));
             e.getMessage();
             System.debug('The following exception has occurred: ' + e.getMessage()); 
             }
@@ -1497,6 +1498,7 @@
                          try {
                 if(camlist1 != NULL && !camlist1.isEmpty())
                 insert camlist1;
+               
             }
             catch(Exception ex){
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, ex.getMessage()));
