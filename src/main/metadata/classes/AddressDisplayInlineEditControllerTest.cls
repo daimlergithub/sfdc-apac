@@ -372,7 +372,7 @@ public class AddressDisplayInlineEditControllerTest
         insert updatecustomsettings;
         List<Trigger__c> updatecustomsettingsTH =  UtilCustomSettingTH.customSettingDetails();
         insert updatecustomsettingsTH;
-        
+        system.runas(sysAdminUser1){
         objAccount= new Account();
         objAccount.RecordtypeId=PersonaccRTId;
         objAccount.Firstname='Test Person';
@@ -382,6 +382,8 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.Status__c='Active';
         objAccount.Province__c='Province1';
         objAccount.City__c='Test';
+		if(Md == 'TR')
+			objAccount.Data_Source__c='Past Data';	
         objAccount.Email__c='test@mbau.com';
         objAccount.Email2__c = 'testemail2@test.com';
         //objAccount.Home_Phone_2__c = '098-876-4134';    
@@ -389,6 +391,7 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.Partner_Surname__c='Test Person';
         objAccount.MBK_Data_Source__c ='Email';
         objAccount.MD__c = MD;
+		objAccount.Market__c = MD;
         //objAccount.Mobile__c = '999999999';
         
         
@@ -403,6 +406,7 @@ public class AddressDisplayInlineEditControllerTest
         objAddress.Address_Type__c = 'Home';  
         objAddress.ZipCode__c ='1234567'; 
         objAddress.MD__c = MD;
+		objAddress.Market__c = MD;
         objAddress.Address_Line_1__c = 'Banglore';
         objAddress.Address_Line_2__c = 'Test Address 2';
         objAddress.Block__c = 'Test Block';
@@ -410,10 +414,18 @@ public class AddressDisplayInlineEditControllerTest
         objAddress.District__c = 'Test District';
         insert objAddress;
         
-        
+        RegionMasterInfo__c RMObj=new RegionMasterInfo__c();
+		RMObj.Province__c = 'NSW';
+		RMObj.District__c = 'Test District';
+		RMObj.Language__c = 'English';
+		RMObj.Sub_DIstrict__c = 'Test Sub District';
+		RMObj.ZipCode__c = '1234567';
+		RMObj.City__c = 'Test City';
+		RMObj.Market__c = MD;
+		insert RMObj;
         
         system.debug('objAddress>>>>>'+objAddress.Id);
-        
+        }
      /*  editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
                   Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Id =:objAddress.Id];
         editadds[0].Preferred__c=false;
@@ -806,7 +818,30 @@ public class AddressDisplayInlineEditControllerTest
      // }
     test.stopTest(); 
     }
-  
+   /*public static testMethod void testTRComponents(){  
+    initUpdated('TR'); 
+    ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+    ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+    AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);          
+    objAddressDisplayInlineEditController.addressobj=objAddress;
+    test.startTest();
+     //system.RunAs(sysAdminUser1){
+       Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+	   objAddressDisplayInlineEditController.market ='TR';
+	   objAddressDisplayInlineEditController.ShowHideFields();
+	   objAddressDisplayInlineEditController.updateHidefields();
+	   objAddressDisplayInlineEditController.LoadCity();
+	   objAddressDisplayInlineEditController.city = 'Test City';
+      objAddressDisplayInlineEditController.LoadProvince();
+	  objAddressDisplayInlineEditController.province = 'NSW';
+	  objAddressDisplayInlineEditController.LoadDistrict(); 
+	  objAddressDisplayInlineEditController.EditOptions();
+	  
+      //objAddressDisplayInlineEditController.SelectedAddress();
+      //system.assert(objAddressDisplayInlineEditController.addressobj!=Null); 
+     // }
+    test.stopTest(); 
+    }*/
   
     public static testMethod void testLoadDistrict(){  
     init(); 

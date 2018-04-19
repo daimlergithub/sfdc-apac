@@ -55,6 +55,10 @@ public class TriggerVehicleRelTriggerHandlerMY implements TriggerHandlerIf{
                 VehicleRelationshipHelperMY.OnAfterDelete(Trigger.old);
 				VehicleRelationshipHelperMY.OnAfterDelete_Company_Account(Trigger.old);
             }
+			 if(trigger.isBefore && Trigger.isUpdate){
+                Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
+                VehicleRelationshipHelperMY.OnBeforeUpdate(Trigger.new,oldmapVehicleRelship);
+      }
         }
     }
 }
