@@ -1778,6 +1778,7 @@ public static Contact contactObj;
                                 Primary_Fax__c = 'FAX2',
                                 Primary_Phone__c ='Other2',
                                 MD__c = 'KR',
+                                MBK_Data_Source__c='Advertisement',
                                 Foundation_Date__c=system.today()-1,
                                 Commercial_Reg_No__c='1567',
                                 RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
