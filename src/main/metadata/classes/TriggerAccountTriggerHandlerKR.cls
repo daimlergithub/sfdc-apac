@@ -39,6 +39,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
             AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
             AccountHelperKR.updateOnEmailOptout(Trigger.new);
             AccountHelperKR.updateAgeRange(Trigger.new);
+			AccountHelperJP.ChangeSoftDeletedRecordsOwner(Trigger.new);
         }
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
@@ -97,6 +98,7 @@ public class TriggerAccountTriggerHandlerKR implements TriggerHandlerIf{
                 AccountHelperKR.updateAllowDataShareBasedonDocFields(Trigger.new);
                 AccountHelperKR.updateOnEmailOptout(Trigger.new);
                 AccountHelperKR.updateAgeRange(Trigger.new);
+				AccountHelperJP.ChangeSoftDeletedRecordsOwner(Trigger.new);
             }
 			if(isAfter && isInsert && !System.isFuture())
             {

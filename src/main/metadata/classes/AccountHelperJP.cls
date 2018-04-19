@@ -1163,19 +1163,27 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         set<id> deletedAccId = new set<id>();
          List<Account> UpdateAcc=new List<Account>();
          List<User> IntegrationUser=new List<User>();
+         List<User> MBKSupportUser=new List<User>();
      IntegrationUser=[Select id,firstName,LastName,Profile.Name from User Where profile.Name='IntegrationAPI' and firstName='Integration' and LastName='User' limit 1];
+      MBKSupportUser=[Select id,firstName,LastName,Profile.Name from User Where profile.Name='MBK Support Profile' and firstName='MBK' and LastName='Support User' limit 1];
          system.debug('+++++++++++++'+ IntegrationUser );
+         system.debug('+++++++++++++'+ MBKSupportUser );
         if(IntegrationUser.size()>0){ 
             for(Account acc : softAccountList)
         {
-            if(acc.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acc.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
+            if(acc.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acc.RecordTypeId == accsoftdeletdCompany_RecordTypeId ||( acc.RecordTypeId == accsoftdeletdCompany_RecordTypeId1 && acc.MD__c == 'KR'))
             {
-                 if(acc.OwnerId !=IntegrationUser[0].id)
+                 
+                  if(acc.OwnerId !=MBKSupportUser[0].id && acc.MD__c == 'KR')
+                    {
+                        acc.OwnerId=MBKSupportUser[0].id;                       
+                        
+                    }
+                    else if(acc.OwnerId !=IntegrationUser[0].id && acc.MD__c != 'KR')
                     {
                         acc.OwnerId=IntegrationUser[0].id;                       
                         
                     }
-                  
                  
             }
        
