@@ -5615,6 +5615,16 @@
     </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
+        <field>Address__c.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Mailing_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Address__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5666,6 +5676,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Province__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Registration_Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
