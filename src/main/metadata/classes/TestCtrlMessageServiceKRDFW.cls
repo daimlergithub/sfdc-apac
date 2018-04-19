@@ -21,7 +21,7 @@
  */
 @isTest
 private class TestCtrlMessageServiceKRDFW {
-	private static final String FAKE_RESPONSE = '{"Out":{"custMsgSn":"benz_20171018090700","altCode":"1003","smsMsg":null}}';
+	private static final String FAKE_RESPONSE = '[{"sn":"20180419-093318976R202RS000015","custMsgSn":"benzkr_a2U0k00000011lkEAA","altCode":null,"code":"EW","altMsg":null,"smsCode":null,"smsMsg":"SMS/LMS/MMS Sending","sndDtm":"20180419093318","rcptDtm":null}]';
 	public static Id parentCampaign_RecordTypeID = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution').getRecordTypeId();
 	public static Id OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
 	final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();

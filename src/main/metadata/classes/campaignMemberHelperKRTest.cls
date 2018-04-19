@@ -102,9 +102,9 @@ private class campaignMemberHelperKRTest
         campaignMemberHelperKR.setCreateTaskFieldFalseOrTrueOnCampaign(campExec.Id);
         system.debug('list>>>>'+campMembrList);
         system.debug('map>>>>'+campMembrMap);
+		generateTaskClass.taskGenerationForCM(campExec.Id);
         try{
-        campaignMemberHelperKR.updatecustomstatus(campMembrList,campMembrMap);
-        
+        campaignMemberHelperKR.updatecustomstatus(campMembrList,campMembrMap);        
         }catch(Exception e){}
         Test.stopTest();        
     }
