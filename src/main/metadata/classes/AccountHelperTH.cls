@@ -1147,6 +1147,7 @@ It would be replaced by Informatica/Middleware  */
         List<Account_Link__c> accLinkLst=[Select fromRole__c,toRole__r.UCID__c,RetailDealer_ND_Code__c from Account_Link__c where toRole__c IN:softDeletedAccountIdLst and (recordtypeId=:retailPerson_RecordTypeId or recordTypeId=:retailCompany_RecordTypeId)];
         List<String> grpNameLst=new List<String>();
         Map<String,String> softDeletedAccountUCID2GrpNameMap=new Map<String,String>();
+        
         if(accLinkLst!=null && accLinkLst.size()>0)
         {
             for(Account_Link__c accLink:accLinkLst)
@@ -1173,13 +1174,17 @@ It would be replaced by Informatica/Middleware  */
                
                 for(Account accObj:goldenAccountLst)
                 {
-                    AccountShare accShare=new AccountShare();
-                    accShare.AccountId=accObj.Id;
-                    accShare.UserOrGroupId=grpNameGrpIdMap.get(softDeletedAccountUCID2GrpNameMap.get(accObj.UCID__c));
-                    accShare.AccountAccessLevel='Edit';
-                    accShare.CaseAccessLevel='None';
-                    accShare.OpportunityAccessLevel='None';
-                    accShareLst.add(accShare);
+                    if(accObj.UCID__c!=null && softDeletedAccountUCID2GrpNameMap.get(accObj.UCID__c)!=null && grpNameGrpIdMap.get(softDeletedAccountUCID2GrpNameMap.get(accObj.UCID__c))!=null)
+                    {
+                        AccountShare accShare=new AccountShare();
+                        accShare.AccountId=accObj.Id;
+                        accShare.UserOrGroupId=grpNameGrpIdMap.get(softDeletedAccountUCID2GrpNameMap.get(accObj.UCID__c));
+                        accShare.AccountAccessLevel='Edit';
+                        accShare.CaseAccessLevel='None';
+                        accShare.OpportunityAccessLevel='None';
+                        accShareLst.add(accShare); 
+                    }
+                    
                 }
             }
             if(accShareLst!=null && accShareLst.size()>0)
