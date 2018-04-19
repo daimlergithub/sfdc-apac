@@ -296,7 +296,88 @@
                     
                 </apex:pageBlockTable>
                 
+                <!-- Turkey Address block START -->
                 
+                <apex:pageBlockTable id="acc_addressTR" value="{!adds}" var="row" style="width:900px;" rendered="{!IF((market == 'TR'), true, false)}">                                                                    
+                    
+                    <apex:column width="8%">
+                        
+                        <!--Link to  edit a address record -->
+                        <apex:commandLink action="{!EditOptions}" value="{!$Label.Edit}" style="color:blue;white-space:nowrap;">
+                            <!--pass row id parameter to controller  -->
+                            <apex:param name="edit" value="{!row.Id}" assignTo="{!editaddressId}"/>
+                        </apex:commandLink>&nbsp;|&nbsp; 
+                        
+                        <!--Link to  delete a address record -->
+                        <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('{!$Label.Confirmation_for_delete_address}')" value="{!$Label.Delete}" style="color:blue;white-space:nowrap;">
+                            <!--pass row id parameter to controller  -->
+                            <apex:param name="delete" value="{!row.Id}" assignTo="{!addressId}"/>
+                        </apex:commandLink>                                                           
+                        
+                    </apex:column>
+                   
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
+                        <!--out put field to display address Type  --> 
+                        <apex:outputField value="{!row.Address_Type__c}" style="width:7%; white-space:none;">
+                        </apex:outputField>
+                        
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}" >
+                        <apex:outputText value="{!row.Address_Line_1__c}" style="width:10%; white-space:none;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}" >
+                        <apex:outputText value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                     <apex:column headerValue="City">
+                        <apex:outputText value="{!row.City__c}" style="width:10%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>         
+                    <apex:column headerValue="State/Province" >
+                        <apex:outputField value="{!row.Province__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>                  
+                    <apex:column headerValue="District">
+                        <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                  
+                    
+                    
+                    <apex:column headerValue="Postal Code" >
+                        <apex:outputField value="{!row.ZipCode__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Country" rendered="{!IF(($Permission.MYGeneric),true,false)}">
+                        <apex:outputField value="{!row.Country__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>                  
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
+                        <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>     
+                    
+                  
+                                   
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.LastModifiedDate.Label}" >
+                        <apex:outputField value="{!row.LastModifiedDate}" style="width:10%; white-space:nowrap;" >
+                        </apex:outputField>
+                    </apex:column>
+                    
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Name.Label}">
+                        <!--out put field to display address Name  --> 
+                        <apex:outputText value="{!row.Name}" style="width:9%; white-space:nowrap;">
+                        </apex:outputText>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+                <!-- Turkey Address block END -->
 
                 <apex:pageBlockTable id="acc_addressTH" value="{!adds}" var="row" style="width:900px;" rendered="{!IF((market == 'TH' || $Permission.MYGeneric || $Permission.INGeneric), true, false)}">                                                                    
                     
@@ -782,11 +863,80 @@
                  <!--Ends : 03012018 Namitha Added changes fr INDIA market-->
                 
                 
-                 <apex:actionFunction name="LoadProvince" action="{!LoadProvince}" reRender="pbsTH,pbsMY,pbsIN">  
+                <!-- Turkey Address Edit Start -->
+                    <apex:pageBlockSection title="Address Information" columns="2" id="pbsTR" rendered="{!IF(market == 'TR',true,false)}">       
+                                                
+                    <apex:pageBlockSectionItem >        
+                            
+                        <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>      
+                        <apex:inputField value="{!addressobj.Address_Type__c}" />  
+                    </apex:pageBlockSectionItem>        
+                    
+                    <apex:inputField value="{!addressobj.Market__c }" />        
+                    <apex:inputField value="{!addressobj.Address_Line_1__c}"/>                          
+                    <apex:inputField value="{!addressobj.Address_Line_2__c}"/>          
+                          
+                            
+                 <apex:pageblockSectionItem >       
+                    <apex:outputLabel value="Country"/>     
+                    <apex:inputField value="{!addressobj.Country__c}" onchange="ForeignNationalFields(this.value)"/>     
+                 </apex:pageblockSectionItem>  
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
+                             
+                        <apex:outputLabel value="City"/>       
+                            <apex:selectList size="1" value="{!city}" id="slprovinceTR" onchange="loadProvince(this.value)">       
+                                <apex:selectOptions value="{!lstCity}"/>                             
+                            </apex:selectList>  
+                     </apex:pageBlockSectionItem>   
+                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">      
+                             
+                        <apex:outputLabel value="City"/>       
+                        <apex:inputText id="slCityTR" value="{!city}"/>  
+                     </apex:pageBlockSectionItem>   
+                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
+                        <apex:outputLabel value="State/Province"/>      
+                         <apex:selectList size="1" value="{!province}" id="slProvinceTR" onchange="loadDistrict(this.value)">     
+                            <apex:selectOptions value="{!lstProvince}"/>                                
+                        </apex:selectList>      
+                    </apex:pageBlockSectionItem>        
+                            
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">        
+                        <apex:outputLabel value="State/Province"/>      
+                         <apex:inputText id="slProvinceTR" value="{!province}"/>      
+                    </apex:pageBlockSectionItem>        
+                            
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
+                        <apex:outputLabel value="District"/>      
+                         <apex:selectList size="1" value="{!District}" id="slDistrictTR" >     
+                            <apex:selectOptions value="{!lstDistrict}"/>                                
+                        </apex:selectList>      
+                    </apex:pageBlockSectionItem>        
+                            
+                    <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">        
+                        <apex:outputLabel value="District"/>      
+                         <apex:inputText id="slDistrictTR" value="{!District}"/>      
+                    </apex:pageBlockSectionItem>     
+                            
+                      
+                            
+                    <apex:pageBlockSectionItem >        
+                        <apex:outputLabel value="Zip/Postal Code"/>      
+                         <apex:inputText id="slzipTR" value="{!zip}"/>      
+                    </apex:pageBlockSectionItem>                    
+                
+                 <apex:pageblockSectionItem >       
+                    <apex:outputLabel value="Preferred"/>       
+                    <apex:inputField value="{!addressobj.Preferred__c}"/>       
+                 </apex:pageblockSectionItem>     
+                            
+                </apex:pageBlockSection>
+                <!-- Turkey Address Edit END -->
+                
+                 <apex:actionFunction name="LoadProvince" action="{!LoadProvince}" reRender="pbsTH,pbsMY,pbsIN,pbsTR">  
                       <apex:param name="provinceSelected" value="" /> 
                  </apex:actionFunction>
                  
-                 <apex:actionFunction name="LoadDistrict" action="{!LoadDistrict}" reRender="pbsTH,pbsMY">  
+                 <apex:actionFunction name="LoadDistrict" action="{!LoadDistrict}" reRender="pbsTH,pbsMY,pbsTR">  
                       <apex:param name="districtselected" value="" /> 
                  </apex:actionFunction> 
                  
@@ -797,7 +947,7 @@
                 <apex:actionFunction name="LoadZip" action="{!LoadZip}" reRender="pbsTH">  
                       <apex:param name="zipselected" value="" /> 
                  </apex:actionFunction>
-                  <apex:actionFunction name="ShowHideFields" action="{!ShowHideFields}" reRender="pbsTH,pbsMY,pbsIN">  
+                  <apex:actionFunction name="ShowHideFields" action="{!ShowHideFields}" reRender="pbsTH,pbsMY,pbsIN,pbsTR">  
                       <apex:param name="showhideflds" value="" /> 
                  </apex:actionFunction> 
                 <!--buttons to save and cancel-->
@@ -807,7 +957,7 @@
                      <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric || $Permission.INGeneric || $Permission.AUGeneric || $Permission.NZGeneric) ),true,false)}"/> <!--oncomplete="hideTable();"-->
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF((market='KR' || market='JP'),true,false)}"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}" onComplete="refreshPrimaryTab();" reRender="addressPageBlockId,redirectPanel,pgmsg" rendered="{!IF(market=='TH',true,false)}"/>
-                   <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.MYGeneric,true,false)}"/>
+                   <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.MYGeneric || market =='TR',true,false)}"/>
                    <!--03012018 Namitha Added to India Market Save option-->
                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressIN}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.INGeneric,true,false)}"/> 
                    <!--2018/march/23 Sada Added to AU/NZ Market as per US 2/3 -->
