@@ -5362,6 +5362,7 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
                 <fullName>Inquiry form(Mercedes me portal)</fullName>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Inquiry form(Mercedes me App)</fullName>
@@ -5391,60 +5392,27 @@ Attribute in Data Dictionary object Contact is "Contact_DataSource"</description
 				<controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Bayi Organizasyonu</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bayi Saha Ziyareti</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bayi Walk-in</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bayiye Gelen Arama</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Çağrı Merkezi</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Internet / Dijital</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBT Etkinliği</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBT Personeli Yönlendirmesi</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBT Saha Ziyareti</fullName>
-                <default>false</default>
-                <controllingFieldValues>TR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Past Data</fullName>
                 <default>false</default>
                 <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
+          
             <picklistValues>
-                <fullName>Mercedes me Portal</fullName>
+       
+                <fullName>Employee Referral</fullName>
                 <default>false</default>
                 <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Walk-in</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internet / Digital</fullName>
+		<default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>		
             <picklistValues>
                 <fullName>SUP (Self Update Platform)</fullName>
                 <default>false</default>
@@ -17140,6 +17108,11 @@ Modify Reason:
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -21178,6 +21151,18 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Vehicle_Amount_Passive__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Amount Passive</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vehicle_Amount__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -23025,23 +23010,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>3rd party data</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Bayi Organizasyonu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayi Saha Ziyareti</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayi Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayiye Gelen Arama</fullName>
-                <default>false</default>
-            </values>
-            <values>
+        
+          <values>
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
@@ -23074,11 +23044,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Dealer Walk-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Referral</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23114,7 +23092,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Internet %2F Dijital</fullName>
+                <fullName>Internet %2F Digital</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23131,18 +23109,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MB website</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBT Etkinliği</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBT Personeli Yönlendirmesi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBT Saha Ziyareti</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23169,11 +23135,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Mercedes call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Mercedes me Portal</fullName>
-                <default>false</default>
-            </values>
-            <values>
+        
+           <values>
                 <fullName>Mercedes me Tokyo%26Osaka</fullName>
                 <default>false</default>
             </values>
@@ -23277,10 +23240,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Wholesale added</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Çağrı Merkezi</fullName>
-                <default>false</default>
-            </values>
+            
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -27586,6 +27546,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Personal_Agreement__c</picklist>
             <values>
                 <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54125,22 +54089,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bayi Organizasyonu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayi Saha Ziyareti</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayi Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bayiye Gelen Arama</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
@@ -54165,11 +54113,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Dealer Walk-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Dealers</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Referral</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54201,7 +54157,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Internet %2F Dijital</fullName>
+                <fullName>Internet %2F Digital</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54220,18 +54176,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>MB website</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>MBT Etkinliği</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBT Personeli Yönlendirmesi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBT Saha Ziyareti</fullName>
-                <default>false</default>
-            </values>
+          
             <values>
                 <fullName>MCare</fullName>
                 <default>false</default>
@@ -54254,10 +54199,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Mercedes call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes me Portal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54352,11 +54293,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Çağrı Merkezi</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+          </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
             <values>
@@ -64731,6 +64668,20 @@ MD__c = 'JP',RecordType.DeveloperName ='Company')</errorConditionFormula>
         <errorMessage>If customer has no vehicle relationship, Status must not be Customer.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Data_Source_Mandatory</fullName>
+        <active>true</active>
+        <description>Data_Source__c is mandatory while creating person account.</description>
+        <errorConditionFormula>AND( 
+OR(ISPICKVAL(Data_Source__c,''),
+!ISNEW()),
+MD__c='TR',
+RecordType.DeveloperName = 'PersonAccount' ,
+$Profile.Name != 'IntegrationAPI', 
+ISPICKVAL(Data_Source__c, ""))</errorConditionFormula>
+        <errorDisplayField>Data_Source__c</errorDisplayField>
+        <errorMessage>Please enter Data Source.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Data_Source_Update</fullName>
         <active>true</active>
         <description>Once Data Source has been set as Compass, it cannot be changed.</description>
@@ -65840,6 +65791,37 @@ REGEX(Work_Phone_2__c, "[0-9]{4}-[0-9]{4}")
 			4.  blank-xxxx-xxxx</errorMessage>
     </validationRules>
     <validationRules>
+  
+        <fullName>WorkPhone_Format_Check</fullName>
+        <active>true</active>
+        <description>Work phone number must be in any of the following formats : 
+Country Code (+90) and City Code 3 digits (xxx) and PhoneNumber 7 digits (xxxxxxx)</description>
+        <errorConditionFormula>AND( 
+$Profile.Name != 'IntegrationAPI', 
+ISPICKVAL(Market__c,'TR'), 
+NOT(ISBLANK(Work_Phone__c)), 
+OR( 
+NOT 
+( 
+REGEX(Work_Phone__c, "[+0-9]*") 
+) , 
+AND( 
+LEFT ( Work_Phone__c, 3) = "+90", 
+NOT 
+( 
+REGEX(Work_Phone__c, "[+09]{3}[0-9]{10}") 
+) 
+) 
+) 
+)</errorConditionFormula>
+        <errorDisplayField>Work_Phone__c</errorDisplayField>
+        <errorMessage>Work phone number must be in any of the following formats : 
+Country Code (+90) and City Code 3 digits (xxx) and PhoneNumber 7 digits (xxxxxxx)</errorMessage>
+    </validationRules>
+    <validationRules>
+
+
+
         <fullName>WorkPhone_Format_IN</fullName>
         <active>false</active>
         <description>Work Phone should be in the following Format
