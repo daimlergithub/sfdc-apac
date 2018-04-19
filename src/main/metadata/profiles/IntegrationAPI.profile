@@ -9716,11 +9716,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Charge_Receivable__c.FS_Contract__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Charge_Receivable__c.Receivable_Charges__c</field>
         <readable>true</readable>
     </fieldPermissions>
