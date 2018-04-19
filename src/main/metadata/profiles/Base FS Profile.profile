@@ -8141,9 +8141,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Address__c.Address_Type__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8265,6 +8265,11 @@
         <field>Address__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Mailing_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Market__c</field>
@@ -8288,6 +8293,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Province__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Registration_Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

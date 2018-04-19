@@ -736,6 +736,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Mailing_Address__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field indicates mailing address.</description>
+        <externalId>false</externalId>
+        <label>Mailing Address</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
@@ -1214,6 +1224,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Registration_Address__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field indicates registration address.</description>
+        <externalId>false</externalId>
+        <label>Registration Address</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Source_System__c</fullName>
@@ -3122,6 +3142,13 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR'),OR(RecordType.DeveloperName ='Company',RecordType.DeveloperName ='Individual'),IF( LEN(  District__c  ) &gt; 18 ,true,false) )</errorConditionFormula>
         <errorDisplayField>District__c</errorDisplayField>
         <errorMessage>Town should be less than or equal to 18 letters.</errorMessage>
+    </validationRules>
+	<validationRules>
+        <fullName>EitherRegistrationOrMailingRequired</fullName>
+        <active>true</active>
+        <description>Either Registration or Mailing address can be checked at a time.</description>
+        <errorConditionFormula>AND(Registration_Address__c, Mailing_Address__c, ISPICKVAL(Market__c, 'TH'), $Profile.Name!='IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Registration Address and Mailing Address can't be checked at a time.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Foreign_National_unckeck_criteria</fullName>

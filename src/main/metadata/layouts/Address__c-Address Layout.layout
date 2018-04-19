@@ -66,6 +66,14 @@
                 <behavior>Edit</behavior>
                 <field>Temp_ZipCode__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Registration_Address__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mailing_Address__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -73,7 +81,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Registration Address</label>
+        <label>Address</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
