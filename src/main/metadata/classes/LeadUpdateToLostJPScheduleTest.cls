@@ -71,7 +71,7 @@ public class LeadUpdateToLostJPScheduleTest {
       //      Test.setCreatedDate(a.Id, DateTime.newInstance(2012,12,12));
       //      leadobj.LastModifiedDate=daysBack30;
             leadobj.Dealer_Lead_Status__c='On-Going';
-            leadobj.Lead_DataSource__c='Dealers';
+            leadobj.Lead_DataSource__c='Dealer Outlet';
             if(i>0 && i<=3){
                 leadobj.Lead_Latest_Phase__c='Quotation';
                 leadobj.Quotation_Amount__c='45000';
@@ -103,7 +103,7 @@ public class LeadUpdateToLostJPScheduleTest {
          //   leadobj1.CreatedDate=daysBack90;
           //  leadobj1.LastModifiedDate=daysBack60;
             leadobj1.Dealer_Lead_Status__c='On-Going';
-            leadobj1.Lead_DataSource__c='Dealers';
+            leadobj1.Lead_DataSource__c='Dealer Outlet';
                 leadobj1.Lead_Latest_Phase__c='Order Placed';
                 leadobj1.Quotation_Amount__c='45000';
                 leadobj1.Quotation_Date__c = System.today().addDays(-80);
@@ -129,7 +129,7 @@ public class LeadUpdateToLostJPScheduleTest {
             leadobj2.Lead_Type__c = 'Service';
             leadobj2.MD__c = 'JP';
             leadobj2.Assigned_Dealer__c = accobj.Id; 
-            leadobj2.Lead_DataSource__c='Dealers';
+            leadobj2.Lead_DataSource__c='Dealer Outlet';
      //       leadobj2.CreatedDate=daysBack90;
             leadobj2.Appointment_DateTime__c=daysBack30;
             leadobj2.Dealer_Lead_Status__c='On-Going';            
