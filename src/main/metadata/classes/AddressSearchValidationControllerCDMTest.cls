@@ -789,6 +789,8 @@ INAcccontroller.First();
             rg.Language__c='English';
             rg.District__c='bans';
             rg.Sub_DIstrict__c='subdist';
+                rg.City__c='Test City';
+                rg.Market__c ='TR';
             rm.add(rg);
             RegionMasterInfo__c rg1=new RegionMasterInfo__c();
             rg1.Province__c='chittoor';
@@ -796,6 +798,8 @@ INAcccontroller.First();
             rg1.Language__c='English';
             rg1.District__c='chittoor';
             rg1.Sub_DIstrict__c='chittoor';
+                rg1.City__c='Test City';
+                rg1.Market__c ='TR';
             rm.add(rg1);
             insert rm;
             objAccount= new Account();
@@ -846,6 +850,7 @@ INAcccontroller.First();
             personAcc= new Account();
             personAcc.RecordtypeId= strPerson;
             personAcc.LastName='Test123';
+                personAcc.FirstName='Test123';
             personAcc.Status__c='Active';
             personAcc.Province__c='Province1';
             personAcc.City__c='Test';
@@ -919,11 +924,13 @@ INAcccontroller.First();
             rg.Language__c='English';
             rg.District__c='bans';
             rg.Sub_DIstrict__c='subdist';
+                rg.Market__c='IN';
             rm.add(rg);
             RegionMasterInfo__c rg1=new RegionMasterInfo__c();
             rg1.Province__c='chittoor';
             rg1.ZipCode__c='45756';
             rg1.Language__c='English';
+                rg1.Market__c='IN';
             rg1.District__c='chittoor';
             rg1.Sub_DIstrict__c='chittoor';
             rm.add(rg1);
@@ -1027,6 +1034,598 @@ INAcccontroller.First();
             insert addressobj;
         }
     }
-    
-    
-}
+        //TR specific methods
+        /*static void createTestDataTR1(){
+            Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+            
+            user1 = new User(Alias = 'standt', Email='user1@testorg.com', 
+                             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                             LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='TR',
+                             TimeZoneSidKey='America/Los_Angeles', UserName='user1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            insert user1;
+            user_Obj = new User(Alias = 'standt', Email='user2@testorg.com', 
+                                EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                                LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='TR',
+                                TimeZoneSidKey='America/Los_Angeles', UserName='user2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            insert user_Obj;
+            system.runAs(user1){    
+                List<RegionMasterInfo__c> rm= new List<RegionMasterInfo__c>();
+                RegionMasterInfo__c rg=new RegionMasterInfo__c();
+                rg.Province__c='Ayas';
+                rg.ZipCode__c='24575';
+                rg.Language__c='English';
+                rg.District__c='Ayas';
+                //rg.Sub_DIstrict__c='subdist';
+                rm.add(rg);
+                RegionMasterInfo__c rg1=new RegionMasterInfo__c();
+                rg1.Province__c='Ayas';
+                rg1.ZipCode__c='45756';
+                rg1.Language__c='English';
+                rg1.District__c='Ayas';
+                //rg1.Sub_DIstrict__c='chittoor';
+                rm.add(rg1);
+                insert rm;
+                objAccount= new Account();
+                objAccount.RecordtypeId= companyAccRecordTypeId;
+                objAccount.Name='Test Person 1st';
+                objAccount.Status__c='Active';
+                objAccount.Province__c='Ayas';
+                objAccount.Market__c='TR';
+                objAccount.City__c='Ankara';
+                objAccount.Email__c='abcf@hji.com';
+                //objAccount.ID_Type__c='National ID';
+               // objAccount.ID_Number__c='1234567891234';
+                //objAccount.Commercial_Reg_No__c='adfgrt';
+                User us=[select market__c from user where id=:UserInfo.getUserId()];
+                if(us.market__c=='TR'){
+                    objAccount.ZipCode__c = '42875';
+                    
+                }
+               
+                
+                objAccount.Email__c='test@mbj.com';  
+                objAccount.Mobile__c='+905444444442';
+                objAccount.Preferred_Language__c='English';      
+                objAccount.Data_Source__c ='Past Data';
+                objAccount.Province__c = 'Ayas';
+                objAccount.Phone = '08022420181';
+                objAccount.Vat_No__c='8360043469';
+                //objAccount.Preferred_Language__c='English';
+                objAccount.Province__c='ayas';
+                
+                
+                
+                insert objAccount;
+                
+                objAccount1 = new Account();
+                objAccount1.RecordtypeId= companyAccRecordTypeId;
+                objAccount1.Name='Test Person 1st';
+                //objAccount1.ID_Type__c='National ID';
+                //objAccount1.ID_Number__c='1234567891234';
+                objAccount1.Market__c='TR';
+                try{
+                    insert objAccount1;
+                }
+                catch(DMLException e){
+                    system.debug('!!!'+ e);
+                }
+                
+                personAcc= new Account();
+                personAcc.RecordtypeId= strPerson;
+                personAcc.LastName='Test123';
+                personAcc.Status__c='Active';
+                personAcc.Province__c='Ayas';
+                personAcc.City__c='Ankara';
+                personAcc.Market__c='TR';
+                //personAcc.ID_Type__c='National ID';
+                //personAcc.ID_Number__c='1234567891234';
+                if(us.market__c=='TR'){
+                    personAcc.ZipCode__c = '42877';
+                    
+                }
+                
+                personAcc.Email__c='test@mbj.com';
+                personAcc.Mobile__c='+905234567890';
+                personAcc.Preferred_Language__c='Engmmm';        
+                personAcc.Data_Source__c ='Past data';
+                personAcc.Phone = '08022420181';
+                personAcc.Province__c = 'Ayas';
+                //personAcc.Commercial_Reg_No__c='adfgrt';
+                //personAcc.Vat_No__c='8360043469';
+                //personAcc.Preferred_Language__c='telugu';
+                insert personAcc;
+                
+                personAcc1 = new Account();
+                personAcc1.RecordtypeId= strPerson;
+                personAcc1.LastName='Test Person 2nd';
+                personAcc1.Market__c='TR';
+                //personAcc1.ID_Type__c='National ID';
+                //personAcc1.ID_Number__c='1234567891234';
+                try{
+                    insert personAcc1;
+                }
+                catch(DMLException e){
+                    system.debug('!!! '+ e);
+                }
+                addressobj =  new Address__C();
+                addressobj.Customer__c = objAccount.Id;
+                addressobj.Address_Type__c = 'Home';
+                addressobj.Address_Line_1__c = 'line 1';
+                addressobj.Address_Line_2__c = 'line 2';
+                //addressobj.Address_Line_3__c = 'line 3';
+                //addressobj.Block__c = 'Block';
+                addressobj.Customer__c = objAccount.id;
+                addressobj.ZipCode__c = '14941';
+                addressobj.Province__c ='Ayas';
+                //addressobj.TitleOfHonor__c = 'To Person';
+                addressobj.Market__c='TR';
+                addressobj.Foreign_Nationals__c = false;
+                addressobj.Country__c = 'China';
+                insert addressobj;
+            }
+        }*/
+        
+        static void createTestDataTR(){
+            Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+            
+            user1 = new User(Alias = 'standt', Email='abc@testorg.com', 
+                             EmailEncodingKey='UTF-8', LastName='Test', 
+                             ProfileId = p1.Id, Market__c='TR',LanguageLocaleKey='en_US', LocaleSidKey='en_US',TimeZoneSidKey='America/Los_Angeles',
+                             UserName='abc@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            insert user1;
+            user_Obj = new User(Alias = 'standt', Email='xyz@testorg.com', 
+                                EmailEncodingKey='UTF-8', LastName='Test',  
+                                ProfileId = p1.Id, Market__c='TR',LanguageLocaleKey='en_US', LocaleSidKey='en_US',TimeZoneSidKey='America/Los_Angeles',
+                                UserName='xyz@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+            insert user_Obj;
+            system.runAs(user1){    
+                List<RegionMasterInfo__c> rm= new List<RegionMasterInfo__c>();
+                RegionMasterInfo__c rg=new RegionMasterInfo__c();
+                rg.Province__c='ayas';
+                rg.City__c='Ankara';
+                rg.ZipCode__c='24575';
+                rg.Language__c='English';
+                rg.District__c='ayas';
+                rg.Market__c='TR';
+                //rg.Sub_DIstrict__c='subdist';
+                rm.add(rg);
+                RegionMasterInfo__c rg1=new RegionMasterInfo__c();
+                rg1.Province__c='ayas';
+                rg1.City__c='Ankara';
+                rg1.ZipCode__c='45756';
+                rg1.Language__c='English';
+                rg1.District__c='ayas';
+                rg1.Market__c='TR';
+                //rg1.Sub_DIstrict__c='chittoor';
+                rm.add(rg1);
+                insert rm;
+                objAccount= new Account();
+                objAccount.RecordtypeId= companyAccRecordTypeId;
+                objAccount.Name='Test Person 1st';
+                objAccount.Status__c='Prospect';
+                objAccount.Data_source__c='Past Data';
+                objAccount.Province__c='ayas';
+                objAccount.City__c='Ankara';
+                objAccount.Email__c='abcf@hji.com';
+                objAccount.Market__c='TR';
+                //objAccount.ID_Type__c='National ID';
+                //objAccount.ID_Number__c='1234567891234';
+                //objAccount.Commercial_Reg_No__c='adfgrt';
+                User us=[select market__c from user where id=:UserInfo.getUserId()];
+                if(us.market__c=='TR'){
+                    objAccount.ZipCode__c = '42875';
+                    
+                }
+                
+                
+                objAccount.Email__c='test@mbj.com';  
+                objAccount.Mobile__c='+905234567890';
+                //objAccount.Preferred_Language__c='English';      
+                objAccount.Data_Source__c ='Past Data';
+                objAccount.Province__c = 'Ayas';
+                objAccount.Phone = '08022420181';
+                objAccount.Vat_No__c='8569874563';
+                //objAccount.Preferred_Language__c='English';
+                //objAccount.Province__c='apdff';
+                
+                
+                
+                insert objAccount;
+                
+                objAccount1 = new Account();
+                objAccount1.RecordtypeId= companyAccRecordTypeId;
+                objAccount1.Name='Test Person 1st';
+                objAccount1.Market__c='TR';
+                //objAccount1.ID_Type__c='National ID';
+                //objAccount1.ID_Number__c='1234567891234';
+                try{
+                    insert objAccount1;
+                }
+                catch(DMLException e){
+                    system.debug('!!!'+ e);
+                }
+                
+                personAcc= new Account();
+                personAcc.RecordtypeId= strPerson;
+                personAcc.LastName='Test123';
+                personAcc.FirstName='Test123';
+                personAcc.Status__c='Active';
+                personAcc.data_source__c='Past Data';
+                personAcc.Province__c='ayas';
+                personAcc.City__c='ankara';
+                personAcc.Market__c='TR';
+                //personAcc.ID_Type__c='National ID';
+                //personAcc.ID_Number__c='1234567891234';
+                if(us.market__c=='TR'){
+                    personAcc.ZipCode__c = '42877';
+                    
+                }
+                
+                personAcc.Email__c='test@mbj.com';
+                personAcc.Mobile__c='+905234567890';
+                //personAcc.Preferred_Language__c='Engmmm';        
+                personAcc.Data_Source__c ='Past Data';
+                personAcc.Phone = '08022420181';
+                personAcc.Province__c = 'ayas';
+                personAcc.Social_ID__c=Decimal.valueof('42970854504');
+                //personAcc.Commercial_Reg_No__c='adfgrt';
+                personAcc.Vat_No__c='8360043469';
+                //personAcc.Preferred_Language__c='telugu';
+                insert personAcc;
+                
+                personAcc1 = new Account();
+                personAcc1.RecordtypeId= strPerson;
+                personAcc1.Market__c='TR';
+                personAcc1.FirstName='TR Name';
+                personAcc1.LastName='Test Person 2nd';
+                //personAcc1.opt_in_email__c = true;
+                //personAcc1.Social_ID__c=Decimal.valueof('31915677582');
+                personAcc1.Status__c='Prospect';
+                personAcc1.Data_Source__c='Past Data';
+                //personAcc1.ID_Type__c='National ID';
+                //personAcc1.ID_Number__c='1234567891234';
+                try{insert personAcc1;}
+                catch(DMLException e){
+                    
+                    system.debug('!!! '+ e);
+                    
+                }
+                
+                addressobj =  new Address__C();
+                addressobj.Customer__c = objAccount.Id;
+                addressobj.Address_Type__c = 'Home';
+                addressobj.Address_Line_1__c = 'line 1';
+                addressobj.Address_Line_2__c = 'line 2';
+                //addressobj.Block__c = 'Block';
+                addressobj.Customer__c = objAccount.id;
+                addressobj.ZipCode__c = '14941';
+                addressobj.Province__c ='ayas';
+                //addressobj.TitleOfHonor__c = 'To Person';
+                addressobj.Market__c='TR';
+                addressobj.Foreign_Nationals__c = true;
+                addressobj.Country__c = 'Turkey';
+                insert addressobj;
+            }
+        } 
+        
+        
+        @IsTest
+        private static void testSaveAccountTR1() {
+            createTestDataTR();
+            ApexPages.currentPage().getParameters().put('recordType','Person Account');
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+            AddressSearchValidationControllerCDM TRAcccontroller= new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            TRAcccontroller.market = 'TR';
+            TRAcccontroller.objAccount = personAcc;
+            
+            TRAcccontroller.objAccount.id=null;
+            TRAcccontroller.objAccount.Mobile__c=null;         
+            TRAcccontroller.objAccount.Work_Phone__c=null; 
+            
+            TRAcccontroller.objAccount.Phone='+911234567890'; 
+            TRAcccontroller.objAccount.Email__c=null; 
+            TRAcccontroller.objAccount.Opt_In_Email__c=true;
+            TRAcccontroller.objAccount.Opt_In_SMS__c=true;
+            
+            TRAcccontroller.RecordType = 'Person Account';
+            test.startTest();      
+            TRAcccontroller.hmphoneNumber= '12345678'; 
+            TRAcccontroller.wkphoneNumber= '12345678';
+            
+           
+            TRAcccontroller.mbCountryCode='+91';
+           
+            TRAcccontroller.objAccount.id=null; 
+            TRAcccontroller.objAccount.Work_Phone__c='+911234567890'; 
+          
+            TRAcccontroller.objAccount.id=null; 
+
+            TRAcccontroller.addresspicklist = 'Home';
+            TRAcccontroller.country='Turkey';
+            TRAcccontroller.province='Ayas';
+            TRAcccontroller.city='Ankara';
+            TRAcccontroller.objAccount.id=null; 
+            TRAcccontroller.district='Ayas';
+            TRAcccontroller.Market='TR';
+
+            TRAcccontroller.zip='12345';
+            TRAcccontroller.Addressobj.Address_Line_1__c='asdf';
+            TRAcccontroller.Addressobj.Address_Line_2__c='zxcv';
+     
+            TRAcccontroller.Addressobj.Foreign_Nationals__c = true;
+            TRAcccontroller.Addressobj.Country__c = 'Turkey';
+            TRAcccontroller.Addressobj.Address_Type__c = 'Home';
+            TRAcccontroller.ShowHideFields();
+            TRAcccontroller.LoadProvince();
+            TRAcccontroller.LoadDistrict();
+            TRAcccontroller.selectedRecordTypeValue();
+            TRAcccontroller.checkForeignNational();
+            TRAcccontroller.checkcountrycodeindia();
+            TRAcccontroller.phoneFieldConcatTR();
+            TRAcccontroller.SaveAccountDetailsTR();
+            TRAcccontroller.saveAccountTR();
+            TRAcccontroller.onLineDeduplicationTR();
+            TRAcccontroller.generateCDMEndPointURL();
+            TRAcccontroller.processResponse();
+            TRAcccontroller.cancel();
+
+            TRAcccontroller.show=true;
+            TRAcccontroller.one=true;
+            TRAcccontroller.showCDM=false;
+            
+
+            test.stopTest();
+        }
+      /*  @IsTest
+        private static void testSaveAccountTR2() {
+            createTestDataTR();
+            ApexPages.currentPage().getParameters().put('recordType','Person Account');
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc1);
+            AddressSearchValidationControllerCDM TRAcccontroller= new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            TRAcccontroller.market = 'TR';
+            TRAcccontroller.objAccount = personAcc1;
+       
+            TRAcccontroller.objAccount.id=null;
+            TRAcccontroller.objAccount.Mobile__c=null;         
+            TRAcccontroller.objAccount.Work_Phone__c=null; 
+            
+            TRAcccontroller.objAccount.Phone='null'; 
+            TRAcccontroller.objAccount.Email__c=null; 
+           
+            TRAcccontroller.objAccount.Generated_by__c= 'MBIL'; 
+            TRAcccontroller.RecordType = 'Person Account';
+            test.startTest();      
+            TRAcccontroller.hmphoneNumber= ''; 
+            TRAcccontroller.wkphoneNumber= '';
+            TRAcccontroller.mbphoneNumber= '';
+         
+            TRAcccontroller.hmAreaCode='';
+            TRAcccontroller.hmCountryCode='';
+            TRAcccontroller.objAccount.id=null; 
+            TRAcccontroller.objAccount.FirstName = '';
+            TRAcccontroller.objAccount.LastName = '';
+            TRAcccontroller.addresspicklist = 'Home';
+            TRAcccontroller.objAccount.Work_Phone__c=''; 
+         
+            TRAcccontroller.objAccount.Email__c='test@test.com';
+            TRAcccontroller.objAccount.id=null; 
+         
+            TRAcccontroller.country='Turkey';
+            TRAcccontroller.city='123';
+            TRAcccontroller.province='test';
+            TRAcccontroller.objAccount.id=null; 
+            TRAcccontroller.district='ayas';
+
+            TRAcccontroller.zip='12345';
+            TRAcccontroller.Addressobj.Address_Line_1__c='asdf';
+            TRAcccontroller.Addressobj.Address_Line_2__c='';
+           
+            TRAcccontroller.Addressobj.Foreign_Nationals__c = true;
+            TRAcccontroller.ShowHideFields();
+            TRAcccontroller.LoadDistrict();
+            TRAcccontroller.LoadProvince();
+            TRAcccontroller.selectedRecordTypeValue();
+            TRAcccontroller.checkForeignNational();
+      
+            TRAcccontroller.phoneFieldConcatTR();
+            TRAcccontroller.onLineDeduplicationTR();
+            TRAcccontroller.generateCDMEndPointURL();
+            TRAcccontroller.processResponse();
+            TRAcccontroller.SaveAccountDetailsTR();
+            TRAcccontroller.saveAccountTR();
+            TRAcccontroller.cancel();
+            test.stopTest();
+        }*/
+        
+        @IsTest
+        private static void testSaveAccountTR3() {
+            createTestDataTR();
+            ApexPages.currentPage().getParameters().put('recordType','Company');
+            ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+            AddressSearchValidationControllerCDM TRAcccontroller= new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            TRAcccontroller.market = 'TR';
+            TRAcccontroller.objAccount = objAccount;
+            TRAcccontroller.objAccount.Individual_Home_Phone__c=null;
+            TRAcccontroller.objAccount.id=null;
+            TRAcccontroller.objAccount.Mobile__c=null;         
+            TRAcccontroller.objAccount.Work_Phone__c=null; 
+            TRAcccontroller.objAccount.Home_Phone_2__c=null; 
+            TRAcccontroller.objAccount.Phone='null'; 
+            TRAcccontroller.objAccount.Email__c=null; 
+            TRAcccontroller.objAccount.Email2__c='test@test.com'; 
+            TRAcccontroller.RecordType = 'Person Account';
+            test.startTest();      
+            TRAcccontroller.hmphoneNumber= '3458745698'; 
+            TRAcccontroller.wkphoneNumber= '2347896541';
+            TRAcccontroller.mbphoneNumber= '3457896541';
+            TRAcccontroller.faxphoneNumber= '3454576';
+            TRAcccontroller.wkAreaCode='01';
+            TRAcccontroller.wkCountryCode='+71';
+            TRAcccontroller.hmAreaCode='09';
+            TRAcccontroller.hmCountryCode='+71';
+            TRAcccontroller.mbAreaCode='00';
+            TRAcccontroller.mbCountryCode='+71';
+            TRAcccontroller.faxAreaCode='09';
+            TRAcccontroller.faxCountryCode='';
+            TRAcccontroller.objAccount.id=null; 
+            //TRAcccontroller.addresspicklist = 'Home';
+            TRAcccontroller.objAccount.Work_Phone__c=''; 
+            TRAcccontroller.objAccount.Home_Phone_2__c=''; 
+            TRAcccontroller.objAccount.Individual_Home_Phone__c='+911234'; 
+            TRAcccontroller.objAccount.Fax='';
+            TRAcccontroller.objAccount.Email__c='test@test.com';
+            TRAcccontroller.objAccount.id=null;
+            
+            TRAcccontroller.addresspicklist = 'Home';
+            TRAcccontroller.country='Mexico';
+            TRAcccontroller.province='test';
+            TRAcccontroller.objAccount.id=null; 
+            TRAcccontroller.district='test';
+            TRAcccontroller.subdistrict='test';
+            TRAcccontroller.zip='12346';
+            TRAcccontroller.city='--Select--';
+            TRAcccontroller.Addressobj.Address_Line_1__c='asdf';
+            TRAcccontroller.Addressobj.Address_Line_2__c='';
+            TRAcccontroller.Addressobj.Address_Line_3__c='';
+            TRAcccontroller.Addressobj.Country__c='Turkey';
+            TRAcccontroller.Addressobj.Foreign_Nationals__c = true;
+            TRAcccontroller.Addressobj.Address_Type__c = 'Home';
+            TRAcccontroller.ShowHideFields();
+            TRAcccontroller.LoadDistrict();
+            TRAcccontroller.LoadProvince();
+            TRAcccontroller.selectedRecordTypeValue();
+            TRAcccontroller.checkForeignNational();
+            TRAcccontroller.checkcountrycodeIndia();
+            TRAcccontroller.phoneFieldConcatTR();
+            TRAcccontroller.onLineDeduplicationTR();
+            TRAcccontroller.generateCDMEndPointURL();
+            TRAcccontroller.processResponse();
+            TRAcccontroller.SaveAccountDetailsTR();
+            TRAcccontroller.saveAccountTR();
+            test.stopTest();
+        }
+         @IsTest
+        private static void testSaveAccountTR4() {
+            createTestDataTR();
+            ApexPages.currentPage().getParameters().put('recordType','Person Account');
+            ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc1);
+            AddressSearchValidationControllerCDM TRAcccontroller= new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            TRAcccontroller.market = 'TR';
+            TRAcccontroller.objAccount = personAcc1;
+            //TRAcccontroller.objAccount.Individual_Home_Phone__c=null;
+            TRAcccontroller.objAccount.id=null;
+            TRAcccontroller.objAccount.Mobile__c=null;         
+            TRAcccontroller.objAccount.Work_Phone__c=null; 
+            //TRAcccontroller.objAccount.Home_Phone_2__c=null; 
+            TRAcccontroller.objAccount.Phone='null'; 
+            TRAcccontroller.objAccount.Email__c=null; 
+            //TRAcccontroller.objAccount.Email2__c='test@test.com'; 
+            TRAcccontroller.RecordType = 'Person Account';
+            test.startTest();      
+            TRAcccontroller.hmphoneNumber= '345'; 
+            TRAcccontroller.wkphoneNumber= '234';
+            TRAcccontroller.mbphoneNumber= '345';
+            //TRAcccontroller.faxphoneNumber= '345';
+            //TRAcccontroller.wkAreaCode='01';
+            TRAcccontroller.wkCountryCode='+71';
+            //TRAcccontroller.hmAreaCode='09';
+            TRAcccontroller.hmCountryCode='+71';
+            //TRAcccontroller.mbAreaCode='00';
+            TRAcccontroller.mbCountryCode='+71';
+            //TRAcccontroller.faxAreaCode='09';
+            //TRAcccontroller.faxCountryCode='+71';
+            TRAcccontroller.objAccount.id=null; 
+            //TRAcccontroller.addresspicklist = 'Home';
+            TRAcccontroller.objAccount.Work_Phone__c='';
+            TRAcccontroller.objAccount.Opt_In_Mobile__c=true;           
+            TRAcccontroller.objAccount.Opt_In_Email__c=true;
+            TRAcccontroller.objAccount.Email__c='test@test.com';
+            TRAcccontroller.objAccount.id=null; 
+      
+            TRAcccontroller.country='Turkey';
+            
+            TRAcccontroller.objAccount.id=null; 
+            TRAcccontroller.district='Ayas';
+        
+            TRAcccontroller.zip='12346';
+            
+            TRAcccontroller.Addressobj.Address_Line_1__c='asdf';
+            TRAcccontroller.Addressobj.Address_Line_2__c='';
+            TRAcccontroller.Addressobj.Address_type__c='Home';
+            TRAcccontroller.Addressobj.Country__c='China';
+            TRAcccontroller.Addressobj.Foreign_Nationals__c =false;        
+            TRAcccontroller.ShowHideFields();
+            TRAcccontroller.city='Ankara';
+            TRAcccontroller.LoadProvince();
+            TRAcccontroller.province='ayas';
+            TRAcccontroller.LoadDistrict();
+            TRAcccontroller.selectedRecordTypeValue();
+            TRAcccontroller.checkForeignNational();
+            TRAcccontroller.checkcountrycodeindia();
+            TRAcccontroller.phoneFieldConcatIN();
+            TRAcccontroller.onLineDeduplicationTR();
+            TRAcccontroller.generateCDMEndPointURL();
+            TRAcccontroller.processResponse();
+            TRAcccontroller.SaveAccountDetailsTR();
+            TRAcccontroller.saveAccountTR();
+            test.stopTest();
+        }
+        @IsTest
+        private static void testSaveAccountTR5() {
+            createTestDataTR();
+            ApexPages.currentPage().getParameters().put('recordType','Company');
+            ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+            AddressSearchValidationControllerCDM TRAcccontroller= new AddressSearchValidationControllerCDM(objSc);
+            PageReference pageRef = Page.AddressSearchValidationCDM;
+            TRAcccontroller.market = 'TR';
+            TRAcccontroller.objAccount = objAccount;
+
+            TRAcccontroller.objAccount.id=null;
+            TRAcccontroller.objAccount.Mobile__c=null;         
+            TRAcccontroller.objAccount.Work_Phone__c=null; 
+
+            TRAcccontroller.objAccount.Phone='+911234567890'; 
+            TRAcccontroller.objAccount.Email__c=null; 
+
+            TRAcccontroller.RecordType = 'Company';
+            test.startTest();      
+            TRAcccontroller.hmphoneNumber= '0234562578'; 
+            TRAcccontroller.wkphoneNumber= '0234585678';
+
+            TRAcccontroller.wkCountryCode='+91';
+
+            TRAcccontroller.hmCountryCode='+91';
+
+            TRAcccontroller.mbCountryCode='+91';
+
+            TRAcccontroller.objAccount.id=null; 
+            
+            TRAcccontroller.Addressobj.Foreign_Nationals__c = false;
+            TRAcccontroller.Addressobj.Address_Type__c = 'Home';
+
+            TRAcccontroller.objAccount.Vat_No__c='8360043469';
+            TRAcccontroller.objAccount.Name = '';
+            TRAcccontroller.ShowHideFields();
+            TRAcccontroller.city='test1'; 
+            TRAcccontroller.LoadDistrict();
+            TRAcccontroller.LoadProvince();
+            TRAcccontroller.selectedRecordTypeValue();
+            TRAcccontroller.checkForeignNational();
+
+            TRAcccontroller.phoneFieldConcatTR();
+            TRAcccontroller.onLineDeduplicationTR();
+            TRAcccontroller.generateCDMEndPointURL();
+            TRAcccontroller.processResponse();
+            TRAcccontroller.validateVATNoTR();
+            TRAcccontroller.optInFields();
+            TRAcccontroller.SaveAccountDetailsTR();
+            TRAcccontroller.saveAccountTR();   
+            TRAcccontroller.cancel();     
+            test.stopTest();
+        }
+       
+    }
