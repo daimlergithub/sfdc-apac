@@ -138,6 +138,7 @@ public class AddressSearchValidationControllerCDM
             lstCity = new List < SelectOption > ();
             Set < string > setCities = new set < string > ();
             lstCity.add(new SelectOption('--Select--', '--Select--'));
+            system.debug('-------------'+market+' Market------------------------');
             for (RegionMasterInfo__c lsttempProvince: [select id, City__c from RegionMasterInfo__c where Market__c =: market order by City__c asc]) {
                 if (!setCities.contains(lsttempProvince.City__c)) {
                     lstCity.add(new SelectOption(lsttempProvince.City__c, lsttempProvince.City__c));
@@ -175,15 +176,31 @@ public class AddressSearchValidationControllerCDM
         lstProvince=new List<SelectOption>();
         Set<string> setProvinces = new set<string>();
         lstProvince.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Market__c=:market order by Province__c asc])
-        {
-            if(!setProvinces.contains(lsttempProvince.Province__c))
+        system.debug('-------------'+LanguageSelected+' language, '+market+' Market------------------------');
+        if(market=='IN'){
+            for(RegionMasterInfo__c lsttempProvince : [select id,Province__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Market__c=:market order by Province__c asc])
             {
-                lstProvince.add(new SelectOption(lsttempProvince.Province__c,lsttempProvince.Province__c));
-                setProvinces.add(lsttempProvince.Province__c);
+                if(!setProvinces.contains(lsttempProvince.Province__c))
+                {
+                    lstProvince.add(new SelectOption(lsttempProvince.Province__c,lsttempProvince.Province__c));
+                    setProvinces.add(lsttempProvince.Province__c);
+                }
             }
+            lstDistrict=new List<SelectOption>();
         }
-        lstDistrict=new List<SelectOption>();
+        else if(market=='TR')//added for Turkey market
+        {
+            for (RegionMasterInfo__c lsttempProvince: [select id, Province__c from  RegionMasterInfo__c where Market__c =: market and city__c =: city order by Province__c asc]) 
+            {
+                if (!setProvinces.contains(lsttempProvince.Province__c)) 
+                {
+                    lstProvince.add(new SelectOption(lsttempProvince.Province__c,lsttempProvince.Province__c));
+                    setProvinces.add(lsttempProvince.Province__c);
+                }
+            }
+            district = '--Select--';
+            
+        }
     }
     
     //Fills District based on Province selected
@@ -194,20 +211,32 @@ public class AddressSearchValidationControllerCDM
         lstDistrict=new List<SelectOption>();
         Set<string> setDistricts = new set<string>();
         lstDistrict.add(new SelectOption('--Select--','--Select--'));
-        for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Market__c=:market and Province__c=:province order by District__c asc])
-        {
-            
-            //Added null check for india market as city/district is not a picklist for India
-            if (lsttempDistrict.District__c == null){
-                continue;
-            }
-            
-            if(!setDistricts.contains(lsttempDistrict.District__c))
+        if(market=='IN'){
+            for(RegionMasterInfo__c lsttempDistrict : [select id,District__c from RegionMasterInfo__c where Language__c=:LanguageSelected and Market__c=:market and Province__c=:province order by District__c asc])
             {
-                lstDistrict.add(new SelectOption(lsttempDistrict.District__c,lsttempDistrict.District__c));
-                setDistricts.add(lsttempDistrict.District__c);
+                
+                //Added null check for india market as city/district is not a picklist for India
+                if (lsttempDistrict.District__c == null){
+                    continue;
+                }
+                
+                if(!setDistricts.contains(lsttempDistrict.District__c))
+                {
+                    lstDistrict.add(new SelectOption(lsttempDistrict.District__c,lsttempDistrict.District__c));
+                    setDistricts.add(lsttempDistrict.District__c);
+                }
             }
         }
+        else if(market=='TR')//added for Turkey market
+        {
+            for (RegionMasterInfo__c lsttempDistrict: [select id, District__c from RegionMasterInfo__c where Market__c =: market and Province__c =: province and city__c =:city order by District__c asc]) 
+            {   if (!setDistricts.contains(lsttempDistrict.District__c)) 
+                { lstDistrict.add(new SelectOption(lsttempDistrict.District__c,lsttempDistrict.District__c));
+                  setDistricts.add(lsttempDistrict.District__c);
+                 }
+            }
+        }
+        
     }
     
     public void ShowHideFields()
@@ -364,10 +393,10 @@ public class AddressSearchValidationControllerCDM
         if (addresspicklist != null)
             AddressObj.Address_Type__c = addresspicklist;
         Validation = false;
-        if ((objAccount.Name == null || objAccount.Data_Source__c == null || objAccount.Status__c == null || wkphoneNumber == null || city == '--Select--' || city == null) && Recordtype == Label.Company) {
+        if ((objAccount.Name == null || objAccount.Data_Source__c == null || objAccount.Status__c == null || wkphoneNumber == null || city == '--Select--' || String.isBlank(city)) && Recordtype == Label.Company) {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CompanyAccountSearchErrorMessage));
             validation = true;
-        } else if ((objAccount.FirstName == null || objAccount.LastName == null || objAccount.Data_Source__c == null || objAccount.Status__c == null || city == '--Select--' || city == null) && Recordtype == Label.PersonAccount) {
+        } else if ((objAccount.FirstName == null || objAccount.LastName == null || objAccount.Data_Source__c == null || objAccount.Status__c == null || city == '--Select--' || String.isBlank(city)) && Recordtype == Label.PersonAccount) {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.PersonAccountSearchErrorMessage));
             validation = true;
         } else if (objAccount.Social_Id__c != null && !validateSocialIdTR()) {
@@ -378,44 +407,57 @@ public class AddressSearchValidationControllerCDM
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.VATNOError));
             validation = true;
         }
-        else if (objAccount.Email__c == null && objAccount.Opt_In_Email__c && recordType != label.Company) {
+         else if (string.isblank(objAccount.Email__c) && objAccount.Opt_In_Email__c && recordType != label.Company && objAccount.personal_agreement__c != 'Yes') {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TREmail));
             validation = true;
         }
-        else if (objAccount.Opt_In_SMS__c  && objAccount.Mobile__c ==  null && recordType != label.Company) {
+        else if (objAccount.Opt_In_SMS__c  && string.isblank(objAccount.Mobile__c)  && recordType != label.Company && objAccount.personal_agreement__c != 'Yes') {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRSMS));
             validation = true;
         }
-        else if (objAccount.Opt_In_Mobile__c == null && (hmphoneNumber == null && mbphoneNumber == null && wkphoneNumber == null) && recordType != label.Company) {
+        else if (objAccount.Opt_In_Mobile__c && (string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber)) && recordType != label.Company && objAccount.personal_agreement__c != 'Yes') {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRPhone));
             validation = true;
         }
-        else if(Recordtype == Label.PersonAccount && !objAccount.opt_in_email__c && !objAccount.opt_in_mobile__c && !objAccount.opt_in_sms__c && !objAccount.Postal_Opt_In__c)
-            {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter a valid DoC before saving!'));
-                    validation = true;
-            }
+       
+        else if (!string.isblank(objAccount.Email__c) && !objAccount.Opt_In_Email__c && recordType != label.Company && objAccount.personal_agreement__c != 'Yes') {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'You have input a Email address. Please enter corresponding DoC permission.'));
+            validation = true;
+        }
+        
+        else if ((!objAccount.Opt_In_Mobile__c && !objAccount.Opt_In_SMS__c) && objAccount.personal_agreement__c != 'Yes' && (!string.isblank(hmphoneNumber)  || !string.isblank(mbphoneNumber)  || !string.isblank(wkphoneNumber)) && recordType != label.Company) {
+            system.debug(hmphoneNumber + ',' + mbphoneNumber +','+ wkphoneNumber);
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'You have input a Contact number. Please enter corresponding DoC permission.'));
+            validation = true;
+        }
         system.debug(validateSocialIdTR() + ' final result');
+        //added by Veena to check addresstype check when address line 1 and 2 are given by user  
+            if((addressobj.Address_Line_1__c != null)&&(addressobj.Address_Line_2__c!=null)){
+                if(addressobj.Address_Type__c==null){
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Address_type_Validation)); 
+                    Validation = true;
+                }
+            }
         // Save record without Address record if no value is Entered in Address section     
-        if (city == null || city == '--Select--') {
+       /* if (city == null || city == '--Select--') {
             if (string.isnotblank(AddressObj.Address_Line_1__c) ||
                 string.isnotblank(AddressObj.Address_Line_2__c) || string.isnotblank(AddressObj.Address_Line_3__c) ||
                 string.isnotblank(district) ||
                 string.isnotblank(Zip) ||
                 string.isnotblank(province)){
-
-
-
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select the City'));
-                Validation = true;
-            } else {
-                if (SaveAccountDetailsTR()) {
-                    PageReference pageRef = new PageReference('/' + objAccount.Id);
-                    return PageRef;
+                    
+                    
+                    
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please select the City'));
+                    Validation = true;
+                } else {
+                    if (SaveAccountDetailsTR()) {
+                        PageReference pageRef = new PageReference('/' + objAccount.Id);
+                        return PageRef;
+                    }
                 }
-            }
-        }
-
+        }*/
+        
         // Save record with Address details Validating the Address Details 
         boolean check = false;
         If(city != null || city != '--Select--') {
@@ -571,22 +613,22 @@ public class AddressSearchValidationControllerCDM
             }
 
             /*if (addressobj.ZipCode__c == null) {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.ZipCodeMandatory));
-                Validation = true;
-            }
-            if (addressobj.Address_Line_1__c == null) {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline1Mandatory));
-                Validation = true;
-            }*/
-            if ((addressobj.Address_Line_1__c != null && (!Pattern.matches('[A-Za-z0-9/,]*', addressobj.Address_Line_1__c))) ||
-                (addressobj.Address_Line_2__c != null && (!Pattern.matches('[A-Za-z0-9/,]*', addressobj.Address_Line_2__c)))
-            ) {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressInvalid));
-                Validation = true;
-            } else if (addressobj.Address_Line_1__c != null && addressobj.Address_Line_1__c.length() > 100) {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddressline1Length));
-                    Validation = true;
-                }
+ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.ZipCodeMandatory));
+Validation = true;
+}
+if (addressobj.Address_Line_1__c == null) {
+ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline1Mandatory));
+Validation = true;
+}*/
+            if ((!String.isBlank(addressobj.Address_Line_1__c) && addressobj.Address_Line_1__c != null && (!Pattern.matches('[A-Za-z0-9/,]*', addressobj.Address_Line_1__c))) ||
+                (!String.isBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c != null && (!Pattern.matches('[A-Za-z0-9/,]*', addressobj.Address_Line_2__c)))
+               ) {
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressInvalid));
+                   Validation = true;
+               } else if (addressobj.Address_Line_1__c != null && addressobj.Address_Line_1__c.length() > 100) {
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddressline1Length));
+                   Validation = true;
+               }
             else {
                 if (addressobj.Address_Line_2__c != null && addressobj.Address_Line_2__c.length() > 100) {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.MYAddresslinelen2Length));
@@ -646,13 +688,29 @@ public class AddressSearchValidationControllerCDM
                     errorFlag = false;
             }
             else if (objAccount.Vat_No__c != null && !validateVATNoTR()) {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.VATNOError));
-                    errorFlag = false;
-        }
-        else if(Recordtype == Label.PersonAccount && !objAccount.opt_in_email__c && !objAccount.opt_in_mobile__c && !objAccount.opt_in_sms__c && !objAccount.Postal_Opt_In__c)
-            {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Please enter a valid DoC before saving!'));
-                    errorFlag = false;
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.VATNOError));
+                errorFlag = false;
+            }
+            else if (string.isblank(objAccount.Email__c) && objAccount.Opt_In_Email__c && recordType != label.Company && objAccount.personal_agreement__c != 'Yes') {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TREmail));
+            errorFlag = false;
+            }
+            else if (objAccount.Opt_In_SMS__c  && string.isblank(mbphoneNumber) && recordType != label.Company && objAccount.personal_agreement__c != 'Yes') {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRSMS));
+                errorFlag = false;
+            }
+            else if (objAccount.Opt_In_Mobile__c && (string.isblank(hmphoneNumber) && string.isblank(mbphoneNumber) && string.isblank(wkphoneNumber)) && recordType != label.Company && objAccount.personal_agreement__c != 'Yes') {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.TRPhone));
+                errorFlag = false;
+            }
+            else if (!string.isblank(objAccount.Email__c) && !objAccount.Opt_In_Email__c && recordType != label.Company && objAccount.personal_agreement__c != 'Yes') {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'You have input a Email address. Please enter corresponding DoC permission.'));
+                errorFlag = false;
+            }
+        
+            else if ((!objAccount.Opt_In_Mobile__c && !objAccount.Opt_In_SMS__c) && objAccount.personal_agreement__c != 'Yes' &&(!string.isblank(hmphoneNumber)  || !string.isblank(mbphoneNumber) || !string.isblank(wkphoneNumber )) && recordType != label.Company) {
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'You have input a Contact number. Please enter corresponding DoC permission.'));
+                errorFlag = false;
             }
         }
         if (errorFlag && mandatoryFlag && recordCheck) {
