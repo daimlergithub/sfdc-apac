@@ -15,8 +15,10 @@ public class batchReparentRecordsTest
     public static testmethod void testMethod1() 
     {
         User user1 = TestUtils.createAdminUser();
+        System.runAs (user1) {
         Account duplicate_account= TestUtils.createPersonAccountAsUserAsOwner(user1);
-        duplicate_account= TestUtils.UpdateAccount(duplicate_account.id);  
+        duplicate_account= TestUtils.UpdateAccount(duplicate_account.id);
+        update duplicate_account;
         Account master_account = TestUtils.createCompanyAccount(user1);
         master_account.Primary_Address_Reference__c = TestUtils.createAddress(master_account.ID).ID;
         update master_account;
@@ -35,14 +37,16 @@ public class batchReparentRecordsTest
             vRel.End_Date__c = null;
             vRel.Vehicle_address_picklist__c = '--None--';
             vRel.Owner_Dealer__c=dealer_account.id;
+            vRel.Market__c='TH';
             insert vRel;
         
         Vehicle_Relationship__c vRel2 = new Vehicle_Relationship__c(Recall__c = FALSE,Vehicle_Phone_picklist__c = 'Home Phone',vehicle_fax_picklist__c = 'FAX',vehicle_mail_picklist__c = 'Email Home',Car_Relation__c = 'User', RecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId());
             vRel2.Contact__c = master_account.id;
             vRel2.Vehicle_ID__c = vehicles.id;
             vRel2.End_Date__c = null;
-            vRel2.Vehicle_address_picklist__c = '--None--';
+            vRel2.Vehicle_address_picklist__c = 'Home Phone';
             vRel2.Owner_Dealer__c=dealer_account.id;
+            vRel2.Market__c='TH';
             insert vRel2;
         
         Task obTask = new Task(
@@ -113,14 +117,18 @@ public class batchReparentRecordsTest
             }
         }
         
-        System.runAs (user1) {
+        
         Test.startTest();
 
             batchReparentRecords obj = new batchReparentRecords();
             DataBase.executeBatch(obj); 
             
+            scheduledBatchReparentRecords sh1 = new scheduledBatchReparentRecords();
+            String sch = '0  00 1 3 * ?';
+            system.schedule('Test', sch, sh1);
+            
         Test.stopTest();
-        }
+        
         List<Account> AccountList2=[select id,(select id from tasks),(select id from events),(select id from notes),(select id from Attachments),(select id from Vehicle_Relationships2__r) from Account where id = :dmi.Master_Customer__c];
         Integer masterAccountTasks_aftermerge;
         Integer masterAccountevents_aftermerge;        
@@ -139,6 +147,6 @@ public class batchReparentRecordsTest
         system.assertEquals(masterAccountnotes+duplicateAccountnotes, masterAccountnotes_aftermerge);
         system.assertEquals(masterAccountattachments+duplicateAccountattachments, masterAccountattachments_aftermerge);
         //system.assertEquals(masterAccountVR+duplicateAccountVR, masterAccountVR_aftermerge);
-       
+       }
     }
 }

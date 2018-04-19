@@ -21,7 +21,7 @@
  */
 @isTest
 private class TestMBKMessageSchduleSendKRDFW {
-	private static String FAKE_RESPONSE = '[{"sn": "20171117022834054000122RS01","custMsgSn": "benz_20171018090700","code": "EW","altCode": null,"altMsg": null,"smsCode": null,"smsMsg": "SMS/LMS/MMS Sending","sndDtm": "20171117022834","rcptDtm": null},{"sn": "20171117022834054000122RS01","custMsgSn": "benz_20171018090700","code": "EW","altCode": null,"altMsg": null,"smsCode": null,"smsMsg": "SMS/LMS/MMS Sending","sndDtm": "20171117022834","rcptDtm": null}]';
+	private static String FAKE_RESPONSE = '[{"sn":"20180419-093318976R202RS000015","custMsgSn":"benzkr_a2U0k00000011lkEAA","altCode":null,"code":"EW","altMsg":null,"smsCode":null,"smsMsg":"SMS/LMS/MMS Sending","sndDtm":"20180419093318","rcptDtm":null}]';
 
 	private class Mock implements HttpCalloutMock {
 		public HTTPResponse respond(HTTPRequest req) {
@@ -103,7 +103,14 @@ private class TestMBKMessageSchduleSendKRDFW {
 		temp2.phoneNum__c = 'test';
 		temp2.message__c = 'test';
 		temp2.custMsgSn__c = 'benz_20171018090700';
+		temp2.AttachmentImages__c = true;
 		insert temp2;
+		
+		Attachment att = new Attachment();
+		att.Body = Blob.valueOf('fasdsfsdf234k2j3lk4jl324l23j4l23j4lj23l4l324j2l3kjl'); 
+		att.Name = 'test';
+		att.ParentId = temp2.Id;
+		insert att;
 		
 		Test.setMock(HttpCalloutMock.class, new MockFail());
 		test.starttest();
@@ -114,4 +121,36 @@ private class TestMBKMessageSchduleSendKRDFW {
 
 		test.stopTest();
 	}
+	
+	static testMethod void myUnitTest3() {
+		Kakao_Talk_Integration_URL__c cs = new Kakao_Talk_Integration_URL__c();
+		cs.Name = 'SfdcMBKMessageURL';
+        cs.WebService_URL_1DR__c = 'https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/I2MaxKakao';
+     	insert cs; 
+     			
+		MBK_Messages__c temp2 = new MBK_Messages__c();
+		temp2.Set_Sending_Time__c = system.now().addMinutes(-29);
+		temp2.processed__c = false;
+		temp2.Status__c = 'Reserved';
+		temp2.sn__c = '123123123123';
+		temp2.channel__c = 'A';
+		temp2.Set_Sending_Time__c = Datetime.now().addYears(-1);
+		temp2.custGubun__c = 'test';
+		temp2.subject__c = 'test';
+		temp2.senderKey__c = 'test';
+		temp2.templateCode__c = system.label.MBK_Message_Survey;
+		temp2.phoneNum__c = 'test';
+		temp2.message__c = 'test';
+		temp2.custMsgSn__c = 'benz_20171018090700';
+		insert temp2;
+		
+		Test.setMock(HttpCalloutMock.class, new MockFail());
+		test.starttest();
+
+		MBKMessageScheduleSendKRDFWBatch batch = new MBKMessageScheduleSendKRDFWBatch();
+		batch.channel = 'A';
+		Database.executeBatch(batch);
+
+		test.stopTest();
+	}	
 }

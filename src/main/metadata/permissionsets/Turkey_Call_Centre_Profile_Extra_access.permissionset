@@ -3129,6 +3129,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerVehicleRelTriggerHandlerTR</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerVehicleRelTriggerHandlerTRTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -3642,6 +3650,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>VehicleRelationshipHelperTHTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTR</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleRelationshipHelperTRTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -16601,7 +16617,7 @@
         <field>Event.eDM_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
-     <fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>FAQ__kav.Answer__c</field>
         <readable>false</readable>

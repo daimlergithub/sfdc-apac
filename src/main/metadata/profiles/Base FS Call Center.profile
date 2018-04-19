@@ -1522,18 +1522,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MBKMessagScheduleSendKaKaoKRDFWSchedule</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendMMSKRDFWSchedule</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendSMSKRDFWSchedule</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MBKMessagStatusKRDFWSchedule</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -8230,7 +8218,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Address__c.FS_District__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8310,7 +8298,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Address__c.State__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

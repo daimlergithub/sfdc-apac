@@ -1620,19 +1620,7 @@
     <classAccesses>
         <apexClass>MBKBulkMessageCreateKRDFWBatch</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendKaKaoKRDFWSchedule</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendMMSKRDFWSchedule</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendSMSKRDFWSchedule</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses>>
     <classAccesses>
         <apexClass>MBKMessagStatusKRDFWSchedule</apexClass>
         <enabled>true</enabled>
