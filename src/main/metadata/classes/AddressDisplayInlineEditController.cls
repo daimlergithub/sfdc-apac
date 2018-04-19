@@ -464,7 +464,7 @@ public class AddressDisplayInlineEditController {
                  if(LanguageSelected=='' || LanguageSelected==null)
                 {
                    
-                    if(market=='TH')
+                    if(market=='TH'&&addressobj.Foreign_Nationals__c !=true)
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
                     else  if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric))
                        region=  [select id,Province__c,Language__c from RegionMasterInfo__c where Province__c=:province Limit 1];
