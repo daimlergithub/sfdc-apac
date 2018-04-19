@@ -51,7 +51,7 @@ public with sharing class SalesLeadEditController {
              CAC_Lost_Reason__c,Lead_DataSubSource__c,Lost_Reason_text__c,Lead_Desired_Service__c,Last_Successful_Call__c, Lost_To_Competitor_Name__c,Current_Vehicle_1_Text__c,Current_Vehicle_2_Text__c,
              Lead_Source__c,Lead_Priority__c,Lost_To__c,Lost_Situation__c,Lead_No__c,Allow_Data_Sharing__c,OwnerId,Is_Active__c,LeadSource,AccountId,Payment_Mode__c,Lost_Date__c,CreatedById,LastModifiedById,Service_Requested_date__c,Quotation_No_History__c,
              WIP_Number__c,WIP_Created_Date__c,Job_Card_Number__c,Job_Card_Date__c,Check_In_Date__c,Check_Out_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c,Finance_Proposal_Date__c,Insurance_Proposal_Date__c,Service_Program_Proposal_Date__c,Simple_Estimation_Date__c,
-             Finance_Product_Name__c,Trade_in_Date__c,Finance_Quotation_No_History__c,Finance_Quotation_Date__c,Finance_Quotation_No__c,CA_Updated_Date__c,Quotation_Model__c,Service_date__c,Preferred_Delivery_Date__c,Form_Title__c FROM opportunity WHERE Id =: ApexPages.currentPage().getParameters().get('id')];
+             Finance_Product_Name__c,Trade_in_Date__c,Finance_Quotation_No_History__c,Finance_Quotation_Date__c,Finance_Quotation_No__c,CA_Updated_Date__c,Quotation_Model__c,Service_date__c,Preferred_Delivery_Date__c,Form_Title__c,Entity__c,Lost_Sub_Type__c FROM opportunity WHERE Id =: ApexPages.currentPage().getParameters().get('id')];
                 
         currentVehicleList = [Select Vehicle_Model__c,Vehicle_Brand__c,Vehicle_Class__c,Mileage_start__c,Mileage_End__c from Vehicle_Relationship__c where Contact__c= :opp.AccountID];
         //Added for Inline VF-----

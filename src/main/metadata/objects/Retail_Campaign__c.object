@@ -2147,6 +2147,7 @@
                 <fullName>Lead</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
@@ -8768,19 +8769,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>After Sales</fullName>
                 <default>false</default>
             </values>
-            <values>
+            <!--<values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Familiarization workshop for new vehicle owners</fullName>
                 <default>false</default>
-            </values>
+            </values>-->
             <values>
                 <fullName>Finance</fullName>
                 <default>false</default>
             </values>
-			<values>
+			<!--<values>
                 <fullName>Marketing</fullName>
                 <default>false</default>
             </values>
@@ -8819,12 +8820,12 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <values>
                 <fullName>Promotion on Technical accessories and collections</fullName>
                 <default>false</default>
-            </values>
+            </values>-->
             <values>
                 <fullName>Sales</fullName>
                 <default>false</default>
             </values>
-            <values>
+            <!--<values>
                 <fullName>Service Product Promotion</fullName>
                 <default>false</default>
             </values>
@@ -8835,7 +8836,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <values>
                 <fullName>VEP%28Seasonal Check%29</fullName>
                 <default>false</default>
-            </values>
+            </values>-->
         </picklistValues>
         <picklistValues>
             <picklist>Car_Model__c</picklist>
@@ -15934,10 +15935,12 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Close_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Type__c</customTabListAdditionalFields>
+		<lookupDialogsAdditionalFields>Dealer_Name__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Record_Type_Name__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Driven__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Plan_Start_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Plan_End_Date__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>Dealer_Name__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
@@ -16603,7 +16606,7 @@ alert('The event has yet to be published or has been closed.');
         <requireRowSelection>true</requireRowSelection>
         <url>/apex/MonthlyMarketAmountReport</url>
     </webLinks>
-    <webLinks>
+<webLinks>
         <fullName>New_Retail_Campaign_TH</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -16615,10 +16618,13 @@ alert('The event has yet to be published or has been closed.');
         <url>{!REQUIRESCRIPT($Site.Prefix &amp; "xdomain/xdomain.js")} 
 {!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/41.0/connection.js")} 
 {!REQUIRESCRIPT($Site.Prefix &amp; "support/console/41.0/integration.js")} 
-if({!Campaign.IsActive}){
-if('{!Campaign.MD__c}' == 'TH') {
-window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;ent={!Retail_Campaign__c.Id}');
-}
+if({!Campaign.IsActive}){ 
+
+if('{!Campaign.MD__c}' == 'TH') { 
+window.open("{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;ent={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}"); 
+
+} 
+
 }
 else{
 if (confirm('To create Retail Campaign, related WS Campaign needs to be activated. Do you want to Proceed ?'))
@@ -16628,12 +16634,58 @@ if('{!Campaign.Id}'!=null &amp;&amp; '{!Campaign.Id}'!='' &amp;&amp; '{!Campaign
 var campaignObj = new sforce.SObject("Campaign");
 campaignObj.id="{!Campaign.Id}";
 campaignObj.Activate_for_retail_campaign__c=true;
-campaignObj.IsActive=true;
 result = sforce.connection.update([campaignObj]);
-window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+'/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;CF00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;00N2800000IkqaO={!Campaign.Description}&amp;00N2800000Ikqad={!Campaign.Status}&amp;CF00N2800000A9Cpq={!Campaign.Name}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!Campaign.Name}&amp;ent={!Retail_Campaign__c.Id}',"_self";
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;Name={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;ent={!Retail_Campaign__c.Id}","_self";
+
 }
+
 }
 }</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_Retail_Campaign_MY</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Retail Campaign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT($Site.Prefix &amp; "xdomain/xdomain.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/41.0/connection.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "support/console/41.0/integration.js")} 
+{!REQUIRESCRIPT($Site.Prefix &amp; "/soap/ajax/41.0/apex.js")} 
+if({!Campaign.IsActive}){ 
+if('{!Campaign.MD__c}' == 'MY') { 
+window.open("{!JSENCODE($Site.BaseUrl)}"+'/a16/e?CF00N2800000A9Cpq={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9Cpq_lkid={!Campaign.Id}&amp;00N2800000Ikqac	={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;00N2800000IkqaO={!Campaign.Description}&amp;retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg4F&amp;ent={!Retail_Campaign__c.Id}'); 
+} 
+} 
+else{ 
+if (confirm('To create Retail Campaign, related WS Campaign needs to be activated. Do you want to Proceed ?')) 
+{ 
+if('{!Campaign.Id}'!=null &amp;&amp; '{!Campaign.Id}'!='' &amp;&amp; '{!Campaign.Id}'!='undefined') 
+{ 
+var campaignObj = new sforce.SObject("Campaign"); 
+campaignObj.Id="{!Campaign.Id}"; 
+campaignObj.Activate_for_retail_campaign__c=true; 
+campaignObj.IsActive=true; 
+result = sforce.connection.update([campaignObj]); 
+if(result[0].success === "true"){ 
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+'a16/e?CF00N2800000A9Cpq={!Campaign.Name}&amp;CF00N2800000A9Cpq_lkid={!Campaign.Id}&amp;00N2800000Ikqac	={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;00N2800000IkqaO={!Campaign.Description}&amp;retURL=%2F{!Campaign.Id}&amp;RecordType=01228000001Dg4F&amp;ent={!Retail_Campaign__c.Id}',"_self"; 
+} 
+else{ 
+alert(result[0].errors.message); 
+} 
+} 
+} 
+}
+
+
+
+
+
+
+</url>
     </webLinks>
     <webLinks>
         <fullName>OPRO_DM_Print_OPR</fullName>

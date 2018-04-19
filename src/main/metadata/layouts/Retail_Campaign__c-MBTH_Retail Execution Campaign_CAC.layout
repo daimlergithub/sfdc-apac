@@ -339,6 +339,7 @@
         <fields>Contact__c</fields>
         <fields>Assigned_Dealer__c</fields>
         <fields>CAC_Lead_Status__c</fields>
+		<fields>CampaignMember__c</fields>
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
         <relatedList>Lead__c.Retail_Campaign_Name__c</relatedList>

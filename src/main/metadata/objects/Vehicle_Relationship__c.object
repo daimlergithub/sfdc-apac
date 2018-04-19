@@ -1871,6 +1871,16 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
+	<fields>
+        <fullName>CPD_lastmodifieddate__c</fullName>
+		<description>when there is any update on VR, CPD lastmodifieddate should be populated</description>
+        <externalId>false</externalId>
+        <label>CPD lastmodifieddate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>End_Setting_User__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>

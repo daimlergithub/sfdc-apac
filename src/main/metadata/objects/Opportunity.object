@@ -68,7 +68,7 @@
         <values>
             <fullName>Closed Won</fullName>
             <default>false</default>
-        </values>
+        </values>		
         <values>
             <fullName>New</fullName>
             <default>false</default>
@@ -104,12 +104,12 @@
         <values>
             <fullName>Closed Lost</fullName>
             <default>false</default>
-        </values>
+        </values>		
         <values>
             <fullName>Closed Won</fullName>
             <default>false</default>
-        </values>
-        <values>
+        </values>		
+		<values>
             <fullName>Invoiced</fullName>
             <default>false</default>
         </values>
@@ -148,7 +148,7 @@
     </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <externalSharingModel>Private</externalSharingModel>
     <fieldSets>
         <fullName>GenericAftersales_ActivityInfo</fullName>
@@ -359,6 +359,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Entity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Allow_Data_Sharing__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -433,6 +438,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+		<displayedFields>
+            <field>Lost_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Referal_Referee_Note__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -490,6 +500,161 @@
         </displayedFields>
         <label>GenericAftersales_LeadInfo</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>ANZAftersales_LeadInfo</fullName>
+        <description>ANZ Lead information section for generic aftersales lead layout</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_No__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StageName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Entity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Case__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Last_Successful_Call__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Source__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_DataSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Priority__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_DataSubSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type_of_Sale__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Desired_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Average_Driving__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_To__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CAC_Lost_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lost_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Referal_Referee_Note__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Reason_text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Is_Active__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CampaignId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Situation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Delivery_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_To_Competitor_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_Co_Dealer_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_OEM_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Express_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Form_Title__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ANZAftersales_LeadInfo</label>
+    </fieldSets>	
     <fieldSets>
         <fullName>GenericAftersales_LeadProces</fullName>
         <description>generic aftersales lead layout lead processing information</description>
@@ -569,6 +734,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Assigned_Service_Parts_Advisor__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Preferred_Contact_Method__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -580,6 +750,11 @@
         <description>Generic Sales Layout - Lead Customer Information</description>
         <displayedFields>
             <field>AccountId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contact__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -709,6 +884,11 @@
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Entity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Case__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -755,6 +935,11 @@
         </displayedFields>
         <displayedFields>
             <field>CAC_Lost_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lost_Sub_Type__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -851,6 +1036,171 @@
         <label>Sales Lead Generic Lead Info</label>
     </fieldSets>
     <fieldSets>
+        <fullName>ANZSales_LeadInfo</fullName>
+        <description>Used in new Sales lead and Edit Sales lead - Generic layout</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_No__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StageName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Entity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Case__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Priority__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_DataSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type_of_Sale__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_Desired_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Referal_Referee_Note__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CAC_Lost_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+		<displayedFields>
+            <field>Lost_Sub_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lead_DataSubSource__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Contact_Time__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Reason_text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Test_Drive_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Last_Successful_Call__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_To__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_Situation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CampaignId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Data_Sharing__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Is_Active__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_To_Competitor_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Average_Driving__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_Co_Dealer_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Referal_Referee_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preferred_Delivery_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lost_to_OEM_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payment_Mode__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Form_Title__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ANZ Sales Lead Info</label>
+    </fieldSets>	
+    <fieldSets>
         <fullName>GenericSales_ProcessInfo</fullName>
         <description>Generic Sales Layout - Processing Info</description>
         <displayedFields>
@@ -902,12 +1252,14 @@
         <label>Accepted Date Time</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -919,6 +1271,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Email ID</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -929,6 +1282,7 @@
         <formula>Account.Primary_Address__c</formula>
         <label>Account address</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -952,6 +1306,7 @@
         <relationshipName>Opportunities</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -961,12 +1316,14 @@
         <externalId>false</externalId>
         <label>Allow Data Sharing</label>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Amount</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
@@ -976,6 +1333,7 @@
         <label>Assigned Date Time</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -1011,6 +1369,7 @@
         <relationshipName>Assigned_Dealer_Lead</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -1033,6 +1392,7 @@
         <relationshipName>Service_Advisor_Leads</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -1055,6 +1415,7 @@
         <relationshipName>Service_Parts_Advisor_Leads</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -1088,6 +1449,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1118,6 +1480,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1357,6 +1720,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2739,6 +3103,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2747,8 +3112,64 @@
         <externalId>false</externalId>
         <label>Lost Reason</label>
         <picklist>
+         <picklistValues>
+                <fullName>Customer can not be reached</fullName>
+                <default>false</default>
+            </picklistValues>	
+            <picklistValues>
+                <fullName>Interest Lost</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Out of Campaign Period</fullName>
+                <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>Bought other brand</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Price not accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Out of Stock</fullName>
+                <default>false</default>
+            </picklistValues>	
+            <picklistValues>
+                <fullName>Financing failed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unsatisfied with service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Double lead</fullName>
+                <default>false</default>
+            </picklistValues>		
+            <picklistValues>
+                <fullName>Other reasons</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Bought in ISP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase plan postponed</fullName>
+                <default>false</default>
+            </picklistValues>		
+            <picklistValues>
+                <fullName>Bought MB Parts elsewhere</fullName>
+                <default>false</default>
+            </picklistValues>	
+            <picklistValues>
+                <fullName>Location is not convenient</fullName>
+                <default>false</default>
+            </picklistValues>			
+			<picklistValues>
+                <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2756,19 +3177,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Bought MB Parts elsewhere</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bought other brand</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Cash Payment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer can not be reached</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2780,15 +3189,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Double lead</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Duplicate for un-reported show-up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Financing failed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2804,23 +3205,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Interest Lost</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid customer data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>ISP to Purchased under Service Contract</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Lead Merge</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Location is not convenient</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2840,27 +3229,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Other reasons</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Out of Campaign Period</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Out of Stock</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Price not accepted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Purchased Vehicle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purchase plan postponed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2891,12 +3260,71 @@
                 <fullName>Unsatisfied with Salesperson service</fullName>
                 <default>false</default>
             </picklistValues>
+             <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Lost_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Lost Sub Type</label>
+        <picklist>
             <picklistValues>
-                <fullName>Unsatisfied with service</fullName>
+                <fullName>Alternate MB dealer</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>true</sorted>
-        </picklist>
+			<picklistValues>
+                <fullName>Changed mind/not interested/not ready	</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Competitor due to price</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Competitor due to product	</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Competitor due to service support	</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Contact attempt made</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Customer already attempted Retailer</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Hoax/Child</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Monetary reasons/trade in/finance</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Response time too long</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Vehicle unavailable/Future stock delay</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Wrong/Invalid contact details</fullName>
+                <default>false</default>
+            </picklistValues>
+	</picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
@@ -2908,12 +3336,14 @@
         <label>CA Submission Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
         <fullName>CampaignId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -2927,6 +3357,7 @@
         <relationshipName>Lead_Opportunities</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -2936,6 +3367,7 @@
         <label>Check In Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -2945,12 +3377,14 @@
         <label>Check Out Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
         <fullName>CloseDate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
@@ -2974,6 +3408,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2998,6 +3433,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3026,6 +3462,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3048,12 +3485,14 @@
         <relationshipName>Lead_Person</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ContractId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -3079,6 +3518,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3089,6 +3529,7 @@
         <length>100</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -3101,6 +3542,7 @@
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -3113,6 +3555,7 @@
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -3124,6 +3567,7 @@
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -3149,6 +3593,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3191,6 +3636,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3202,6 +3648,7 @@
         <label>Dealer Aftersales Manager Email</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
@@ -3212,6 +3659,7 @@
         <label>Dealer Comment</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
@@ -3224,6 +3672,7 @@
         <label>Dealer Owner Email</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
@@ -3249,12 +3698,14 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
@@ -3270,6 +3721,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -3281,6 +3733,7 @@
         <label>Drop-off Time</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -3306,6 +3759,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3316,6 +3770,7 @@
         <externalId>false</externalId>
         <label>Escalated flag</label>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -3330,6 +3785,7 @@
         <externalId>false</externalId>
         <label>Express Service</label>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -3419,6 +3875,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3428,6 +3885,7 @@
         <label>Finance Proposal Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -3437,6 +3895,7 @@
         <label>Finance Quotation Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -3446,6 +3905,7 @@
         <label>Finance Quotation No History</label>
         <length>3000</length>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -3457,6 +3917,7 @@
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -3469,6 +3930,7 @@
         <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -3479,6 +3941,7 @@
         <label>Handover Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -3488,6 +3951,7 @@
         <label>Insurance Proposal Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -3516,6 +3980,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3788,6 +4253,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -3840,6 +4306,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -4024,6 +4491,7 @@
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -4035,6 +4503,7 @@
         <required>false</required>
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -4044,6 +4513,7 @@
         <label>Invoice Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -4054,6 +4524,7 @@
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -4065,6 +4536,7 @@
     <fields>
         <fullName>IsPrivate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
@@ -4093,6 +4565,7 @@ TEXT(StageName) != "Closed Lost"
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is Active</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -4104,6 +4577,7 @@ TEXT(StageName) != "Closed Lost"
         <label>Job Card Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -4114,6 +4588,7 @@ TEXT(StageName) != "Closed Lost"
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -4127,6 +4602,7 @@ TEXT(StageName) != "Closed Lost"
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -4137,6 +4613,7 @@ TEXT(StageName) != "Closed Lost"
         <label>Last Successful Call</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -4186,6 +4663,7 @@ TEXT(StageName) != "Closed Lost"
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -4323,6 +4801,7 @@ TEXT(StageName) != "Closed Lost"
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>5</visibleLines>
@@ -4336,6 +4815,7 @@ TEXT(StageName) != "Closed Lost"
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -4685,6 +5165,7 @@ TEXT(StageName) != "Closed Lost"
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -5241,6 +5722,7 @@ TEXT(StageName) != "Closed Lost"
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -5346,6 +5828,7 @@ TEXT(StageName) != "Closed Lost"
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>5</visibleLines>
@@ -5357,6 +5840,7 @@ TEXT(StageName) != "Closed Lost"
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -5369,6 +5853,7 @@ TEXT(StageName) != "Closed Lost"
         <length>12</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -5379,6 +5864,7 @@ TEXT(StageName) != "Closed Lost"
         <displayFormat>L-P{000000000}</displayFormat>
         <externalId>true</externalId>
         <label>Lead No.</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>AutoNumber</type>
     </fields>
@@ -5403,6 +5889,7 @@ TEXT(StageName) != "Closed Lost"
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -5470,75 +5957,6 @@ TEXT(StageName) != "Closed Lost"
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
-        <fullName>Lead_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>Lead Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>New</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nurture</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Qualified</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test drive booked</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service booking</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test drive completed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sent to DMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invoiced</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed Won</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed Lost</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
 	<fields>	
         <fullName>Lead_Sub_Type__c</fullName>
         <externalId>false</externalId>
@@ -5550,19 +5968,25 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Product</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Accessories &amp; Collection Warranty</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS – Accessories &amp; Collection</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Accident repair</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Agility</fullName>
@@ -5576,16 +6000,20 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Brochure Request</fullName>
                 <default>false</default>
                 <controllingFieldValues>Activities</controllingFieldValues>
+				<controllingFieldValues>Sales Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Capped Price Servicing</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>car care</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
                 <controllingFieldValues>Service</controllingFieldValues>
             </picklistValues>
@@ -5603,6 +6031,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Collection</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -5676,6 +6105,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Event Activation</fullName>
                 <default>false</default>
                 <controllingFieldValues>Activities</controllingFieldValues>
+				<controllingFieldValues>Sales Activity</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event related inquiry</fullName>
@@ -5691,6 +6121,8 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Express Service</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>				
             </picklistValues>
             <picklistValues>
                 <fullName>Fuso Company Car</fullName>
@@ -5709,6 +6141,8 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gift Car</fullName>
@@ -5727,6 +6161,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Leasing</fullName>
@@ -5747,6 +6182,8 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+                <controllingFieldValues>Cars Service</controllingFieldValues>
+                <controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MBJ Online Sales</fullName>
@@ -5781,15 +6218,20 @@ TEXT(StageName) != "Closed Lost"
                 <controllingFieldValues>AS – Others</controllingFieldValues>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
                 <controllingFieldValues>Used Car</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other service reservation</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>P2P</fullName>
@@ -5801,6 +6243,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS – Package Inquiry</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Pick - up &amp; delivery</fullName>
@@ -5811,6 +6254,8 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Product Information</fullName>
@@ -5822,23 +6267,29 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Register your interest</fullName>
                 <default>false</default>
                 <controllingFieldValues>Activities</controllingFieldValues>
+				<controllingFieldValues>Sales Activity</controllingFieldValues>
                 <controllingFieldValues>New Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>remove lifestyle accessories</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				
             </picklistValues>
             <picklistValues>
                 <fullName>Repeated Repair</fullName>
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Scheduled services</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>service contract</fullName>
@@ -5853,16 +6304,22 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>service contract should be changed to service plans</fullName>
                 <default>false</default>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Inquiry</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Loyalty</fullName>
                 <default>false</default>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service Package</fullName>
@@ -5879,6 +6336,7 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Product</controllingFieldValues>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
                 <controllingFieldValues>Service</controllingFieldValues>
             </picklistValues>
@@ -5886,6 +6344,7 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Technical Accessories</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -5905,11 +6364,12 @@ TEXT(StageName) != "Closed Lost"
                 <fullName>Trade Club</fullName>
                 <default>false</default>
 				<controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Trade In</fullName>
                 <default>false</default>
-                <controllingFieldValues>Used Car</controllingFieldValues>
+                <controllingFieldValues>Sales Used Car</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle accessories</fullName>
@@ -5926,6 +6386,8 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>AS - Service</controllingFieldValues>
                 <controllingFieldValues>Car Service</controllingFieldValues>
+				<controllingFieldValues>Cars Service</controllingFieldValues>
+				<controllingFieldValues>Vans Service</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Warranty plus</fullName>
@@ -5937,22 +6399,25 @@ TEXT(StageName) != "Closed Lost"
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
                 <controllingFieldValues>Product</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>WebParts</fullName>
                 <default>false</default>
                 <controllingFieldValues>Cars Parts</controllingFieldValues>
+				<controllingFieldValues>Vans Parts</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Wholesale Fleet Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>New Car</controllingFieldValues>
-            </picklistValues>
+            </picklistValues>		
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>true</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -5963,6 +6428,7 @@ TEXT(StageName) != "Closed Lost"
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Lead Temperature</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -5972,33 +6438,41 @@ TEXT(StageName) != "Closed Lost"
         <externalId>false</externalId>
         <label>Lead Type</label>
         <picklist>
+			<controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Activities</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS – Accessories &amp; Collection</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS - Activity</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS – Event &amp; Campaign</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS – Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS – Package Inquiry</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS - Product</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AS - Service</fullName>
@@ -6007,18 +6481,25 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Car Service</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cars Parts</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Cars Service</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>FS - Mobility</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance</fullName>
@@ -6027,26 +6508,38 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Insurance and Warranty leads</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Insurance Renewal</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Need Follow Up</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Car</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>No Need Follow Up</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Product</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales Activities</fullName>
@@ -6055,6 +6548,9 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Sales Activity</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales New Car</fullName>
@@ -6063,36 +6559,50 @@ TEXT(StageName) != "Closed Lost"
             <picklistValues>
                 <fullName>Sales Used Car</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Service</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>TA&amp;C</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>UsedCar</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Used Car</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vans Parts</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vans Service</fullName>
                 <default>false</default>
-            </picklistValues>			
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>NZ</controllingFieldValues>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>true</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6103,6 +6613,7 @@ TEXT(StageName) != "Closed Lost"
         <label>Lead eMail</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
@@ -6125,6 +6636,7 @@ TEXT(StageName) != "Closed Lost"
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6134,6 +6646,7 @@ TEXT(StageName) != "Closed Lost"
         <label>Lost Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -6143,6 +6656,7 @@ TEXT(StageName) != "Closed Lost"
         <label>Lost Reason text</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -6293,6 +6807,7 @@ TEXT(StageName) != "Closed Lost"
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6303,6 +6818,7 @@ TEXT(StageName) != "Closed Lost"
         <length>200</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -6331,6 +6847,7 @@ TEXT(StageName) != "Closed Lost"
         <relationshipName>Opportunities1</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -6341,6 +6858,7 @@ TEXT(StageName) != "Closed Lost"
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -6361,6 +6879,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))))</defaultValue>
         <length>2</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -6372,6 +6891,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))))</defaultValue>
         <length>100</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -6390,6 +6910,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6442,6 +6963,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6452,6 +6974,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -6459,6 +6982,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
     <fields>
         <fullName>Name</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
@@ -6467,6 +6991,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Needs Check Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -6476,12 +7001,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Network Registration Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
         <fullName>NextStep</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
@@ -6490,6 +7017,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Next Contact Customer Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -6500,6 +7028,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>8</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -6510,6 +7039,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Order Confirmation Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -6520,6 +7050,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -6530,6 +7061,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Order Placed Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -6539,12 +7071,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Order Print Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -6625,6 +7159,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6634,6 +7169,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Pickup Date Time</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -6679,6 +7215,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6688,6 +7225,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Preferred Contact Time</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -6697,6 +7235,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Preferred Delivery Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -6718,6 +7257,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6739,6 +7279,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6893,6 +7434,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -6904,6 +7446,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
     <fields>
         <fullName>Probability</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
@@ -6912,6 +7455,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Product Proposal Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -6921,6 +7465,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Purchase Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -7025,6 +7570,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -7038,6 +7584,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <relationshipName>Opportunities</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7047,6 +7594,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Qualified Date Time</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -7058,6 +7606,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <required>false</required>
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -7067,6 +7616,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Quotation Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7080,6 +7630,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <relationshipName>OpportunityQuotes</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7089,6 +7640,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Quotation No History</label>
         <length>3000</length>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -7100,6 +7652,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7110,6 +7663,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Quotation Print Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7119,6 +7673,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Received Date Time</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -7132,6 +7687,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <relationshipName>OppLeads_Referal_Referee</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7142,6 +7698,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7153,6 +7710,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7165,6 +7723,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>20</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7179,6 +7738,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <relationshipName>childleads</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7192,6 +7752,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <relationshipName>Opportunities1</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7205,6 +7766,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <relationshipName>Opportunities</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7228,6 +7790,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <relationshipName>Leads_Consultant</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7237,6 +7800,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Service Program Proposal Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7246,6 +7810,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Service Requested Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7255,6 +7820,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Service date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7264,6 +7830,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Simple Estimation Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7369,14 +7936,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <won>false</won>
             </picklistValues>
             <picklistValues>
-                <fullName>Closed Won</fullName>
-                <default>false</default>
-                <closed>true</closed>
-                <forecastCategory>Closed</forecastCategory>
-                <probability>100</probability>
-                <won>true</won>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Closed Lost</fullName>
                 <default>false</default>
                 <closed>true</closed>
@@ -7384,9 +7943,18 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <probability>0</probability>
                 <won>false</won>
             </picklistValues>
+            <picklistValues>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+                <closed>true</closed>
+                <forecastCategory>Closed</forecastCategory>
+                <probability>100</probability>
+                <won>true</won>
+            </picklistValues>			
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -7396,12 +7964,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Test Drive Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
         <fullName>TotalOpportunityQuantity</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
@@ -7411,6 +7981,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>12</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7421,6 +7992,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Trade-in Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7431,6 +8003,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7457,6 +8030,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -7483,6 +8057,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -7494,6 +8069,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7505,6 +8081,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>UCID</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7517,6 +8094,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>17</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7527,6 +8105,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Visited Showroom Date Time</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -7537,6 +8116,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>WIP Created Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7547,6 +8127,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7558,6 +8139,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Year</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -7568,6 +8150,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <length>4</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -7578,6 +8161,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>isTestRunning</label>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -7587,6 +8171,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>isTestRunning__c</label>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -7686,6 +8271,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <label>Won</label>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Aftersales_Lead</fullName>
         <active>true</active>
@@ -9291,39 +9877,39 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-                <fullName>Bought MB Parts elsewhere</fullName>
+                <fullName>Customer can not be reached</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bought in ISP</fullName>
+                <fullName>Interest Lost</fullName>
+                <default>false</default>
+            </values>	
+            <values>
+                <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Customer can not be reached</fullName>
+			<values>
+                <fullName>Price not accepted</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Double lead</fullName>
+			<values>
+                <fullName>Out of Stock</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Financing failed</fullName>
                 <default>false</default>
-            </values>
+            </values>	
             <values>
-                <fullName>Interest Lost</fullName>
+                <fullName>Unsatisfied with service</fullName>
                 <default>false</default>
-            </values>
+            </values>		
             <values>
-                <fullName>Invalid customer data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Location is not convenient</fullName>
+                <fullName>Double lead</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9331,15 +9917,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Out of Campaign Period</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Out of Stock</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Price not accepted</fullName>
+                <fullName>Bought in ISP</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9347,11 +9925,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsatisfied with service</fullName>
+                <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Bought MB Parts elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location is not convenient</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
-        <picklistValues>
+	     <picklistValues>
             <picklist>Competitor_Vehicle_Brand__c</picklist>
             <values>
                 <fullName>Audi</fullName>
@@ -10878,45 +11464,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lead_Status__c</picklist>
-            <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Closed Lost</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Closed Won</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nurture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Qualified</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sent to DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service booking</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Lead_Sub_Type__c</picklist>
             <values>
                 <fullName>Accessories</fullName>
@@ -11141,6 +11688,61 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Lost_Sub_Type__c</picklist>
+            <values>
+                <fullName>Alternate MB dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Changed mind%2Fnot interested%2Fnot ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to service support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact attempt made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer already attempted Retailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoax%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monetary reasons%2Ftrade in%2Ffinance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response time too long</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle unavailable%2FFuture stock delay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong%2FInvalid contact details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_To_Competitor_Name__c</picklist>
             <values>
                 <fullName>Audi</fullName>
@@ -11177,10 +11779,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
 			 <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -11190,6 +11788,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
             <values>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13175,39 +13777,39 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-                <fullName>Bought MB Parts elsewhere</fullName>
+                <fullName>Customer can not be reached</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bought in ISP</fullName>
+                <fullName>Interest Lost</fullName>
+                <default>false</default>
+            </values>	
+            <values>
+                <fullName>Out of Campaign Period</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Bought other brand</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Customer can not be reached</fullName>
+			<values>
+                <fullName>Price not accepted</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Double lead</fullName>
+			<values>
+                <fullName>Out of Stock</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Financing failed</fullName>
                 <default>false</default>
-            </values>
+            </values>	
             <values>
-                <fullName>Interest Lost</fullName>
+                <fullName>Unsatisfied with service</fullName>
                 <default>false</default>
-            </values>
+            </values>		
             <values>
-                <fullName>Invalid customer data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Location is not convenient</fullName>
+                <fullName>Double lead</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13215,15 +13817,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Out of Campaign Period</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Out of Stock</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Price not accepted</fullName>
+                <fullName>Bought in ISP</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13231,11 +13825,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsatisfied with service</fullName>
+                <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Bought MB Parts elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location is not convenient</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
-        <picklistValues>
+		<picklistValues>
             <picklist>Competitor_Vehicle_Brand__c</picklist>
             <values>
                 <fullName>Audi</fullName>
@@ -14798,61 +15400,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lead_Status__c</picklist>
-            <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Closed Lost</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Closed Won</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invoiced</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nurture</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order Placed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Qualified</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sent to DMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test drive booked</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test drive completed</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Lead_Sub_Type__c</picklist>
             <values>
                 <fullName>Brochure Request</fullName>
@@ -14941,6 +15488,22 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <fullName>Used Car</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Need Follow Up</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>No Need Follow Up</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Sales Used Car</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Sales Activity</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Loan_car_required__c</picklist>
@@ -15017,6 +15580,61 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Lost_Sub_Type__c</picklist>
+            <values>
+                <fullName>Alternate MB dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Changed mind%2Fnot interested%2Fnot ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor due to service support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact attempt made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer already attempted Retailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoax%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monetary reasons%2Ftrade in%2Ffinance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Response time too long</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle unavailable%2FFuture stock delay</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong%2FInvalid contact details</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Lost_To_Competitor_Name__c</picklist>
             <values>
                 <fullName>Audi</fullName>
@@ -15053,10 +15671,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>			
-            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -15066,6 +15680,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
             </values>
             <values>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15469,7 +16087,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>ANZ_Contact_Mandatory_Sales_Leads</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Contact is mandatory for Sales Leads.</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), RecordType.Name = 'Sales Lead', 
@@ -15481,10 +16099,49 @@ ISBLANK(Contact__c))</errorConditionFormula>
         <active>true</active>
         <description>Lead Status, Lead Type is mandatory for Sales Leads.</description>
         <errorConditionFormula>AND(
-$Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), OR(RecordType.Name = 'Sales Lead'), 
-ISPICKVAL( Lead_Type__c ,'') || (ISPICKVAL( Lead_Status__c ,"" )))</errorConditionFormula>
-        <errorMessage>Please fill Lead Status, Lead Type to proceed further</errorMessage>
+$Profile.Name != 'IntegrationAPI', OR($Permission.AUGeneric,$Permission.NZGeneric), OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
+ISPICKVAL( Lead_Type__c ,'') )</errorConditionFormula>
+        <errorMessage>Please fill Lead Type to proceed further</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>ANZ_Lead_Status_Check_After_Assigned</fullName>
+        <active>true</active>
+        <description>Before assigning dealer, Lead Status can not be Assigned.</description>
+        <errorConditionFormula>AND( 
+OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
+ISPICKVAL( StageName ,'Assigned'), 
+(ISBLANK(Assigned_Dealer__c)), 
+OR($Permission.AUGeneric,$Permission.NZGeneric), 
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>StageName</errorDisplayField>
+        <errorMessage>Before assigning dealer, Lead Status can not be Assigned.</errorMessage>
+    </validationRules>
+    
+	<validationRules>
+        <fullName>ANZ_Lost_Reason_is_mandatory</fullName>
+        <active>true</active>
+        <description>When status of lead is marked as 'Closed -Lost' then 'Lost Reason' is mandatory.</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+OR($Permission.AUGeneric,$Permission.NZGeneric),
+OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
+ISPICKVAL(StageName ,'Closed Lost') &amp;&amp;  ISPICKVAL(CAC_Lost_Reason__c,"" ))</errorConditionFormula>
+        <errorMessage>Lost reason field is mandatory, if the Lead status is Lost</errorMessage>
+    </validationRules>
+	
+	<validationRules>
+        <fullName>ANZ_Lost_Subtype_Lost_Reason_Mandatory</fullName>
+        <active>true</active>
+        <description>If the status is</description>
+        <errorConditionFormula>AND(
+$Profile.Name != 'IntegrationAPI', 
+OR($Permission.AUGeneric,$Permission.NZGeneric),
+OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'),
+ISPICKVAL( StageName ,'Closed Lost') &amp;&amp; (ISPICKVAL(CAC_Lost_Reason__c,"" ) ||ISPICKVAL(Lost_Sub_Type__c,"" )) )</errorConditionFormula>
+        <errorMessage>Lost sub type and Reason is mandatory when stage is Closed Lost</errorMessage>
+    </validationRules>
+	
+	
     <validationRules>
         <fullName>Account_email_Id_mandatory_order_placed</fullName>
         <active>false</active>
@@ -15571,7 +16228,9 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Lost_Dealer_Required_Check</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',$Permission.INGeneric, OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
+OR($Permission.INGeneric,$Permission.AUGeneric,$Permission.NZGeneric),
+OR(RecordType.Name = 'Sales Lead',RecordType.Name = 'Aftersales Lead'), 
 ISPICKVAL(StageName,"Closed Lost"), 
 ISNULL(Lost_Date__c) 
 )</errorConditionFormula>

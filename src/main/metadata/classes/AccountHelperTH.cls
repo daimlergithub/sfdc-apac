@@ -1,6 +1,6 @@
 /* *
 *  Utility for Trigger on Account for TH(Thailand)
-* Author: Mohammed Touseef Ahmed
+* Author: Mohammed  Touseef Ahmed
 *Dhanamjaya  modfied
 *
 * Created Date : 2017-01-23
@@ -1046,26 +1046,7 @@ public class AccountHelperTH {
         if (!test.isrunningtest())
             UtilWebService.entityUpdateNotification(orgId, sfdcId, sfdcTypeName, sfdcMarketDiscriminator, updateType, serlializedObject);
     }
-    /*
-    SN20170929- Added code for create and update of data for ucid.
     
-    */
-
-    public static void createUpdateCDMUCID(string updateType, string MarketDiscriminator, list < account > accountlist) {
-        try {
-
-            set < ID > accids = new set < ID > ();
-            for (Account accrec: accountlist) {
-
-                accids.add(accrec.id);
-            }
-            CDMInformatica_Services.createCustomerCDM(accids, MarketDiscriminator, updateType);
-        }
-        Catch(exception e) {
-            CustomLogUtil.CustomLoggingEntry(' AccountHelper th Exception Occurred ' + e + '-' + e.getlinenumber());
-
-        }
-    }
     /*    
 It is a temporary code fix for the phone format issue following these 3 rules
 1) If it contains '+ ' or if the number < 9 do nothing.
@@ -1149,6 +1130,60 @@ It would be replaced by Informatica/Middleware  */
             if (acc.Market__c == '' || acc.Market__c == NULL) {
                 acc.Market__c = acc.MD__c;
             }
+        }
+    }
+    
+    //share accounts after merging
+    public static void shareAccountMerge(List<Account> accLst)
+    {
+        List<ID> softDeletedAccountIdLst=new List<Id>();
+        List<String> UCIDLst=new List<String>();
+        for(Account acc:accLst)
+        {
+            softDeletedAccountIdLst.add(acc.Id);
+            UCIDLst.add(acc.UCID__c);
+        }
+        List<Account> goldenAccountLst=[select Id,UCID__c from Account where ID NOT IN:softDeletedAccountIdLst and UCID__c IN:UCIDLst];
+        List<Account_Link__c> accLinkLst=[Select fromRole__c,toRole__r.UCID__c,RetailDealer_ND_Code__c from Account_Link__c where toRole__c IN:softDeletedAccountIdLst and (recordtypeId=:retailPerson_RecordTypeId or recordTypeId=:retailCompany_RecordTypeId)];
+        List<String> grpNameLst=new List<String>();
+        Map<String,String> softDeletedAccountUCID2GrpNameMap=new Map<String,String>();
+        if(accLinkLst!=null && accLinkLst.size()>0)
+        {
+            for(Account_Link__c accLink:accLinkLst)
+            {
+                String grpName='TH'+accLink.RetailDealer_ND_Code__c;
+                grpNameLst.add(grpName);
+                softDeletedAccountUCID2GrpNameMap.put(accLink.toRole__r.UCID__c, grpName);
+            }
+        }
+        if(grpNameLst!=null && grpNameLst.size()>0)
+        {
+            List<Group> grpLst=[select Id,Name from Group where Name IN:grpNameLst];
+            Map<String,Id> grpNameGrpIdMap=new Map<String,Id>();
+            if(grpLst!=null && grpLst.size()>0)
+            {
+                for(Group grpObj:grpLst)
+                {
+                    grpNameGrpIdMap.put(grpObj.Name, grpObj.Id);
+                }
+            }
+            List<AccountShare> accShareLst=new List<AccountShare>();
+            if(goldenAccountLst!=null && goldenAccountLst.size()>0)
+            {
+               
+                for(Account accObj:goldenAccountLst)
+                {
+                    AccountShare accShare=new AccountShare();
+                    accShare.AccountId=accObj.Id;
+                    accShare.UserOrGroupId=grpNameGrpIdMap.get(softDeletedAccountUCID2GrpNameMap.get(accObj.UCID__c));
+                    accShare.AccountAccessLevel='Edit';
+                    accShare.CaseAccessLevel='None';
+                    accShare.OpportunityAccessLevel='None';
+                    accShareLst.add(accShare);
+                }
+            }
+            if(accShareLst!=null && accShareLst.size()>0)
+                insert accShareLst;
         }
     }
 }

@@ -224,6 +224,53 @@
                         <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Indemnity_Amount__c.Label}"/>
                         <apex:outputText value="{!IndemnityaAmountaac}"/>  
               </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Cross_point_month_and_year__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Cross_point_month_and_year__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Cross_point_month_and_year__c.Label}"/>
+                        <apex:outputText value="{!Crosspoint}" />  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Outstanding_Balance_amount__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Outstanding_Balance_amount__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Outstanding_Balance_amount__c.Label}"/>
+                        <apex:outputText value="{!Outstanding}" />  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Proto_Market_Value_amount__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Proto_Market_Value_amount__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Proto_Market_Value_amount__c.Label}"/>
+                        <apex:outputText value="{!ProtoMarket}" />  
+              </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Final_GAP_Amount__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Final_GAP_Amount__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Final_GAP_Amount__c.Label}"/>
+                        <apex:outputText value="{!FinalGAPAmount}" />  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Evaluation_Result_P1_P2_Blank__c.Label}"/>
+                        <apex:outputField value="{!rettsk.Evaluation_Result_P1_P2_Blank__c}"/>  
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                        <apex:outputLabel value="{!$ObjectType.Retail_Task__c.fields.Evaluation_Result_P1_P2_Blank__c.Label}"/>
+                        <apex:outputText value="{!EvaluationResult}" />  
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                 
+                          
+              </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem rendered="{!$User.ContactId !=null}">                 
+                       
+              </apex:pageBlockSectionItem>
+
               <apex:pageBlockSectionItem >
               </apex:pageBlockSectionItem>
                <apex:pageBlockSectionItem rendered="{!$User.ContactId==null}">                

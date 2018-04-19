@@ -205,6 +205,61 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Outstanding_Balance_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Outstanding Balance amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Proto_Market_Value_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Proto Market Value amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Cross_point_month_and_year__c</fullName>
+        <externalId>false</externalId>
+        <label>Cross point month and year</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Evaluation_Result_P1_P2_Blank__c</fullName>
+        <externalId>false</externalId>
+        <label>Evaluation Result P1/P2/Blank</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Final_GAP_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Final GAP Amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Bonus_Amount2__c</fullName>
         <externalId>false</externalId>
@@ -600,6 +655,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Finance Address</label>
         <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Finance_ContactName__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.Account__r.LastName &amp;' '&amp; Contract__r.Account__r.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Finance ContactName</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1797,6 +1863,33 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK
 }
 }</url>
     </webLinks>
+	<webLinks>
+        <fullName>Convert_to_Lead_MY</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Convert To Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+
+var marketusr={!ISPICKVAL($User.Market__c , "MY")};
+if(marketusr){
+ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLeadMY?CampaignId={!IF( ISBLANK(Retail_Campaign__c.Id),Campaign.Id,Retail_Campaign__c.Id)}");
+}else{
+ var aid = "{!Account.Id}";
+if(aid != '')
+{
+  window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLeadMY?CampaignId={!Account.Id}");
+}
+else
+{
+window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLeadMY?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}");
+}
+}</url>
+    </webLinks>
     <webLinks>
         <fullName>Convert_to_lead1</fullName>
         <availability>online</availability>
@@ -1867,6 +1960,25 @@ alert('You cannot create campaign members for this campaign status');
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
 window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_LKID={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
+}else
+{
+alert('You cannot create campaign members for this campaign status');
+}</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_Retail_Campaign_Member_MY</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Campaign Member</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
+if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
+window.open("{!URLFOR($Site.Prefix)}/a1K/e?00Np0000001FVEr={!Retail_Campaign__c.Name}&amp;00Np0000001FVEr_lkid={!Retail_Campaign__c.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 }else
 {
 alert('You cannot create campaign members for this campaign status');
@@ -1988,5 +2100,4 @@ alert('You cannot create campaign members for this campaign status');
 	
 	
 </CustomObject>
-
 

@@ -237,6 +237,28 @@
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Company_account_and_person_account_should_be_shared_with_all_the_people_for_IN</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account,Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Account with record type : Company account and person shared with all MPC users</description>
+        <name>Company account and person account should be shared with all the people for IN</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
         <fullName>External_Agency_View_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>External_Marketing_Agency</roleAndSubordinatesInternal>

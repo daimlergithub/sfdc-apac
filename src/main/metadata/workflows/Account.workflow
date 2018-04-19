@@ -65,14 +65,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Change_Preferred_Phone</fullName>
-        <field>Preferred_Phone__c</field>
-        <name>Change Preferred Phone</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>	
 	<fieldUpdates>
         <fullName>Change_Status_To_Prospect</fullName>
         <field>Status__c</field>
@@ -240,15 +232,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>UpdateDataSource</fullName>
-        <field>System_Data_Source__c</field>
-        <formula>&apos;Salesforce&apos;</formula>
-        <name>UpdateDataSource</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Allow_Data_Sharing</fullName>
         <description>Set Allow Data Sharing to &apos;Yes&apos;</description>
         <field>Allow_Data_Sharing2__c</field>
@@ -292,15 +275,6 @@
         <field>Country__c</field>
         <literalValue>Australia</literalValue>
         <name>Update Country Field AU</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Country_Field_JP</fullName>
-        <field>Country__c</field>
-        <literalValue>Japan</literalValue>
-        <name>Update Country Field JP</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -374,15 +348,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Preferred_Language_Field_JP</fullName>
-        <field>Preferred_Language__c</field>
-        <literalValue>Japanese</literalValue>
-        <name>Update Preferred Language Field JP</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Preferred_Language_Field_KR</fullName>
         <field>Preferred_Language__c</field>
         <literalValue>Korean</literalValue>
@@ -409,15 +374,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>UpdatedConsentUser</fullName>
-        <field>Updated_Consent_User__c</field>
-        <formula>$User.Username</formula>
-        <name>UpdatedConsentUser</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>WorkPhone_Update</fullName>
@@ -587,17 +543,6 @@
         <description>This will Change Account Status To Prospect for thailand accounts at the time of create depends on vehicle amount</description>
         <formula>AND(OR(ISBLANK(Vehicle_Amount__c ),Vehicle_Amount__c  = 0 ),MD__c=&apos;TH&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Change Preferred phone to null</fullName>
-        <actions>
-            <name>Change_Preferred_Phone</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <description>When field “Preferred contact method” value is set to others from “Phone”,the field value changes to null</description>
-        <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Home Phone Checkbox autopopulate</fullName>
@@ -786,7 +731,7 @@
         </actions>
         <active>true</active>
         <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;No&quot;</description>
-        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;), MD__c = &apos;TH&apos; )</formula>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;),  OR( MD__c = &apos;TH&apos; , ISPICKVAL( Market__c , &apos;TR&apos;) ))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -809,7 +754,7 @@
         </actions>
         <active>true</active>
         <description>Update the Data Source,Update Consent User and Update Consent Date when Personal_Agreement__c is &quot;Yes&quot;</description>
-        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;Yes&apos;), MD__c = &apos;TH&apos; )</formula>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;Yes&apos;),  OR(MD__c = &apos;TH&apos;, ISPICKVAL( Market__c , &apos;TR&apos;) )  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -827,6 +772,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <criteriaItems>
             <field>Account.Personal_Agreement__c</field>
             <operation>equals</operation>
@@ -836,6 +782,11 @@
             <field>Account.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
         </criteriaItems>
         <description>If personal agreement value change to ‘Withdrawn’ by dealer then will update the updated consent date and updated consent user field and also source field.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -872,26 +823,6 @@
             <value>Person Account</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Send Assigned Leads to Dealer Everyday</fullName>
-        <actions>
-            <name>Dealer_Email_Notification_on_Amount_of_Assigned_Leads</name>
-            <type>Alert</type>
-        </actions>
-        <active>false</active>
-        <description>/* 
-Created by: Mouse Liu 
-Used by: Lead__c (US-Lead-14) 
-Function: Send Assigned Dealer Amount to dealer everyday
-Used in: 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/</description>
-        <formula>AND (     Assigned_Lead_Amount_of_Everyday__c &gt; 0,     ISCHANGED(Assigned_Lead_Amount_of_Everyday__c) )</formula>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Allow Data Sharing</fullName>
@@ -950,21 +881,6 @@ ISCHANGED( Phone ), ISCHANGED( Fax ), ISCHANGED( Fax2__c ), ISCHANGED( Email3__c
 ISCHANGED(Main_Dealer__c)
 )</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Preferred Language and Country JP</fullName>
-        <actions>
-            <name>Update_Country_Field_JP</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Preferred_Language_Field_JP</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <description>Update “Preferred Language and Country field&quot; based on Market Discriminator for JP</description>
-        <formula>ISPICKVAL($User.Market__c,&apos;JP&apos;)</formula>
-        <triggerType>onCreateOnly</triggerType>
     </rules>
 	<rules>
         <fullName>Update Preferred Language and Country AU</fullName>

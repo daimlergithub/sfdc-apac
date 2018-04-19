@@ -25,7 +25,9 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf{
         if ((isAfter && isUpdate)){
 			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
 				AddressHelperMY.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
-				AddressHelperMY.updateAddressRetailCopies((map<id,Address__c>)trigger.newMap, Label.MY);
+				if(Util_GetPermissionList.checkAccessOnUser(Label.ALAddressUpdate)){
+                AddressHelperMY.updateAddressRetailCopies((map<id,Address__c>)trigger.newMap, Label.MY);
+                }
 			}
         }
         
@@ -51,7 +53,7 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf{
         }
 
         if(isAfter && isinsert){
-			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+			if(Util_GetPermissionList.checkAccessOnUser(Label.AccCDM)){
 				if(TriggerRecursiveCheck.run){
 					TriggerRecursiveCheck.runOnce();
 					AddressHelpermy.updateAddressCDM(trigger.new,Label.MY,Label.UpdateContext);
@@ -60,7 +62,7 @@ public class TriggerAddressTriggerHandlerMY implements TriggerHandlerIf{
 		}
 		
         if(isafter && isupdate){
-			if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
+			if(Util_GetPermissionList.checkAccessOnUser(Label.AccCDM)){
 				if(TriggerRecursiveCheck.run){
 					TriggerRecursiveCheck.runOnce();
 					AddressHelperMY.updateAddressCDM(trigger.new,Label.MY,Label.UpdateContext);

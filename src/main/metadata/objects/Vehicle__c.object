@@ -1618,6 +1618,17 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>ColorCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Color Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Colour__c</fullName>
         <description>/* 
@@ -2694,6 +2705,18 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>GrossVehicleWeight__c</fullName>
+        <externalId>false</externalId>
+        <label>Gross Vehicle Weight</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Height__c</fullName>
         <externalId>false</externalId>
@@ -3024,6 +3047,17 @@ DATE(YEAR(FirstRegistrationDate__c) + 3, Month(FirstRegistrationDate__c),Day(Fir
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>InteriorCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Interior Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>LastServiceDate__c</fullName>
@@ -5514,6 +5548,15 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_Option
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>OptionDescription__c</fullName>
+        <externalId>false</externalId>
+        <label>Option Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>Portal_Vehicle_ID__c</fullName>
         <externalId>false</externalId>
@@ -5885,6 +5928,17 @@ Attribute in Data Dictionary object Vehicle is Vehicle_Source</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>SpecificationNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>Specification Number</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>System_Data_Source__c</fullName>
@@ -22806,3 +22860,5 @@ alert('This button is for korea users');
 }</url>
     </webLinks>
 </CustomObject>
+
+

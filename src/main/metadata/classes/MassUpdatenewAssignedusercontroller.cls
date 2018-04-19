@@ -65,7 +65,7 @@ public without sharing class MassUpdatenewAssignedusercontroller
          accountList = new List<WrapperMassUpdate>();
          if(accUsr.OwnerId !=null)
         {
-        for(Account_Link__c acc : [SELECT ID,Name,OwnerId ,Retail_Sales_Consultant__c,toRole__c FROM Account_Link__c WHERE Retail_Sales_Consultant__c=:accUsr.OwnerId  ]){
+        for(Account_Link__c acc : [SELECT ID,Name,OwnerId ,Retail_Sales_Consultant__c,toRole__c FROM Account_Link__c WHERE Retail_Sales_Consultant__c=:accUsr.OwnerId  LIMIT 1000]){
             accountList.add(new WrapperMassUpdate(acc));
         }    
         }

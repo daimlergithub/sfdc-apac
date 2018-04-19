@@ -41,7 +41,9 @@ public with sharing class AfterSalesLeadController {
     if(chk != 1)isHide = true;
     if(chkcomp != 1)isHidecomp = true;
         opp = new opportunity();
-
+        string accID = ApexPages.currentPage().getParameters().get('accID');
+        if(accID.length() != 0)
+            opp.accountId = accID; 
         User uObj = [SELECT Id,Market__c  FROM User WHERE Id=:UserInfo.getUserId()] ;      
         recTypeId = UtilRecordType.getRecordTypeIdByName('Opportunity', System.Label.Aftersales_Lead);
         opp.RecordTypeId = recTypeId;
@@ -55,6 +57,11 @@ public with sharing class AfterSalesLeadController {
         tradeVehc.add(tld);
         leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_TradeIn_Record_Type);
         tld.RecordTypeId = leadrecTypeId;
+
+		if ( opp.market__c =='AU' || opp.market__c == 'NZ'){ //Sada Added as per Defect DF-17 for ANZ Market 
+            Date dueDate = System.today() +90;  
+                  opp.CloseDate =dueDate ;
+            } 
     }
 
     //To add more records for Interested Vehicle
@@ -117,7 +124,18 @@ public with sharing class AfterSalesLeadController {
 
 
     }
-  
+  //function to check Vehicle make in Tradin info is numeric.
+  public void Vehmake(){
+    valSuccess = true;
+        system.debug('yom: ' + tradeVehc[0].Year_of_Manufacture__c);
+    string yom = tradeVehc[0].Year_of_Manufacture__c;
+    if (yom != null && (!yom.isNumeric() || yom.length() != 4))
+        {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, System.Label.IN_Year_Of_Make));
+          valSuccess = false;
+      }
+    }
+    
   public void PreferredChk(){
     chk = 1;
     prefcount = 0;
@@ -171,9 +189,10 @@ public with sharing class AfterSalesLeadController {
   }
     
     public pageReference saveOpp(){
+    Vehmake();
         system.debug('valSuccess: '+valSuccess);
         if(valSuccess) {
- 		try{
+        try{
             DMLManagerService.insertAsSystem(opp);
         }
         catch (DmlException e){

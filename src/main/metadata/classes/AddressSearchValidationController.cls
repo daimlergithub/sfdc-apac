@@ -2230,7 +2230,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {
                     system.debug('Entered>>>>');
                     MBKrefreshPage= true;
-                    //AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                    AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.MBK_ONLINE_DEDUP_CHECKUP));
                 }
             }
@@ -2483,7 +2483,7 @@ If the user is Saving  same address which matches the fields returned by toleran
                 {
                     system.debug('Entered>>>>');
                     MBKrefreshPage= true;
-                    //AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
+                    AccountHelperKR.CreateRetailCopy(lstAcc, true, false);
                      ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Warning,Label.MBK_ONLINE_DEDUP_CHECKUP));
                 }
             }
@@ -4277,6 +4277,15 @@ public PageReference goToMarketSpecificPage() {
         String market = [select market__c from User where id =:UserInfo.getUserId()].market__c;
         if (market != null && market != '' && market == Label.IN){
             List<CreateAccountVFSetting__mdt> lstpageSetting = [select VFPageName__c from CreateAccountVFSetting__mdt where market__c = :Label.IN limit 1];
+            if (lstpageSetting.size() > 0){
+                pageSetting = lstpageSetting[0];
+            }
+            if (pageSetting != null){
+                vfpage = pageSetting.VFPageName__c;
+            }
+        }
+        else if(market != null && market != '' && market == Label.TR){
+            List<CreateAccountVFSetting__mdt> lstpageSetting = [select VFPageName__c from CreateAccountVFSetting__mdt where market__c = :Label.TR limit 1];
             if (lstpageSetting.size() > 0){
                 pageSetting = lstpageSetting[0];
             }

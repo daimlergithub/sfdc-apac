@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
 	<labels>
         <fullName>Contact_Lead_Status</fullName>
@@ -6,6 +6,13 @@
         <protected>false</protected>
         <shortDescription>Contact Lead Status</shortDescription>
         <value>Assigned,New</value>
+    </labels>
+	<labels>
+        <fullName>Auto_Batch_Campaign_Member_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Auto_Batch_Campaign_Member_Status</shortDescription>
+        <value>Ready,Executed</value>
     </labels>
 	 <labels>
         <fullName>masterLeadMerge</fullName>
@@ -578,6 +585,13 @@
         <protected>false</protected>
         <shortDescription>Address</shortDescription>
         <value>Addresses</value>
+    </labels>
+    <labels>
+        <fullName>AddressInvalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressInvalid</shortDescription>
+        <value>Invalid Address!</value>
     </labels>
     <labels>
         <fullName>AddressTypeError</fullName>
@@ -2316,6 +2330,13 @@
         <value>For Company Search Name and one of Contact Number has to be entered</value>
     </labels>
     <labels>
+        <fullName>CompanyAccountSearchErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CompanyAccountSearchErrorMessage</shortDescription>
+        <value>For Company Search Name, Work Phone , Status, Data Source and City has to be entered.</value>
+    </labels>
+    <labels>
         <fullName>Company_Account_Information</fullName>
         <categories>AccountCreationPage</categories>
         <language>en_US</language>
@@ -2979,6 +3000,13 @@
         <protected>false</protected>
         <shortDescription>Districe Native should not be null</shortDescription>
         <value>Districe Native should not be null</value>
+    </labels>
+    <labels>
+        <fullName>DistrictError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DistrictError</shortDescription>
+        <value>District is Mandatory.</value>
     </labels>
     <labels>
         <fullName>District_should_not_be_null</fullName>
@@ -4117,6 +4145,13 @@ please contact the number below.</value>
         <value>For Address creation, Address Line 1, Country, State, City, Zip code are mandatory.</value>
     </labels>
     <labels>
+        <fullName>IN_City_Field_Format</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_City_Field_Format</shortDescription>
+        <value>City field must not contain any special Characters and Digits</value>
+    </labels>
+    <labels>
         <fullName>IN_City_Vaidation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4145,6 +4180,13 @@ please contact the number below.</value>
         <value>Cannot select more than one Preferred Interested Vehicle</value>
     </labels>
     <labels>
+        <fullName>IN_Phone_Numbers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_Phone_Numbers</shortDescription>
+        <value>Atleast ONE Phone Number is mandatory for Account Creation</value>
+    </labels>
+    <labels>
         <fullName>IN_Postal_Code_validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4164,6 +4206,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>IN_Vehicle_Info_Message</shortDescription>
         <value>Enter all the required information above for adding vehicle details.</value>
+    </labels>
+    <labels>
+        <fullName>IN_Year_Of_Make</fullName>
+        <categories>IN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IN_Year_Of_Make</shortDescription>
+        <value>Year of manufacture in Trade-in Section should be Numeric and 4 digit long.</value>
     </labels>
     <labels>
         <fullName>I_don_t_know_no_statement</fullName>
@@ -6673,6 +6723,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>First Name, Last Name and any of the contact information is required</value>
     </labels>
     <labels>
+        <fullName>PersonAccountSearchErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccountSearchErrorMessage</shortDescription>
+        <value>For Customer Search First Name, Last Name, Status, Data Source and City is required</value>
+    </labels>
+    <labels>
         <fullName>PersonAccount_Record_Type_From_Account</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -6744,7 +6801,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>PhoneService</shortDescription>
         <value>Phone (Service)</value>
     </labels>
-	<labels>
+    <labels>
+        <fullName>Phone_Number_Starts_With_Sign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone Number Starts With + Sign</shortDescription>
+        <value>Home Phone number, Work Phone number, Fax number and Mobile Phone number should start with + sign.</value>
+    </labels>
+    <labels>
         <fullName>Phone_should_be_less_than_or_equal_to_11_digits</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -7681,6 +7745,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>RSVP(This is Used for RSVP implementation)</shortDescription>
         <value>RSVP</value>
     </labels>
+	<labels>
+		<fullName>ALAddressUpdate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ALAddressUpdate</shortDescription>
+        <value>ALAddressUpdate</value>
+    </labels>
     <labels>
         <fullName>Range_Model</fullName>
         <language>en_US</language>
@@ -8068,6 +8139,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <value>Retail copy is already present</value>
     </labels>
     <labels>
+        <fullName>Retention_Lead_Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retention Lead Owner</shortDescription>
+        <value>00G0l0000013SRN</value>
+    </labels>
+	<labels>
         <fullName>S5</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -9840,6 +9918,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Slave Record</value>
     </labels>
     <labels>
+        <fullName>SocialIdError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SocialIdError</shortDescription>
+        <value>Enter valid Social ID Number.</value>
+    </labels>
+    <labels>
         <fullName>Somewhat_disappointed</fullName>
         <categories>Flows</categories>
         <language>en_US</language>
@@ -10134,6 +10219,69 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>TH_purchased_vehicle_related_information</shortDescription>
         <value>Please enter purchased vehicle related information as the lead the Lead status is set as Purchased</value>
+    </labels>
+    <labels>
+        <fullName>TR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR</shortDescription>
+        <value>TR</value>
+    </labels>
+    <labels>
+        <fullName>TRAddressMandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRAddressMandatory</shortDescription>
+        <value>As you have opted for Postal opt in, Address Line 1 and Address Line 2 are Mandatory.</value>
+    </labels>
+    <labels>
+        <fullName>TRCountry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRCountry</shortDescription>
+        <value>Turkey</value>
+    </labels>
+    <labels>
+        <fullName>TREmail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TREmail</shortDescription>
+        <value>As you have opted for Email, Please enter the Email address.</value>
+    </labels>
+    <labels>
+        <fullName>TRGeneric</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRGeneric</shortDescription>
+        <value>TRGeneric</value>
+    </labels>
+    <labels>
+        <fullName>TRPhone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRPhone</shortDescription>
+        <value>As you have opted for Phone, Please enter atleast one contact Information.</value>
+    </labels>
+    <labels>
+        <fullName>TRPhoneCountryCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRPhoneCountryCode</shortDescription>
+        <value>+90</value>
+    </labels>
+    <labels>
+        <fullName>TRSMS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRSMS</shortDescription>
+        <value>As you have opted for SMS, Please enter a valid Mobile Number.</value>
+    </labels>
+    <labels>
+        <fullName>TRZipCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRZipCode</shortDescription>
+        <value>ZIP CODE should be 5 digits.</value>
     </labels>
     <labels>
         <fullName>TargetVIN</fullName>
@@ -10689,6 +10837,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>User Notification Settings</shortDescription>
         <value>User Notification Settings</value>
+    </labels>
+    <labels>
+        <fullName>VATNoError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VATNoError</shortDescription>
+        <value>Enter valid Vat Number.</value>
     </labels>
     <labels>
         <fullName>VEP_Seasonal_Check</fullName>
@@ -11429,6 +11584,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Need contact Information</shortDescription>
         <value>Please Enter Atleast one contact Information</value>
+    </labels>
+    <labels>
+        <fullName>contact_invalid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>contact_invalid</shortDescription>
+        <value>Invalid Country Code for Contact Information</value>
     </labels>
     <labels>
         <fullName>delete_confirmation_message</fullName>

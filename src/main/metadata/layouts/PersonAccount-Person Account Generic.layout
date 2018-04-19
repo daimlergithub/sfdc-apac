@@ -58,12 +58,11 @@
                 <behavior>Edit</behavior>
                 <field>Race__c</field>
             </layoutItems>
-			 <layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Entity__c</field>
             </layoutItems>
-			
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Alias__c</field>
             </layoutItems>
@@ -116,7 +115,7 @@
                 <behavior>Edit</behavior>
                 <field>Company_Name__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Website</field>
             </layoutItems>
@@ -152,7 +151,7 @@
                 <behavior>Readonly</behavior>
                 <field>Created_by_Dealership__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
@@ -234,7 +233,7 @@
                 <behavior>Edit</behavior>
                 <field>Tenure__c</field>
             </layoutItems>
-         </layoutColumns>
+        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -504,12 +503,12 @@
         <fields>Campaign__c</fields>
         <relatedList>SurveyTaker__c.Contact__c</relatedList>
     </relatedLists>
-	<relatedLists>
-	    <excludeButtons>New</excludeButtons>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Service_Vehicle_VIN__c</fields>
         <fields>Service_Number__c</fields>
-		<fields>Service_Date__c</fields>
+        <fields>Service_Date__c</fields>
         <fields>Service_Code__c</fields>
         <fields>Service_Date_In__c</fields>
         <fields>Service_Date_Out__c</fields>
@@ -531,7 +530,7 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Campaign_Name__c</fields>
         <fields>Campaign_Type__c</fields>
@@ -539,6 +538,24 @@
         <fields>LAST_UPDATE</fields>
         <fields>Campaign_Execution_Date__c</fields>
         <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Campaign_Member__c.Contact_Id__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Record_Type_Name__c</fields>
+        <fields>Status__c</fields>
+        <fields>Child_Campaign_Status__c</fields>
+        <fields>Start_Date__c</fields>
+        <fields>Close_Date__c</fields>
+        <fields>Campaign_Type__c</fields>
+        <relatedList>Retail_Campaign__c.Dealer_Name__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

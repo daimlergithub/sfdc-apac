@@ -1,16 +1,23 @@
 <!-- VF page added For Creation of Sales Leads;  Lead2Opty -->
-<apex:page standardController="opportunity" extensions="SalesLeadController">   
+<apex:page standardController="opportunity" extensions="SalesLeadController" lightningStylesheets="true">   
     <apex:sectionHeader title="New Sales Lead" subtitle="{!opp.Name}"/>
     <apex:form >
         <apex:pageBlock title="Sales Lead" mode="edit">
             <apex:pageMessages id="msg" />
         <!--------------  Lead Info Section -------------->
-            <apex:pageBlockSection title="Lead Information" columns="2">
+        <!--Sada Commented for ANZ Market as per Defect DF-17-->
+			<apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( NOT($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_LeadInfo}"  var="f">
                             <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
                 </apex:repeat>
             </apex:pageBlockSection>
             
+            <apex:pageBlockSection title="Lead Information" columns="2" rendered="{!IF( ($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">
+                <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.ANZSales_LeadInfo}"  var="f">
+                            <apex:inputField value="{!opp[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+			
         <!--------------  Dealer Info Section -------------->
             <apex:pageBlockSection title="Dealer Information" columns="2">
                 <apex:repeat value="{!$ObjectType.Opportunity.FieldSets.GenericSales_DealerInfo}"  var="f">
@@ -29,8 +36,9 @@
             <apex:pageBlockSection title="Lead Customer Information" columns="2">
                 <!--<apex:inputField value="{!opp.AccountId}" onchange="Vehrel(this.value)"/>-->
                 <apex:inputField value="{!opp.AccountId}"  required="true">
-                    <apex:actionSupport event="onchange" action="{!Vehrel}"/>
+                    <apex:actionSupport event="onchange" action="{!Vehrel}" rerender="pb4"/> 
                 </apex:inputField>
+				<apex:inputField value="{!opp.Contact__c}" required="true" /> <!-- Added By Madhusudhan as per MBANZ-148 R1/S2 -->
             </apex:pageBlockSection>
             
             
@@ -81,7 +89,7 @@
             <apex:pageBlockSection title="Interested Vehicle Information" columns="1">
              <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
             <apex:pageMessages id="pgmsg"/>  
-                <apex:commandButton value=" Add Interested Vehicle" action="{!AddIntRecord}" reRender="pb1" rendered="{!isHide}"/>
+                <apex:commandButton value=" Add Interested Vehicle" action="{!AddIntRecord}" reRender="pb1, pgmsg" rendered="{!isHide}"/>
                 <apex:pageBlockTable id="pb1" value="{!intVehicle}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Car Model">
                         <apex:inputField value="{!item.Car_Model__c}" onchange="UpdateModInfo(this)"/>
@@ -107,7 +115,7 @@
             <apex:pageBlockSection title="Competitor Vehicle Information" columns="1">
                 <apex:outputText >{!$Label.IN_Vehicle_Info_Message}</apex:outputText>
                 <apex:pageMessages id="pgmsg1"/>
-                <apex:commandButton value=" Add Competitor Vehicle" action="{!AddCompRecord}" reRender="pb2" rendered="{!isHidecomp}"/>
+                <apex:commandButton value=" Add Competitor Vehicle" action="{!AddCompRecord}" reRender="pb2, pgmsg1" rendered="{!isHidecomp}"/>
                 <apex:pageBlockTable id="pb2" value="{!compVehc}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Car Model">
                         <apex:inputField value="{!item.Car_Model_Competitor__c}" onchange="UpdateModInfo(this)"/>
@@ -131,6 +139,7 @@
             <br></br>
             
             <apex:pageBlockSection title="Trade-In Vehicle Information" columns="1">
+            <apex:pageMessages id="msg3" />
                 <apex:pageBlockTable id="pb3" value="{!tradeVehc}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Trade-In Vehicle">
                         <apex:inputField value="{!item.Trade_In_Vehicle__c}"/>
@@ -151,7 +160,7 @@
             </apex:pageBlockSection>
             
             <apex:pageBlockSection title="Current Vehicles" columns="1">
-                <apex:pageBlockTable id="pb2" value="{!vehRel}"  var="item" title="Vehicle Information">
+                <apex:pageBlockTable id="pb4" value="{!vehRel}"  var="item" title="Vehicle Information">
                     <apex:column headerValue="Car Model">
                         <apex:outputLabel value="{!item.Vehicle_Model__c}" />
                     </apex:column>

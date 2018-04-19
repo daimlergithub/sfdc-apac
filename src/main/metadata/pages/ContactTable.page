@@ -852,9 +852,8 @@
                        </apex:outputPanel>          
                                                            
                        </td>        
-                       <td><apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />        
-                           <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>       
-                       </td>        
+                       <td>    <!-- Soumya Removed status as per Defect DF-19  on 2018/April/16-->
+					   </td>       
                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_By__c}" />        
                                                     
                        </td>            
@@ -879,13 +878,11 @@
                        <td><apex:inputField value="{!ParAcc.Secondary_Email__c}"  rendered="{!editMode}"/>       
                            <apex:outputField value="{!ParAcc.Secondary_Email__c}"  rendered="{!!editMode}"/>     
                        </td>                                
-                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
-                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       <td>      
                        </td>        
-                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
-                                                    
+                       <td>                         
                        </td>            
-                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date2__c}"/></td>              
+                       <td></td>              
                    </tr>        
                    <!-- 2018/April/6 Soumya W added as part of MBANZ-199 Start --> 
                      <tr>             
@@ -893,11 +890,9 @@
                        <td><apex:inputField value="{!ParAcc.Opt_In_Email__c}"  rendered="{!editMode}"/>       
                            <apex:outputField value="{!ParAcc.Opt_In_Email__c}"  rendered="{!!editMode}"/>     
                        </td>                                
-                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
-                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       <td>      
                        </td>        
-                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
-                                                    
+                       <td>
                        </td>            
                        <td><apex:outputField value="{!ParAcc.Email_Opt_IN_Last_Update_date__c}"/></td>              
                    </tr>  
@@ -907,11 +902,9 @@
                        <td><apex:inputField value="{!ParAcc.Opt_In_Phone__c}"  rendered="{!editMode}"/>       
                            <apex:outputField value="{!ParAcc.Opt_In_Phone__c}"  rendered="{!!editMode}"/>     
                        </td>                                
-                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
-                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       <td>     
                        </td>        
-                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
-                                                    
+                       <td>                      
                        </td>            
                        <td><apex:outputField value="{!ParAcc.Phone_Opt_IN_Last_Update_date__c}"/></td>              
                    </tr>  
@@ -921,11 +914,9 @@
                        <td><apex:inputField value="{!ParAcc.Opt_In_SMS3__c}"  rendered="{!editMode}"/>       
                            <apex:outputField value="{!ParAcc.Opt_In_SMS3__c}"  rendered="{!!editMode}"/>     
                        </td>                                
-                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
-                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       <td>      
                        </td>        
-                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
-                                                    
+                       <td>
                        </td>            
                        <td><apex:outputField value="{!ParAcc.SMS_Opt_IN_Last_Update_date__c}"/></td>              
                    </tr>  
@@ -935,11 +926,9 @@
                        <td><apex:inputField value="{!ParAcc.Opt_In_Mail__c}"  rendered="{!editMode}"/>       
                           <apex:outputField value="{!ParAcc.Opt_In_Mail__c}"  rendered="{!!editMode}"/>
                        </td>                                
-                       <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>        
-                           <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>      
+                       <td>     
                        </td>        
-                       <td><apex:outputField value="{!ParAcc.Email_Last_Modified_By2__c}" />        
-                                                    
+                       <td>
                        </td>            
                        <td><apex:outputField value="{!ParAcc.Mail_Opt_IN_Last_Update_date__c}"/></td>              
                    </tr>  
@@ -1132,7 +1121,7 @@
                    <tr>             
                        <th style="text-align: Right;">{!$Label.Mobile}</th>             
                        <td>     
-                         <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" rendered="{!editMode}" style="width:30px"/>       
+                         <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" rendered="{!if(editMode && mbCountryCode!= null, true,false)}" style="width:30px"/>       
                          <apex:inputText value="{!mbphoneNumber}" id="mbphoneNumber" rendered="{!editMode}" style="width:120px"/>       
                                 
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Mobile__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');       
@@ -1150,7 +1139,7 @@
                    <tr>             
                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>             
                        <td>     
-                         <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" rendered="{!editMode}" style="width:30px"/>       
+                         <apex:inputText value="{!hmCountryCode}" id="hmCountryCode" rendered="{!if(editMode && hmCountryCode != null, true,false)}" style="width:30px"/>       
                          <apex:inputText value="{!hmphoneNumber}" id="hmphoneNumber" rendered="{!editMode}" style="width:120px"/>       
                                 
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Individual_Home_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');        
@@ -1167,7 +1156,7 @@
                    <tr>             
                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                        
                        <td>     
-                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!editMode}" style="width:30px"/>       
+                        <apex:inputText value="{!wkCountryCode}" id="wkCountryCode" rendered="{!if(editMode && wkCountryCode != null, true,false)}" style="width:30px"/>       
                         <apex:inputText value="{!wkphoneNumber}" id="wkphoneNumber" rendered="{!editMode}" style="width:120px"/>        
                                 
                        <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.Work_Phone__c}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');     
@@ -1215,7 +1204,7 @@
                     <tr>                
                        <th style="text-align: Right;">{!$Label.Fax}</th>            
                        <td>     
-                         <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" rendered="{!editMode}" style="width:30px"/>     
+                         <apex:inputText value="{!faxCountryCode}" id="faxCountryCode" rendered="{!if(editMode && faxCountryCode != null, true,false)}" style="width:30px"/>     
                          <apex:inputText value="{!faxphoneNumber}" id="faxphoneNumber" rendered="{!editMode}" style="width:120px"/>     
                                 
                          <apex:outputPanel rendered="{!!editMode}"> <a href="javascript:sforce.console.cti.sendCTIMessage('/CLICK_TO_DIAL?DN='+encodeURIComponent('{!ParAcc.fax}')+'&ID={!ParAcc.Id}&ENTITY_NAME=Account');     

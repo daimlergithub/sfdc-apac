@@ -17,7 +17,7 @@ public class contactTableControllerINTest {
     static void createTestData() {        
         objAccount = new Account();
         objAccount.RecordTypeId = personAccRecordTypeId;
-        objAccount.Dealer_DMS_SR_Code__c='test code 2';
+        objAccount.Dealer_DMS_SR_Code__c='test code one';
         objAccount.Individual_Home_Phone__c = '+911234567890';
         objAccount.Home_Phone_2__c = '+911234567890';
         objAccount.Work_Phone__c = '+911234567890';
@@ -31,7 +31,7 @@ public class contactTableControllerINTest {
         objAccount.Fax = '+911234567890';
         objAccount.Area_code__c = '010';
         objAccount.MD__c = 'IN';
-        objAccount.LastName = 'galaxy1';
+        objAccount.LastName = 'galaxy one';
         objAccount.FirstName = 'First Name';
         objAccount.Salutation = 'Unknown';
         objAccount.Province__c = 'Shanghai';
@@ -39,16 +39,16 @@ public class contactTableControllerINTest {
         objAccount.MBK_Data_Source__c='Email';
         objAccount.Mobile__c = '+911234567890';
         objAccount.Mobile2__c = '+911234567891';
-        objAccount.Primary_Email__c = 'Email1';
-        objAccount.Primary_Fax__c = 'FAX2';
-        objAccount.Primary_Phone__c ='Other2';
+        objAccount.Primary_Email__c = 'EmailOther';
+        objAccount.Primary_Fax__c = 'FAX';
+        objAccount.Primary_Phone__c ='Other';
         insert objAccount; 
     }    
     
     static void createTestData1() {        
         objAccount = new Account();
         objAccount.RecordTypeId = personAccRecordTypeId;
-        objAccount.Dealer_DMS_SR_Code__c='test code 2';
+        objAccount.Dealer_DMS_SR_Code__c='test code two';
         objAccount.Individual_Home_Phone__c = '';
         objAccount.Home_Phone_2__c = '';
         objAccount.Work_Phone__c = '';
@@ -62,24 +62,24 @@ public class contactTableControllerINTest {
         objAccount.Fax = '';
         objAccount.Area_code__c = '010';
         objAccount.MD__c = 'IN';
-        objAccount.LastName = 'galaxy1';
-        objAccount.FirstName = 'First Name';
+        objAccount.LastName = 'galaxy two';
+        objAccount.FirstName = 'First Name one';
         objAccount.Salutation = 'Unknown';
         objAccount.Province__c = 'Shanghai';
         objAccount.ZipCode__c= '100234';
         objAccount.MBK_Data_Source__c='Email';
         objAccount.Mobile__c = '+911234567890';
         objAccount.Mobile2__c = '';
-        objAccount.Primary_Email__c = 'Email1';
-        objAccount.Primary_Fax__c = 'FAX2';
-        objAccount.Primary_Phone__c ='Other2';
+        objAccount.Primary_Email__c = 'EmailOth';
+        objAccount.Primary_Fax__c = 'FAXTwo';
+        objAccount.Primary_Phone__c ='OtherTwo';
         insert objAccount; 
     } 
     
     static void createTestData2() {        
         objAccount = new Account();
         objAccount.RecordTypeId = personAccRecordTypeId;
-        objAccount.Dealer_DMS_SR_Code__c='test code 2';
+        objAccount.Dealer_DMS_SR_Code__c='test code three';
         objAccount.Individual_Home_Phone__c = '';
         objAccount.Home_Phone_2__c = '';
         objAccount.Work_Phone__c = '';
@@ -93,17 +93,17 @@ public class contactTableControllerINTest {
         objAccount.Fax = '';
         objAccount.Area_code__c = '010';
         objAccount.MD__c = 'IN';
-        objAccount.LastName = 'galaxy1';
-        objAccount.FirstName = 'First Name';
+        objAccount.LastName = 'galaxythree';
+        objAccount.FirstName = 'First Name three';
         objAccount.Salutation = 'Unknown';
         objAccount.Province__c = 'Shanghai';
         objAccount.ZipCode__c= '100234';
         objAccount.MBK_Data_Source__c='Email';
         objAccount.Mobile__c = '1234567890';
         objAccount.Mobile2__c = '';
-        objAccount.Primary_Email__c = 'Email1';
-        objAccount.Primary_Fax__c = 'FAX2';
-        objAccount.Primary_Phone__c ='Other2';
+        objAccount.Primary_Email__c = 'Emailthree';
+        objAccount.Primary_Fax__c = 'FAXthree';
+        objAccount.Primary_Phone__c ='Otherthree';
         insert objAccount; 
     } 
     

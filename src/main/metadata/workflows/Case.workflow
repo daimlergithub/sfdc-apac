@@ -998,6 +998,26 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_vehicle_Class</fullName>
+        <description>Update car class in case</description>
+        <field>Vehicle_Class_text__c</field>
+        <formula>TEXT(Vehicle__r.Class__c)</formula>
+        <name>Update vehicle Class</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_vehicle_brand</fullName>
+        <description>Update car brand from vehicle lookup in case.</description>
+        <field>Vehicle_Brand_text__c</field>
+        <formula>TEXT(Vehicle__r.Brand__c)</formula>
+        <name>Update vehicle brand</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Waiting_For_Response</fullName>
         <field>Status</field>
         <literalValue>Waiting for Response approval</literalValue>
@@ -2276,6 +2296,21 @@
             <timeLength>1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>PopulateCarDetails</fullName>
+        <actions>
+            <name>Update_vehicle_Class</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_vehicle_brand</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Populate car class and car brand.</description>
+        <formula>!ISNULL( COS_Ticket_Number__c )&amp;&amp;!ISBLANK( COS_Ticket_Number__c )&amp;&amp;ISPICKVAL(Market__c, &apos;TH&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Send Email to Gate Keeper</fullName>

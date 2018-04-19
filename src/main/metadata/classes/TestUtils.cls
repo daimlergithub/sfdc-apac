@@ -30,12 +30,23 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     //Generic method to create an admin user with passed market value - added by India market
     public static User createGenericAdminUser(String sCountry, String sTimeszonekey, String sMarket){               
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        User u = new User(LastName='User',country=sCountry,firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey=sTimeszonekey,LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind01@testing.com',UserName='admusrind@daimler.com',Market__c = sMarket);
+        User u = new User(LastName='User',country=sCountry,firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey=sTimeszonekey,LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com',Market__c = sMarket);
         insert u;
         return u;
     }
-
-
+    public static User createTRAdminUser(){               
+        Profile p = [select id from profile where Name='System Administrator' limit 1];
+        User u = new User(LastName='User',country='Turkey',firstName='BCI',ProfileId=p.Id,Alias='ain1TR',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuser01@testing.com',UserName='admusrTR@daimler.com',Market__c = 'TR');
+        insert u;
+        return u;
+    }
+ public static User createAfterSalesManagerTR(){       
+        Profile p = [select id from profile where Name='System Administrator' limit 1];
+        UserRole role= [Select Id,name From UserRole Where DeveloperName ='MBTH_Manager'];
+        User user1 = new User(LastName='User',UserRoleId = role.id,country='Australia', market__c = 'TR', firstName='BCI',ProfileId=p.Id,Alias='ain1TR',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='aftersalesmanager@testing.com',UserName='aftersalesTR@test.com');
+        insert user1;
+        return user1;
+    }
     // After Sales Manager User Creation
     public static User createAfterSalesManager(){       
         Profile p = [select id from profile where Name='System Administrator' limit 1];
@@ -107,13 +118,158 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         return rm;
     } 
     
+// Create Dealer Account(India)
+    public static Account createDealerAccount(Id accRecordTypeId){
+        Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = accRecordTypeId);
+        insert dealerAcc;
+        return dealerAcc;
+    }
+    
+    // Create generic Opportunity record(India)
+    public static Opportunity createGenericOpportunity(User u, Account acc, Id oppRecordTypeId, String market){
+        /*
+        DescribeFieldResult describeType = Opportunity.Lead_Type__c.getDescribe();
+        List<PicklistEntry> typeValues = describeType.getPicklistValues();
+        DescribeFieldResult describeSubType = Opportunity.Lead_Sub_Type__c.getDescribe();
+        List<PicklistEntry> subTypeValues = describeSubType.getPicklistValues();
+    */
+        Opportunity opp = new Opportunity();
+        opp.AccountId = acc.Id;
+        opp.StageName = 'New';
+        opp.Market__c = market;
+        opp.Name = 'Generic Opportunity';
+        opp.RecordTypeId = oppRecordTypeId;
+        opp.CloseDate = Date.newInstance(2018, 4, 17);
+        if(UtilRecordType.getRecordTypeNameById('Opportunity', oppRecordTypeId) == 'Sales Lead'){
+            opp.Lead_Type__c = 'Activities';
+            opp.Lead_Sub_Type__c = 'Test Drive';
+            opp.Lead_DataSource__c = 'Event';
+        }
+        else{
+            opp.Lead_Type__c = 'Car Service';
+            opp.Lead_Sub_Type__c = 'Others';
+            opp.Lead_DataSource__c = 'Event';
+        }
+        //opp.Lead_Type__c = typeValues[0].getValue();
+        //opp.Lead_Sub_Type__c = subTypeValues[0].getValue();
+        insert opp;
+        return opp;
+    }
+    
+    // Create generic bulk Opportunity record(India)
+    public static List<Opportunity> createGenericBulkOpportunity(User u, Account acc, Id oppRecordTypeId, String market, Integer count){
+        List<Opportunity> oppList = new List<Opportunity>();
+        String add = 'A';
+        String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = dealerRecordTypeId, Market__c = 'IN', 
+                                       Dealer_Rollout_Status__c='Done');
+        insert dealerAcc;
+        Contact con = new Contact(FirstName = 'First', LastName = 'Last', AccountId = dealerAcc.Id);
+        insert con;
+        for(Integer i=0; i<count; i++){
+            add += 'B';
+            Opportunity opp = new Opportunity();
+            opp.AccountId = acc.Id;
+            opp.StageName = 'New';
+            opp.Market__c = market;
+            opp.Name = 'Test' + add;
+            opp.RecordTypeId = oppRecordTypeId;
+            opp.Sales_Consultant__c = con.Id;
+            opp.Assigned_Dealer__c = dealerAcc.Id;
+            opp.Assigned_Service_Advisor__c = u.Id;
+            opp.CloseDate = Date.newInstance(2018, 4, 17);
+            if(UtilRecordType.getRecordTypeNameById('Opportunity', oppRecordTypeId) == 'Sales Lead'){
+                opp.Lead_Type__c = 'Activities';
+                opp.Lead_Sub_Type__c = 'Test Drive';
+                opp.Lead_DataSource__c = 'Event';
+            }
+            else{
+                opp.Lead_Type__c = 'Car Service';
+                opp.Lead_Sub_Type__c = 'Others';
+                opp.Lead_DataSource__c = 'Event';
+            }
+            oppList.add(opp);
+        }
+        insert oppList;
+        return oppList;
+    }
+        
+    // Create bulk Car Model Records(India)
+    public static List<Car_Model__c> createBulkCarModel(Integer n){
+        List<Car_Model__c> cModelList = new List<Car_Model__c>();
+        for(Integer i=0; i<5; i++){
+            Car_Model__c cm = new Car_Model__c();
+            cm.Name = 'Mercedes-Benz' + i;
+            cm.Brand__c = 'Mercedes-Benz';
+            cm.Series__c = 'A' + 1;
+            cm.Status__c = 'Own Sellable';
+            cm.Colour__c = 'Blue';
+            cm.Trim__c = 'Small';
+            cModelList.add(cm);
+        }
+        for(Integer i=0; i<5; i++){
+            Car_Model__c cm = new Car_Model__c();
+            cm.Name = 'BMW GT Series' + i;
+            cm.Brand__c = 'BMW';
+            cm.Series__c = 'GT' + 1;
+            cm.Status__c = 'Competitor';
+            cm.Colour__c = 'Blue';
+            cm.Trim__c = 'Small';
+            cModelList.add(cm);
+        }
+        insert cModelList;
+        return cModelList;
+    }
+    
+    // Create bulk Lead Details Records(India)
+    public static List<Lead_Details__c> createBulkLeadDetails(Opportunity opp, List<Car_Model__c> cmList){
+        List<Lead_Details__c> ldList = new List<Lead_Details__c>();
+        for(Car_Model__c cm : cmList){
+            Lead_Details__c lDet = new Lead_Details__c();
+            if(cm.Status__c == 'Own Sellable'){
+                lDet.Car_Model__c = cm.Id;
+                lDet.Related_Lead__c = opp.Id;
+                lDet.Brand__c = cm.Brand__c;
+                lDet.Color__c = cm.Colour__c;
+                lDet.Trim__c = cm.Trim__c;
+                lDet.Mileage__c = '40';
+                lDet.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
+                ldList.add(lDet);
+            }
+            else if(cm.Status__c == 'Competitor'){
+                lDet.Car_Model_Competitor__c = cm.Id;
+                lDet.Related_Lead__c = opp.Id;
+                lDet.Brand__c = cm.Brand__c;
+                lDet.Color__c = cm.Colour__c;
+                lDet.Trim__c = cm.Trim__c;
+                lDet.Mileage__c = '40';
+                lDet.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
+                ldList.add(lDet);
+            } 
+        }
+        Lead_Details__c lDet1 = new Lead_Details__c();
+        lDet1.Trade_In_Vehicle__c = 'Trade In Vehicle';
+        lDet1.Related_Lead__c = opp.Id;
+        lDet1.Trim__c = 'Medium';
+        lDet1.Year_of_Manufacture__c = '1234';
+        lDet1.Mileage__c = '40';
+        lDet1.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
+        ldList.add(lDet1);
+        insert ldList;
+        return ldList;
+    }
+    
     // Create generic company account
     public static Account createGenericAccount(User u, String zipCode, Id accRecordTypeId, String mobile){
         Account genericAccount = new Account();
         genericAccount.RecordtypeId = accRecordTypeId;
-        genericAccount.Name = 'Test Generic Account';
-        //genericAccount.FirstName = 'Test Generic fName';
-        //genericAccount.LastName = 'Test Generic lName';
+        if(accRecordTypeId == Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId()){
+            genericAccount.Name = 'Test Generic Account';
+        }
+        else{
+            genericAccount.FirstName = 'Test Generic fName';
+            genericAccount.LastName = 'Test Generic lName';            
+        }
         genericAccount.Status__c = 'Active';
         genericAccount.Province__c = 'Province1';
         genericAccount.City__c = 'Test';
@@ -134,31 +290,33 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert genericAccount;
         return genericAccount;
     }
-    
+        
     // Create generic Address Record
-    public static Address__C createGenericAddressRecord(Account acc, String zipCode, String market, String cntry){
+    public static Address__C createGenericAddressRecord(Account acc, String zipCode, String market, String city, String state, String cntry){
         Address__C addressobj = new Address__C();
         addressobj.Address_Type__c = 'Home';
         addressobj.Address_Line_1__c = 'line 1';
         addressobj.Address_Line_2__c = 'line 2';
         addressobj.Address_Line_3__c = 'line 3';
         addressobj.Block__c = 'Block';
+        addressobj.District__c = city;
+        addressobj.State__c = state;
         addressobj.Customer__c = acc.id;
         addressobj.ZipCode__c = zipCode;
         addressobj.Province__c ='Maharashtra';
         addressobj.TitleOfHonor__c = 'To Person';
         addressobj.Market__c = market;
-        addressobj.Foreign_Nationals__c=true;
+        addressobj.Foreign_Nationals__c=false;
         addressobj.Country__c = cntry;
+        addressobj.Preferred__c = true;
         insert addressobj;
         return addressobj;
     }
-    
     /* Creation of Generic methods by India - End */
     
     /* Creation of test records in various objects  - Begin  */
     // Creation of a person account
-     public static Account createPersonAccountAsUserAsOwner(user U){      
+    public static Account createPersonAccountAsUserAsOwner(user U){      
         Account a = new Account(FirstName = u.FirstName,LastName = u.LastName);
         a.Dealer_Default_Flag__c   = false;
         a.Dealer_DMS_SR_Code__c    = 'test code 2';
@@ -174,6 +332,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         a.Individual_Home_Phone__c = '+6612323789';
         a.Area_code__c             = '0101';
         a.MD__c                    = u.market__c;  // Modified by Laqshay Arora
+        a.Market__c                = u.market__c;  // Modified by Hildaa
         a.Postal_Opt_Out__c        = True;
         a.Province__c              = 'Shanghai';
         a.ZipCode__c               = '32703';
@@ -203,7 +362,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         a.Phone                    = sPhone;
         a.Individual_Home_Phone__c = sPhone;
         a.MD__c                    = u.market__c;
-        a.Market__c				   = u.Market__c;
+        a.Market__c                = u.Market__c;
         a.ownerid                  = u.id;
         a.PersonBirthdate          = date.newInstance(iYear,03,18); // Modified By laqshay Arora
         a.Foundation_Date__c       = date.today();
@@ -268,6 +427,13 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         return con;
     }
     
+    // Creation of Contact
+    public static Contact createContactTR(String name, Id acc){           
+        Contact con = new Contact(LastName =name,AccountId = acc,Market__c='TR');
+        insert con;
+        return con;
+    }
+    
     // Creation of Contract
     public static Contract createContract(Id acc){                      
         Contract contr=new Contract(AccountId=acc,StartDate=date.today(),ContractTerm=4,Status='Draft');
@@ -302,6 +468,28 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert address;
         return address;
     }
+    
+     // Creation of Address
+    public static Address__c createAddressTR(Id AccId){                   
+        Address__c address=new Address__c();
+        address.Address_Type__c='Home';
+        address.Province__c='Shanghai';
+        address.City__c='bangalore';
+        address.District__c='test2';
+        address.Block__c='test3';
+        address.Address_Line_1__c='testaddress1';
+        address.Address_Line_2__c='testaddress2';
+        address.ZipCode__c = '32703';
+        address.Customer__c=AccId;
+        address.TitleOfHonor__c ='To Person';  
+        address.preferred__c=True;
+        address.Opt_In_Hardcopy__c=True;
+        address.Market__c='TR';
+        address.MD__c='TR';
+        insert address;
+        return address;
+    }
+    
     
     public static Address__c createAddressMY(Id AccId){                   
         Address__c address=new Address__c();

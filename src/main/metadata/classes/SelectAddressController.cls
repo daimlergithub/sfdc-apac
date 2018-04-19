@@ -42,7 +42,9 @@ public with sharing class SelectAddressController {
             
              String addressType1=labelNvalue.get(addressRec.Address_Type__c);
               string addressType=addressType1;
-             addressSelectOptionList.add(new SelectOption(addressRec.Id, addressType));  
+             if(addressType!=null){
+			 addressSelectOptionList.add(new SelectOption(addressRec.Id, addressType));
+				}	
          }
     List<Account> accountList = [select Primary_Address_Reference__c from Account where Id =: accountId];
       if(accountList.size() > 0 && String.isNotBlank(accountList[0].Primary_Address_Reference__c)) {

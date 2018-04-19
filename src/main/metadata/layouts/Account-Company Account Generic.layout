@@ -68,7 +68,7 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Radio_Station__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Entity__c</field>
             </layoutItems>
@@ -92,7 +92,7 @@
                 <behavior>Edit</behavior>
                 <field>Business_Number_Type__c</field>
             </layoutItems>
-		</layoutColumns>
+        </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -138,18 +138,14 @@
                 <behavior>Edit</behavior>
                 <field>Foundation_Date__c</field>
             </layoutItems>
-			 <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Deceased__c</field>
-            </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Age__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Country__c</field>
-            </layoutItems>            
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Legal_Form__c</field>
@@ -460,15 +456,6 @@
         <fields>Lead__c</fields>
         <fields>Campaign__c</fields>
         <relatedList>SurveyTaker__c.Account__c</relatedList>
-    </relatedLists>
-	<relatedLists>
-        <fields>NAME</fields>
-        <fields>Campaign_Name__c</fields>
-        <fields>Campaign_Type__c</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <fields>LAST_UPDATE</fields>
-        <fields>Campaign_Execution_Type__c</fields>
-        <relatedList>Participating_Dealer__c.Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
