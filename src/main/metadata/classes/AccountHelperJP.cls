@@ -1061,11 +1061,11 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
             }
             else if(acc.MD__c == 'JP' && isUpdate && !updateextaccLinkList.isEmpty() && updateextaccLinkList != null)
             {
-				if((acc.Primary_Address_Reference__c != oldAccountmap.get(Acc.id).Primary_Address_Reference__c) && acc.Primary_Address_Reference__c != null)
+				/*if((acc.Primary_Address_Reference__c != oldAccountmap.get(Acc.id).Primary_Address_Reference__c) && acc.Primary_Address_Reference__c != null)
 				{
                     updateAclnkids.add(acc.id);
                     updateAccountMap.put(acc.id,acc.Primary_Address_Reference__c);
-                }
+                }*/
                 if(oldAccountmap.get(Acc.id).LastName !=  acc.LastName || oldAccountmap.get(Acc.id).FirstName != acc.FirstName || oldAccountmap.get(Acc.id).LastName_Native_1__c != acc.LastName_Native_1__c || oldAccountmap.get(Acc.id).FirstName_Native_1__c != acc.FirstName_Native_1__c)
                 {
                     insrtaccids.add(acc.id); //Adding accountId's to set
