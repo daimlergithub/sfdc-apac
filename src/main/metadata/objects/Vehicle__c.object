@@ -1618,6 +1618,17 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>ColorCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Color Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Colour__c</fullName>
         <description>/* 
@@ -3036,6 +3047,17 @@ DATE(YEAR(FirstRegistrationDate__c) + 3, Month(FirstRegistrationDate__c),Day(Fir
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+	<fields>
+        <fullName>InteriorCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Interior Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>LastServiceDate__c</fullName>
@@ -22838,3 +22860,5 @@ alert('This button is for korea users');
 }</url>
     </webLinks>
 </CustomObject>
+
+

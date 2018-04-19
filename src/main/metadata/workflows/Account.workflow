@@ -731,7 +731,7 @@
         </actions>
         <active>true</active>
         <description>Update the Data Source,First Consent User and First Consent Date when Personal_Agreement__c is &quot;No&quot;</description>
-        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;), MD__c = &apos;TH&apos; )</formula>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;No&apos;),  OR( MD__c = &apos;TH&apos; , ISPICKVAL( Market__c , &apos;TR&apos;) ))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -754,7 +754,7 @@
         </actions>
         <active>true</active>
         <description>Update the Data Source,Update Consent User and Update Consent Date when Personal_Agreement__c is &quot;Yes&quot;</description>
-        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;Yes&apos;), MD__c = &apos;TH&apos; )</formula>
+        <formula>AND( ISPICKVAL(Personal_Agreement__c , &apos;Yes&apos;),  OR(MD__c = &apos;TH&apos;, ISPICKVAL( Market__c , &apos;TR&apos;) )  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -772,6 +772,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
         <criteriaItems>
             <field>Account.Personal_Agreement__c</field>
             <operation>equals</operation>
@@ -781,6 +782,11 @@
             <field>Account.MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
         </criteriaItems>
         <description>If personal agreement value change to ‘Withdrawn’ by dealer then will update the updated consent date and updated consent user field and also source field.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>

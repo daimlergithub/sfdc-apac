@@ -110,15 +110,11 @@
         
          function selecttemplate3()
         {
-        
-                
-              //  document.getElementById('retail1').value='Retail_Postal_OptOut__c';
-               // document.getElementById('crie').value=false;
-                document.getElementById('retail1').value='Retail_OptOutContact_Reason__c';         
-                document.getElementById('selectoptionretailcopy').value='Exclude';
-                document.getElementById('crie').style='display: none;';
-                document.getElementById('page:form:block:RetailoutputId').style='display: block;';
-                document.getElementById('page:form:block:RetailoutputId').value='Product Info (Aftersales)';
+//         document.getElementById('retail1').value='Retail_OptOutContact_Reason__c';
+//                document.getElementById('selectoptionretailcopy').value='Exclude';
+//                document.getElementById('crie').value='Product Info (Aftersales)';
+                document.getElementById('retail1').value='Retail_Postal_OptOut__c';
+                document.getElementById('crie').value=false;
                 document.getElementById('vrcfilter').value='Service_Dealer__c';
                 document.getElementById('selectop').value='Equals';
                 document.getElementById('vrif').value='{!accnames}';
@@ -781,7 +777,7 @@
                                 </apex:selectList>                                                              
                              
                               
-                             <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="5" multiselect="true" id="RetailoutputId">
+                             <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="5" multiselect="true">
                                     <apex:selectOptions value="{!RetailOptOutContactReason}"></apex:selectOptions>
                                 </apex:selectList>
                             </td>
@@ -1399,5 +1395,3 @@
         </apex:pageBlock>
     </apex:form>
 </apex:page>
-                                        
- 	 

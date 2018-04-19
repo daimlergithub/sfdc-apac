@@ -555,6 +555,142 @@ public class AddressDisplayInlineEditControllerTest
         }
      }
         
+       public static testMethod void testSaveAddressANZTest1(){
+        //init();
+         CallOutHandlerSettingDFW__c callOutObj=new CallOutHandlerSettingDFW__c(Name='CalloutValues',DEFAULT_CALLOUT_TIME__c='5000',MAX_CALLOUT_TIME__c='10000');       
+  insert callOutObj;        
+   SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+    insert sysObj;
+        initUpdated('AU');      
+         system.RunAs(sysAdminUser1){        
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+         
+        objAddressDisplayInlineEditController.saveAddressANZ();
+        test.stopTest();
+        }
+     }
+	 
+	   public static testMethod void testSaveAddressANZTest2(){
+         CallOutHandlerSettingDFW__c callOutObj=new CallOutHandlerSettingDFW__c(Name='CalloutValues',DEFAULT_CALLOUT_TIME__c='5000',MAX_CALLOUT_TIME__c='10000');       
+			insert callOutObj;        
+			SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+			insert sysObj;
+        initUpdated('AU');      
+         system.RunAs(sysAdminUser1){        
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+          objAddressDisplayInlineEditController.addresspicklist = 'abc';
+		  objAddressDisplayInlineEditController.addressobj.ZipCode__c = '12BA3547896';
+             objAddress.Preferred__c=true;
+		objAddressDisplayInlineEditController.addressobj.Address_Line_1__c = 'test1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111';
+        objAddressDisplayInlineEditController.addressobj.Address_Line_2__c = 'test1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111';
+        objAddressDisplayInlineEditController.addressobj.Address_Line_3__c = 'test1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111';		  
+        objAddressDisplayInlineEditController.saveAddressANZ();
+        test.stopTest();
+        }
+     }
+	
+	   public static testMethod void testSaveAddressANZTest3(){
+         CallOutHandlerSettingDFW__c callOutObj=new CallOutHandlerSettingDFW__c(Name='CalloutValues',DEFAULT_CALLOUT_TIME__c='5000',MAX_CALLOUT_TIME__c='10000');       
+			insert callOutObj;        
+			SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+			insert sysObj;
+        initUpdated('AU');      
+         system.RunAs(sysAdminUser1){        
+        test.startTest();
+        objAddress= new Address__c();
+        objAddress.Customer__c=objAccount.Id;
+        objAddress.TitleOfHonor__c = 'To Person';       
+        objAddress.Preferred__c=true;
+        objAddress.Province__c='ACT'; 
+        objAddress.Address_Type__c = 'Home';  
+        objAddress.ZipCode__c ='1234567'; 
+        objAddress.MD__c = 'AU';
+        objAddress.Address_Line_1__c = 'Banglore';
+        objAddress.Address_Line_2__c = 'Test Address 2';
+        objAddress.Block__c = 'Test Block';
+        objAddress.City__c = 'Test City';
+        objAddress.District__c = 'Test District';
+        insert objAddress;
+        
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id); 
+             
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+        objAddressDisplayInlineEditController.LanguageSelected = 'English';
+        objAddressDisplayInlineEditController.addresspicklist = 'test';
+        objAddressDisplayInlineEditController.addressobj.Country__c = 'Australia';
+        objAddressDisplayInlineEditController.addressobj.Address_Type__c = 'Home';
+        objAddressDisplayInlineEditController.addressobj.ZipCode__c = '454546';
+        objAddressDisplayInlineEditController.addressobj.Address_Line_1__c = 'test';
+        objAddressDisplayInlineEditController.addressobj.State_City__c = 'ACT';
+        		  
+        objAddressDisplayInlineEditController.saveAddressANZ();
+        test.stopTest();
+        }
+     } 
+
+		   public static testMethod void testSaveAddressANZTest4(){
+         CallOutHandlerSettingDFW__c callOutObj=new CallOutHandlerSettingDFW__c(Name='CalloutValues',DEFAULT_CALLOUT_TIME__c='5000',MAX_CALLOUT_TIME__c='10000');       
+			insert callOutObj;        
+			SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+			insert sysObj;
+        initUpdated('AU');      
+         system.RunAs(sysAdminUser1){        
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+        objAddressDisplayInlineEditController.LanguageSelected = 'English';
+        objAddressDisplayInlineEditController.Validation = False;
+        objAddressDisplayInlineEditController.addresspicklist = 'test';
+        objAddressDisplayInlineEditController.addressobj.Country__c = 'Australia';
+        objAddressDisplayInlineEditController.addressobj.Address_Type__c = 'Home';
+        objAddressDisplayInlineEditController.addressobj.ZipCode__c = '456';
+        objAddressDisplayInlineEditController.addressobj.Address_Line_1__c = 'test';
+        objAddressDisplayInlineEditController.addressobj.State_City__c = 'ACT';
+        objAddressDisplayInlineEditController.addressobj.Preferred__c=true;		  
+        objAddressDisplayInlineEditController.saveAddressANZ();
+        test.stopTest();
+        }
+     } 
+    
+    		   public static testMethod void testSaveAddressANZTest5(){
+         CallOutHandlerSettingDFW__c callOutObj=new CallOutHandlerSettingDFW__c(Name='CalloutValues',DEFAULT_CALLOUT_TIME__c='5000',MAX_CALLOUT_TIME__c='10000');       
+			insert callOutObj;        
+			SystemSettingsDFW__c sysObj=new SystemSettingsDFW__c(Log_Purge__c=2);        
+			insert sysObj;
+        initUpdated('AU');      
+         system.RunAs(sysAdminUser1){        
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('Id',objAccount.id);      
+        ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        AddressDisplayInlineEditController objAddressDisplayInlineEditController = new AddressDisplayInlineEditController(objSc);  
+        objAddressDisplayInlineEditController.LanguageSelected = 'English';
+        objAddressDisplayInlineEditController.Validation = False;
+        objAddressDisplayInlineEditController.editaddressId = objAddress.Id;
+        objAddressDisplayInlineEditController.addresspicklist = 'test';
+        objAddressDisplayInlineEditController.addressobj.Country__c = 'Australia';
+        objAddressDisplayInlineEditController.addressobj.Address_Type__c = 'Home';
+        objAddressDisplayInlineEditController.addressobj.ZipCode__c = '456';
+        objAddressDisplayInlineEditController.addressobj.Address_Line_1__c = 'test';
+        objAddressDisplayInlineEditController.addressobj.State_City__c = 'ACT';
+ 
+        objAddressDisplayInlineEditController.saveAddressANZ();
+        test.stopTest();
+        }
+     } 
+    
     /*    public static testMethod void testSaveAddressTHValidation()
     {
         //init();

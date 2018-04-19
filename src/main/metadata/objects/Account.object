@@ -17303,6 +17303,18 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Preferred_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Preferred Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Preferred_Dealer</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
