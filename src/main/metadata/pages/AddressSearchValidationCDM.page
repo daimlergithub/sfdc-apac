@@ -102,7 +102,13 @@
                             <apex:inputField value="{!objAccount.Data_Source__c}" style="width:160px" />
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem>
-                    <apex:inputField value="{!objAccount.Personal_Agreement__c}" style="width:160px"/>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.Personal_Agreement__c.Label}" />
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock" layout="block" />
+                            <apex:inputField value="{!objAccount.Personal_Agreement__c}" style="width:160px"/>
+                     </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
                     <!-- <apex:inputField value="{!objAccount.ID_Type__c}" style="width:160px" />-->
                     <apex:inputField value="{!objAccount.Social_ID__c}" style="width:160px" onkeyup="chkFieldLength(this.value);"/>
                     <!--<apex:inputField value="{!objAccount.ID_Number__c}" style="width:160px" />-->
