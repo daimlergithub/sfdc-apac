@@ -28177,11 +28177,6 @@
         <field>Task.eDM_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.icrt__AeGuide_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
 
     <fieldPermissions>
         <editable>false</editable>
