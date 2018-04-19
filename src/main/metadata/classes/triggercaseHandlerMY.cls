@@ -64,6 +64,9 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
 				}
         }
         //share Record end
+		  if(Trigger.isBefore && (Trigger.isInsert || Trigger.isUpdate)){
+            CaseHelperMYInstance.beforeInsertUpdateVehicleInfo(Trigger.new);
+        }
        }     
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
