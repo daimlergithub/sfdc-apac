@@ -338,7 +338,16 @@ public class ContactTableController {
             hmCountryCode = '+66';
             wkCountryCode = '+66';
             faxCountryCode = '+66';
-        } else {
+        } 
+        //Added for TR Market
+        if(ParAcc.Market__c==Label.TR){  
+            firstsave = true;  
+            secondsave = false;
+            mbCountryCode='+90';
+            hmCountryCode='+90';
+            wkCountryCode='+90';
+            
+        }else {
             firstsave = false;
             secondsave = true;
         }
@@ -641,11 +650,133 @@ public class ContactTableController {
         }
     }
 
+    //Added for TR Market
+    public void UpdateAccountTR()          
+    {           
+                        if(String.isBlank(hmphoneNumber))       
+                            
+                      {                     
+                               ParAcc.Individual_Home_Phone__c='';      
+                      }     
+                                                        
+                      else if(hmCountryCode!='' && hmphoneNumber!='')      
+                      {                     
+                                    
+                               ParAcc.Individual_Home_Phone__c=hmCountryCode+hmphoneNumber;     
+                      }                     
+                            
+                       if(String.isBlank(wkphoneNumber))                            
+                      {                     
+                               ParAcc.Work_Phone__c='';     
+                      }     
+                                  
+                       else if(wkCountryCode!='' && wkphoneNumber!='')           
+                      {                     
+                             ParAcc.Work_Phone__c=wkCountryCode+wkphoneNumber;          
+                      }         
+                            
+                     if((String.isBlank(mbphoneNumber)))        
+                      {                     
+                               ParAcc.Mobile__c='';     
+                      }     
+                      else if(mbCountryCode!='' && mbphoneNumber!='')       
+                      {     
+                               ParAcc.Mobile__c=mbCountryCode+mbphoneNumber;        
+                      }             
+                      else      
+                      {                     
+                             ParAcc.Mobile__c='';       
+                      }         
+                       
+            try     
+            {       
+                if      
+                (       
+                    ParAcc.Individual_Home_Phone__c == '' &&        
+                    ParAcc.Mobile__c == '' &&       
+                    ParAcc.Work_Phone__c == '' &&       
+                    ParAcc.Email__c == null     
+                )       
+                {       
+                   refreshPage = false;              
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));        
+                }       
+                else        
+                {       
+                            
+                    if(ParAcc != null)      
+                        refreshPage = true;     
+                       DMLManagerService.updateAsSystem(ParAcc); 
+                    //update ParAcc;      
+                }                   
+        }               
+        catch(DMLException de)      
+        {       
+            refreshPage = false;        
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));      
+                    
+        }       
+    } 
+    
+    //Added for TR Market
+     public void PhoneNumberFormatTR()       
+    {           
+            string localhmPhone,localwkPhone,localMBPhone,localFaxPhone;        
+            localhmPhone=string.valueOf(ParAcc.Individual_Home_Phone__c);       
+            localwkPhone=string.valueOf(ParAcc.Work_Phone__c);     
+            localMBPhone=string.valueOf(ParAcc.Mobile__c);     
+            
+            if ((!String.IsBlank(localhmPhone))&&(localhmPhone.length()>3))     
+            {       
+                hmCountryCode=localhmPhone.substring(0,3);      
+                if(hmCountryCode==label.TRPhoneCountryCode)
+                {
+                    
+                    hmphoneNumber=localhmPhone.substring(3,localhmPhone.length());
+                    
+                }
+                else
+                {
+                        hmphoneNumber=localhmPhone.substring(3,localhmPhone.length());
+                }
+                
+                
+            }
+            else
+            {
+                hmCountryCode=label.TRPhoneCountryCode;
+            }
+                  
+            if ((!String.IsBlank(localwkPhone))&& (localwkPhone.length()>3))        
+            {        
+                    
+                wkCountryCode=localwkPhone.substring(0,3);  
+                
+                if(wkCountryCode==label.TRPhoneCountryCode)
+                {
+                    wkphoneNumber=localwkPhone.substring(3,localwkPhone.length());
+                        
+                }
+                         
+            }
+            else
+            {
+                wkCountryCode=label.TRPhoneCountryCode;
+            }       
+            if ((!String.IsBlank(localMBPhone)) && (localMBPhone.length()>3))       
+            {        
+                        
+                mbCountryCode=localMBPhone.substring(0,3);              
+                mbphoneNumber=localMBPhone.length()>3?localMBPhone.substring(3,localMBPhone.length()):mbCountryCode;        
+            }        
+                  
+    }
+    
     // pavan end
     public void EditAccount() {
 
         editMode = true;
-        editMode1 = true;
+        editMode1 = false;
 
         profile p = [select Name from profile where id =: userinfo.getprofileId()];
         if (p.Name.contains('Japan')) {
@@ -674,6 +805,12 @@ public class ContactTableController {
         else if (ParAcc.MD__c == 'IN' || ParAcc.Market__C == 'IN')      
         {   
             PhoneNumberFormatIN();  
+        }
+        //Added for TR Market
+        else if (ParAcc.Market__c == Label.TR)      
+        {   
+            PhoneNumberFormatTR(); 
+              
         }
     }
     //PHONE FORMAT FOR INDIA
@@ -1043,6 +1180,11 @@ public class ContactTableController {
         else if (ParAcc != null && (ParAcc.Md__c =='IN' || ParAcc.Market__C =='IN'))       
       {     
         UpdateAccountIN();      
+      }
+       //Added for TR Market
+      else if (ParAcc != null && ParAcc.Market__c ==Label.TR)       
+      {     
+        UpdateAccountTR();      
       }
 
         try {
