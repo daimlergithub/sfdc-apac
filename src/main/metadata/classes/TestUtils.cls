@@ -448,7 +448,13 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert acclnk;
         return acclnk;
     }
-    
+    // Creation of Account Link
+    public static Account_Link__c createAccLinkTR(String rectype, Id AccId){          
+        Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get(rectype).getRecordTypeId();
+        Account_Link__c acclnk = new Account_Link__c(Name = 'Test', ToRole__c = AccId, ReCordTypeId = RetailPerson,market__c='TR');
+        insert acclnk;
+        return acclnk;
+    }
     // Creation of Address
     public static Address__c createAddress(Id AccId){                   
         Address__c address=new Address__c();
