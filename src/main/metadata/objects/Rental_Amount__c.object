@@ -93,7 +93,7 @@
     <label>Rental Amount</label>
     <nameField>
         <displayFormat>RA-{000000}</displayFormat>
-        <label>Contract No.</label>
+        <label>Rental Amount Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

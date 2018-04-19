@@ -1978,7 +1978,7 @@ alert('You cannot create campaign members for this campaign status');
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-window.open("{!URLFOR($Site.Prefix)}/a1K/e?00Np0000001FVEr={!Retail_Campaign__c.Name}&amp;00Np0000001FVEr_lkid={!Retail_Campaign__c.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/a1K/e?CF00N2800000IkqXw={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqXw_lkid={!Retail_Campaign__c.Id}&amp;00N2800000IkqXw={!Retail_Campaign__c.Id}&amp;retURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 }else
 {
 alert('You cannot create campaign members for this campaign status');

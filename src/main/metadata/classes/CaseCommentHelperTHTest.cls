@@ -1,22 +1,36 @@
-@isTest
+/*
+    Type:Test class
+    Purpose:Test Class for CaseCommentHelperTH
+    User Story:
+    Used By:     
+    ---------------------------------------------------------------
+    History:
+    1. Created on 18-04-2018 by Abhishek Mohanty 
+    2. Modified     
+*/
+@isTest 
 public class CaseCommentHelperTHTest {
-	 public static User user1= TestUtils.createAdminUser();
-     public static Casecomment c;
-    Private static void createtestData(){
-        Trigger__C casetrigger=new Trigger__C(name='CaseCommentTrigger',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseCommentTriggerHandlerTH',Trigger_Name__c='CaseCommentTrigger',update__c=true);
-    	insert casetrigger;
-        case cs=new Case(COS_Ticket_Number__c='123');
-        insert cs;
-        c=new CaseComment(commentbody='dhanam',parentid=cs.id);
-        insert c;
-	}
-    @isTest
-    private static void SendCaseCommentsToCOSTest(){
-        system.runas(user1){
-            Test.startTest();
-            createtestData();
-            new CaseCommentTriggerHandlerTH().handleIntegrationTrigger(false,false,false,false,false);
-            Test.stopTest();   
-        }
+    static testMethod void testmethod1() {
+       // Create the Case Record.
+        Trigger__c CaseCommentTriggerTH=new Trigger__c();
+        CaseCommentTriggerTH.Name='CaseCommentTriggerTH';
+        CaseCommentTriggerTH.Market__c='TH';
+        CaseCommentTriggerTH.Trigger_Handler__c='CaseCommentTriggerHandlerTH';
+        CaseCommentTriggerTH.Trigger_Name__c='CaseCommentTrigger';
+        CaseCommentTriggerTH.after__c=true;
+        CaseCommentTriggerTH.before__c=true;
+        CaseCommentTriggerTH.enabled__c=true;
+        CaseCommentTriggerTH.insert__c=true;
+        CaseCommentTriggerTH.update__c=true;
+        insert CaseCommentTriggerTH;
+        Case cas = new Case(Status ='New', Priority = 'Low' , COS_Ticket_Number__c='T745119'); 
+        insert cas;
+        
+        Casecomment casecomment = new Casecomment (ParentId=cas.id , CommentBody='Test');
+        insert casecomment; 
+        
+        //Map<id,sObject> caseComments = new Map<id,sObject>([Select Id, ParentId, IsPublished, CommentBody, CreatedById, CreatedDate, SystemModstamp, LastModifiedDate, LastModifiedById, IsDeleted From CaseComment where ParentId=:cas.id]);
+        
+        //CaseCommentHelperTH.SendCaseCommentsToCOS(caseComments);
     }
 }

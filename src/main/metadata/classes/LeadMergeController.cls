@@ -214,9 +214,9 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
             system.debug('++++++ masterids ctedId'+  masterids);
                        system.debug('+++slaveids Id'+ slaveids);  
 
-
+            
           
-             if( ((master.Dealer_Lead_Status__c =='Purchased(Only Non BDC)') || (master.Dealer_Lead_Status__c =='Invoiced') || (master.Dealer_Lead_Status__c =='Order Placed')) )  // ||((master.Existing_Contract__c !=null && slave.Existing_Contract__c ==null))  commented as per SFDCJP-3348
+             if( ( (master.Dealer_Lead_Status__c =='Order Confirmed') ||   (master.Dealer_Lead_Status__c =='Lost')  || (master.Dealer_Lead_Status__c =='Purchased')  || (master.Dealer_Lead_Status__c =='Purchased(Only Non BDC)') || (master.Dealer_Lead_Status__c =='Invoiced') || (master.Dealer_Lead_Status__c =='Order Placed')) )  // ||((master.Existing_Contract__c !=null && slave.Existing_Contract__c ==null))  commented as per SFDCJP-3348
              {
              System.debug('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB');
              SelectmasterHide=true;
@@ -337,7 +337,7 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
            chosenSlaveId=mlead.id;
            selectedValue=mlead.id;
            }
-    if((slead.Dealer_Lead_Status__c =='Purchased(Only Non BDC)' || slead.Dealer_Lead_Status__c =='Invoiced' || slead.Dealer_Lead_Status__c =='Order Placed' ) && (mlead.Dealer_Lead_Status__c !='Purchased(Only Non BDC)') && (mlead.Dealer_Lead_Status__c !='Invoiced') && (mlead.Dealer_Lead_Status__c !='Order Placed'))
+    if((slead.Dealer_Lead_Status__c =='Lost' || slead.Dealer_Lead_Status__c =='Order Confirmed' || slead.Dealer_Lead_Status__c =='Purchased' || slead.Dealer_Lead_Status__c =='Purchased(Only Non BDC)' || slead.Dealer_Lead_Status__c =='Invoiced' || slead.Dealer_Lead_Status__c =='Order Placed' ) && (mlead.Dealer_Lead_Status__c !='Purchased(Only Non BDC)') && (mlead.Dealer_Lead_Status__c !='Invoiced') && (mlead.Dealer_Lead_Status__c !='Order Placed') && (mlead.Dealer_Lead_Status__c !='Lost')  &&  (mlead.Dealer_Lead_Status__c !='Order Confirmed') && (mlead.Dealer_Lead_Status__c !='Purchased'))
          //  if(slead.Dealer_Lead_Status__c!=null && ((slead.Dealer_Lead_Status__c=='Order Placed') || (slead.Dealer_Lead_Status__c=='Purchased(Only Non BDC)') || (slead.Dealer_Lead_Status__c='Invoiced'))  )
            {
            chosenMasterId=slead.id;
