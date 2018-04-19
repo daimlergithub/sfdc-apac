@@ -64,7 +64,6 @@
         <relationshipLabel>Addresses</relationshipLabel>
         <relationshipName>Addresses</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -218,7 +217,6 @@
         <label>Block</label>
         <length>24</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -320,7 +318,6 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Defualt - address</label>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -363,7 +360,6 @@
         <relationshipLabel>Addresses</relationshipLabel>
         <relationshipName>Addresses</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -373,7 +369,6 @@
         <label>District</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -592,7 +587,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <label>State</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -641,7 +635,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <precision>7</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -653,7 +646,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <precision>7</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -664,7 +656,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <label>Street Name</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -675,7 +666,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <label>Street No</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -758,7 +748,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA'))))))</defaultValue>
         <label>Unit No</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
