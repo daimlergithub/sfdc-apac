@@ -30,7 +30,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     //Generic method to create an admin user with passed market value - added by India market
     public static User createGenericAdminUser(String sCountry, String sTimeszonekey, String sMarket){               
         Profile p = [select id from profile where Name='System Administrator' limit 1];
-        User u = new User(LastName='User',country=sCountry,firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey=sTimeszonekey,LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind01@testing.com',UserName='admusrind@daimler.com',Market__c = sMarket);
+        User u = new User(LastName='User',country=sCountry,firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey=sTimeszonekey,LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com',Market__c = sMarket);
         insert u;
         return u;
     }
@@ -160,8 +160,9 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
     public static List<Opportunity> createGenericBulkOpportunity(User u, Account acc, Id oppRecordTypeId, String market, Integer count){
         List<Opportunity> oppList = new List<Opportunity>();
         String add = 'A';
-        string dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = dealerRecordTypeId, Market__c = 'IN');
+        String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = dealerRecordTypeId, Market__c = 'IN', 
+                                       Dealer_Rollout_Status__c='Done');
         insert dealerAcc;
         Contact con = new Contact(FirstName = 'First', LastName = 'Last', AccountId = dealerAcc.Id);
         insert con;
@@ -289,25 +290,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         insert genericAccount;
         return genericAccount;
     }
-    
-    // Create generic Address Record
-    public static Address__C createGenericAddressRecord(Account acc, String zipCode, String market, String cntry){
-        Address__C addressobj = new Address__C();
-        addressobj.Address_Type__c = 'Home';
-        addressobj.Address_Line_1__c = 'line 1';
-        addressobj.Address_Line_2__c = 'line 2';
-        addressobj.Address_Line_3__c = 'line 3';
-        addressobj.Block__c = 'Block';
-        addressobj.Customer__c = acc.id;
-        addressobj.ZipCode__c = zipCode;
-        addressobj.Province__c ='Maharashtra';
-        addressobj.TitleOfHonor__c = 'To Person';
-        addressobj.Market__c = market;
-        addressobj.Foreign_Nationals__c=true;
-        addressobj.Country__c = cntry;
-        insert addressobj;
-        return addressobj;
-    }
+        
     // Create generic Address Record
     public static Address__C createGenericAddressRecord(Account acc, String zipCode, String market, String city, String state, String cntry){
         Address__C addressobj = new Address__C();
