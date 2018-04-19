@@ -53,7 +53,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Activation_date__c</fullName>
         <externalId>false</externalId>
@@ -121,7 +121,7 @@
         <relationshipLabel>FS Contracts</relationshipLabel>
         <relationshipName>FS_Contracts</relationshipName>
         <required>true</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -148,17 +148,30 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>FS Contracts (Dealer)</relationshipLabel>
-        <relationshipName>FS_Contracts2</relationshipName>
+        <fullName>Contract_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Used by Financial Services.
+To store the Contract ID coming from RMW.</description>
+        <externalId>true</externalId>
+        <label>Contract ID</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>DealerName__c</fullName>
+        <description>Name of the dealer which will come from RMW.</description>
+        <externalId>false</externalId>
+        <label>Dealer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>End_Date__c</fullName>
@@ -215,6 +228,20 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Financial_Product_Group__c</fullName>
+        <description>Created as a part of FS Development
+In general, BU will use the type of contract to customize proper offers to customer upon either LEAD or Campaign function; including Retention function
+	This field will be used as one of the criteria to filter cases in LEAD / Campaign / Retention objects as well as Report generation.</description>
+        <externalId>false</externalId>
+        <label>Financial Product Group</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Financial_Product__c</fullName>
         <externalId>false</externalId>
         <label>Financial Product</label>
@@ -248,19 +275,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Guaranteer__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Guaranteer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>FS Contracts (Guaranteer)</relationshipLabel>
-        <relationshipName>FS_Contracts1</relationshipName>
-        <required>true</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Inactive_borrower__c</fullName>
         <externalId>false</externalId>
         <label>Inactive borrower</label>
@@ -279,6 +293,39 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Net_IRR_rate__c</fullName>
@@ -442,30 +489,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Retail_FS_Guaranteer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Retail FS Guaranteer</label>
-        <referenceTo>Account_Link__c</referenceTo>
-        <relationshipLabel>FS Contracts (Retail FS Guaranteer)</relationshipLabel>
-        <relationshipName>FS_Contracts1</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Sales_Person__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <fullName>SalesPersonName__c</fullName>
+        <description>Name of Sales person whose value will come from RMW.</description>
         <externalId>false</externalId>
         <label>Sales Person</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>FS Contracts (Sales Person)</relationshipLabel>
-        <relationshipName>FS_Contracts3</relationshipName>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Start_Date__c</fullName>
@@ -555,6 +588,11 @@
         <type>Currency</type>
     </fields>
     <label>FS Contract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>H-{000000}</displayFormat>
         <label>Contract No.</label>
@@ -563,6 +601,6 @@
     </nameField>
     <pluralLabel>FS Contracts</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <startsWith>Vowel</startsWith>
 </CustomObject>

@@ -6184,6 +6184,11 @@
         <readable>true</readable>
 	</fieldPermissions>
 	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Statement__c.Composite_Transaction_Identifier__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Account_Statement__c.Credit__c</field>
         <readable>true</readable>
@@ -6196,6 +6201,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Statement__c.Transaction_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Statement__c.Transaction_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6558,6 +6568,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Asset_Invoice__c.Asset_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset_Invoice__c.Composite_Asset_Invoice_Identifier__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Asset_Invoice__c.Expiry_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6574,6 +6594,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset_Invoice__c.Issue_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Asset_Invoice__c.Policy_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10277,7 +10302,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Charge_Receivable__c.FS_Contract__c</field>
+        <field>Charge_Receivable__c.Charge_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Charge_Receivable__c.Composite_Charge_Receivable_Identifier__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11002,7 +11032,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Customer_Key_Credential__c.Guaranteer__c</field>
+        <field>Customer_Key_Credential__c.Guarantor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11041,9 +11071,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Customer_Key_Credential__c.Retail_FS_Guaranteer__c</field>
-        <readable>false</readable>
+        <editable>true</editable>
+        <field>Customer_Key_Credential__c.Retail_FS_Guarantor__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -12302,6 +12332,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>FS_Contract_Relations__c.FS_Customer_Copy__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract_Relations__c.FS_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract_Relations__c.Relation_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>FS_Contract__c.Activation_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12342,7 +12387,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Dealer__c</field>
+        <field>FS_Contract__c.Contract_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract__c.DealerName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12372,6 +12422,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>FS_Contract__c.Financial_Product_Group__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>FS_Contract__c.Financial_Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12393,6 +12448,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>FS_Contract__c.Inactive_guarantor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>FS_Contract__c.Market__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12460,19 +12520,14 @@
         <field>FS_Contract__c.Residual_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>false</editable>
+		<field>FS_Contract__c.Retail_FS_Borrower__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FS_Contract__c.Retail_FS_Borrower__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>FS_Contract__c.Retail_FS_Guaranteer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>FS_Contract__c.Sales_Person__c</field>
+        <field>FS_Contract__c.SalesPersonName__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15276,8 +15331,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>PDC_Detail__c.Composite_PDC_Identifier__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>PDC_Detail__c.Old_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PDC_Detail__c.PDC_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PDC_Detail__c.PDC_SEQ__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16191,6 +16261,71 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Re_Payment_Plan__c.Composite_Rental_Identifier__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Due_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.FID_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Gross_Amount_Paid__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Insurance_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Net_Rental_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Principle_Balance_Oustanding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Registration_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Rental_Amount_Gross__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Rental_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Rental_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.Sundry_charges__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Re_Payment_Plan__c.VAT_on_Rental__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Recall__c.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
@@ -16281,8 +16416,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Rental_OverDue__c.FS_Contract__c</field>
+        <editable>false</editable>
+        <field>Rental_OverDue__c.Composite_RentalOverDue_Identifier__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16293,6 +16428,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Rental_OverDue__c.Interest_Outstanding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Rental_OverDue__c.Overdue_Seq_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16307,6 +16447,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Rental_OverDue__c.Rental_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Rental_OverDue__c.Total_Outstanding__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -16316,13 +16461,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Rental_Receivable__c.FS_Contract__c</field>
+        <editable>false</editable>
+        <field>Rental_Receivable__c.Composite_Rental_Identifier__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Rental_Receivable__c.Receivable_Rentals__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Rental_Receivable__c.Rental_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

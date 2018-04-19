@@ -92,9 +92,10 @@
     </fields>
     <label>Rental Amount</label>
     <nameField>
+        <displayFormat>RA-{000000}</displayFormat>
         <label>Rental Amount Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Rental Amounts</pluralLabel>
     <searchLayouts/>

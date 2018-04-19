@@ -498,7 +498,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-    <fields>
+    <!--<fields>
         <fullName>Age__c</fullName>
         <externalId>false</externalId>
         <label>Age</label>
@@ -508,8 +508,8 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-	<fields>
+    </fields>-->
+	<!--<fields>
         <fullName>Agreement_Date_for_CC_New__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(NOT(ISPICKVAL(General_Personal_Information_Mandatory__c,'')),NOT(ISPICKVAL(General_Personal_Information_Optional__c,'')),NOT(ISPICKVAL( Unique_Identification_Info_Mandatory__c,'')),NOT(ISPICKVAL(General_Personal_InfoThirdParty_Optional__c,'')),NOT(ISPICKVAL(Targeted_Advertising_Info_Optional__c,'')),NOT(ISPICKVAL(Unique_Identity_Info_ThirdParty_Optional__c,''))),TODAY(),null)</formula>
@@ -517,8 +517,8 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
-    </fields>
-    <fields>
+    </fields>-->
+    <!--<fields>
         <fullName>Agreement_Date_for_CC_Old__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(NOT(ISPICKVAL(Personal_Agreement_CC_Old__c,'')),NOT(ISPICKVAL(Personal_Info_Third_Party_Release_CC_Old__c,'')),NOT(ISPICKVAL( Agreement_to_commit_info_proces_CC_Old__c,'')),NOT(ISPICKVAL(Personal_Abroad_Agreement_CC_Old__c,''))),TODAY(),null)</formula>
@@ -526,8 +526,8 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
-    </fields>
-    <fields>
+    </fields>-->
+    <!--<fields>
         <fullName>Agreement_Date_for_Contact_Method__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(NOT(ISPICKVAL(Personal_Agreement__c,'')),NOT(ISPICKVAL(Personal_Information_Third_Party_Release__c ,'')),NOT(ISPICKVAL( Agreement_to_commit_info_processing__c,'')),NOT(ISPICKVAL(Personal_Abroad_Agreement__c,''))),TODAY(),null)</formula>
@@ -535,8 +535,8 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
-    </fields>
-    <fields>
+    </fields>-->
+    <!--<fields>
         <fullName>Agreement_Date_for_Marketing_Consent__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(NOT(ISPICKVAL(General_Personal_Info_Sales_Marketing__c,''))),TODAY(),null)</formula>
@@ -544,8 +544,8 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
-    </fields>
-    <fields>
+    </fields>-->
+    <!--<fields>
         <fullName>Agreement_Date_for_Service_24h_Consent__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(NOT(ISPICKVAL(Personal_Agreement_Service_24h__c,''))),TODAY(),null)</formula>
@@ -553,7 +553,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
-    </fields>
+    </fields>-->
     <fields>
         <fullName>Agreement_to_commit_info_proces_CC_Old__c</fullName>
         <externalId>false</externalId>
@@ -951,6 +951,17 @@ LEN( Phone ) &lt;&gt; 0
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>At Least One Phone</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BPID__c</fullName>
+        <externalId>false</externalId>
+        <label>BPID</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1413,7 +1424,7 @@ Service Only - does have at least one After Sales Record</description>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
-    <fields>
+    <!--<fields>
         <fullName>City_CN__c</fullName>
         <description>Chinese dealer city name - 
 For Dealers this is populated by the GSSN system - not modified in SFDC
@@ -1426,8 +1437,8 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
+    </fields>-->
+    <!--<fields>
         <fullName>City__c</fullName>
         <description>Chinese dealer city name - 
 For Dealers this is populated by the GSSN system - not modified in SFDC
@@ -1440,7 +1451,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
+    </fields>-->
     <fields>
         <fullName>Clicksell__c</fullName>
         <externalId>false</externalId>
@@ -4320,7 +4331,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
-    <fields>
+    <!--<fields>
         <fullName>Dealer_Lead_System__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Lead System</label>
@@ -4343,7 +4354,7 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
-    </fields>
+    </fields>-->
     <fields>
         <fullName>Dealer_Legal_Entity__c</fullName>
         <defaultValue>false</defaultValue>

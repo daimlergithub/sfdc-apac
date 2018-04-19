@@ -55,6 +55,28 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>ABN_No__c</fullName>
+        <externalId>false</externalId>
+        <label>ABN No.</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ACN_No__c</fullName>
+        <externalId>false</externalId>
+        <label>ACN No.</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Active__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -94,6 +116,28 @@
         <type>Date</type>
 	</fields>
 	<fields>
+        <fullName>BPID__c</fullName>
+        <externalId>false</externalId>
+        <label>BPID</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CIAM_Email__c</fullName>
         <externalId>false</externalId>
         <label>CIAM Email</label>
@@ -506,6 +550,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Industry_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Industry Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>IsDeleted__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -648,6 +703,37 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Marketing_Material__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Marketing Material</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Middle_Name_Local__c</fullName>
+        <externalId>false</externalId>
+        <label>Middle Name (Local)</label>
+        <length>125</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Middle_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Middle Name</label>
+        <length>125</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>NextInspectionDate__c</fullName>
@@ -905,6 +991,17 @@ IF(ISPICKVAL($User.Market__c, 'MY') ,'MY','NA'))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Race__c</fullName>
+        <externalId>false</externalId>
+        <label>Race</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Responsible_Dealer__c</fullName>
@@ -2289,6 +2386,15 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Share_Info__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Share Info</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>SocialMediaAccount_ID__c</fullName>
         <externalId>false</externalId>
         <label>SocialMediaAccount ID</label>
@@ -2344,6 +2450,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>SystemModstamp__c</fullName>
         <externalId>false</externalId>
         <label>SystemModstamp</label>
@@ -2368,6 +2485,17 @@ Holds National ID or Passport No. of wholesale Account</description>
         <externalId>false</externalId>
         <formula>TEXT(fromRole__r.Targeted_Advertising_Info_Optional__c)</formula>
         <label>Targeted Advertising Info (Optional)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trading_As__c</fullName>
+        <externalId>false</externalId>
+        <label>Trading As</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
