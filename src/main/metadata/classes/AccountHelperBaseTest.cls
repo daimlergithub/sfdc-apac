@@ -252,5 +252,145 @@ public class AccountHelperBaseTest {
         }
         
     }
+    //Added for TR market
+	static testMethod void testAccAssignmentTR() {
+        
+        User user1 = TestUtils.createTRAdminUser();
+        String market='TR';
+        Integer ageInt=25;
+        Integer ageInt1=34;
+        Integer ageInt2=39;
+        Integer ageInt3=48;
+        Integer ageInt4=60;
+        Integer ageInt5=67;
+        Integer ageInt6=-12;
+        Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account');
+        Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company');
+        //Id retailPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c',Label.Retail_Person);
+        //Id retailCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account_Link__c',Label.Retail_Company);
+        Id retailPerson_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
+        Id retailCompany_RecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+            
+        System.runAs (user1) {
+            test.starttest();            
+            Account Acc = TestUtils.createPersonAccountAsUserAsOwner(user1);
+            Acc.Primary_Address_Reference__c = TestUtils.createAddressTR(Acc.ID).ID;
+            acc.Mobile__c='4545452';
+            acc.Mobile2__c='9898989';
+            update Acc;
+            list<Account> list2=new list<Account>();
+            list2.add(Acc);
+            
+            //Update Account            
+            Acc = TestUtils.UpdateAccount(Acc.id);  
+            Account acc2 = TestUtils.createCompanyAccount(user1);
+            acc2.Primary_Address_Reference__c = TestUtils.createAddressTR(acc2.ID).ID;
+            update acc2;
+            list<Account> list3=new list<Account>();
+            list3.add(acc2);
+                       
+            
+            AccountHelperBase.updateAccountFieldsBeforeInsert(list2,True);
+            AccountHelperBase.updateOnDoNotCall(List2);
+            AccountHelperBase.updateOnPostalOptout(list3);
+            AccountHelperBase.updateOnEmailOptout(List2);
+            AccountHelperBase.updateAgeRange(List2);
+            AccountHelperBase.ValidateNationalid(List2);
+            AccountHelperBase.ValidateNationalid(List3);
+            AccountHelperBase.calculateAgeRange(ageInt);
+            Contract cont = TestUtils.createContract(Acc.ID);
+            AccountHelperBase.activeContracts(List2);
+            
+            AccountHelperBase.calculateAgeRange(ageInt1);
+            AccountHelperBase.calculateAgeRange(ageInt2);
+            AccountHelperBase.calculateAgeRange(ageInt3);
+            AccountHelperBase.calculateAgeRange(ageInt4);
+            AccountHelperBase.calculateAgeRange(ageInt5);
+            AccountHelperBase.calculateAgeRange(ageInt6);
+            Map<Id, Account> m1=new Map<id, Account>();
+            Account a1=list3[0];
+            m1.put(a1.id,a1);
+            
+            
+            AccountHelperBase.updatePrimaryAddressdisplay(List3,true,m1);
+            AccountHelperBase.updateMarketingFields(list2);
+            AccountHelperBase.updateAccountFieldsBeforeInsertInt(list2,True);
+            AccountHelperBase.updatemarket(list2);
+            AccountHelperBase.createUpdateCDMUCID('abcd', 'TR',list2 );
+            AccountHelperBase.entityNotifyUpdate('abcd','TR','TR','abcd');
+            AccountHelperBase.validate('+66123456789', 3, 'Mobile', 9, 12);
+            AccountHelperBase.validate('+6612345s789', 3, 'Mobile', 9, 12);
+            AccountHelperBase.validate('+6600000123456789', 3, 'Mobile', 9, 12);
+            AccountHelperBase.validate('+661234abcd', 3, 'Home Phone', 8, 11);
+            AccountHelperBase.validate('+661234', 3, 'Home Phone', 8, 11);
+            Map<Id, Account> m=new Map<id, Account>();
+            Account a=list2[0];
+            m.put(a.id,a);
+            
+            Account acc3 = TestUtils.createPersonAccountAsUserAsOwner(user1);
+            acc3.Primary_Address_Reference__c = TestUtils.createAddressTR(acc3.ID).ID;
+            update acc3;
+            Map<Id, Account> m2=new Map<id, Account>();
+            Account a3=acc3;
+            m2.put(a3.id,a3);
+            acc3 = TestUtils.UpdateAccount(acc3.Id);
+            acc3.Mobile2__c = '+66541725922';
+            acc3.Mobile__c = '+66848392422';
+            update acc3;
+            list<Account> list4=new list<Account>();
+            list4.add(acc3);
+            
+            Account acc4 = TestUtils.UpdateAccount(list2[0].Id);
+            acc4.Mobile2__c = '+66837249812';
+            acc4.Mobile__c = '+66837249546';
+            update acc4;
+            list<Account> list5=new list<Account>();
+            list5.add(acc4);
+            
+            list<Account> list6=new list<Account>();
+            list6.add(Acc);
+            acc2.ID_Number__c = '';
+            update(acc2);
+            list6.add(acc2);
+            acc3.ID_Number__c = '12as4';
+            update(acc3);
+            list6.add(acc3);
+            AccountHelperBase.ValidateNationalid(list6);
+            AccountHelperBase.UpdateConsentHistory(m,list2);
+            //AccountHelperBase.updateAccountFieldsBeforeIntUpdate();
+            AccountHelperBase.updateAccountFieldsBeforeUpdate(list4, m2, true);
+            AccountHelperBase.updateAccountFieldsBeforeIntUpdate(list5,m,true);
+            
+            AccountHelperBase.DealerCommAccountlinkcreatecdm(List3,m1);
+            AccountHelperBase.updatePrimaryAddressDetailsOnALK(list2,m);
+            
+            //AccountHelperBase.updateAccountFieldsBeforeInsert(listNewAccounts, isInsert)
+            
+           /* system.assertequals(AccountHelperBase.calculateAgeRange(18),'17-25');
+            system.assertequals(AccountHelperBase.calculateAgeRange(27),'26-35');
+            system.assertequals(AccountHelperBase.calculateAgeRange(37),'36-45');
+            system.assertequals(AccountHelperBase.calculateAgeRange(47),'46-55');
+            system.assertequals(AccountHelperBase.calculateAgeRange(57),'56-65');
+            system.assertequals(AccountHelperBase.calculateAgeRange(67),'65+'); */
+            
+            list<Account> updateAccountList=[select Opt_In_Home_Phone__c,Opt_In_Email__c from Account where id=:acc.Id]; 
+            system.assertEquals(acc.Opt_In_Home_Phone__c, false);
+            system.assertEquals(acc.Opt_In_Email__c, false);
+            
+          
+            AccountHelperBase.CreateRetailCopy(list2,true,true);
+            AccountHelperBase.CreateRetailCopy(list3,true,true);
+
+            Account_Link__c PAcclink = TestUtils.createAccLinkTR('Retail Person', Acc.Id);//person account   
+            AccountHelperBase.updateRetailCopy(True,True,True,list2);
+            Account_Link__c CAcclink = TestUtils.createAccLinkTR('Retail Person', acc2.Id);//company account
+            AccountHelperBase.updateRetailCopy(True,True,True,list3);
+            AccountHelperBase.createUCID(list2,True);
+            
+            List<Account_Link__c>  retailCopyList = [select id from Account_Link__c where toRole__c =:acc.Id AND (RecordtypeId =:retailPerson_RecordTypeId OR RecordtypeId =:retailCompany_RecordTypeId)];
+            system.assert(retailCopyList.size()>0);
+            test.stopTest();
+        }
+    }
     
 }

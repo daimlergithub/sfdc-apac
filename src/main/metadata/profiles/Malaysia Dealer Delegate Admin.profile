@@ -1369,14 +1369,6 @@
     <classAccesses>
         <apexClass>MBKBulkMessageCreateKRDFWBatch</apexClass>
         <enabled>false</enabled>
-    </classAccesses>    
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendMMSKRDFWSchedule</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendSMSKRDFWSchedule</apexClass>
-        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MBKMessagStatusKRDFWSchedule</apexClass>
@@ -30209,7 +30201,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SurveyMerge</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskDeleting</apexPage>

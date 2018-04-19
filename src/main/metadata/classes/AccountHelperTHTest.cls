@@ -11,6 +11,7 @@
 
     public static User user1 = TestUtils.createAdminUser();
     public static User user2 = TestUtils.IntegrationAPIUser();
+    public static CDM_EP_Switch__c cdmswitch;
 
     public static void creatTestData() {
         List < Sobject > sobj = new List < sObject > ();
@@ -18,23 +19,32 @@
         list < Account > list2 = new list < Account > ();
         Trigger__c tr = new Trigger__C(Name = 'TriggerAccountTH', after__c = true, before__c = true, delete__c = true, enabled__c = true, insert__c = true, update__c = true, Market__c = 'TH', Trigger_Handler__c = 'TriggerAccountTriggerHandlerTH', Trigger_Name__c = 'TriggerAccount');
         sobj.add(tr);
-
-        CDM_EP_Switch__c cdmswitch = new CDM_EP_Switch__c();
+         cdmswitch= new CDM_EP_Switch__c();
         cdmswitch.name = 'Switch';
         cdmswitch.CDM__c = true;
         sobj.add(cdmswitch);
         insert sobj;
-
         Account Acc = TestUtils.createPersonAccountAsUserAsOwner(user1);
         list2.add(Acc);
+        TriggerRecursiveCheck.run=true;
         acc.ID_Number__c = '1361863682746';
         acc.PersonBirthdate = date.newInstance(1980, 03, 18);
+        acc.ucid__c='74647';
+        acc.Opt_In_Home_Phone__c=true;
+        acc.Email__c='abc@gmail.com';
+        acc.Opt_In_Home_Phone2__c=true;
+        acc.Opt_In_Work_Phone__c=true;
+        acc.Opt_In_Work_Phone2__c=true;
+        acc.Preferred_Mobile_1__c=true;
+        acc.Preferred_Mobile_2__c=true;
+        acc.Opt_In_Mobile__c=true;
+        acc.opt_in_email2__c=true;
+        acc.Opt_In_Email3__c=true;
         update acc;
+        
+        TriggerRecursiveCheck.run=true;
         acc.PersonBirthdate = date.newInstance(1970, 03, 18);
-        update acc;
-        acc.PersonBirthdate = date.newInstance(1998, 03, 18);
-        update acc;
-        acc.PersonBirthdate = date.newInstance(1960, 03, 18);
+        acc.UCID__c='ddd89';
         update acc;
         Account_Link__c PAcclink = TestUtils.createAccLink('Retail Person', Acc.Id); //person account   
         AccountHelperTH.updateRetailCopy(True, True, True, list2);
@@ -45,8 +55,6 @@
         AccountHelperTH.updateRetailCopy(True, True, True, list1);
         acc2.Primary_Address_Reference__c = TestUtils.createAddress(acc2.ID).ID;
         update acc2;
-
-
     }
 
     public static testMethod void AccountHelperTHTestMethod2() {
@@ -61,6 +69,8 @@
     static testMethod void testAccAssignment1_1() {
 
         User user2 = TestUtils.createAfterSalesManager();
+        user2.market__C='TH';
+        update user2;
         Account acc1;
         Account acc2;
         Account acc3;
