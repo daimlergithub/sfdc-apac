@@ -1985,4 +1985,8 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.ap
 alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
+	
+	
 </CustomObject>
+
+
