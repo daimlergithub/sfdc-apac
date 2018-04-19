@@ -30201,7 +30201,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SurveyMerge</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskDeleting</apexPage>

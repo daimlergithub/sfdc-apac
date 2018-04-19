@@ -11,6 +11,7 @@
 
     public static User user1 = TestUtils.createAdminUser();
     public static User user2 = TestUtils.IntegrationAPIUser();
+    public static CDM_EP_Switch__c cdmswitch;
 
     public static void creatTestData() {
         List < Sobject > sobj = new List < sObject > ();
@@ -18,23 +19,32 @@
         list < Account > list2 = new list < Account > ();
         Trigger__c tr = new Trigger__C(Name = 'TriggerAccountTH', after__c = true, before__c = true, delete__c = true, enabled__c = true, insert__c = true, update__c = true, Market__c = 'TH', Trigger_Handler__c = 'TriggerAccountTriggerHandlerTH', Trigger_Name__c = 'TriggerAccount');
         sobj.add(tr);
-
-        CDM_EP_Switch__c cdmswitch = new CDM_EP_Switch__c();
+         cdmswitch= new CDM_EP_Switch__c();
         cdmswitch.name = 'Switch';
         cdmswitch.CDM__c = true;
         sobj.add(cdmswitch);
         insert sobj;
-
         Account Acc = TestUtils.createPersonAccountAsUserAsOwner(user1);
         list2.add(Acc);
+        TriggerRecursiveCheck.run=true;
         acc.ID_Number__c = '1361863682746';
         acc.PersonBirthdate = date.newInstance(1980, 03, 18);
+        acc.ucid__c='74647';
+        acc.Opt_In_Home_Phone__c=true;
+        acc.Email__c='abc@gmail.com';
+        acc.Opt_In_Home_Phone2__c=true;
+        acc.Opt_In_Work_Phone__c=true;
+        acc.Opt_In_Work_Phone2__c=true;
+        acc.Preferred_Mobile_1__c=true;
+        acc.Preferred_Mobile_2__c=true;
+        acc.Opt_In_Mobile__c=true;
+        acc.opt_in_email2__c=true;
+        acc.Opt_In_Email3__c=true;
         update acc;
+        
+        TriggerRecursiveCheck.run=true;
         acc.PersonBirthdate = date.newInstance(1970, 03, 18);
-        update acc;
-        acc.PersonBirthdate = date.newInstance(1998, 03, 18);
-        update acc;
-        acc.PersonBirthdate = date.newInstance(1960, 03, 18);
+        acc.UCID__c='ddd89';
         update acc;
         Account_Link__c PAcclink = TestUtils.createAccLink('Retail Person', Acc.Id); //person account   
         AccountHelperTH.updateRetailCopy(True, True, True, list2);
@@ -45,8 +55,6 @@
         AccountHelperTH.updateRetailCopy(True, True, True, list1);
         acc2.Primary_Address_Reference__c = TestUtils.createAddress(acc2.ID).ID;
         update acc2;
-
-
     }
 
     public static testMethod void AccountHelperTHTestMethod2() {
@@ -61,6 +69,8 @@
     static testMethod void testAccAssignment1_1() {
 
         User user2 = TestUtils.createAfterSalesManager();
+        user2.market__C='TH';
+        update user2;
         Account acc1;
         Account acc2;
         Account acc3;
@@ -122,5 +132,41 @@
             test.stopTest();
         }
     }
+    
+    //testMethod for sharing after account Merge
+    static testMethod void shareAfterAccountMergeTest()
+    {
+        System.runAs(user2)
+        {
+            
+            test.startTest();
+            Id dealerType =RecordTypeAccessService.getRecordTypeid('Account','Dealer');
+            TriggerUtil.userCreate = false;
+            Trigger__c tr = new Trigger__C(Name = 'TriggerAccountTH', after__c = true, before__c = true, delete__c = true, enabled__c = true, insert__c = true, update__c = true, Market__c = 'TH', Trigger_Handler__c = 'TriggerAccountTriggerHandlerTH', Trigger_Name__c = 'TriggerAccount');
+       		insert tr;
+            Account goldenAcc = TestUtils.createCompanyAccount(user2);
+            goldenAcc.MD__c='TH';
+            goldenAcc.UCID__c='123456';
+            update goldenAcc;
+            Account dealer1 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TH', Individual_Home_Phone__c='+66-9885857857', RecordTypeId = dealerType, Name = 'test dealer1',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='12435');
+        	insert dealer1;
+            
+            Account duplicateAcc = TestUtils.createCompanyAccount(user2);
+            System.debug('***duplicateAcc'+duplicateAcc.Id);
+            duplicateAcc.MD__c='TH';
+            duplicateAcc.UCID__c='1234';
+            update duplicateAcc;
+            
+            Account_Link__c Acclink = TestUtils.createAccLink('Retail Company', duplicateAcc.Id); //company account
+            Acclink.fromRole__c=dealer1.Id;
+            update Acclink;
+            String grpName='TH'+dealer1.Dealer_ND_Code__c;
+            Group grp=TestUtils.CreateTHGroup(grpName);
+            duplicateAcc.UCID__c='123456';
+            update duplicateAcc;
+            test.stopTest();
+        }
+    }
+    
 
 }

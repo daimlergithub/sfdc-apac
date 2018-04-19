@@ -1717,18 +1717,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MBKMessagScheduleSendKaKaoKRDFWSchedule</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendMMSKRDFWSchedule</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MBKMessagScheduleSendSMSKRDFWSchedule</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MBKMessagStatusKRDFWSchedule</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -7240,9 +7228,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Vat_No__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8015,6 +8003,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Email_OptIn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Email_OptOut__c</field>
         <readable>false</readable>
@@ -8150,6 +8143,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Phone_OptIn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Phone_OptOut__c</field>
         <readable>false</readable>
@@ -8157,6 +8155,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Position__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_Postal_OptIn__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8212,6 +8215,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Retail_Responsible__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Link__c.Retail_SMS_OptIn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.Retail_SMS_OptOut__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8615,9 +8628,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Address__c.Foreign_Nationals__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -30040,15 +30053,15 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressDisplayInlineEdit</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressSearchValidation</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressSearchValidationCDM</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>AddressSelectionforExistingCustomer</apexPage>
@@ -30172,7 +30185,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ConvertToDMRequest</apexPage>
@@ -30540,7 +30553,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Retailcopybutton</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>SMSSendResult</apexPage>
