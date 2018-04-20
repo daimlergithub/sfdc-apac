@@ -792,7 +792,7 @@ public class AccountHelperBase{
         toRole__r.First_Consent_Date__c,toRole__r.Updated_Consent_Date__c,toRole__r.First_Consent_User__c,toRole__r.Updated_Consent_User__c,toRole__r.PersonHasOptedOutOfEmail,
         torole__r.PersonHasOptedOutOfFax,torole__r.PersonDoNotCall,torole__r.Postal_Opt_Out__c,Retail_Address_Reference__c,
         torole__r.Visit_Opt_Out__c,fromRole__r.Dealer_Rollout_Status__c,toRole__r.Complaint_Amount__c,toRole__r.Opt_In_Email__c,toRole__r.Opt_In_SMS__c,toRole__r.SMSOptOut__pc,
-        toRole__r.Postal_Opt_In__c  
+        toRole__r.Postal_Opt_In__c,toRole__r.Market__c 
         from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany ) and fromRole__r.Dealer_Rollout_Status__c='Done' ];
         
         //Account link iteration
