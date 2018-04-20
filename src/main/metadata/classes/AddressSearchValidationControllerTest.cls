@@ -140,6 +140,68 @@ public class AddressSearchValidationControllerTest
            
     //}
     }
+   //Code added by Madhusudhan 30-03-2018
+     static testmethod void AddressSearchValidationControllerTestANZ1()
+    {
+        createTestData();
+        test.startTest();
+        ApexPages.currentPage().getParameters().put('recordType','Person Account');
+        ApexPages.StandardController objSc = new ApexPages.StandardController(personAcc);
+        objAccount.Market__c='AU';
+        AddressSearchValidationController JPAcccontroller= new AddressSearchValidationController(objSc);
+        
+        JPAcccontroller.Address_Validated_Flag = true;
+        //JPAcccontroller.objAccount = objAccount1;
+        JPAcccontroller.LanguageSelected='English';
+        JPAcccontroller.province='Banglore';
+        JPAcccontroller.district='Banglore';
+        JPAcccontroller.market='AU';
+        JPAcccontroller.generateCDMEndPointURL();
+        JPAcccontroller.getAddressOptions();
+        JPAcccontroller.LoadProvince();
+        JPAcccontroller.LoadDistrict();
+        JPAcccontroller.LoadSubDistrict();
+        JPAcccontroller.LoadZip();
+        JPAcccontroller.ShowHideFields();
+        JPAcccontroller.onLineDeduplicationANZ();
+        JPAcccontroller.objPersonAccount = objAccount;
+        JPAcccontroller.recordType = '012280000000f14AAA';
+        JPAcccontroller.selectedRecordType = 'Person Account';
+        JPAcccontroller.onLineDeduplicationANZ();
+        //test.startTest();
+        JPAcccontroller.saveAccount();
+        JPAcccontroller.objPersonAccount = personAcc1;
+        JPAcccontroller.saveAccount();
+        JPAcccontroller.validatephonenumber('498989898');
+        system.assertEquals(true,JPAcccontroller.Address_Validated_Flag); 
+        JPAcccontroller.recordType = 'Person Account';
+        JPAcccontroller.onLineDeduplicationANZ();
+        JPAcccontroller.recordType = 'Company';
+        JPAcccontroller.onLineDeduplicationANZ();
+        JPAcccontroller.recordType = 'Person Account';
+    JPAcccontroller.objPersonAccount.LastName= 'abs';
+        JPAcccontroller.objPersonAccount.FirstName = 'xyz';
+        JPAcccontroller.onLineDeduplicationANZ();
+        JPAcccontroller.recordType = 'Company';
+    JPAcccontroller.objAccount.name= 'abs';
+    JPAcccontroller.onLineDeduplicationANZ();
+        JPAcccontroller.recordType = 'Company';
+    JPAcccontroller.objAccount.name= 'abs';
+        JPAcccontroller.objAccount.Email__c='abc@test.com';
+    JPAcccontroller.onLineDeduplicationANZ();
+        JPAcccontroller.recordType = 'Company';
+    JPAcccontroller.objAccount.name= 'abs';
+        JPAcccontroller.objAccount.Email__c='abc@test.com';
+        JPAcccontroller.hmphoneNumber='9809890';
+        JPAcccontroller.wkphoneNumber='9809890';
+        JPAcccontroller.mbphoneNumber='9809890';
+        JPAcccontroller.faxphoneNumber='9809890';
+    JPAcccontroller.onLineDeduplicationANZ();
+        
+        test.stopTest();  
+          
+    //}
+    }
     //dhanamjaya code
     static testmethod void AddressSearchValidationControllerTest1()
     {
@@ -694,6 +756,10 @@ public class AddressSearchValidationControllerTest
          JPAcccontroller.ShowHideFields();
          JPAcccontroller.saveAccountTH();
     JPAcccontroller.saveAccountTH();      
+        JPAcccontroller.Addressobj.Address_Type__c='';
+         JPAcccontroller.saveAccountANZ();
+         JPAcccontroller.RecordType = 'Person Account';
+         JPAcccontroller.SaveAccountDetailsANZ();   
       system.assertEquals(false,JPAcccontroller.Address_Validated_Flag);  
         test.stopTest();
       }
@@ -1070,7 +1136,9 @@ public class AddressSearchValidationControllerTest
             
             JPAcccontroller.saveAccountMY();
             
-            
+            JPAcccontroller.addressobj.Address_Type__c = null;
+            JPAcccontroller.saveAccountANZ();    
+ 
             
             
             

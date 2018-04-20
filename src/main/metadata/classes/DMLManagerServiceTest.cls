@@ -218,24 +218,30 @@ private class DMLManagerServiceTest {
     * @description Tests that DML operations succeed for users without CRUD or FLS restrictions
     */
     static testMethod void crudUnrestrictedInsertUpdateDelete(){
-        Campaign c1 = new Campaign(Name='Test1 Campaign');
-        DMLManagerService.insertAsUser(c1);
-
-        //Would blow up if the Campaign wasn't inserted (List has no rows for assignment)       
-        Campaign c1Reload = [SELECT Id, Name, StartDate FROM Campaign WHERE Id = :c1.Id];
-        System.assert(c1Reload.StartDate == null);
-
-        c1Reload.StartDate = Date.today();       
-
-        DMLManagerService.updateAsUser(c1Reload);
-
-        c1Reload = [SELECT Id, Name, StartDate FROM Campaign WHERE Id = :c1.Id];
-        System.assertEquals(Date.today(),c1Reload.StartDate);
-        
-        DMLManagerService.deleteAsUser(c1Reload);
-
-        List<Campaign> reloaded = [SELECT Id, Name FROM Campaign];
-        System.assertEquals(0,reloaded.size());
+        User usr=TestUtils.createAdminUser();
+        usr.UserpermissionsMarketinguser=true;
+        usr.market__c=null;
+        update usr;
+        system.runAs(usr){
+            Campaign c1 = new Campaign(Name='Test1 Campaign');
+            DMLManagerService.insertAsUser(c1);
+    
+            //Would blow up if the Campaign wasn't inserted (List has no rows for assignment)       
+            Campaign c1Reload = [SELECT Id, Name, StartDate FROM Campaign WHERE Id = :c1.Id];
+            System.assert(c1Reload.StartDate == null);
+    
+            c1Reload.StartDate = Date.today();       
+    
+            DMLManagerService.updateAsUser(c1Reload);
+    
+            c1Reload = [SELECT Id, Name, StartDate FROM Campaign WHERE Id = :c1.Id];
+            System.assertEquals(Date.today(),c1Reload.StartDate);
+            
+            DMLManagerService.deleteAsUser(c1Reload);
+    
+            List<Campaign> reloaded = [SELECT Id, Name FROM Campaign];
+            System.assertEquals(0,reloaded.size());
+    	}
     }
 
     /**
@@ -294,22 +300,28 @@ private class DMLManagerServiceTest {
     * @description Tests that upserts fail when records are set with erroneous ids
     */
     static testmethod void testFailedUpdateWithErroneousId(){
-        Campaign c1 = new Campaign(Name = 'Test1 Campaign');
-        Id cId = null;
-    
-        insert new SObject[]{c1};
-        cId = c1.Id;
-        delete c1;
+        User usr=TestUtils.createAdminUser();
+        usr.UserpermissionsMarketinguser=true;
+        usr.market__c=null;
+        update usr;
+        system.runAs(usr){
+            Campaign c1 = new Campaign(Name = 'Test1 Campaign');
+            Id cId = null;
         
-        try{
-            Campaign c1Resurrected = new Campaign(Id = cId, Name = 'Resurrected Campaign');
-            DMLManagerService.upsertAsUser(c1Resurrected);
-            System.assert(false,'Expected a DMLManagerServiceException! Attempting to update a record with an erroneous Id should fail');
-        }
-        catch(DMLManagerService.DMLManagerException dmle){
-            //expected
-            System.assert(dmle.getMessage().contains('An existing record could not be found'));
-        }
+            insert new SObject[]{c1};
+            cId = c1.Id;
+            delete c1;
+            
+            try{
+                Campaign c1Resurrected = new Campaign(Id = cId, Name = 'Resurrected Campaign');
+                DMLManagerService.upsertAsUser(c1Resurrected);
+                System.assert(false,'Expected a DMLManagerServiceException! Attempting to update a record with an erroneous Id should fail');
+            }
+            catch(DMLManagerService.DMLManagerException dmle){
+                //expected
+                System.assert(dmle.getMessage().contains('An existing record could not be found'));
+            }
+		}
     } 
     
     /**

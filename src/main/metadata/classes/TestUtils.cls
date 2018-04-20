@@ -333,6 +333,7 @@ public static id dealerType =RecordTypeAccessService.getRecordTypeid('Account','
         a.Area_code__c             = '0101';
         a.MD__c                    = u.market__c;  // Modified by Laqshay Arora
         a.Market__c                = u.market__c;  // Modified by Hildaa
+        a.Data_Source__c           = 'Past Data';  // Modified by Hildaa 
         a.Postal_Opt_Out__c        = True;
         a.Province__c              = 'Shanghai';
         a.ZipCode__c               = '32703';
