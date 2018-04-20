@@ -32,20 +32,24 @@ public class VehicleRelationshipHelperTRTest {
         ContactFields.add('email');
         ContactFields.add('Federation_ID__c');
         ContactFields.add('phone');
+            ContactFields.add('Market__c');   
         List<Contact> ContactFieldsList=DataFactoryServices.createRecords('Contact',ContactFields,'',1);
         ContactFieldsList[0].accountid=AccountFieldsList[0].id;
         ContactFieldsList[0].Lastname='Lastname1';
         ContactFieldsList[0].Federation_ID__c='9856321478';
         ContactFieldsList[0].email='ab@cd.com';   
         ContactFieldsList[0].phone='7412563089';
+            ContactFieldsList[0].Market__c='TR';
         insert ContactFieldsList;
         
         List<String> VehicleFields=new List<String>();
         //VehicleFields.add('recordtype');
         VehicleFields.add('Brand__c');
+            VehicleFields.add('Market__c');
         List<Vehicle__c> VehicleFieldsList=DataFactoryServices.createRecords('Vehicle__c',VehicleFields,'',1);
         VehicleFieldsList[0].RecordTypeId=RecordTypeAccessService.getRecordTypeId('Vehicle__c',Label.MB_Vehicle);
         VehicleFieldsList[0].Brand__c='BMW';
+            VehicleFieldsList[0].Market__c='TR';
         insert VehicleFieldsList;
         
         List<String> VehicleRelFields=new List<String>();
@@ -87,6 +91,7 @@ public class VehicleRelationshipHelperTRTest {
       Description:Added to update the code coverage of the method for MY
       Modified Date: 2017-10-09
   */
+//Added for TR
     static testmethod void testVehicleRelationshipHelperTR1(){
     
     Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];

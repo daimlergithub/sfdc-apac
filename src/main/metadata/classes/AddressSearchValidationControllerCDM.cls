@@ -589,21 +589,28 @@ public class AddressSearchValidationControllerCDM
                 addressobj.City__c = city;
             if (zip != '' && zip != '--Select--' && addressobj.market__c == label.TR)
                 addressobj.ZipCode__c = zip;
-
-            if (AddressObj.Address_Type__c != null &&
+            
+           /* if (AddressObj.Address_Type__c != null &&
                 (AddressObj.Address_Line_1__c == null ||
-                    AddressObj.Address_Line_2__c == null ||
-                    province == null ||
-                    district == null ||
-                    zip == null || AddressObj.Country__c == null)
-            ) {
-                Validation = TRUE;
-                Address_Validated_Flag = False;
-
+                 AddressObj.Address_Line_2__c == null ||
+                 province == null ||
+                 district == null ||
+                 zip == null || AddressObj.Country__c == null)
+               ) {
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'As you have filled in Address Type, Please enter the '));
+                   Validation = TRUE;
+                   Address_Validated_Flag = False;
+                   
+               } */
+            If(AddressObj.Address_Type__c != null && Recordtype == Label.PersonAccount){
+                AddressObj.Address_Type__c = 'Home';
             }
-
-
-            if (addressobj.ZipCode__c != null && (!Pattern.matches('^[0-9]{5,6}$', addressobj.ZipCode__c))) {
+            
+            If(AddressObj.Address_Type__c != null && Recordtype == Label.Company){
+                AddressObj.Address_Type__c = 'Business';
+            }
+            
+            if (addressobj.ZipCode__c != null && (!Pattern.matches('^[0-9]{5}$', addressobj.ZipCode__c))) {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.TRZipCode));
                 Validation = true;
             }
@@ -620,8 +627,8 @@ if (addressobj.Address_Line_1__c == null) {
 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.Addressline1Mandatory));
 Validation = true;
 }*/
-            if ((!String.isBlank(addressobj.Address_Line_1__c) && addressobj.Address_Line_1__c != null && (!Pattern.matches('[A-Za-z0-9/,]*', addressobj.Address_Line_1__c))) ||
-                (!String.isBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c != null && (!Pattern.matches('[A-Za-z0-9/,]*', addressobj.Address_Line_2__c)))
+            if ((!String.isBlank(addressobj.Address_Line_1__c) && addressobj.Address_Line_1__c != null && (!Pattern.matches('[A-Za-z0-9/, ]*', addressobj.Address_Line_1__c))) ||
+                (!String.isBlank(addressobj.Address_Line_2__c) && addressobj.Address_Line_2__c != null && (!Pattern.matches('[A-Za-z0-9/, ]*', addressobj.Address_Line_2__c)))
                ) {
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, label.AddressInvalid));
                    Validation = true;

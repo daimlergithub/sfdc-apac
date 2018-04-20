@@ -8,6 +8,7 @@ public class createRetailCopyTRTest {
     private static Account companyacc;
     public static Account dealer;
     public static Contact con ;
+    public static user user_Obj; 
     public static user usr; 
     private static List<Account_Link__c> alkList = new List<Account_Link__c>();
     private static Id alkIndividualRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
@@ -17,7 +18,7 @@ public class createRetailCopyTRTest {
     {
         Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
         
-        User user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
+         user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
                                  EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
                                  LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='TR',
                                  TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
@@ -85,7 +86,7 @@ public class createRetailCopyTRTest {
     {
         Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
         
-        User user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
+         user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
                                  EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
                                  LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='TR',
                                  TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
@@ -160,6 +161,7 @@ public class createRetailCopyTRTest {
         {
              
         personAccountTestData();
+        system.runas(user_Obj){
         test.StartTest();
         ApexPages.currentPage().getParameters().put('Id',personAcc.id);
         ApexPages.StandardController sc = new ApexPages.StandardController(personAcc);
@@ -170,12 +172,14 @@ public class createRetailCopyTRTest {
         add.CreateRetailCopy();
         test.StopTest();
         system.assertNotEquals(personAcc,null);
+		}
     }
     
     public static testMethod void CompanyAccTestDataTR()
     {
         
         createCompanyAccTestData();
+		system.runas(user_Obj){
         test.StartTest();
         ApexPages.currentPage().getParameters().put('Id',companyacc.id);
         ApexPages.currentPage().getParameters().put('idselected',address.id);   
@@ -186,12 +190,20 @@ public class createRetailCopyTRTest {
         add.CreateRetailCopy();
         test.StopTest();
         system.assertNotEquals(companyacc,null);
+		}
     }
     
     
     public static testMethod void DealerTestTR()
     {
-        
+        Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        userrole ur = [select id,name from userrole WHERE Name='Daimler APAC'];  
+         user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                                 EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                                 LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='TR',userroleid=ur.id,
+                                 TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user_Obj );
+        system.runAs(user_Obj){  
         // create a Dealer
         dealer = (Account)UtilTestData.createSobject(new Account(market__c='TR'), UtilTestData.ACCOUNT_RT_DEALER);
         
@@ -224,7 +236,7 @@ public class createRetailCopyTRTest {
         
         insert usr;
         
-        
+        }
         System.runAs (usr) {
             
             //Insert company Account
