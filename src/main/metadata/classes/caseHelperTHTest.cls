@@ -16,6 +16,7 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
     public static Id recordTypeAccPersonAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Id recordTypeAccDealerObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     public static Id recordTypeAccCompanyAccountObjId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    public static Id recordTypeFSInquiry_Id=Schema.SObjectType.Case.getRecordTypeInfosByName().get('FS Inquiry').getRecordTypeId();
     public static Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
     public static void createtestData(){
         Trigger__C casetrigger=new Trigger__C(name='TriggerCaseTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseTriggerHandlerTH',Trigger_Name__c='CaseTrigger',update__c=true);
@@ -78,5 +79,42 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
         system.runAs(user1){
             createtestData();
         }
+    }
+    static testMethod void integrationSFDCToCOSTest()
+    {
+        Test.startTest();
+        CallOutHandlerSettingDFW__c coh = new CallOutHandlerSettingDFW__c();
+        coh.Name = 'CalloutValues';
+        coh.DEFAULT_CALLOUT_TIME__c = '10000';
+        coh.MAX_CALLOUT_TIME__c ='120000';  
+        coh.FAILED_STATUS__c='failed';
+        coh.JSON_CONTENT_TYPE__c ='application/json';
+        coh.KO_STATUS__c='KO';       
+        coh.OK_STATUS__c='OK';
+        coh.PLAIN_TEXT_CONTENT_TYPE__c='text/plain';
+        coh.QUEUED_STATUS__c='Queued';
+        coh.REQUEST_BODY_NAME__c='request body';
+        coh.REQUEST_CERT_NAME__c='request cert';
+        coh.REQUEST_HEADERS_NAME__c='request headers';
+        coh.RESPONSE_NAME__c='response';
+        DMLManagerService.insertAsSystem(coh);   
+        Map<string,CallOutHandlerSettingDFW__c> cohMap = CallOutHandlerSettingDFW__c.getAll();
+        Trigger__C casetrigger=new Trigger__C(name='TriggerCaseTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseTriggerHandlerTH',Trigger_Name__c='CaseTrigger',update__c=true);
+    	insert casetrigger;
+        Trigger__C caseCommenttrigger=new Trigger__C(name='CaseCommentTriggerTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseCommentTriggerHandlerTH',Trigger_Name__c='CaseCommentTrigger',update__c=true);
+    	insert caseCommenttrigger;
+        CDM_Integration_URLs__c caseUpdateUrl=new CDM_Integration_URLs__c(Name='TH-Case Update',Context__c='Case',Country__c='TH',Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-TH-FS-Salesforce-COS',Type__c='Update');
+        insert caseUpdateUrl;
+        personAcc = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
+      	insert personAcc;
+        
+        Case c1 = new Case(Subject='testing',accountid=personAcc.id,Recordtypeid=recordTypeFSInquiry_Id,MD__c='TH',COS_Ticket_Number__c='T56498');
+        insert c1;
+        c1.Description='test';
+        update c1;
+        CaseComment cc1=new CaseComment(CommentBody='test',parentId=c1.Id);
+        insert cc1;
+        Test.setMock(HttpCalloutMock.class, new MockHttpResponseGeneratorCase());
+        Test.stopTest();
     }
 }
