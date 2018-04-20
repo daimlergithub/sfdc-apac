@@ -331,12 +331,12 @@ Purchased_Vehicle__r.Class__c,Purchased_Vehicle__r.Model_Description__c,Purchase
           System.debug('%^%^%^%^%^^%^%^ chosenMasterId'+chosenMasterId);
           System.debug('%^%^%^%^%^^%^%^ chosenSlaveId'+chosenSlaveId);
            System.debug('%^%^%^%^%^^%^%^ selectedValue'+selectedValue);
-           if(slead.Existing_Contract__c !=null && mlead.Existing_Contract__c==null)
+          /* if(slead.Existing_Contract__c !=null && mlead.Existing_Contract__c==null)
            {
            chosenMasterId=slead.id;
            chosenSlaveId=mlead.id;
            selectedValue=mlead.id;
-           }
+           }*/
     if((slead.Dealer_Lead_Status__c =='Lost' || slead.Dealer_Lead_Status__c =='Order Confirmed' || slead.Dealer_Lead_Status__c =='Purchased' || slead.Dealer_Lead_Status__c =='Purchased(Only Non BDC)' || slead.Dealer_Lead_Status__c =='Invoiced' || slead.Dealer_Lead_Status__c =='Order Placed' ) && (mlead.Dealer_Lead_Status__c !='Purchased(Only Non BDC)') && (mlead.Dealer_Lead_Status__c !='Invoiced') && (mlead.Dealer_Lead_Status__c !='Order Placed') && (mlead.Dealer_Lead_Status__c !='Lost')  &&  (mlead.Dealer_Lead_Status__c !='Order Confirmed') && (mlead.Dealer_Lead_Status__c !='Purchased'))
          //  if(slead.Dealer_Lead_Status__c!=null && ((slead.Dealer_Lead_Status__c=='Order Placed') || (slead.Dealer_Lead_Status__c=='Purchased(Only Non BDC)') || (slead.Dealer_Lead_Status__c='Invoiced'))  )
            {
