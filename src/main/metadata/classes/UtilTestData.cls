@@ -267,6 +267,12 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
                 if(acc.MD__C=='TH'){
                     initiateDealer1(so);
                 }
+                if(acc.Market__c=='TR'){
+                    initiateDealerTR(so);
+                }
+                if(acc.Market__c=='JP'){
+                    initiateDealerJP(so);
+                }
                 else{
                     initiateDealer(so);
                 }
@@ -393,7 +399,40 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         acc.Individual_Home_Phone__c='+66-12-123-789';
         // acc.Email__c='abc@gmail.com';
     }
+    private static void initiateDealerTR(Sobject so) {
+        Account acc = (Account)so;
+        acc.RecordTypeId = 
+            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);
+        acc.Dealer_Alternate_Name__c = 'Test Alternate';
+        acc.Mobile__c = '+905698745698';
+		acc.Market__c='TR';
+        acc.Dealer_GC_Code__c = 'gc code';
+        acc.Dealer_GS_Code__c = 'gs code';
+        acc.Name = acc.Name == null ? 'test dealer' : acc.Name;
+        acc.Dealer_MB_Sub_Region__c = acc.Dealer_MB_Sub_Region__c == null ?
+            'North1' : acc.Dealer_MB_Sub_Region__c;
     
+        //acc.Mobile__c='123456789012';
+        // acc.Work_Phone__c='123456789012';
+        acc.Individual_Home_Phone__c='+904789632145';
+        // acc.Email__c='abc@gmail.com';
+    }
+    
+    private static void initiateDealerJP(Sobject so) {
+        Account acc = (Account)so;
+        acc.RecordTypeId = 
+            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);
+        acc.Dealer_Alternate_Name__c = 'Test Alternate';
+        //acc.Mobile__c = '+9056987456';
+		acc.Market__c='JP';
+        acc.Dealer_GC_Code__c = 'gc code';
+        acc.Dealer_GS_Code__c = 'gs code';
+        acc.Name = acc.Name == null ? 'test dealer' : acc.Name;
+        acc.Dealer_MB_Sub_Region__c = acc.Dealer_MB_Sub_Region__c == null ?
+            'North1' : acc.Dealer_MB_Sub_Region__c;
+    
+        
+    }
     // Create Unsaved Person Account
     // N.B. Name is read only for Person Account
     private static void initiatePersonAccount(Sobject so) {

@@ -9,12 +9,21 @@ public class createRetailCopyJPTEST
    public static Account dealer;
    public static Contact con ;
    public static user usr; 
+    public static user user_Obj; 
    private static List<Account_Link__c> alkList = new List<Account_Link__c>();
     private static Id alkIndividualRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
   
   
   Public static void personAccountTestData()
   {
+	  Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        
+         user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                                 EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                                 LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='JP',
+                                 TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user_Obj );
+        system.runAs(user_Obj){   
    dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
   personAcc = new Account(Dealer_Default_Flag__c=false,
                                Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
@@ -65,13 +74,20 @@ public class createRetailCopyJPTEST
         Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
         Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', ToRole__c = personAcc.id,fromrole__c=account.id, ReCordTypeId = RetailPerson);
         insert acclnk; 
-  
+		}
   }
  
  
   Public static void createCompanyAccTestData()
  {
- 
+	Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        
+         user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                                 EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                                 LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='JP',
+                                 TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user_Obj );
+        system.runAs(user_Obj){   
       dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
        
         companyacc = new Account(Dealer_Default_Flag__c=false,
@@ -82,6 +98,7 @@ public class createRetailCopyJPTEST
                                 Phone = '0801801010',
                                 Area_code__c = '0101',
                                 MD__c = 'JP',
+                                 Market__c = 'JP',
                                 name = 'tes company name',
                                 //Salutation = 'Unknown',      
                                 Province__c = 'Shanghai',
@@ -105,6 +122,7 @@ public class createRetailCopyJPTEST
         account.FirstName = 'Test';
         account.Mobile__c = '023482832';
         account.Data_Source__c  = 'Test4';
+    	account.Market__c  = 'JP';
         account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
         
         address=new Address__c();
@@ -112,6 +130,7 @@ public class createRetailCopyJPTEST
         address.Province__c='test1';
         address.City__c='bangalore';
         address.District__c='test2';
+      	address.Market__c='JP';
         address.Block__c='test3';
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
@@ -122,9 +141,9 @@ public class createRetailCopyJPTEST
         insert address;
         
         Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-        Account_Link__c acclnkcom = new Account_Link__c(Name = 'Test Name', ToRole__c = companyacc.id,fromrole__c=account.id, ReCordTypeId = RetailCompany);
+        Account_Link__c acclnkcom = new Account_Link__c(Name = 'Test Name', Market__c='JP',ToRole__c = companyacc.id,fromrole__c=account.id, ReCordTypeId = RetailCompany);
         insert acclnkcom;
- 
+		}
  }
  
   public static testMethod void PersonAccTestData()
@@ -132,6 +151,7 @@ public class createRetailCopyJPTEST
   
       
         personAccountTestData();
+		system.runas(user_Obj){
         test.StartTest();
         ApexPages.currentPage().getParameters().put('Id',personAcc.id);
          ApexPages.StandardController sc = new ApexPages.StandardController(personAcc);
@@ -141,12 +161,14 @@ public class createRetailCopyJPTEST
          add.CreateRetailCopy();
          test.StopTest();
          system.assertNotEquals(personAcc,null);
+		}
   }
   
  public static testMethod void CompanyAccTestData()
   {
   
         createCompanyAccTestData();
+		system.runas(user_Obj){
         test.StartTest();
         ApexPages.currentPage().getParameters().put('Id',companyacc.id);
          ApexPages.StandardController sc = new ApexPages.StandardController(companyacc);
@@ -156,18 +178,26 @@ public class createRetailCopyJPTEST
          add.CreateRetailCopy();
          test.StopTest();
          system.assertNotEquals(companyacc,null);
+		}
   }
  
  
  public static testMethod void DealerTest()
   {
-  
+  Profile p1 = [select id,name from profile WHERE Name='System Administrator'];  
+        userrole ur = [select id,name from userrole WHERE Name='Daimler APAC'];  
+         user_Obj = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                                 EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                                 LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='JP',userroleid=ur.id,
+                                 TimeZoneSidKey='America/Los_Angeles', UserName='testuser2@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        DMLManagerService.insertAsSystem(user_Obj );
+        system.runAs(user_Obj){   
   // create a Dealer
-         dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+         dealer = (Account)UtilTestData.createSobject(new Account(Market__c='JP'), UtilTestData.ACCOUNT_RT_DEALER);
          
         // create a Contact
         
-        con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
+        con = new Contact(AccountId = dealer.Id,Market__c='JP',Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
         insert con;
         
         //create user  
@@ -188,12 +218,13 @@ public class createRetailCopyJPTEST
             TimeZoneSidKey = 'America/Los_Angeles',
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US',
-            ContactId=con.id
+            ContactId=con.id,
+			Market__c='JP'
         );
         
         insert usr;
          
-        
+        }
          System.runAs (usr) {
         
         //Insert company Account
@@ -204,6 +235,7 @@ public class createRetailCopyJPTEST
                                 Phone = '0801801010',
                                 Area_code__c = '0101',
                                 MD__c = 'JP',
+                           		Market__c = 'JP',
                                 name = 'tes company name',
                                 //Salutation = 'Unknown',      
                                 Province__c = 'Shanghai',
@@ -226,6 +258,7 @@ public class createRetailCopyJPTEST
         address.Province__c='test1';
         address.City__c='bangalore';
         address.District__c='test2';
+        address.Market__c='JP';
         address.Block__c='test3';
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
@@ -236,9 +269,9 @@ public class createRetailCopyJPTEST
         insert address;
         
           Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-        Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', ToRole__c = companyacc.id,fromrole__c=dealer.id, ReCordTypeId = RetailPerson);
+        Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', Market__c='JP',ToRole__c = companyacc.id,fromrole__c=dealer.id, ReCordTypeId = RetailPerson);
         insert acclnk;
-         Account_Link__c Indacclnk = new Account_Link__c(Name = 'Test Name',Primary__c=True, ToRole__c = companyacc.id,System__c='My Mercedes',fromrole__c=dealer.id, ReCordTypeId = alkIndividualRecordTypeId);
+         Account_Link__c Indacclnk = new Account_Link__c(Name = 'Test Name',Market__c='JP',Primary__c=True, ToRole__c = companyacc.id,System__c='My Mercedes',fromrole__c=dealer.id, ReCordTypeId = alkIndividualRecordTypeId);
         alkList.add(Indacclnk) ;
         
         insert alkList;

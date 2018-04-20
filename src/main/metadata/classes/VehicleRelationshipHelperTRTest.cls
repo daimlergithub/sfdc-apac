@@ -87,6 +87,7 @@ public class VehicleRelationshipHelperTRTest {
       Description:Added to update the code coverage of the method for MY
       Modified Date: 2017-10-09
   */
+//Added for TR
     static testmethod void testVehicleRelationshipHelperTR1(){
     
     Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
