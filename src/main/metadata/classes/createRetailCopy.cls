@@ -138,7 +138,7 @@ public without sharing class createRetailCopy {
         AccId = ApexPages.currentPage().getParameters().get('id');
 
         //accList = [Select Id, MD__c,market__c, LastModifiedDate, Foundation_Date__c, ID_Type__c,ID_Number__c,Country__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c,Postal_Opt_In__c, LastName_Native_1__c, FirstName_Native_1__c,SMSOptOut__pc, Special_Needs_Class__c, Preferred_Language__c, Allow_Data_Sharing2__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c,Opt_In_Email__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c,Opt_In_SMS__c,Updated_Consent_User__c, First_Consent_User__c,First_Consent_Date__c,Updated_Consent_Date__c,Company_Name__c,Race__c,Title__c from account where id =: AccId];
-		accList = [Select Id, MD__c, LastModifiedDate, Foundation_Date__c, ID_Type__c,ID_Number__c,Country__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c,Postal_Opt_In__c, LastName_Native_1__c, FirstName_Native_1__c,SMSOptOut__pc, Special_Needs_Class__c, Preferred_Language__c, Allow_Data_Sharing2__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c,Opt_In_Email__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c,Opt_In_SMS__c,Updated_Consent_User__c, First_Consent_User__c,First_Consent_Date__c,Updated_Consent_Date__c,Company_Name__c,Race__c,Title__c from account where id =: AccId];
+		accList = [Select Id, MD__c,market__c, LastModifiedDate, Foundation_Date__c, ID_Type__c,ID_Number__c,Country__c,createdDate,Special_Care__c, Primary_Phone__c, email__c, Salutation__c, Mobile__c,Postal_Opt_In__c, LastName_Native_1__c, FirstName_Native_1__c,SMSOptOut__pc, Special_Needs_Class__c, Preferred_Language__c, Allow_Data_Sharing2__c, Main_Dealer__c, RecordtypeId, UCID__c, DMS_Customer_ID__c, Name, LastName, FirstName, Complaint_Amount__c, Sales_Sanction__c, Allow_Data_Sharing__c, PersonMobilePhone, Individual_Home_Phone__c, Work_Phone__c, PersonEmail, Fax, Preferred_Contact_Method__c, PersonHasOptedOutOfEmail, PersonHasOptedOutOfFax, Primary_Phone_Display__c,Opt_In_Email__c, PersonDoNotCall, Postal_Opt_Out__c, Visit_Opt_Out__c, PersonBirthdate, Occupation__c, Job__c, Gender__c, industry, Website, Company_Name_Native_1__c, Commercial_Reg_No__c, Personal_Agreement__c, Personal_Information_Third_Party_Release__c, Personal_Abroad_Agreement__c, Agreement_to_commit_info_processing__c, Vat_No__c,Opt_In_SMS__c,Updated_Consent_User__c, First_Consent_User__c,First_Consent_Date__c,Updated_Consent_Date__c,Company_Name__c,Race__c,Title__c from account where id =: AccId];
 		
         accc = [Select id, Main_Dealer__c from account where id =: account.Main_Dealer__c limit 1];
         system.debug('+++++++++' + addId);
@@ -179,7 +179,7 @@ public without sharing class createRetailCopy {
                         newAlk.toRole__c = AccId;
                         newAlk.Retail_Address_Reference__c = addId;
                         newAlk.fromRole__c = DealeAccId;
-                        //newAlk.Market__c = acclist.market__c;
+                        newAlk.Market__c = acclist.market__c;
                         newAlk.RecordTypeId = alkPerson_RecordTypeId;
                         //Added condition for TR  Market
                         if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
@@ -332,6 +332,7 @@ public without sharing class createRetailCopy {
                         newAlk.toRole__c = AccId;
                         newAlk.Retail_Address_Reference__c = addId;
                         newAlk.fromRole__c = DealeAccId;
+                        newAlk.Market__c = acclist.market__c;
                         newAlk.RecordTypeId = alkCompany_RecordTypeId;
                         //Added condition for TR Market
                         if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
@@ -481,7 +482,7 @@ public without sharing class createRetailCopy {
                     newAlk.Retail_Address_Reference__c = addId;
                     newAlk.fromRole__c = account.Main_Dealer__c;
                     newAlk.RecordTypeId = alkPerson_RecordTypeId;
-                    //newAlk.Market__c = acclist.market__c;
+                    newAlk.Market__c = acclist.market__c;
                     //Added TR Condition
                     if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
                         if (!SelectedAdd.isEmpty() && SelectedAdd[0] != null) {
@@ -641,7 +642,7 @@ public without sharing class createRetailCopy {
                     newAlk.toRole__c = AccId;
                     newAlk.Retail_Address_Reference__c = addId;
                     newAlk.fromRole__c = account.Main_Dealer__c;
-                    //newAlk.Market__c = acclist.market__c;
+                    newAlk.Market__c = acclist.market__c;
                     newAlk.RecordTypeId = alkCompany_RecordTypeId;
                     //Added condition for TR market
                     if (accList.MD__c == 'TH' || accList.Market__c == 'TR') {
