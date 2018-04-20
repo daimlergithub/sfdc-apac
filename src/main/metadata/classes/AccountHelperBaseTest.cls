@@ -149,6 +149,21 @@ public class AccountHelperBaseTest {
         insert dealerContact;
         User user2 = new User(LastName='GEORGE',contactid=dealerContact.id,country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
         insert user2;*/
+	
+	String dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
+        profile p22=[select id from profile where Name='System Administrator'];
+		userrole ur =[select id from userrole where Name ='Daimler APAC'];
+        
+        User user1 = new User(LastName='GEORGE',Market__c='TH',userroleid=ur.id,country='Australia',ProfileId=p22.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
+        insert user1;
+         //User user1 = TestUtils.createMYAdminUser();
+		   User user2;
+		  System.runAs (user1) {
+	
+	
+	
+	
+	
         Account account = new Account();
             account.Name = 'account name';
             account.Phone = '012310086';
@@ -204,9 +219,10 @@ public class AccountHelperBaseTest {
         insert dealer1;
         Contact dealerContact = new Contact(FirstName = 'Test',Md__c='TH', Lastname = 'Amit', AccountId = dealer1.Id, Email = 'test@test.com');
         insert dealerContact;
-    User user2 = new User(LastName='GEORGE',contactid=dealerContact.id,country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev0d1');
+		user2 = new User(LastName='GEORGE',contactid=dealerContact.id,country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev0d1');
     insert user2;
          Group g=new group(name='12345');insert g;
+		  }
         system.runAs(user2){
             test.startTest();
             /*Account accD = TestUtils.createPersonAccountAsUserAsOwner(user2);
@@ -280,7 +296,8 @@ public class AccountHelperBaseTest {
             update Acc;
             list<Account> list2=new list<Account>();
             list2.add(Acc);
-            
+            Map<Id, Account> m2=new Map<id, Account>();
+            m2.put(acc.id,acc);
             //Update Account            
             Acc = TestUtils.UpdateAccount(Acc.id);  
             Account acc2 = TestUtils.createCompanyAccount(user1);
@@ -330,9 +347,9 @@ public class AccountHelperBaseTest {
             Account acc3 = TestUtils.createPersonAccountAsUserAsOwner(user1);
             acc3.Primary_Address_Reference__c = TestUtils.createAddressTR(acc3.ID).ID;
             update acc3;
-            Map<Id, Account> m2=new Map<id, Account>();
+            Map<Id, Account> m3=new Map<id, Account>();
             Account a3=acc3;
-            m2.put(a3.id,a3);
+            m3.put(a3.id,a3);
             acc3 = TestUtils.UpdateAccount(acc3.Id);
             acc3.Mobile2__c = '+66541725922';
             acc3.Mobile__c = '+66848392422';
@@ -358,12 +375,13 @@ public class AccountHelperBaseTest {
             AccountHelperBase.ValidateNationalid(list6);
             AccountHelperBase.UpdateConsentHistory(m,list2);
             //AccountHelperBase.updateAccountFieldsBeforeIntUpdate();
-            AccountHelperBase.updateAccountFieldsBeforeUpdate(list4, m2, true);
+            AccountHelperBase.updateAccountFieldsBeforeUpdate(list4, m3, true);
             AccountHelperBase.updateAccountFieldsBeforeIntUpdate(list5,m,true);
             
             AccountHelperBase.DealerCommAccountlinkcreatecdm(List3,m1);
             AccountHelperBase.updatePrimaryAddressDetailsOnALK(list2,m);
-            
+             AccountHelperBase.CreateRetailCopy(list3,true,true);
+			  AccountHelperBase.updateRetailCopy(true,true,true,list3);
             //AccountHelperBase.updateAccountFieldsBeforeInsert(listNewAccounts, isInsert)
             
            /* system.assertequals(AccountHelperBase.calculateAgeRange(18),'17-25');
@@ -391,6 +409,124 @@ public class AccountHelperBaseTest {
             system.assert(retailCopyList.size()>0);
             test.stopTest();
         }
+    }
+	
+	static testMethod void testAccAssignmentTR1() {
+        String dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
+        profile p22=[select id from profile where Name='System Administrator'];
+		userrole ur =[select id from userrole where Name ='Daimler APAC'];
+        
+        User user1 = new User(LastName='GEORGE',Market__c='TR',userroleid=ur.id,country='Australia',ProfileId=p22.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev01');
+        insert user1;
+         //User user1 = TestUtils.createMYAdminUser();
+		   User user2;
+		  System.runAs (user1) {
+        Account account = new Account();
+            account.Name = 'account name';
+            account.Phone = '012310086';
+            account.Area_Code__c = '010';
+            account.Fax = '012310086';
+            account.BillingCity = 'San Francisco';
+            account.BillingCountry = 'USA';
+            account.BillingPostalCode = '94105';
+        	account.Dealer_nd_code__c='1234';
+            account.BillingState = 'CA';
+              account.Market__c = 'TR';
+            account.Dealer_Presales_Email__c='test@test.com';
+            account.Dealer_CRM_Manager_Email__c ='test@test.com';
+            account.Dealer_Marketing_Manager_Email__c='test@test.com';
+            account.BillingStreet = 'SnapBi 55 New Montgomery Street Suite 525';
+            account.Dealer_Complaint_Manager__c='true';
+            account.Dealer_Rollout_Status__c='Done';
+            account.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            insert account;
+       
+            
+            Contact contact = new Contact();
+            contact.FirstName = 'a';
+            contact.LastName = 'b';
+            contact.Email = 'test@test.com';
+            contact.Phone = '1212313';
+            contact.Title = 'contact title';
+            contact.Name_English__c = 'c';
+            contact.AccountId = account.Id;
+            contact.Market__c = 'TR';
+            
+            Contact contact1 = new Contact();
+            contact1.FirstName = 'a';
+            contact1.LastName = 'b';
+            contact1.Email = 'test@test.com';
+            contact1.Phone = '1212313';
+            contact1.Title = 'contact title';
+            contact1.Name_English__c = 'c';
+            contact1.AccountId = account.Id;
+            contact1.Market__c = 'TR';
+            
+            List<Contact> contacts = new List<Contact>();
+            contacts.add(contact); 
+            contacts.add(contact1); 
+            insert contacts;
+        
+        Id p = [SELECT Id FROM Profile WHERE usertype='PowerPartner' limit 1].id;
+        User portaluser = new User(alias = 'test123', email='test123@noemail.com',
+                            emailencodingkey='UTF-8', lastname='Testing', languagelocalekey='en_US',
+                            localesidkey='en_US', profileid = p, country='India',IsActive =true,
+                            ContactId = contacts[0].Id,
+                            timezonesidkey='America/Los_Angeles', username='testdealer@noemail.com'+String.valueof(DateTime.now().getTime()));
+            insert portaluser;
+        profile p2=[select id from profile where Name='Thailand Dealer Delegate Admin'];
+        Account dealer1 =  new Account(Dealer_Rollout_Status__c='Done',Dealer_DMS_CRM_Code__c = 'DealerCode',Md__c='TR', Individual_Home_Phone__c='+905698745632', RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Company'), Name = 'test dealer1',Dealer_GC_Code__c = '12345',Dealer_nd_Code__C='1235');
+        insert dealer1;
+        Contact dealerContact = new Contact(FirstName = 'Test',Md__c='TR', Market__c='TR',Lastname = 'Amit', AccountId = dealer1.Id, Email = 'test@test.com');
+        insert dealerContact;
+		user2 = new User(LastName='GEORGE',contactid=dealerContact.id,Market__c='TR',country='Australia',ProfileId=p2.Id,Alias='ain1234',EmailEncodingKey='UTF-8',TimeZoneSidKey='America/New_York',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='Ibtesamuddin_M@infosys.com',UserName='george@usgboral.com.dev0d1');
+    insert user2;
+         Group g=new group(name='12345');insert g;
+		  }
+        system.runAs(user2){
+            test.startTest();
+            /*Account accD = TestUtils.createPersonAccountAsUserAsOwner(user2);
+            accD.Primary_Address_Reference__c = TestUtils.createAddress(accD.ID).ID;
+            update accD;*/
+            list<Account> listDeal=new list<Account>();
+            listDeal.add(new Account( LastName = 'account name',FirstName='test name',Phone = '012310086',Area_Code__c = '010',
+            Fax = '012310086',
+            //Retail_Foundation_Month__c=system.today(),
+            BillingCity = 'San Francisco',
+            BillingCountry = 'USA',
+            BillingPostalCode = '94105',
+            BillingState = 'CA',
+            Dealer_Presales_Email__c='test@test.com',
+            Dealer_CRM_Manager_Email__c ='test@test.com',
+            Dealer_Marketing_Manager_Email__c='test@test.com',
+            BillingStreet = 'SnapBi 55 New Montgomery Street Suite 525',
+            Dealer_Complaint_Manager__c='true',
+            Personal_Agreement__c='tree',
+            RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account','Person Account')));
+            listDeal.add(new Account( Name = 'account name',Phone = '012310086',Area_Code__c = '010',
+            Fax = '012310086',
+            BillingCity = 'San Francisco',
+            BillingCountry = 'USA',
+            BillingPostalCode = '94105',
+            BillingState = 'CA',
+            Dealer_Presales_Email__c='test@test.com',
+            Dealer_CRM_Manager_Email__c ='test@test.com',
+            Dealer_Marketing_Manager_Email__c='test@test.com',
+            BillingStreet = 'SnapBi 55 New Montgomery Street Suite 525',
+            Dealer_Complaint_Manager__c='true',Market__c='TR',
+            RecordTypeId =RecordTypeAccessService.getRecordTypeId('Account','Company')));
+            insert listDeal;
+            Map<Id,Account> oldAccountMap=new Map<id,Account>();
+            oldAccountMap.put(listDeal[0].id,listDeal[0]);
+            Map<Id,Account> newMap=new Map<id,Account>();
+            newMap.put(listDeal[0].id,listDeal[0]);
+            List<Account> lea=[select id from account where id IN:listdeal];
+            AccountHelperBase.CreateRetailCopy(listDeal,true,true);
+            AccountHelperBase.UpdateConsentHistory(newMap,oldAccountMap.values());
+            AccountHelperBase.updateRetailCopy(True,True,True,listDeal);
+            test.stopTest();
+        }
+        
     }
     
 }

@@ -57,6 +57,7 @@ public static User user_Obj;
                                Area_code__c = '03',
                                MD__c = 'TR',
                  Market__c = 'TR',
+                                 Data_Source__c = 'Past Data',
                               LastName = 'galaxy1',
                               FirstName = 'First Name',
                               Salutation = 'Unknown',
