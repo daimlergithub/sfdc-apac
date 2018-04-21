@@ -4,6 +4,11 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
       
             AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
 			 if (Trigger.isbefore && Trigger.isupdate ) {               
+			      acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
+                
+            }
+			 if (Trigger.isbefore && Trigger.isupdate ) {               
+			      acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
                  if(Util_GetPermissionList.checkAccessOnUser(Label.addressupdateRT)){  
                     acchelper.addressupdateRT(trigger.new, (Map < Id, Account_Link__c > ) trigger.oldMap);                  
                 }
@@ -47,6 +52,10 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
          List<Account_Link__c> AccListNewList = Trigger.new;
          
            if( !trigger.isdelete && !AccListNewList.isEmpty() && AccListNewList.size() > 0 && AccListNewList [0].MD__c == Label.MY){
+				if((trigger.isupdate || trigger.isinsert) && trigger.isbefore){
+				   AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
+                   acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
+				}
                if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
                    AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
                    acchelper.ValidateC2CAfterUpdateInsert(trigger.new, Label.MY,Trigger.isinsert,Trigger.isupdate,trigger.oldMap);
