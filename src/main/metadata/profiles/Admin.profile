@@ -10213,7 +10213,7 @@
 	<fieldPermissions>
         <editable>false</editable>
         <field>Case.MBTH_Turnaround_time__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
 	    <fieldPermissions>
         <editable>true</editable>
