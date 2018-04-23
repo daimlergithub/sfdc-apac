@@ -793,7 +793,7 @@ public class AccountHelperBase{
         torole__r.PersonHasOptedOutOfFax,torole__r.PersonDoNotCall,torole__r.Postal_Opt_Out__c,Retail_Address_Reference__c,
         torole__r.Visit_Opt_Out__c,fromRole__r.Dealer_Rollout_Status__c,toRole__r.Complaint_Amount__c,toRole__r.Opt_In_Email__c,toRole__r.Opt_In_SMS__c,toRole__r.SMSOptOut__pc,
         toRole__r.Postal_Opt_In__c,toRole__r.Market__c 
-        from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany ) and fromRole__r.Dealer_Rollout_Status__c='Done' ];
+        from Account_Link__c WHERE toRole__c IN :AccountIds AND (RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany ) and fromRole__r.Dealer_Rollout_Status__c='Done' AND (toRole__c!=null or fromRole__c!=null) AND (Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false) ];
         
         //Account link iteration
         for(Account_Link__c acclnk : Accountlinklist ){

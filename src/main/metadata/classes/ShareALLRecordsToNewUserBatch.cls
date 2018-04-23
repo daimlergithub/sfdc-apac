@@ -46,7 +46,7 @@ global Database.QueryLocator start(Database.BatchableContext BC)
             condition.add('Id,RetailDealer_ND_Code__c,ownerId,toRole__c,fromRole__c,fromRole__r.recordTypeID,recordTypeID');
             condition.add('Account_Link__c');
             condition.add('Md__c=:market');
-            condition.add('(toRole__c!=null or fromRole__c!=null)');
+            condition.add('(toRole__c!=null or fromRole__c!=null) AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false');
         } else if ('Lead__c'.equalsIgnoreCase(sobjectName)){
             condition.add('Id,Assigned_Dealer__r.Dealer_ND_Code__c,ownerId');
             condition.add('Lead__c');
