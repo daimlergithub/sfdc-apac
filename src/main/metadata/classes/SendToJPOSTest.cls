@@ -47,7 +47,7 @@ MODIFICATION DETAILS:
         User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
         System.runAs (thisUser) {
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'DealerUserTest1@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = JapanUserprofile.Id,            
             Alias = 'test123',
@@ -134,7 +134,7 @@ MODIFICATION DETAILS:
         User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
         System.runAs (thisUser) {
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'CompanyTest2@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = JapanUserprofile.Id,            
             Alias = 'test123',
@@ -227,7 +227,7 @@ MODIFICATION DETAILS:
         Profile DealerDelegated = [select Id from Profile where Name = 'Japan Dealer Company Manager' limit 1];
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'DealerTest3@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
@@ -322,7 +322,7 @@ MODIFICATION DETAILS:
        
         //UserRole ur = [Select PortalType, PortalAccountId From UserRole where PortalType =:'CustomerPortal' limit 1];
         usr = new User(
-            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
+            Username = System.now().millisecond() + 'DealerPersonAccTest4@Daimler-test.com',
              
             FirstName = 'firstname',
             ProfileId = DealerDelegated.Id,            
