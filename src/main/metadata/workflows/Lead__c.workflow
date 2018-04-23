@@ -1678,11 +1678,11 @@ Note: lost status will be updated in auto line  (part of sari)</description>
 	<rules>
         <fullName>Update Dealer Accepted datetime Generic</fullName>
         <actions>
-            <name>update_dealer_assigned_date_time</name>
+            <name>Accepted_Date_Time_Update</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(ISPICKVAL(CAC_Lead_Status__c,"Accepted") ,MD__c='MY',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads'))</formula>
+        <formula>AND(ISPICKVAL(CAC_Lead_Status__c,'Accepted') ,MD__c='MY',or(RecordType.Name='Sales Leads',RecordType.Name='Aftersales Leads'))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -2121,8 +2121,9 @@ Modify Reason:
         </actions>
         <active>true</active>
         <description>This flow is used to send email to dealer gatekeper. This is on Lead object when dealer account associated with the Lead and that dealers account contact (gate keeper) becomes the new owner of the case.</description>
-        <formula>AND(NOT(ISNEW()), 
-AND(ISCHANGED(OwnerId), (MD__c == &apos;MY&apos;))
+        <formula>OR( 
+AND(ISNEW(),(MD__c == 'MY') ,Contains($Profile.Name,'Base'), NOT(ISBLANK(Owner:User.DMS_UserID__c) ) ) 
+,AND(NOT(ISNEW()), AND(ISCHANGED(OwnerId),(MD__c == 'MY'))) 
 )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>

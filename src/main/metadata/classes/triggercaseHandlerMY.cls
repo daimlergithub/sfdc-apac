@@ -10,11 +10,11 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
     {
         CaseHelperMY CaseHelperMYInstance = new CaseHelperMY();
         string market = System.Label.MarketMY;
-		   if(Trigger.isbefore && Trigger.isUpdate){
-         CaseHelperMYInstance.updatemarket(Trigger.New);
-         }
+			   if(Trigger.isbefore && Trigger.isUpdate){
+					CaseHelperMYInstance.updatemarket(Trigger.New);
+			 }
              if(Trigger.isbefore && Trigger.isinsert){
-              CaseHelperMYInstance.updatemarket(Trigger.New);
+					CaseHelperMYInstance.updatemarket(Trigger.New);
              }
         //Harshit added to check for User permission-Access Management- on 09-10-2017
         if(Util_GetPermissionList.checkAccessOnUser(Label.MYGeneric)){
@@ -22,24 +22,21 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
             if(trigger.isinsert && trigger.isbefore){
 				CaseHelperMYInstance.countRepeatComplaintCase(trigger.new,true,market);
 				CaseHelperMYInstance.updateCaseDeadLineAmount(trigger.new,market,null);
-			if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
-               CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
-			   }
+				CaseHelperMYInstance.beforeInsertUpdateVehicleInfo(Trigger.new);
+			
 			if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){
 				CaseHelperMYInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,true, market);
 				CaseHelperMYInstance.updateCaseCreator(trigger.new, market);
 				CaseHelperMYInstance.changeDealerAccount(Trigger.New, market);
 			}
 			CaseHelperMYInstance.updatecommunityurl(Trigger.New, market);
-           // CaseHelperMYInstance.updatemarket(Trigger.New);
+           
            }
            else if(trigger.isupdate &&trigger.isbefore){
                CaseHelperMYInstance.updatemarket(Trigger.New);
+			   CaseHelperMYInstance.beforeInsertUpdateVehicleInfo(Trigger.new);
                CaseHelperMYInstance.updatecommunityurl(Trigger.New, market);
                CaseHelperMYInstance.updateCaseDeadLineAmount(trigger.new,market,(Map<Id,Case>)trigger.oldMap);
-			   if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
-				CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
-			   }
                CaseHelperMYInstance.updateCaseOwnerDependsonPrimaryCaseDealer(trigger.new,false, market);
            }
           
@@ -48,12 +45,15 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
                CaseHelperMYInstance.calculateComplaintAmount(trigger.old,market);
             }
             else if (trigger.isInsert){
-		/*	  if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
+			    if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
 					CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
-			   }*/
+			   }
                CaseHelperMYInstance.calculateComplaintAmount(trigger.new,market); 
              
             }else if (trigger.isUpdate){
+				if(Util_GetPermissionList.checkAccessOnUser(Label.CreateRetailCopy)){
+					CaseHelperMYInstance.CreateRetailCopy(trigger.new, (Map < Id, Case > ) Trigger.OldMap, isInsert, isUpdate, market);
+				   }
                CaseHelperMYInstance.calculateComplaintAmount(trigger.new,market);
             }
         }
@@ -64,9 +64,7 @@ public class triggercaseHandlerMY implements TriggerHandlerIf
 				}
         }
         //share Record end
-		  if(Trigger.isBefore && (Trigger.isInsert || Trigger.isUpdate)){
-            CaseHelperMYInstance.beforeInsertUpdateVehicleInfo(Trigger.new);
-        }
+		
        }     
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)
