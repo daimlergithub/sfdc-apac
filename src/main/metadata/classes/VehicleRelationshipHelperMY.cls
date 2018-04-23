@@ -47,7 +47,7 @@ public with sharing class VehicleRelationshipHelperMY{
     scr.addAll(cr);
     if(scr != NULL && !scr.isEmpty()){
         for(Vehicle_Relationship__c vr : newVehicleRelRecords){
-            if(scr.contains(vr.Car_Relation__c)){
+            if(string.isnotBlank(vr.Car_Relation__c)?scr.contains(vr.Car_Relation__c):false){
                 vr.Selling_Dealer__c = oldMapVR.get(vr.ID).Selling_Dealer__c;
             }
         }
