@@ -301,6 +301,7 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
                    if(acclids.size()> 0) CDMInformatica_Services.createAccountLink(acclids, market, Context);
                    }
      }
+	 
 	  Public static void OnAfterUpdateCreateC2CRetailCopy(List<Account_Link__c> newALRecords,Map<Id,Account_Link__c> oldMapAL){
     List<Account_Link__c> lnewAL = new List<Account_Link__c>();
     for(Account_Link__c al : [Select ID, Retail_Related_Company__c, Retail_Related_Company__r.toRole__c, toRole__c, recordtypeID from Account_Link__c where ID IN :newALRecords]){
@@ -317,10 +318,32 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
     }
     if(!lnewAL.isEmpty()){
         try{
-            insert lnewAL;
+            database.insert (lnewAL,false);
         }catch(Exception e){
             System.debug('Failed to insert C2C retail copies '+e.getMessage());
         }
     }
 }
+
+
+	Public static void  RemoveAccessofUsers(List<Account_Link__c> newALRecords,String Market){
+		List<Account_Link__c> lnewAL = new List<Account_Link__c>();
+		Set<id> idvalues= new set<id>();
+		for(Account_Link__c al : newALRecords){
+			if(al.Retail_Delete_Flag__c == true || al.Retail_Duplicate_Flag__c == true){
+			idvalues.add(al.id);
+			}
+		}
+		if(idvalues.size()>0){
+		  list <user> Integrationuser= new list<user> ();
+		  integrationuser=[select id from user where name =: system.label.IntegrationInfuser limit 1 ];
+		   for(Account_Link__c al : newALRecords){
+			if(al.Retail_Delete_Flag__c == true || al.Retail_Duplicate_Flag__c == true){
+			if(integrationuser.size()>0) al.ownerid=integrationuser[0].id;
+			}
+			
+		 }
+		 database.delete([select id from account_link__share where parentid in: idvalues and RowCause ='Manual'],false);
+		}
+	}
 }

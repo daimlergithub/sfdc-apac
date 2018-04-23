@@ -3,7 +3,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
     public void handleTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
       
             AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
-			 if (Trigger.isbefore && Trigger.isupdate ) {               
+			 if (Trigger.isbefore && Trigger.isinsert ) {               
 			      acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
                 
             }
@@ -37,7 +37,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
                 if (TriggerRecursiveCheck.run2 && !System.isFuture()) {
                     TriggerRecursiveCheck.runOnce2();
 					 if(Util_GetPermissionList.checkAccessOnUser(Label.AccountLInkAL)){
-                    acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext); 
+                     acchelper.InvokeCDMAccountlinkContaxt(trigger.new, Label.MY, Label.UpdateContext); 
                     }					
                 }
                 if(Util_GetPermissionList.checkAccessOnUser(Label.MYRetail)){                    
@@ -55,6 +55,7 @@ public class TriggerAccountlinkHandlerMY implements TriggerHandlerIf {
 				if((trigger.isupdate || trigger.isinsert) && trigger.isbefore){
 				   AccountlinkhelperMY acchelper = new AccountlinkhelperMY();
                    acchelper.updateFoundationMonth(trigger.new, Trigger.isinsert,Trigger.isupdate);
+				   acchelper.RemoveAccessofUsers(trigger.new);
 				}
                if (Trigger.isAfter && (Trigger.isupdate || Trigger.isInsert)) {
                    AccountlinkhelperMY acchelper = new AccountlinkhelperMY();

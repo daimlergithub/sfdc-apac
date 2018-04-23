@@ -315,13 +315,13 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                     lstlead.add(leadsrec);
                 }
                 //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
-                else if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != ((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__c && leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
+                else if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c != null && ((((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c != ((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__c)|| (((Lead__c) trigger.newmap.get(leadsrec.id)).ownerid != ((Lead__c) trigger.oldmap.get(leadsrec.id)).ownerid))&& leadsrec.assigned_dealer__r.Dealer_nd_code__c != null) {
                    string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
 				   //dealerndcodeset.add(leadsrec.assigned_dealer__r.Dealer_nd_code__c);
 				   dealerndcodeset.add(GrpName);
                     lstlead.add(leadsrec);
                     //will revoke record access depends on dealer nd code  if we change the assigned dealer
-                    if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c != null) {
+                    if (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c != null && (((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c !=((Lead__c) trigger.oldMap.get(leadsrec.id)).assigned_dealer__c)) {
                         sharingrevokefromgroups.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).MD__c+((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
                         leadsharingtorevoke.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).id);
                     }
@@ -330,6 +330,11 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                 else if (((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__c != null && ((Lead__c) trigger.newmap.get(leadsrec.id)).assigned_dealer__c == null) {
                     sharingrevokefromgroups.add(leadsrec.MD__c+((Lead__c) trigger.oldmap.get(leadsrec.id)).assigned_dealer__r.Dealer_nd_code__c);
                     leadsharingtorevoke.add(((Lead__c) trigger.oldmap.get(leadsrec.id)).id);
+                }
+				 else if (string.isnotblank(leadsrec.assigned_dealer__c)) {
+                     string GrpName=leadsrec.assigned_dealer__r.MD__c+leadsrec.assigned_dealer__r.Dealer_nd_code__c;
+                    dealerndcodeset.add(GrpName);
+                    lstlead.add(leadsrec);
                 }
                 /*
                 Added by Asish Nanda  
@@ -481,8 +486,8 @@ Test Cases : Conditions having When to Share Lead Record With Delaers
                           
                         }
                         acclnk.Retail_Country__c = led.contact__r.country__c;
-                        acclnk.Retail_Full_Name_Title__c = led.contact__r.Title__c +' '+led.Contact__r.LastName + ' ' + led.Contact__r.FirstName;
-                        acclnk.Retail_Salutation__c=led.Contact__r.Salutation__c;
+                        acclnk.Retail_Full_Name_Title__c = (string.isnotblank(led.Contact__r.Title__c)?led.Contact__r.Title__c:'')  +' '+led.Contact__r.LastName + ' ' + led.Contact__r.FirstName;
+                        acclnk.Retail_Salutation__c=led.Contact__r.Title__c;
                         acclnk.Retail_Special_Care__c=led.Contact__r.Special_Care__c;
                         acclnk.createddate__c = led.Contact__r.createdDate;
                         acclnk.Retail_ID_Type__c = led.Contact__r.ID_Type__c;

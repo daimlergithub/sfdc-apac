@@ -50,4 +50,8 @@ public class AccountlinkhelperMY{
      }
 	}
 	}
+	
+	public void RemoveAccessofUsers(List<Account_Link__c> alinks){
+        AccountLinkHelperBase.RemoveAccessofUsers(alinks,Label.MY);
+    }
 }

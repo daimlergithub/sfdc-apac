@@ -26,7 +26,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Car relation selling dealer</shortDescription>
-        <value>Purchaser,Sales</value>
+        <value>Purchaser,Sales Contact Target 1</value>
     </labels>
 	<labels>
         <fullName>masterLeadMerge</fullName>
@@ -12247,5 +12247,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Aadhar Format</shortDescription>
         <value>Aadhaar Card number should be as per the below format XXXXXXXXXXXX , the first digit should be non zero and no entry can be an alphabet</value>
+    </labels>
+	<labels>
+        <fullName>IntegrationInfuser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration Inf</shortDescription>
+        <value>Integration Inf</value>
     </labels>
 </CustomLabels>

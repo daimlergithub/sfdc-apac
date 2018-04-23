@@ -78,9 +78,12 @@ public class CaseHelperBase {
         Set<Id> accounts = new Set<Id>();
         List<Account> accRecords;
         for(Case c : cases){
-            if(c.MD__C == market)
-                accounts.add (c.AccountId);
-                accounts.add(Trigger.isInsert ? NULL : ((Case)Trigger.oldMap.get(c.ID)).AccountID);
+            if(c.MD__C == market && c.RecordTypeId ==caseMBComplaintRec_Id  ){
+               if(trigger.isinsert) accounts.add (c.AccountId);
+               if(trigger.isupdate){
+				if(c.accountid != ((Case)Trigger.oldMap.get(c.ID)).AccountID) accounts.add(((Case)Trigger.oldMap.get(c.ID)).AccountID);
+			   }
+			}
         }                       
         accounts.remove(NULL);
         List<Case> case_acc = [Select Id, AccountId From Case 
@@ -208,7 +211,7 @@ public class CaseHelperBase {
                     c.ownerid = accUserMap.get(c.Case_Dealer__c);
                 }
                 else if(c.Case_Dealer__c != null && accUserMap.get(c.Case_Dealer__c) == NULL && c.md__c == market){
-                    c.addError('The Dealer Complaint Gate Keeper user is either not present or is inactive.');
+                    //c.addError('The Dealer Complaint Gate Keeper user is either not present or is inactive.');
                 }
             }
         }
@@ -272,12 +275,12 @@ public class CaseHelperBase {
         List < Case > caseLst = [select Id, AccountId, Case_Dealer__c, Account.LastName, Account.FirstName, Account.LastName_Native_1__c, Account.ID_Type__c, Account.ID_Number__c, Account.country__c,
             Account.FirstName_Native_1__c, Account.PersonBirthdate, Account.Special_Care__c, Account.Individual_Home_Phone__c, Account.Work_Phone__c, Account.Primary_Address_Reference__r.Sub_District__c,
             Account.Mobile__c, Account.Fax, Account.Email__c, Account.Primary_Address_Reference__r.City__c, Account.Primary_Address_Reference__r.District__c, Account.createdDate, Account.lastmodifieddate,
-            Account.Primary_Address_Reference__r.Block__c, Account.Primary_Address_Reference__r.Address_Line_1__c,
+            Account.Primary_Address_Reference__r.Block__c, Account.Primary_Address_Reference__r.Address_Line_1__c,Account.Primary_Address_Reference__r.Address_Line_3__c,
             Account.Primary_Address_Reference__r.Address_Line_2__c, Account.Primary_Address_Reference__r.ZipCode__c,
             Account.Primary_Address_Reference__r.CreatedDate, Account.Primary_Address_Reference__r.LastModifiedDate,
             Account.gender__c, Account.Occupation__c, Account.Primary_Phone__c, Account.Industry, Account.Preferred_Language__c,
             Account.Special_Needs_Class__c, Account.Allow_Data_Sharing2__c, Account.Primary_Address_Reference__r.Address_Type__c,
-            Account.Primary_Address_Reference__r.Province__c, Account.Preferred_Contact_Method__c, MD__c,
+            Account.Primary_Address_Reference__r.Province__c, Account.Preferred_Contact_Method__c, MD__c,Account.Title__c,
             Account.UCID__c, Account.Salutation__c, Account.RecordtypeId, Account.Name, Account.Company_Name_Native_1__c, Account.Foundation_Date__c, Account.Primary_Address_Reference__r.Foreign_Nationals__c,
             Account.Website, Account.Vat_No__c, Account.DMS_Customer_ID__c, Account.Complaint_Amount__c, Account.Sales_Sanction__c, Account.Allow_Data_Sharing__c, Account.PersonEmail, Account.PersonHasOptedOutOfEmail, Account.PersonHasOptedOutOfFax, Account.Primary_Phone_Display__c, Account.PersonDoNotCall, Account.Postal_Opt_Out__c, Account.Job__c, Account.Personal_Agreement__c, Account.Personal_Information_Third_Party_Release__c, Account.Personal_Abroad_Agreement__c, Account.Agreement_to_commit_info_processing__c, Account.Commercial_Reg_No__c, Account.Company_Name__c, Account.Visit_Opt_Out__c,Case_Dealer__r.Dealer_Rollout_Status__c
             from Case WHERE id IN: caselist
@@ -289,7 +292,7 @@ public class CaseHelperBase {
                     dealerid.add(cs.Case_Dealer__c);
                 }
             }
-            if (cs.AccountId != null) {
+            if (string.isnotblank(cs.AccountId)) {
                 accId.add(cs.AccountId);
             }
         }
@@ -299,7 +302,7 @@ public class CaseHelperBase {
         }
         for (Case led: caseLst) {
             System.debug('11*');
-            if (led.Case_Dealer__c != null && String.isnotblank(led.Case_Dealer__r.Dealer_Rollout_Status__c)?(led.Case_Dealer__r.Dealer_Rollout_Status__c=='Done'):false && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0) && (isInsert || (isUpdate && led.Case_Dealer__c != caseOldMap.get(led.id).Case_Dealer__c)) ) {
+            if (string.isnotblank(led.Case_Dealer__c)  && (String.isnotblank(led.Case_Dealer__r.Dealer_Rollout_Status__c)?(led.Case_Dealer__r.Dealer_Rollout_Status__c=='Done'):false) && (dealercount.isEmpty() || dealercount == null || dealercount.size() == 0) && (isInsert || (isUpdate && led.Case_Dealer__c != caseOldMap.get(led.id).Case_Dealer__c)) && dealerid.size() > 0) {
                 Account_Link__c acclnk = new Account_Link__c();
                 //accLst.add(acclnk);
                 System.debug('22*' + led.Account.RecordTypeId + PersonRecordTypeId);
@@ -308,23 +311,33 @@ public class CaseHelperBase {
                     acclnk = new Account_Link__c(RecordTypeId = alkpersonRecordTypeId, toRole__c = led.AccountId, fromRole__c = led.Case_Dealer__c);
                     if (led.MD__c == market) {
                         if (led.Account.Primary_Address_Reference__c != null) {
+							  acclnk.Retail_Address_Type__c = led.Account.Primary_Address_Reference__r.Address_Type__c;
+								acclnk.Retail_Province__c =led.Account.Primary_Address_Reference__r.Province__c !=null ?led.Account.Primary_Address_Reference__r.Province__c: '' ;
+								acclnk.Retail_City__c = (led.Account.Primary_Address_Reference__r.District__c != null ? led.Account.Primary_Address_Reference__r.District__c:'').left(35);
+								acclnk.Retail_Distinct__c = (led.Account.Primary_Address_Reference__r.District__c!=null ? led.Account.Primary_Address_Reference__r.District__c : '');
+								acclnk.Retail_Address_Line_1__c = (led.Account.Primary_Address_Reference__r.Address_Line_1__c!=null?led.Account.Primary_Address_Reference__r.Address_Line_1__c:'').left(35);
+								acclnk.Retail_Address_Line_2__c = (led.Account.Primary_Address_Reference__r.Address_Line_2__c!=null?led.Account.Primary_Address_Reference__r.Address_Line_2__c:'').left(35);
+								acclnk.Retail_Address_Line_3__c = (led.Account.Primary_Address_Reference__r.Address_Line_3__c!=null?led.Account.Primary_Address_Reference__r.Address_Line_3__c:'').left(35);
+								acclnk.Retail_ZipCode__c = led.Account.Primary_Address_Reference__r.ZipCode__c!=null ? led.Account.Primary_Address_Reference__r.ZipCode__c : '';
+								acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(led.Account.Primary_Address_Reference__r.CreatedDate);
+								acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(led.Account.Primary_Address_Reference__r.LastModifiedDate);
+								acclnk.Retail_Address_Reference__c=led.Account.Primary_Address_Reference__c;
+							/*
                             acclnk.Retail_Province__c = led.Account.Primary_Address_Reference__r.Province__c;
-                            acclnk.Retail_City__c = led.Account.Primary_Address_Reference__r.Sub_District__c;
+                            acclnk.Retail_City__c = led.Account.Primary_Address_Reference__r.District__c;
                             acclnk.Retail_Distinct__c = led.Account.Primary_Address_Reference__r.District__c;
-
-
                             acclnk.Retail_Address_Line_1__c = led.Account.Primary_Address_Reference__r.Address_Line_1__c;
                             acclnk.Retail_Address_Line_2__c = led.Account.Primary_Address_Reference__r.Address_Line_2__c;
+							acclnk.Retail_Address_Line_3__c = led.Account.Primary_Address_Reference__r.Address_Line_3__c;
                             acclnk.Retail_Address_Type__c = led.Account.Primary_Address_Reference__r.Address_Type__c;
                             acclnk.Retail_ZipCode__c = led.Account.Primary_Address_Reference__r.ZipCode__c;
                             acclnk.Retail_Address_CreatedDate__c = date.newinstance(led.Account.Primary_Address_Reference__r.CreatedDate.year(), led.Account.Primary_Address_Reference__r.CreatedDate.month(), led.Account.Primary_Address_Reference__r.CreatedDate.day());
-
-                            acclnk.Retail_Address_LastModifiedDate__c = date.newinstance(led.Account.Primary_Address_Reference__r.Lastmodifieddate.year(), led.Account.Primary_Address_Reference__r.Lastmodifieddate.month(), led.Account.Primary_Address_Reference__r.Lastmodifieddate.day());
-                            System.debug('**prprpr*' + acclnk.Retail_Address_CreatedDate__c + acclnk.Retail_Address_LastModifiedDate__c + date.newinstance(led.Account.Primary_Address_Reference__r.CreatedDate.year(), led.Account.Primary_Address_Reference__r.CreatedDate.month(), led.Account.Primary_Address_Reference__r.CreatedDate.day()));
-                        }
+							acclnk.Retail_Address_LastModifiedDate__c = date.newinstance(led.Account.Primary_Address_Reference__r.Lastmodifieddate.year(), led.Account.Primary_Address_Reference__r.Lastmodifieddate.month(), led.Account.Primary_Address_Reference__r.Lastmodifieddate.day());
+							*/
+						}
                         acclnk.Retail_Country__c = led.Account.country__c;
-                        acclnk.Retail_Full_Name_Title__c = (led.Account.Salutation__c + ' ' + led.Account.FirstName + ' ' + led.Account.LastName).left(140);
-                        acclnk.Retail_Salutation__c = led.Account.Salutation__c;
+                        acclnk.Retail_Full_Name_Title__c = ((string.isnotblank(led.Account.Title__c)?led.Account.Title__c:'') + ' ' + led.Account.FirstName + ' ' + led.Account.LastName).left(140);
+                        acclnk.Retail_Salutation__c = led.Account.Title__c;
                         acclnk.Retail_Special_Care__c = led.Account.Special_Care__c;
                         acclnk.createddate__c = led.Account.createdDate;
                         acclnk.Retail_ID_Type__c = led.Account.ID_Type__c;
@@ -333,8 +346,6 @@ public class CaseHelperBase {
                         acclnk.Retail_LastName_Native__c = led.Account.LastName_Native_1__c;
                         acclnk.Retail_FirstName_Native__c = led.Account.FirstName_Native_1__c;
                         acclnk.Retail_Primary_Phone__c = led.Account.Primary_Phone__c;
-                        acclnk.Retail_DMS_Customer_ID__c = led.Account.DMS_Customer_ID__c;
-                        acclnk.Retail_DMS_Customer_ID__c = led.Account.DMS_Customer_ID__c;
                         acclnk.Retail_Full_Name__c = led.Account.FirstName + ' ' + led.Account.LastName;
                         acclnk.Retail_LastName__c = led.Account.LastName;
                         acclnk.Retail_FirstName__c = led.Account.FirstName;
@@ -377,17 +388,30 @@ public class CaseHelperBase {
                     acclnk = new Account_Link__c(RecordTypeId = alkCompanyRecordTypeId, toRole__c = led.AccountId, fromRole__c = led.Case_Dealer__c);
                     if (led.MD__c == market) {
                         if (led.Account.Primary_Address_Reference__c != null) {
-                            acclnk.Retail_Province__c = led.Account.Primary_Address_Reference__r.Province__c;
-                            acclnk.Retail_City__c = led.Account.Primary_Address_Reference__r.Sub_District__c;
+                           /* acclnk.Retail_Province__c = led.Account.Primary_Address_Reference__r.Province__c;
+                            acclnk.Retail_City__c = led.Account.Primary_Address_Reference__r.District__c;
                             acclnk.Retail_Distinct__c = led.Account.Primary_Address_Reference__r.District__c;
                             acclnk.Retail_Address_Line_1__c = led.Account.Primary_Address_Reference__r.Address_Line_1__c;
                             acclnk.Retail_Address_Line_2__c = led.Account.Primary_Address_Reference__r.Address_Line_2__c;
+							acclnk.Retail_Address_Line_3__c = led.Account.Primary_Address_Reference__r.Address_Line_3__c;
                             acclnk.Retail_Address_Type__c = led.Account.Primary_Address_Reference__r.Address_Type__c;
                             acclnk.Retail_ZipCode__c = led.Account.Primary_Address_Reference__r.ZipCode__c;
                             acclnk.Retail_Address_CreatedDate__c = date.newinstance(led.Account.Primary_Address_Reference__r.CreatedDate.year(), led.Account.Primary_Address_Reference__r.CreatedDate.month(), led.Account.Primary_Address_Reference__r.CreatedDate.day());
                             //System.debug(date.newinstance(led.Account.Primary_Address_Reference__r.CreatedDate.year(), led.Account.Primary_Address_Reference__r.CreatedDate.month(), led.Account.Primary_Address_Reference__r.CreatedDate.day()));
                             acclnk.Retail_Address_LastModifiedDate__c = date.newinstance(led.Account.Primary_Address_Reference__r.Lastmodifieddate.year(), led.Account.Primary_Address_Reference__r.Lastmodifieddate.month(), led.Account.Primary_Address_Reference__r.Lastmodifieddate.day());
-                        }
+							*/
+							 acclnk.Retail_Address_Type__c = led.Account.Primary_Address_Reference__r.Address_Type__c;
+								acclnk.Retail_Province__c =led.Account.Primary_Address_Reference__r.Province__c !=null ?led.Account.Primary_Address_Reference__r.Province__c: '' ;
+								acclnk.Retail_City__c =( led.Account.Primary_Address_Reference__r.District__c != null ? led.Account.Primary_Address_Reference__r.District__c:'').left(35);
+								acclnk.Retail_Distinct__c = (led.Account.Primary_Address_Reference__r.District__c!=null ? led.Account.Primary_Address_Reference__r.District__c : '');
+								acclnk.Retail_Address_Line_1__c = (led.Account.Primary_Address_Reference__r.Address_Line_1__c!=null?led.Account.Primary_Address_Reference__r.Address_Line_1__c:'').left(35);
+								acclnk.Retail_Address_Line_2__c = (led.Account.Primary_Address_Reference__r.Address_Line_2__c!=null?led.Account.Primary_Address_Reference__r.Address_Line_2__c:'').left(35);
+								acclnk.Retail_Address_Line_3__c = (led.Account.Primary_Address_Reference__r.Address_Line_3__c!=null?led.Account.Primary_Address_Reference__r.Address_Line_3__c:'').left(35);
+								acclnk.Retail_ZipCode__c = led.Account.Primary_Address_Reference__r.ZipCode__c!=null ? led.Account.Primary_Address_Reference__r.ZipCode__c : '' ;
+								acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(led.Account.Primary_Address_Reference__r.CreatedDate);
+								acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(led.Account.Primary_Address_Reference__r.LastModifiedDate);
+								acclnk.Retail_Address_Reference__c=led.Account.Primary_Address_Reference__c;
+						}
                         acclnk.Retail_Country__c = led.Account.country__c;
                         acclnk.Retail_UCID__c = led.Account.UCID__c;
                         acclnk.Retail_DMS_Customer_ID__c = led.Account.DMS_Customer_ID__c;
@@ -465,8 +489,6 @@ public class CaseHelperBase {
                 }
             } else {
 
-                //if trigger new map value is filled and  oldmap assigned dealer is null then share records with new assigned value
-                //system.debug(((Case)trigger.oldmap.get(casesrec.id)).owner!=((Case)trigger.newmap.get(casesrec.id)).owner);
                 system.debug(((Case) trigger.oldmap.get(casesrec.id)).ownerId + '  ' + ((Case) trigger.newmap.get(casesrec.id)).ownerId);
                 if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c == null && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
                     //String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
@@ -474,52 +496,56 @@ public class CaseHelperBase {
 					dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 }
-                //if trigger old is not equal to trigger new  then give access to new dealer and then revoke access from old dealer
-                else if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != ((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__c && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
+				else if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != ((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__c ) || ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.newmap.get(casesrec.id)).ownerid != ((Case) trigger.oldmap.get(casesrec.id)).Ownerid)&& casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
                     //String grpName = casesrec.Case_Dealer__r.Dealer_nd_code__c;
 					String grpName = casesrec.Case_Dealer__r.MD__c+casesrec.Case_Dealer__r.Dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                     //will revoke record access depends on dealer nd code  if we change the assigned dealer
-                    if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c != null) {
+                    if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c!=casesrec.Case_Dealer__c) {
                         sharingrevokefromgroups.add(((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
                         casesharingtorevoke.add(((Case) trigger.oldmap.get(casesrec.id)).id);
                     }
                 }
-                //if trigger old value is filled and new value did not filled then revoke access from old Dealer
                 else if (((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c == null) {
                     sharingrevokefromgroups.add(((Case) trigger.oldmap.get(casesrec.id)).Case_Dealer__r.Dealer_nd_code__c);
                     casesharingtorevoke.add(((Case) trigger.oldmap.get(casesrec.id)).id);
-                } else if (((Case) trigger.oldmap.get(casesrec.id)).ownerId != ((Case) trigger.newmap.get(casesrec.id)).ownerId) {
+                } 
+				else if (((Case) trigger.oldmap.get(casesrec.id)).ownerId != ((Case) trigger.newmap.get(casesrec.id)).ownerId) {
                    // String grpName = usr.get(casesrec.ownerid).dealer_nd_code__c;
 				    String grpName = usr.get(casesrec.ownerid).Market__c+usr.get(casesrec.ownerid).dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
                 }
+				else if(string.isnotblank(casesrec.Case_Dealer__c)){
+				String grpName = casesrec.Case_Dealer__r.MD__c+casesrec.Case_Dealer__r.Dealer_nd_code__c;
+                    dealerndcodeset.add(grpName);
+					lstcase.add(casesrec);
+				}
             }
         }
-        for (Group gp: [select id, name from Group where name IN: dealerndcodeset]) {
-            for (Case caseid: lstcase) {
-                //this if part will applicable for Salesforce users
-                //String grpName = caseid.Case_Dealer__r.Dealer_nd_code__c;
-                //String createdGrpName = caseid.createdby.Dealer_nd_code__c;
-				String grpName = caseid.Case_Dealer__r.MD__c+caseid.Case_Dealer__r.Dealer_nd_code__c;
-                String createdGrpName = caseid.createdby.Market__c+caseid.createdby.Dealer_nd_code__c;
-                if (gp.name == grpName) {
-                    caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseShare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
-                } //this else part will applicable for Dealer users
-                else if (gp.name == createdGrpName && caseid.createdby.Usertype == 'PowerPartner') {
-                    caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseShare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
-                }
-            }
-        }
+		if(dealerndcodeset.size()>0){
+			for (Group gp: [select id, name from Group where name IN: dealerndcodeset]) {
+				for (Case caseid: lstcase) {
+					//this if part will applicable for Salesforce users
 
+					String grpName = caseid.Case_Dealer__r.MD__c+caseid.Case_Dealer__r.Dealer_nd_code__c;
+					String createdGrpName = caseid.createdby.Market__c+caseid.createdby.Dealer_nd_code__c;
+					if (gp.name == grpName) {
+						caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseShare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
+					} //this else part will applicable for Dealer users
+					else if (gp.name == createdGrpName && caseid.createdby.Usertype == 'PowerPartner') {
+						caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseShare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
+					}
+				}
+			}
+		}
         //else part will work at the time of Update
 
         if (caseshare.size() > 0) {
             List < caseShare > caseshareList = new List < caseShare > ();
             caseshareList.addall(caseshare);
-            Database.insert(caseshareList);
+            insert(caseshareList);
             if (casesharingtorevoke.size() > 0) {
                 database.delete([select id from caseShare where Id IN: casesharingtorevoke and UserOrGroupId IN: sharingrevokefromgroups]);
             }
