@@ -232,9 +232,12 @@ public with sharing class AccountSharingDataHandlerTest
        vRel.Contact__c = personAcc.id;
        vRel.Vehicle_ID__c = vehicles.id;
        insert vRel;
-      profile SystemAdmin = [select Id from Profile where Name = 'System Administrator' limit 1];       
+      profile SystemAdmin = [select Id from Profile where Name = 'System Administrator' limit 1]; 
+		String hashString = '1000' + String.valueOf(Datetime.now().formatGMT('yyyy-MM-dd HH:mm:ss.SSS'));
+		Blob hash = Crypto.generateDigest('MD5', Blob.valueOf(hashString));
+		String hexDigest = EncodingUtil.convertToHex(hash);      
       usr = new User(
-            Username = System.now().millisecond() + 'test54321@test.com',
+            Username =hexDigest + 'test54321@test.com',
             
             ProfileId = SystemAdmin.Id,            
             Alias = 'test123',
