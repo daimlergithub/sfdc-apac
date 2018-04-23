@@ -1168,7 +1168,7 @@ public static void CreateRetailCopy(list<Account> accLst,map<id,Account> oldAcco
         if(IntegrationUser.size()>0){ 
             for(Account acc : softAccountList)
         {
-            if(acc.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acc.RecordTypeId == accsoftdeletdCompany_RecordTypeId)
+            if(acc.RecordTypeId == accsoftdeletdPerson_RecordTypeId || acc.RecordTypeId == accsoftdeletdCompany_RecordTypeId || acct.RecordTypeId == accsoftdeletdCompany_RecordTypeId1)
             {
                  if(acc.OwnerId !=IntegrationUser[0].id)
                     {
