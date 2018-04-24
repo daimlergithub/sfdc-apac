@@ -4,6 +4,6 @@
 * Company:Infosys Ltd
 * Description:Trigger on referral Object which calls the handler class BbqTriggerHandler
 *************************************************************************************/
-trigger TriggerReferral on Referral__c (after insert,after update) {    
+trigger TriggerReferral on Referral__c (before insert, after insert, after update) {    
   TriggerUtil.handleTrigger('TriggerReferral');
 }
