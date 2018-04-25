@@ -28,6 +28,7 @@ public class TriggerAddressTriggerHandlerKR implements TriggerHandlerIf
             serializedObject=json.serialize(ListAddNew);
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');
             AddressHelperJP.entityNotifyUpdate('UPDATE',ListAddNew[0].Id,serializedObject);
+			AddressHelperJP.afterInsetAddressUpdateRetailPerson(trigger.new);
         }
         if ((isAfter && isDelete))
         {            
@@ -43,6 +44,7 @@ public class TriggerAddressTriggerHandlerKR implements TriggerHandlerIf
             serializedObject = EncodingUtil.URLENCODE(serializedObject,'UTF-8');            
             AddressHelperJP.entityNotifyUpdate('INSERT',ListAddNew[0].Id,serializedObject);
             AddressHelperJP.updateAccountlinks((Map<Id,Address__c>)Trigger.newMap);
+			AddressHelperJP.afterInsetAddressUpdateRetailPerson(trigger.new);
         }                 
     }
     
