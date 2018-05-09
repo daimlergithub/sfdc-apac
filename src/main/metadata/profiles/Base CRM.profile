@@ -35001,11 +35001,7 @@
     <tabVisibilities>
         <tab>standard-Product2</tab>
         <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-QuickText</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
+    </tabVisibilities>    
     <tabVisibilities>
         <tab>standard-ServiceContract</tab>
         <visibility>Hidden</visibility>
