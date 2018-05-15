@@ -70,6 +70,16 @@
         <writeRequiresMasterRead>true</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>60</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>End_Date__c</fullName>
         <description>To be updated by trigger to summarize the latest End Date among all Participating Dealers of this Campaign City. Read only on page layout.</description>
         <externalId>false</externalId>
