@@ -54,6 +54,16 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>TestAddress__c</fullName>
+        <externalId>false</externalId>
+        <label>TestAddress</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>DeployObject</label>
     <nameField>
         <label>DeployObject Name</label>
