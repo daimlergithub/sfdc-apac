@@ -82,16 +82,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Training_Description__c</fullName>
-        <externalId>false</externalId>
-        <label>Training Description</label>
-        <length>50</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Training_Location__c</fullName>
         <externalId>false</externalId>
         <label>Training Location</label>
