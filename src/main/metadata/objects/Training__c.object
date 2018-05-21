@@ -63,6 +63,14 @@
         <type>Phone</type>
     </fields>
     <fields>
+        <fullName>Have_SalesForce_Knowledge__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Have SalesForce Knowledge?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Training_Location__c</fullName>
         <externalId>false</externalId>
         <label>Training Location</label>
