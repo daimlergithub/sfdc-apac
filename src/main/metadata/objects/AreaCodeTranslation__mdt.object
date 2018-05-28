@@ -3,6 +3,7 @@
     <fields>
         <fullName>MD__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Market discriminator</label>
         <length>20</length>
         <required>false</required>
@@ -12,6 +13,7 @@
     <fields>
         <fullName>Mobile_Code10__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code10</label>
         <length>20</length>
         <required>false</required>
@@ -21,6 +23,7 @@
     <fields>
         <fullName>Mobile_Code11__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code11</label>
         <length>20</length>
         <required>false</required>
@@ -30,6 +33,7 @@
     <fields>
         <fullName>Mobile_Code12__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code12</label>
         <length>20</length>
         <required>false</required>
@@ -39,6 +43,7 @@
     <fields>
         <fullName>Mobile_Code13__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code13</label>
         <length>20</length>
         <required>false</required>
@@ -48,6 +53,7 @@
     <fields>
         <fullName>Mobile_Code14__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code14</label>
         <length>20</length>
         <required>false</required>
@@ -57,6 +63,7 @@
     <fields>
         <fullName>Mobile_Code15__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code15</label>
         <length>20</length>
         <required>false</required>
@@ -66,6 +73,7 @@
     <fields>
         <fullName>Mobile_Code16__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code16</label>
         <length>20</length>
         <required>false</required>
@@ -75,6 +83,7 @@
     <fields>
         <fullName>Mobile_Code17__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code17</label>
         <length>20</length>
         <required>false</required>
@@ -84,6 +93,7 @@
     <fields>
         <fullName>Mobile_Code18__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code18</label>
         <length>20</length>
         <required>false</required>
@@ -93,6 +103,7 @@
     <fields>
         <fullName>Mobile_Code19__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code19</label>
         <length>20</length>
         <required>false</required>
@@ -102,6 +113,7 @@
     <fields>
         <fullName>Mobile_Code1__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code1</label>
         <length>20</length>
         <required>false</required>
@@ -111,6 +123,7 @@
     <fields>
         <fullName>Mobile_Code20__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code20</label>
         <length>20</length>
         <required>false</required>
@@ -120,6 +133,7 @@
     <fields>
         <fullName>Mobile_Code21__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code21</label>
         <length>20</length>
         <required>false</required>
@@ -129,6 +143,7 @@
     <fields>
         <fullName>Mobile_Code22__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code22</label>
         <length>20</length>
         <required>false</required>
@@ -138,6 +153,7 @@
     <fields>
         <fullName>Mobile_Code23__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code23</label>
         <length>20</length>
         <required>false</required>
@@ -147,6 +163,7 @@
     <fields>
         <fullName>Mobile_Code24__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code24</label>
         <length>20</length>
         <required>false</required>
@@ -156,6 +173,7 @@
     <fields>
         <fullName>Mobile_Code25__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code25</label>
         <length>20</length>
         <required>false</required>
@@ -165,6 +183,7 @@
     <fields>
         <fullName>Mobile_Code2__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code2</label>
         <length>20</length>
         <required>false</required>
@@ -174,6 +193,7 @@
     <fields>
         <fullName>Mobile_Code3__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code3</label>
         <length>20</length>
         <required>false</required>
@@ -183,6 +203,7 @@
     <fields>
         <fullName>Mobile_Code4__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code4</label>
         <length>20</length>
         <required>false</required>
@@ -192,6 +213,7 @@
     <fields>
         <fullName>Mobile_Code5__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code5</label>
         <length>20</length>
         <required>false</required>
@@ -201,6 +223,7 @@
     <fields>
         <fullName>Mobile_Code6__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code6</label>
         <length>20</length>
         <required>false</required>
@@ -210,6 +233,7 @@
     <fields>
         <fullName>Mobile_Code7__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code7</label>
         <length>20</length>
         <required>false</required>
@@ -219,6 +243,7 @@
     <fields>
         <fullName>Mobile_Code8__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code8</label>
         <length>20</length>
         <required>false</required>
@@ -228,6 +253,7 @@
     <fields>
         <fullName>Mobile_Code9__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Mobile Code9</label>
         <length>20</length>
         <required>false</required>
@@ -237,6 +263,7 @@
     <fields>
         <fullName>Object__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Object</label>
         <length>50</length>
         <required>false</required>
@@ -246,6 +273,7 @@
     <fields>
         <fullName>Phone_EN10__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN10</label>
         <length>5</length>
         <required>false</required>
@@ -255,6 +283,7 @@
     <fields>
         <fullName>Phone_EN11__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN11</label>
         <length>5</length>
         <required>false</required>
@@ -264,6 +293,7 @@
     <fields>
         <fullName>Phone_EN12__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN12</label>
         <length>5</length>
         <required>false</required>
@@ -273,6 +303,7 @@
     <fields>
         <fullName>Phone_EN13__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN13</label>
         <length>5</length>
         <required>false</required>
@@ -282,6 +313,7 @@
     <fields>
         <fullName>Phone_EN14__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN14</label>
         <length>5</length>
         <required>false</required>
@@ -291,6 +323,7 @@
     <fields>
         <fullName>Phone_EN15__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN15</label>
         <length>5</length>
         <required>false</required>
@@ -300,6 +333,7 @@
     <fields>
         <fullName>Phone_EN16__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN16</label>
         <length>5</length>
         <required>false</required>
@@ -309,6 +343,7 @@
     <fields>
         <fullName>Phone_EN17__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN17</label>
         <length>5</length>
         <required>false</required>
@@ -318,6 +353,7 @@
     <fields>
         <fullName>Phone_EN18__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN18</label>
         <length>20</length>
         <required>false</required>
@@ -327,6 +363,7 @@
     <fields>
         <fullName>Phone_EN19__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN19</label>
         <length>20</length>
         <required>false</required>
@@ -336,6 +373,7 @@
     <fields>
         <fullName>Phone_EN1__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN1</label>
         <length>5</length>
         <required>false</required>
@@ -345,6 +383,7 @@
     <fields>
         <fullName>Phone_EN20__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone EN20</label>
         <length>20</length>
         <required>false</required>
@@ -354,6 +393,7 @@
     <fields>
         <fullName>Phone_EN21__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone EN21</label>
         <length>20</length>
         <required>false</required>
@@ -363,6 +403,7 @@
     <fields>
         <fullName>Phone_EN2__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN2</label>
         <length>5</length>
         <required>false</required>
@@ -372,6 +413,7 @@
     <fields>
         <fullName>Phone_EN3__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN3</label>
         <length>5</length>
         <required>false</required>
@@ -381,6 +423,7 @@
     <fields>
         <fullName>Phone_EN4__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN4</label>
         <length>5</length>
         <required>false</required>
@@ -390,6 +433,7 @@
     <fields>
         <fullName>Phone_EN5__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN5</label>
         <length>5</length>
         <required>false</required>
@@ -399,6 +443,7 @@
     <fields>
         <fullName>Phone_EN6__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN6</label>
         <length>5</length>
         <required>false</required>
@@ -408,6 +453,7 @@
     <fields>
         <fullName>Phone_EN7__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN7</label>
         <length>5</length>
         <required>false</required>
@@ -417,6 +463,7 @@
     <fields>
         <fullName>Phone_EN8__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN8</label>
         <length>5</length>
         <required>false</required>
@@ -426,6 +473,7 @@
     <fields>
         <fullName>Phone_EN9__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_EN9</label>
         <length>5</length>
         <required>false</required>
@@ -435,6 +483,7 @@
     <fields>
         <fullName>Phone_TR10__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR10</label>
         <length>20</length>
         <required>false</required>
@@ -444,6 +493,7 @@
     <fields>
         <fullName>Phone_TR11__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR11</label>
         <length>20</length>
         <required>false</required>
@@ -453,6 +503,7 @@
     <fields>
         <fullName>Phone_TR12__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR12</label>
         <length>20</length>
         <required>false</required>
@@ -462,6 +513,7 @@
     <fields>
         <fullName>Phone_TR13__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR13</label>
         <length>20</length>
         <required>false</required>
@@ -471,6 +523,7 @@
     <fields>
         <fullName>Phone_TR14__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR14</label>
         <length>20</length>
         <required>false</required>
@@ -480,6 +533,7 @@
     <fields>
         <fullName>Phone_TR15__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR15</label>
         <length>20</length>
         <required>false</required>
@@ -489,6 +543,7 @@
     <fields>
         <fullName>Phone_TR16__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR16</label>
         <length>20</length>
         <required>false</required>
@@ -498,6 +553,7 @@
     <fields>
         <fullName>Phone_TR17__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR17</label>
         <length>20</length>
         <required>false</required>
@@ -507,6 +563,7 @@
     <fields>
         <fullName>Phone_TR1__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR1</label>
         <length>20</length>
         <required>false</required>
@@ -516,6 +573,7 @@
     <fields>
         <fullName>Phone_TR2__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR2</label>
         <length>20</length>
         <required>false</required>
@@ -525,6 +583,7 @@
     <fields>
         <fullName>Phone_TR3__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR3</label>
         <length>20</length>
         <required>false</required>
@@ -534,6 +593,7 @@
     <fields>
         <fullName>Phone_TR4__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR4</label>
         <length>20</length>
         <required>false</required>
@@ -543,6 +603,7 @@
     <fields>
         <fullName>Phone_TR5__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR5</label>
         <length>20</length>
         <required>false</required>
@@ -552,6 +613,7 @@
     <fields>
         <fullName>Phone_TR6__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR6</label>
         <length>20</length>
         <required>false</required>
@@ -561,6 +623,7 @@
     <fields>
         <fullName>Phone_TR7__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR7</label>
         <length>20</length>
         <required>false</required>
@@ -570,6 +633,7 @@
     <fields>
         <fullName>Phone_TR8__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR8</label>
         <length>20</length>
         <required>false</required>
@@ -579,6 +643,7 @@
     <fields>
         <fullName>Phone_TR9__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Phone_TR9</label>
         <length>20</length>
         <required>false</required>
@@ -587,4 +652,5 @@
     </fields>
     <label>AreaCodeTranslation</label>
     <pluralLabel>AreaCodeTranslations</pluralLabel>
+    <visibility>Public</visibility>
 </CustomObject>

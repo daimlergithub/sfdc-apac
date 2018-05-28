@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,15 +40,18 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Knowledge: this object is used to store Car Attribute</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Read</externalSharingModel>
@@ -60,115 +59,142 @@
         <fullName>Attribute_Category__c</fullName>
         <externalId>false</externalId>
         <label>Attribute Category</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Basic parameters</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Extension parameters</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Basic parameters</fullName>
+                    <default>false</default>
+                    <label>Basic parameters</label>
+                </value>
+                <value>
+                    <fullName>Extension parameters</fullName>
+                    <default>false</default>
+                    <label>Extension parameters</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Attribute_Type__c</fullName>
         <externalId>false</externalId>
         <label>Attribute Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AMG-specific equipment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG Performance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C63AMG properties</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL63 AMG performance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Security</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Size and weight</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-metallic paint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Luxury</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Deluxe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Deluxe LUXURY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Basic parameters</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Metallic paint (12000)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fashion</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Comfort</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Comfort 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Comfort 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Comfort COMFORT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Special paint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Exterior trim</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Exterior trim EXTERIOR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Entertainment and communications</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AMG-specific equipment</fullName>
+                    <default>false</default>
+                    <label>AMG-specific equipment</label>
+                </value>
+                <value>
+                    <fullName>AMG Performance</fullName>
+                    <default>false</default>
+                    <label>AMG Performance</label>
+                </value>
+                <value>
+                    <fullName>C63AMG properties</fullName>
+                    <default>false</default>
+                    <label>C63AMG properties</label>
+                </value>
+                <value>
+                    <fullName>SL63 AMG performance</fullName>
+                    <default>false</default>
+                    <label>SL63 AMG performance</label>
+                </value>
+                <value>
+                    <fullName>Security</fullName>
+                    <default>false</default>
+                    <label>Security</label>
+                </value>
+                <value>
+                    <fullName>Size and weight</fullName>
+                    <default>false</default>
+                    <label>Size and weight</label>
+                </value>
+                <value>
+                    <fullName>Non-metallic paint</fullName>
+                    <default>false</default>
+                    <label>Non-metallic paint</label>
+                </value>
+                <value>
+                    <fullName>Luxury</fullName>
+                    <default>false</default>
+                    <label>Luxury</label>
+                </value>
+                <value>
+                    <fullName>Deluxe</fullName>
+                    <default>false</default>
+                    <label>Deluxe</label>
+                </value>
+                <value>
+                    <fullName>Deluxe LUXURY</fullName>
+                    <default>false</default>
+                    <label>Deluxe LUXURY</label>
+                </value>
+                <value>
+                    <fullName>Basic parameters</fullName>
+                    <default>false</default>
+                    <label>Basic parameters</label>
+                </value>
+                <value>
+                    <fullName>Metallic paint (12000)</fullName>
+                    <default>false</default>
+                    <label>Metallic paint (12000)</label>
+                </value>
+                <value>
+                    <fullName>Fashion</fullName>
+                    <default>false</default>
+                    <label>Fashion</label>
+                </value>
+                <value>
+                    <fullName>Comfort</fullName>
+                    <default>false</default>
+                    <label>Comfort</label>
+                </value>
+                <value>
+                    <fullName>Comfort 1</fullName>
+                    <default>false</default>
+                    <label>Comfort 1</label>
+                </value>
+                <value>
+                    <fullName>Comfort 2</fullName>
+                    <default>false</default>
+                    <label>Comfort 2</label>
+                </value>
+                <value>
+                    <fullName>Comfort COMFORT</fullName>
+                    <default>false</default>
+                    <label>Comfort COMFORT</label>
+                </value>
+                <value>
+                    <fullName>Special paint</fullName>
+                    <default>false</default>
+                    <label>Special paint</label>
+                </value>
+                <value>
+                    <fullName>Exterior trim</fullName>
+                    <default>false</default>
+                    <label>Exterior trim</label>
+                </value>
+                <value>
+                    <fullName>Exterior trim EXTERIOR</fullName>
+                    <default>false</default>
+                    <label>Exterior trim EXTERIOR</label>
+                </value>
+                <value>
+                    <fullName>Entertainment and communications</fullName>
+                    <default>false</default>
+                    <label>Entertainment and communications</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Description__c</fullName>
@@ -202,4 +228,5 @@
         <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

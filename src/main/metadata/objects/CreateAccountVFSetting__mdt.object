@@ -4,6 +4,7 @@
         <fullName>Market__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Market</label>
         <length>10</length>
         <required>true</required>
@@ -13,6 +14,7 @@
     <fields>
         <fullName>VFPageName__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>VFPageName</label>
         <length>255</length>
         <required>true</required>
@@ -21,4 +23,5 @@
     </fields>
     <label>CreateAccountVFSetting</label>
     <pluralLabel>CreateAccountVFSettings</pluralLabel>
+    <visibility>Public</visibility>
 </CustomObject>
