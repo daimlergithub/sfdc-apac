@@ -1,0 +1,10 @@
+.THIS {
+    margin: 6px 0;
+}
+.THIS svg {
+  width: 70%;  
+}
+.THIS .scoreDisplay {
+    color: white;
+    font-weight: bold;    
+}
