@@ -3,6 +3,7 @@
     <fields>
         <fullName>CaseDeadelineCalc10__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc10</label>
         <precision>18</precision>
         <required>false</required>
@@ -13,6 +14,7 @@
     <fields>
         <fullName>CaseDeadelineCalc11__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc11</label>
         <precision>18</precision>
         <required>false</required>
@@ -23,6 +25,7 @@
     <fields>
         <fullName>CaseDeadelineCalc12__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc12</label>
         <precision>18</precision>
         <required>false</required>
@@ -33,6 +36,7 @@
     <fields>
         <fullName>CaseDeadelineCalc13__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc13</label>
         <precision>18</precision>
         <required>false</required>
@@ -43,6 +47,7 @@
     <fields>
         <fullName>CaseDeadelineCalc14__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc14</label>
         <precision>18</precision>
         <required>false</required>
@@ -53,6 +58,7 @@
     <fields>
         <fullName>CaseDeadelineCalc15__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc15</label>
         <precision>18</precision>
         <required>false</required>
@@ -63,6 +69,7 @@
     <fields>
         <fullName>CaseDeadelineCalc16__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc16</label>
         <precision>18</precision>
         <required>false</required>
@@ -73,6 +80,7 @@
     <fields>
         <fullName>CaseDeadelineCalc17__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc17</label>
         <precision>18</precision>
         <required>false</required>
@@ -83,6 +91,7 @@
     <fields>
         <fullName>CaseDeadelineCalc18__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc18</label>
         <precision>18</precision>
         <required>false</required>
@@ -93,6 +102,7 @@
     <fields>
         <fullName>CaseDeadelineCalc19__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc19</label>
         <precision>18</precision>
         <required>false</required>
@@ -103,6 +113,7 @@
     <fields>
         <fullName>CaseDeadelineCalc1__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc1</label>
         <precision>18</precision>
         <required>false</required>
@@ -113,6 +124,7 @@
     <fields>
         <fullName>CaseDeadelineCalc20__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc20</label>
         <precision>18</precision>
         <required>false</required>
@@ -123,6 +135,7 @@
     <fields>
         <fullName>CaseDeadelineCalc21__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc21</label>
         <precision>18</precision>
         <required>false</required>
@@ -133,6 +146,7 @@
     <fields>
         <fullName>CaseDeadelineCalc22__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc22</label>
         <precision>18</precision>
         <required>false</required>
@@ -143,6 +157,7 @@
     <fields>
         <fullName>CaseDeadelineCalc23__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc23</label>
         <precision>18</precision>
         <required>false</required>
@@ -153,6 +168,7 @@
     <fields>
         <fullName>CaseDeadelineCalc24__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc24</label>
         <precision>18</precision>
         <required>false</required>
@@ -163,6 +179,7 @@
     <fields>
         <fullName>CaseDeadelineCalc25__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc25</label>
         <precision>18</precision>
         <required>false</required>
@@ -173,6 +190,7 @@
     <fields>
         <fullName>CaseDeadelineCalc26__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc26</label>
         <precision>18</precision>
         <required>false</required>
@@ -183,6 +201,7 @@
     <fields>
         <fullName>CaseDeadelineCalc27__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc27</label>
         <precision>18</precision>
         <required>false</required>
@@ -193,6 +212,7 @@
     <fields>
         <fullName>CaseDeadelineCalc28__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc28</label>
         <precision>18</precision>
         <required>false</required>
@@ -203,6 +223,7 @@
     <fields>
         <fullName>CaseDeadelineCalc29__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc29</label>
         <precision>18</precision>
         <required>false</required>
@@ -213,6 +234,7 @@
     <fields>
         <fullName>CaseDeadelineCalc2__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc2</label>
         <precision>18</precision>
         <required>false</required>
@@ -223,6 +245,7 @@
     <fields>
         <fullName>CaseDeadelineCalc30__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc30</label>
         <precision>18</precision>
         <required>false</required>
@@ -233,6 +256,7 @@
     <fields>
         <fullName>CaseDeadelineCalc31__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc31</label>
         <precision>18</precision>
         <required>false</required>
@@ -243,6 +267,7 @@
     <fields>
         <fullName>CaseDeadelineCalc32__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc32</label>
         <precision>18</precision>
         <required>false</required>
@@ -253,6 +278,7 @@
     <fields>
         <fullName>CaseDeadelineCalc33__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc33</label>
         <precision>18</precision>
         <required>false</required>
@@ -263,6 +289,7 @@
     <fields>
         <fullName>CaseDeadelineCalc34__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc34</label>
         <precision>18</precision>
         <required>false</required>
@@ -273,6 +300,7 @@
     <fields>
         <fullName>CaseDeadelineCalc35__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc35</label>
         <precision>18</precision>
         <required>false</required>
@@ -283,6 +311,7 @@
     <fields>
         <fullName>CaseDeadelineCalc3__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc3</label>
         <precision>18</precision>
         <required>false</required>
@@ -293,6 +322,7 @@
     <fields>
         <fullName>CaseDeadelineCalc4__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc4</label>
         <precision>18</precision>
         <required>false</required>
@@ -303,6 +333,7 @@
     <fields>
         <fullName>CaseDeadelineCalc5__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc5</label>
         <precision>18</precision>
         <required>false</required>
@@ -313,6 +344,7 @@
     <fields>
         <fullName>CaseDeadelineCalc6__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc6</label>
         <precision>18</precision>
         <required>false</required>
@@ -323,6 +355,7 @@
     <fields>
         <fullName>CaseDeadelineCalc7__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc7</label>
         <precision>18</precision>
         <required>false</required>
@@ -333,6 +366,7 @@
     <fields>
         <fullName>CaseDeadelineCalc8__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc8</label>
         <precision>18</precision>
         <required>false</required>
@@ -343,6 +377,7 @@
     <fields>
         <fullName>CaseDeadelineCalc9__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>CaseDeadelineCalc9</label>
         <precision>18</precision>
         <required>false</required>
@@ -352,4 +387,5 @@
     </fields>
     <label>CaseDeadelineCalc</label>
     <pluralLabel>CaseDeadelineCalcs</pluralLabel>
+    <visibility>Protected</visibility>
 </CustomObject>

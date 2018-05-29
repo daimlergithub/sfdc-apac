@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,67 +40,19 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-	<fields>
-        <fullName>isTestRunning__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>isTestRunning</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Account_information_updates__c</fullName>
         <externalId>false</externalId>
@@ -205,61 +153,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
-        <fullName>Outstanding_Balance_amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Outstanding Balance amount</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Proto_Market_Value_amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Proto Market Value amount</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Cross_point_month_and_year__c</fullName>
-        <externalId>false</externalId>
-        <label>Cross point month and year</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Evaluation_Result_P1_P2_Blank__c</fullName>
-        <externalId>false</externalId>
-        <label>Evaluation Result P1/P2/Blank</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Final_GAP_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Final GAP Amount</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <fields>
         <fullName>Bonus_Amount2__c</fullName>
         <externalId>false</externalId>
@@ -350,7 +243,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Class_and_Body__c</fullName>
         <externalId>false</externalId>
         <formula>Vehicle__r.Class_and_Body__c</formula>
@@ -555,6 +448,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Cross_point_month_and_year__c</fullName>
+        <externalId>false</externalId>
+        <label>Cross point month and year</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Customer_Complete_Address__c</fullName>
         <description>From address look up field will concatenate</description>
         <externalId>false</externalId>
@@ -575,6 +478,26 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_FirstName__c</fullName>
+        <description>It holds Customer First Name</description>
+        <externalId>false</externalId>
+        <label>Customer FirstName</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_HomePhone__c</fullName>
+        <description>It holds Customer Home phone</description>
+        <externalId>false</externalId>
+        <label>Customer HomePhone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
     </fields>
     <fields>
         <fullName>Customer_Interest_Rate__c</fullName>
@@ -598,6 +521,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Customer_LastName__c</fullName>
+        <description>It holds Customer Last Name</description>
+        <externalId>false</externalId>
+        <label>Customer LastName</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Customer_Mobile__c</fullName>
         <externalId>false</externalId>
         <formula>Contact_Id__r.Mobile__c</formula>
@@ -607,6 +541,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_WorkPhone__c</fullName>
+        <description>It holds Customer Work Phone</description>
+        <externalId>false</externalId>
+        <label>Customer WorkPhone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
     </fields>
     <fields>
         <fullName>DM_Template__c</fullName>
@@ -650,6 +593,38 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Duplicate_Campaign_Member__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>This field is hidden and it will avoid duplicate campaign member for particular campaign/Retailcampaign</description>
+        <externalId>false</externalId>
+        <label>Duplicate Campaign Member</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Evaluation_Result_P1_P2_Blank__c</fullName>
+        <externalId>false</externalId>
+        <label>Evaluation Result P1/P2/Blank</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_GAP_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Final GAP Amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Finance_Address__c</fullName>
         <description>This field will be populated from Marketing Cloud</description>
         <externalId>false</externalId>
@@ -660,7 +635,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Finance_ContactName__c</fullName>
         <externalId>false</externalId>
         <formula>Contract__r.Account__r.LastName &amp;' '&amp; Contract__r.Account__r.FirstName</formula>
@@ -672,6 +647,115 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Finance_Product_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Product (Cross Point)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Welcome Plan</fullName>
+                    <default>false</default>
+                    <label>Welcome Plan</label>
+                </value>
+                <value>
+                    <fullName>Welcome Plan Plus</fullName>
+                    <default>false</default>
+                    <label>Welcome Plan Plus</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease</fullName>
+                    <default>false</default>
+                    <label>Open End Lease</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease (Select)</fullName>
+                    <default>false</default>
+                    <label>Open End Lease (Select)</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease (Select Plus)</fullName>
+                    <default>false</default>
+                    <label>Open End Lease (Select Plus)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease</fullName>
+                    <default>false</default>
+                    <label>Close End Lease</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan Select)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan Select)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan Select Plus)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan Select Plus)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Open End)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Open End)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Close End Mileage Plan)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Close End Mileage Plan)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Close End)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Close End)</label>
+                </value>
+                <value>
+                    <fullName>Re-loan</fullName>
+                    <default>false</default>
+                    <label>Re-loan</label>
+                </value>
+                <value>
+                    <fullName>Super Welcome Plan</fullName>
+                    <default>false</default>
+                    <label>Super Welcome Plan</label>
+                </value>
+                <value>
+                    <fullName>Super Welcome Plan Plus</fullName>
+                    <default>false</default>
+                    <label>Super Welcome Plan Plus</label>
+                </value>
+                <value>
+                    <fullName>Start Up Plan</fullName>
+                    <default>false</default>
+                    <label>Start Up Plan</label>
+                </value>
+                <value>
+                    <fullName>Normal Loan</fullName>
+                    <default>false</default>
+                    <label>Normal Loan</label>
+                </value>
+                <value>
+                    <fullName>Dual Auto Loan</fullName>
+                    <default>false</default>
+                    <label>Dual Auto Loan</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Finance_Product__c</fullName>
         <externalId>false</externalId>
         <label>Finance Product</label>
@@ -680,94 +764,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Finance_Product_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Finance Product (Cross Point)</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome Plan Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease (Select)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease (Select Plus)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan Select)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan Select Plus)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Open End)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Close End Mileage Plan)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Close End)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Super Welcome Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Super Welcome Plan Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Start Up Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Normal Loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dual Auto Loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Finance_Vehicle__c</fullName>
@@ -982,6 +978,55 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Mileage__c</fullName>
         <externalId>false</externalId>
         <label>Mileage</label>
@@ -991,7 +1036,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Model_Description__c</fullName>
         <externalId>false</externalId>
         <formula>Vehicle__r.Model_Description__c</formula>
@@ -1102,7 +1147,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
         <fullName>No_of_Pax__c</fullName>
         <externalId>false</externalId>
         <label>No of Pax</label>
@@ -1128,6 +1173,149 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Offer Prohibit Flag</label>
         <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OptOutContact_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>OptOutContact Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Campaign (Aftersales)</fullName>
+                    <default>false</default>
+                    <label>Campaign (Aftersales)</label>
+                </value>
+                <value>
+                    <fullName>Campaign (Finance)</fullName>
+                    <default>false</default>
+                    <label>Campaign (Finance)</label>
+                </value>
+                <value>
+                    <fullName>Campaign (New Car)</fullName>
+                    <default>false</default>
+                    <label>Campaign (New Car)</label>
+                </value>
+                <value>
+                    <fullName>Event (Aftersales)</fullName>
+                    <default>false</default>
+                    <label>Event (Aftersales)</label>
+                </value>
+                <value>
+                    <fullName>Event (New Car)</fullName>
+                    <default>false</default>
+                    <label>Event (New Car)</label>
+                </value>
+                <value>
+                    <fullName>Fair</fullName>
+                    <default>false</default>
+                    <label>Fair</label>
+                </value>
+                <value>
+                    <fullName>Gift</fullName>
+                    <default>false</default>
+                    <label>Gift</label>
+                </value>
+                <value>
+                    <fullName>Magazine</fullName>
+                    <default>false</default>
+                    <label>Magazine</label>
+                </value>
+                <value>
+                    <fullName>MOT Car inspection</fullName>
+                    <default>false</default>
+                    <label>MOT Car inspection</label>
+                </value>
+                <value>
+                    <fullName>Product Info (Aftersales)</fullName>
+                    <default>false</default>
+                    <label>Product Info (Aftersales)</label>
+                </value>
+                <value>
+                    <fullName>Product Info (Finance)</fullName>
+                    <default>false</default>
+                    <label>Product Info (Finance)</label>
+                </value>
+                <value>
+                    <fullName>Product Info (New Car)</fullName>
+                    <default>false</default>
+                    <label>Product Info (New Car)</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Campaign (Aftersales)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Campaign (Finance)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Campaign (New Car)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Event (Aftersales)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Event (New Car)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Fair</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Gift</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Magazine</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>MOT Car inspection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Product Info (Aftersales)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Product Info (Finance)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Product Info (New Car)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Survey</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Outstanding_Balance_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Outstanding Balance amount</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1173,6 +1361,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Postal_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Postal OptOut</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Preferred_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1192,6 +1388,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Proto_Market_Value_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Proto Market Value amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Purchase_Timing__c</fullName>
@@ -1332,7 +1538,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Retail_Copy__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1462,38 +1668,46 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <description>This field is used to set the status of the campaign member</description>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Ready</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Removed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Executed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bounced</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Responded</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Responded</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ready</fullName>
+                    <default>true</default>
+                    <label>Ready</label>
+                </value>
+                <value>
+                    <fullName>Removed</fullName>
+                    <default>false</default>
+                    <label>Removed</label>
+                </value>
+                <value>
+                    <fullName>Executed</fullName>
+                    <default>false</default>
+                    <label>Executed</label>
+                </value>
+                <value>
+                    <fullName>Bounced</fullName>
+                    <default>false</default>
+                    <label>Bounced</label>
+                </value>
+                <value>
+                    <fullName>Responded</fullName>
+                    <default>false</default>
+                    <label>Responded</label>
+                </value>
+                <value>
+                    <fullName>Not Responded</fullName>
+                    <default>false</default>
+                    <label>Not Responded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
-	<fields>
+    <fields>
         <fullName>Temp_Address__c</fullName>
         <externalId>false</externalId>
         <formula>Address__r.Temp_Address__c</formula>
@@ -1574,7 +1788,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Vehicle_ExternalLink__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1632,11 +1846,40 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <label>Campaign Member</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>X2018_1</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>UsVIN__c</columns>
+        <columns>Vehicle_Relationship__c</columns>
+        <columns>LastName__c</columns>
+        <columns>FirstName__c</columns>
+        <columns>Customer_Label_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_ID__c</field>
+            <operation>equals</operation>
+            <value>メルセデス マガジン　2018年春号（201803）</value>
+        </filters>
+        <label>マガジン2018-1</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>CM-{0000}</displayFormat>
@@ -1646,11 +1889,11 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     <pluralLabel>Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>Private</sharingModel>
-	<validationRules>
+    <validationRules>
         <fullName>Campaign_Member_Market_Cannot_be_Changed</fullName>
         <active>true</active>
-        <description>Market field of Campaign_Member(Custom) should be same as user&apos;s Market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;, NOT(isTestRunning__c))</errorConditionFormula>
+        <description>Market field of Campaign_Member(Custom) should be same as user's Market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
@@ -1666,15 +1909,6 @@ ISPICKVAL( Status__c , "Ready")
 ) 
 )</errorConditionFormula>
         <errorMessage>Status cannot be changed from 'Executed' to 'Ready or Removed'</errorMessage>
-    </validationRules>
-	<validationRules>
-        <fullName>contact_cannot_be_changed</fullName>
-        <active>true</active>
-        <description>Changes related to SFDCJP-3175</description>
-        <errorConditionFormula>AND(OR($Profile.Name ='Japan Dealer Company Manager', $Profile.Name ='Japan Dealer Sales Manager', $Profile.Name ='Japan Dealer Sales Representative', $Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),( MD__c = 'JP'), 
-NOT(ISBLANK(PRIORVALUE(Contact_Id__c))),NOT(ISNEW()),ISCHANGED(Contact_Id__c))</errorConditionFormula>
-        <errorDisplayField>Contact_Id__c</errorDisplayField>
-        <errorMessage>contact Can't be changed</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>campaign_locked</fullName>
@@ -1693,12 +1927,22 @@ ISPICKVAL( Status__c , "Not Responded")
         <errorMessage>Status Cannot be Changed When Status is Responded</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>contact_cannot_be_changed</fullName>
+        <active>true</active>
+        <description>Changes related to SFDCJP-3175</description>
+        <errorConditionFormula>AND(OR($Profile.Name ='Japan Dealer Company Manager', $Profile.Name ='Japan Dealer Sales Manager', $Profile.Name ='Japan Dealer Sales Representative', $Profile.Name ='Japan Dealer Service Advisor',$Profile.Name ='Japan Dealer Service Manager' ),( MD__c = 'JP'), 
+NOT(ISBLANK(PRIORVALUE(Contact_Id__c))),NOT(ISNEW()),ISCHANGED(Contact_Id__c))</errorConditionFormula>
+        <errorDisplayField>Contact_Id__c</errorDisplayField>
+        <errorMessage>contact Can't be changed</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>retail_campaign_is_locked</fullName>
         <active>true</active>
         <errorConditionFormula>AND( OR( NOT(ispickval(Retail_Campaign_Id__r.Child_Campaign_Status__c ,'Segmentation')),NOT(ispickval(Retail_Campaign_Id__r.Child_Campaign_Status__c ,'Execution')))
 ,OR(ispickval(Retail_Campaign_Id__r.MBTH_Approval_Status__c,'Submitted'),ispickval(Retail_Campaign_Id__r.MBTH_Approval_Status__c,'Rejected')),MD__c='TH')</errorConditionFormula>
         <errorMessage>You Can Add Campaign Members in Segmentation or Execution and if it is sent for approval then it should get approval</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Add_Campaign</fullName>
         <availability>online</availability>
@@ -1734,9 +1978,7 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!Account.Id}")
 else 
 { 
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToDMRequest?Id={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}") 
-}
-
-</url>
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Convert_To_DM_Request1</fullName>
@@ -1787,8 +2029,7 @@ else
 {
 window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToTask?CampaignId={!IF( ISBLANK(Campaign.Id),Retail_Campaign__c.Id, Campaign.Id)}")
 }
-}
-</url>
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Convert_To_Task1</fullName>
@@ -1863,7 +2104,7 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLead?CampaignId={!IF( ISBLANK
 }
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>Convert_to_Lead_MY</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -1926,7 +2167,7 @@ else
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var campaignName = '{!Campaign.Name}';
-window.open("{!URLFOR($Site.Prefix)}/CAMPAIGN_MEMBER_REPORT_ID?pv0="+campaignName);</url>
+window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEk?pv0="+campaignName);</url>
     </webLinks>
     <webLinks>
         <fullName>New_Campaign_Member</fullName>
@@ -1940,7 +2181,7 @@ window.open("{!URLFOR($Site.Prefix)}/CAMPAIGN_MEMBER_REPORT_ID?pv0="+campaignNam
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} var CampStatus = "{!Campaign.Child_Campaign_Status__c}"; 
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) { 
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_ID={!Campaign.Name}&amp;OBJECT_CAMPAIGN_WEBLINK_NEW_CAMPAIGN_MEMBER_LKID={!Campaign.Id}&amp;retURL={!Campaign.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/a1K/e?CF00N2800000IkqWk={!Campaign.Name}&amp;CF00N2800000IkqWk_lkid={!Campaign.Id}&amp;retURL={!Campaign.Id}"); 
 }else 
 { 
 alert('You cannot create campaign members for this campaign status'); 
@@ -1959,13 +2200,13 @@ alert('You cannot create campaign members for this campaign status');
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 var CampStatus = "{!Retail_Campaign__c.Child_Campaign_Status__c}";
 if(CampStatus != 'Execution' &amp;&amp; CampStatus != 'Response collection' &amp;&amp; CampStatus != 'Completed' ) {
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX?OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID={!Retail_Campaign__c.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_LKID={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
+window.open("{!URLFOR($Site.Prefix)}/a1K/e?CF00N2800000IkqXw={!Retail_Campaign__c.Name}&amp;CF00N2800000IkqXw_lkid={!Retail_Campaign__c.Id}&amp;retURL=MBJapan/{!Retail_Campaign__c.Id}");
 }else
 {
 alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
-	<webLinks>
+    <webLinks>
         <fullName>New_Retail_Campaign_Member_MY</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -1984,7 +2225,7 @@ window.open("{!URLFOR($Site.Prefix)}/a1K/e?CF00N2800000IkqXw={!Retail_Campaign__
 alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
-     <webLinks>
+    <webLinks>
         <fullName>Refresh</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -2023,7 +2264,12 @@ if(JPmarketusr &amp;&amp; ('{!User.Profile}' == 'Japan Dealer Sales Manager' || 
 else
 {
  var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
-  window.open("{!URLFOR($Site.Prefix)}/RETAIL_CAMPAIGN_MEMBER_REPORT_ID?pv0="+RetailcampaignName);
+if(marketusr){
+window.open("{!URLFOR($Site.Prefix)}/00O0I00000AS3UX?pv0="+RetailcampaignName);
+}
+else{
+  window.open("{!URLFOR($Site.Prefix)}/00O28000009jhEl?pv0="+RetailcampaignName);
+}
 }</url>
     </webLinks>
     <webLinks>
@@ -2097,7 +2343,4 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.ap
 alert('You cannot create campaign members for this campaign status');
 }</url>
     </webLinks>
-	
-	
 </CustomObject>
-

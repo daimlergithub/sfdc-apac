@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>DM_Material_Sharing_with_All_MY_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>DM Material Sharing with All MY Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DM_materail_Sharing_to_All_Th_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>DM materail Sharing to All Th Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_DM_Material_Readable_to_MBJ_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>JP MarkeDM Material Readable to MBJ Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_MarkeDM_Material_Readable_to_MBJ_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>View all records of DM Material with MD__c = &apos;JP&apos; for all Dealer User Roles used in Japan</description>
+        <label>JP_MarkeDM Material_Readable_to_MBJ_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_MarkeDM_Material_Readable_to_MBJ_IT_Dept</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <label>JP_MarkeDM Material_Readable_to_MBJ_IT_Dept</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBK_DM_Material_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBK DM Material Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBMY_DM_Material_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBMY DM Material Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Share_with_Data_Fulfillment_user_with_R_W</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with Data Fulfillment user with R/W</label>
+        <sharedTo>
+            <role>OB_QC</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

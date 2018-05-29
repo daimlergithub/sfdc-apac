@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <customSettingsType>List</customSettingsType>
-    <customSettingsVisibility>Public</customSettingsVisibility>
     <description>BBQ-Create task based on the market</description>
     <enableFeeds>false</enableFeeds>
     <fields>
@@ -17,4 +16,5 @@
         <unique>false</unique>
     </fields>
     <label>BbqCreateTask</label>
+    <visibility>Public</visibility>
 </CustomObject>

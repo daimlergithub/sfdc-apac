@@ -1,0 +1,40 @@
+<!--************************************************************************************
+* Created By:Sarath M
+* Created Date:23-Sept-2017
+* Company:Infosys Ltd
+* Description: Component to display Top 5 owners whose ideas got more points.
+* **********************************************************************************-->
+<aura:component controller="IdeasCommunityHelper" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="leaderboard" type="list"/>  
+    <!--Design parameter-->
+    <aura:attribute name="communityName" type="String"  default="RUG" access="global"/>
+    <aura:attribute name="recordCount" type="integer"  default="5" access="global"/>   
+    
+    <lightning:card iconName="custom:custom47" title="LEADERBOARD"  class="card">        
+        <div class="slds-p-left--medium slds-p-right--medium">
+            <ul class="slds-list--vertical slds-has-dividers--top-space">
+                <aura:iteration items="{!v.leaderboard}" var="item" indexVar="i">  
+                    <li class="slds-list__item">
+                        <div class="slds-grid">
+                            <div class="slds-col">
+                                {!item.Member.Name}
+                            </div>                            
+                            <div class="slds-border_right" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                       
+                            <div class="slds-grid slds-grid_vertical ">
+                                <div class="slds-col slds-align_absolute-center ">
+                                    {!item.ReputationPoints}
+                                </div>
+                                <div class="slds-col">
+                                    Point
+                                </div>
+                            </div> 
+                        </div>
+                    </li>
+                </aura:iteration>
+            </ul>
+        </div>
+        <div class="slds-text-body_small slds-text-color_error">{!v.message} </div>
+    </lightning:card>  
+</aura:component>

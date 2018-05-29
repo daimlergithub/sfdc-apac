@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,60 +40,20 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -126,61 +82,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Action_Taken__c</fullName>
         <externalId>false</externalId>
         <label>Action Taken</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Outstanding_Balance_amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Outstanding Balance amount</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Proto_Market_Value_amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Proto Market Value amount</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Cross_point_month_and_year__c</fullName>
-        <externalId>false</externalId>
-        <label>Cross point month and year</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Evaluation_Result_P1_P2_Blank__c</fullName>
-        <externalId>false</externalId>
-        <label>Evaluation Result P1/P2/Blank</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>Final_GAP_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Final GAP Amount</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -278,7 +179,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>	
+    </fields>
     <fields>
         <fullName>Allow_Data_Sharing__c</fullName>
         <defaultValue>true</defaultValue>
@@ -429,21 +330,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Bank_Account_Type__c</fullName>
         <externalId>false</externalId>
         <label>Bank Account Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Current</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Common</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Current</fullName>
+                    <default>false</default>
+                    <label>Current</label>
+                </value>
+                <value>
+                    <fullName>Common</fullName>
+                    <default>false</default>
+                    <label>Common</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Bank_Code__c</fullName>
@@ -678,29 +583,35 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Condition_Change__c</fullName>
         <externalId>false</externalId>
         <label>Change of Contract Condition</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Contract Change</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Early Termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancel</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Replacement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Contract Change</fullName>
+                    <default>false</default>
+                    <label>Contract Change</label>
+                </value>
+                <value>
+                    <fullName>Early Termination</fullName>
+                    <default>false</default>
+                    <label>Early Termination</label>
+                </value>
+                <value>
+                    <fullName>Cancel</fullName>
+                    <default>false</default>
+                    <label>Cancel</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Replacement</fullName>
+                    <default>false</default>
+                    <label>Vehicle Replacement</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Contact_Date__c</fullName>
@@ -735,25 +646,30 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Contract_Category__c</fullName>
         <externalId>false</externalId>
         <label>Contract Category</label>
-        <picklist>
-            <picklistValues>
-                <fullName>New</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Renew</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Change of Contract</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Renew</fullName>
+                    <default>false</default>
+                    <label>Renew</label>
+                </value>
+                <value>
+                    <fullName>Change of Contract</fullName>
+                    <default>false</default>
+                    <label>Change of Contract</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Contract_Date__c</fullName>
@@ -934,21 +850,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Contractor_Gender__c</fullName>
         <externalId>false</externalId>
         <label>Contractor Gender</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Female</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Male</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Female</fullName>
+                    <default>false</default>
+                    <label>Female</label>
+                </value>
+                <value>
+                    <fullName>Male</fullName>
+                    <default>false</default>
+                    <label>Male</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Contractor_Mail__c</fullName>
@@ -965,21 +885,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Contractor_Marital_Status__c</fullName>
         <externalId>false</externalId>
         <label>Marital Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Married</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Married</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Married</fullName>
+                    <default>false</default>
+                    <label>Married</label>
+                </value>
+                <value>
+                    <fullName>Not Married</fullName>
+                    <default>false</default>
+                    <label>Not Married</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Contractor_MobilePhone1__c</fullName>
@@ -1117,29 +1041,46 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Credit_Loan_Company_Name__c</fullName>
         <externalId>false</externalId>
         <label>Credit Loan Company Name</label>
-        <picklist>
-            <picklistValues>
-                <fullName>ORICO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JACCS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CEDYNA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ORICO</fullName>
+                    <default>false</default>
+                    <label>ORICO</label>
+                </value>
+                <value>
+                    <fullName>JACCS</fullName>
+                    <default>false</default>
+                    <label>JACCS</label>
+                </value>
+                <value>
+                    <fullName>CEDYNA</fullName>
+                    <default>false</default>
+                    <label>CEDYNA</label>
+                </value>
+                <value>
+                    <fullName>CMS</fullName>
+                    <default>false</default>
+                    <label>CMS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cross_point_month_and_year__c</fullName>
+        <externalId>false</externalId>
+        <label>Cross point month and year</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Current_Make__c</fullName>
@@ -1271,6 +1212,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Evaluation_Result_P1_P2_Blank__c</fullName>
+        <externalId>false</externalId>
+        <label>Evaluation Result P1/P2/Blank</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FPI_Cover__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1328,6 +1280,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Final_GAP_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Final GAP Amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Finance_Brand__c</fullName>
         <externalId>false</externalId>
         <label>Finance Brand</label>
@@ -1338,7 +1301,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	 <fields>
+    <fields>
         <fullName>Finance_Contractor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1355,121 +1318,149 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Finance_Product_Name__c</fullName>
         <externalId>false</externalId>
         <label>Finance Product Name</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Welcome Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome Plan Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease (Select)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease (Select Plus)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan Select)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan Select Plus)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Open End)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Close End Mileage Plan)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Close End)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Super Welcome Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Super Welcome Plan Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Start Up Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Normal Loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dual Auto Loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Welcome Plan</fullName>
+                    <default>false</default>
+                    <label>Welcome Plan</label>
+                </value>
+                <value>
+                    <fullName>Welcome Plan Plus</fullName>
+                    <default>false</default>
+                    <label>Welcome Plan Plus</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease</fullName>
+                    <default>false</default>
+                    <label>Open End Lease</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease (Select)</fullName>
+                    <default>false</default>
+                    <label>Open End Lease (Select)</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease (Select Plus)</fullName>
+                    <default>false</default>
+                    <label>Open End Lease (Select Plus)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease</fullName>
+                    <default>false</default>
+                    <label>Close End Lease</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan Select)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan Select)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan Select Plus)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan Select Plus)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Open End)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Open End)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Close End Mileage Plan)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Close End Mileage Plan)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Close End)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Close End)</label>
+                </value>
+                <value>
+                    <fullName>Re-loan</fullName>
+                    <default>false</default>
+                    <label>Re-loan</label>
+                </value>
+                <value>
+                    <fullName>Super Welcome Plan</fullName>
+                    <default>false</default>
+                    <label>Super Welcome Plan</label>
+                </value>
+                <value>
+                    <fullName>Super Welcome Plan Plus</fullName>
+                    <default>false</default>
+                    <label>Super Welcome Plan Plus</label>
+                </value>
+                <value>
+                    <fullName>Start Up Plan</fullName>
+                    <default>false</default>
+                    <label>Start Up Plan</label>
+                </value>
+                <value>
+                    <fullName>Normal Loan</fullName>
+                    <default>false</default>
+                    <label>Normal Loan</label>
+                </value>
+                <value>
+                    <fullName>Dual Auto Loan</fullName>
+                    <default>false</default>
+                    <label>Dual Auto Loan</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Finance_Product_Type__c</fullName>
         <externalId>false</externalId>
         <label>Finance Product Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Operating Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hire Purchase</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consumer Loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Asset Loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+                <value>
+                    <fullName>Operating Lease</fullName>
+                    <default>false</default>
+                    <label>Operating Lease</label>
+                </value>
+                <value>
+                    <fullName>Hire Purchase</fullName>
+                    <default>false</default>
+                    <label>Hire Purchase</label>
+                </value>
+                <value>
+                    <fullName>Consumer Loan</fullName>
+                    <default>false</default>
+                    <label>Consumer Loan</label>
+                </value>
+                <value>
+                    <fullName>Asset Loan</fullName>
+                    <default>false</default>
+                    <label>Asset Loan</label>
+                </value>
+                <value>
+                    <fullName>Finance Lease</fullName>
+                    <default>false</default>
+                    <label>Finance Lease</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Fine_Rate__c</fullName>
@@ -1517,245 +1508,304 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Follow_Up_Group__c</fullName>
         <externalId>false</externalId>
         <label>Follow Up Group</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Aftersales contacts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaigns only</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Credit Control</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Complaints</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lost sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle sales contacts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle sales letters</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>General contacts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Aftersales contacts</fullName>
+                    <default>false</default>
+                    <label>Aftersales contacts</label>
+                </value>
+                <value>
+                    <fullName>Campaigns only</fullName>
+                    <default>false</default>
+                    <label>Campaigns only</label>
+                </value>
+                <value>
+                    <fullName>Credit Control</fullName>
+                    <default>false</default>
+                    <label>Credit Control</label>
+                </value>
+                <value>
+                    <fullName>Complaints</fullName>
+                    <default>false</default>
+                    <label>Complaints</label>
+                </value>
+                <value>
+                    <fullName>Customer Survey</fullName>
+                    <default>false</default>
+                    <label>Customer Survey</label>
+                </value>
+                <value>
+                    <fullName>Lost sales</fullName>
+                    <default>false</default>
+                    <label>Lost sales</label>
+                </value>
+                <value>
+                    <fullName>Vehicle sales contacts</fullName>
+                    <default>false</default>
+                    <label>Vehicle sales contacts</label>
+                </value>
+                <value>
+                    <fullName>Vehicle sales letters</fullName>
+                    <default>false</default>
+                    <label>Vehicle sales letters</label>
+                </value>
+                <value>
+                    <fullName>General contacts</fullName>
+                    <default>false</default>
+                    <label>General contacts</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Follow_Up_Type__c</fullName>
         <externalId>false</externalId>
         <label>Follow Up Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Accepted vehicle order VS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Demo Bokking Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Acquisition/cold call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Acquisition visit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Birthday card</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car anniversary 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car anniversary 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car anniversary 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer complaint - staff</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer complaint - product</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer complaint - dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer complaint - other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed vehicle order</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Satisfaction Invtgn 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Satisfaction Invtgn 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Satisfaction Invtgn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle delivery</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test drive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Deposit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle enquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aftersales estimate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invoice New Vehicle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New vehicle lost sale letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Incoming letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign Letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lost sale - new</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MPC Contact Termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle order</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Post-sale follow up call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle quotation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-qualification call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Invoice</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Showroom visit by customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Satisfaction Investign 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Satisfaction Investign 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Satisfaction Investign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outgoing telephone call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Incoming telephone call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Visit to customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome pack</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Contact termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accepted vehicle order VS</fullName>
+                    <default>false</default>
+                    <label>Accepted vehicle order VS</label>
+                </value>
+                <value>
+                    <fullName>Demo Bokking Approval</fullName>
+                    <default>false</default>
+                    <label>Demo Bokking Approval</label>
+                </value>
+                <value>
+                    <fullName>Acquisition/cold call</fullName>
+                    <default>false</default>
+                    <label>Acquisition/cold call</label>
+                </value>
+                <value>
+                    <fullName>Acquisition visit</fullName>
+                    <default>false</default>
+                    <label>Acquisition visit</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Birthday card</fullName>
+                    <default>false</default>
+                    <label>Birthday card</label>
+                </value>
+                <value>
+                    <fullName>Car anniversary 1</fullName>
+                    <default>false</default>
+                    <label>Car anniversary 1</label>
+                </value>
+                <value>
+                    <fullName>Car anniversary 2</fullName>
+                    <default>false</default>
+                    <label>Car anniversary 2</label>
+                </value>
+                <value>
+                    <fullName>Car anniversary 3</fullName>
+                    <default>false</default>
+                    <label>Car anniversary 3</label>
+                </value>
+                <value>
+                    <fullName>Customer complaint - staff</fullName>
+                    <default>false</default>
+                    <label>Customer complaint - staff</label>
+                </value>
+                <value>
+                    <fullName>Customer complaint - product</fullName>
+                    <default>false</default>
+                    <label>Customer complaint - product</label>
+                </value>
+                <value>
+                    <fullName>Customer complaint - dealer</fullName>
+                    <default>false</default>
+                    <label>Customer complaint - dealer</label>
+                </value>
+                <value>
+                    <fullName>Customer complaint - other</fullName>
+                    <default>false</default>
+                    <label>Customer complaint - other</label>
+                </value>
+                <value>
+                    <fullName>Confirmed vehicle order</fullName>
+                    <default>false</default>
+                    <label>Confirmed vehicle order</label>
+                </value>
+                <value>
+                    <fullName>Customer Satisfaction Invtgn 2</fullName>
+                    <default>false</default>
+                    <label>Customer Satisfaction Invtgn 2</label>
+                </value>
+                <value>
+                    <fullName>Customer Satisfaction Invtgn 3</fullName>
+                    <default>false</default>
+                    <label>Customer Satisfaction Invtgn 3</label>
+                </value>
+                <value>
+                    <fullName>Customer Satisfaction Invtgn</fullName>
+                    <default>false</default>
+                    <label>Customer Satisfaction Invtgn</label>
+                </value>
+                <value>
+                    <fullName>Vehicle delivery</fullName>
+                    <default>false</default>
+                    <label>Vehicle delivery</label>
+                </value>
+                <value>
+                    <fullName>Test drive</fullName>
+                    <default>false</default>
+                    <label>Test drive</label>
+                </value>
+                <value>
+                    <fullName>Deposit</fullName>
+                    <default>false</default>
+                    <label>Deposit</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Vehicle enquiry</fullName>
+                    <default>false</default>
+                    <label>Vehicle enquiry</label>
+                </value>
+                <value>
+                    <fullName>Aftersales estimate</fullName>
+                    <default>false</default>
+                    <label>Aftersales estimate</label>
+                </value>
+                <value>
+                    <fullName>Invoice New Vehicle</fullName>
+                    <default>false</default>
+                    <label>Invoice New Vehicle</label>
+                </value>
+                <value>
+                    <fullName>New vehicle lost sale letter</fullName>
+                    <default>false</default>
+                    <label>New vehicle lost sale letter</label>
+                </value>
+                <value>
+                    <fullName>Incoming letter</fullName>
+                    <default>false</default>
+                    <label>Incoming letter</label>
+                </value>
+                <value>
+                    <fullName>Campaign Letter</fullName>
+                    <default>false</default>
+                    <label>Campaign Letter</label>
+                </value>
+                <value>
+                    <fullName>Lost sale - new</fullName>
+                    <default>false</default>
+                    <label>Lost sale - new</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Magazine</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Magazine</label>
+                </value>
+                <value>
+                    <fullName>MPC Contact Termination</fullName>
+                    <default>false</default>
+                    <label>MPC Contact Termination</label>
+                </value>
+                <value>
+                    <fullName>Vehicle order</fullName>
+                    <default>false</default>
+                    <label>Vehicle order</label>
+                </value>
+                <value>
+                    <fullName>Post-sale follow up call</fullName>
+                    <default>false</default>
+                    <label>Post-sale follow up call</label>
+                </value>
+                <value>
+                    <fullName>Vehicle quotation</fullName>
+                    <default>false</default>
+                    <label>Vehicle quotation</label>
+                </value>
+                <value>
+                    <fullName>Re-qualification call</fullName>
+                    <default>false</default>
+                    <label>Re-qualification call</label>
+                </value>
+                <value>
+                    <fullName>Service Invoice</fullName>
+                    <default>false</default>
+                    <label>Service Invoice</label>
+                </value>
+                <value>
+                    <fullName>Showroom visit by customer</fullName>
+                    <default>false</default>
+                    <label>Showroom visit by customer</label>
+                </value>
+                <value>
+                    <fullName>SMS</fullName>
+                    <default>false</default>
+                    <label>SMS</label>
+                </value>
+                <value>
+                    <fullName>Sales Letter</fullName>
+                    <default>false</default>
+                    <label>Sales Letter</label>
+                </value>
+                <value>
+                    <fullName>Sales Satisfaction Investign 2</fullName>
+                    <default>false</default>
+                    <label>Sales Satisfaction Investign 2</label>
+                </value>
+                <value>
+                    <fullName>Sales Satisfaction Investign 3</fullName>
+                    <default>false</default>
+                    <label>Sales Satisfaction Investign 3</label>
+                </value>
+                <value>
+                    <fullName>Sales Satisfaction Investign</fullName>
+                    <default>false</default>
+                    <label>Sales Satisfaction Investign</label>
+                </value>
+                <value>
+                    <fullName>Outgoing telephone call</fullName>
+                    <default>false</default>
+                    <label>Outgoing telephone call</label>
+                </value>
+                <value>
+                    <fullName>Incoming telephone call</fullName>
+                    <default>false</default>
+                    <label>Incoming telephone call</label>
+                </value>
+                <value>
+                    <fullName>Visit to customer</fullName>
+                    <default>false</default>
+                    <label>Visit to customer</label>
+                </value>
+                <value>
+                    <fullName>Welcome pack</fullName>
+                    <default>false</default>
+                    <label>Welcome pack</label>
+                </value>
+                <value>
+                    <fullName>Contact termination</fullName>
+                    <default>false</default>
+                    <label>Contact termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Franchise_Description__c</fullName>
@@ -1811,49 +1861,60 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Group__c</fullName>
         <externalId>false</externalId>
         <label>Group</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Aftersales contacts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaigns only</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Credit Control</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Complaints</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lost sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle sales contacts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle sales letters</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>General contacts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Aftersales contacts</fullName>
+                    <default>false</default>
+                    <label>Aftersales contacts</label>
+                </value>
+                <value>
+                    <fullName>Campaigns only</fullName>
+                    <default>false</default>
+                    <label>Campaigns only</label>
+                </value>
+                <value>
+                    <fullName>Credit Control</fullName>
+                    <default>false</default>
+                    <label>Credit Control</label>
+                </value>
+                <value>
+                    <fullName>Complaints</fullName>
+                    <default>false</default>
+                    <label>Complaints</label>
+                </value>
+                <value>
+                    <fullName>Customer Survey</fullName>
+                    <default>false</default>
+                    <label>Customer Survey</label>
+                </value>
+                <value>
+                    <fullName>Lost sales</fullName>
+                    <default>false</default>
+                    <label>Lost sales</label>
+                </value>
+                <value>
+                    <fullName>Vehicle sales contacts</fullName>
+                    <default>false</default>
+                    <label>Vehicle sales contacts</label>
+                </value>
+                <value>
+                    <fullName>Vehicle sales letters</fullName>
+                    <default>false</default>
+                    <label>Vehicle sales letters</label>
+                </value>
+                <value>
+                    <fullName>General contacts</fullName>
+                    <default>false</default>
+                    <label>General contacts</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Guarantor1_Address_Native__c</fullName>
@@ -1923,21 +1984,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Guarantor1_Gender__c</fullName>
         <externalId>false</externalId>
         <label>Guarantor1 Gender</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Female</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Male</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Female</fullName>
+                    <default>false</default>
+                    <label>Female</label>
+                </value>
+                <value>
+                    <fullName>Male</fullName>
+                    <default>false</default>
+                    <label>Male</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Guarantor1_MobilePhone__c</fullName>
@@ -2062,21 +2127,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Guarantor2_Gender__c</fullName>
         <externalId>false</externalId>
         <label>Guarantor2 Gender</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Female</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Male</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Female</fullName>
+                    <default>false</default>
+                    <label>Female</label>
+                </value>
+                <value>
+                    <fullName>Male</fullName>
+                    <default>false</default>
+                    <label>Male</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Guarantor2_MobilePhone__c</fullName>
@@ -2201,21 +2270,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Guarantor3_Gender__c</fullName>
         <externalId>false</externalId>
         <label>Guarantor3 Gender</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Female</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Male</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Female</fullName>
+                    <default>false</default>
+                    <label>Female</label>
+                </value>
+                <value>
+                    <fullName>Male</fullName>
+                    <default>false</default>
+                    <label>Male</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Guarantor3_MobilePhone__c</fullName>
@@ -2297,100 +2370,170 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Industry_Code__c</fullName>
         <externalId>false</externalId>
         <label>Industry Type</label>
-        <picklist>
-		 <controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>N - Service</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>K - Retail/Restaurant</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>F - Manufacture</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>P - Medical Service/Welfare</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E - Construction</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>J - Wholesale</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>L - Real Estate</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>H - Transport/Telecommunications</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>M - Finance/Insurance</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Q - Education/Religion</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R - Public Officer</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C - Fishery</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>A - Agriculture</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B - Forestry</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>D - Mining</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G - Utility</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S - Other</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N - Service</fullName>
+                    <default>false</default>
+                    <label>N - Service</label>
+                </value>
+                <value>
+                    <fullName>K - Retail/Restaurant</fullName>
+                    <default>false</default>
+                    <label>K - Retail/Restaurant</label>
+                </value>
+                <value>
+                    <fullName>F - Manufacture</fullName>
+                    <default>false</default>
+                    <label>F - Manufacture</label>
+                </value>
+                <value>
+                    <fullName>P - Medical Service/Welfare</fullName>
+                    <default>false</default>
+                    <label>P - Medical Service/Welfare</label>
+                </value>
+                <value>
+                    <fullName>E - Construction</fullName>
+                    <default>false</default>
+                    <label>E - Construction</label>
+                </value>
+                <value>
+                    <fullName>J - Wholesale</fullName>
+                    <default>false</default>
+                    <label>J - Wholesale</label>
+                </value>
+                <value>
+                    <fullName>L - Real Estate</fullName>
+                    <default>false</default>
+                    <label>L - Real Estate</label>
+                </value>
+                <value>
+                    <fullName>H - Transport/Telecommunications</fullName>
+                    <default>false</default>
+                    <label>H - Transport/Telecommunications</label>
+                </value>
+                <value>
+                    <fullName>M - Finance/Insurance</fullName>
+                    <default>false</default>
+                    <label>M - Finance/Insurance</label>
+                </value>
+                <value>
+                    <fullName>Q - Education/Religion</fullName>
+                    <default>false</default>
+                    <label>Q - Education/Religion</label>
+                </value>
+                <value>
+                    <fullName>R - Public Officer</fullName>
+                    <default>false</default>
+                    <label>R - Public Officer</label>
+                </value>
+                <value>
+                    <fullName>C - Fishery</fullName>
+                    <default>false</default>
+                    <label>C - Fishery</label>
+                </value>
+                <value>
+                    <fullName>A - Agriculture</fullName>
+                    <default>false</default>
+                    <label>A - Agriculture</label>
+                </value>
+                <value>
+                    <fullName>B - Forestry</fullName>
+                    <default>false</default>
+                    <label>B - Forestry</label>
+                </value>
+                <value>
+                    <fullName>D - Mining</fullName>
+                    <default>false</default>
+                    <label>D - Mining</label>
+                </value>
+                <value>
+                    <fullName>G - Utility</fullName>
+                    <default>false</default>
+                    <label>G - Utility</label>
+                </value>
+                <value>
+                    <fullName>S - Other</fullName>
+                    <default>false</default>
+                    <label>S - Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>N - Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>K - Retail/Restaurant</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>F - Manufacture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>P - Medical Service/Welfare</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>E - Construction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>J - Wholesale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>L - Real Estate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>H - Transport/Telecommunications</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>M - Finance/Insurance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Q - Education/Religion</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>R - Public Officer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>C - Fishery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>A - Agriculture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>B - Forestry</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>D - Mining</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>G - Utility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>S - Other</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Information__c</fullName>
@@ -2406,33 +2549,40 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Insurance_Company__c</fullName>
         <externalId>false</externalId>
         <label>Insurance Company</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mitsui Sumitomo Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tokyo Marine &amp; Nichido</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sompo Japan Nipponkoa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aioi Nissay Dowa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Mitsui Sumitomo Insurance</fullName>
+                    <default>false</default>
+                    <label>Mitsui Sumitomo Insurance</label>
+                </value>
+                <value>
+                    <fullName>Tokyo Marine &amp; Nichido</fullName>
+                    <default>false</default>
+                    <label>Tokyo Marine &amp; Nichido</label>
+                </value>
+                <value>
+                    <fullName>Sompo Japan Nipponkoa</fullName>
+                    <default>false</default>
+                    <label>Sompo Japan Nipponkoa</label>
+                </value>
+                <value>
+                    <fullName>Aioi Nissay Dowa</fullName>
+                    <default>false</default>
+                    <label>Aioi Nissay Dowa</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Insurance_Rating__c</fullName>
@@ -2520,21 +2670,25 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Lease_Category__c</fullName>
         <externalId>false</externalId>
         <label>Lease Contract Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Operational Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Financial Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Operational Lease</fullName>
+                    <default>false</default>
+                    <label>Operational Lease</label>
+                </value>
+                <value>
+                    <fullName>Financial Lease</fullName>
+                    <default>false</default>
+                    <label>Financial Lease</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Lease_Exp_Date__c</fullName>
@@ -2741,6 +2895,56 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Maximum_lease_extention_Date__c</fullName>
         <externalId>false</externalId>
         <label>Maximum lease extention Date</label>
@@ -2845,21 +3049,25 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>New_Used__c</fullName>
         <externalId>false</externalId>
         <label>New/Used Car</label>
-        <picklist>
-            <picklistValues>
-                <fullName>New</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Used</fullName>
+                    <default>false</default>
+                    <label>Used</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>NoClaimBonus__c</fullName>
@@ -2923,69 +3131,85 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Occupation_Type__c</fullName>
         <externalId>false</externalId>
         <label>Occupation Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Self-employed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Corporate Worker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Management</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public Officer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Executive Officer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Employee (Manager)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Employee (Staff)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public Worker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Part Timer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Housekeeper</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pensioner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Student</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Self-employed</fullName>
+                    <default>false</default>
+                    <label>Self-employed</label>
+                </value>
+                <value>
+                    <fullName>Corporate Worker</fullName>
+                    <default>false</default>
+                    <label>Corporate Worker</label>
+                </value>
+                <value>
+                    <fullName>Management</fullName>
+                    <default>false</default>
+                    <label>Management</label>
+                </value>
+                <value>
+                    <fullName>Public Officer</fullName>
+                    <default>false</default>
+                    <label>Public Officer</label>
+                </value>
+                <value>
+                    <fullName>Public Manager</fullName>
+                    <default>false</default>
+                    <label>Public Manager</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Executive Officer</fullName>
+                    <default>false</default>
+                    <label>Executive Officer</label>
+                </value>
+                <value>
+                    <fullName>Employee (Manager)</fullName>
+                    <default>false</default>
+                    <label>Employee (Manager)</label>
+                </value>
+                <value>
+                    <fullName>Employee (Staff)</fullName>
+                    <default>false</default>
+                    <label>Employee (Staff)</label>
+                </value>
+                <value>
+                    <fullName>Public Worker</fullName>
+                    <default>false</default>
+                    <label>Public Worker</label>
+                </value>
+                <value>
+                    <fullName>Part Timer</fullName>
+                    <default>false</default>
+                    <label>Part Timer</label>
+                </value>
+                <value>
+                    <fullName>Housekeeper</fullName>
+                    <default>false</default>
+                    <label>Housekeeper</label>
+                </value>
+                <value>
+                    <fullName>Pensioner</fullName>
+                    <default>false</default>
+                    <label>Pensioner</label>
+                </value>
+                <value>
+                    <fullName>Student</fullName>
+                    <default>false</default>
+                    <label>Student</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Offer_Prohibit__c</fullName>
@@ -3000,31 +3224,47 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Origin__c</fullName>
         <externalId>false</externalId>
         <label>Origin</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                    <label>Service</label>
+                </value>
+                <value>
+                    <fullName>Parts</fullName>
+                    <default>false</default>
+                    <label>Parts</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Outlet_Name__c</fullName>
         <externalId>false</externalId>
         <label>Outlet Name</label>
         <length>70</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Outstanding_Balance_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Outstanding Balance amount</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3065,65 +3305,79 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Payment_Frequency__c</fullName>
         <externalId>false</externalId>
         <label>Payment Frequency</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Daily</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fortnightly</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Half Yearly</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Monthly</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quarterly</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weekly</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yearly</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>true</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Daily</fullName>
+                    <default>false</default>
+                    <label>Daily</label>
+                </value>
+                <value>
+                    <fullName>Fortnightly</fullName>
+                    <default>false</default>
+                    <label>Fortnightly</label>
+                </value>
+                <value>
+                    <fullName>Half Yearly</fullName>
+                    <default>false</default>
+                    <label>Half Yearly</label>
+                </value>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>false</default>
+                    <label>Monthly</label>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Quarterly</fullName>
+                    <default>false</default>
+                    <label>Quarterly</label>
+                </value>
+                <value>
+                    <fullName>Weekly</fullName>
+                    <default>false</default>
+                    <label>Weekly</label>
+                </value>
+                <value>
+                    <fullName>Yearly</fullName>
+                    <default>false</default>
+                    <label>Yearly</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Payment_Method__c</fullName>
         <externalId>false</externalId>
         <label>Payment method of long term</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Lump-Sum</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Installment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Lump-Sum</fullName>
+                    <default>false</default>
+                    <label>Lump-Sum</label>
+                </value>
+                <value>
+                    <fullName>Installment</fullName>
+                    <default>false</default>
+                    <label>Installment</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Payment_Start_Date__c</fullName>
@@ -3262,163 +3516,212 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Product_Name__c</fullName>
         <externalId>false</externalId>
         <label>Product Name</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Welcome Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome Plan Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease (Select)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open End Lease (Select Plus)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan Select)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan Select Plus)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Close End Lease (Mileage Plan)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Open End)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Close End Mileage Plan)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-lease (Close End)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Super Welcome Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Super Welcome Plan Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Start Up Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Normal Loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dual Auto Loan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maintenance Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Maintenance Pack Start Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Maintenance Pack Second Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Maintenance Pack EV Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart touring support 2 years Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart touring support 3 years Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart touring support 6 years Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MyMercedes Support</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Maintenance Pack EV Start Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Maintenance Pack EV Second Plan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maintenance Plus Light</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Maintenance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart Maintenance Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Warranty Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Touring support Plus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Welcome Plan</fullName>
+                    <default>false</default>
+                    <label>Welcome Plan</label>
+                </value>
+                <value>
+                    <fullName>Welcome Plan Plus</fullName>
+                    <default>false</default>
+                    <label>Welcome Plan Plus</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease</fullName>
+                    <default>false</default>
+                    <label>Open End Lease</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease (Select)</fullName>
+                    <default>false</default>
+                    <label>Open End Lease (Select)</label>
+                </value>
+                <value>
+                    <fullName>Open End Lease (Select Plus)</fullName>
+                    <default>false</default>
+                    <label>Open End Lease (Select Plus)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease</fullName>
+                    <default>false</default>
+                    <label>Close End Lease</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan Select)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan Select)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan Select Plus)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan Select Plus)</label>
+                </value>
+                <value>
+                    <fullName>Close End Lease (Mileage Plan)</fullName>
+                    <default>false</default>
+                    <label>Close End Lease (Mileage Plan)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Open End)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Open End)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Close End Mileage Plan)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Close End Mileage Plan)</label>
+                </value>
+                <value>
+                    <fullName>Re-lease (Close End)</fullName>
+                    <default>false</default>
+                    <label>Re-lease (Close End)</label>
+                </value>
+                <value>
+                    <fullName>Re-loan</fullName>
+                    <default>false</default>
+                    <label>Re-loan</label>
+                </value>
+                <value>
+                    <fullName>Super Welcome Plan</fullName>
+                    <default>false</default>
+                    <label>Super Welcome Plan</label>
+                </value>
+                <value>
+                    <fullName>Super Welcome Plan Plus</fullName>
+                    <default>false</default>
+                    <label>Super Welcome Plan Plus</label>
+                </value>
+                <value>
+                    <fullName>Start Up Plan</fullName>
+                    <default>false</default>
+                    <label>Start Up Plan</label>
+                </value>
+                <value>
+                    <fullName>Normal Loan</fullName>
+                    <default>false</default>
+                    <label>Normal Loan</label>
+                </value>
+                <value>
+                    <fullName>Dual Auto Loan</fullName>
+                    <default>false</default>
+                    <label>Dual Auto Loan</label>
+                </value>
+                <value>
+                    <fullName>Maintenance Plus</fullName>
+                    <default>false</default>
+                    <label>Maintenance Plus</label>
+                </value>
+                <value>
+                    <fullName>smart Maintenance Pack Start Plan</fullName>
+                    <default>false</default>
+                    <label>smart Maintenance Pack Start Plan</label>
+                </value>
+                <value>
+                    <fullName>smart Maintenance Pack Second Plan</fullName>
+                    <default>false</default>
+                    <label>smart Maintenance Pack Second Plan</label>
+                </value>
+                <value>
+                    <fullName>smart Maintenance Pack EV Plan</fullName>
+                    <default>false</default>
+                    <label>smart Maintenance Pack EV Plan</label>
+                </value>
+                <value>
+                    <fullName>smart touring support 2 years Plan</fullName>
+                    <default>false</default>
+                    <label>smart touring support 2 years Plan</label>
+                </value>
+                <value>
+                    <fullName>smart touring support 3 years Plan</fullName>
+                    <default>false</default>
+                    <label>smart touring support 3 years Plan</label>
+                </value>
+                <value>
+                    <fullName>smart touring support 6 years Plan</fullName>
+                    <default>false</default>
+                    <label>smart touring support 6 years Plan</label>
+                </value>
+                <value>
+                    <fullName>MyMercedes Support</fullName>
+                    <default>false</default>
+                    <label>MyMercedes Support</label>
+                </value>
+                <value>
+                    <fullName>smart Maintenance Pack EV Start Plan</fullName>
+                    <default>false</default>
+                    <label>smart Maintenance Pack EV Start Plan</label>
+                </value>
+                <value>
+                    <fullName>smart Maintenance Pack EV Second Plan</fullName>
+                    <default>false</default>
+                    <label>smart Maintenance Pack EV Second Plan</label>
+                </value>
+                <value>
+                    <fullName>Maintenance Plus Light</fullName>
+                    <default>false</default>
+                    <label>Maintenance Plus Light</label>
+                </value>
+                <value>
+                    <fullName>smart Maintenance</fullName>
+                    <default>false</default>
+                    <label>smart Maintenance</label>
+                </value>
+                <value>
+                    <fullName>smart Maintenance Plus</fullName>
+                    <default>false</default>
+                    <label>smart Maintenance Plus</label>
+                </value>
+                <value>
+                    <fullName>Warranty Plus</fullName>
+                    <default>false</default>
+                    <label>Warranty Plus</label>
+                </value>
+                <value>
+                    <fullName>Touring support Plus</fullName>
+                    <default>false</default>
+                    <label>Touring support Plus</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Product_Variation__c</fullName>
         <externalId>false</externalId>
         <label>Product Variation</label>
-        <picklist>
-            <picklistValues>
-                <fullName>TBC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TBC</fullName>
+                    <default>false</default>
+                    <label>TBC</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Proto_Market_Value_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Proto Market Value amount</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Purchase_Method__c</fullName>
@@ -3521,15 +3824,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Related Dealer</label>
-         <lookupFilter>
+        <lookupFilter>
             <active>true</active>
-			<booleanFilter>1 OR 2</booleanFilter>
+            <booleanFilter>1 OR 2</booleanFilter>
             <errorMessage>Please select the proper dealer account.</errorMessage>
             <filterItems>
                 <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Dealer</value>
-            </filterItems>			
+            </filterItems>
             <filterItems>
                 <field>$Profile.Name</field>
                 <operation>equals</operation>
@@ -3639,67 +3942,81 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Sales_Type__c</fullName>
         <externalId>false</externalId>
         <label>Sales Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Retail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Employee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Group Employee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Demo Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Company Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Courtesy Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rent-a-Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Retail</fullName>
+                    <default>false</default>
+                    <label>Retail</label>
+                </value>
+                <value>
+                    <fullName>Dealer Employee</fullName>
+                    <default>false</default>
+                    <label>Dealer Employee</label>
+                </value>
+                <value>
+                    <fullName>MB Group Employee</fullName>
+                    <default>false</default>
+                    <label>MB Group Employee</label>
+                </value>
+                <value>
+                    <fullName>Demo Car</fullName>
+                    <default>false</default>
+                    <label>Demo Car</label>
+                </value>
+                <value>
+                    <fullName>Company Car</fullName>
+                    <default>false</default>
+                    <label>Company Car</label>
+                </value>
+                <value>
+                    <fullName>Courtesy Car</fullName>
+                    <default>false</default>
+                    <label>Courtesy Car</label>
+                </value>
+                <value>
+                    <fullName>Rent-a-Car</fullName>
+                    <default>false</default>
+                    <label>Rent-a-Car</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Sector__c</fullName>
         <externalId>false</externalId>
         <label>Sector</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Vehicle Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Vehicle Sales</fullName>
+                    <default>false</default>
+                    <label>Vehicle Sales</label>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                    <label>Service</label>
+                </value>
+                <value>
+                    <fullName>Parts</fullName>
+                    <default>false</default>
+                    <label>Parts</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
-	<fields>
+    <fields>
         <fullName>Selling_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3712,7 +4029,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Service_Advisor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3739,170 +4056,281 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Service_Code__c</fullName>
         <externalId>false</externalId>
         <label>Service Code</label>
-        <picklist>
-		 <controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Predelivery inspection</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1year inspection</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MOT</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Safety check</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Campaign</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>General Repair</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Warranty</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outside Order</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Paint Jobs</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-Repair</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quick Service</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Transfer</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accessories</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Maintenance</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB 1year inspection</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>First MOT</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test Jobs</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electrical Jobs</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Body Jobs</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Jobs</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wear &amp; Tear Jobs</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Return Jobs</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Contract</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New car/used car sales</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Free</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used car purchase</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not selected</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Blank</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Predelivery inspection</fullName>
+                    <default>false</default>
+                    <label>Predelivery inspection</label>
+                </value>
+                <value>
+                    <fullName>1year inspection</fullName>
+                    <default>false</default>
+                    <label>1year inspection</label>
+                </value>
+                <value>
+                    <fullName>MOT</fullName>
+                    <default>false</default>
+                    <label>MOT</label>
+                </value>
+                <value>
+                    <fullName>MB Safety check</fullName>
+                    <default>false</default>
+                    <label>MB Safety check</label>
+                </value>
+                <value>
+                    <fullName>Dealer Campaign</fullName>
+                    <default>false</default>
+                    <label>Dealer Campaign</label>
+                </value>
+                <value>
+                    <fullName>General Repair</fullName>
+                    <default>false</default>
+                    <label>General Repair</label>
+                </value>
+                <value>
+                    <fullName>Warranty</fullName>
+                    <default>false</default>
+                    <label>Warranty</label>
+                </value>
+                <value>
+                    <fullName>Outside Order</fullName>
+                    <default>false</default>
+                    <label>Outside Order</label>
+                </value>
+                <value>
+                    <fullName>Paint Jobs</fullName>
+                    <default>false</default>
+                    <label>Paint Jobs</label>
+                </value>
+                <value>
+                    <fullName>Re-Repair</fullName>
+                    <default>false</default>
+                    <label>Re-Repair</label>
+                </value>
+                <value>
+                    <fullName>Quick Service</fullName>
+                    <default>false</default>
+                    <label>Quick Service</label>
+                </value>
+                <value>
+                    <fullName>Service Transfer</fullName>
+                    <default>false</default>
+                    <label>Service Transfer</label>
+                </value>
+                <value>
+                    <fullName>Accessories</fullName>
+                    <default>false</default>
+                    <label>Accessories</label>
+                </value>
+                <value>
+                    <fullName>Service Maintenance</fullName>
+                    <default>false</default>
+                    <label>Service Maintenance</label>
+                </value>
+                <value>
+                    <fullName>MB 1year inspection</fullName>
+                    <default>false</default>
+                    <label>MB 1year inspection</label>
+                </value>
+                <value>
+                    <fullName>First MOT</fullName>
+                    <default>false</default>
+                    <label>First MOT</label>
+                </value>
+                <value>
+                    <fullName>Test Jobs</fullName>
+                    <default>false</default>
+                    <label>Test Jobs</label>
+                </value>
+                <value>
+                    <fullName>Electrical Jobs</fullName>
+                    <default>false</default>
+                    <label>Electrical Jobs</label>
+                </value>
+                <value>
+                    <fullName>Body Jobs</fullName>
+                    <default>false</default>
+                    <label>Body Jobs</label>
+                </value>
+                <value>
+                    <fullName>Other Jobs</fullName>
+                    <default>false</default>
+                    <label>Other Jobs</label>
+                </value>
+                <value>
+                    <fullName>Wear &amp; Tear Jobs</fullName>
+                    <default>false</default>
+                    <label>Wear &amp; Tear Jobs</label>
+                </value>
+                <value>
+                    <fullName>Return Jobs</fullName>
+                    <default>false</default>
+                    <label>Return Jobs</label>
+                </value>
+                <value>
+                    <fullName>Service Contract</fullName>
+                    <default>false</default>
+                    <label>Service Contract</label>
+                </value>
+                <value>
+                    <fullName>New car/used car sales</fullName>
+                    <default>false</default>
+                    <label>New car/used car sales</label>
+                </value>
+                <value>
+                    <fullName>Free</fullName>
+                    <default>false</default>
+                    <label>Free</label>
+                </value>
+                <value>
+                    <fullName>Used car purchase</fullName>
+                    <default>false</default>
+                    <label>Used car purchase</label>
+                </value>
+                <value>
+                    <fullName>Not selected</fullName>
+                    <default>false</default>
+                    <label>Not selected</label>
+                </value>
+                <value>
+                    <fullName>Blank</fullName>
+                    <default>false</default>
+                    <label>Blank</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Predelivery inspection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>1year inspection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>MOT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>MB Safety check</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Dealer Campaign</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>General Repair</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Warranty</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Outside Order</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Paint Jobs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Re-Repair</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Quick Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Service Transfer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Accessories</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Service Maintenance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>MB 1year inspection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>First MOT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Test Jobs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Electrical Jobs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Body Jobs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Other Jobs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Return Jobs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Service Contract</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Free</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Not selected</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Wear &amp; Tear Jobs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>New car/used car sales</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Used car purchase</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Service_Contact_Name__c</fullName>
@@ -4084,7 +4512,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
     <fields>
         <fullName>Service_Vehicle_VIN__c</fullName>
         <externalId>false</externalId>
-        <formula>IF((MD__c=='TH' || MD__c=='MY'), Service_Vehicle__r.EuroVIN__c, Service_Vehicle__r.USVIN__c)</formula>
+        <formula>IF((MD__c=='TH' || MD__c=='MY'), Service_Vehicle__r.EuroVIN__c, Service_Vehicle__r.UsVIN__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Vehicle VIN</label>
         <required>false</required>
@@ -4184,120 +4612,147 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Draft</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Waiting for Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>pullback</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Save</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Waiting for cancellation approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancellation Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Expired</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Active</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Matured</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancelled2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Early Termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Subrogation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consent Termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Forced Termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Change of Owner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Change Owner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>false</default>
+                    <label>Valid</label>
+                </value>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Waiting for Approval</fullName>
+                    <default>false</default>
+                    <label>Waiting for Approval</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>pullback</fullName>
+                    <default>false</default>
+                    <label>pullback</label>
+                </value>
+                <value>
+                    <fullName>Save</fullName>
+                    <default>false</default>
+                    <label>Save</label>
+                </value>
+                <value>
+                    <fullName>Waiting for cancellation approval</fullName>
+                    <default>false</default>
+                    <label>Waiting for cancellation approval</label>
+                </value>
+                <value>
+                    <fullName>Cancellation Approved</fullName>
+                    <default>false</default>
+                    <label>Cancellation Approved</label>
+                </value>
+                <value>
+                    <fullName>In service</fullName>
+                    <default>false</default>
+                    <label>In service</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Matured</fullName>
+                    <default>false</default>
+                    <label>Matured</label>
+                </value>
+                <value>
+                    <fullName>Cancelled2</fullName>
+                    <default>false</default>
+                    <label>Cancelled2</label>
+                </value>
+                <value>
+                    <fullName>Early Termination</fullName>
+                    <default>false</default>
+                    <label>Early Termination</label>
+                </value>
+                <value>
+                    <fullName>Subrogation</fullName>
+                    <default>false</default>
+                    <label>Subrogation</label>
+                </value>
+                <value>
+                    <fullName>Consent Termination</fullName>
+                    <default>false</default>
+                    <label>Consent Termination</label>
+                </value>
+                <value>
+                    <fullName>Forced Termination</fullName>
+                    <default>false</default>
+                    <label>Forced Termination</label>
+                </value>
+                <value>
+                    <fullName>Change of Owner</fullName>
+                    <default>false</default>
+                    <label>Change of Owner</label>
+                </value>
+                <value>
+                    <fullName>Change Owner</fullName>
+                    <default>false</default>
+                    <label>Change Owner</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Sub_Product__c</fullName>
         <externalId>false</externalId>
         <label>Sub-Product</label>
-        <picklist>
-            <picklistValues>
-                <fullName>TBC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TBC</fullName>
+                    <default>false</default>
+                    <label>TBC</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
-	<fields>
+    <fields>
         <fullName>Supporting_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -4364,228 +4819,296 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
-        <picklist>
-		  <controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Accepted vehicle order VS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Demo Bokking Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Acquisition/cold call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Acquisition visit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Birthday card</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car anniversary 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car anniversary 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car anniversary 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer complaint - staff</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer complaint - product</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer complaint - dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer complaint - other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed vehicle order</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Satisfaction Invtgn 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Satisfaction Invtgn 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Satisfaction Invtgn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle delivery</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test drive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Deposit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle enquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aftersales estimate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invoice New Vehicle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New vehicle lost sale letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Incoming letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign Letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lost sale - new</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MPC Contact Termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle order</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Post-sale follow up call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle quotation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Re-qualification call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Showroom visit by customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Invoice</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Satisfaction Investign 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Satisfaction Investign 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Satisfaction Investign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Incoming telephone call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outgoing telephone call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Visit to customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome pack</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Contact termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Standard Warranty</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used Car Warranty</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Loan</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lease</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Program</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accepted vehicle order VS</fullName>
+                    <default>false</default>
+                    <label>Accepted vehicle order VS</label>
+                </value>
+                <value>
+                    <fullName>Demo Bokking Approval</fullName>
+                    <default>false</default>
+                    <label>Demo Bokking Approval</label>
+                </value>
+                <value>
+                    <fullName>Acquisition/cold call</fullName>
+                    <default>false</default>
+                    <label>Acquisition/cold call</label>
+                </value>
+                <value>
+                    <fullName>Acquisition visit</fullName>
+                    <default>false</default>
+                    <label>Acquisition visit</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>Birthday card</fullName>
+                    <default>false</default>
+                    <label>Birthday card</label>
+                </value>
+                <value>
+                    <fullName>Car anniversary 1</fullName>
+                    <default>false</default>
+                    <label>Car anniversary 1</label>
+                </value>
+                <value>
+                    <fullName>Car anniversary 2</fullName>
+                    <default>false</default>
+                    <label>Car anniversary 2</label>
+                </value>
+                <value>
+                    <fullName>Car anniversary 3</fullName>
+                    <default>false</default>
+                    <label>Car anniversary 3</label>
+                </value>
+                <value>
+                    <fullName>Customer complaint - staff</fullName>
+                    <default>false</default>
+                    <label>Customer complaint - staff</label>
+                </value>
+                <value>
+                    <fullName>Customer complaint - product</fullName>
+                    <default>false</default>
+                    <label>Customer complaint - product</label>
+                </value>
+                <value>
+                    <fullName>Customer complaint - dealer</fullName>
+                    <default>false</default>
+                    <label>Customer complaint - dealer</label>
+                </value>
+                <value>
+                    <fullName>Customer complaint - other</fullName>
+                    <default>false</default>
+                    <label>Customer complaint - other</label>
+                </value>
+                <value>
+                    <fullName>Confirmed vehicle order</fullName>
+                    <default>false</default>
+                    <label>Confirmed vehicle order</label>
+                </value>
+                <value>
+                    <fullName>Customer Satisfaction Invtgn 2</fullName>
+                    <default>false</default>
+                    <label>Customer Satisfaction Invtgn 2</label>
+                </value>
+                <value>
+                    <fullName>Customer Satisfaction Invtgn 3</fullName>
+                    <default>false</default>
+                    <label>Customer Satisfaction Invtgn 3</label>
+                </value>
+                <value>
+                    <fullName>Customer Satisfaction Invtgn</fullName>
+                    <default>false</default>
+                    <label>Customer Satisfaction Invtgn</label>
+                </value>
+                <value>
+                    <fullName>Vehicle delivery</fullName>
+                    <default>false</default>
+                    <label>Vehicle delivery</label>
+                </value>
+                <value>
+                    <fullName>Test drive</fullName>
+                    <default>false</default>
+                    <label>Test drive</label>
+                </value>
+                <value>
+                    <fullName>Deposit</fullName>
+                    <default>false</default>
+                    <label>Deposit</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Vehicle enquiry</fullName>
+                    <default>false</default>
+                    <label>Vehicle enquiry</label>
+                </value>
+                <value>
+                    <fullName>Aftersales estimate</fullName>
+                    <default>false</default>
+                    <label>Aftersales estimate</label>
+                </value>
+                <value>
+                    <fullName>Invoice New Vehicle</fullName>
+                    <default>false</default>
+                    <label>Invoice New Vehicle</label>
+                </value>
+                <value>
+                    <fullName>New vehicle lost sale letter</fullName>
+                    <default>false</default>
+                    <label>New vehicle lost sale letter</label>
+                </value>
+                <value>
+                    <fullName>Incoming letter</fullName>
+                    <default>false</default>
+                    <label>Incoming letter</label>
+                </value>
+                <value>
+                    <fullName>Campaign Letter</fullName>
+                    <default>false</default>
+                    <label>Campaign Letter</label>
+                </value>
+                <value>
+                    <fullName>Lost sale - new</fullName>
+                    <default>false</default>
+                    <label>Lost sale - new</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Magazine</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Magazine</label>
+                </value>
+                <value>
+                    <fullName>MPC Contact Termination</fullName>
+                    <default>false</default>
+                    <label>MPC Contact Termination</label>
+                </value>
+                <value>
+                    <fullName>Vehicle order</fullName>
+                    <default>false</default>
+                    <label>Vehicle order</label>
+                </value>
+                <value>
+                    <fullName>Post-sale follow up call</fullName>
+                    <default>false</default>
+                    <label>Post-sale follow up call</label>
+                </value>
+                <value>
+                    <fullName>Vehicle quotation</fullName>
+                    <default>false</default>
+                    <label>Vehicle quotation</label>
+                </value>
+                <value>
+                    <fullName>Re-qualification call</fullName>
+                    <default>false</default>
+                    <label>Re-qualification call</label>
+                </value>
+                <value>
+                    <fullName>Showroom visit by customer</fullName>
+                    <default>false</default>
+                    <label>Showroom visit by customer</label>
+                </value>
+                <value>
+                    <fullName>Service Invoice</fullName>
+                    <default>false</default>
+                    <label>Service Invoice</label>
+                </value>
+                <value>
+                    <fullName>SMS</fullName>
+                    <default>false</default>
+                    <label>SMS</label>
+                </value>
+                <value>
+                    <fullName>Sales Letter</fullName>
+                    <default>false</default>
+                    <label>Sales Letter</label>
+                </value>
+                <value>
+                    <fullName>Sales Satisfaction Investign 2</fullName>
+                    <default>false</default>
+                    <label>Sales Satisfaction Investign 2</label>
+                </value>
+                <value>
+                    <fullName>Sales Satisfaction Investign 3</fullName>
+                    <default>false</default>
+                    <label>Sales Satisfaction Investign 3</label>
+                </value>
+                <value>
+                    <fullName>Sales Satisfaction Investign</fullName>
+                    <default>false</default>
+                    <label>Sales Satisfaction Investign</label>
+                </value>
+                <value>
+                    <fullName>Incoming telephone call</fullName>
+                    <default>false</default>
+                    <label>Incoming telephone call</label>
+                </value>
+                <value>
+                    <fullName>Outgoing telephone call</fullName>
+                    <default>false</default>
+                    <label>Outgoing telephone call</label>
+                </value>
+                <value>
+                    <fullName>Visit to customer</fullName>
+                    <default>false</default>
+                    <label>Visit to customer</label>
+                </value>
+                <value>
+                    <fullName>Welcome pack</fullName>
+                    <default>false</default>
+                    <label>Welcome pack</label>
+                </value>
+                <value>
+                    <fullName>Contact termination</fullName>
+                    <default>false</default>
+                    <label>Contact termination</label>
+                </value>
+                <value>
+                    <fullName>Standard Warranty</fullName>
+                    <default>false</default>
+                    <label>Standard Warranty</label>
+                </value>
+                <value>
+                    <fullName>Used Car Warranty</fullName>
+                    <default>false</default>
+                    <label>Used Car Warranty</label>
+                </value>
+                <value>
+                    <fullName>Loan</fullName>
+                    <default>false</default>
+                    <label>Loan</label>
+                </value>
+                <value>
+                    <fullName>Lease</fullName>
+                    <default>false</default>
+                    <label>Lease</label>
+                </value>
+                <value>
+                    <fullName>Service Program</fullName>
+                    <default>false</default>
+                    <label>Service Program</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Standard Warranty</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Used Car Warranty</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Loan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Lease</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Service Program</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Underwriter_ID__c</fullName>
@@ -4707,25 +5230,30 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Voluntary_Insurance_Type__c</fullName>
         <externalId>false</externalId>
         <label>Voluntary Insurance Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yes (Dealer)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Yes (DIS)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes (Dealer)</fullName>
+                    <default>false</default>
+                    <label>Yes (Dealer)</label>
+                </value>
+                <value>
+                    <fullName>Yes (DIS)</fullName>
+                    <default>false</default>
+                    <label>Yes (DIS)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Welcome_Call_Task__c</fullName>
@@ -4755,6 +5283,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>livetime__c</fullName>
         <externalId>false</externalId>
         <formula>(year(EndDate__c) - year( StartDate__c)) * 12 + month(EndDate__c) - month( StartDate__c)</formula>
@@ -4767,15 +5304,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields>
-	<fields>
-        <fullName>isTestRunning__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>isTestRunning</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <label>Retail Task</label>
     <listViews>
@@ -4792,7 +5320,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <label>ALL</label>
         <language>en_US</language>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>All_MBTH_Retail_Tasks</fullName>
         <columns>NAME</columns>
         <columns>StartDate__c</columns>
@@ -4850,10 +5378,37 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MBF_Inbound_Team_Queue_Retail_Task</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBF Inbound Team Queue</label>
+        <queue>MBF_Inbound_Team_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBF_Outbound_Team_Queue_Retail_Task</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBF Outbound Team Queue</label>
+        <queue>MBF_Outbound_Team_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MBF_Quotation_Team_Queue_Retail_Task</fullName>
         <filterScope>Queue</filterScope>
         <label>MBF Quotation Team Queue</label>
         <queue>MBF_Quotation_Team_Queue</queue>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBF_Re_marketing_team_Queue_Retail_Task</fullName>
+        <filterScope>Queue</filterScope>
+        <label>MBF Re-marketing team Queue</label>
+        <queue>MBF_Re_marketing_team_Queue</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -4958,33 +5513,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Contract</fullName>
         <active>true</active>
         <label>Contract</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Bank_Account_Type__c</picklist>
             <values>
@@ -5557,6 +6085,33 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Operational Lease</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6039,33 +6594,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Insurance_Contract</fullName>
         <active>true</active>
         <label>Insurance Contract</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Bank_Account_Type__c</picklist>
             <values>
@@ -6478,6 +7006,33 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             <picklist>Lease_Category__c</picklist>
             <values>
                 <fullName>Operational Lease</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6944,33 +7499,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Lease_Contract</fullName>
         <active>true</active>
         <label>Lease Contract</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Bank_Account_Type__c</picklist>
             <values>
@@ -7511,6 +8039,33 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Operational Lease</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8093,33 +8648,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Loan_Contract</fullName>
         <active>true</active>
         <label>Loan Contract</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Bank_Account_Type__c</picklist>
             <values>
@@ -8668,6 +9196,33 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             <picklist>Lease_Category__c</picklist>
             <values>
                 <fullName>Operational Lease</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9242,33 +9797,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Retail_Activity</fullName>
         <active>true</active>
         <label>Retail Activity</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Bank_Account_Type__c</picklist>
             <values>
@@ -9841,6 +10369,33 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Operational Lease</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10395,33 +10950,6 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Service</fullName>
         <active>true</active>
         <label>Service</label>
-		        <picklistValues>
-            <picklist>Market__c</picklist>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Bank_Account_Type__c</picklist>
             <values>
@@ -10998,6 +11526,33 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>New_Used__c</picklist>
             <values>
                 <fullName>New</fullName>
@@ -11259,6 +11814,14 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <picklistValues>
             <picklist>Service_Code__c</picklist>
             <values>
+                <fullName>1year inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Blank</fullName>
                 <default>false</default>
             </values>
@@ -11267,7 +11830,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Dealer Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Electrical Jobs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First MOT</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11279,6 +11850,18 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>MB 1year inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Safety check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Not selected</fullName>
                 <default>false</default>
             </values>
@@ -11287,11 +11870,23 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Outside Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Paint Jobs</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Predelivery inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quick Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Re-Repair</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11304,6 +11899,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Service Maintenance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Transfer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11578,15 +12177,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <searchResultsAdditionalFields>ContractNumber__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-	<validationRules>
-        <fullName>Retail_Task_Market_can_not_be_changed</fullName>
-        <active>true</active>
-        <description>Market field of Retail task should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
-        <errorDisplayField>Market__c</errorDisplayField>
-        <errorMessage>You are allowed to create record for your home market only</errorMessage>
-    </validationRules>
-	<sharingReasons>
+    <sharingReasons>
         <fullName>Contract_Share__c</fullName>
         <label>Contract Share</label>
     </sharingReasons>
@@ -11598,6 +12189,15 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Service_Share__c</fullName>
         <label>Service Share</label>
     </sharingReasons>
+    <validationRules>
+        <fullName>Retail_Task_Market_can_not_be_changed</fullName>
+        <active>true</active>
+        <description>Market field of Retail task should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>New_Case</fullName>
         <availability>online</availability>

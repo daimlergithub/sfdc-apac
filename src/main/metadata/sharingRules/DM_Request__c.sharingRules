@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>JP_MarketDM_Request_Readable_to_MBJ_IT_Dept</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <label>JP_MarketDM Request_Readable_to_MBJ_IT_Dept</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBK_DM_Request_Sharing_Rule</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>MBK DM Request Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_DM_Request_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MY_DM Request Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TH_DM_Request_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>TH_DM Request Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

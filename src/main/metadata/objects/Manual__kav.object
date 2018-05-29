@@ -70,123 +70,152 @@
         <fullName>Category__c</fullName>
         <externalId>false</externalId>
         <label>Category</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Overview</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lead</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Complaint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Emergency Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Campaign/Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>After Sales Campaign</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>After Sales Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Product</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Benz</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Salesforce System</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales &amp; Marketing Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Overview</fullName>
+                    <default>false</default>
+                    <label>Overview</label>
+                </value>
+                <value>
+                    <fullName>Lead</fullName>
+                    <default>false</default>
+                    <label>Lead</label>
+                </value>
+                <value>
+                    <fullName>Inquiry</fullName>
+                    <default>false</default>
+                    <label>Inquiry</label>
+                </value>
+                <value>
+                    <fullName>Complaint</fullName>
+                    <default>false</default>
+                    <label>Complaint</label>
+                </value>
+                <value>
+                    <fullName>Emergency Call</fullName>
+                    <default>false</default>
+                    <label>Emergency Call</label>
+                </value>
+                <value>
+                    <fullName>Sales Campaign/Event</fullName>
+                    <default>false</default>
+                    <label>Sales Campaign/Event</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>After Sales Campaign</fullName>
+                    <default>false</default>
+                    <label>After Sales Campaign</label>
+                </value>
+                <value>
+                    <fullName>After Sales Other</fullName>
+                    <default>false</default>
+                    <label>After Sales Other</label>
+                </value>
+                <value>
+                    <fullName>Product</fullName>
+                    <default>false</default>
+                    <label>Product</label>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                    <label>Dealer</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Benz</fullName>
+                    <default>false</default>
+                    <label>Mercedes Benz</label>
+                </value>
+                <value>
+                    <fullName>Salesforce System</fullName>
+                    <default>false</default>
+                    <label>Salesforce System</label>
+                </value>
+                <value>
+                    <fullName>Sales &amp; Marketing Other</fullName>
+                    <default>false</default>
+                    <label>Sales &amp; Marketing Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Department__c</fullName>
         <externalId>false</externalId>
         <label>Department</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Customer Contact Center</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Network Development</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Business Innovation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Customer Contact Center</fullName>
+                    <default>false</default>
+                    <label>Customer Contact Center</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Network Development</fullName>
+                    <default>false</default>
+                    <label>Network Development</label>
+                </value>
+                <value>
+                    <fullName>Business Innovation</fullName>
+                    <default>false</default>
+                    <label>Business Innovation</label>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                    <label>Dealer</label>
+                </value>
+                <value>
+                    <fullName>After Sales</fullName>
+                    <default>false</default>
+                    <label>After Sales</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Information_Updated_Flag__c</fullName>
         <externalId>false</externalId>
         <label>Information Updated Flag</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Main_Content__c</fullName>
