@@ -10,7 +10,7 @@
         <inlineHelpText>This field will store the user id for task owner assignment base don market</inlineHelpText>
         <label>User</label>
         <length>18</length>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
