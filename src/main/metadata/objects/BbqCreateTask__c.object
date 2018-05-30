@@ -9,8 +9,8 @@
         <externalId>false</externalId>
         <inlineHelpText>This field will store the user id for task owner assignment base don market</inlineHelpText>
         <label>User</label>
-        <length>30</length>
-        <required>true</required>
+        <length>25</length>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
