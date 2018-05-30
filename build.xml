@@ -194,7 +194,7 @@
 				</deploy>
 			</target>
 			<target name="deploy04">
-				<deploy>                            
+				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">                            
 					<sf:typeset name="profiles" force="true"/>
 				</deploy>
 			</target>           
