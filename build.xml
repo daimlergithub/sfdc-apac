@@ -86,7 +86,7 @@
 
 
 			<target name="deploy01">
-				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTest}">
+				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">
 					<sf:typeset name="labels"/>
 					<sf:typeset name="staticresources">
 					<!-- the Checksums resource is handled by separate tasks -->
@@ -115,7 +115,9 @@
 				</deploy>
 			</target>
 			<target name="deploy02">
-				<deploy transformations="transformations29.xml" testLevel="${sfdc.testLevel}" runTest="${sfdc.runTest}">
+				<deploy transformations="transformations29.xml" testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">
+				    <sf:typeset name="customPermissions" force="true"/>
+					<sf:typeset name="letterhead" force="true"/>
 					<sf:typeset name="objects"/> 
 					<sf:typeset name="customMetadata"/>
 					<sf:typeset name="queues"/>
@@ -135,7 +137,7 @@
 				</deploy>
 			</target>
 			<target name="deploy03">
-				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTest}">
+				<deploy testLevel="${sfdc.testLevel}" runTest="${sfdc.runTests}">
 					<sf:typeset name="letterhead"/>                                          
 					<sf:typeset name="tabs">
 						<sf:exclude name="selectAllChkBox"/>
