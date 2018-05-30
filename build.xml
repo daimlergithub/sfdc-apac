@@ -116,6 +116,8 @@
 			</target>
 			<target name="deploy02">
 				<deploy transformations="transformations29.xml" testLevel="${sfdc.testLevel}" runTest="${sfdc.runTest}">
+				    <sf:typeset name="customPermissions" force="true"/>
+					<sf:typeset name="letterhead" force="true"/>
 					<sf:typeset name="objects"/> 
 					<sf:typeset name="customMetadata"/>
 					<sf:typeset name="queues"/>
