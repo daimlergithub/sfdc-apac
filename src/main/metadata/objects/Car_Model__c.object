@@ -4513,7 +4513,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))))</defaultValue>
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Car_Model_Market_Cannot_be_Changed</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Market field of Car Model should be same as user's Market field</description>
         <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
