@@ -54,6 +54,16 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>CompanyName__c</fullName>
+        <externalId>false</externalId>
+        <label>CompanyName</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>TestObject</label>
     <nameField>
         <label>TestObject Name</label>
@@ -62,4 +72,11 @@
     <pluralLabel>TestObject</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>CompanyName_should_not_be_empty</fullName>
+        <active>true</active>
+        <description>Company Name should not be empty</description>
+        <errorConditionFormula>CompanyName__c  !=null</errorConditionFormula>
+        <errorMessage>Company Name should not be empty</errorMessage>
+    </validationRules>
 </CustomObject>
