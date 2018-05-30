@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,15 +40,18 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>A child object under "Template", will be mapped with customer's reply. It will define and lead to follow-up actions.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
@@ -190,4 +189,5 @@
         <errorConditionFormula>(RecordType.Name == 'Generate OB Task' || RecordType.Name == 'Register Campaign') &amp;&amp; SendClosureSMS__c &amp;&amp; Template__c != null &amp;&amp; ISBLANK(Template__r.Closure_SMS__c)</errorConditionFormula>
         <errorMessage>Your must enter a Closure SMS value for your template if the Send Closure SMS is checked.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

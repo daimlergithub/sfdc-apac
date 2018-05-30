@@ -1,0 +1,12 @@
+.THIS.card {
+    /*background-color:#262626;*/
+    background-color:black;
+    color:#FFFFFF;    
+}
+.THIS a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.THIS a:hover{
+    color:#0099FF;
+}

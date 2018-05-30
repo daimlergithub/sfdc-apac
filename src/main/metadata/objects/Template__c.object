@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,15 +40,18 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Case: Use to store SMS, eDM Name for campaign, eDM for ad hoc request, MMS template name. This object is maintenace by data manager and is used by Ad Hoc and Campaign batch request</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Read</externalSharingModel>
@@ -79,200 +78,314 @@
         <fullName>Car_Series__c</fullName>
         <externalId>false</externalId>
         <label>Car Series</label>
-        <picklist>
-            <controllingField>Type__c</controllingField>
-            <picklistValues>
-                <fullName>A-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C 63 AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class Estate</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class Saloon</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS 63 AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class Cabriolet</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class Coupé</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class Long Wheelbase</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G 55 AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G 63 AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G 65 AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GL-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>M-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML 63 AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S 65 L AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL 63 AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLS AMG</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLA-Class</fullName>
-                <default>false</default>
-                <controllingFieldValues>Brochure</controllingFieldValues>
-                <controllingFieldValues>Brochure+Price List</controllingFieldValues>
-                <controllingFieldValues>Price List</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A-Class</fullName>
+                    <default>false</default>
+                    <label>A-Class</label>
+                </value>
+                <value>
+                    <fullName>B-Class</fullName>
+                    <default>false</default>
+                    <label>B-Class</label>
+                </value>
+                <value>
+                    <fullName>C 63 AMG</fullName>
+                    <default>false</default>
+                    <label>C 63 AMG</label>
+                </value>
+                <value>
+                    <fullName>C-Class Estate</fullName>
+                    <default>false</default>
+                    <label>C-Class Estate</label>
+                </value>
+                <value>
+                    <fullName>C-Class Saloon</fullName>
+                    <default>false</default>
+                    <label>C-Class Saloon</label>
+                </value>
+                <value>
+                    <fullName>CLS 63 AMG</fullName>
+                    <default>false</default>
+                    <label>CLS 63 AMG</label>
+                </value>
+                <value>
+                    <fullName>CLS-Class</fullName>
+                    <default>false</default>
+                    <label>CLS-Class</label>
+                </value>
+                <value>
+                    <fullName>E-Class Cabriolet</fullName>
+                    <default>false</default>
+                    <label>E-Class Cabriolet</label>
+                </value>
+                <value>
+                    <fullName>E-Class Coupé</fullName>
+                    <default>false</default>
+                    <label>E-Class Coupé</label>
+                </value>
+                <value>
+                    <fullName>E-Class Long Wheelbase</fullName>
+                    <default>false</default>
+                    <label>E-Class Long Wheelbase</label>
+                </value>
+                <value>
+                    <fullName>G 55 AMG</fullName>
+                    <default>false</default>
+                    <label>G 55 AMG</label>
+                </value>
+                <value>
+                    <fullName>G 63 AMG</fullName>
+                    <default>false</default>
+                    <label>G 63 AMG</label>
+                </value>
+                <value>
+                    <fullName>G 65 AMG</fullName>
+                    <default>false</default>
+                    <label>G 65 AMG</label>
+                </value>
+                <value>
+                    <fullName>G-Class</fullName>
+                    <default>false</default>
+                    <label>G-Class</label>
+                </value>
+                <value>
+                    <fullName>GL-Class</fullName>
+                    <default>false</default>
+                    <label>GL-Class</label>
+                </value>
+                <value>
+                    <fullName>GLK-Class</fullName>
+                    <default>false</default>
+                    <label>GLK-Class</label>
+                </value>
+                <value>
+                    <fullName>M-Class</fullName>
+                    <default>false</default>
+                    <label>M-Class</label>
+                </value>
+                <value>
+                    <fullName>ML 63 AMG</fullName>
+                    <default>false</default>
+                    <label>ML 63 AMG</label>
+                </value>
+                <value>
+                    <fullName>ML-Class</fullName>
+                    <default>false</default>
+                    <label>ML-Class</label>
+                </value>
+                <value>
+                    <fullName>R-Class</fullName>
+                    <default>false</default>
+                    <label>R-Class</label>
+                </value>
+                <value>
+                    <fullName>S 65 L AMG</fullName>
+                    <default>false</default>
+                    <label>S 65 L AMG</label>
+                </value>
+                <value>
+                    <fullName>S-Class</fullName>
+                    <default>false</default>
+                    <label>S-Class</label>
+                </value>
+                <value>
+                    <fullName>SL 63 AMG</fullName>
+                    <default>false</default>
+                    <label>SL 63 AMG</label>
+                </value>
+                <value>
+                    <fullName>SL-Class</fullName>
+                    <default>false</default>
+                    <label>SL-Class</label>
+                </value>
+                <value>
+                    <fullName>SLK-Class</fullName>
+                    <default>false</default>
+                    <label>SLK-Class</label>
+                </value>
+                <value>
+                    <fullName>SLS AMG</fullName>
+                    <default>false</default>
+                    <label>SLS AMG</label>
+                </value>
+                <value>
+                    <fullName>smart</fullName>
+                    <default>false</default>
+                    <label>smart</label>
+                </value>
+                <value>
+                    <fullName>CLA-Class</fullName>
+                    <default>false</default>
+                    <label>CLA-Class</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>A-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>B-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>C 63 AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>C-Class Estate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>C-Class Saloon</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>CLS 63 AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>CLS-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>E-Class Cabriolet</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>E-Class Coupé</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <valueName>E-Class Long Wheelbase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>G 55 AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>G-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>GL-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <valueName>GLK-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>ML 63 AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>ML-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>R-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>S 65 L AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>S-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>SL 63 AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>SL-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>SLK-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>SLS AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>smart</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Brochure</controllingFieldValue>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <controllingFieldValue>Brochure+Price List</controllingFieldValue>
+                <valueName>CLA-Class</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <valueName>G 63 AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <valueName>G 65 AMG</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Price List</controllingFieldValue>
+                <valueName>M-Class</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Closure_SMS__c</fullName>
@@ -372,33 +485,40 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
         <description>Used for eDM</description>
         <externalId>false</externalId>
         <label>Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Brochure</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Price List</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Brochure+Price List</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Upstream &amp; Downstream</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Only Downstream</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Brochure</fullName>
+                    <default>false</default>
+                    <label>Brochure</label>
+                </value>
+                <value>
+                    <fullName>Price List</fullName>
+                    <default>false</default>
+                    <label>Price List</label>
+                </value>
+                <value>
+                    <fullName>Brochure+Price List</fullName>
+                    <default>false</default>
+                    <label>Brochure+Price List</label>
+                </value>
+                <value>
+                    <fullName>Upstream &amp; Downstream</fullName>
+                    <default>false</default>
+                    <label>Upstream &amp; Downstream</label>
+                </value>
+                <value>
+                    <fullName>Only Downstream</fullName>
+                    <default>false</default>
+                    <label>Only Downstream</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>ValidTimeHrs__c</fullName>
@@ -808,7 +928,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
             </values>
         </picklistValues>
     </recordTypes>
-	<recordTypes>
+    <recordTypes>
         <fullName>KakaoTalk</fullName>
         <active>true</active>
         <label>KakaoTalk</label>
@@ -1290,9 +1410,9 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','NA')
     </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Active__c</lookupDialogsAdditionalFields>
-		<lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
-		<lookupDialogsAdditionalFields>Car_Series__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Car_Series__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Car_Series__c</searchResultsAdditionalFields>
@@ -1307,4 +1427,5 @@ RecordType.DeveloperName == 'SMS',
 $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Sorry, the SMS content is too long. Please make it shorter</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

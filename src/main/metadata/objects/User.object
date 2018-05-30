@@ -9,15 +9,15 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>DeleteBannerPhotoAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>EditUserAction</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>EmailHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -42,6 +42,14 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SmsHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>UpdateBannerPhotoAction</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -86,6 +94,16 @@
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DAW_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>DAW ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>DMS_UserID__c</fullName>
@@ -168,16 +186,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>DAW_ID__c</fullName>
-        <externalId>false</externalId>
-        <label>DAW ID</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>	
-    <fields>
         <fullName>Flight_Ticket_Budget__c</fullName>
         <externalId>false</externalId>
         <label>Flight Ticket Budget</label>
@@ -191,172 +199,213 @@
         <fullName>MBJ_Title__c</fullName>
         <externalId>false</externalId>
         <label>MBJ Title</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Representative</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Executive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Executive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auditor</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Executive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outlet Managing Director</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Car Sales Representative</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Showroom Staff</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Product Expert</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used Car Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used Car Sales Representative</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Advisor</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Foreman</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mechanic</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts Clerk</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Management</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Clerk/Service Operation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Picker/Service Operation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BP Mechanic</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Operation Management(HR/Finance/Admin)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CS Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal Information Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance Executive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quality Management Executive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Environtment Management Executive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IT Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IT Engineer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Training Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maintenance Representative</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cleaning Representative</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Representative</fullName>
+                    <default>false</default>
+                    <label>Representative</label>
+                </value>
+                <value>
+                    <fullName>Sales Executive</fullName>
+                    <default>false</default>
+                    <label>Sales Executive</label>
+                </value>
+                <value>
+                    <fullName>Executive</fullName>
+                    <default>false</default>
+                    <label>Executive</label>
+                </value>
+                <value>
+                    <fullName>Auditor</fullName>
+                    <default>false</default>
+                    <label>Auditor</label>
+                </value>
+                <value>
+                    <fullName>Service Executive</fullName>
+                    <default>false</default>
+                    <label>Service Executive</label>
+                </value>
+                <value>
+                    <fullName>Outlet Managing Director</fullName>
+                    <default>false</default>
+                    <label>Outlet Managing Director</label>
+                </value>
+                <value>
+                    <fullName>Sales Manager</fullName>
+                    <default>false</default>
+                    <label>Sales Manager</label>
+                </value>
+                <value>
+                    <fullName>New Car Sales Representative</fullName>
+                    <default>false</default>
+                    <label>New Car Sales Representative</label>
+                </value>
+                <value>
+                    <fullName>Showroom Staff</fullName>
+                    <default>false</default>
+                    <label>Showroom Staff</label>
+                </value>
+                <value>
+                    <fullName>Product Expert</fullName>
+                    <default>false</default>
+                    <label>Product Expert</label>
+                </value>
+                <value>
+                    <fullName>Used Car Manager</fullName>
+                    <default>false</default>
+                    <label>Used Car Manager</label>
+                </value>
+                <value>
+                    <fullName>Used Car Sales Representative</fullName>
+                    <default>false</default>
+                    <label>Used Car Sales Representative</label>
+                </value>
+                <value>
+                    <fullName>Service Manager</fullName>
+                    <default>false</default>
+                    <label>Service Manager</label>
+                </value>
+                <value>
+                    <fullName>Service Advisor</fullName>
+                    <default>false</default>
+                    <label>Service Advisor</label>
+                </value>
+                <value>
+                    <fullName>Foreman</fullName>
+                    <default>false</default>
+                    <label>Foreman</label>
+                </value>
+                <value>
+                    <fullName>Mechanic</fullName>
+                    <default>false</default>
+                    <label>Mechanic</label>
+                </value>
+                <value>
+                    <fullName>Parts Manager</fullName>
+                    <default>false</default>
+                    <label>Parts Manager</label>
+                </value>
+                <value>
+                    <fullName>Parts Clerk</fullName>
+                    <default>false</default>
+                    <label>Parts Clerk</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Management</fullName>
+                    <default>false</default>
+                    <label>Vehicle Management</label>
+                </value>
+                <value>
+                    <fullName>Clerk/Service Operation</fullName>
+                    <default>false</default>
+                    <label>Clerk/Service Operation</label>
+                </value>
+                <value>
+                    <fullName>Picker/Service Operation</fullName>
+                    <default>false</default>
+                    <label>Picker/Service Operation</label>
+                </value>
+                <value>
+                    <fullName>BP Mechanic</fullName>
+                    <default>false</default>
+                    <label>BP Mechanic</label>
+                </value>
+                <value>
+                    <fullName>Operation Management(HR/Finance/Admin)</fullName>
+                    <default>false</default>
+                    <label>Operation Management(HR/Finance/Admin)</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>CS Manager</fullName>
+                    <default>false</default>
+                    <label>CS Manager</label>
+                </value>
+                <value>
+                    <fullName>Personal Information Manager</fullName>
+                    <default>false</default>
+                    <label>Personal Information Manager</label>
+                </value>
+                <value>
+                    <fullName>Finance Executive</fullName>
+                    <default>false</default>
+                    <label>Finance Executive</label>
+                </value>
+                <value>
+                    <fullName>Quality Management Executive</fullName>
+                    <default>false</default>
+                    <label>Quality Management Executive</label>
+                </value>
+                <value>
+                    <fullName>Environtment Management Executive</fullName>
+                    <default>false</default>
+                    <label>Environtment Management Executive</label>
+                </value>
+                <value>
+                    <fullName>IT Manager</fullName>
+                    <default>false</default>
+                    <label>IT Manager</label>
+                </value>
+                <value>
+                    <fullName>IT Engineer</fullName>
+                    <default>false</default>
+                    <label>IT Engineer</label>
+                </value>
+                <value>
+                    <fullName>Training Manager</fullName>
+                    <default>false</default>
+                    <label>Training Manager</label>
+                </value>
+                <value>
+                    <fullName>Maintenance Representative</fullName>
+                    <default>false</default>
+                    <label>Maintenance Representative</label>
+                </value>
+                <value>
+                    <fullName>Cleaning Representative</fullName>
+                    <default>false</default>
+                    <label>Cleaning Representative</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
         <fullName>MBK_Partner_Roles__c</fullName>
         <externalId>false</externalId>
         <label>MBK Partner Roles</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Sales Manager</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Team Leader</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Consultant</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales Manager</fullName>
+                    <default>false</default>
+                    <label>Sales Manager</label>
+                </value>
+                <value>
+                    <fullName>Team Leader</fullName>
+                    <default>false</default>
+                    <label>Team Leader</label>
+                </value>
+                <value>
+                    <fullName>Sales Consultant</fullName>
+                    <default>false</default>
+                    <label>Sales Consultant</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>MBK_Reporting_Partner_User__c</fullName>
@@ -377,72 +426,88 @@
         <description>Set to JP</description>
         <externalId>false</externalId>
         <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>NZ</fullName>
+                    <default>false</default>
+                    <label>NZ</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>IN</fullName>
+                    <default>false</default>
+                    <label>IN</label>
+                </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                    <label>TR</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Notification_Account_Contact_Update__c</fullName>
         <description>Pick-list to select the receiving settings for notification of Account's contact information update (All, Assigned, Not receive)</description>
         <externalId>false</externalId>
         <label>Notification Account Contact Update</label>
-        <picklist>
-            <picklistValues>
-                <fullName>All</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not receive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>false</default>
+                    <label>All</label>
+                </value>
+                <value>
+                    <fullName>Assigned</fullName>
+                    <default>false</default>
+                    <label>Assigned</label>
+                </value>
+                <value>
+                    <fullName>Not receive</fullName>
+                    <default>false</default>
+                    <label>Not receive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Notification_Account_Finance_Update__c</fullName>
@@ -506,48 +571,58 @@
         <description>Pick-list to select the receiving settings for notification of Vechile Relationship Created (All, Assigned, Not receive) (Dealer user who sold the vehicle would not receive the notification regardless of the setting)</description>
         <externalId>false</externalId>
         <label>Notification VR Created</label>
-        <picklist>
-            <picklistValues>
-                <fullName>All</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not receive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>false</default>
+                    <label>All</label>
+                </value>
+                <value>
+                    <fullName>Assigned</fullName>
+                    <default>false</default>
+                    <label>Assigned</label>
+                </value>
+                <value>
+                    <fullName>Not receive</fullName>
+                    <default>false</default>
+                    <label>Not receive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Notification_VR_Terminated__c</fullName>
         <description>Pick-list to select the receiving settings for notification of Vechile Relationship Created (All, Assigned, Not receive) (Dealer user who sold the vehicle would not receive the notification regardless of the setting)</description>
         <externalId>false</externalId>
         <label>Notification VR Terminated</label>
-        <picklist>
-            <picklistValues>
-                <fullName>All</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Assigned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not receive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>false</default>
+                    <label>All</label>
+                </value>
+                <value>
+                    <fullName>Assigned</fullName>
+                    <default>false</default>
+                    <label>Assigned</label>
+                </value>
+                <value>
+                    <fullName>Not receive</fullName>
+                    <default>false</default>
+                    <label>Not receive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Persona_Assigned__c</fullName>
@@ -570,16 +645,6 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>User_Role__c</fullName>
-        <externalId>false</externalId>
-        <formula>$UserRole.DeveloperName</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>User Role</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-	<fields>
         <fullName>User_Profile__c</fullName>
         <externalId>false</externalId>
         <formula>Profile.Name</formula>
@@ -590,32 +655,48 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>User_Role__c</fullName>
+        <externalId>false</externalId>
+        <formula>$UserRole.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>User Role</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>User_Type__c</fullName>
         <description>Pick-list to represent user's type (MBJ, MBF, External System, Dealer)</description>
         <externalId>false</externalId>
         <label>User Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>MBJ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBF</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>External System</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MBJ</fullName>
+                    <default>false</default>
+                    <label>MBJ</label>
+                </value>
+                <value>
+                    <fullName>MBF</fullName>
+                    <default>false</default>
+                    <label>MBF</label>
+                </value>
+                <value>
+                    <fullName>External System</fullName>
+                    <default>false</default>
+                    <label>External System</label>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                    <label>Dealer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>allowance__c</fullName>
@@ -635,7 +716,7 @@
         <scale>2</scale>
         <type>Currency</type>
     </fields>
-  <!--  <fields>
+    <fields>
         <fullName>et4ae5__Default_ET_Page__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -714,7 +795,7 @@
         <label>Valid Marketing Cloud User</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
-    </fields>-->
+    </fields>
     <listViews>
         <fullName>ActiveBPUsers</fullName>
         <columns>FULL_NAME</columns>
@@ -892,7 +973,7 @@
         <label>Active Portal Users</label>
         <language>en_US</language>
     </listViews>
- <!--   <listViews>
+    <listViews>
         <fullName>Active_Portal_Users_CCC_Retail</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>
@@ -913,16 +994,6 @@
             <operation>contains</operation>
             <value>MBK</value>
         </filters>
-        <filters>
-            <field>CORE.USERS.ACTIVE</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <filters>
-            <field>CORE.USERS.USERNAME</field>
-            <operation>notContain</operation>
-            <value>test</value>
-        </filters>
         <label>Active Portal Users_CCC Retail</label>
         <language>en_US</language>
     </listViews>
@@ -937,11 +1008,6 @@
         <columns>CORE.USERS.ACTIVE</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>CORE.USERS.ACTIVE</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <filters>
             <field>CORE.PROFILE.NAME</field>
             <operation>contains</operation>
             <value>Korea</value>
@@ -953,7 +1019,7 @@
         </filters>
         <label>Active SFDC Users_MBK</label>
         <language>en_US</language>
-    </listViews>-->
+    </listViews>
     <listViews>
         <fullName>AdminUsers</fullName>
         <columns>FULL_NAME</columns>
@@ -1296,6 +1362,35 @@
             <value>OB Test</value>
         </filters>
         <label>OB Test Users</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>PROD</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.NAME</columns>
+        <columns>CREATED_BY_NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CORE.USERS.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.USERNAME</columns>
+        <columns>CORE.USERS.LAST_LOGIN</columns>
+        <columns>CORE.USER_ROLE.NAME</columns>
+        <columns>CORE.USERS.ACTIVE</columns>
+        <columns>CORE.PROFILE.NAME</columns>
+        <columns>MANAGER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>FULL_NAME</field>
+            <operation>contains</operation>
+            <value>PROD</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.EMAIL</field>
+            <operation>equals</operation>
+            <value>seongho.kim@daimler.com</value>
+        </filters>
+        <label>Full name with PROD and Kim's email</label>
         <language>en_US</language>
     </listViews>
     <listViews>

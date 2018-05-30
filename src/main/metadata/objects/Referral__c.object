@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,6 +40,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>Referral_Compact</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Referral_Compact</fullName>
@@ -57,12 +54,14 @@
     <description>Sarath - Object added to capture referrals sent by MB employees about possible leads via digital app. BBQ app.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Read</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>Address_Kanji_Katakana__c</fullName>
         <externalId>false</externalId>
@@ -83,7 +82,7 @@
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Company_Name__c</fullName>
         <externalId>false</externalId>
         <label>Company Name</label>
@@ -98,24 +97,40 @@
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
         <label>Customer Type</label>
-        <picklist>
-			<picklistValues>
-                <fullName>Private Customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Corporate Customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Private Customer</fullName>
+                    <default>false</default>
+                    <label>Private Customer</label>
+                </value>
+                <value>
+                    <fullName>Corporate Customer</fullName>
+                    <default>false</default>
+                    <label>Corporate Customer</label>
+                </value>
+                <value>
+                    <fullName>Company</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Company</label>
+                </value>
+                <value>
+                    <fullName>Personal</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Personal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
-	<fields>
+    <fields>
         <fullName>Dealer_Email_address__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Email address</label>
@@ -272,203 +287,251 @@
         <description>Market of the user creating the record</description>
         <externalId>false</externalId>
         <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>			
-            <picklistValues>
-                <fullName>IN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>			
-            <picklistValues>
-                <fullName>TR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SG</fullName>
-                <default>true</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>IN</fullName>
+                    <default>false</default>
+                    <label>IN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                    <label>TR</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+                <value>
+                    <fullName>SG</fullName>
+                    <default>true</default>
+                    <label>SG</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Model_Type__c</fullName>
         <description>Model type that the customer is interested in buying</description>
         <externalId>false</externalId>
         <label>Model Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>A-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CL-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLK-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GL-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLA-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLC-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLE-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLS-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>M-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLC-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLR-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLS-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VANEO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>V-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VIANO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VITO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maybach</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart fortwo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart forfour</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart roadster</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG GT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLA-Class</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>true</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A-Class</fullName>
+                    <default>false</default>
+                    <label>A-Class</label>
+                </value>
+                <value>
+                    <fullName>B-Class</fullName>
+                    <default>false</default>
+                    <label>B-Class</label>
+                </value>
+                <value>
+                    <fullName>C-Class</fullName>
+                    <default>false</default>
+                    <label>C-Class</label>
+                </value>
+                <value>
+                    <fullName>CL-Class</fullName>
+                    <default>false</default>
+                    <label>CL-Class</label>
+                </value>
+                <value>
+                    <fullName>CLK-Class</fullName>
+                    <default>false</default>
+                    <label>CLK-Class</label>
+                </value>
+                <value>
+                    <fullName>CLS-Class</fullName>
+                    <default>false</default>
+                    <label>CLS-Class</label>
+                </value>
+                <value>
+                    <fullName>E-Class</fullName>
+                    <default>false</default>
+                    <label>E-Class</label>
+                </value>
+                <value>
+                    <fullName>G-Class</fullName>
+                    <default>false</default>
+                    <label>G-Class</label>
+                </value>
+                <value>
+                    <fullName>GL-Class</fullName>
+                    <default>false</default>
+                    <label>GL-Class</label>
+                </value>
+                <value>
+                    <fullName>GLA-Class</fullName>
+                    <default>false</default>
+                    <label>GLA-Class</label>
+                </value>
+                <value>
+                    <fullName>GLC-Class</fullName>
+                    <default>false</default>
+                    <label>GLC-Class</label>
+                </value>
+                <value>
+                    <fullName>GLE-Class</fullName>
+                    <default>false</default>
+                    <label>GLE-Class</label>
+                </value>
+                <value>
+                    <fullName>GLK-Class</fullName>
+                    <default>false</default>
+                    <label>GLK-Class</label>
+                </value>
+                <value>
+                    <fullName>GLS-Class</fullName>
+                    <default>false</default>
+                    <label>GLS-Class</label>
+                </value>
+                <value>
+                    <fullName>M-Class</fullName>
+                    <default>false</default>
+                    <label>M-Class</label>
+                </value>
+                <value>
+                    <fullName>R-Class</fullName>
+                    <default>false</default>
+                    <label>R-Class</label>
+                </value>
+                <value>
+                    <fullName>S-Class</fullName>
+                    <default>false</default>
+                    <label>S-Class</label>
+                </value>
+                <value>
+                    <fullName>SL-Class</fullName>
+                    <default>false</default>
+                    <label>SL-Class</label>
+                </value>
+                <value>
+                    <fullName>SLC-Class</fullName>
+                    <default>false</default>
+                    <label>SLC-Class</label>
+                </value>
+                <value>
+                    <fullName>SLK-Class</fullName>
+                    <default>false</default>
+                    <label>SLK-Class</label>
+                </value>
+                <value>
+                    <fullName>SLR-Class</fullName>
+                    <default>false</default>
+                    <label>SLR-Class</label>
+                </value>
+                <value>
+                    <fullName>SLS-Class</fullName>
+                    <default>false</default>
+                    <label>SLS-Class</label>
+                </value>
+                <value>
+                    <fullName>VANEO</fullName>
+                    <default>false</default>
+                    <label>VANEO</label>
+                </value>
+                <value>
+                    <fullName>V-Class</fullName>
+                    <default>false</default>
+                    <label>V-Class</label>
+                </value>
+                <value>
+                    <fullName>VIANO</fullName>
+                    <default>false</default>
+                    <label>VIANO</label>
+                </value>
+                <value>
+                    <fullName>VITO</fullName>
+                    <default>false</default>
+                    <label>VITO</label>
+                </value>
+                <value>
+                    <fullName>Maybach</fullName>
+                    <default>false</default>
+                    <label>Maybach</label>
+                </value>
+                <value>
+                    <fullName>smart</fullName>
+                    <default>false</default>
+                    <label>smart</label>
+                </value>
+                <value>
+                    <fullName>smart fortwo</fullName>
+                    <default>false</default>
+                    <label>smart fortwo</label>
+                </value>
+                <value>
+                    <fullName>smart forfour</fullName>
+                    <default>false</default>
+                    <label>smart forfour</label>
+                </value>
+                <value>
+                    <fullName>smart roadster</fullName>
+                    <default>false</default>
+                    <label>smart roadster</label>
+                </value>
+                <value>
+                    <fullName>AMG GT</fullName>
+                    <default>false</default>
+                    <label>AMG GT</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>CLA-Class</fullName>
+                    <default>false</default>
+                    <label>CLA-Class</label>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Phone__c</fullName>
@@ -479,6 +542,36 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Purpose_of_Purchasing__c</fullName>
+        <externalId>false</externalId>
+        <label>Purpose of Purchasing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>As a new customer</fullName>
+                    <default>false</default>
+                    <label>As a new customer</label>
+                </value>
+                <value>
+                    <fullName>As an additional car</fullName>
+                    <default>false</default>
+                    <label>As an additional car</label>
+                </value>
+                <value>
+                    <fullName>As a replacement car</fullName>
+                    <default>false</default>
+                    <label>As a replacement car</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>ReferredEmployee__c</fullName>
@@ -498,58 +591,70 @@
         <description>Status of the referral</description>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Submitted</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lost</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In Progress</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Won</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sold</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>true</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>true</default>
+                    <label>Submitted</label>
+                </value>
+                <value>
+                    <fullName>Lost</fullName>
+                    <default>false</default>
+                    <label>Lost</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Won</fullName>
+                    <default>false</default>
+                    <label>Won</label>
+                </value>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Sold</fullName>
+                    <default>false</default>
+                    <label>Sold</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Type_of_Vehicle__c</fullName>
         <externalId>false</externalId>
         <label>Type of Vehicle</label>
-        <picklist>
-            <picklistValues>
-                <fullName>New Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New Car</fullName>
+                    <default>false</default>
+                    <label>New Car</label>
+                </value>
+                <value>
+                    <fullName>Used Car</fullName>
+                    <default>false</default>
+                    <label>Used Car</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Zip_code__c</fullName>
@@ -567,9 +672,11 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>Last_Name__c</columns>
         <columns>First_Name__c</columns>
         <columns>Lead__c</columns>
         <columns>Lead_Status__c</columns>
+        <columns>Employee_Name__c</columns>
         <columns>Market__c</columns>
         <columns>Model_Type__c</columns>
         <columns>ReferredEmployee__c</columns>
@@ -613,5 +720,6 @@
         <searchResultsAdditionalFields>Market__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Read</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

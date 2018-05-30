@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,61 +40,21 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Case: Track the DM Request. This is also used by Campaign for bulk DM Request</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
     <fields>
         <fullName>Actual_DM_Material1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -149,7 +105,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Address_Line_1__c</fullName>
         <description>Introduced for DM Integration module requested by Thailand Business.</description>
         <externalId>false</externalId>
@@ -312,161 +268,265 @@ Modify Reason:
         <fullName>Channel__c</fullName>
         <externalId>false</externalId>
         <label>Touch Point</label>
-        <picklist>
-		<controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Dealer Outlet</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Call Catalogue</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes call</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maybach call</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz School of Excelence</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Owner Hotline</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                 </picklistValues>
-            <picklistValues>
-                <fullName>English Customer Desk</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>24 hours Touring Support</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz phone</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Model-Year Reference desk</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recall desk</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Survey</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                </picklistValues>
-            <picklistValues>
-                <fullName>Letter</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-             </picklistValues>
-            <picklistValues>
-                <fullName>Letter to Executive</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Response Sheet</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-             </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Magazine Survey</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DSC</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Me Haneda</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outbound Call</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MCare</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Dealer Outlet</fullName>
+                    <default>false</default>
+                    <label>Dealer Outlet</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Call Catalogue</fullName>
+                    <default>false</default>
+                    <label>Mercedes Call Catalogue</label>
+                </value>
+                <value>
+                    <fullName>Mercedes call</fullName>
+                    <default>false</default>
+                    <label>Mercedes call</label>
+                </value>
+                <value>
+                    <fullName>Maybach call</fullName>
+                    <default>false</default>
+                    <label>Maybach call</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz School of Excelence</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz School of Excelence</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Owner Hotline</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Owner Hotline</label>
+                </value>
+                <value>
+                    <fullName>English Customer Desk</fullName>
+                    <default>false</default>
+                    <label>English Customer Desk</label>
+                </value>
+                <value>
+                    <fullName>24 hours Touring Support</fullName>
+                    <default>false</default>
+                    <label>24 hours Touring Support</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz phone</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz phone</label>
+                </value>
+                <value>
+                    <fullName>Model-Year Reference desk</fullName>
+                    <default>false</default>
+                    <label>Model-Year Reference desk</label>
+                </value>
+                <value>
+                    <fullName>Dealers</fullName>
+                    <default>false</default>
+                    <label>Dealers</label>
+                </value>
+                <value>
+                    <fullName>Recall desk</fullName>
+                    <default>false</default>
+                    <label>Recall desk</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Campaign</fullName>
+                    <default>false</default>
+                    <label>Campaign</label>
+                </value>
+                <value>
+                    <fullName>Letter</fullName>
+                    <default>false</default>
+                    <label>Letter</label>
+                </value>
+                <value>
+                    <fullName>Letter to Executive</fullName>
+                    <default>false</default>
+                    <label>Letter to Executive</label>
+                </value>
+                <value>
+                    <fullName>Response Sheet</fullName>
+                    <default>false</default>
+                    <label>Response Sheet</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Magazine Survey</fullName>
+                    <default>false</default>
+                    <label>Mercedes Magazine Survey</label>
+                </value>
+                <value>
+                    <fullName>My Mercedes</fullName>
+                    <default>false</default>
+                    <label>My Mercedes</label>
+                </value>
+                <value>
+                    <fullName>DSC</fullName>
+                    <default>false</default>
+                    <label>DSC</label>
+                </value>
+                <value>
+                    <fullName>Mercedes me Tokyo&amp;Osaka</fullName>
+                    <default>false</default>
+                    <label>Mercedes me Tokyo&amp;Osaka</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Me Haneda</fullName>
+                    <default>false</default>
+                    <label>Mercedes Me Haneda</label>
+                </value>
+                <value>
+                    <fullName>Outbound Call</fullName>
+                    <default>false</default>
+                    <label>Outbound Call</label>
+                </value>
+                <value>
+                    <fullName>MCare</fullName>
+                    <default>false</default>
+                    <label>MCare</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Dealer Outlet</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Mercedes Call Catalogue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Mercedes call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Maybach call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Mercedes-Benz School of Excelence</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Mercedes-Benz Owner Hotline</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>24 hours Touring Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Mercedes-Benz phone</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Model-Year Reference desk</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Dealers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Recall desk</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Survey</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Campaign</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Letter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Letter to Executive</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Response Sheet</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Email</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Mercedes Magazine Survey</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>DSC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>Mercedes Me Haneda</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Outbound Call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <valueName>MCare</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Others</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>My Mercedes</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Comment__c</fullName>
@@ -560,29 +620,35 @@ Modify Reason:
         <fullName>Delivery_Type__c</fullName>
         <externalId>false</externalId>
         <label>Delivery Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>true</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Description__c</fullName>
@@ -594,7 +660,7 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>District__c</fullName>
         <description>Introduced for DM Integration module requested by Thailand Business.</description>
         <externalId>false</externalId>
@@ -707,177 +773,293 @@ Modify Reason:
         <fullName>MBK_Channel__c</fullName>
         <externalId>false</externalId>
         <label>MBK Channel</label>
-        <picklist>
-		<controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>24 hours Touring Support</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Letter</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Connection</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Magazine Survey</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes call</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>My Mercedes</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outbound Call</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Survey</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Showroom</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>StarClass</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Circle of excellence</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MercedesCard</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes Me</fullName>
-                <default>false</default>
-				<controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>24 hours Touring Support</fullName>
+                    <default>false</default>
+                    <label>24 hours Touring Support</label>
+                </value>
+                <value>
+                    <fullName>Campaign</fullName>
+                    <default>false</default>
+                    <label>Campaign</label>
+                </value>
+                <value>
+                    <fullName>Dealers</fullName>
+                    <default>false</default>
+                    <label>Dealers</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Letter</fullName>
+                    <default>false</default>
+                    <label>Letter</label>
+                </value>
+                <value>
+                    <fullName>MB Connection</fullName>
+                    <default>false</default>
+                    <label>MB Connection</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Magazine Survey</fullName>
+                    <default>false</default>
+                    <label>Mercedes Magazine Survey</label>
+                </value>
+                <value>
+                    <fullName>Mercedes call</fullName>
+                    <default>false</default>
+                    <label>Mercedes call</label>
+                </value>
+                <value>
+                    <fullName>My Mercedes</fullName>
+                    <default>false</default>
+                    <label>My Mercedes</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>Outbound Call</fullName>
+                    <default>false</default>
+                    <label>Outbound Call</label>
+                </value>
+                <value>
+                    <fullName>Survey</fullName>
+                    <default>false</default>
+                    <label>Survey</label>
+                </value>
+                <value>
+                    <fullName>Showroom</fullName>
+                    <default>false</default>
+                    <label>Showroom</label>
+                </value>
+                <value>
+                    <fullName>StarClass</fullName>
+                    <default>false</default>
+                    <label>StarClass</label>
+                </value>
+                <value>
+                    <fullName>Circle of excellence</fullName>
+                    <default>false</default>
+                    <label>Circle of excellence</label>
+                </value>
+                <value>
+                    <fullName>MercedesCard</fullName>
+                    <default>false</default>
+                    <label>MercedesCard</label>
+                </value>
+                <value>
+                    <fullName>Mercedes Me</fullName>
+                    <default>false</default>
+                    <label>Mercedes Me</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>24 hours Touring Support</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Campaign</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Dealers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Email</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Letter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>MB Connection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>Mercedes Magazine Survey</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>Mercedes call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>My Mercedes</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>Others</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>Outbound Call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>Survey</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>Showroom</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>StarClass</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>Circle of excellence</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <valueName>MercedesCard</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Mercedes Me</valueName>
+            </valueSettings>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>MBTH_Channel__c</fullName>
         <externalId>false</externalId>
         <label>Channel</label>
-        <picklist>
-		<controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social Media</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Online</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-				<controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>IB Call</fullName>
+                    <default>false</default>
+                    <label>IB Call</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Campaign</fullName>
+                    <default>false</default>
+                    <label>Campaign</label>
+                </value>
+                <value>
+                    <fullName>Social Media</fullName>
+                    <default>false</default>
+                    <label>Social Media</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Online</fullName>
+                    <default>false</default>
+                    <label>Online</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>Add Social Media</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Add Social Media</label>
+                </value>
+                <value>
+                    <fullName>Others.</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Others.</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>IB Call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Campaign</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Social Media</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Email</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Online</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Others</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
-     <fields>
+    <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA'))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -886,6 +1068,56 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Marketing_Department__c</fullName>
@@ -990,59 +1222,85 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <fullName>Sending_Address__c</fullName>
         <externalId>false</externalId>
         <label>Sending Address</label>
-        <picklist>
-		<controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Home</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Business</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Address 1</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Address 2</fullName>
-				<default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-                </picklistValues>
-            <picklistValues>
-                <fullName>Other Address 3</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Temporary</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Home</fullName>
+                    <default>false</default>
+                    <label>Home</label>
+                </value>
+                <value>
+                    <fullName>Business</fullName>
+                    <default>false</default>
+                    <label>Business</label>
+                </value>
+                <value>
+                    <fullName>Other Address 1</fullName>
+                    <default>false</default>
+                    <label>Other Address 1</label>
+                </value>
+                <value>
+                    <fullName>Other Address 2</fullName>
+                    <default>false</default>
+                    <label>Other Address 2</label>
+                </value>
+                <value>
+                    <fullName>Other Address 3</fullName>
+                    <default>false</default>
+                    <label>Other Address 3</label>
+                </value>
+                <value>
+                    <fullName>Temporary</fullName>
+                    <default>false</default>
+                    <label>Temporary</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Home</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Business</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Other Address 1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Other Address 2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Other Address 3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Temporary</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SentName__c</fullName>
@@ -1081,277 +1339,401 @@ Modify Reason:
         <fullName>Status1__c</fullName>
         <externalId>false</externalId>
         <label>Status1</label>
-        <picklist>
-		 <controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Duplicate</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>to be sent</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Failed</fullName>
-                <default>false</default>
-			    <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Returned</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Success</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not send</fullName>
-                <default>false</default>
-				 <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>to be sent</fullName>
+                    <default>false</default>
+                    <label>to be sent</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Not send</fullName>
+                    <default>false</default>
+                    <label>Not send</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Open</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Duplicate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>to be sent</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Failed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Returned</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Success</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Not send</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Status2__c</fullName>
         <externalId>false</externalId>
         <label>Status2</label>
-        <picklist>
-		 <controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Duplicate</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>to be sent</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Failed</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Returned</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Success</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not send</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>to be sent</fullName>
+                    <default>false</default>
+                    <label>to be sent</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Not send</fullName>
+                    <default>false</default>
+                    <label>Not send</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Open</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Duplicate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>to be sent</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Failed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Returned</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Success</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Not send</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Status3__c</fullName>
         <externalId>false</externalId>
         <label>Status3</label>
-        <picklist>
-		 <controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Duplicate</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>to be sent</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Failed</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Returned</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Success</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not send</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>to be sent</fullName>
+                    <default>false</default>
+                    <label>to be sent</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Not send</fullName>
+                    <default>false</default>
+                    <label>Not send</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Open</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Duplicate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>to be sent</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Failed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Returned</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Success</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Not send</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-		 <controllingField>Market__c</controllingField>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>true</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sent</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Returned</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Success</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approving</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>to be sent</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not send</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-				<controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>KR</controllingFieldValues>
-                <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>true</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Sent</fullName>
+                    <default>false</default>
+                    <label>Sent</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Approving</fullName>
+                    <default>false</default>
+                    <label>Approving</label>
+                </value>
+                <value>
+                    <fullName>to be sent</fullName>
+                    <default>false</default>
+                    <label>to be sent</label>
+                </value>
+                <value>
+                    <fullName>Not send</fullName>
+                    <default>false</default>
+                    <label>Not send</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Open</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Sent</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Returned</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Success</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Approving</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>to be sent</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <valueName>Not send</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>KR</controllingFieldValue>
+                <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>MY</controllingFieldValue>
+                <valueName>Rejected</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
-	<fields>
+    <fields>
         <fullName>Sub_District__c</fullName>
         <description>Introduced for DM Integration module requested by Thailand Business.</description>
         <externalId>false</externalId>
@@ -1390,21 +1772,25 @@ Modify Reason:
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
         <label>Title</label>
-        <picklist>
-            <picklistValues>
-                <fullName>To Person</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>To Company</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>To Person</fullName>
+                    <default>true</default>
+                    <label>To Person</label>
+                </value>
+                <value>
+                    <fullName>To Company</fullName>
+                    <default>false</default>
+                    <label>To Company</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Title__c</fullName>
@@ -1457,7 +1843,7 @@ Modify Reason:
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>isTestRunning__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -1498,7 +1884,7 @@ Modify Reason:
             <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
-	<listViews>
+    <listViews>
         <fullName>All_MBTH_DM_Requests</fullName>
         <columns>NAME</columns>
         <columns>Customer_Name__c</columns>
@@ -1625,6 +2011,127 @@ Modify Reason:
         <label>MBK All</label>
         <language>en_US</language>
         <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MBK_All_DM_Requests</fullName>
+        <columns>NAME</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Actual_DM_Material1__c</columns>
+        <columns>Actual_DM_Material2__c</columns>
+        <columns>Actual_DM_Material3__c</columns>
+        <columns>Status__c</columns>
+        <columns>Campaign__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </filters>
+        <label>MBK All DM Requests</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>MBK01E</group>
+            <group>MBK01Ehq</group>
+            <group>MBK01Esc</group>
+            <group>MBK01W</group>
+            <group>MBK02L</group>
+            <group>MBK02S</group>
+            <group>MBK02W</group>
+            <group>MBK03F</group>
+            <group>MBK03L</group>
+            <group>MBK03W</group>
+            <group>MBK04F</group>
+            <group>MBK04Fsc</group>
+            <group>MBK04L</group>
+            <group>MBK04S</group>
+            <group>MBK04W</group>
+            <group>MBK05W</group>
+            <group>MBK06W</group>
+            <group>MBK06Wsc</group>
+            <group>MBK06Wuc</group>
+            <group>MBK07S</group>
+            <group>MBK07W</group>
+            <group>MBK08S</group>
+            <group>MBK09E</group>
+            <group>MBK09S</group>
+            <group>MBK09Shq</group>
+            <group>MBK09W</group>
+            <group>MBK10S</group>
+            <group>MBK10W</group>
+            <group>MBK11W</group>
+            <group>MBK11Whq</group>
+            <group>MBK11Wsc</group>
+            <group>MBK12S</group>
+            <group>MBK12W</group>
+            <group>MBK14S</group>
+            <group>MBK14W</group>
+            <group>MBK14Whq</group>
+            <group>MBK14Wsc</group>
+            <group>MBK15W</group>
+            <group>MBK15Wsc</group>
+            <group>MBK16W</group>
+            <group>MBK17W</group>
+            <group>MBK17Whq</group>
+            <group>MBK17Wsc</group>
+            <group>MBK18W</group>
+            <group>MBK18Wsc</group>
+            <group>MBK21F</group>
+            <group>MBK21Fhq</group>
+            <group>MBK21Fsc</group>
+            <group>MBK21W</group>
+            <group>MBK26F</group>
+            <group>MBK26Fhq</group>
+            <group>MBK26Fsc</group>
+            <group>MBK26W</group>
+            <group>MBK28F</group>
+            <group>MBK28Fhq</group>
+            <group>MBK28Fsc</group>
+            <group>MBK28Fuc</group>
+            <group>MBK30W</group>
+            <group>MBK30Whq</group>
+            <group>MBK30Wsc</group>
+            <group>MBK30Wuc</group>
+            <group>MBK311sr</group>
+            <group>MBK31S</group>
+            <group>MBK31Shq</group>
+            <group>MBK31Ssc</group>
+            <group>MBK31W</group>
+            <group>MBK32F</group>
+            <group>MBK32Fsc</group>
+            <group>MBK32W</group>
+            <group>MBK33S</group>
+            <group>MBK33W</group>
+            <group>MBK33Wuc</group>
+            <group>MBK34S</group>
+            <group>MBK35W</group>
+            <group>MBK35Wsc</group>
+            <group>MBK36W</group>
+            <group>MBK36Wsc</group>
+            <group>MBK37W</group>
+            <group>MBK37Wsc</group>
+            <group>MBK38S</group>
+            <group>MBK38Ssc</group>
+            <group>MBK41F</group>
+            <group>MBK41Fhq</group>
+            <group>MBK48W</group>
+            <group>MBK49F</group>
+            <group>MBK49Fsc</group>
+            <group>MBK49Fuc</group>
+            <group>MBK50S</group>
+            <group>MBK52S</group>
+            <group>MBK53W</group>
+            <group>MBK53Wsc</group>
+            <group>MBK54W</group>
+            <group>MBK55F</group>
+            <group>MBK55Fsc</group>
+            <group>MBK55W</group>
+            <group>MBK55Wsc</group>
+            <group>MBK55Wuc</group>
+            <group>MBK56F</group>
+            <group>MBK56Fsc</group>
+            <group>MBK56S</group>
             <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
@@ -1940,6 +2447,37 @@ Modify Reason:
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>View17</fullName>
+        <columns>Channel__c</columns>
+        <columns>NAME</columns>
+        <columns>Expected_DM_Material1__c</columns>
+        <columns>Expected_DM_Material2__c</columns>
+        <columns>Expected_DM_Material3__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Customer_Name__c</columns>
+        <columns>Attention__c</columns>
+        <columns>TitleOfHonor__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>LAST_MONTH</value>
+        </filters>
+        <filters>
+            <field>Delivery_Type__c</field>
+            <operation>equals</operation>
+            <value>4</value>
+        </filters>
+        <label>販売店からのカタログ送付</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>View5</fullName>
         <columns>Channel__c</columns>
         <columns>NAME</columns>
@@ -2016,13 +2554,13 @@ Modify Reason:
         <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-   <validationRules>
+    <validationRules>
         <fullName>Add_Address_NoOfDigits</fullName>
         <active>true</active>
         <description>Additional Address should be less than or equal to 50 letters.</description>
         <errorConditionFormula>AND(LEN(Additional_Address__c)&gt;50, 
-$Profile.Name != &apos;IntegrationAPI&apos;, 
-OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI', 
+OR(MD__c = 'JP',MD__c = 'KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
         <errorDisplayField>Additional_Address__c</errorDisplayField>
         <errorMessage>Additional Address should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
@@ -2045,11 +2583,19 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>Attention should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>DM_Request_Market_can_not_be_changed</fullName>
+        <active>true</active>
+        <description>Market field of DM Request should be same as user's market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>Market__c</errorDisplayField>
+        <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Expected_DM_Material1</fullName>
         <active>true</active>
         <description>Expected DM Material1 has a value, but the Status 1 is null.
 OR Status 1 is selected, but the Expected DM Material1 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, &quot;&quot;)) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, &quot;&quot;)))) &amp;&amp;  OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp;  OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
         <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -2058,7 +2604,7 @@ OR Status 1 is selected, but the Expected DM Material1 is null.</description>
         <active>true</active>
         <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
 OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, &quot;&quot;)) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -2067,7 +2613,7 @@ OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is nul
         <active>true</active>
         <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
 OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, &quot;&quot;)) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -2075,8 +2621,8 @@ OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is nul
         <fullName>Insufficient_Stock</fullName>
         <active>true</active>
         <description>US-DM-003:
-7. If Expected DM material&apos;s stock reaches Stock alert level, Data loader will report an error message &quot;&quot;Insufficient Stock&quot;&quot;. And this record will not be uploaded successfully.&quot;</description>
-        <errorConditionFormula>ISPICKVAL(Status__c , &apos;Sent&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; 
+7. If Expected DM material's stock reaches Stock alert level, Data loader will report an error message ""Insufficient Stock"". And this record will not be uploaded successfully."</description>
+        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; 
 ( 
 Actual_DM_Material1__r.Threshold__c &gt; Actual_DM_Material1__r.Stock__c 
 || 
@@ -2162,7 +2708,7 @@ MD__c = 'JP')</errorConditionFormula>
         <fullName>TitleOfHonor_is_Required</fullName>
         <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , &apos;Null&apos;)|| ISPICKVAL( TitleOfHonor__c , &apos;&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false))</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false))</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>
@@ -2175,14 +2721,7 @@ MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Zip_Code__c</errorDisplayField>
         <errorMessage>Zip Code should be less than or equal to 7 letters.</errorMessage>
     </validationRules>
-	<validationRules>
-        <fullName>DM_Request_Market_can_not_be_changed</fullName>
-        <active>true</active>
-        <description>Market field of DM Request should be same as user's market field</description>
-        <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != 'IntegrationAPI', NOT(isTestRunning__c))</errorConditionFormula>
-        <errorDisplayField>Market__c</errorDisplayField>
-        <errorMessage>You are allowed to create record for your home market only</errorMessage>
-    </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Download_Catalogue</fullName>
         <availability>online</availability>
@@ -2255,7 +2794,7 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openPrimaryTab(result) { 
 															   
   
-sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL={!IF(Case.Id!='', Case.Id, Account.Id)}',true, '{!$Label.New_DM_Request}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;00N0I00000JoR4P='+addressLine1+'&amp;00N0I00000JoR4Q='+addressLine2+'&amp;00N0I00000JoR4S='+subDistrict+'&amp;00N0I00000JoR4R='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL={!IF(Case.Id!='', Case.Id, Account.Id)}',true, '{!$Label.New_DM_Request}'); 
   
 } 
 ) 
@@ -2263,10 +2802,10 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?&amp;OBJECT_DM_REQ
 else {
 if({!ISPICKVAL($User.UserType, 'PowerPartner')}==true)
 {
-window.top.location.href="a12/e?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID="+addressLine1+"&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID="+addressLine2+"&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID="+subDistrict+"&amp;OBJECT_DM_REQUEST_DISTRICT_ID="+district+"&amp;OBJECT_DM_REQUEST_PROVINCE_ID="+province+"&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID="+zipCode+"&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID="+addressType+"&amp;saveURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}","_self","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600";
+window.top.location.href="a12/e?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;00N0I00000JoR4P="+addressLine1+"&amp;00N0I00000JoR4Q="+addressLine2+"&amp;00N0I00000JoR4S="+subDistrict+"&amp;00N0I00000JoR4R="+district+"&amp;OBJECT_DM_REQUEST_PROVINCE_ID="+province+"&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID="+zipCode+"&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID="+addressType+"&amp;saveURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL=MBThailand/{!IF(Case.Id!='', Case.Id, Account.Id)}","_self","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600";
 }
 else{
-window.top.location.href="a12/e?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID="+addressLine1+"&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID="+addressLine2+"&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID="+subDistrict+"&amp;OBJECT_DM_REQUEST_DISTRICT_ID="+district+"&amp;OBJECT_DM_REQUEST_PROVINCE_ID="+province+"&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID="+zipCode+"&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID="+addressType+"&amp;saveURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL={!IF(Case.Id!='', Case.Id, Account.Id)}","_self","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"; 
+window.top.location.href="a12/e?&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Account.Id}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Case.CaseNumber}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Case.Id}&amp;00N0I00000JoR4P="+addressLine1+"&amp;00N0I00000JoR4Q="+addressLine2+"&amp;00N0I00000JoR4S="+subDistrict+"&amp;00N0I00000JoR4R="+district+"&amp;OBJECT_DM_REQUEST_PROVINCE_ID="+province+"&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID="+zipCode+"&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID="+addressType+"&amp;saveURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;retURL={!IF(Case.Id!='', Case.Id, Account.Id)}&amp;cancelURL={!IF(Case.Id!='', Case.Id, Account.Id)}","_self","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"; 
 }
 }</url>
     </webLinks>
@@ -2319,14 +2858,14 @@ if(usrty=='PowerPartner'&amp;&amp; accid=='TH'){
 
 if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
 {	
-window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;00N0I00000JoR4P='+addressLine1+'&amp;00N0I00000JoR4Q='+addressLine2+'&amp;00N0I00000JoR4S='+subDistrict+'&amp;00N0I00000JoR4R='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
 } 
 else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
 { 
-window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;00N0I00000JoR4P='+addressLine1+'&amp;00N0I00000JoR4Q='+addressLine2+'&amp;00N0I00000JoR4S='+subDistrict+'&amp;00N0I00000JoR4R='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}'); 
 } 
 else if('{!Lead__c.RecordTypeId}' == '012280000006I7r'){
-window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}');
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;00N0I00000JoR4P='+addressLine1+'&amp;00N0I00000JoR4Q='+addressLine2+'&amp;00N0I00000JoR4S='+subDistrict+'&amp;00N0I00000JoR4R='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL=%2f{!Lead__c.Id}&amp;retURL=%2f{!Lead__c.Id}&amp;cancelURL=%2f{!Lead__c.Id}');
 }
 }
 else{
@@ -2335,11 +2874,11 @@ javascript:sforce.console.getEnclosingPrimaryTabId(
 function openPrimaryTab(result) { 
 if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
 {	
-sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;00N0I00000JoR4P='+addressLine1+'&amp;00N0I00000JoR4Q='+addressLine2+'&amp;00N0I00000JoR4S='+subDistrict+'&amp;00N0I00000JoR4R='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
 } 
 else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
 { 
-sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
+sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;00N0I00000JoR4P='+addressLine1+'&amp;00N0I00000JoR4Q='+addressLine2+'&amp;00N0I00000JoR4S='+subDistrict+'&amp;00N0I00000JoR4R='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',true, '{!$Label.New_DM_Request}'); 
 } 
 
 } 
@@ -2348,27 +2887,14 @@ sforce.console.openPrimaryTab(result.id,'OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_
 else { 
 if('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_SALES_RECORD_TYPE_ID') 
 {	
-window.open('OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',"","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open('OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;00N0I00000JoR4P='+addressLine1+'&amp;00N0I00000JoR4Q='+addressLine2+'&amp;00N0I00000JoR4S='+subDistrict+'&amp;00N0I00000JoR4R='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',"","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 else if ('{!Lead__c.RecordTypeId}' == 'OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID') 
 { 
-window.open('OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_1_ID='+addressLine1+'&amp;OBJECT_DM_REQUEST_ADDRESS_LINE_2_ID='+addressLine2+'&amp;OBJECT_DM_REQUEST_SUB_DISTRICT_ID='+subDistrict+'&amp;OBJECT_DM_REQUEST_DISTRICT_ID='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',"","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
+window.open('OBJECT_DM_REQUEST_ID?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Lead__c.Contact__c}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_ID_lkid={!Lead__c.ContactId__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID={!Lead__c.Case__c}&amp;OBJECT_DM_REQUEST_CASE_NUMBER_ID_lkid={!Lead__c.CaseId__c}&amp;OBJECT_DM_REQUEST_LEAD_ID={!Lead__c.Name}&amp;OBJECT_DM_REQUEST_LEAD_ID_lkid={!Lead__c.Id}&amp;00N0I00000JoR4P='+addressLine1+'&amp;00N0I00000JoR4Q='+addressLine2+'&amp;00N0I00000JoR4S='+subDistrict+'&amp;00N0I00000JoR4R='+district+'&amp;OBJECT_DM_REQUEST_PROVINCE_ID='+province+'&amp;OBJECT_DM_REQUEST_ZIP_CODE_ID='+zipCode+'&amp;OBJECT_DM_REQUEST_SENDING_ADDRESS_ID='+addressType+'&amp;saveURL={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;cancelURL={!Lead__c.Id}',"","toolbar=yes, scrollbars=yes, resizable=yes,width = 800, height = 600"); 
 } 
 }
 }</url>
-    </webLinks>
-	<webLinks>
-        <fullName>Record_Share</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Record Share</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
-
-var myWindow = window.open("/apex/DealerSearchPage?Id={!DM_Request__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
     </webLinks>
     <webLinks>
         <fullName>New_DM_Request_TH_Account</fullName>
@@ -2391,8 +2917,21 @@ reco = acccount.getArray("records");
 if(reco.length&gt;0){ 
 alert('DM request for this User has been created in last 90 days with status Success'); 
 } 
-window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'/a12/e?OBJECT_DM_REQUEST_CUSTOMER_NAME_ID={!Account.Name}&amp;OBJECT_DM_REQUEST_CUSTOMER_NAME_LKID={!Account.Id}&amp;saveURL=%2f{!Account.Id}&amp;cancelURL=%2f{!Account.Id}&amp;retURL=%2f{!Account.Id}');
+window.parent.navigateToUrl("{!JSENCODE($Site.BaseUrl)}"+'/a12/e?CF00N2800000A9CiT={!Account.Name}&amp;CF00N2800000A9CiT_lkid={!Account.Id}&amp;saveURL=%2f{!Account.Id}&amp;cancelURL=%2f{!Account.Id}&amp;retURL=%2f{!Account.Id}');
 
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Record_Share</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Record Share</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+
+var myWindow = window.open("/apex/DealerSearchPage?Id={!DM_Request__c.Id}", "_blank","resizable=yes,top=250,left=500,width=1000,height=700");</url>
     </webLinks>
 </CustomObject>

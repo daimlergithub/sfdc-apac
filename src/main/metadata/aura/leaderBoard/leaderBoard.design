@@ -1,0 +1,4 @@
+<design:component label="Leaderboard">
+    <design:attribute name="communityName" label="Network Name"  description="Name of the Community" />
+    <design:attribute name="recordCount" label="display Number of records" />
+</design:component>

@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,20 +40,22 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>IdeaLikeCount__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>To make this field TRUE when the user likes an Idea</description>
         <externalId>false</externalId>
         <label>IdeaLikeCount</label>
         <trackTrending>false</trackTrending>
@@ -66,7 +64,6 @@
     <fields>
         <fullName>Ideas__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Its lookup to an idea</description>
         <externalId>false</externalId>
         <label>Ideas</label>
         <referenceTo>Ideas__c</referenceTo>
@@ -79,7 +76,6 @@
     <fields>
         <fullName>Likeuser__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Its lookup to an user</description>
         <externalId>false</externalId>
         <label>Likeuser</label>
         <referenceTo>User</referenceTo>
@@ -105,7 +101,6 @@
         <columns>Ideas__c</columns>
         <columns>NAME</columns>
         <columns>IdeaLikeCount__c</columns>
-        <columns>Rating__c</columns>
         <columns>Likeuser__c</columns>
         <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
@@ -120,4 +115,5 @@
     <pluralLabel>IdeasVoting</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

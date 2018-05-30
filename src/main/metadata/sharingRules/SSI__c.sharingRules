@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>OB_CSR_to_SSI_SV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share OB CSR Profile&apos;s SSI Data to SSI Superviser</description>
+        <label>OB CSR to SSI SV</label>
+        <sharedTo>
+            <role>SSI_Supervisor</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>OB_CSR</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>SSI_SV_To_CRM_Manager_CAC_Data_Mgt</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>SSI SV To CRM Manager - CAC &amp; Data Mgt</label>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SSI_Supervisor</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>SSI_SV_To_QC_Supervisor</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>SSI SV To QC Supervisor</label>
+        <sharedTo>
+            <role>CAC_QC_SV_TM</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SSI_Supervisor</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>SSI_SV_To_SSI_SV</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>SSI SV To SSI SV</label>
+        <sharedTo>
+            <role>SSI_Supervisor</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SSI_Supervisor</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>SSI_SV_To_SSI_TL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>SSI SV To SSI TL</label>
+        <sharedTo>
+            <role>SSI_TL</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SSI_Supervisor</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_R_with_data_manager</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share R with data manager</label>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>JP_MarketLeads_Readable_to_MBJ_IT_Dept</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan Except for the Record Type = &apos;Sales Leads Soft Deleted&apos;</description>
+        <label>JP_MarketLeads_Readable_to_MBJ_IT_Dept</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Sales Leads Soft Deleted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBK_Leads_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBK Leads Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBMY_Leads_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBMY Leads Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_Sharing_Leads_to_All_other_MY_users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>sharing all the Malaysia Leads records to all the Malaysia Users with read and edit access</description>
+        <label>MY_Sharing Leads to All other My users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Leads_c_to_Tracking_User_MBJ</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share Leads__c to Tracking User-MBJ</description>
+        <label>Share Leads__c to Tracking User-MBJ</label>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>SoftDelete_Leads_Only_for_IT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Leads with record-type = &apos;Sales Leads Soft Deleted&apos; and MD__c = &apos;JP&apos;, can only be modified by IT Dept. and Data Management User</description>
+        <label>SoftDelete_Leads__Only_for_IT</label>
+        <sharedTo>
+            <role>MBJ_IT_Department</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Leads Soft Deleted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Soft_Deleted_Cannot_View_By_CAC</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Soft_Deleted_Cannot_View_By_CAC</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Sales Leads Soft Deleted</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TH_Leads_sharing_MBLT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share FS leads to MBLT users.</description>
+        <label>TH Leads sharing MBLT</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Finance Lead</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TH_Sharing_Leads_to_All_other_TH_users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>sharing all the Thailand Leads records to all the Thailand Users with read and edit access</description>
+        <label>TH_Sharing Leads to All other TH users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Finance Lead</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Share_Leads_with_CRM_Assist_Manager_CAC_Data_Mgt</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Leads with CRM Assist Manager - CAC &amp; Data Mgt</label>
+        <sharedTo>
+            <role>Central_Sales_Marketing</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_with_MBAFC</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with MBAFC</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Regional</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
