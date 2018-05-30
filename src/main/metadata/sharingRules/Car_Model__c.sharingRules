@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CarModelWithCommunityUsers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share car model with community users.</description>
+        <label>CarModelWithCommunityUsers</label>
+        <sharedTo>
+            <roleAndSubordinates>AS_Service_Technical_Director</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Car_Model_Share_India</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>to share car model records with India</description>
+        <label>Car Model Share India</label>
+        <sharedTo>
+            <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_CarModel_Readable_to_MBJ_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>JP MarketCarModel Readable to MBJ Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_MarketCarModel_Readable_to_MBJ_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>View all records of Car Model with MD__c = &apos;JP&apos; for all Dealer User Roles used in Japan</description>
+        <label>JP_MarketCarModel_Readable_to_MBJ_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_MarketCarModel_Readable_to_MBJ_IT_Dept</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <label>JP_MarketCarModel_Readable_to_MBJ_IT_Dept</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBK_Car_Model_Sharing_Rule</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>MBK Car Model Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_CarModel_Readable_to_Malaysia_Call_Centre</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>view all Car model records by Malaysia Call Center agents if Market = MY</description>
+        <label>MY_CarModel_Readable_to_Malaysia_Call_Centre</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_CarModel_Readable_to_Malaysia_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>view all Car model records by Malaysia Call Center agents/Dealers if Market = MY</description>
+        <label>MY_CarModel_Readable_to_Malaysia_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>THDealerUsers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share all car model to all dealers.</description>
+        <label>THDealerUsers</label>
+        <sharedTo>
+            <group>THUsers</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TH_CarModel_Readable_to_Thailand_Call_Centre</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>view all Car model records by Thailand Call Center agents if Market = TH</description>
+        <label>TH_CarModel_Readable_to_Thailand_Call_Centre</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TH_CarModel_Sharing</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share all car model to MBTH and MBLT users.</description>
+        <label>TH_CarModel_Sharing</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBThailand</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

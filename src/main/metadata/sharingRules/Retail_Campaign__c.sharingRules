@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>MBJ_Retail_Campaign</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBJ Retail Campaign</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_Retail_Campaigns_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MY_Retail Campaigns Sharing</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_AS_Retail_Campaign_to_Central</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share AS Retail Campaign to Central</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Retail_AS_Marketing_Assistant_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_AS_Retail_Campaign_to_Regional_E</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share AS Retail Campaign to Regional-E</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>EAST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_AS_Retail_Campaign_to_Regional_N</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share AS Retail Campaign to Regional-N</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>NORTH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_AS_Retail_Campaign_to_Regional_S</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share AS Retail Campaign to Regional-S</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>SOUTH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_AS_Retail_Campaign_to_Regional_W</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share AS Retail Campaign to Regional-W</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>WEST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Approved_S_M_Campaign_CAC</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Approved S&amp;M Campaign to CAC</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>AS Retail Campaign,S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_BP_with_Central</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share BP with Central</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region_Recommendation__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_BP_with_Central_AS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share BP with Central-AS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Retail_AS_Marketing_Assistant_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region_Recommendation__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_BP_with_Central_Central_Sales</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share BP with Central-Central Sales</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central_Sales_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice,Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_BP_with_Region_E</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share BP with Region-E</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>3 AND ((1 AND 2) OR (4 AND 5))</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice,Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Retail Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>EAST</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_BP_with_Region_N</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share BP with Region-N</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>3 AND ((1 AND 2 ) OR ( 4 AND 5))</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice,Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Retail Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>NORTH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_BP_with_Region_S</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share BP with Region-S</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>3 AND ((1 AND 2) OR ( 4 AND 5))</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice,Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Retail Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>SOUTH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_BP_with_Region_W</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share BP with Region-W</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>3 AND ((1 AND 2 ) OR ( 4 AND 5 ))</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice,Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Retail Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>WEST</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Final_BP_with_Central</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Final BP with Central</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region_Recommendation__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Final_BP_with_Central_AS</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Final BP with Central-AS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Retail_AS_Marketing_Assistant_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region_Recommendation__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Final_BP_with_Region_E</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Final BP with Region-E</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>((1 AND 2)  OR ( 3 AND 4)) AND 5</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice,Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit,Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>EAST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Final_BP_with_Region_N</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Final BP with Region-N</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>((1 AND 2) OR ( 3 AND 4)) AND  5</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit,Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>NORTH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Final_BP_with_Region_S</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Final BP with Region-S</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>((1 AND 2) OR ( 3 AND 4)) AND 5</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit,Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>SOUTH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Final_BP_with_Region_W</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Final BP with Region-W</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>((1 AND 2) OR ( 3 AND 4)) AND 5</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail MB Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Region Submit,Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Retail smart Best Practice</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>BP_Status__c</field>
+            <operation>equals</operation>
+            <value>Final Submit</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>WEST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_S_M_Media_Event_Campaign_to_Central</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share S&amp;M Media/Event Campaign to Central</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_S_M_Media_Event_Campaign_to_Regional_E</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share S&amp;M Media/Event Campaign to Regional-E</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>EAST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_S_M_Media_Event_Campaign_to_Regional_N</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share S&amp;M Media/Event Campaign to Regional-N</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>NORTH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_S_M_Media_Event_Campaign_to_Regional_S</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share S&amp;M Media/Event Campaign to Regional-S</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>SOUTH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_S_M_Media_Event_Campaign_to_Regional_W</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share S&amp;M Media/Event Campaign to Regional-W</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Apply_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>WEST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_un_Planned_with_Central</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share un-Planned with Central</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Regional_AS_Retail_Marketing_E</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with  Regional AS Retail Marketing-E</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Yearly TA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>EAST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Regional_AS_Retail_Marketing_N</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with  Regional AS Retail Marketing-N</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>NORTH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Yearly TA</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Regional_AS_Retail_Marketing_S</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with  Regional AS Retail Marketing-S</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>SOUTH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Yearly TA</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Regional_AS_Retail_Marketing_W</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with  Regional AS Retail Marketing-W</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>WEST</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Yearly TA</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Regional_Retail_Marketing_E</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with Regional Retail Marketing-E</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>EAST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Regional_Retail_Marketing_N</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with Regional Retail Marketing-N</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>NORTH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Regional_Retail_Marketing_S</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with Regional Retail Marketing-S</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>SOUTH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Regional_Retail_Marketing_W</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share with Regional Retail Marketing-W</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Monthly TA,Sales &amp; Marketing Yearly TA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Region__c</field>
+            <operation>equals</operation>
+            <value>WEST</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_with_Retail_AS_Marketing_Assistant_Manage</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share with Retail AS Marketing Assistant Manage</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Retail_AS_Marketing_Assistant_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Aftersales Yearly TA</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TH_Retail_Campaigns_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>TH_Retail Campaigns Sharing</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

@@ -20,6 +20,10 @@
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
@@ -50,7 +54,6 @@
     </fields>
     <fields>
         <fullName>Product2Id</fullName>
-        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>

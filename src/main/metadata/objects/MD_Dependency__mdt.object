@@ -4,6 +4,7 @@
     <fields>
         <fullName>Controlling_Field__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Controlling Field</label>
         <length>255</length>
         <required>false</required>
@@ -13,6 +14,7 @@
     <fields>
         <fullName>Dependency_Values__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Dependency Values</label>
         <length>32768</length>
         <type>LongTextArea</type>
@@ -21,6 +23,7 @@
     <fields>
         <fullName>Dependent__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Dependent</label>
         <length>255</length>
         <required>false</required>
@@ -30,6 +33,7 @@
     <fields>
         <fullName>MarketName__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>MarketName</label>
         <length>2</length>
         <required>false</required>
@@ -39,6 +43,7 @@
     <fields>
         <fullName>Object_APIName__c</fullName>
         <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Object APIName</label>
         <length>255</length>
         <required>false</required>
@@ -47,4 +52,5 @@
     </fields>
     <label>MD Dependency</label>
     <pluralLabel>MD Dependencies</pluralLabel>
+    <visibility>Public</visibility>
 </CustomObject>

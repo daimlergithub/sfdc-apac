@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>JP_MarketSurvey_Readable_to_MBJ_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>View all records of Survey with MD__c = &apos;JP&apos; for all Dealer User Roles used in Japan</description>
+        <label>JP_MarketSurvey_Readable_to_MBJ_Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_MarketSurvey_Readable_to_MBJ_IT_Dept</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>View all records of all Japan object with MD__c = &apos;JP&apos; for all Roles used in Japan</description>
+        <label>JP_MarketSurvey_Readable_to_MBJ_IT_Dept</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>JP_Survey_Readable_to_MBJ_Dealers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>JP Survey Readable to MBJ Dealers</label>
+        <sharedTo>
+            <roleAndSubordinates>Central</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MBK_Survey_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MBK Survey Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MY_Survey_sharing_to_Other_MY_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MY_Survey sharing to Other MY Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>SurveyQuestionCreation</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>To create survey question response for portal users</description>
+        <label>SurveyQuestionCreation</label>
+        <sharedTo>
+            <group>SurveyQueCreationGrp</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>TH_Survey_sharing_to_Other_TH_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>TH_Survey sharing to Other TH Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>
