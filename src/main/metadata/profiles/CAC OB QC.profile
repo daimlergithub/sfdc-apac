@@ -1527,7 +1527,7 @@
     </classAccesses>
     <custom>true</custom>
 	<fieldPermissions>
-        <editable>True</editable>
+        <editable>false</editable>
         <field>Campaign.Market__c</field>
         <readable>True</readable>
     </fieldPermissions>
