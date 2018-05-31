@@ -2976,7 +2976,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecordTest</apexClass>
@@ -3072,7 +3072,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Age_Range__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
