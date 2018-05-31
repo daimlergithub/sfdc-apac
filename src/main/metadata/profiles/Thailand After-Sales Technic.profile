@@ -2976,7 +2976,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecord</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>shareAccountRecordTest</apexClass>
