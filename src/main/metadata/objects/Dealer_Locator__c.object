@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,15 +40,18 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Contains records for locating a dealer based on Postal or Business Unit criteria.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -60,105 +59,129 @@
         <fullName>Business_Unit__c</fullName>
         <externalId>false</externalId>
         <label>Business Unit</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Alliance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Allmakes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Freightliner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fuso</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Bus</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Cars</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBFS Cars</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBFS Trucks</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Vans</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SelecTrucks</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Special Vehicles</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trucks</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unimog</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vans</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Western Star</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alliance</fullName>
+                    <default>false</default>
+                    <label>Alliance</label>
+                </value>
+                <value>
+                    <fullName>Allmakes</fullName>
+                    <default>false</default>
+                    <label>Allmakes</label>
+                </value>
+                <value>
+                    <fullName>Freightliner</fullName>
+                    <default>false</default>
+                    <label>Freightliner</label>
+                </value>
+                <value>
+                    <fullName>Fuso</fullName>
+                    <default>false</default>
+                    <label>Fuso</label>
+                </value>
+                <value>
+                    <fullName>MB Bus</fullName>
+                    <default>false</default>
+                    <label>MB Bus</label>
+                </value>
+                <value>
+                    <fullName>MB Cars</fullName>
+                    <default>false</default>
+                    <label>MB Cars</label>
+                </value>
+                <value>
+                    <fullName>MBFS Cars</fullName>
+                    <default>false</default>
+                    <label>MBFS Cars</label>
+                </value>
+                <value>
+                    <fullName>MBFS Trucks</fullName>
+                    <default>false</default>
+                    <label>MBFS Trucks</label>
+                </value>
+                <value>
+                    <fullName>MB Trucks</fullName>
+                    <default>false</default>
+                    <label>MB Trucks</label>
+                </value>
+                <value>
+                    <fullName>MB Vans</fullName>
+                    <default>false</default>
+                    <label>MB Vans</label>
+                </value>
+                <value>
+                    <fullName>SelecTrucks</fullName>
+                    <default>false</default>
+                    <label>SelecTrucks</label>
+                </value>
+                <value>
+                    <fullName>smart</fullName>
+                    <default>false</default>
+                    <label>smart</label>
+                </value>
+                <value>
+                    <fullName>Special Vehicles</fullName>
+                    <default>false</default>
+                    <label>Special Vehicles</label>
+                </value>
+                <value>
+                    <fullName>Trucks</fullName>
+                    <default>false</default>
+                    <label>Trucks</label>
+                </value>
+                <value>
+                    <fullName>Unimog</fullName>
+                    <default>false</default>
+                    <label>Unimog</label>
+                </value>
+                <value>
+                    <fullName>Vans</fullName>
+                    <default>false</default>
+                    <label>Vans</label>
+                </value>
+                <value>
+                    <fullName>Western Star</fullName>
+                    <default>false</default>
+                    <label>Western Star</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Category__c</fullName>
         <externalId>false</externalId>
         <label>Category</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Delivery Area</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LVR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Post Office Boxes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Delivery Area</fullName>
+                    <default>false</default>
+                    <label>Delivery Area</label>
+                </value>
+                <value>
+                    <fullName>LVR</fullName>
+                    <default>false</default>
+                    <label>LVR</label>
+                </value>
+                <value>
+                    <fullName>Post Office Boxes</fullName>
+                    <default>false</default>
+                    <label>Post Office Boxes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>City__c</fullName>
@@ -260,665 +283,827 @@ IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AU</fullName>
+                    <default>false</default>
+                    <label>AU</label>
+                </value>
+                <value>
+                    <fullName>CN</fullName>
+                    <default>false</default>
+                    <label>CN</label>
+                </value>
+                <value>
+                    <fullName>JP</fullName>
+                    <default>false</default>
+                    <label>JP</label>
+                </value>
+                <value>
+                    <fullName>KR</fullName>
+                    <default>false</default>
+                    <label>KR</label>
+                </value>
+                <value>
+                    <fullName>TH</fullName>
+                    <default>false</default>
+                    <label>TH</label>
+                </value>
+                <value>
+                    <fullName>MY</fullName>
+                    <default>false</default>
+                    <label>MY</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Metro_Rural__c</fullName>
         <externalId>false</externalId>
         <label>Metro/Rural</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Metro</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Provincial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rural</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Metro</fullName>
+                    <default>false</default>
+                    <label>Metro</label>
+                </value>
+                <value>
+                    <fullName>Provincial</fullName>
+                    <default>false</default>
+                    <label>Provincial</label>
+                </value>
+                <value>
+                    <fullName>Rural</fullName>
+                    <default>false</default>
+                    <label>Rural</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Offered_Service__c</fullName>
         <externalId>false</externalId>
         <label>Offered Service</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Body Repairer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pre-Owned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance &amp; Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                    <label>Service</label>
+                </value>
+                <value>
+                    <fullName>Auto Body Repairer</fullName>
+                    <default>false</default>
+                    <label>Auto Body Repairer</label>
+                </value>
+                <value>
+                    <fullName>Parts</fullName>
+                    <default>false</default>
+                    <label>Parts</label>
+                </value>
+                <value>
+                    <fullName>Pre-Owned</fullName>
+                    <default>false</default>
+                    <label>Pre-Owned</label>
+                </value>
+                <value>
+                    <fullName>Finance &amp; Insurance</fullName>
+                    <default>false</default>
+                    <label>Finance &amp; Insurance</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>PMA__c</fullName>
         <externalId>false</externalId>
         <label>PMA</label>
-        <picklist>
-            <picklistValues>
-                <fullName>ALICE SPRINGS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ANGLE PARK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BALLARAT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BAYSIDE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BENDIGO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BENTLEY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BLACKTOWN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BUNBURY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BUNDABERG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CAIRNS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CAMPBELLTOWN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CANBERRA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>COFFS HARBOUR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DANDENONG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DARWIN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DUBBO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FERNTREE GULLY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GEELONG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GORDON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GOSFORD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HOBART</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ILLAWARRA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LAUNCESTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LISMORE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MACKAY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MELBOURNE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MILDURA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MIRANDA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MONA VALE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MORNINGTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MT GAMBIER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NEWCASTLE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NOOSAVILLE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NUNDAH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ORANGE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OSBORNE PARK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PORT MACQUARIE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PRESTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ROCKHAMPTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ROCKLEA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SALE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SHEPPARTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SOMERTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SOUTHPORT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TAMWORTH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TAREE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TOOWOOMBA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TOWNSVILLE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UNASSIGNED BAYS &amp; PENINSULA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UNASSIGNED DIVIDING RANGE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unassigned Postcodes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UNASSIGNED SOUTH WEST</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UNASSIGNED THE MALLEE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WAGGA WAGGA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WAITARA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WARWICK FARM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WAYVILLE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WEST MELBOURNE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ZETLAND</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Berwick</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Doncaster</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fairfield</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fortitude Valley</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sydney</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Toorak</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Adelaide</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Brisbane</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bunsbury</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Central Coast</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Central West</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Central West Orana</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Darvin</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Geraldton</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gold Coast</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Holiday Coast</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Horsham</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Katherine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Melbourne East</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Melbourne North</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Melbourne West</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mid North Coast</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New England</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Northern Rivers - MTC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Perth</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sa Rural</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Shepperton</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>South East</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wa Rural</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wagga</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Western Districts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Western Sydney</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Kempsey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Laverton</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Murwillumbah</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nambour</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Queanbeyan</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tasmania</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welshpool</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Westpoint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sutherland</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Albury</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Liverpool</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rose Bay</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ALBANY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ARMIDALE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ARTARMON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BRIGHTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BROKEN HILL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CESSNOCK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CENTRAL WEST ORANGE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CHATSWOOD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>COOTAMUNDRA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DIESEL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ESPERANCE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GIPPSLAND</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLEN OSMOND</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GOULBURN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GRIFFITH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HAMILTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HAZELMERE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>INDOOROOPILLY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>INVERELL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KALGOORLIE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KIMBERLEY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KINGAROY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LONGREACH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAROOCHYDORE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MOREE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MOSMAN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MOUNT GAMBIER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NARELLAN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PARRAMATTA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PORT HEDLAND</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SUNSHINE COAST</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TWEED HEADS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WA NORTH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WARRNAMBOOL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WOLLONGONG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ALICE SPRINGS</fullName>
+                    <default>false</default>
+                    <label>ALICE SPRINGS</label>
+                </value>
+                <value>
+                    <fullName>ANGLE PARK</fullName>
+                    <default>false</default>
+                    <label>ANGLE PARK</label>
+                </value>
+                <value>
+                    <fullName>BALLARAT</fullName>
+                    <default>false</default>
+                    <label>BALLARAT</label>
+                </value>
+                <value>
+                    <fullName>BAYSIDE</fullName>
+                    <default>false</default>
+                    <label>BAYSIDE</label>
+                </value>
+                <value>
+                    <fullName>BENDIGO</fullName>
+                    <default>false</default>
+                    <label>BENDIGO</label>
+                </value>
+                <value>
+                    <fullName>BENTLEY</fullName>
+                    <default>false</default>
+                    <label>BENTLEY</label>
+                </value>
+                <value>
+                    <fullName>BLACKTOWN</fullName>
+                    <default>false</default>
+                    <label>BLACKTOWN</label>
+                </value>
+                <value>
+                    <fullName>BUNBURY</fullName>
+                    <default>false</default>
+                    <label>BUNBURY</label>
+                </value>
+                <value>
+                    <fullName>BUNDABERG</fullName>
+                    <default>false</default>
+                    <label>BUNDABERG</label>
+                </value>
+                <value>
+                    <fullName>CAIRNS</fullName>
+                    <default>false</default>
+                    <label>CAIRNS</label>
+                </value>
+                <value>
+                    <fullName>CAMPBELLTOWN</fullName>
+                    <default>false</default>
+                    <label>CAMPBELLTOWN</label>
+                </value>
+                <value>
+                    <fullName>CANBERRA</fullName>
+                    <default>false</default>
+                    <label>CANBERRA</label>
+                </value>
+                <value>
+                    <fullName>COFFS HARBOUR</fullName>
+                    <default>false</default>
+                    <label>COFFS HARBOUR</label>
+                </value>
+                <value>
+                    <fullName>DANDENONG</fullName>
+                    <default>false</default>
+                    <label>DANDENONG</label>
+                </value>
+                <value>
+                    <fullName>DARWIN</fullName>
+                    <default>false</default>
+                    <label>DARWIN</label>
+                </value>
+                <value>
+                    <fullName>DUBBO</fullName>
+                    <default>false</default>
+                    <label>DUBBO</label>
+                </value>
+                <value>
+                    <fullName>FERNTREE GULLY</fullName>
+                    <default>false</default>
+                    <label>FERNTREE GULLY</label>
+                </value>
+                <value>
+                    <fullName>GEELONG</fullName>
+                    <default>false</default>
+                    <label>GEELONG</label>
+                </value>
+                <value>
+                    <fullName>GORDON</fullName>
+                    <default>false</default>
+                    <label>GORDON</label>
+                </value>
+                <value>
+                    <fullName>GOSFORD</fullName>
+                    <default>false</default>
+                    <label>GOSFORD</label>
+                </value>
+                <value>
+                    <fullName>HOBART</fullName>
+                    <default>false</default>
+                    <label>HOBART</label>
+                </value>
+                <value>
+                    <fullName>ILLAWARRA</fullName>
+                    <default>false</default>
+                    <label>ILLAWARRA</label>
+                </value>
+                <value>
+                    <fullName>LAUNCESTON</fullName>
+                    <default>false</default>
+                    <label>LAUNCESTON</label>
+                </value>
+                <value>
+                    <fullName>LISMORE</fullName>
+                    <default>false</default>
+                    <label>LISMORE</label>
+                </value>
+                <value>
+                    <fullName>MACKAY</fullName>
+                    <default>false</default>
+                    <label>MACKAY</label>
+                </value>
+                <value>
+                    <fullName>MELBOURNE</fullName>
+                    <default>false</default>
+                    <label>MELBOURNE</label>
+                </value>
+                <value>
+                    <fullName>MILDURA</fullName>
+                    <default>false</default>
+                    <label>MILDURA</label>
+                </value>
+                <value>
+                    <fullName>MIRANDA</fullName>
+                    <default>false</default>
+                    <label>MIRANDA</label>
+                </value>
+                <value>
+                    <fullName>MONA VALE</fullName>
+                    <default>false</default>
+                    <label>MONA VALE</label>
+                </value>
+                <value>
+                    <fullName>MORNINGTON</fullName>
+                    <default>false</default>
+                    <label>MORNINGTON</label>
+                </value>
+                <value>
+                    <fullName>MT GAMBIER</fullName>
+                    <default>false</default>
+                    <label>MT GAMBIER</label>
+                </value>
+                <value>
+                    <fullName>NEWCASTLE</fullName>
+                    <default>false</default>
+                    <label>NEWCASTLE</label>
+                </value>
+                <value>
+                    <fullName>NOOSAVILLE</fullName>
+                    <default>false</default>
+                    <label>NOOSAVILLE</label>
+                </value>
+                <value>
+                    <fullName>NUNDAH</fullName>
+                    <default>false</default>
+                    <label>NUNDAH</label>
+                </value>
+                <value>
+                    <fullName>ORANGE</fullName>
+                    <default>false</default>
+                    <label>ORANGE</label>
+                </value>
+                <value>
+                    <fullName>OSBORNE PARK</fullName>
+                    <default>false</default>
+                    <label>OSBORNE PARK</label>
+                </value>
+                <value>
+                    <fullName>PORT MACQUARIE</fullName>
+                    <default>false</default>
+                    <label>PORT MACQUARIE</label>
+                </value>
+                <value>
+                    <fullName>PRESTON</fullName>
+                    <default>false</default>
+                    <label>PRESTON</label>
+                </value>
+                <value>
+                    <fullName>ROCKHAMPTON</fullName>
+                    <default>false</default>
+                    <label>ROCKHAMPTON</label>
+                </value>
+                <value>
+                    <fullName>ROCKLEA</fullName>
+                    <default>false</default>
+                    <label>ROCKLEA</label>
+                </value>
+                <value>
+                    <fullName>SALE</fullName>
+                    <default>false</default>
+                    <label>SALE</label>
+                </value>
+                <value>
+                    <fullName>SHEPPARTON</fullName>
+                    <default>false</default>
+                    <label>SHEPPARTON</label>
+                </value>
+                <value>
+                    <fullName>SOMERTON</fullName>
+                    <default>false</default>
+                    <label>SOMERTON</label>
+                </value>
+                <value>
+                    <fullName>SOUTHPORT</fullName>
+                    <default>false</default>
+                    <label>SOUTHPORT</label>
+                </value>
+                <value>
+                    <fullName>TAMWORTH</fullName>
+                    <default>false</default>
+                    <label>TAMWORTH</label>
+                </value>
+                <value>
+                    <fullName>TAREE</fullName>
+                    <default>false</default>
+                    <label>TAREE</label>
+                </value>
+                <value>
+                    <fullName>TOOWOOMBA</fullName>
+                    <default>false</default>
+                    <label>TOOWOOMBA</label>
+                </value>
+                <value>
+                    <fullName>TOWNSVILLE</fullName>
+                    <default>false</default>
+                    <label>TOWNSVILLE</label>
+                </value>
+                <value>
+                    <fullName>UNASSIGNED BAYS &amp; PENINSULA</fullName>
+                    <default>false</default>
+                    <label>UNASSIGNED BAYS &amp; PENINSULA</label>
+                </value>
+                <value>
+                    <fullName>UNASSIGNED DIVIDING RANGE</fullName>
+                    <default>false</default>
+                    <label>UNASSIGNED DIVIDING RANGE</label>
+                </value>
+                <value>
+                    <fullName>Unassigned Postcodes</fullName>
+                    <default>false</default>
+                    <label>Unassigned Postcodes</label>
+                </value>
+                <value>
+                    <fullName>UNASSIGNED SOUTH WEST</fullName>
+                    <default>false</default>
+                    <label>UNASSIGNED SOUTH WEST</label>
+                </value>
+                <value>
+                    <fullName>UNASSIGNED THE MALLEE</fullName>
+                    <default>false</default>
+                    <label>UNASSIGNED THE MALLEE</label>
+                </value>
+                <value>
+                    <fullName>WAGGA WAGGA</fullName>
+                    <default>false</default>
+                    <label>WAGGA WAGGA</label>
+                </value>
+                <value>
+                    <fullName>WAITARA</fullName>
+                    <default>false</default>
+                    <label>WAITARA</label>
+                </value>
+                <value>
+                    <fullName>WARWICK FARM</fullName>
+                    <default>false</default>
+                    <label>WARWICK FARM</label>
+                </value>
+                <value>
+                    <fullName>WAYVILLE</fullName>
+                    <default>false</default>
+                    <label>WAYVILLE</label>
+                </value>
+                <value>
+                    <fullName>WEST MELBOURNE</fullName>
+                    <default>false</default>
+                    <label>WEST MELBOURNE</label>
+                </value>
+                <value>
+                    <fullName>ZETLAND</fullName>
+                    <default>false</default>
+                    <label>ZETLAND</label>
+                </value>
+                <value>
+                    <fullName>Berwick</fullName>
+                    <default>false</default>
+                    <label>Berwick</label>
+                </value>
+                <value>
+                    <fullName>Doncaster</fullName>
+                    <default>false</default>
+                    <label>Doncaster</label>
+                </value>
+                <value>
+                    <fullName>Fairfield</fullName>
+                    <default>false</default>
+                    <label>Fairfield</label>
+                </value>
+                <value>
+                    <fullName>Fortitude Valley</fullName>
+                    <default>false</default>
+                    <label>Fortitude Valley</label>
+                </value>
+                <value>
+                    <fullName>Sydney</fullName>
+                    <default>false</default>
+                    <label>Sydney</label>
+                </value>
+                <value>
+                    <fullName>Toorak</fullName>
+                    <default>false</default>
+                    <label>Toorak</label>
+                </value>
+                <value>
+                    <fullName>Adelaide</fullName>
+                    <default>false</default>
+                    <label>Adelaide</label>
+                </value>
+                <value>
+                    <fullName>Brisbane</fullName>
+                    <default>false</default>
+                    <label>Brisbane</label>
+                </value>
+                <value>
+                    <fullName>Bunsbury</fullName>
+                    <default>false</default>
+                    <label>Bunsbury</label>
+                </value>
+                <value>
+                    <fullName>Central Coast</fullName>
+                    <default>false</default>
+                    <label>Central Coast</label>
+                </value>
+                <value>
+                    <fullName>Central West</fullName>
+                    <default>false</default>
+                    <label>Central West</label>
+                </value>
+                <value>
+                    <fullName>Central West Orana</fullName>
+                    <default>false</default>
+                    <label>Central West Orana</label>
+                </value>
+                <value>
+                    <fullName>Darvin</fullName>
+                    <default>false</default>
+                    <label>Darvin</label>
+                </value>
+                <value>
+                    <fullName>Geraldton</fullName>
+                    <default>false</default>
+                    <label>Geraldton</label>
+                </value>
+                <value>
+                    <fullName>Gold Coast</fullName>
+                    <default>false</default>
+                    <label>Gold Coast</label>
+                </value>
+                <value>
+                    <fullName>Holiday Coast</fullName>
+                    <default>false</default>
+                    <label>Holiday Coast</label>
+                </value>
+                <value>
+                    <fullName>Horsham</fullName>
+                    <default>false</default>
+                    <label>Horsham</label>
+                </value>
+                <value>
+                    <fullName>Katherine</fullName>
+                    <default>false</default>
+                    <label>Katherine</label>
+                </value>
+                <value>
+                    <fullName>Melbourne East</fullName>
+                    <default>false</default>
+                    <label>Melbourne East</label>
+                </value>
+                <value>
+                    <fullName>Melbourne North</fullName>
+                    <default>false</default>
+                    <label>Melbourne North</label>
+                </value>
+                <value>
+                    <fullName>Melbourne West</fullName>
+                    <default>false</default>
+                    <label>Melbourne West</label>
+                </value>
+                <value>
+                    <fullName>Mid North Coast</fullName>
+                    <default>false</default>
+                    <label>Mid North Coast</label>
+                </value>
+                <value>
+                    <fullName>New England</fullName>
+                    <default>false</default>
+                    <label>New England</label>
+                </value>
+                <value>
+                    <fullName>Northern Rivers - MTC</fullName>
+                    <default>false</default>
+                    <label>Northern Rivers - MTC</label>
+                </value>
+                <value>
+                    <fullName>Perth</fullName>
+                    <default>false</default>
+                    <label>Perth</label>
+                </value>
+                <value>
+                    <fullName>Sa Rural</fullName>
+                    <default>false</default>
+                    <label>Sa Rural</label>
+                </value>
+                <value>
+                    <fullName>Shepperton</fullName>
+                    <default>false</default>
+                    <label>Shepperton</label>
+                </value>
+                <value>
+                    <fullName>South East</fullName>
+                    <default>false</default>
+                    <label>South East</label>
+                </value>
+                <value>
+                    <fullName>Wa Rural</fullName>
+                    <default>false</default>
+                    <label>Wa Rural</label>
+                </value>
+                <value>
+                    <fullName>Wagga</fullName>
+                    <default>false</default>
+                    <label>Wagga</label>
+                </value>
+                <value>
+                    <fullName>Western Districts</fullName>
+                    <default>false</default>
+                    <label>Western Districts</label>
+                </value>
+                <value>
+                    <fullName>Western Sydney</fullName>
+                    <default>false</default>
+                    <label>Western Sydney</label>
+                </value>
+                <value>
+                    <fullName>Kempsey</fullName>
+                    <default>false</default>
+                    <label>Kempsey</label>
+                </value>
+                <value>
+                    <fullName>Laverton</fullName>
+                    <default>false</default>
+                    <label>Laverton</label>
+                </value>
+                <value>
+                    <fullName>Murwillumbah</fullName>
+                    <default>false</default>
+                    <label>Murwillumbah</label>
+                </value>
+                <value>
+                    <fullName>Nambour</fullName>
+                    <default>false</default>
+                    <label>Nambour</label>
+                </value>
+                <value>
+                    <fullName>NT</fullName>
+                    <default>false</default>
+                    <label>NT</label>
+                </value>
+                <value>
+                    <fullName>Queanbeyan</fullName>
+                    <default>false</default>
+                    <label>Queanbeyan</label>
+                </value>
+                <value>
+                    <fullName>Tasmania</fullName>
+                    <default>false</default>
+                    <label>Tasmania</label>
+                </value>
+                <value>
+                    <fullName>Welshpool</fullName>
+                    <default>false</default>
+                    <label>Welshpool</label>
+                </value>
+                <value>
+                    <fullName>Westpoint</fullName>
+                    <default>false</default>
+                    <label>Westpoint</label>
+                </value>
+                <value>
+                    <fullName>Sutherland</fullName>
+                    <default>false</default>
+                    <label>Sutherland</label>
+                </value>
+                <value>
+                    <fullName>Albury</fullName>
+                    <default>false</default>
+                    <label>Albury</label>
+                </value>
+                <value>
+                    <fullName>Liverpool</fullName>
+                    <default>false</default>
+                    <label>Liverpool</label>
+                </value>
+                <value>
+                    <fullName>Rose Bay</fullName>
+                    <default>false</default>
+                    <label>Rose Bay</label>
+                </value>
+                <value>
+                    <fullName>ALBANY</fullName>
+                    <default>false</default>
+                    <label>ALBANY</label>
+                </value>
+                <value>
+                    <fullName>ARMIDALE</fullName>
+                    <default>false</default>
+                    <label>ARMIDALE</label>
+                </value>
+                <value>
+                    <fullName>ARTARMON</fullName>
+                    <default>false</default>
+                    <label>ARTARMON</label>
+                </value>
+                <value>
+                    <fullName>BRIGHTON</fullName>
+                    <default>false</default>
+                    <label>BRIGHTON</label>
+                </value>
+                <value>
+                    <fullName>BROKEN HILL</fullName>
+                    <default>false</default>
+                    <label>BROKEN HILL</label>
+                </value>
+                <value>
+                    <fullName>CESSNOCK</fullName>
+                    <default>false</default>
+                    <label>CESSNOCK</label>
+                </value>
+                <value>
+                    <fullName>CENTRAL WEST ORANGE</fullName>
+                    <default>false</default>
+                    <label>CENTRAL WEST ORANGE</label>
+                </value>
+                <value>
+                    <fullName>CHATSWOOD</fullName>
+                    <default>false</default>
+                    <label>CHATSWOOD</label>
+                </value>
+                <value>
+                    <fullName>COOTAMUNDRA</fullName>
+                    <default>false</default>
+                    <label>COOTAMUNDRA</label>
+                </value>
+                <value>
+                    <fullName>DIESEL</fullName>
+                    <default>false</default>
+                    <label>DIESEL</label>
+                </value>
+                <value>
+                    <fullName>ESPERANCE</fullName>
+                    <default>false</default>
+                    <label>ESPERANCE</label>
+                </value>
+                <value>
+                    <fullName>GIPPSLAND</fullName>
+                    <default>false</default>
+                    <label>GIPPSLAND</label>
+                </value>
+                <value>
+                    <fullName>GLEN OSMOND</fullName>
+                    <default>false</default>
+                    <label>GLEN OSMOND</label>
+                </value>
+                <value>
+                    <fullName>GOULBURN</fullName>
+                    <default>false</default>
+                    <label>GOULBURN</label>
+                </value>
+                <value>
+                    <fullName>GRIFFITH</fullName>
+                    <default>false</default>
+                    <label>GRIFFITH</label>
+                </value>
+                <value>
+                    <fullName>HAMILTON</fullName>
+                    <default>false</default>
+                    <label>HAMILTON</label>
+                </value>
+                <value>
+                    <fullName>HAZELMERE</fullName>
+                    <default>false</default>
+                    <label>HAZELMERE</label>
+                </value>
+                <value>
+                    <fullName>INDOOROOPILLY</fullName>
+                    <default>false</default>
+                    <label>INDOOROOPILLY</label>
+                </value>
+                <value>
+                    <fullName>INVERELL</fullName>
+                    <default>false</default>
+                    <label>INVERELL</label>
+                </value>
+                <value>
+                    <fullName>KALGOORLIE</fullName>
+                    <default>false</default>
+                    <label>KALGOORLIE</label>
+                </value>
+                <value>
+                    <fullName>KIMBERLEY</fullName>
+                    <default>false</default>
+                    <label>KIMBERLEY</label>
+                </value>
+                <value>
+                    <fullName>KINGAROY</fullName>
+                    <default>false</default>
+                    <label>KINGAROY</label>
+                </value>
+                <value>
+                    <fullName>LONGREACH</fullName>
+                    <default>false</default>
+                    <label>LONGREACH</label>
+                </value>
+                <value>
+                    <fullName>MAROOCHYDORE</fullName>
+                    <default>false</default>
+                    <label>MAROOCHYDORE</label>
+                </value>
+                <value>
+                    <fullName>MOREE</fullName>
+                    <default>false</default>
+                    <label>MOREE</label>
+                </value>
+                <value>
+                    <fullName>MOSMAN</fullName>
+                    <default>false</default>
+                    <label>MOSMAN</label>
+                </value>
+                <value>
+                    <fullName>MOUNT GAMBIER</fullName>
+                    <default>false</default>
+                    <label>MOUNT GAMBIER</label>
+                </value>
+                <value>
+                    <fullName>NARELLAN</fullName>
+                    <default>false</default>
+                    <label>NARELLAN</label>
+                </value>
+                <value>
+                    <fullName>PARRAMATTA</fullName>
+                    <default>false</default>
+                    <label>PARRAMATTA</label>
+                </value>
+                <value>
+                    <fullName>PORT HEDLAND</fullName>
+                    <default>false</default>
+                    <label>PORT HEDLAND</label>
+                </value>
+                <value>
+                    <fullName>SUNSHINE COAST</fullName>
+                    <default>false</default>
+                    <label>SUNSHINE COAST</label>
+                </value>
+                <value>
+                    <fullName>TWEED HEADS</fullName>
+                    <default>false</default>
+                    <label>TWEED HEADS</label>
+                </value>
+                <value>
+                    <fullName>WA NORTH</fullName>
+                    <default>false</default>
+                    <label>WA NORTH</label>
+                </value>
+                <value>
+                    <fullName>WARRNAMBOOL</fullName>
+                    <default>false</default>
+                    <label>WARRNAMBOOL</label>
+                </value>
+                <value>
+                    <fullName>WOLLONGONG</fullName>
+                    <default>false</default>
+                    <label>WOLLONGONG</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Post_Code__c</fullName>
@@ -935,37 +1120,45 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Region__c</fullName>
         <externalId>false</externalId>
         <label>Region</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Eastern Region</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Zone 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Zone 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>STHN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NTHN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Eastern Region</fullName>
+                    <default>false</default>
+                    <label>Eastern Region</label>
+                </value>
+                <value>
+                    <fullName>Zone 1</fullName>
+                    <default>false</default>
+                    <label>Zone 1</label>
+                </value>
+                <value>
+                    <fullName>Zone 2</fullName>
+                    <default>false</default>
+                    <label>Zone 2</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+                <value>
+                    <fullName>STHN</fullName>
+                    <default>false</default>
+                    <label>STHN</label>
+                </value>
+                <value>
+                    <fullName>NTHN</fullName>
+                    <default>false</default>
+                    <label>NTHN</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Sequence_No__c</fullName>
@@ -983,45 +1176,55 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>State__c</fullName>
         <externalId>false</externalId>
         <label>State</label>
-        <picklist>
-            <picklistValues>
-                <fullName>ACT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NSW</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>QLD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TAS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VIC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACT</fullName>
+                    <default>false</default>
+                    <label>ACT</label>
+                </value>
+                <value>
+                    <fullName>NSW</fullName>
+                    <default>false</default>
+                    <label>NSW</label>
+                </value>
+                <value>
+                    <fullName>NT</fullName>
+                    <default>false</default>
+                    <label>NT</label>
+                </value>
+                <value>
+                    <fullName>QLD</fullName>
+                    <default>false</default>
+                    <label>QLD</label>
+                </value>
+                <value>
+                    <fullName>SA</fullName>
+                    <default>false</default>
+                    <label>SA</label>
+                </value>
+                <value>
+                    <fullName>TAS</fullName>
+                    <default>false</default>
+                    <label>TAS</label>
+                </value>
+                <value>
+                    <fullName>VIC</fullName>
+                    <default>false</default>
+                    <label>VIC</label>
+                </value>
+                <value>
+                    <fullName>WA</fullName>
+                    <default>false</default>
+                    <label>WA</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Suburb__c</fullName>
@@ -1075,4 +1278,5 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

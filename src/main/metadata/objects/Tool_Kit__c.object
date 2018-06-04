@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,13 +40,16 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
@@ -154,62 +153,75 @@
         <description>Banner of the tool kit</description>
         <externalId>false</externalId>
         <label>Ad.Banner</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Full Page</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1/2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1/3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1/4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Double Spread</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full Page</fullName>
+                    <default>false</default>
+                    <label>Full Page</label>
+                </value>
+                <value>
+                    <fullName>1/2</fullName>
+                    <default>false</default>
+                    <label>1/2</label>
+                </value>
+                <value>
+                    <fullName>1/3</fullName>
+                    <default>false</default>
+                    <label>1/3</label>
+                </value>
+                <value>
+                    <fullName>1/4</fullName>
+                    <default>false</default>
+                    <label>1/4</label>
+                </value>
+                <value>
+                    <fullName>Double Spread</fullName>
+                    <default>false</default>
+                    <label>Double Spread</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Ad_Color__c</fullName>
         <description>Ad. Color of the tool kit</description>
         <externalId>false</externalId>
         <label>Ad. Color</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Black and White</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Colour</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Black and White</fullName>
+                    <default>false</default>
+                    <label>Black and White</label>
+                </value>
+                <value>
+                    <fullName>Colour</fullName>
+                    <default>false</default>
+                    <label>Colour</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Ad_Copy__c</fullName>
@@ -225,25 +237,30 @@
         <description>Ad, Format of the tool kit</description>
         <externalId>false</externalId>
         <label>Ad. Format</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Picture</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PPT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Picture</fullName>
+                    <default>false</default>
+                    <label>Picture</label>
+                </value>
+                <value>
+                    <fullName>PPT</fullName>
+                    <default>false</default>
+                    <label>PPT</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Ad_Size_Height__c</fullName>
@@ -280,41 +297,50 @@
         <description>Apply Status of the tool kit</description>
         <externalId>false</externalId>
         <label>Apply Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Planned</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Need Modify</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tool Kit Finished</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancel Application</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Planned</fullName>
+                    <default>true</default>
+                    <label>Planned</label>
+                </value>
+                <value>
+                    <fullName>Confirmed</fullName>
+                    <default>false</default>
+                    <label>Confirmed</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Need Modify</fullName>
+                    <default>false</default>
+                    <label>Need Modify</label>
+                </value>
+                <value>
+                    <fullName>Tool Kit Finished</fullName>
+                    <default>false</default>
+                    <label>Tool Kit Finished</label>
+                </value>
+                <value>
+                    <fullName>Cancel Application</fullName>
+                    <default>false</default>
+                    <label>Cancel Application</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Approver__c</fullName>
@@ -343,37 +369,45 @@
         <fullName>Bleed_Banner__c</fullName>
         <externalId>false</externalId>
         <label>Bleed Banner</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Full Page (Vertical Layout)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Half Page (Horiontal Layout)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Double Spread (Horiontal Layout)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Front Cover (Vertical Layout)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Back Cover (Vertical Layout)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full Page (Vertical Layout)</fullName>
+                    <default>false</default>
+                    <label>Full Page (Vertical Layout)</label>
+                </value>
+                <value>
+                    <fullName>Half Page (Horiontal Layout)</fullName>
+                    <default>false</default>
+                    <label>Half Page (Horiontal Layout)</label>
+                </value>
+                <value>
+                    <fullName>Double Spread (Horiontal Layout)</fullName>
+                    <default>false</default>
+                    <label>Double Spread (Horiontal Layout)</label>
+                </value>
+                <value>
+                    <fullName>Front Cover (Vertical Layout)</fullName>
+                    <default>false</default>
+                    <label>Front Cover (Vertical Layout)</label>
+                </value>
+                <value>
+                    <fullName>Back Cover (Vertical Layout)</fullName>
+                    <default>false</default>
+                    <label>Back Cover (Vertical Layout)</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Bleed_Size_Height__c</fullName>
@@ -409,29 +443,35 @@
         <fullName>Brand__c</fullName>
         <externalId>false</externalId>
         <label>Brand</label>
-        <picklist>
-            <picklistValues>
-                <fullName>MB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>StarElite</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MB</fullName>
+                    <default>false</default>
+                    <label>MB</label>
+                </value>
+                <value>
+                    <fullName>smart</fullName>
+                    <default>false</default>
+                    <label>smart</label>
+                </value>
+                <value>
+                    <fullName>AMG</fullName>
+                    <default>false</default>
+                    <label>AMG</label>
+                </value>
+                <value>
+                    <fullName>StarElite</fullName>
+                    <default>false</default>
+                    <label>StarElite</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>City__c</fullName>
@@ -562,29 +602,35 @@
         <description>Event Participant of the Tool Kit</description>
         <externalId>false</externalId>
         <label>Event Participant</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lead</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Media</fullName>
+                    <default>false</default>
+                    <label>Media</label>
+                </value>
+                <value>
+                    <fullName>Lead</fullName>
+                    <default>false</default>
+                    <label>Lead</label>
+                </value>
+                <value>
+                    <fullName>Customer</fullName>
+                    <default>false</default>
+                    <label>Customer</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -603,61 +649,75 @@
         <description>Event Type of the Tool Kit</description>
         <externalId>false</externalId>
         <label>Event Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Road Show</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Festival</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Car Launch</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Joint Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Showroom Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sports Marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Charity</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prints relevant</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Showroom</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Road Show</fullName>
+                    <default>false</default>
+                    <label>Road Show</label>
+                </value>
+                <value>
+                    <fullName>Test Drive</fullName>
+                    <default>false</default>
+                    <label>Test Drive</label>
+                </value>
+                <value>
+                    <fullName>Auto Show</fullName>
+                    <default>false</default>
+                    <label>Auto Show</label>
+                </value>
+                <value>
+                    <fullName>Festival</fullName>
+                    <default>false</default>
+                    <label>Festival</label>
+                </value>
+                <value>
+                    <fullName>New Car Launch</fullName>
+                    <default>false</default>
+                    <label>New Car Launch</label>
+                </value>
+                <value>
+                    <fullName>Joint Event</fullName>
+                    <default>false</default>
+                    <label>Joint Event</label>
+                </value>
+                <value>
+                    <fullName>Showroom Event</fullName>
+                    <default>false</default>
+                    <label>Showroom Event</label>
+                </value>
+                <value>
+                    <fullName>Sports Marketing</fullName>
+                    <default>false</default>
+                    <label>Sports Marketing</label>
+                </value>
+                <value>
+                    <fullName>Charity</fullName>
+                    <default>false</default>
+                    <label>Charity</label>
+                </value>
+                <value>
+                    <fullName>Prints relevant</fullName>
+                    <default>false</default>
+                    <label>Prints relevant</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>New Showroom</fullName>
+                    <default>false</default>
+                    <label>New Showroom</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Event_URL__c</fullName>
@@ -688,29 +748,35 @@
         <description>Feedback Status of the tool kit</description>
         <externalId>false</externalId>
         <label>Feedback Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Planned</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Need Modify</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Planned</fullName>
+                    <default>true</default>
+                    <label>Planned</label>
+                </value>
+                <value>
+                    <fullName>Confirmed</fullName>
+                    <default>false</default>
+                    <label>Confirmed</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Need Modify</fullName>
+                    <default>false</default>
+                    <label>Need Modify</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Location_Size__c</fullName>
@@ -730,25 +796,30 @@
         <description>Location of the Tool Kit</description>
         <externalId>false</externalId>
         <label>Location</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Indoor</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outdoor</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Showrrom</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Indoor</fullName>
+                    <default>false</default>
+                    <label>Indoor</label>
+                </value>
+                <value>
+                    <fullName>Outdoor</fullName>
+                    <default>false</default>
+                    <label>Outdoor</label>
+                </value>
+                <value>
+                    <fullName>Showrrom</fullName>
+                    <default>false</default>
+                    <label>Showrrom</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
@@ -811,45 +882,55 @@
         <description>Media Type of the tool kit</description>
         <externalId>false</externalId>
         <label>Media Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>OOH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Broadcast</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Digital</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Newspaper</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OOH</fullName>
+                    <default>false</default>
+                    <label>OOH</label>
+                </value>
+                <value>
+                    <fullName>TV</fullName>
+                    <default>false</default>
+                    <label>TV</label>
+                </value>
+                <value>
+                    <fullName>Broadcast</fullName>
+                    <default>false</default>
+                    <label>Broadcast</label>
+                </value>
+                <value>
+                    <fullName>Digital</fullName>
+                    <default>false</default>
+                    <label>Digital</label>
+                </value>
+                <value>
+                    <fullName>Mobile</fullName>
+                    <default>false</default>
+                    <label>Mobile</label>
+                </value>
+                <value>
+                    <fullName>Newspaper</fullName>
+                    <default>false</default>
+                    <label>Newspaper</label>
+                </value>
+                <value>
+                    <fullName>Magazine</fullName>
+                    <default>false</default>
+                    <label>Magazine</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Media_URL__c</fullName>
@@ -2166,6 +2247,7 @@ Plan_End_Date__c &lt; Plan_Start_Date__c
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>You can't update Feedback information with current feedback status or apply status.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Event_ToolKit_Quota_Report</fullName>
         <availability>online</availability>

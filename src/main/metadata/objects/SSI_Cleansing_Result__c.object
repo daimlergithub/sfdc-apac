@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,13 +40,16 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -415,44 +414,54 @@
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Weekly New Dealers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weekly New CarModels</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weekly Invalid Total</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weekly Comparision</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Weekly Invalid Detail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Monthly Invalid Total</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Monthly Comparision</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Monthly Invalid Detail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Weekly New Dealers</fullName>
+                    <default>false</default>
+                    <label>Weekly New Dealers</label>
+                </value>
+                <value>
+                    <fullName>Weekly New CarModels</fullName>
+                    <default>false</default>
+                    <label>Weekly New CarModels</label>
+                </value>
+                <value>
+                    <fullName>Weekly Invalid Total</fullName>
+                    <default>false</default>
+                    <label>Weekly Invalid Total</label>
+                </value>
+                <value>
+                    <fullName>Weekly Comparision</fullName>
+                    <default>false</default>
+                    <label>Weekly Comparision</label>
+                </value>
+                <value>
+                    <fullName>Weekly Invalid Detail</fullName>
+                    <default>false</default>
+                    <label>Weekly Invalid Detail</label>
+                </value>
+                <value>
+                    <fullName>Monthly Invalid Total</fullName>
+                    <default>false</default>
+                    <label>Monthly Invalid Total</label>
+                </value>
+                <value>
+                    <fullName>Monthly Comparision</fullName>
+                    <default>false</default>
+                    <label>Monthly Comparision</label>
+                </value>
+                <value>
+                    <fullName>Monthly Invalid Detail</fullName>
+                    <default>false</default>
+                    <label>Monthly Invalid Detail</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Valid__c</fullName>
@@ -548,4 +557,5 @@
     <pluralLabel>SSI Cleansing Results</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

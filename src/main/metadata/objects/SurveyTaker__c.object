@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,14 +40,17 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
@@ -67,7 +66,7 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>	
+    </fields>
     <fields>
         <fullName>Allow_Data_Sharing__c</fullName>
         <defaultValue>true</defaultValue>
@@ -520,18 +519,8 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Survey_Taken_Date__c</fullName>
-		<defaultValue>NOW()</defaultValue>
-        <externalId>false</externalId>
-        <label>Survey Taken Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-	<fields>
         <fullName>Survey_Taken_Date_Time__c</fullName>
-		<defaultValue>NOW()</defaultValue>
+        <defaultValue>NOW()</defaultValue>
         <externalId>false</externalId>
         <label>Survey Taken Date/Time</label>
         <required>false</required>
@@ -540,24 +529,38 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Survey_Taken_Date__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <externalId>false</externalId>
+        <label>Survey Taken Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Survey_Taking_Status__c</fullName>
         <externalId>false</externalId>
         <label>Survey Taking Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>In Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finish</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In Process</fullName>
+                    <default>false</default>
+                    <label>In Process</label>
+                </value>
+                <value>
+                    <fullName>Finish</fullName>
+                    <default>false</default>
+                    <label>Finish</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Survey__c</fullName>
@@ -725,6 +728,28 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>MBC</fullName>
+        <columns>NAME</columns>
+        <columns>Survey__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Lead__c</columns>
+        <columns>Dealer_Account__c</columns>
+        <columns>Account__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Survey__c</field>
+            <operation>equals</operation>
+            <value>コネクショントライアルクルーズ店頭リクエストシート</value>
+        </filters>
+        <label>MBCリクエストシート</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MBK_Surveys_Taken</fullName>
         <columns>NAME</columns>
         <filterScope>Everything</filterScope>
@@ -771,7 +796,7 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <fullName>Survey_Taken_Share__c</fullName>
         <label>Survey Taken Share</label>
     </sharingReasons>
-	<validationRules>
+    <validationRules>
         <fullName>Account_cannot_be_changed</fullName>
         <active>true</active>
         <description>Changes related to SFDCJP-3175</description>
@@ -780,7 +805,8 @@ NOT(ISBLANK(PRIORVALUE(Account__c))),NOT(ISNEW()),ISCHANGED(Account__c))</errorC
         <errorDisplayField>Account__c</errorDisplayField>
         <errorMessage>Survey Taken By Account Can't be changed</errorMessage>
     </validationRules>
-	<webLinks>
+    <visibility>Public</visibility>
+    <webLinks>
         <fullName>SubmitSurvey</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -789,25 +815,25 @@ NOT(ISBLANK(PRIORVALUE(Account__c))),NOT(ISNEW()),ISCHANGED(Account__c))</errorC
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
-var market = &apos;{!Account.MD__c}&apos;; 
-if(market == &apos;KR&apos;){ 
+        <url>{!REQUIRESCRIPT("/soap/ajax/33.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/33.0/apex.js")} 
+{!REQUIRESCRIPT("/support/console/30.0/integration.js")} 
+var market = '{!Account.MD__c}'; 
+if(market == 'KR'){ 
 
-if(typeof(srcUp) == &apos;function&apos;){ 
+if(typeof(srcUp) == 'function'){ 
 if (sforce.console.isInConsole()) { 
-srcUp(&apos;/apex/SubmitSurveyKR?accId={!Account.Id}&apos;); 
+srcUp('/apex/SubmitSurveyKR?accId={!Account.Id}'); 
 }else{ 
-window.open(&apos;/apex/SubmitSurveyKR?accId={!Account.Id}&apos;); 
+window.open('/apex/SubmitSurveyKR?accId={!Account.Id}'); 
 } 
 } else { 
-window.open(&quot;{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?accId={!Account.Id}&quot;); 
+window.open("{!URLFOR($Site.Prefix)}/apex/SubmitSurveyKR?accId={!Account.Id}"); 
 } 
 } 
 else 
 { 
-alert(&quot;{!$Label.Check_DuplicatesErrorMsg}&quot;); 
+alert("{!$Label.Check_DuplicatesErrorMsg}"); 
 }</url>
     </webLinks>
 </CustomObject>

@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,13 +40,16 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -58,52 +57,64 @@
         <fullName>BodyType__c</fullName>
         <externalId>false</externalId>
         <label>BodyType</label>
-        <picklist>
-            <picklistValues>
-                <fullName>4 DOOR COUPE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CABRIO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>COUPE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ESTATE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HATCHBACK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MPV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ROADSTER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SEDAN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SPORTCOUPE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SUV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>4 DOOR COUPE</fullName>
+                    <default>false</default>
+                    <label>4 DOOR COUPE</label>
+                </value>
+                <value>
+                    <fullName>CABRIO</fullName>
+                    <default>false</default>
+                    <label>CABRIO</label>
+                </value>
+                <value>
+                    <fullName>COUPE</fullName>
+                    <default>false</default>
+                    <label>COUPE</label>
+                </value>
+                <value>
+                    <fullName>ESTATE</fullName>
+                    <default>false</default>
+                    <label>ESTATE</label>
+                </value>
+                <value>
+                    <fullName>HATCHBACK</fullName>
+                    <default>false</default>
+                    <label>HATCHBACK</label>
+                </value>
+                <value>
+                    <fullName>MPV</fullName>
+                    <default>false</default>
+                    <label>MPV</label>
+                </value>
+                <value>
+                    <fullName>ROADSTER</fullName>
+                    <default>false</default>
+                    <label>ROADSTER</label>
+                </value>
+                <value>
+                    <fullName>SEDAN</fullName>
+                    <default>false</default>
+                    <label>SEDAN</label>
+                </value>
+                <value>
+                    <fullName>SPORTCOUPE</fullName>
+                    <default>false</default>
+                    <label>SPORTCOUPE</label>
+                </value>
+                <value>
+                    <fullName>SUV</fullName>
+                    <default>false</default>
+                    <label>SUV</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Car_Model__c</fullName>
@@ -169,4 +180,5 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <pluralLabel>VIN Mappings</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

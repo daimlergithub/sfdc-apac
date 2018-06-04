@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,13 +40,16 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
@@ -142,48 +141,59 @@
         <fullName>Settlement_Type__c</fullName>
         <externalId>false</externalId>
         <label>Settlement Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>No Settlement Require</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cash Settlement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gift Settlement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Goodwill Offered</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Buyback</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Trade-In</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Repair voucher</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Extend Warranty</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No Settlement Require</fullName>
+                    <default>false</default>
+                    <label>No Settlement Require</label>
+                </value>
+                <value>
+                    <fullName>Cash Settlement</fullName>
+                    <default>false</default>
+                    <label>Cash Settlement</label>
+                </value>
+                <value>
+                    <fullName>Gift Settlement</fullName>
+                    <default>false</default>
+                    <label>Gift Settlement</label>
+                </value>
+                <value>
+                    <fullName>Goodwill Offered</fullName>
+                    <default>false</default>
+                    <label>Goodwill Offered</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Buyback</fullName>
+                    <default>false</default>
+                    <label>Vehicle Buyback</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Trade-In</fullName>
+                    <default>false</default>
+                    <label>Vehicle Trade-In</label>
+                </value>
+                <value>
+                    <fullName>Repair voucher</fullName>
+                    <default>false</default>
+                    <label>Repair voucher</label>
+                </value>
+                <value>
+                    <fullName>Extend Warranty</fullName>
+                    <default>false</default>
+                    <label>Extend Warranty</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Total_Settlement_Amount__c</fullName>
@@ -214,4 +224,5 @@
         <errorConditionFormula>ISPICKVAL( Settlement_Type__c , 'Others') &amp;&amp;  ISBLANK( Other_Settlement_Type__c )</errorConditionFormula>
         <errorMessage>Please fill in Other Settlement Type.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

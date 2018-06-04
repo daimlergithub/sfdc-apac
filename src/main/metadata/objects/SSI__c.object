@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -44,15 +40,18 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>SSI: To record each SSI record</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
@@ -72,29 +71,35 @@
         <fullName>CarModelCheck_Status__c</fullName>
         <externalId>false</externalId>
         <label>CarModelCheck Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accept</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reject</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>false</default>
+                    <label>Valid</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Accept</fullName>
+                    <default>false</default>
+                    <label>Accept</label>
+                </value>
+                <value>
+                    <fullName>Reject</fullName>
+                    <default>false</default>
+                    <label>Reject</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Comments__c</fullName>
@@ -168,29 +173,35 @@
         <fullName>DealerCheck_Status__c</fullName>
         <externalId>false</externalId>
         <label>DealerCheck Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accept</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reject</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>false</default>
+                    <label>Valid</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Accept</fullName>
+                    <default>false</default>
+                    <label>Accept</label>
+                </value>
+                <value>
+                    <fullName>Reject</fullName>
+                    <default>false</default>
+                    <label>Reject</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>DealerName__c</fullName>
@@ -433,37 +444,45 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Original</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In Process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>All Valid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Matched</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unmatched</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Original</fullName>
+                    <default>true</default>
+                    <label>Original</label>
+                </value>
+                <value>
+                    <fullName>In Process</fullName>
+                    <default>false</default>
+                    <label>In Process</label>
+                </value>
+                <value>
+                    <fullName>All Valid</fullName>
+                    <default>false</default>
+                    <label>All Valid</label>
+                </value>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+                <value>
+                    <fullName>Matched</fullName>
+                    <default>false</default>
+                    <label>Matched</label>
+                </value>
+                <value>
+                    <fullName>Unmatched</fullName>
+                    <default>false</default>
+                    <label>Unmatched</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SurveyAvailableDateSpan__c</fullName>
@@ -482,130 +501,158 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
         <description>If SSI Task Indicator='Close', update Survey Finished field on SSI object.</description>
         <externalId>false</externalId>
         <label>Survey Finished</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1st Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2nd Survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1st Survey</fullName>
+                    <default>false</default>
+                    <label>1st Survey</label>
+                </value>
+                <value>
+                    <fullName>2nd Survey</fullName>
+                    <default>false</default>
+                    <label>2nd Survey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SuspectCarModel_Review__c</fullName>
         <externalId>false</externalId>
         <label>SuspectCarModel Review</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Accept</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reject</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accept</fullName>
+                    <default>false</default>
+                    <label>Accept</label>
+                </value>
+                <value>
+                    <fullName>Reject</fullName>
+                    <default>false</default>
+                    <label>Reject</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SuspectDealer_Review__c</fullName>
         <externalId>false</externalId>
         <label>SuspectDealer Review</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Accept</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reject</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accept</fullName>
+                    <default>false</default>
+                    <label>Accept</label>
+                </value>
+                <value>
+                    <fullName>Reject</fullName>
+                    <default>false</default>
+                    <label>Reject</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Suspect_Reason__c</fullName>
         <description>Data Quality Check rule</description>
         <externalId>false</externalId>
         <label>Suspect Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Time cannot match</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid contact</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Same VIN of current period</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Same contact information of current period</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Government vehicles</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer vehicles &amp; Sub-dealer vehicles</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Same VIN and same contact name</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Same VIN and different contact name</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Same contact and same contact name</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Same contact and different contact name</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Name does not exist</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer vehicles &amp;Sub-dealer vehicles</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Time cannot match</fullName>
+                    <default>false</default>
+                    <label>Time cannot match</label>
+                </value>
+                <value>
+                    <fullName>Invalid contact</fullName>
+                    <default>false</default>
+                    <label>Invalid contact</label>
+                </value>
+                <value>
+                    <fullName>Same VIN of current period</fullName>
+                    <default>false</default>
+                    <label>Same VIN of current period</label>
+                </value>
+                <value>
+                    <fullName>Same contact information of current period</fullName>
+                    <default>false</default>
+                    <label>Same contact information of current period</label>
+                </value>
+                <value>
+                    <fullName>Government vehicles</fullName>
+                    <default>false</default>
+                    <label>Government vehicles</label>
+                </value>
+                <value>
+                    <fullName>Dealer vehicles &amp; Sub-dealer vehicles</fullName>
+                    <default>false</default>
+                    <label>Dealer vehicles &amp; Sub-dealer vehicles</label>
+                </value>
+                <value>
+                    <fullName>Same VIN and same contact name</fullName>
+                    <default>false</default>
+                    <label>Same VIN and same contact name</label>
+                </value>
+                <value>
+                    <fullName>Same VIN and different contact name</fullName>
+                    <default>false</default>
+                    <label>Same VIN and different contact name</label>
+                </value>
+                <value>
+                    <fullName>Same contact and same contact name</fullName>
+                    <default>false</default>
+                    <label>Same contact and same contact name</label>
+                </value>
+                <value>
+                    <fullName>Same contact and different contact name</fullName>
+                    <default>false</default>
+                    <label>Same contact and different contact name</label>
+                </value>
+                <value>
+                    <fullName>Customer Name does not exist</fullName>
+                    <default>false</default>
+                    <label>Customer Name does not exist</label>
+                </value>
+                <value>
+                    <fullName>Dealer vehicles &amp;Sub-dealer vehicles</fullName>
+                    <default>false</default>
+                    <label>Dealer vehicles &amp;Sub-dealer vehicles</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
@@ -623,21 +670,25 @@ IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c )
         <description>Vehicle manufacture type according to sales contract</description>
         <externalId>false</externalId>
         <label>VehicleCBUCKD</label>
-        <picklist>
-            <picklistValues>
-                <fullName>CBU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CKD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CBU</fullName>
+                    <default>false</default>
+                    <label>CBU</label>
+                </value>
+                <value>
+                    <fullName>CKD</fullName>
+                    <default>false</default>
+                    <label>CKD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>VehicleDesc__c</fullName>
@@ -955,6 +1006,7 @@ ISBLANK(Comments__c )
         <errorDisplayField>Comments__c</errorDisplayField>
         <errorMessage>'Comments' fields can not be blank when field SuspectDealer Review is 'Accept'</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Car_Model_Cleansing</fullName>
         <availability>online</availability>
