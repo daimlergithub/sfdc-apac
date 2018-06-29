@@ -1,6 +1,8 @@
 <apex:page standardController="Account" showHeader="flase" sidebar="false">
     <apex:includeScript value="/support/console/27.0/integration.js"/>
     <apex:includeScript value="/soap/ajax/27.0/apex.js"/>
+	
+	
     <script>
         function searchDealer() {
             if (sforce.console.isInConsole()) {
