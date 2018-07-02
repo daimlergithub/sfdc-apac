@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <available>true</available>
-    <encodingKey>ISO-8859-1</encodingKey>
-    <name>Email notification to Requestor when request is created</name>
-    <style>none</style>
-    <subject>Your  {!Registered_Users__c.Name} Request has been Submitted</subject>
-    <type>text</type>
-</EmailTemplate>

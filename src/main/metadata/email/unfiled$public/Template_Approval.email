@@ -1,7 +1,0 @@
-"There is a request for Template Approval.
-Please check the following Template and press approve button or decline with comments.
-
-Template :{!Template__c.TemplateID__c}
-
-Please go to the following URL to login to CRM and view the details of the case.
-URL : {!Template__c.Link}

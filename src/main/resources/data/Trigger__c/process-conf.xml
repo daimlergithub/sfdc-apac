@@ -1,8 +1,0 @@
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-<beans>
-	<bean id="Trigger__c"
-			class="com.salesforce.dataloader.process.ProcessRunner"
-			singleton="false">
-		<property name="name" value="Trigger__c"/>
-	</bean>
-</beans>

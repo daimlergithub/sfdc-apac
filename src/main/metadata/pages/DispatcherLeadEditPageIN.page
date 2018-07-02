@@ -1,9 +1,0 @@
-<!--
-** Class		: DispatcherLeadEditControllerIN 
-** Description	: Page to redirect lead edit page on the basis of recordType
-** Created By	: Prem Kumar
-** Date			: 29/03/2018
-**-->
-
-<apex:page standardController="opportunity" extensions="DispatcherLeadEditControllerIN" action="{!goToRecordTypePage}">
-</apex:page>

@@ -1,9 +1,0 @@
-Hi {!Registered_Users__c.last_Name__c}, 
-
-This is to inform you that a request for community user creation has been submitted. 
-
-Your request details can be found at: 
-{!Registered_Users__c.Link}
-
-Thanks 
-Environment Admin

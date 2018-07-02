@@ -1,9 +1,0 @@
-Hi {!Registered_Users__c.last_Name__c}, 
-
-This is to inform you that request for User Creation in RUG Collaboration Community has been rejected. 
-
-Approver's Comment : 
-{!ApprovalRequest.Comments} 
-
-Thanks, 
-Environment Admin

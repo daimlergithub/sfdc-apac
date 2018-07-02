@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <available>true</available>
-    <encodingKey>UTF-8</encodingKey>
-    <name>TH_Retail Campaign Planning And Design Notification to Dealers</name>
-    <style>none</style>
-    <subject>The Planning and Design Campaign  {!Retail_Campaign__c.Name}   is assigned to you</subject>
-    <type>text</type>
-</EmailTemplate>

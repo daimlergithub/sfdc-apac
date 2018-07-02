@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<apex:page action="{!URLfor('/OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX?isdtp=it')}" tabStyle="Retail_Campaign__c">
-  <h1>Retail Campaign</h1>
-</apex:page>

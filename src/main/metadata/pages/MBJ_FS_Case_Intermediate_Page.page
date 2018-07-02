@@ -1,3 +1,0 @@
-<apex:page standardController="Case" extensions="MBJ_FS_Case_Intermediate_Controller" action="{!Redirect}">
-
-</apex:page>

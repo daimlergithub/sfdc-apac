@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <available>true</available>
-    <encodingKey>UTF-8</encodingKey>
-    <name>Assigned to Dealer Gatekeeper Lead</name>
-    <style>none</style>
-    <subject>[{!Lead__c.Name} 새로운 {!Lead__c.RecordType} 리드 인입 알림]</subject>
-    <type>text</type>
-</EmailTemplate>
