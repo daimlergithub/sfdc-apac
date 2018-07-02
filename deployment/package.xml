@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sharingRules</fullName>
+	<types>
+        <members>Opportunity.Opportunity_ANZ</members>
+        <members>Opportunity.Opportunity_AU</members>
+        <members>Opportunity.Opportunity_NZ</members>
+        <members>Opportunity.Share_RW_to_MB_India_Management</members>
+        <name>SharingCriteriaRule</name>
+    </types>
+    <version>42.0</version>
+</Package>

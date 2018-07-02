@@ -1,251 +1,80 @@
-﻿<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:if="ant:if" xmlns:unless="ant:unless" default="deploy">
- 
-<property name="file.checksums.local" value="timestamps-updated.log"/>
-<!-- This property is for debugging only. If set to true, no changes will be applied to the metadata in SFDC and the local checksums file. -->
-<property name="dryrun" value="false"/>
+<project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
 
-<property prefix="sfdc" file="build.properties" unless:set="CI"/>
+    <property file="build.properties"/>
+    <property environment="env"/>
+	
 
-<presetdef name="deploy">
-			<sf:deploy
-				debug="${sfdc.debug}" dryRun="${dryrun}"
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
-				transformationsRoot="src/main/transformations" checksums="${file.checksums.local}"/>
-</presetdef>
+    <!-- Setting default value for username, password and session id properties to empty string 
+         so unset values are treated as empty. Without this, ant expressions such as ${sf.username}
+         will be treated literally.
+    -->
+    <condition property="sf.username" value=""> <not> <isset property="sf.username"/> </not> </condition>
+    <condition property="sf.password" value=""> <not> <isset property="sf.password"/> </not> </condition>
+    <condition property="sf.sessionId" value=""> <not> <isset property="sf.sessionId"/> </not> </condition>
 
-<presetdef name="loadData">
-			<sf:loadData
-				debug="${sfdc.debug}"
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}"
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-				dataRoot="src/main/resources/data" logDir="logs"/>
-</presetdef>
+    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="../ant-salesforce.jar" />        	
+        </classpath>
+    </taskdef>
+	
+    <!-- Test out deploy and retrieve verbs for package 'mypkg' -->
+    <target name="test">
+      <!-- Upload the contents of the "mypkg" package -->
+      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}"  deployRoot="mypkg" rollbackOnError="true"/>
+      <mkdir dir="retrieveOutput"/>
+      <!-- Retrieve the contents into another directory -->
+      <sf:retrieve username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" retrieveTarget="retrieveOutput" packageNames="MyPkg"/>
+    </target>
 
-<target name="gitVersion">
-			<exec executable="git" outputproperty="git.version">
-							<arg line="rev-parse HEAD"/>
-			</exec>
-			<echo message="Git version is ${git.version}."/>
-</target>
+    <!-- Retrieve an unpackaged set of metadata from your org -->
+    <!-- The file unpackaged/package.xml lists what is to be retrieved -->
+    <target name="retrieveUnpackaged">
+      <mkdir dir="retrieveUnpackaged"/>
+      <!-- Retrieve the contents into another directory -->
+      <sf:retrieve username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" retrieveTarget="retrieveUnpackaged" unpackaged="unpackaged/package.xml"/>
+    </target>
 
-<target name="proxy">
-			<property name="proxy.host" value="${proxy.host}" /> 
-<property name="proxy.port" value="${proxy.port}" /> 
-<property name="proxy.username" value="${proxy.username}" /> 
-<property name="proxy.password" value="${proxy.password}"/>
-<setproxy proxyhost="${sfdc.proxy.host}" proxyport="${sfdc.proxy.port}" proxyuser="${sfdc.proxy.username}" proxypassword="${sfdc.proxy.password}" />
-</target>
+    <!-- Retrieve all the items of a particular metadata type -->
+    <target name="bulkRetrieve">
+      <sf:bulkRetrieve username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" metadataType="${sf.metadataType}" retrieveTarget="retrieveUnpackaged"/>
+    </target>
 
-<target name="deployAll">
-			<delete file="${file.checksums.local}" quiet="true"/>
-			<property name="skip.checksum.retrieval" value="true"/>
-			<antcall target="deploy"/>
-</target>
-
-<target name="retrieveChecksums">
-			<sf:retrieveChecksums unless:set="skip.checksum.retrieval"
-											sfdcName="${sfdc.checksums}" dryRun="${dryrun}" checksums="${file.checksums.local}"
-											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
-</target>
-
-<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, postDestructiveChanges">
-<!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">-->
-<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
-											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
-			<fail if:set="failed.deploy.step" message="Deployment failed in step ${failed.deploy.step}."/>
-</target>
-
-<target name="preDestructiveChanges">
-			<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
-			<property name="persistedOnly" value="false" unless:set="CI"/>
-			<property name="persistedOnly" value="true" if:set="CI"/>
-		   
-			<sf:deployDestructiveChanges
-											dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre" debug="${sfdc.debug}"
-											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>		
-</target>
-
-<target name="postDestructiveChanges">
-			<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
-			<property name="persistedOnly" value="false" unless:set="CI"/>
-			<property name="persistedOnly" value="true" if:set="CI"/>
-		   
-			<sf:deployDestructiveChanges
-											dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post" debug="${sfdc.debug}"
-											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>			
-</target>
+    <!-- Retrieve metadata for all the packages specified under packageNames -->
+    <target name="retrievePkg">
+      <sf:retrieve username="${sf.username}" password="${sf.password}"  sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" retrieveTarget="retrieveOutput" packageNames="${sf.pkgName}"/>
+    </target>
 
 
-			<target name="deploy01">
-				<deploy runAllTests="${sfdc.runAllTests}">
-					<sf:typeset name="labels"/>
-					<sf:typeset name="staticresources">
-					<!-- the Checksums resource is handled by separate tasks -->
-						<sf:exclude name="Checksums"/>
-						<sf:include name="treeHierarhy"/>
-						<sf:include name="jquery142"/>
-						<sf:include name="jQuery"/>
-						<sf:include name="Angular"/>
-						<sf:include name="Bootstrap"/>
-						<sf:include name="UiBootstrap"/>
-						<sf:include name="jQueryCSV"/>
-						<sf:include name="JSforce"/>
-						<sf:include name="ContactTableVfStylesheet"/>
-						<sf:include name="RetailCampaignSegmentation"/>
-						<sf:include name="SurveyForce"/>
-						<sf:include name="Timeline_CSS"/>
-						<sf:include name="RetailCampaignTimeline_JS"/>											
-						<sf:include name="False_Checkbox"/>
-						<sf:include name="True_Checkbox"/>
-						<sf:include name="angularSanitize"/>
-						<sf:include name="GreenLed"/>
-						<sf:include name="RedLed"/>
-						<sf:include name="Rug_low"/>
-						<sf:include name="Rug_max"/>
-						<sf:include name="Rug_med"/>
-						<sf:include name="RugHomeImage"/>
-						<sf:include name="Rugimage"/>
-					</sf:typeset>
-					<sf:typeset name="remoteSiteSettings"/>
-					<sf:typeset name="roles"/>
-					<sf:typeset name="documents"/>
-					<sf:typeset name="callCenters"/>
-				</deploy>
-			</target>
- 			<target name="deploy05">
-				<deploy transformations="transformations29.xml" runAllTests="${sfdc.runAllTests}">
-			
-					<sf:typeset name="customPermissions" force="true"/>
-					<sf:typeset name="letterhead" force="true"/>						
-					<sf:typeset name="objects"/> 	
-					<sf:typeset name="queues"/>
-					<sf:typeset name="email"/>
-					<sf:typeset name="components"/>
-					<sf:typeset name="tabs">
-						<sf:include name="selectAllChkBox"/>
-						<sf:include name="Retail_Campaigns"/>
-					</sf:typeset>
-					<sf:typeset name="classes">
-						<sf:exclude name="WSMockAddressValidationRespInvalidAddrTH"/>
-					</sf:typeset>
-					<sf:typeset name="pages"/>
-					<sf:typeset name="triggers"/>								
-					<sf:typeset name="profiles" suppressChecksumUpdate="true"/>	
-						
-				</deploy>
-			</target> 
-			<target name="deploy07">
-				<deploy runAllTests="${sfdc.runAllTests}">
-				<sf:typeset name="letterhead"/>                                          
-					<sf:typeset name="tabs">
-						<sf:exclude name="selectAllChkBox"/>
-						<sf:exclude name="Retail_Campaigns"/>                                                 
-					</sf:typeset>                   
-					<sf:typeset name="layouts" /> 
-					<sf:typeset name="groups"/>
-					<sf:typeset name="approvalProcesses"/>
-					<sf:typeset name="workflows"/>
-					<sf:typeset name="flows"/>
-					<sf:typeset name="applications"/>
-					<sf:typeset name="settings"/>
-					<sf:typeset name="permissionsets"/>
-					<sf:typeset name="weblinks"/>
-					<sf:typeset name="homePageComponents"/>
-					<sf:typeset name="homePageLayouts"/> 
-					<sf:typeset name="appMenus">
-						<sf:exclude name="AppSwitcher"/>
-					</sf:typeset>
-					<sf:typeset name="accountSharingRules"/>
-					<sf:typeset name="campaignSharingRules"/>
-					<sf:typeset name="caseSharingRules"/>
-					<sf:typeset name="customObjectSharingRules"/>
-					<sf:typeset name="reportTypes"/>
-					<sf:typeset name="reports"/>
-					<sf:typeset name="dashboards"/>
-					<sf:typeset name="datacategorygroups">
-						<sf:exclude name="Topic"/>
-					</sf:typeset>
-					<!--<sf:typeset name="objectTranslations">
-						<sf:exclude name="Account-ja"/>
-						<sf:exclude name="Account-ko"/>
-					</sf:typeset> -->
-					<sf:typeset name="translations"/>
-				</deploy>
-			</target>
-			<target name="deploy09">
-				<deploy>    
-					<sf:typeset name="profiles" force="true">								
-					</sf:typeset>
-				</deploy>
-			</target>           
 
 
-<target name="loaddata-oliver">
-			<mkdir dir="logs"/>
-			<loadData logDir="logs" configId="oliverkoethap1__Environment_Specific_Values__c"/>
-</target>
+    <!-- Shows retrieving code; only succeeds if done after deployCode -->
+    <target name="retrieveCode">
+      <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
+      <sf:retrieve 
+	  username="${sf.username}" 
+	  password="${sf.password}"  
+	  serverurl="${sf.serverurl}" 
+	  retrieveTarget="target" unpackaged="target/package.xml"/>
+ <property name="proxy.host" value="10.87.21.34"/>
+ <property name="proxy.port" value="80"/>
+ <property name="proxy.user" value="itlinfosys\debasmita.kundu"/>
+ <property name="proxy.pwd" value="Kolkata@6"/>
+ <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
+    </target>
+	<!--Deploying code-->
+	<target name="deployUnpackaged">
+      <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
+	  <!-- NoTestRun, RunLocalTests,  -->
+		<sf:deploy username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}" deployroot="deployment" testLevel="RunSpecifiedTests" checkOnly="false">
+			<runTest>IndividualEmailResultHelperTHTest</runTest>
+		</sf:deploy>  
+		<property name="proxy.host" value="${proxy.host}"/>
+		<property name="proxy.port" value="${proxy.port}"/>
+		<property name="proxy.user" value="${proxy.user}"/>
+		<property name="proxy.pwd" value="${proxy.pwd}"/>
+		<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
+    </target>
 
-<target name="loaddata">
-			<mkdir dir="logs"/>
-			<loadData logDir="logs" configId="Environment_Specific_Values__c"/>
-</target>
 
-<target name="loaddata-trigger">
-			<mkdir dir="logs"/>
-			<loadData logDir="logs" configId="Trigger__c"/>
-</target>
-<!--SN20170912 - Added Custom Permissions-->
-<property name="typesets.circle">
-			CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,CustomObjectTranslation,Translations,InstalledPackage,ReportType,Report,DataCategoryGroup,
-
-			Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile,Flow,Dashboard,CustomPermission,Letterhead
-</property>
-
-<property name="typesets.not-ready">
-</property>
-
-<target name="retrieve" depends="gitVersion">
-			<sf:checkChecksumsVersion
-											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											gitVersion="${git.version}" sfdcName="${sfdc.checksums}" dryRun="${dryrun}" checksums="${file.checksums.local}" />
-
-			<!-- retrieves all metadata -->
-			<sf:retrieve
-											debug="${sfdc.debug}" dryRun="${dryrun}" cleanupOther="false"
-											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations">
-							<sf:typesets names="${typesets.circle}"/>
-							<sf:feature name="exclude-checksums" param="Checksums"/>
-							<sf:feature name="include-personaccount"/>
-							<sf:feature name="package-namespaces" param="AES_SFConnector,NttDataEpa"/>
-			</sf:retrieve>
-		   
-			<!-- retrieves all metadata -->
-			<!--sf:retrieve
-										   debug="${sfdc.debug}" dryRun="false" cleanupOther="true"
-											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
-											retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
-							<sf:typesets names="${typesets.not-ready}"/>
-							<sf:feature name="include-personaccount"/>
-			</sf:retrieve-->
-		   
-			<sf:finalizeDestructiveChanges
-											dryRun="${dryrun}" deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
-</target>
-
-<target name="runAllTests">
-			<sf:runAllTests debug="${sfdc.debug}" dryRun="${dryrun}"
-											username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}"
-											useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
-</target>
 </project>
