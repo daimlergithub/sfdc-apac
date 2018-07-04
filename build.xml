@@ -56,10 +56,10 @@
 	  password="${sf.password}"  
 	  serverurl="${sf.serverurl}" 
 	  retrieveTarget="target" unpackaged="target/package.xml"/>
- <property name="proxy.host" value="10.87.21.34"/>
+ <property name="proxy.host" value="10.219.2.220"/>
  <property name="proxy.port" value="80"/>
- <property name="proxy.user" value="itlinfosys\debasmita.kundu"/>
- <property name="proxy.pwd" value="Kolkata@6"/>
+ <property name="proxy.user" value="itlinfosys\saurabh.juyal"/>
+ <property name="proxy.pwd" value="Bhanu1988%5"/>
  <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
     </target>
 	<!--Deploying code-->
@@ -67,7 +67,7 @@
       <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
 	  <!-- NoTestRun, RunLocalTests,  -->
 		<sf:deploy username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}" deployroot="deployment" testLevel="RunSpecifiedTests" checkOnly="false">
-			<runTest>IndividualEmailResultHelperTHTest</runTest>
+			<runTest>IndividualEmailResultHelperTHTest</runTest> 
 		</sf:deploy>  
 		<property name="proxy.host" value="${proxy.host}"/>
 		<property name="proxy.port" value="${proxy.port}"/>
@@ -76,5 +76,8 @@
 		<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
     </target>
 
+	 <target name="undeploy">
+     <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployroot="Destructive"/>
+     </target>
 
 </project>
