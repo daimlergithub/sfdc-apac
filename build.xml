@@ -76,7 +76,7 @@
 	  <!--	<property name="sfdc.proxy.pwd" value="${proxy.pwd}"/>  -->
       
 
-		<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
+		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" /> -->
     </target>
 
 	 <target name="undeploy">
