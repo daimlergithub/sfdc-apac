@@ -71,8 +71,11 @@
 		</sf:deploy>  
 		<property name="sfdc.proxy.host" value="${proxy.host}"/>
 		<property name="sfdc.proxy.port" value="${proxy.port}"/>
-		<property name="sfdc.proxy.user" value="${proxy.user}"/>
-		<property name="sfdc.proxy.pwd" value="${proxy.pwd}"/>
+		
+      <!-- <property name="sfdc.proxy.user" value="${proxy.user}"/> -->
+	  <!--	<property name="sfdc.proxy.pwd" value="${proxy.pwd}"/>  -->
+      
+
 		<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
     </target>
 
