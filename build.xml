@@ -68,17 +68,17 @@
 	<target name="deployUnpackaged">
       <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
 	  <!-- NoTestRun, RunLocalTests,  -->
-		<sf:deploy username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}" deployroot="deployment" testLevel="NoTestRun" checkOnly="true">
+		<sf:deploy username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}" deployroot="deployment" testLevel="NoTestRun" checkOnly="false">
 			<!-- <runTest>IndividualEmailResultHelperTHTest</runTest>  --> 
 		</sf:deploy>  
-		<!-- <property name="proxy.host" value="${proxy.host}"/> -->
-		<!-- <property name="proxy.port" value="${proxy.port}"/> -->
+		<property name="proxy.host" value="${proxy.host}"/> 
+		<property name="proxy.port" value="${proxy.port}"/>
 		<!-- <property name="proxy.user" value="${proxy.user}"/> -->
 		<!-- <property name="proxy.pwd" value="${proxy.pwd}"/> -->
 		
 		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />  -->
 		
-		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" /> -->
+		<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" />
 		
     </target>
 
