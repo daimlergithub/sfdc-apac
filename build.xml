@@ -51,27 +51,40 @@
     <!-- Shows retrieving code; only succeeds if done after deployCode -->
     <target name="retrieveCode">
       <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
-      <sf:retrieve username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}" retrieveTarget="target" unpackaged="target/package.xml"/>
-	   <property name="proxy.host" value="${proxy.host}"/>
- <property name="proxy.port" value="${proxy.port}"/>
- <property name="proxy.user" value="${proxy.user}"/>
- <property name="proxy.pwd" value="${proxy.pwd}"/>
- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
+      <sf:retrieve 
+	  username="${sf.username}" 
+	  password="${sf.password}"  
+	  serverurl="${sf.serverurl}" 
+	  retrieveTarget="target" unpackaged="target/package.xml"/>
+ <!-- <property name="proxy.host" value="10.219.2.220"/> -->
+ <!-- <property name="proxy.port" value="80"/> -->
+ <!-- <property name="proxy.user" value="itlinfosys\saurabh.juyal"/> -->
+ <!-- <property name="proxy.pwd" value="Bhanu1988%5"/>  -->
+ 
+ <!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" /> -->
+ 
     </target>
 	<!--Deploying code-->
 	<target name="deployUnpackaged">
       <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
 	  <!-- NoTestRun, RunLocalTests,  -->
-		<sf:deploy username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}" deployroot="deployment" testLevel="RunSpecifiedTests" checkOnly="false">
-			<runTest>AccountHelperTHTest</runTest>
-			<runTest>AddressHelperBaseTest</runTest>
-			<runTest>TriggerAddressTriggerHandlerTHTest</runTest>
-			<runTest>TriggerAccountTriggerHandlerTHTest</runTest>
-		</sf:deploy>
-		<property name="proxy.host" value="${proxy.host}"/>
-		<property name="proxy.port" value="${proxy.port}"/>
-		<property name="proxy.user" value="${proxy.user}"/>
-		<property name="proxy.pwd" value="${proxy.pwd}"/>
-		<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
+		<sf:deploy username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}" deployroot="deployment" testLevel="NoTestRun" checkOnly="true">
+			<!-- <runTest>IndividualEmailResultHelperTHTest</runTest>  --> 
+		</sf:deploy>  
+		<!-- <property name="proxy.host" value="${proxy.host}"/> -->
+		<!-- <property name="proxy.port" value="${proxy.port}"/> -->
+		<!-- <property name="proxy.user" value="${proxy.user}"/> -->
+		<!-- <property name="proxy.pwd" value="${proxy.pwd}"/> -->
+		
+		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />  -->
+		
+		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" /> -->
+		
     </target>
+
+	
+	 <target name="undeploy">
+     <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployroot="Destructive"/>
+     </target>
+
 </project>
