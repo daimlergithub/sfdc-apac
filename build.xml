@@ -71,14 +71,17 @@
 		<sf:deploy username="${sfdc.username}" password="${sfdc.password}"  serverurl="${sfdc.serverurl}" deployroot="deployment" testLevel="NoTestRun" checkOnly="false">
 			<!-- <runTest>IndividualEmailResultHelperTHTest</runTest>  --> 
 		</sf:deploy>  
-		<property name="proxy.host" value="${proxy.host}"/> 
-		<property name="proxy.port" value="${proxy.port}"/>
+		<property name="proxy.host" value="${sfdc.proxy.host}"/> 
+		<property name="proxy.port" value="${sfdc.proxy.port}"/>
+      
+       <!-- <property name="proxy.host" value="${proxy.host}"/> -->
+	   <!-- <property name="proxy.port" value="${proxy.port}"/>  -->
 		<!-- <property name="proxy.user" value="${proxy.user}"/> -->
 		<!-- <property name="proxy.pwd" value="${proxy.pwd}"/> -->
 		
 		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />  -->
 		
-		<setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" />
+		<setproxy proxyhost="${sfdc.proxy.host}" proxyport="${sfdc.proxy.port}" />
 		
     </target>
 
