@@ -56,12 +56,12 @@
 	  password="${sf.password}"  
 	  serverurl="${sf.serverurl}" 
 	  retrieveTarget="target" unpackaged="target/package.xml"/>
- <!-- <property name="proxy.host" value="10.219.2.220"/> -->
- <!-- <property name="proxy.port" value="80"/> -->
- <!-- <property name="proxy.user" value="itlinfosys\saurabh.juyal"/> -->
- <!-- <property name="proxy.pwd" value="Bhanu1988%5"/>  -->
+      <property name="proxy.host" value="10.219.2.220"/> 
+      <property name="proxy.port" value="80"/>
+      <property name="proxy.user" value="itlinfosys\saurabh.juyal"/>
+      <property name="proxy.pwd" value="Bhanu1988%5"/>
  
- <!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" /> -->
+      <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" /> 
  
     </target>
 	<!--Deploying code-->
@@ -74,14 +74,18 @@
 		<!-- <property name="sfdc.proxy.host" value="${sfdc.proxy.host}"/> -->
 		<!-- <property name="sfdc.proxy.port" value="${sfdc.proxy.port}"/> -->
       
-       <!-- <property name="proxy.host" value="${proxy.host}"/> -->
-	   <!-- <property name="proxy.port" value="${proxy.port}"/>  -->
-		<!-- <property name="proxy.user" value="${proxy.user}"/> -->
-		<!-- <property name="proxy.pwd" value="${proxy.pwd}"/> -->
+            <!--  <property name="proxy.host" value="${proxy.host}"/> -->
+	        <!--  <property name="proxy.port" value="${proxy.port}"/> -->
+		    <!--  <property name="proxy.user" value="${proxy.user}"/> -->
+		    <!--  <property name="proxy.pwd" value="${proxy.pwd}"/> -->
+      
+      <property name="proxy.host" value="53.90.36.56"/> 
+      <property name="proxy.port" value="3128"/>
+      
 		
-		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />  -->
+		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />  --> 
 		
-		<!-- <setproxy proxyhost="${sfdc.proxy.host}" proxyport="${sfdc.proxy.port}" /> -->
+		<setproxy proxyhost="${sfdc.proxy.host}" proxyport="${sfdc.proxy.port}" />
 		
     </target>
 
