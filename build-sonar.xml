@@ -1,4 +1,4 @@
-<project name="VillageChief DataHub" xmlns:sf="salesforce">
+<project name="ITS.INT.CRM" xmlns:sf="salesforce">
   <property file="sonar.properties"/>
   <!-- Define the Sonar task -->
   <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
