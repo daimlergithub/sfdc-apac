@@ -1,9 +1,9 @@
 <project name="ITS.INT.CRM" xmlns:sf="salesforce">
   <property file="sonar.properties"/>
-  <!-- Define the Sonar task -->
-  <taskdef uri="antlib:org.sonar.ant" resource="/appl/utilities/sonarqube/sonarqube-7.0/plugins/sonar-salesforce-plugin/antlib.xml">
+  <!-- Define the Sonar task 
+  <taskdef uri="/appl/utilities/sonarqube/sonarqube-7.0/plugins/sonar-salesforce-plugin/" resource="antlib.xml">
     <classpath path="sonar-ant-task-2.2.jar" />
-  </taskdef>
+  </taskdef>-->
   <!-- Add the target -->
   <target name="sonar">
     <!-- to be set by Jenkins or manually -->
@@ -28,7 +28,7 @@
 	<property name="sonar.projectName" value="${sonar.projectName}" />
 	<!-- New Props added on 15Jul2018 -->
 	<property name="sonar.projectVersion" value="1.0" />
-	<!--<property name="sonar.java.binaries" value="build" />
+	<!-- <property name="sonar.java.binaries" value="build" />
 	<property name="sonar.java.libraries" value="lib/*.jar" />-->
 	<property name="sonar.host.url" value="http://53.23.179.30:9001" />
     <!--<sonar:sonar xmlns:sonar="antlib:org.sonar.ant"/>-->
