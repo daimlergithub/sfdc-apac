@@ -1,9 +1,9 @@
 <project name="VillageChief DataHub" xmlns:sf="salesforce">
   <property file="sonar.properties"/>
-  <!-- Define the Sonar task 
+  <!-- Define the Sonar task -->
   <taskdef uri="/appl/utilities/sonarqube/sonarqube-7.0/plugins/sonar-salesforce-plugin/" resource="antlib.xml">
     <classpath path="sonar-ant-task-2.2.jar" />
-  </taskdef>-->
+  </taskdef>
   <!-- Add the target -->
   <target name="sonar">
     <!-- to be set by Jenkins or manually -->
