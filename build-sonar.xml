@@ -1,8 +1,8 @@
 <project name="VillageChief DataHub" xmlns:sf="salesforce">
   <property file="sonar.properties"/>
   <!-- Define the Sonar task -->
-  <taskdef uri="" resource="/appl/utilities/sonarqube/sonarqube-7.0/plugins/sonar-salesforce-plugin/antlib.xml">
-    <classpath path="sonar-ant-task-2.2.jar" />
+  <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+    <classpath path="/appl/utilities/sonarqube/sonarqube-7.0/plugins/sonar-salesforce-plugin/sonar-salesforce-plugin-4.1.1.jar" />
   </taskdef>
   <!-- Add the target -->
   <target name="sonar">
@@ -34,3 +34,4 @@
     <!--<sonar:sonar xmlns:sonar="antlib:org.sonar.ant"/>-->
   </target>
 </project>
+
