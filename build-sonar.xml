@@ -2,7 +2,7 @@
   <property file="sonar.properties"/>
   <!-- Define the Sonar task -->
   <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
-    <classpath path="sonar-salesforce-plugin-4.1.1.jar" />
+    <classpath path="/appl/utilities/sonarqube/sonarqube-7.0/plugins/sonar-salesforce-plugin/sonar-salesforce-plugin-4.1.1.jar" />
   </taskdef>
   <!-- Add the target -->
   <target name="sonar">
