@@ -1,9 +1,9 @@
 <project name="ITS.INT.CRM" xmlns:sf="salesforce">
   <property file="sonar.properties"/>
-  <!-- Define the Sonar task -->
+  <!-- Define the Sonar task 
   <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
     <classpath path="sonar-ant-task-2.2.jar" />
-  </taskdef>
+  </taskdef>-->
   <!-- Add the target -->
   <target name="sonar">
     <!-- to be set by Jenkins or manually -->
