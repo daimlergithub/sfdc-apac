@@ -1,4 +1,4 @@
-<project name="ITS.INT.CRM" xmlns:sf="salesforce">
+<project name="VillageChief DataHub" xmlns:sf="salesforce">
   <property file="sonar.properties"/>
   <!-- Define the Sonar task 
   <taskdef uri="/appl/utilities/sonarqube/sonarqube-7.0/plugins/sonar-salesforce-plugin/" resource="antlib.xml">
