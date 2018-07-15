@@ -1,7 +1,7 @@
 <project name="ITS.INT.CRM" xmlns:sf="salesforce">
   <property file="sonar.properties"/>
   <!-- Define the Sonar task -->
-  <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+  <taskdef uri="antlib:org.sonar.ant" resource="/appl/utilities/sonarqube/sonarqube-7.0/plugins/sonar-salesforce-plugin/antlib.xml">
     <classpath path="sonar-ant-task-2.2.jar" />
   </taskdef>
   <!-- Add the target -->
