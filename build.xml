@@ -79,8 +79,8 @@
 		    <!--  <property name="proxy.user" value="${proxy.user}"/> -->
 		    <!--  <property name="proxy.pwd" value="${proxy.pwd}"/> -->
       
-      <property name="proxy.host" value="53.90.36.56"/> 
-      <property name="proxy.port" value="3128"/>
+      <property name="sfdc.proxy.host" value="53.90.36.56"/> 
+      <property name="sfdc.proxy.port" value="3128"/>
       
 		
 		<!-- <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />  --> 
