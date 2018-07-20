@@ -68,8 +68,9 @@
 	<target name="deployUnpackaged">
       <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
 	  <!-- NoTestRun, RunLocalTests,  -->
-		<sf:deploy username="${sfdc.username}" password="${sfdc.password}"  serverurl="${sfdc.serverurl}" deployroot="deployment" testLevel="NoTestRun" checkOnly="false">
-			<!-- <runTest>IndividualEmailResultHelperTHTest</runTest>  --> 
+		<!-- <sf:deploy username="${sfdc.username}" password="${sfdc.password}"  serverurl="${sfdc.serverurl}" deployroot="deployment" testLevel="NoTestRun" checkOnly="false"> -->
+			<sf:deploy username="${sfdc.username}" password="${sfdc.password}"  serverurl="${sfdc.serverurl}" deployroot="${sfdc.deployroot}" testLevel="${sfdc.testLevel}" checkOnly="${sfdc.checkOnly}">
+           <!-- <runTest>IndividualEmailResultHelperTHTest</runTest>  --> 
 		</sf:deploy>  
 		<!-- <property name="sfdc.proxy.host" value="${sfdc.proxy.host}"/> -->
 		<!-- <property name="sfdc.proxy.port" value="${sfdc.proxy.port}"/> -->
