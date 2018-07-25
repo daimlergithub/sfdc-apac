@@ -70,6 +70,44 @@
         <name>Retail Task Service Records</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MBIN_Service_history_records_share_to_all_MPC_users</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>MBIN Service history records share to all MPC users with Read access.</description>
+        <name>MBIN Service history records share to all MPC users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBIndiaFS_Service_history_records_sharing_rule</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBIndiaFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>MBFS Service history records share to all FS users with Read access.</description>
+        <name>MBIndiaFS Service history records sharing rule</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
         <fullName>ShareWithMBTH</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
@@ -106,6 +144,25 @@
         <accessLevel>Read</accessLevel>
         <description>MBMY Service history records share to all MY users with Read access.</description>
         <name>MBMY Service history records share to all MY users</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MBFS_Service_history_records_sharing_rule</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>MBFS Service history records share to all FS users with Read access.</description>
+        <name>MBFS Service history records sharing rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_Contract_Service_with_Region</fullName>

@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -56,8 +68,9 @@
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -83,6 +96,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+	    <picklistValues>
+                <fullName>TR</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>false</restrictedPicklist>
@@ -117,6 +134,24 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	   <fields>
+        <fullName>Missing_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Missing Flag</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>	
+	 <fields>
+        <fullName>Email_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Email OptOut</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields> 
     <fields>
         <fullName>Add_Service_Staff__c</fullName>
         <defaultValue>false</defaultValue>
@@ -192,6 +227,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Convert_By_Others__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Convert By Others</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
 	<fields>
         <fullName>Outstanding_Balance_amount__c</fullName>
@@ -564,6 +607,26 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Customer_FirstName__c</fullName>
+        <description>It holds Customer First Name</description>
+        <externalId>false</externalId>
+        <label>Customer FirstName</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_HomePhone__c</fullName>
+        <description>It holds Customer Home phone</description>
+        <externalId>false</externalId>
+        <label>Customer HomePhone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
     <fields>
         <fullName>Customer_Interest_Rate__c</fullName>
         <externalId>false</externalId>
@@ -585,6 +648,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Customer_LastName__c</fullName>
+        <description>It holds Customer Last Name</description>
+        <externalId>false</externalId>
+        <label>Customer LastName</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Customer_Mobile__c</fullName>
         <externalId>false</externalId>
@@ -595,6 +669,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Customer_WorkPhone__c</fullName>
+        <description>It holds Customer Work Phone</description>
+        <externalId>false</externalId>
+        <label>Customer WorkPhone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
     </fields>
     <fields>
         <fullName>DM_Template__c</fullName>
@@ -1121,6 +1204,85 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>OptOutContact_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>OptOutContact Reason</label>
+        <picklist>
+            <controllingField>Market__c</controllingField>
+            <picklistValues>
+                <fullName>Campaign (Aftersales)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (Finance)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (New Car)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (Aftersales)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (New Car)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fair</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Aftersales)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Finance)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (New Car)</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+                <controllingFieldValues>JP</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
     <fields>
         <fullName>Participate_Date__c</fullName>
         <description>This field is used to capture the customer's participating date</description>
@@ -1159,6 +1321,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+	 <fields>
+        <fullName>Postal_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Postal OptOut</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Preferred_Dealer__c</fullName>
@@ -1473,6 +1643,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>Not Responded</fullName>
+                <default>false</default>
+            </picklistValues>
+			            <picklistValues>
+                <fullName>No Lead</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1889,7 +2063,7 @@ window.open("{!URLFOR($Site.Prefix)}/apex/ConvertToLeadMY?CampaignId={!IF( ISBLA
         <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
 {!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
 
-var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}' AND Status__c='Responded'");
+var campaignMember = sforce.connection.query("SELECT id from Campaign_Member__c WHERE id = '{!Campaign_Member__c.Id}'");
 
 
 var qrerecords = campaignMember.getArray("records");
@@ -2011,7 +2185,12 @@ if(JPmarketusr &amp;&amp; ('{!User.Profile}' == 'Japan Dealer Sales Manager' || 
 else
 {
  var marketusr={!ISPICKVAL($User.Market__c , "TH")}; 
+if(marketusr){
+window.open("{!URLFOR($Site.Prefix)}/RETAIL_CAMPAIGN_MEMBER_REPORT_ID_TH?pv0="+RetailcampaignName);
+}
+else{
   window.open("{!URLFOR($Site.Prefix)}/RETAIL_CAMPAIGN_MEMBER_REPORT_ID?pv0="+RetailcampaignName);
+}
 }</url>
     </webLinks>
     <webLinks>
@@ -2084,8 +2263,7 @@ var myWindow = window.open("{!URLFOR($Site.Prefix)}/dataImporter/dataImporter.ap
 {
 alert('You cannot create campaign members for this campaign status');
 }</url>
-    </webLinks>
-	
-	
+    </webLinks>	
 </CustomObject>
+
 

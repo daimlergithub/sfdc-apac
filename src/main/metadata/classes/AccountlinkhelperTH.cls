@@ -16,30 +16,54 @@ Public class AccountlinkhelperTH{
     Public  List<Account_Link__Share> accLinkshareLst=new List<Account_Link__Share>();
     Public  List<User> usrlist=new List<User>();
 	 //SFDCTH-723
-    public void updateActiveStatusBeforeInser(List<Account_Link__c> acclinks,boolean isinsertflag,boolean isupdateflag){
-        if(isinsertflag){
+public void updateActiveStatusBeforeInser(List<Account_Link__c> acclinks,boolean isinsertflag,boolean isupdateflag,boolean userContext){
+        if(userContext){
             for(Account_Link__c acl:acclinks){
                 if(acl.recordTypeID==AccountLink_C2CRecordTypeId){
-                //if C2C record type is not active make it true and change start date to today date
-                     if(!acl.Active__c){
-                         acl.Active__c=true;
-                         acl.Start_Date__c=System.Today();
-                     }
-                     ////if C2C record type is active and if it is already has start date in the other systems then no need to take start date as todays date
-                     else if(acl.Active__c&&acl.Start_Date__c==null){
-                     acl.Start_Date__c=System.Today();
-                     }
+                    if(!acl.Active__c && acl.Start_Date__c==null && acl.End_Date__c==null){
+                        acl.Active__c=true;
+                        acl.Start_Date__c=System.Today();
+                    }
+                    else if(!acl.Active__c && acl.Start_Date__c!=null && acl.End_Date__c==null){
+                        acl.Active__c=true;
+                    }
+                    else if(acl.Active__c && acl.Start_Date__c==null && acl.End_Date__c==null){
+                        acl.Start_Date__c=System.Today();
+                    }
+                    else if(!acl.Active__c && acl.Start_Date__c!=null && acl.End_Date__c!=null&&!(acl.End_Date__c<acl.Start_Date__c)){
+                        acl.Active__c=true;
+                    }
                 }
             }
         }
-        else if(isupdateflag){
+        else if(!userContext){
+            if(isupdateflag){
                 for(Account_Link__c acl:acclinks){
-                    if(acl.recordTypeID==AccountLink_C2CRecordTypeId&&!acl.Active__c){
-                        acl.End_Date__c=System.Today();
+                    if(acl.recordTypeID==AccountLink_C2CRecordTypeId&&!acl.active__c&&acl.End_Date__c==null){
+                        acl.End_Date__c=system.today();
+                    }
+                    }
+                
+            }
+            else if(isinsertflag){
+                for(Account_Link__c acl:acclinks){
+                    if(acl.recordTypeID==AccountLink_C2CRecordTypeId){
+                        if(!acl.Active__c && acl.Start_Date__c==null && acl.End_Date__c==null){
+                        acl.Active__c=true;
+                        acl.Start_Date__c=System.Today();
+                    }
+                    else if(!acl.Active__c && acl.Start_Date__c!=null && acl.End_Date__c==null){
+                        acl.Active__c=true;
+                    }
+                        else if(acl.Start_Date__c>acl.End_Date__c){
+                        acl.addError('Start Date should not be greater than End Date');
+                    }
+                    }
                     }
             }
+
+            }
         }
-    }
     public  void afterInsertEventShareRetailCopy(List<Account_link__C> acclinklist){
         Map<Id,Id> c2cAccLinkIdfromRoleIdMap=new Map<Id,Id>();
         Map<Id,Id> c2cAccLinkIdToRoleIdMap=new Map<Id,Id>();
@@ -448,4 +472,80 @@ public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
          }
        
      }
+	 
+	 public static void accesschange(List<Account_link__c> accountNewList, Map<Id,SObject> accountlnkOldMap)
+    {
+        Map<Id,Id>UserAccountlnkMap = new Map<Id,Id>();
+        Set<Id> Softdeletedacclnk=new Set<Id>();
+        Set<Id> Userids=new Set<Id>();
+        Set<String>Dealerndcode = new set<String>();
+        
+        for(Account_link__c accl: accountNewList)
+        {
+            Userids.add(accl.createdById);
+            
+        }
+        Map <Id, User> Dealerdelegateadmin = new Map<Id, User>([select id,profile.name,Dealer_DMS_Retailer_ID__c from User where id in :Userids and isPortalenabled = true and Market__c = 'TH']);
+        for(User us: Dealerdelegateadmin.values())
+        {
+            if(us.Dealer_DMS_Retailer_ID__c != null || us.Dealer_DMS_Retailer_ID__c != '')
+            {
+                String dmscode = 'Delegate' + us.Dealer_DMS_Retailer_ID__c ;
+                Dealerndcode.add(dmscode);
+            }
+        }
+        Map<String,Group> g = new Map<String,Group>();
+        for(Group gr: [select id,Developername from group where Developername in : Dealerndcode])
+        {
+            g.put(gr.Developername, gr);
+        }
+        for(Account_link__c accl: accountNewList)
+        {   
+            Account_link__c oldAcclnk=(Account_link__c)accountlnkOldMap.get(accl.Id);
+            if(oldAcclnk != null && accl.Retail_Duplicate_Flag__c ==true &&  oldAcclnk.Retail_Duplicate_Flag__c != accl.Retail_Duplicate_Flag__c)
+            {
+                Softdeletedacclnk.add(accl.Id);
+                if(Dealerdelegateadmin.containskey(accl.CreatedbyId)){
+                    String groupname = 'Delegate' + Dealerdelegateadmin.get(accl.CreatedbyId).Dealer_DMS_Retailer_ID__c;
+                    if( g.containskey(groupname))
+                    UserAccountlnkMap.put(accl.Id,g.get(groupname).Id);
+                }
+            }
+                
+        }
+        if(Softdeletedacclnk.size() > 0)
+        revokesoftdeleteAccess(Softdeletedacclnk);
+        if(UserAccountlnkMap.size() > 0)
+        grantDelegateAdminAccess(accountNewList, UserAccountlnkMap);
+    }
+	 
+	public static void revokesoftdeleteAccess(Set<Id> acclnkids)
+    {
+        
+        List<Account_Link__Share > accsharelist = new List<Account_Link__Share > ([select id from Account_Link__Share where ParentId in : acclnkids and RowCause = 'Manual']);
+        if(accsharelist.size() >0)
+        {
+            Database.delete(accsharelist, false);
+        }
+    }
+	
+	public static void grantDelegateAdminAccess(list<Account_Link__c> alst, Map<Id,Id> AcclinkDelegateGroupmap)
+    {
+        List<Account_Link__share> accShareLst= new List<Account_Link__share>();
+        for(Account_Link__c al: alst)
+        {
+            if(AcclinkDelegateGroupmap.containskey(al.id))
+            {
+                Account_Link__share accShare=new Account_Link__share();
+                accShare.ParentId = al.Id;
+                accShare.UserOrGroupId = AcclinkDelegateGroupmap.get(al.id);
+                accShare.AccessLevel = 'Read';
+                accShare.RowCause = Schema.Account_link__Share.RowCause.Manual;
+                accShareLst.add(accShare); 
+            }
+        }
+        if(accShareLst.size() > 0)
+             Database.insert(accShareLst, false);
+            
+    }
 }

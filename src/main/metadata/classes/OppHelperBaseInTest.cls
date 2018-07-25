@@ -6,7 +6,7 @@
 **/
 @IsTest
 public class OppHelperBaseInTest {
-    
+   
     public static string salesLeadRecordTypeId = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Sales Lead').getRecordTypeId();
     public static string afterSalesLeadRecordTypeId = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Aftersales Lead').getRecordTypeId();
     public static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();  
@@ -14,6 +14,7 @@ public class OppHelperBaseInTest {
     public static String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     
     public static void initData(){
+        //CarModelMappingUtilityTest.initData();
         Profile p1 = [SELECT Id,Name FROM Profile WHERE Name='System Administrator'];
         user usr = new User(Alias = 'standt', Email='testUser@testorg.com', 
                             EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
@@ -41,7 +42,11 @@ public class OppHelperBaseInTest {
     @IsTest
     private static void testOppHelperBaseMethods1() {
         test.startTest();
-        User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
+        //CarModelMappingUtilityTest.initData();
+        //User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
+        Profile p = [select id from profile where Name='System Administrator' limit 1];
+        User usr = new User(LastName='User',country='India',firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey='Asia/Kolkata',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com',Market__c = 'IN');
+        insert usr;
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name, Primary_Address_Reference__c From Account Where recordTypeId =: companyAccRecordTypeId limit 1];
@@ -55,22 +60,27 @@ public class OppHelperBaseInTest {
             update peracc;
             List<Opportunity> opptyList = [select Id, AccountId, Name, Sales_Consultant__c, recordTypeId, Assigned_Dealer__c, Createdby.usertype, 
                                            createdby.Dealer_nd_code__c, assigned_dealer__r.Dealer_nd_code__c, assigned_dealer__r.MD__c, Assigned_Service_Advisor__c,
-                                           createdby.Market__c,MD__c From Opportunity limit 20];
+                                           createdby.Market__c,MD__c From Opportunity where Sales_Consultant__c != null limit 20];
+            system.debug('opporunty-->'+ opptyList[0].Sales_Consultant__c);
             OppHelperBase oppObj = new OppHelperBase();
+           
             Map<Id,Opportunity> oppMap = new Map<Id,Opportunity>();
             for(Opportunity op : opptyList){
                 oppMap.put(op.Id, op);
             }
-            oppObj.updateOwnerwithDealer(opptyList, 'IN'); 
+            oppObj.updateOwnerwithDealer(opptyList, 'IN');
+           
             for(Opportunity opp : opptyList){
-                opp.TrackingNumber__c = 'asdf';
+                opp.TrackingNumber__c = 'asdf'; 
                 opp.md__c = 'IN';
                 opp.assigned_dealer__c = dlracc.id;
             }
             oppObj.CdmLeadcreate(opptyList, oppMap, 'IN');
+            oppObj.ShareRecordswithDealers(opptyList,false,'IN');
             OppHelperBase.updatemarket(opptyList);
             OppHelperBase.getCommunityURL();
             OppHelperBase.CheckRetailCopy(opptyList, oppMap, true, true, 'IN');
+            OppHelperBase.mapCarModelToOpportunity(oppMap);
         }
         test.stopTest();
     }
@@ -78,6 +88,7 @@ public class OppHelperBaseInTest {
     @IsTest
     private static void testOppHelperBaseMethods2() {
         test.startTest();
+        //CarModelMappingUtilityTest.initData();
         User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
         System.runAs(usr){
             initData();
@@ -92,12 +103,52 @@ public class OppHelperBaseInTest {
     @IsTest
     private static void testOppHelperBaseMethods3() {
         test.startTest();
-        User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
+        //CarModelMappingUtilityTest.initData();
+        //User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
+        Profile p = [select id from profile where Name='IntegrationAPI' limit 1];
+        User usr = new User(LastName='User',country='India',firstName='GenericBCI',ProfileId=p.Id,Alias='aind123',EmailEncodingKey='UTF-8',TimeZoneSidKey='Asia/Kolkata',LocaleSidKey='en_US',LanguageLocaleKey='en_US',Email='adminuserind@testing.com',UserName='admusrIN01@daimler.com',Market__c = 'IN',User_Type__c='PowerPartner');
+        insert usr;
         System.runAs(usr){
-            initData();
+            Account dealerAcc = new Account(Name = 'Test India Dealer Account', recordTypeId = dealerRecordTypeId, Market__c = 'IN',Dealer_ND_Code__c='test');
+            insert dealerAcc;
+            
+            contact con = new contact(LastName='test');
+            con.accountId = dealerAcc.Id;
+            insert con;
+            
+            Opportunity opprt = new Opportunity(
+        	AccountId = dealerAcc.Id,
+        	//RecordTypeId = '0120I000001Ht6kQAC',
+        	Assigned_Dealer__c=dealerAcc.Id,
+        	IsPrivate = false,
+        	Sales_Consultant__c= con.Id,
+        	Name = 'test',
+        	StageName = 'Nurture',
+        	Probability = 10.0,
+        	CloseDate = Date.newInstance(2018,09,03),
+        	LeadSource = 'IB',
+        	ForecastCategoryName = 'Pipeline',
+        	//OwnerId = '005N0000005RpFEIA0',
+        	Entity__c = 'Cars',
+        	Express_Service__c = false,
+        	Lead_Mobile__c = '+61412345678',
+        	Lead_Type__c = 'Sales Used Car',
+        	Market__c = 'AU');
+        	insert opprt;
+                    
             List<Opportunity> opptyList = [select Id, AccountId, Name, Sales_Consultant__c, recordTypeId, Assigned_Dealer__c, Createdby.usertype, 
                                            createdby.Dealer_nd_code__c, assigned_dealer__r.Dealer_nd_code__c, assigned_dealer__r.MD__c, Assigned_Service_Advisor__c,
-                                           createdby.Market__c,MD__c From Opportunity limit 20];
+                                           createdby.Market__c,MD__c From Opportunity where Sales_Consultant__c != null limit 20];
+                                           
+           system.debug('size of list'+opptyList.size());
+            /*
+            for (Opportunity opp: opptyList)
+            {
+                opp.Sales_Consultant__c=con.Id;
+            }
+            update opptyList;
+            system.debug('opptyList' + opptyList[0].Sales_Consultant__c );
+            */
             OppHelperBase oppObj = new OppHelperBase();
             List<Account> accList = [Select Id, Name From Account limit 10];
             Set<Id> accIdSet = new Set<Id>();
@@ -106,8 +157,14 @@ public class OppHelperBaseInTest {
             }
             Map<Id,Id> idMap = OppHelperBase.getAccountToDLGKUser(accIdSet);
             OppHelperBase.updateOwnership(accIdSet, opptyList, 'IN');
+            //oppObj.updateOwner(opptyList, 'IN');
+            oppObj.ShareRecordswithDealers(opptyList,false,'IN');
+            
         }
         test.stopTest();
     }
+    
+    
+    
 
 }

@@ -94,6 +94,8 @@ public class crmasiaDaimlerApacComCustomeridentif {
         public String Vat_No_xc;
         public String ID_Number_xc;
         public crmasiaDaimlerApacComCustomeridentif.Address[] Address_xc;
+		public String Allow_Data_Sharing2_xc;
+        public Boolean MB_Customer_Info_Remove_xc;
         private String[] Id_type_info = new String[]{'Id','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] FirstName_type_info = new String[]{'FirstName','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] LastName_type_info = new String[]{'LastName','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
@@ -121,8 +123,10 @@ public class crmasiaDaimlerApacComCustomeridentif {
         private String[] Vat_No_xc_type_info = new String[]{'Vat_No__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] ID_Number_xc_type_info = new String[]{'ID_Number__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] Address_xc_type_info = new String[]{'Address__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','-1','false'};
+		 private String[] Allow_Data_Sharing2_xc_type_info = new String[]{'Allow_Data_Sharing2__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
+        private String[] MB_Customer_Info_Remove_xc_type_info = new String[]{'MB_Customer_Info_Remove__c','http://crmasia.daimler-apac.com/CustomerIdentification_1.0',null,'0','1','true'};
         private String[] apex_schema_type_info = new String[]{'http://crmasia.daimler-apac.com/CustomerIdentification_1.0','true','false'};
-        private String[] field_order_type_info = new String[]{'Id','FirstName','LastName','LastName_Native_1_xc','FirstName_Native_1_xc','PersonBirthdate','LoyaltyCardNo','Individual_Home_Phone_xc','Home_Phone_2_xc','Work_Phone_xc','Phone','Mobile_xc','Mobile2_xc','Email_xc','Email2_xc','Email3_xc','Salutation','RecordType','Vin','Name','Company_Name_xc','Company_Name_Native_1_xc','Foundation_date_xc','Commercial_reg_no_xc','Vat_No_xc','ID_Number_xc','Address_xc'};
+        private String[] field_order_type_info = new String[]{'Id','FirstName','LastName','LastName_Native_1_xc','FirstName_Native_1_xc','PersonBirthdate','LoyaltyCardNo','Individual_Home_Phone_xc','Home_Phone_2_xc','Work_Phone_xc','Phone','Mobile_xc','Mobile2_xc','Email_xc','Email2_xc','Email3_xc','Salutation','RecordType','Vin','Name','Company_Name_xc','Company_Name_Native_1_xc','Foundation_date_xc','Commercial_reg_no_xc','Vat_No_xc','ID_Number_xc','Address_xc','Allow_Data_Sharing2_xc','MB_Customer_Info_Remove_xc'};
     }
     public class CustomerIdentificationMessageFaultType {
         public String errorCode;

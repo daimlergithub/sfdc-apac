@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-     <criteriaBasedRules>
+ 
+    
+    <criteriaBasedRules>
+        <fullName>Account_Sharing</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account,Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>Account Sharing</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Allow_Data_Sharing_is_No_also_Record_Visible_only_to_Japan_IT_Department_Users</fullName>
         <sharedTo>
             <group>Japan_IT_Department_Users</group>
@@ -16,7 +39,29 @@
         <name>Allow Data Sharing is No also Record Visible only to Japan IT Department Users</name>
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
-	 <criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Company_account_and_person_account_should_be_shared_with_all_FS_people_for_IN</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account,Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Company account and person account should be shared with all FS people for IN</description>
+        <name>Company account and person account should be shared with all FS people for IN</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Company_account_and_person_account_should_be_shared_with_all_the_people_for_MY</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
@@ -60,6 +105,53 @@
         <name>Company soft deleted and person account soft deleted accnt visible to MY mngmnt</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Dealer_Account_ANZ</fullName>
+        <sharedTo>
+            <group>MBANZ_users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>AU,NZ</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>Dealer Account ANZ</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Dealer_Account_AU</fullName>
+
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>Dealer Account AU</name>
+
+
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>	
 	<criteriaBasedRules>
         <fullName>MBMY_Dealer_Sharing</fullName>
         <sharedTo>
@@ -149,6 +241,27 @@
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Dealer_Account_NZ</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>Dealer Account NZ</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>	
+    <criteriaBasedRules>
         <fullName>Dealer_Account_Read_Only_for_OtherMBJ</fullName>
         <sharedTo>
             <role>Other_MBJ</role>
@@ -212,6 +325,27 @@
         <contactAccessLevel>Read</contactAccessLevel>
         <description>Account with record-type = &apos;Dealer&apos; and MD__c = &apos;JP&apos;, will be read-only for Supervisor and Operator</description>
         <name>Dealer_Account_Read_Only_for_Supervisor_Operator_Supervisor_Team_B</name>
+        <opportunityAccessLevel>Read</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Dealer_Permission</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>Dealer Permission</name>
         <opportunityAccessLevel>Read</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
@@ -727,6 +861,27 @@
         <opportunityAccessLevel>Edit</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Soft_Delete_Permission</fullName>
+        <sharedTo>
+            <role>MBTR_Management</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account Soft Deleted,Company Soft Deleted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>Soft Delete Permission</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>TH_Account_Sharing</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
@@ -735,6 +890,11 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
+        </criteriaItems>
+		<criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Person Account Soft Deleted,Company Soft Deleted,Dealer</value>
         </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>None</caseAccessLevel>
@@ -769,6 +929,11 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
+		<criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Person Account Soft Deleted,Company Soft Deleted,Dealer</value>
+        </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Edit</contactAccessLevel>
@@ -776,6 +941,27 @@
         <name>Thailand Account Sharing</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>AccountInternalTHAdminAccessSoftdeleted</fullName>
+        <sharedTo>
+            <group>TH_System_Admin</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account Soft Deleted,Company Soft Deleted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>AccountInternalTHAdminAccessSoftdeleted</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+	</criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>VIP_CUSTOMER_Share_with_RW</fullName>
         <sharedTo>
@@ -838,6 +1024,55 @@
         <contactAccessLevel>Read</contactAccessLevel>
         <description>Sharing rule for Dealer Account to MBF roles</description>
         <name>Sharing rule for Dealer Account to MBF roles</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>WS_Account_Sharing_To_MBFS</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account,Company</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>WS Account Sharing To MBFS</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Share_Soft_Del_with_MBK_Team_KR</fullName>
+        <sharedTo>
+            <role>MBK_Management</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Company Soft Deleted</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account Soft Deleted</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+		<booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Account with Record type: company soft deleted and person account soft deleted should only be visible to MBK management</description>
+        <name>Company soft deleted and person account soft deleted accnt visible to MBK mngmnt</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
 </AccountSharingRules>

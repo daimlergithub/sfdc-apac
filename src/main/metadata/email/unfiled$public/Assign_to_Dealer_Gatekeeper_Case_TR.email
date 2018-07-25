@@ -1,0 +1,17 @@
+Good morning,
+
+A new case has been brought in.
+
+Please expedite the case.
+
+Customer Name: {! Case.Account}
+Contact and complaint dealers: {! Case.Case_Dealer__c}
+Case number: {! Case.CaseNumber}
+Title: {! Case.Subject}
+Content: {! Case.Description}
+
+You can find more information about this case through the link below.
+
+{! Case.Link}
+
+- MBTR Customer Center -

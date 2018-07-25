@@ -812,32 +812,64 @@ public class AccountLinkHelperKR
 public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLink,Map<id,Account_Link__c> oldMap)
 {
      Set<Id> accIds = new Set<Id>();
+     Set<Id> frmaccIds = new Set<Id>();
+     Set<String> role = new Set<String>();
+     Set<String> role2 = new Set<String>();
      List<Account_Link__c> accountlinkList = new List<Account_Link__c>();
+     Set<id> accLinkId = New Set<Id>();
      for(Account_Link__c acclink :list_AccountLink)
      {
      accIds.add(acclink.toRole__c);
+     frmaccIds.add(acclink.fromRole__c);
+     role.add(acclink.Role__c);
+     role2.add(acclink.Role2__c);
      }
-     Map<id,Account> accountMap = new Map<id,Account>([select id,(select id,position__c from Account_Links__r where recordtypeid=:AccountLink_contact2conatctRecordTypeId order by lastmodifieddate limit 1) from Account where id in :accIds]);
-    
+      system.debug(frmaccIds+'tofrmrole'+accIds);
+      system.debug(role+'role'+role2);
+      system.debug('C2C'+AccountLink_contact2conatctRecordTypeId);
+      List<Account_Link__c> exsistaccountlinklist = new List<Account_Link__c>([Select id,recordtypeid,fromRole__c,toRole__c,Role__c,Role2__c from Account_Link__c where fromRole__c IN:frmaccIds AND toRole__c IN: accIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId AND Role__c IN:role AND Role2__c IN:role2 AND MD__c='KR']);
+     system.debug('exsistaccountlinklist--'+exsistaccountlinklist);
+     system.debug('exsistaccountlinklist--'+exsistaccountlinklist.size());
      for(Account_Link__c acclink :list_AccountLink)
      {
-        If(oldMap!=null && acclink.Retail_Related_Company__c!=oldMap.get(acclink.id).Retail_Related_Company__c)
-        {
-        if(accountMap!=null && accountMap.get(acclink.toRole__c)!=null && !accountMap.get(acclink.toRole__c).Account_Links__r.isempty())
-        {
-            acclink.position__c=accountMap.get(acclink.toRole__c).Account_Links__r[0].position__c;
-            accountlinkList.add(acclink);
-        }
-        }
-         if(acclink.role__c ==acclink.role2__c && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId )
+       if(acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId && acclink.md__c=='KR')
+       {
+        if(acclink.role__c ==acclink.role2__c && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId )
          {
          acclink.adderror('Account Link record with the same Role1, Role2 and Relation exists.');
-        
+         }else if(exsistaccountlinklist.size() > 0)
+         { 
+           if(trigger.isInsert)
+           {
+           acclink.adderror('Account Link record with the same Role1, Role2 and Relation exists.');
+           }else if(trigger.isUpdate)
+           { 
+            if(acclink.role__c != oldMap.get(acclink.id).role__c || acclink.fromRole__c != oldMap.get(acclink.id).fromRole__c || acclink.toRole__c != oldMap.get(acclink.id).toRole__c || acclink.Role2__c  != oldMap.get(acclink.id).Role2__c ){
+            accLinkId.add(acclink.Id);
+            
+            }
+            
+             
+           }
+           
          }
+       }
      }
-   
+    If(accLinkId.size()>0){
+             
+             List<Account_Link__c> updateacc = new List<Account_Link__c>([Select id,recordtypeid,fromRole__c,toRole__c,Role__c,Role2__c from Account_Link__c where fromRole__c IN:frmaccIds AND toRole__c IN: accIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId AND Role__c IN:role AND Role2__c IN:role2 AND MD__c='KR']);
+             
+             if(updateacc.size()>0)
+             {
+              for(Account_Link__c upacclink : list_AccountLink)
+              {
+              upacclink.adderror('Account Link record with the same Role1, Role2 and Relation exists.');
+              }
+              }
+          }
      
  }
+ 
  
  
  public static void updateRetailCopy(boolean isUpdate, boolean isinsert,boolean isBefore ,List<Account_Link__c> accLst){
@@ -856,12 +888,12 @@ public static void beforeInsertUpdateEvent(List<Account_Link__c> list_AccountLin
                 market =  acc.MD__c;     
             }
         }
-        List<Account_Link__c> Existlist = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId];
+        /*List<Account_Link__c> Existlist = [Select id,recordtypeid from Account_Link__c where fromRole__c IN:FromAccountIds AND toRole__c IN: AccountIds AND recordtypeid =: AccountLink_contact2conatctRecordTypeId];
         for(Account_Link__c acclink : accLst ){
             if(Existlist.size()>0 && acclink.recordtypeid==AccountLink_contact2conatctRecordTypeId){
             acclink.addError('Account Link record with the same Role1, Role2 and Relation exists.');
             }    
-        }
+        } commented as part of CISM 42805436,42649083*/
             
         string regexForNullValue ='null';
         string nullValue ='';                           

@@ -47,6 +47,7 @@ public class AddressHelperBaseTest {
         address.Block__c='test3';
         address.Address_Line_1__c='testaddress1';
         address.Address_Line_2__c='testaddress2';
+		address.Address_Line_3__c='testaddress3';
         address.Customer__c=account.id;
         address.TitleOfHonor__c = 'To Person'; 
         address.Preferred__c = true;
@@ -94,6 +95,7 @@ public class AddressHelperBaseTest {
          DMLManagerService.updateAsSystem(addressList);
          AddressHelperBase.updateAccountonDeletion(addressList);
          AddressHelperBase.updateAddressCDM(addressList,MarketDiscriminator,updateType);
+		AddressHelperBase.updateUnnormalizedAddress(addressList);
         }catch(Exception e){}
         test.stopTest();
        }

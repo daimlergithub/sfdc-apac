@@ -15,6 +15,70 @@
         <name>CarModelWithCommunityUsers</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+       <fullName>Car_Model_ANZ</fullName>
+        <sharedTo>
+            <group>MBANZ_users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <name>Car Model ANZ</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Car_Model_ANZ_Data_Steward</fullName>
+        <sharedTo>
+            <group>MB_ANZ_Data_Stewards</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <name>Car Model ANZ Data Steward</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Car_Model_AU</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_AU_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>AU</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Car Model AU</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Car_Model_NZ</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MB_NZ_VP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>NZ</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Car Model NZ</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Car_Model_Share_India</fullName>
         <sharedTo>
             <roleAndSubordinates>MBIndia_Management</roleAndSubordinates>
@@ -151,5 +215,18 @@
         <accessLevel>Read</accessLevel>
         <description>Share all car model to MBTH and MBLT users.</description>
         <name>TH_CarModel_Sharing</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TR_Permission</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>TR Permission</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

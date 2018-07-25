@@ -54,7 +54,15 @@ public class AccountLinkHelper
         set<id> acclknkIds = new set<id>();
         List<EP_Export_Notification__c> epList = New list<EP_Export_Notification__c>();
         List<EP_Export_Notification__c> existingEpList = new List<EP_Export_Notification__c>();
-            
+		//SN2018- define DealerAccList to check for non Yansee dealer
+        Map<ID,Account> DealerAccList = new Map<Id,Account>();
+        for(Account_Link__c als : accountLinkList){
+            if(als.RecordTypeId == AccountLink_RetailPersonRecordTypeId || als.RecordTypeId == AccountLink_RetailCompanyRecordTypeId && string.isnotblank(als.fromRole__c))
+            DealerAccList.put(als.fromRole__c,new account());
+        } 
+         if(DealerAccList.size()>0){
+            DealerAccList.putall([select id,MD__c,Dealer_GC_Code__c from Account where id in: DealerAccList.keyset()]);
+         }    
         for(Account_Link__c als : accountLinkList)
         {
             if ( (als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailPersonRecordTypeId) || (als.Retail_DMS_Customer_ID__c != null && als.RecordTypeId == AccountLink_RetailCompanyRecordTypeId) 
@@ -99,13 +107,17 @@ public class AccountLinkHelper
                     als.Retail_Related_Company__c   !=  oldals.get(als.Id).Retail_Related_Company__c||
                     als.Retail_Position__c  !=  oldals.get(als.Id).Retail_Position__c))
             {
+				//SN20180531- updated to check for non Yansee dealer   
+                System.debug('@@@'+Label.NonALEPNotification+'@@@'+als.Retail_Dealer_CompanyCode__c);                 
+                //if(DealerAccList.size()>0 &&  !Label.NonALEPNotification.contains(DealerAccList.get(als.fromRole__c).Dealer_GC_code__c))  
+                if(DealerAccList.size()>0 && string.isnotblank(DealerAccList.get(als.fromRole__c).Dealer_GC_code__c) &&!Label.NonALEPNotification.contains(DealerAccList.get(als.fromRole__c).Dealer_GC_code__c))                                                                                                                                              
                 acclknkIds.add(als.Id);
             }
         }
         system.debug('acclknkIds>>><>' + acclknkIds);
         if(!acclknkIds.isEmpty() && acclknkIds != null)
-        {
-            acclinkList = [select id,MD__c from Account_Link__c where id =:acclknkIds AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
+        {	//SN20180602-- updated to check for non Yansee dealer			
+            acclinkList = [select id,MD__c,Retail_Dealer_CompanyCode__c from Account_Link__c where id =:acclknkIds AND fromrole__r.Dealer_Rollout_Status__c = 'Done'];
             existingEpList = [select id,Status__c,SFDC_object_id__c from EP_Export_Notification__c where SFDC_object_id__c =:acclknkIds AND Status__c = 'New'];
         }
         system.debug('acclinkList>>><>' + acclknkIds);
@@ -122,6 +134,8 @@ public class AccountLinkHelper
                     epe.MD__c = acnkl.MD__c;
                     epe.Type__c = 'Account_Link__c';
                     epe.SFDC_object_id__c = acnkl.id;
+					//SN20180602- updated to check for non Yansee dealer			
+					if(!label.NonALEPNotification.contains(acnkl.Retail_Dealer_CompanyCode__c))																		   
                     epList.add(epe);
                 }
             }
@@ -571,10 +585,12 @@ public class AccountLinkHelper
         if(set_accountId.size() > 0 || oldAccId.size() > 0)
         {
             List<User> list_User = new List<User>( [SELECT Id, AccountId FROM User WHERE AccountId IN:set_accountId AND IsPortalEnabled = true]);
-            List<Account> dealerAccList = [select Name from Account where Id IN: set_accountId];
+            List<Account> dealerAccList = [select Name,MD__c,Dealer_GC_Code__c from Account where Id IN: set_accountId];
             Set<String> dealerAccNameSet = new Set<String>();
             for(Account dealerRec : dealerAccList) 
-            {
+            {    //SN20180601- Added condition for checking GC Code if yes remove both GC code group and dealerName group
+                if(string.isnotblank(dealerRec.Dealer_GC_Code__c)? Label.JPALSharingGCCode.contains(dealerRec.Dealer_GC_Code__c):false)
+                    dealerAccNameSet.add(dealerRec.MD__c+dealerRec.Dealer_GC_Code__c);
                 dealerAccNameSet.add(dealerRec.Name);
             }
          
@@ -625,7 +641,7 @@ public class AccountLinkHelper
         if(fromRoleIdSet.size() > 0 && toRoleIdSet.size() > 0) {  
             Map<Id, Account> fromAccountRecordTypeMap = new Map<Id,Account>();
             Map<Id, Account> toAccountRecordTypeMap = new Map<Id,Account>();
-            for(Account acc : [Select Name, RecordTypeId From Account Where Id IN: fromRoleIdSet OR Id IN: toRoleIdSet]) {   
+            for(Account acc : [Select Name, RecordTypeId,md__c,Dealer_GC_Code__c From Account Where Id IN: fromRoleIdSet OR Id IN: toRoleIdSet]) {   
                 if(toRoleIdSet.contains(acc.Id)) {
                     toAccountRecordTypeMap.put(acc.Id, acc);
                 } else if(fromRoleIdSet.contains(acc.Id)) {
@@ -722,27 +738,55 @@ public class AccountLinkHelper
        if(LeadUtil.createSharingRecord ){ 
        
         // Changing Sharing from User to Public Group
-        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        List<Account> dealerAccList = [select Name,Md__c,Dealer_GC_Code__c from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
          System.debug('mapdelers??????'+map_AccountIdAndListAccountLinkId.keySet());
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        Map<id,string> GCCodeMap= new map<id,string>();
         for(Account dealerRec : dealerAccList) {
+            
             System.debug('similaraccounts'+dealerRec.name);
+            //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing
+                if(string.isnotblank(dealerRec.Dealer_GC_Code__c)? Label.JPALSharingGCCode.contains(dealerRec.Dealer_GC_Code__c):false){                
+                dealerAccNameSet.add(dealerRec.MD__c+dealerRec.Dealer_GC_Code__c);
+                dealerAccNameSet.add(dealerRec.Name);
+                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);                
+                 if(!GCCodeMap.containsKey(dealerRec.Id))
+                    {
+                        GCCodeMap.put(dealerRec.Id,dealerRec.MD__c+dealerRec.Dealer_GC_Code__c);
+                    }                                                
+            }
+            else{ //SN20180601
             dealerAccNameSet.add(dealerRec.Name);
             accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
         }
         
+     }
+        
         set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
-        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
-             System.debug('groupRecname>>>>>'+groupRec.name);
-            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
-                    Account_Link__Share accountLinkShare = new Account_Link__Share();
-                    accountLinkShare.AccessLevel = 'Edit';
-                    accountLinkShare.UserOrGroupId = groupRec.Id;
-                    accountLinkShare.ParentId = accountLinkId;
-                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    set_SharingRecord.add(accountLinkShare);
+        Map<string,group> grplist= new map<string,group>();
+        if(dealerAccNameSet.size()>0){
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
+                grplist.put(groupRec.name,groupRec);            
+            }
+        }
+        if(grplist.size()>0){
+            //for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+            for(Group groupRec: grplist.values() ){
+                 System.debug('groupRecname>>>>>'+groupRec.name);
+                if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                    for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
+                        Account_Link__Share accountLinkShare = new Account_Link__Share();
+                        accountLinkShare.AccessLevel = 'Edit';
+                        //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing
+                         if( GCCodeMap.containskey(accNameToAccIdMap.get(groupRec.Name)))
+                        accountLinkShare.UserOrGroupId=grplist.get(GCCodeMap.get(accNameToAccIdMap.get(groupRec.Name))).id;
+                        else
+                        accountLinkShare.UserOrGroupId = groupRec.Id;
+                        accountLinkShare.ParentId = accountLinkId;
+                        accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                        set_SharingRecord.add(accountLinkShare);
+                    }
                 }
             }
         }
@@ -759,26 +803,53 @@ public class AccountLinkHelper
     private static void createPCSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         // Changing Sharing from User to Public Group
         if(LeadUtil.createPCSharingRecord){
-        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        List<Account> dealerAccList = [select Name,id,Md__c,Dealer_GC_Code__c from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        Map<id,string> GCCodeMap= new map<id,string>();
         for(Account dealerRec : dealerAccList) {
+        //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing
+             if(string.isnotblank(dealerRec.Dealer_GC_Code__c)? Label.JPALSharingGCCode.contains(dealerRec.Dealer_GC_Code__c):false){                
+                dealerAccNameSet.add(dealerRec.MD__c+dealerRec.Dealer_GC_Code__c);
+                dealerAccNameSet.add(dealerRec.Name);
+                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);                
+                 if(!GCCodeMap.containsKey(dealerRec.Id))
+                    {
+                        GCCodeMap.put(dealerRec.Id,dealerRec.MD__c+dealerRec.Dealer_GC_Code__c);
+                    }
+            }
+            else{ //SN20180601
             dealerAccNameSet.add(dealerRec.Name);
             accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+            }
         }
         
-        set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
-        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]){
+        set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>(); 
+        Map<string,group> grplist= new map<string,group>();
+        if(dealerAccNameSet.size()>0){
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
+                grplist.put(groupRec.name,groupRec);                
+            }
+        }
+        if(grplist.size()>0){ 
+        // for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
+        for(Group groupRec: grplist.values() ){
             if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Edit';
+                    //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing to get group id
+                     if( GCCodeMap.containskey(accNameToAccIdMap.get(groupRec.Name)))
+                        accountLinkShare.UserOrGroupId=grplist.get(GCCodeMap.get(accNameToAccIdMap.get(groupRec.Name))).id;
+                    else
                     accountLinkShare.UserOrGroupId = groupRec.Id;
                     accountLinkShare.ParentId = accountLinkId;
                     accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
                     set_SharingRecord.add(accountLinkShare);
                 }
+
             }
+        }
         }
         if(set_SharingRecord.size() > 0){
             List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
@@ -794,28 +865,64 @@ public class AccountLinkHelper
     private static void createDealerSharingRecord(Map<Id, List<Id>> map_AccountIdAndListAccountLinkId){
         
         // Changing Sharing from User to Public Group
-        List<Account> dealerAccList = [select Name from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
+        List<Account> dealerAccList = [select Name,Dealer_GC_Code__c,MD__c from Account where Id IN: map_AccountIdAndListAccountLinkId.keySet()];
         List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>();
         Set<String> dealerAccNameSet = new Set<String>();
         set<Account_Link__Share> set_SharingRecord = new set<Account_Link__Share>();
+                                                                                                                   
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
+        Map<id,string> GCCodeMap= new map<id,string>();
         for(Account dealerRec : dealerAccList) {
-            dealerAccNameSet.add(dealerRec.Name);
-            accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+        //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing
+        if(string.isnotblank(dealerRec.Dealer_GC_Code__c)? Label.JPALSharingGCCode.contains(dealerRec.Dealer_GC_Code__c):false){                
+                dealerAccNameSet.add(dealerRec.MD__c+dealerRec.Dealer_GC_Code__c);
+                dealerAccNameSet.add(dealerRec.Name);
+                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);                
+                 if(!GCCodeMap.containsKey(dealerRec.Id))
+                    {
+                        GCCodeMap.put(dealerRec.Id,dealerRec.MD__c+dealerRec.Dealer_GC_Code__c);
+                    }                                                                
+            }
+            else{ //SN20180601
+                dealerAccNameSet.add(dealerRec.Name);
+                accNameToAccIdMap.put(dealerRec.Name, dealerRec.Id);
+            }
         }
-        
-        
-        for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
-            if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
-                for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){
+        Map<string,group> grplist= new map<string,group>();
+        if(dealerAccNameSet.size()>0){
+            for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
+                grplist.put(groupRec.name,groupRec);                 
+            }
+        }
+       if(grplist.size()>0){ 
+       // for(Group groupRec : [select Id, Name, Type from Group where Name IN: dealerAccNameSet]) {
+       set<string> DuplicateCheck= new set<string>();
+       for(Group groupRec: grplist.values() ){
+                 if(accNameToAccIdMap.containsKey(groupRec.Name) && map_AccountIdAndListAccountLinkId.containsKey(accNameToAccIdMap.get(groupRec.Name))){
+                 for(Id accountLinkId : map_AccountIdAndListAccountLinkId.get(accNameToAccIdMap.get(groupRec.Name))){ 
                     Account_Link__Share accountLinkShare = new Account_Link__Share();
                     accountLinkShare.AccessLevel = 'Edit';
-                    accountLinkShare.UserOrGroupId = groupRec.Id;
-                    accountLinkShare.ParentId = accountLinkId;
-                    accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
-                    list_SharingRecord.add(accountLinkShare);
+                    //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing
+                    if( GCCodeMap.containskey(accNameToAccIdMap.get(groupRec.Name))){     
+                       if(!DuplicateCheck.contains(accountLinkId+''+grplist.get(GCCodeMap.get(accNameToAccIdMap.get(groupRec.Name))).id)){                   
+                        accountLinkShare.UserOrGroupId=grplist.get(GCCodeMap.get(accNameToAccIdMap.get(groupRec.Name))).id;
+                        DuplicateCheck.add(accountLinkId+''+accountLinkShare.UserOrGroupId);
+                        accountLinkShare.ParentId = accountLinkId;
+                        accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                        list_SharingRecord.add(accountLinkShare);
+                       }
+                    }
+                    else{
+                    //SN20180601
+                        accountLinkShare.UserOrGroupId = groupRec.Id;                    
+                        accountLinkShare.ParentId = accountLinkId;
+                        accountLinkShare.RowCause = Schema.Account_Link__Share.RowCause.Manual;
+                        list_SharingRecord.add(accountLinkShare);
+                    }
+                    
                 }
             }
+          }
         }
         if(list_SharingRecord.size() > 0){
            // List<Account_Link__Share> list_SharingRecord = new List<Account_Link__Share>(set_SharingRecord);
@@ -827,7 +934,7 @@ public class AccountLinkHelper
     
     private static void createVehicleRelationship(Map<Id, List<Id>> map_FromAccountIdAndListToAccountId, Set<Id> set_ToAccountId){
         // Changing Sharing from User to Public Group
-        List<Account> dealerAccList = [select Name from Account where Id IN: set_ToAccountId];
+        List<Account> dealerAccList = [select Name,Dealer_GC_Code__c,Md__c from Account where Id IN: set_ToAccountId];
         Set<String> dealerAccNameSet = new Set<String>();
         Map<String, Id> accNameToAccIdMap = new Map<String, Id>();
         for(Account dealerRec : dealerAccList) {
@@ -1053,7 +1160,7 @@ public class AccountLinkHelper
         
         map<string,list<String>> dealeraccntMap = new Map<string,list<String>>();
         map<string,id> assgroupMap = new map<string,id>();
-        list<Account_Link__c> allist = [select id,Retail_Dealer_CompanyCode__c ,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist and (Recordtypeid=:AccountLink_RetailPersonRecordTypeId or RecordtypeId=:AccountLink_RetailCompanyRecordTypeId)];
+        list<Account_Link__c> allist = [select id,md__c,Retail_Dealer_CompanyCode__c ,name,recordtypeId,fromRole__c,toRole__c,fromRole__r.name,fromRole__r.Dealer_GC_Code__c,fromRole__r.RecordTypeid,toRole__r.RecordTypeid,toRole__r.id from Account_Link__c where id IN :aclnklist and (Recordtypeid=:AccountLink_RetailPersonRecordTypeId or RecordtypeId=:AccountLink_RetailCompanyRecordTypeId)];
         set<id>toroleidlist=new set<id>();
         set<id>fromroleidlist=new set<id>();
         set<String> GCCode = new set<String>();
@@ -1071,7 +1178,7 @@ public class AccountLinkHelper
                 GCCode.add(atl.fromRole__r.Dealer_GC_Code__c);
             }
         }
-        list<account> acolist = [select id, Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
+        list<account> acolist = [select id,Md__c,Name, RecordTypeId,Dealer_GC_Code__c from Account WHERE Dealer_GC_Code__c IN: GCCode AND RecordTypeid=:Dealer_RecordTypeId];
         System.debug('Entered After Loop for Acc Link >>>>>'+acolist.size());
         
         for(Account acc :acolist)
@@ -1081,8 +1188,15 @@ public class AccountLinkHelper
             {
                 dealeraccntMap.put(acc.Dealer_GC_Code__c, new List<string>());
             }
-            dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
-            AccountNAme.add(acc.Name);
+            //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing
+            if(string.isnotblank(acc.Dealer_GC_Code__c)? Label.JPALSharingGCCode.contains(acc.Dealer_GC_Code__c):false){
+                if(dealeraccntMap.get(acc.Dealer_GC_Code__c).size()==0) dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.MD__c+acc.Dealer_GC_Code__c);
+                AccountNAme.add(acc.MD__c+acc.Dealer_GC_Code__c);
+            }
+            else{                                                                                      
+                dealeraccntMap.get(acc.Dealer_GC_Code__c).add(acc.Name);
+                AccountNAme.add(acc.Name);
+            }
         }
         system.debug('dealeraccntMap><><><' + dealeraccntMap);
         list<group> glist=[select id ,Name ,Type from Group where Name IN:AccountNAme];
@@ -1107,6 +1221,9 @@ public class AccountLinkHelper
                             system.debug('Inserting1' + assgroupMap.get(dealeraccntMap.get(alnk.Retail_Dealer_CompanyCode__c)[i]));
                             Accountshare a=new Accountshare();
                             a.Accountid=alnk.toRole__c;
+                            /*if(string.isnotblank(alnk.Retail_Dealer_CompanyCode__c)?Label.JPALSharingGCCode.contains(alnk.Retail_Dealer_CompanyCode__c):false)
+                                a.UserOrGroupId = assgroupMap.get(dealeraccntMap.get(alnk.Retail_Dealer_CompanyCode__c)[i]);
+                            else */
                             a.UserOrGroupId = assgroupMap.get(dealeraccntMap.get(alnk.Retail_Dealer_CompanyCode__c)[i]);
                             a.AccountAccessLevel='edit';
                             a.RowCause = Schema.Accountshare.RowCause.Manual;
@@ -1115,10 +1232,12 @@ public class AccountLinkHelper
                         }
                     }
                 }
-            }
+           // }
             
         }
-        if(acclist.size()>0)
+        
+   }
+   if(acclist.size()>0)
         {
             insert acclist;
         }
@@ -1151,13 +1270,15 @@ public class AccountLinkHelper
    }
          
    Map<Id,Account> fromAccountRecordTypeMap = new Map<Id,Account>();
-   for(Account acc:[Select id, Name,RecordtypeId From Account Where Id IN:fromRoleIdList]){      
+   //SN20180601- Added md and dealer code
+   for(Account acc:[Select id, Name,RecordtypeId,md__c,Dealer_GC_Code__c From Account Where Id IN:fromRoleIdList]){      
       fromAccountRecordTypeMap.put(acc.id,acc);
    
    }
    
    Map<Id,Account> ToAccountRecordTypeMap = new Map<Id,Account>();
-   for(Account acc:[Select id, Name,RecordtypeId From Account Where Id IN:toroleidlist]){      
+   //SN20180601- Added md and dealer code
+   for(Account acc:[Select id, Name,RecordtypeId,md__c,Dealer_GC_Code__c From Account Where Id IN:toroleidlist]){      
       ToAccountRecordTypeMap.put(acc.id,acc);
    
    }
@@ -1165,6 +1286,7 @@ public class AccountLinkHelper
    list<Account_Link__c>allist1 = new list<Account_Link__c>();
   list<Account> aclist;
   list<string> aclistnames = new list<string>();
+  Map<string,set<id>> GCCodeMap= new Map<string,set<id>>();                                                                                                             
   list<Accountshare> acclist=new list<Accountshare>(); 
   list<SurveyTaker__share> sutlist=new list<SurveyTaker__share>();
   
@@ -1186,7 +1308,16 @@ public class AccountLinkHelper
              if(al.fromRole__c!=null)
              {
                  if(fromAccountRecordTypeMap.containskey(al.fromRole__c) && fromAccountRecordTypeMap.get(al.fromRole__c).RecordTypeid== da && ((ToAccountRecordTypeMap.containskey(al.ToRole__c) && ToAccountRecordTypeMap.get(al.ToRole__c).RecordTypeid==rpa)||(ToAccountRecordTypeMap.containskey(al.ToRole__c) && ToAccountRecordTypeMap.get(al.ToRole__c).RecordTypeid==rca)))
-                 {
+                 {  //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing
+                    if(string.isnotblank(fromAccountRecordTypeMap.get(al.fromRole__c).Dealer_GC_Code__c)? Label.JPALSharingGCCode.contains(fromAccountRecordTypeMap.get(al.fromRole__c).Dealer_GC_Code__c):false){
+                        if(!GCCodeMap.containskey(fromAccountRecordTypeMap.get(al.fromRole__c).MD__c+fromAccountRecordTypeMap.get(al.fromRole__c).Dealer_GC_Code__c)){
+                            aclistnames.add(fromAccountRecordTypeMap.get(al.fromRole__c).MD__c+fromAccountRecordTypeMap.get(al.fromRole__c).Dealer_GC_Code__c);
+                           // GCCodeMap.get(fromAccountRecordTypeMap.get(al.fromRole__c).MD__c+fromAccountRecordTypeMap.get(al.fromRole__c).Dealer_GC_Code__c).add(fromAccountRecordTypeMap.get(al.fromRole__c));
+                        }
+                        else {
+                            GCCodeMap.put(fromAccountRecordTypeMap.get(al.fromRole__c).MD__c+fromAccountRecordTypeMap.get(al.fromRole__c).Dealer_GC_Code__c,new set<ID>());
+                        }
+                     }                                                                                                                                                                                             
                       allist1.add(al);
                      aclistnames.add(fromAccountRecordTypeMap.get(al.fromRole__c).name);
                      AccountIdsSet.add(al.fromRole__c);
@@ -1218,7 +1349,13 @@ public class AccountLinkHelper
                system.debug('assgroupMap'+ assgroupMap);
                 Accountshare a=new Accountshare();
                 a.Accountid=alnk.toRole__c;
+                //SN20180601- Added condition for checking GC Code sharing else existing ND code sharing
+                if(string.isnotblank(fromAccountRecordTypeMap.get(alnk.fromRole__c).Dealer_GC_Code__c)? Label.JPALSharingGCCode.contains(fromAccountRecordTypeMap.get(alnk.fromRole__c).Dealer_GC_Code__c):false){
+                a.UserOrGroupId = assgroupMap.get(fromAccountRecordTypeMap.get(alnk.fromRole__c).MD__c+fromAccountRecordTypeMap.get(alnk.fromRole__c).Dealer_GC_Code__c);
+                }                                                                                                                                                                                                 
+                else                                                                                                                                                                                      
                 a.UserOrGroupId = assgroupMap.get(fromAccountRecordTypeMap.get(alnk.fromRole__c).name);
+    
                 a.AccountAccessLevel='edit';
                 a.RowCause = Schema.Accountshare.RowCause.Manual;
                 a.OpportunityAccessLevel ='edit';
@@ -1295,6 +1432,9 @@ public class AccountLinkHelper
         
         Set<String> dealerAccNameSet = new Set<String>();
         for(Account dealerRec : fromAccountRecordTypeMap.values()) {
+            if(string.isnotblank(dealerRec.Dealer_GC_Code__c)? Label.JPALSharingGCCode.contains(dealerRec.Dealer_GC_Code__c):false){
+            dealerAccNameSet.add(dealerRec.Md__c+dealerRec.Dealer_GC_Code__c);
+            }                                                                                                              
             dealerAccNameSet.add(dealerRec.Name);
         }
         List<Group> groupList = [select Id, Name, Type from Group where Name IN: dealerAccNameSet];

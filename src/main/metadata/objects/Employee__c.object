@@ -50,7 +50,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -60,15 +60,15 @@
         <label>Company</label>
         <picklist>
             <picklistValues>
-                <fullName>MBJ</fullName>
+                <fullName>Mercedes Benz Japan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBF</fullName>
+                <fullName>Mercedes Benz Finance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>IDSJ</fullName>
+                <fullName>Daimler Insurance Services Japan</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -183,6 +183,60 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>AllReFerralsWonCreated__c</fullName>
+        <defaultValue>0</defaultValue>
+		<description>Total Number of Referrals Won in this Quarter.</description>
+        <externalId>false</externalId>
+        <label>AllReFerralsWonCreated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AllReferralsCreated__c</fullName>
+        <defaultValue>0</defaultValue>
+		<description>Total Number of Referrals Created in this Quarter</description>
+        <externalId>false</externalId>
+        <label>AllReferralsCreated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Other_Employee_s_Number_of_Generated_Lea__c</fullName>
+        <description>Total Number of Referrals Created by other Employees in this quarter</description>
+        <externalId>false</externalId>
+        <formula>AllReferralsCreated__c -  No_of_referral__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Other Employee’s Number of Generated Lea</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Employee_s_Sales_Amount__c</fullName>
+        <description>Total Number of Referrals Won Created by other Employees in this quarter</description>
+        <externalId>false</externalId>
+        <formula>AllReFerralsWonCreated__c -  No_of_closed_Won__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Other Employee’s Sales Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>No_of_closed_Won__c</fullName>

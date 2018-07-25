@@ -2,8 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Delete_retail_copy</customButtons>
     <customButtons>Send_To_AutoLine</customButtons>
-	<excludeButtons>Clone</excludeButtons>
-    <excludeButtons>Share</excludeButtons>
+    <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -76,7 +75,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Visit_OptOut__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Opt_In_Mobile__c</field>
             </layoutItems>
@@ -156,7 +155,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Agreement_Info_Processing__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Contract_Count__c</field>
             </layoutItems>

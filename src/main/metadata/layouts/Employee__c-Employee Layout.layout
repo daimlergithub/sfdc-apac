@@ -11,22 +11,22 @@
                 <behavior>Readonly</behavior>
                 <field>Name</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>First_Name__c</field>
-            </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Last_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>First_Name_Native__c</field>
-            </layoutItems>
-            <layoutItems>
+                <field>First_Name__c</field>
+            </layoutItems>    
+			<layoutItems>
                 <behavior>Edit</behavior>
                 <field>Last_Name_Native__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Name_Native__c</field>
+            </layoutItems>            
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Email__c</field>
@@ -85,6 +85,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Rank_of_Employee_with_closed_won__c</field>
+            </layoutItems>			
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Other_Employee_s_Sales_Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -93,6 +97,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Rank_of_Employee_with_referrals_made__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Other_Employee_s_Number_of_Generated_Lea__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

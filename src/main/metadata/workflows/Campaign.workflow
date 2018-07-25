@@ -183,7 +183,7 @@ RecordType.Name,
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
+    <!--<fieldUpdates>
         <fullName>record_Close_Date</fullName>
         <field>Closed_Date__c</field>
         <formula>TODAY()</formula>
@@ -191,7 +191,7 @@ RecordType.Name,
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
-    </fieldUpdates>
+    </fieldUpdates>-->
     <fieldUpdates>
         <fullName>record_Publish_Date</fullName>
         <field>Publish_Date__c</field>
@@ -247,7 +247,7 @@ RecordType.Name,
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND 3 AND ( 4 OR 5)) OR (1 AND 3 AND (6 OR 8) AND 7)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3 AND ( 4 OR 5)) OR (1 AND 3 AND (6 OR 8 OR 9) AND 7)</booleanFilter>
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>
@@ -287,6 +287,11 @@ RecordType.Name,
             <field>Campaign.MD__c</field>
             <operation>equals</operation>
             <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
         </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
@@ -388,12 +393,12 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
     </rules>
     <rules>
         <fullName>Record Close Date</fullName>
-        <actions>
+        <!--<actions>
             <name>record_Close_Date</name>
             <type>FieldUpdate</type>
-        </actions>
+        </actions>-->
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND (3 OR 4 )) OR (2 AND (5 OR 7) AND 6)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4 )) OR (2 AND (5 OR 7 OR 8) AND 6) OR(6 AND 9 AND 10)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -429,6 +434,21 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>MY</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Status__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -438,7 +458,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND (3 OR 4)) OR(5 AND 6 AND 2)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4)) OR(5 AND 6 AND 2) OR(7 AND 6 AND 2) OR (6 AND 8 AND 2)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -468,6 +488,16 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
             <value>Planning &amp; Design Campaign</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -576,7 +606,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND  3 ) OR (2 AND 4 AND 5) OR (2 AND 5 AND 6)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND  3 ) OR (2 AND 4 AND 5) OR (2 AND 5 AND (6 OR 7)) OR (2 AND 5 AND 8)</booleanFilter>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
@@ -607,6 +637,16 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>equals</operation>
             <value>MY</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
      <rules>
@@ -616,7 +656,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND(1=1,MD__c=&apos;JP&apos; ||MD__c=&apos;KR&apos; || MD__c=&apos;TH&apos; || MD__c=&apos;MY&apos;)</formula>
+        <formula>AND(1=1,MD__c='JP' ||MD__c='KR' || MD__c='TH' || MD__c='MY' || MD__c='IN' || ISPICKVAL(Market__c, 'TR') )</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

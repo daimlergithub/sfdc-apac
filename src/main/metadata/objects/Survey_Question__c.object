@@ -332,7 +332,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Set_Single_Opinion_Text_Next_Question</fullName>
         <active>true</active>
         <description>If show the free text box and set the redirect no for this question, you also need set the next question number when fill in the free text</description>
-        <errorConditionFormula>AND(Need_Free_TextBox__c,NOT( ISBLANK( Redirect_Question_Number__c )), ISBLANK( Single_FreeText_Next_Question_No__c ),  $Profile.Name != 'IntegrationAPI',OR(MD__c = 'KR',MD__c = 'JP'))</errorConditionFormula>
+        <errorConditionFormula>AND(Need_Free_TextBox__c,NOT( ISBLANK( Redirect_Question_Number__c )), ISBLANK( Single_FreeText_Next_Question_No__c ),  $Profile.Name != 'IntegrationAPI',OR(MD__c = 'KR',MD__c = 'JP',ISPICKVAL(Market__c,'TR')))</errorConditionFormula>
         <errorDisplayField>Single_FreeText_Next_Question_No__c</errorDisplayField>
         <errorMessage>Please set the single opinion free text next question number</errorMessage>
     </validationRules>
@@ -348,7 +348,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <fullName>Type_Show_Free_TextBox</fullName>
         <active>true</active>
         <description>To controll which type question can show the free text box</description>
-        <errorConditionFormula>AND(OR(ISPICKVAL( Type__c , 'Multi-Select--Vertical'),ISPICKVAL( Type__c , 'Free Text')), Need_Free_TextBox__c, $Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISPICKVAL( Type__c , 'Multi-Select--Vertical'),ISPICKVAL( Type__c , 'Free Text')), Need_Free_TextBox__c, $Profile.Name != 'IntegrationAPI',OR(MD__c = 'JP',MD__c = 'KR',ISPICKVAL(Market__c,'TR')))</errorConditionFormula>
         <errorMessage>Only Single selection can show the free text box</errorMessage>
     </validationRules>
 </CustomObject>

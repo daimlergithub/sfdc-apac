@@ -20,10 +20,6 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>fromRole__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Trading_As__c</field>
             </layoutItems>
@@ -34,7 +30,7 @@
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Retail_UCID__c</field>
             </layoutItems>
             <layoutItems>
@@ -60,7 +56,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_LastName__c</field>
+                <field>Retail_FirstName_Native__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -102,6 +98,10 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Individual_Home_Phone__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Work_Phone__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -109,12 +109,15 @@
                 <field>ABN_No__c</field>
             </layoutItems>
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_FirstName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_FirstName_Native__c</field>
+                <field>Retail_LastName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -148,48 +151,13 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Primary_Phone__c</field>
             </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Address Information</label>
-        <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Address_Line_1__c</field>
+                <behavior>Edit</behavior>
+                <field>Retail_Email__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Address_Line_3__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_City__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Address_CreatedDate__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Address_Line_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Province__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_ZipCode__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Country__c</field>
+                <behavior>Edit</behavior>
+                <field>Email2__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -238,13 +206,14 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>Asset_Model__c</fields>
-        <fields>CREATED_DATE</fields>
+        <fields>Status__c</fields>
         <fields>Borrower__c</fields>
+        <fields>Registration_Number__c</fields>
+        <fields>Registration_Location__c</fields>
+        <fields>Asset_Model__c</fields>
         <fields>Rental_Amount__c</fields>
         <fields>Payment_Mode__c</fields>
-        <fields>Financed_Amount__c</fields>
-        <fields>Status__c</fields>
+        <fields>Financial_Product__c</fields>
         <relatedList>FS_Contract__c.Retail_FS_Borrower__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -257,8 +226,8 @@
         <fields>Sub_District__c</fields>
         <fields>FS_District__c</fields>
         <fields>State__c</fields>
-        <fields>ZipCode__c</fields>
-        <fields>Country__c</fields>
+        <fields>Mailing_Address__c</fields>
+        <fields>Registration_Address__c</fields>
         <relatedList>Address__c.Account_Link__c</relatedList>
     </relatedLists>
     <relatedLists>

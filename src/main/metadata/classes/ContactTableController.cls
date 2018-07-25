@@ -305,7 +305,10 @@ public class ContactTableController {
 				'Email_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
 				'SMS_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
 				'Phone_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199
-				'Mail_Opt_IN_Last_Update_date__c'//Soumya W 2018/April/9 added as part of MBANZ-199				
+				'Mail_Opt_IN_Last_Update_date__c',//Soumya W 2018/April/9 added as part of MBANZ-199				
+                'Opt_In_Mobile__c',//Hildaa added for TR market
+                'Opt_In_SMS__c',//Hildaa added for TR market
+                'Postal_Opt_In__c'//Hildaa added for TR market
             });
 
         }
@@ -700,7 +703,25 @@ public class ContactTableController {
                 {       
                    refreshPage = false;              
                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information));        
-                }       
+                } 
+                //Changes made by Hildaa
+                else if (!string.isblank(ParAcc.Email__c) && !Pattern.Matches('^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!}{+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$',ParAcc.Email__c)){
+                    refreshPage = false;              
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.InvalidEmail));
+                }
+		   else if ((string.isblank(ParAcc.mobile__c) && ParAcc.Mobile_Status__c != null) || (string.isblank(ParAcc.Individual_Home_Phone__c) && ParAcc.Individual_Home_Phone_Status__c != null)
+                || (string.isblank(ParAcc.Work_Phone__c) && ParAcc.Work_Phone_Status__c != null) || (string.isblank(ParAcc.Email__c) && ParAcc.Email_Status__c != null))
+                {
+                    system.debug(ParAcc.mobile__c+';'+ParAcc.Mobile_Status__c+';'+ParAcc.Individual_Home_Phone__c+';'+ParAcc.Individual_Home_Phone_Status__c+';'+
+                    ParAcc.Work_Phone__c+';'+ParAcc.Work_Phone_Status__c+';'+ParAcc.Email__c+';'+ParAcc.Email_Status__c);
+                     refreshPage = false;              
+                   ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.contact_information1));
+                }
+		    else if (!string.isblank(ParAcc.Email__c) && !Pattern.Matches('^[a-zA-Z0-9._|\\\\%#~`=?&/$^*!}{+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$',ParAcc.Email__c)){
+                    refreshPage = false;   
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.InvalidEmail));
+                   
+                }
                 else        
                 {       
                             
@@ -756,6 +777,10 @@ public class ContactTableController {
                 {
                     wkphoneNumber=localwkPhone.substring(3,localwkPhone.length());
                         
+                }
+		 else
+                {
+                        wkphoneNumber=localwkPhone.substring(3,localwkPhone.length());
                 }
                          
             }
@@ -1515,7 +1540,13 @@ public class ContactTableController {
             mbCountryCode = localMBPhone.substring(0, 3);
             mbphoneNumber = localMBPhone.length() > 3 ? localMBPhone.substring(3, localMBPhone.length()) : '';
         }
-        
+       //Soumya W 2018/May/7  
+        if ((!String.IsBlank(localFaxPhone)) && (localFaxPhone.length() > 3)) {
+
+            faxCountryCode = localFaxPhone.substring(0, 3);
+            faxphoneNumber = localFaxPhone.length() > 3 ? localFaxPhone.substring(3, localFaxPhone.length()) : '';
+        }
+        //Soumya W 2018/May/7
     }
 
 
@@ -1609,6 +1640,10 @@ Boolean phValidate = true;
         else if(mbCountryCode!='' && mbphoneNumber!='') ParAcc.Mobile__c=mbCountryCode+mbphoneNumber;        
         else ParAcc.Mobile__c='';          
         
+        if((String.isBlank(faxphoneNumber)) )  ParAcc.Fax='';         
+        else if(faxCountryCode!='' && faxphoneNumber!='') ParAcc.Fax=faxCountryCode +faxphoneNumber;        
+        else ParAcc.Fax=''; 
+		
         if((String.isBlank(faxphoneNumber))) ParAcc.Phone='';       
         else if(faxCountryCode!='' && faxphoneNumber!='' && (faxCountryCode==label.AUPhoneCountryCode   || faxCountryCode==label.NZPhoneCountryCode )) ParAcc.Phone=faxCountryCode+faxAreaCode+faxphoneNumber;        
         else ParAcc.Phone=faxCountryCode+faxphoneNumber;      

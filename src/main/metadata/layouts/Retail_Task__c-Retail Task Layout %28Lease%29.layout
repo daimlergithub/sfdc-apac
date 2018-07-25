@@ -44,6 +44,10 @@
                 <behavior>Readonly</behavior>
                 <field>Contract_Update_Date__c</field>
             </layoutItems>
+			            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Final_GAP_Amount__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Related_Lead__c</field>
@@ -76,6 +80,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Model__c</field>
+            </layoutItems>
+						            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Evaluation_Result_P1_P2_Blank__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

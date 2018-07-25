@@ -30,6 +30,19 @@
         <name>Allow Only to special users</name>
     </criteriaBasedRules>
 	<criteriaBasedRules>
+        <fullName>Share_Campaign_With_Roles_and_Subordinates_MY_MBFS</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Share Campaign With Roles and Subordinates MBFS of MY</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
         <fullName>Allow_Only_to_special_users_MY</fullName>
         <sharedTo>
             <role>MY_Manager</role>
@@ -170,6 +183,19 @@
         <name>Campaign Execution Share to CAC</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Campaign_Permission_TR</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <campaignAccessLevel>Edit</campaignAccessLevel>
+        <name>Campaign Permission TR</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>Campaign_Share_with_Data_Service_Specialist</fullName>
         <sharedTo>
             <role>Data_Service_Specialist</role>
@@ -199,6 +225,34 @@
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Central Campaign share to CAC</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IN_Campaign_Share_to_India_Mgmt</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <description>Created by IN market, this sharing rule will ensure all wholesale members can see the campaign. To provide write access, campaign owner will have to use the Sharing button.</description>
+        <name>IN Campaign Share to India Mgmt</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+	    <fullName>IN_Campaign_Share_to_MBIndiaFS_Management</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <description>Created by IN market, this sharing rule will ensure all wholesale members can see the campaign. To provide write access, campaign owner will have to use the Sharing button.</description>
+        <name>IN Campaign Share to MBIndiaFS Management</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>JP_Campaign_Readable_to_MBJ_Dealers_Central</fullName>
@@ -563,8 +617,32 @@
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>User_Type__c</field>
+            <operation>equals</operation>
+            <value>TH-MPC</value>
+        </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Thailand Campaign Sharing records to other TH Users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Thailand_campaign_sharing_FS</fullName>
+        <sharedTo>
+            <role>MBLT</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User_Type__c</field>
+            <operation>equals</operation>
+            <value>TH-FS</value>
+        </criteriaItems>
+        <campaignAccessLevel>Read</campaignAccessLevel>
+        <description>This sharing rule will used for sharing the FS campaign records to FS users only.</description>
+        <name>Thailand campaign sharing FS</name>
     </criteriaBasedRules>
     <ownerRules>
         <fullName>Share_Campaign_to_AS_Region</fullName>

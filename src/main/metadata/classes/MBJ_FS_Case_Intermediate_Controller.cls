@@ -4,18 +4,27 @@ public class MBJ_FS_Case_Intermediate_Controller{
     Public String RecordTypeid {get;set;}
     Public ID retailTaskID {get;set;}
     Public String accountId;
+	Public String contractLabel;
+    Public string contractId;
+    Public string contractNumber;
     Public String fromAccountId {get;set;}
-    public String userid {get;set;}
+    Public String userid {get;set;}
+	public String SupportingDealer {get;set;}
+    public String ContractNumberFieldId;
+    public String relatedDealer {get;set;}
     List<Network> Net;
     String accid;
     
     public MBJ_FS_Case_Intermediate_Controller(ApexPages.StandardController stdController){
         this.redirectCase = (Case)stdController.getrecord();
         Net =[SELECT UrlPathPrefix from Network where id=:Network.getNetworkId() LIMIT 1];
+        
         fromAccountId = Apexpages.currentpage().getparameters().get('fromAccountId1');
-         RecordTypeid = ApexPages.currentPage().getParameters().get('RecordType');
+        RecordTypeid = ApexPages.currentPage().getParameters().get('RecordType');
         accid=Apexpages.currentpage().getparameters().get('def_account_id');
-      
+        ContractNumberFieldId= Case_ContractId_Field_Id__c.getValues('TH_FS_ContractNumber').Value__c;
+		contractLabel=ContractNumberFieldId+'_lkid';
+        contractId=Apexpages.currentpage().getparameters().get(contractLabel); 
     }
     
     public PageReference Redirect(){
@@ -23,10 +32,25 @@ public class MBJ_FS_Case_Intermediate_Controller{
         RecordTypeid = ApexPages.currentPage().getParameters().get('RecordType');
         retailTaskID = Apexpages.currentpage().getparameters().get('retailTaskID');
         if(retailTaskID != null){
-            Retail_Task__c rtlTask = [Select id,Account__r.id from Retail_Task__c where id=:retailTaskID limit 1];
+            Retail_Task__c rtlTask = [Select id,Supporting_Dealer__c,Related_Dealer__c,Account__r.id from Retail_Task__c where id=:retailTaskID limit 1];
             accountId = rtlTask.Account__r.id;
+			if(rtlTask.Supporting_Dealer__c!=null)
+            {
+            SupportingDealer=rtlTask.Supporting_Dealer__c;
+            }
+             if(rtlTask.Related_Dealer__c!=null)
+            {
+            relatedDealer=rtlTask.Related_Dealer__c;
+            }
        }
-        
+	   System.debug('$%$%$%$%$%%$%$%$%%%$ SupportingDealer'+SupportingDealer);
+        System.debug('^&^&^&^&^&^&^&^&^&^&^& relatedDealer'+relatedDealer);
+       if(contractId!=null && !String.isBlank(contractId))
+       {
+           FS_Contract__c fsContract=[select Id,Name,Borrower__c from FS_Contract__c where Id=:contractId];
+           accountId=fsContract.Borrower__c;
+           contractNumber=fsContract.Name;
+       }   
         userid = Userinfo.getUserId();
         redirectCase.Retail_Task__c = retailTaskID ;
         
@@ -46,6 +70,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     returnURL.getParameters().put('retailTaskID',retailTaskID);
                     returnURL.getParameters().put('AccountID', accountId);
                     returnURL.getParameters().put('ownerid', userid);
+					returnURL.getParameters().put('SupportingDealer',SupportingDealer);
+                    returnURL.getParameters().put('relatedDealer', relatedDealer);
                     returnURL.setredirect(false);
                     return returnURL;
             }
@@ -86,6 +112,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     returnURL.getParameters().put('retailTaskID',retailTaskID);
                     returnURL.getParameters().put('AccountID', accountId);
                     returnURL.getParameters().put('ownerid', userid);
+					returnURL.getParameters().put('SupportingDealer',SupportingDealer);
+                    returnURL.getParameters().put('relatedDealer', relatedDealer);
                     returnURL.setredirect(false);
                     return returnURL;
             }
@@ -102,6 +130,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                     returnURL.getParameters().put('retailTaskID',retailTaskID);
                     returnURL.getParameters().put('AccountID', accountId);
                     returnURL.getParameters().put('ownerid', userid);
+					returnURL.getParameters().put('SupportingDealer',SupportingDealer);
+                    returnURL.getParameters().put('relatedDealer', relatedDealer);
                     returnURL.setredirect(false);
                     return returnURL;
             }
@@ -118,6 +148,8 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 returnURL.getParameters().put('retailTaskID',retailTaskID);
                 returnURL.getParameters().put('AccountID', accountId);
                 returnURL.getParameters().put('ownerid', userid);
+				returnURL.getParameters().put('SupportingDealer',SupportingDealer);
+               returnURL.getParameters().put('relatedDealer', relatedDealer);
                 returnURL.setredirect(false);
                 return returnURL;
             }
@@ -272,7 +304,26 @@ public class MBJ_FS_Case_Intermediate_Controller{
                 return returnURL;
             }
         }
-
+/************If a FS case is created from FS contract related list *************************/       
+        else if(RecordTypeid!=null && contractId!=null && accountId!=null)
+        {
+            RecordType rt=[Select id,Name from Recordtype WHERE id=:RecordTypeid limit 1];
+            If(rt!=Null && rt.Name != Null && rt.Name == 'FS Inquiry'){
+            
+                pageReference p= new PageReference('/500/e?cas4_lkid='+accountId+'&'+ContractNumberFieldId+'='+contractNumber+'&'+ContractNumberFieldId+'_lkid='+contractId+'&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+Site.getPathPrefix()+'/'+contractId);
+                return p;    
+            }
+            else If(rt!=Null && rt.Name != Null && rt.Name == 'FS Complaint'){
+            
+                pageReference p= new PageReference('/500/e?cas4_lkid='+accountId+'&'+ContractNumberFieldId+'='+contractNumber+'&'+ContractNumberFieldId+'_lkid='+contractId+'&nooverride=0&ownerid='+userid+'&RecordType='+rt.id+'&retURL='+Site.getPathPrefix()+'/'+contractId);
+                return p;    
+            }else{
+                returnURL = new pagereference('/500/e?RecordType='+RecordTypeid+'+&nooverride=0');
+            }
+                returnURL.setredirect(false);
+                return returnURL;
+        }
+            
 /************ If Case is created directly from "New" button **************/
         else
         {

@@ -15,7 +15,8 @@ public class TriggerLeadTriggerHandlerJP
         {         
                 LeadHelperJP.InsertAssignedDealer(trigger.new);     
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate); 
-              LeadHelperJP.createContactToContactAccounlink(trigger.new);               
+              LeadHelperJP.createContactToContactAccounlink(trigger.new); 
+              LeadHelperJP.UpdateafterSalesVin(trigger.new,null);              
         }
         if(isBefore && isUpdate)
         {
@@ -24,7 +25,8 @@ public class TriggerLeadTriggerHandlerJP
             LeadLatestPhaseUpdateJP.LeadLatestPhaseUpdate(trigger.new,isInsert,isUpdate);
             // LeadHelperAccountLinkCreateJP.updatingleadcontactDetails(trigger.new,isInsert, isUpdate);
              LeadHelperJP.createContactToContactAccounlink(trigger.new);  
-             LeadHelperJP.deleteSharingTODealers((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap); 
+             LeadHelperJP.deleteSharingTODealers((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap);
+             LeadHelperJP.UpdateafterSalesVin((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap); 
              //LeadHelperJP.sharingTOJapanDataManagement((list<Lead__C>)trigger.new,(Map<Id,Lead__C>)Trigger.OldMap);          
         }
         System.debug('Handletrigger----->');
@@ -95,6 +97,10 @@ public class TriggerLeadTriggerHandlerJP
             system.debug('******************************************Target Lead No.:' + lead.Name + '*************************************');
             system.debug('******************************************Target Lead Assigned Dealer.:' + lead.Assigned_Dealer__c + '*************************************');
         }
+        if(isBefore && isUpdate)
+        {
+         LeadHelperJP.updateCustomerStage(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
+         }
         // Implementation to addedd as required in market
           if(isAfter &&  isInsert)
         {
@@ -114,6 +120,9 @@ public class TriggerLeadTriggerHandlerJP
          if(isAfter && isUpdate )
         {
         System.debug('*******************************isAfterisUpdate part initiated****************************************');           
+           //Exception for Informatica -- Added by Reetesh 2018-06-25
+           //Commented below line as already implemented above for all Integration user - Reetesh 2018-07-05
+            //  LeadHelperJp.updateCustomerStageByInformatica(trigger.new, (Map<Id,Lead__C>)Trigger.OldMap, (Map<Id,Lead__C>)Trigger.NewMap);
       
             //if(LeadUtil.handleAfterInsert)
             //{

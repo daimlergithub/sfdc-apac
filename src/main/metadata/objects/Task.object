@@ -604,7 +604,7 @@
         <picklistValues>
             <picklist>Activity_Status__c</picklist>
             <values>
-                <fullName>not started</fullName>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2279,6 +2279,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Postponement</fullName>
+                <default>false</default>
+            </values>
+			<values>
                 <fullName>QC Successful</fullName>
                 <default>false</default>
             </values>
@@ -2359,73 +2363,70 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Wrong Number %28Not the person%27s phone number within the address book%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>busy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>call transfer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>failed to send Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>failed to send SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>failed to send fax</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>invalid call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>invalid data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>need call back</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>no answer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>no such person</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>not started</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>reject</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>reservation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>wrong number</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Waiting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Postponement</fullName>
+                <fullName>Wrong Number %28Not the person%27s phone number within the address book%29</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Busy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failed To Send Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failed To Send SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failed To Send Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalid Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Call Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Such Person</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reject</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reservation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong Number</fullName>
+                <default>false</default>
+            </values>
+
         </picklistValues>
         <picklistValues>
             <picklist>Communication_Method__c</picklist>
@@ -2556,6 +2557,18 @@
             </values>
 			<values>
                 <fullName>Handover</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>FollowUp1</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>FollowUp2</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>FollowUp3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4152,6 +4165,10 @@
                 <default>false</default>
             </values>
             <values>
+               <fullName>Reserved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Returned</fullName>
                 <default>false</default>
             </values>
@@ -4161,6 +4178,10 @@
             </values>
             <values>
                 <fullName>Soft Bounced</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4208,59 +4229,59 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>busy</fullName>
+                <fullName>Busy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>call transfer</fullName>
+                <fullName>Call Transfer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send Email</fullName>
+                <fullName>Failed To Send Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send SMS</fullName>
+                <fullName>Failed To Send SMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send fax</fullName>
+                <fullName>Failed To Send Fax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid call</fullName>
+                <fullName>Invalid Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid data</fullName>
+                <fullName>Invalid Data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>need call back</fullName>
+                <fullName>Need Call Back</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>No Answer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no such person</fullName>
+                <fullName>No Such Person</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>not started</fullName>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reject</fullName>
+                <fullName>Reject</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reservation</fullName>
+                <fullName>Reservation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wrong number</fullName>
+                <fullName>Wrong Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5161,11 +5182,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejection During the Main Part of the Interview</fullName>
+                <fullName>Rejection During The Main Part Of The Interview</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejection During the Probing Question Phase</fullName>
+                <fullName>Rejection During The Probing Question Phase</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5233,59 +5254,59 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>busy</fullName>
+                <fullName>Busy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>call transfer</fullName>
+                <fullName>Call Transfer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send Email</fullName>
+                <fullName>Failed To Send Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send SMS</fullName>
+                <fullName>Failed To Send SMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send fax</fullName>
+                <fullName>Failed To Send Fax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid call</fullName>
+                <fullName>Invalid Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid data</fullName>
+                <fullName>Invalid Data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>need call back</fullName>
+                <fullName>Need Call Back</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>No Answer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no such person</fullName>
+                <fullName>No Such Person</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>not started</fullName>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reject</fullName>
+                <fullName>Reject</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reservation</fullName>
+                <fullName>Reservation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wrong number</fullName>
+                <fullName>Wrong Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6071,43 +6092,43 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>busy</fullName>
+                <fullName>Busy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid call</fullName>
+                <fullName>Invalid Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>need call back</fullName>
+                <fullName>Need Call Back</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>No Answer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no such person</fullName>
+                <fullName>No Such Person</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reject</fullName>
+                <fullName>Reject</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wrong number</fullName>
+                <fullName>Wrong Number</fullName>
                 <default>false</default>
             </values>
 			<values>
-                <fullName>not started</fullName>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </values>
 			<values>
-                <fullName>invalid data</fullName>
+                <fullName>Invalid Data</fullName>
                 <default>false</default>
             </values>
 			<values>
-                <fullName>reservation</fullName>
+                <fullName>Reservation</fullName>
                 <default>false</default>
             </values>
 			<values>
@@ -6911,43 +6932,43 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>busy</fullName>
+                <fullName>Busy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid data</fullName>
+                <fullName>Invalid Data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>No Answer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no such person</fullName>
+                <fullName>No Such Person</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reject</fullName>
+                <fullName>Reject</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reservation</fullName>
+                <fullName>Reservation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wrong number</fullName>
+                <fullName>Wrong Number</fullName>
                 <default>false</default>
             </values>
 			<values>
-                <fullName>not started</fullName>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </values>
 			<values>
-                <fullName>need call back</fullName>
+                <fullName>Need Call Back</fullName>
                 <default>false</default>
             </values>
 			<values>
-                <fullName>invalid call</fullName>
+                <fullName>Invalid Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8547,7 +8568,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Not the Car Purchase Decision Maker</fullName>
+                <fullName>Not The Car Purchase Decision Maker</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8579,11 +8600,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejection During the Main Part of the Interview</fullName>
+                <fullName>Rejection During The Main Part Of The Interview</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejection During the Probing Question Phase</fullName>
+                <fullName>Rejection During The Probing Question Phase</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10145,31 +10166,31 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>busy</fullName>
+                <fullName>Busy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid data</fullName>
+                <fullName>Invalid Data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>No Answer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no such person</fullName>
+                <fullName>No Such Person</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reject</fullName>
+                <fullName>Reject</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reservation</fullName>
+                <fullName>Reservation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wrong number</fullName>
+                <fullName>Wrong Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10947,31 +10968,31 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>busy</fullName>
+                <fullName>Busy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid data</fullName>
+                <fullName>Invalid Data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>No Answer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no such person</fullName>
+                <fullName>No Such Person</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reject</fullName>
+                <fullName>Reject</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reservation</fullName>
+                <fullName>Reservation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wrong number</fullName>
+                <fullName>Wrong Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12621,7 +12642,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Not the Car Purchase Decision Maker</fullName>
+                <fullName>Not The Car Purchase Decision Maker</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12665,11 +12686,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejection During the Main Part of the Interview</fullName>
+                <fullName>Rejection During The Main Part Of The Interview</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejection During the Probing Question Phase</fullName>
+                <fullName>Rejection During The Probing Question Phase</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12713,7 +12734,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unable to Contact Qualified Interviewee</fullName>
+                <fullName>Unable To Contact Qualified Interviewee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12745,59 +12766,59 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>busy</fullName>
+                <fullName>Busy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>call transfer</fullName>
+                <fullName>Call Transfer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send Email</fullName>
+                <fullName>Failed To Send Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send SMS</fullName>
+                <fullName>Failed To Send SMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>failed to send fax</fullName>
+                <fullName>Failed To Send Fax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid call</fullName>
+                <fullName>Invalid Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>invalid data</fullName>
+                <fullName>Invalid Data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>need call back</fullName>
+                <fullName>Need Call Back</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no answer</fullName>
+                <fullName>No Answer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>no such person</fullName>
+                <fullName>No Such Person</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>not started</fullName>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reject</fullName>
+                <fullName>Reject</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>reservation</fullName>
+                <fullName>Reservation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>wrong number</fullName>
+                <fullName>Wrong Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13234,7 +13255,7 @@
         <errorConditionFormula>OR(AND($Profile.Name != 'IntegrationAPI',	
 RecordType.DeveloperName = 'SSI_Task', 
 ISPICKVAL(Status, 'Closed'), 
-ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR')),AND($Profile.Name != 'IntegrationAPI',ISPICKVAL(Status,'Closed'),ISPICKVAL( Activity_Status__c, '' ),OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false))))</errorConditionFormula>
+ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR')),AND($Profile.Name != 'IntegrationAPI',ISPICKVAL(Status,'Closed'),ISPICKVAL( Activity_Status__c, '' ),OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), if(AND(MD__c=='TR',$Permission.TRGeneric),true,false))))</errorConditionFormula>
         <errorDisplayField>Related_Task_Id__c</errorDisplayField>
         <errorMessage>Activity status is required if you close task.</errorMessage>
     </validationRules>

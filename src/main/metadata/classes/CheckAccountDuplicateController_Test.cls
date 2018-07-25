@@ -106,6 +106,14 @@ public class CheckAccountDuplicateController_Test
         addressobj.ZipCode__c = '1040041';
         addressobj.Province__c ='Fukushima';
         addressobj.TitleOfHonor__c = 'To Person';
+		addressobj.City__c='Test';
+        addressobj.District__c='Test';
+        addressobj.Block_Native__c='Test';
+        addressobj.City_Native__c='Test';
+        addressobj.District_Native__c='Test';
+        addressobj.Province_Native__c='Test';
+        addressobj.Address_Line_1_Native__c='Test';
+        addressobj.Address_Line_2_Native__c='Test';
         insert addressobj;
         
     }

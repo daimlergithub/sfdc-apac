@@ -11,7 +11,7 @@ public class Util_getPermissionsTest {
         User usr = TestUtils.IntegrationAPIUser();
         User usr1 = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata','IN');
         ID pId = [select id from profile where Name='IntegrationAPI' limit 1].Id;
-        User u = [Select id from user where profileid=:pId limit 1];
+        User u = [Select id from user where profileid=:pId and isActive=true limit 1];
         User u1 = [select id from user where profile.name = 'System Administrator' and isActive=true limit 1];
         // Create PermissionSet with Custom Permission and assign to test user
         PermissionSet ps = new PermissionSet(Name = 'Test', Label = 'Test');
@@ -29,7 +29,7 @@ public class Util_getPermissionsTest {
     
     @IsTest
     private static void testCheckCustomPermission() {
-        User u = [Select id from user where profile.name = 'IntegrationAPI' limit 1];
+        User u = [Select id from user where profile.name = 'IntegrationAPI' and isActive=true limit 1];
         Boolean flag = false;
         test.startTest();
         System.runAs(u){

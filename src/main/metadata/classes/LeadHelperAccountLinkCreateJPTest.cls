@@ -8,6 +8,8 @@ public class LeadHelperAccountLinkCreateJPTest {
   public static Contact contobj2;
   public static List<Contact> contobjlist;
   public static Lead__c leadobj;
+  public static Lead__c leadobj1;
+  public static Lead__c leadobj2;
   public static Lead__c le;
   public static List<Lead__c> leadlist;
   //public static map<id,Lead__c> leadOldMap;
@@ -31,23 +33,61 @@ public class LeadHelperAccountLinkCreateJPTest {
       accobj.Name = '翁長';
       accobj.Phone = '00000009642';
       accobj.MBK_Data_Source__c='Email';
-      accobj.Mobile__c = '00000009642';
+      accobj.Mobile__c = '000-000-9642';
       accobj.ZipCode__c= '1002347';
       insert accobj;
       system.debug('$$$$$$$$$$$$'+accobj);
       system.debug('$$$$$$$$$$$$'+accobj.id);
+            
       
       accobj1 = new Account();
       accobj1.RecordTypeId = personAccRecordTypeId ;
       accobj1.LastName = '雄';
-      accobj1.Phone = '00000009842';
+      accobj1.Phone = '000-000-9842';
       accobj1.MBK_Data_Source__c='Campaign';
-      accobj1.Mobile__c = '00000009842';
+      accobj1.Mobile__c = '000-000-9842';
       accobj1.ZipCode__c= '3332347';
+      
       insert accobj1;
+      Address__c address=new Address__c();
+        address.Address_Type__c='Home';
+        address.Province__c='Tokyo';
+        address.City__c='bangalore';
+        address.District__c='test2';
+        address.Block__c='test3';
+        address.Address_Line_1__c='testaddress1';
+        address.Address_Line_2__c='testaddress2';
+        address.Customer__c=accobj1.id;
+        address.TitleOfHonor__c = 'To Person';             
+        insert address;
+         accobj1.primary_address_reference__c = address.id;
+      update accobj1;
       system.debug('$$$$$$$$$$$$'+accobj1);
       system.debug('$$$$$$$$$$$$'+accobj1.id);
-      
+      accobj2 = new Account();
+      accobj2.RecordTypeId = companyRecordTypeId;
+      accobj2.Name = '雄';
+      accobj2.Phone = '000-000-9842';
+      accobj2.MBK_Data_Source__c='Campaign';
+      accobj2.Mobile__c = '000-000-9842';
+      accobj2.ZipCode__c= '3332347';
+      accobj2.Commercial_Reg_No__c='123456';
+       
+      insert accobj2;
+      Address__c address1=new Address__c();
+        address1.Address_Type__c='Home';
+        address1.Province__c='Tokyo';
+        address1.City__c='bangalore';
+        address1.District__c='test2';
+        address1.Block__c='test3';
+        address1.Address_Line_1__c='testaddress1';
+        address1.Address_Line_2__c='testaddress2';
+        address1.Customer__c=accobj2.id;
+        address1.TitleOfHonor__c = 'To Person'; 
+        address1.Preferred__c=true;            
+        insert address1;
+         accobj1.primary_address_reference__c = address1.id;
+      update accobj2;
       leadobj = new Lead__c();
       leadobj.RecordTypeId = salesleadRecordTypeId;
       leadobj.CAC_Lead_Status__c = 'Qualified';
@@ -55,10 +95,27 @@ public class LeadHelperAccountLinkCreateJPTest {
       leadobj.MD__c = 'KR';
       leadobj.Assigned_Dealer__c = accobj.Id;
       leadobj.Contact__c = accobj1.id;
+      leadobj.Company_Account__c = accobj2.id;
       //insert leadobj;
-      system.debug('$$$$$$$$$$$$'+leadobj);
+    leadobj1 = new Lead__c();
+      leadobj1.RecordTypeId = salesleadRecordTypeId;
+      leadobj1.CAC_Lead_Status__c = 'Approved';
+      leadobj1.Lead_Type__c = 'New Car';
+      leadobj1.MD__c = 'JP';
+      leadobj1.Assigned_Dealer__c = accobj.Id;
+      leadobj1.Contact__c = accobj1.id;
+      leadobj2 = new Lead__c();
+      leadobj2.RecordTypeId = salesleadRecordTypeId;
+      leadobj2.CAC_Lead_Status__c = 'Approved';
+      leadobj2.Lead_Type__c = 'New Car';
+      leadobj2.MD__c = 'TH';
+      leadobj2.Assigned_Dealer__c = accobj.Id;
+      leadobj2.Contact__c = accobj1.id;
+  
       leadlist = new LIst<Lead__c>();
       leadlist.add(leadobj);
+      leadlist.add(leadobj1);
+      leadlist.add(leadobj2);
       insert leadlist;
       system.debug('$$$$$$$$$$$$'+leadlist);
       
@@ -89,7 +146,7 @@ public class LeadHelperAccountLinkCreateJPTest {
     public static testmethod void createAccountLinkRecordTest() 
     {
         createTestData();
-        le = new Lead__c();
+       le = new Lead__c();
         le.RecordTypeId = salesleadRecordTypeId;
         le.CAC_Lead_Status__c = 'Approved';
         le.Lead_Type__c = 'Newwww Car';
@@ -97,7 +154,7 @@ public class LeadHelperAccountLinkCreateJPTest {
         le.Assigned_Dealer__c = accobj.Id;
         
         test.starttest();
-        	insert le;
+            insert le;
         test.stoptest();
     }   
 }

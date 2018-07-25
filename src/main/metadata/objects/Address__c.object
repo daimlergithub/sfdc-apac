@@ -449,7 +449,6 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Korea</fullName>
@@ -457,7 +456,6 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Australia</fullName>
@@ -477,7 +475,6 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Thailand</fullName>
@@ -485,7 +482,6 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Singapore</fullName>
@@ -493,7 +489,6 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vietnam</fullName>
@@ -506,30 +501,101 @@
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Brunei</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Indonesia</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>India</fullName>
                 <default>false</default>
                 <controllingFieldValues>IN</controllingFieldValues>
-                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Turkey</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>United Kingdom</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Swiss</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Italy</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spain</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Austria</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Poland</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Luxembourg</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hungary</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Slovakia</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Czech Republic</fullName>
                 <default>false</default>
                 <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
@@ -567,10 +633,10 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>Defualt_address__c</fullName>
+        <fullName>Default_address__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Defualt - address</label>
+        <label>Default - address</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -823,6 +889,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	    <fields>
+        <fullName>isTestRunning__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isTestRunning</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Province_Native__c</fullName>
         <externalId>false</externalId>
@@ -859,6 +934,11 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Bangkok</fullName>
+                <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -1225,6 +1305,221 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Retail_State_City__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail State/City</label>
+        <picklist>
+            <controllingField>Country__c</controllingField>
+            <picklistValues>
+                <fullName>ACT</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NSW</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NT</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SA</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TAS</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QLD</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WA</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VIC</fullName>
+                <default>false</default>
+                <controllingFieldValues>Australia</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auckland</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bay of Plenty</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blenheim</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Christchurch</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dunedin</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gisborne</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greymouth</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hamilton</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hastings</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invercargill</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manawatu</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Napier</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nelson</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Plymouth</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>North Island - Central and East</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>North Island - North</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>North Island - West</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Palmerston North</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pokeno</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Queenstown</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rotorua</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tauranga</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taupo</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>The South Island</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Timaru</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wairarapa</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wanaka</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wanganui</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wellington</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Whangarei</fullName>
+                <default>false</default>
+                <controllingFieldValues>New Zealand</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Retail_Suburb__c</fullName>
+        <externalId>false</externalId>
+        <label>Retail Suburb</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Source_System__c</fullName>
         <externalId>false</externalId>
         <label>Source System</label>
@@ -1491,6 +1786,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
+            <picklistValues>
+                <fullName>Valid</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>InValid</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1591,18 +1896,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>TestDeployment__c</fullName>
-        <description>TestDeployment</description>
-        <externalId>false</externalId>
-        <label>TestDeployment</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
         <label>TitleOfHonor</label>
@@ -1681,15 +1974,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>isTestRunning__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>isTestRunning</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
     <label>Address</label>
     <listViews>
         <fullName>All</fullName>
@@ -1739,7 +2023,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Austria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungary</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1748,6 +2056,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1763,7 +2079,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Luxembourg</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1771,7 +2095,23 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swiss</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1783,6 +2123,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>United Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
@@ -1791,6 +2135,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             <picklist>Market__c</picklist>
             <values>
                 <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1814,10 +2162,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
@@ -1830,6 +2174,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Aichi</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Bangkok</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2086,161 +2434,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>State_City__c</picklist>
-            <values>
-                <fullName>ACT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auckland</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bay of Plenty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Blenheim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Christchurch</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dunedin</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gisborne</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greymouth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hamilton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hastings</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invercargill</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manawatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NSW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Napier</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nelson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Plymouth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - Central and East</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - North</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - West</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Palmerston North</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pokeno</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QLD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Queenstown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rotorua</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TAS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Taupo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tauranga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>The South Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timaru</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wairarapa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wanaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wanganui</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wellington</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Whangarei</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
@@ -2251,11 +2444,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>InValid</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2306,7 +2507,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Austria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungary</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2315,6 +2540,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2330,7 +2563,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Luxembourg</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2338,7 +2579,23 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swiss</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2347,6 +2604,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Kingdom</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2362,6 +2623,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>NZ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2381,10 +2646,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
@@ -2397,6 +2658,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             <picklist>Province__c</picklist>
             <values>
                 <fullName>Aichi</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Bangkok</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2653,161 +2918,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>State_City__c</picklist>
-            <values>
-                <fullName>ACT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auckland</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bay of Plenty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Blenheim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Christchurch</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dunedin</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gisborne</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greymouth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hamilton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hastings</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invercargill</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manawatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NSW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Napier</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nelson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Plymouth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - Central and East</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - North</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - West</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Palmerston North</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pokeno</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QLD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Queenstown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rotorua</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TAS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Taupo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tauranga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>The South Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timaru</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wairarapa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wanaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wanganui</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wellington</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Whangarei</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
@@ -2818,11 +2928,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>InValid</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2873,7 +2991,31 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Austria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Brunei</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungary</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2882,6 +3024,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2897,7 +3047,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Luxembourg</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2905,7 +3063,23 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swiss</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2914,6 +3088,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Kingdom</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2968,6 +3146,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
             <values>
                 <fullName>Akita</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Bangkok</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3220,161 +3402,6 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>State_City__c</picklist>
-            <values>
-                <fullName>ACT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auckland</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bay of Plenty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Blenheim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Christchurch</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dunedin</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gisborne</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greymouth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hamilton</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hastings</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invercargill</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manawatu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NSW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Napier</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nelson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Plymouth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - Central and East</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - North</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Island - West</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Palmerston North</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pokeno</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QLD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Queenstown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rotorua</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TAS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Taupo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tauranga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>The South Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timaru</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wairarapa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wanaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wanganui</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wellington</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Whangarei</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
@@ -3385,11 +3412,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>InValid</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3618,7 +3653,7 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorDisplayField>District__c</errorDisplayField>
         <errorMessage>Town should be less than or equal to 18 letters.</errorMessage>
     </validationRules>
-    <validationRules>
+	<validationRules>
         <fullName>EitherRegistrationOrMailingRequired</fullName>
         <active>true</active>
         <description>Either Registration or Mailing address can be checked at a time.</description>
@@ -3633,8 +3668,22 @@ OR(MD__c = 'JP',MD__c = 'KR'))</errorConditionFormula>
         <errorMessage>Cannot select Country as India when Foreign Nationals checkbox is ticked.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>IN_Invalid_City</fullName>
+        <active>true</active>
+        <description>City must not contain any special character and numbers</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
+$Permission.INGeneric, 
+ISPICKVAL(Country__c , 'India'), 
+OR(ISCHANGED( District__c ),ISNEW()), 
+NOT(ISBLANK(District__c )), 
+NOT(REGEX( District__c ,"^[a-z A-Z]*$")) 
+)</errorConditionFormula>
+        <errorMessage>City field must not contain any special Characters and Digits</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>IN_Invalid_PostCode</fullName>
         <active>true</active>
+        <description>Added for india market to validate postal code are 6 digits</description>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
 $Permission.INGeneric, 
 ISPICKVAL(Country__c , 'India'), 
@@ -3708,6 +3757,7 @@ MD__c = 'JP')</errorConditionFormula>
     <validationRules>
         <fullName>Primary_Address_Reference_Not_Editable</fullName>
         <active>true</active>
+        <description>Added for india market to validate Preferred Address on the retail copy should not be changed post record goes to eDealer...</description>
         <errorConditionFormula>AND( $Profile.Name  != 'IntegrationAPI', $Permission.INGeneric ,  NOT(ISBLANK( Customer__r.DMS_Customer_ID__c)), ISCHANGED( Preferred__c))</errorConditionFormula>
         <errorMessage>Preferred Address on the retail copy should not be changed post record goes to eDealer...</errorMessage>
     </validationRules>

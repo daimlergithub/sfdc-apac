@@ -8,11 +8,46 @@
         <value>Assigned,New</value>
     </labels>
 	<labels>
+        <fullName>First_And_Last_Name_Format</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First_And_Last_Name_Format</shortDescription>
+        <value>First Name and Last Name fields must not contain any special character and numbers</value>
+    </labels>
+	<labels>
+        <fullName>Createdateendrange</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Createdateendrange</shortDescription>
+        <value>2018-04-18T23:59:59Z</value>
+    </labels>
+    <labels>
+        <fullName>Createdatestartrange</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Createdatestartrange</shortDescription>
+        <value>2018-02-22T00:00:00Z</value>
+    </labels>
+	<labels>
         <fullName>Auto_Batch_Campaign_Member_Status</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Auto_Batch_Campaign_Member_Status</shortDescription>
         <value>Ready,Executed</value>
+    </labels>
+	<labels>
+        <fullName>rowcaused</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>rowcaused</shortDescription>
+        <value>Service_share__c</value>
+    </labels>
+	<labels>
+        <fullName>Mrkt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mrkt</shortDescription>
+        <value>JP</value>
     </labels>
 	 <labels>
         <fullName>ALPreferredAddressUpdate</fullName>
@@ -27,6 +62,13 @@
         <protected>false</protected>
         <shortDescription>Car relation selling dealer</shortDescription>
         <value>Purchaser,Sales Contact Target 1</value>
+    </labels>
+		<labels>
+        <fullName>Campaign_Member_Lead</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Campaign Member Lead</shortDescription>
+        <value>1</value>
     </labels>
 	<labels>
         <fullName>masterLeadMerge</fullName>
@@ -295,6 +337,13 @@
         <protected>false</protected>
         <shortDescription>EmailValidationANZ</shortDescription>
         <value>Invalid Email Address</value>
+    </labels>	
+	<labels>
+        <fullName>Evenly_Location</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Evenly Location</shortDescription>
+        <value>Evenly Location</value>
     </labels>	
 	<labels>
         <fullName>Home_Phone_Acc</fullName>
@@ -573,6 +622,20 @@
         <value>Add</value>
     </labels>
     <labels>
+        <fullName>AddCompVehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddCompVehicle</shortDescription>
+        <value>Add Competitor Vehicle</value>
+    </labels>
+    <labels>
+        <fullName>AddIntVehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddIntVehicle</shortDescription>
+        <value>Add Interested Vehicle</value>
+    </labels>
+    <labels>
         <fullName>Add_Button</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -689,7 +752,14 @@
         <shortDescription>Address Information</shortDescription>
         <value>Address Information</value>
     </labels>
-	<labels>
+    <labels>
+        <fullName>Address_Limit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address_Limit</shortDescription>
+        <value>Only 2 Addresses are allowed.</value>
+    </labels>
+    <labels>
         <fullName>Address_Line_1_should_be_less_than_or_equal_to_50_letters</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1204,6 +1274,13 @@
         <protected>false</protected>
         <shortDescription>Button Search</shortDescription>
         <value>Search</value>
+    </labels>
+	<labels>
+        <fullName>c2cNameJP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>c2c Accountlink Name update</shortDescription>
+        <value>顧客間関係情報</value>
     </labels>
     <labels>
         <fullName>CA</fullName>
@@ -2018,6 +2095,55 @@
         <value>You can&apos;t delete an active campaign.</value>
     </labels>
     <labels>
+        <fullName>CarModel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CarModel</shortDescription>
+        <value>Car Model</value>
+    </labels>
+    <labels>
+        <fullName>CarModelArgs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CarModelArgs</shortDescription>
+        <value>Marketing_Class__c,Marketing_Body_Type__c,variant__c,fuel_type__c</value>
+    </labels>
+    <labels>
+        <fullName>CarModelMandatoryArgs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CarModelMandatoryArgs</shortDescription>
+        <value>Market__c,DFE_Marker__c</value>
+    </labels>
+    <labels>
+        <fullName>CarModelSelectionLimit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CarModelSelectionLimit</shortDescription>
+        <value>LIMIT 3</value>
+    </labels>
+    <labels>
+        <fullName>CarModelTxt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CarModelTxt</shortDescription>
+        <value>Car Model Text</value>
+    </labels>
+    <labels>
+        <fullName>CarSearchFormatCriteria</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CarSearchFormatCriteria</shortDescription>
+        <value>Marketing_Class__c,Marketing_Body_Type__c,variant__c,Fuel_Type__c,</value>
+    </labels>
+    <labels>
+        <fullName>CarSearchFormatText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CarSearchFormatText</shortDescription>
+        <value>Class, Body-Type, Variant, Fuel-Type</value>
+    </labels>
+    <labels>
         <fullName>Car_Relation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2322,6 +2448,13 @@
         <value>Common Filter Name</value>
     </labels>
     <labels>
+        <fullName>CompVehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CompVehicle</shortDescription>
+        <value>Competitor Vehicle Information</value>
+    </labels>
+    <labels>
         <fullName>Company</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2334,7 +2467,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CompanyAccountDedupValidation</shortDescription>
-        <value>Account Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of company account</value>
+        <value>Account Name and any of the contact number (Mobile or Home Phone or Work Phone) are mandatory for online deduplication and creation of company account</value>
     </labels>
     <labels>
         <fullName>CompanyAccountSearchError</fullName>
@@ -2348,7 +2481,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CompanyAccountSearchErrorMessage</shortDescription>
-        <value>For Company Search Name, Work Phone , Status, Data Source and City has to be entered.</value>
+        <value>For Company Search Name, Work Phone and Data Source has to be entered.</value>
     </labels>
     <labels>
         <fullName>Company_Account_Information</fullName>
@@ -2569,6 +2702,13 @@
         <value>Thailand</value>
     </labels>
     <labels>
+        <fullName>Country_Label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Country_Label</shortDescription>
+        <value>Country_Label</value>
+    </labels>
+    <labels>
         <fullName>Countrycode_for_WorkPhone</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2619,6 +2759,13 @@
         <protected>false</protected>
         <shortDescription>Criteria</shortDescription>
         <value>Criteria</value>
+    </labels>
+    <labels>
+        <fullName>CurrVehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CurrVehicle</shortDescription>
+        <value>Current Vehicle Information</value>
     </labels>
     <labels>
         <fullName>Current_Lead</fullName>
@@ -2974,6 +3121,27 @@
         <value>This function available only for Japan user</value>
     </labels>
     <labels>
+        <fullName>Description_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description 1</shortDescription>
+        <value>Description 1</value>
+    </labels>
+    <labels>
+        <fullName>Description_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description 2</shortDescription>
+        <value>Description 2</value>
+    </labels>
+    <labels>
+        <fullName>Description_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description 3</shortDescription>
+        <value>Description 3</value>
+    </labels>
+    <labels>
         <fullName>DetailedModelName</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3014,6 +3182,13 @@
         <protected>false</protected>
         <shortDescription>Districe Native should not be null</shortDescription>
         <value>Districe Native should not be null</value>
+    </labels>
+    <labels>
+        <fullName>District</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>District</shortDescription>
+        <value>District</value>
     </labels>
     <labels>
         <fullName>DistrictError</fullName>
@@ -3456,6 +3631,20 @@ please contact the number below.</value>
         <value>Representative</value>
     </labels>
     <labels>
+        <fullName>Email_Mobile_Mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Mobile_Mandatory</shortDescription>
+        <value>Please enter the Email or Mobile of the Customer.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Mobile_SocialId_Mandatory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email_Mobile_SocialId_Mandatory</shortDescription>
+        <value>Please enter the Email or Mobile or Social Id of the Customer.</value>
+    </labels>
+    <labels>
         <fullName>Email_Thankyou</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3736,6 +3925,22 @@ please contact the number below.</value>
         <value>Finance Estimate History</value>
     </labels>
     <labels>
+        <fullName>Finance_Lead_Record_type</fullName>
+        <categories>Process Builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is created as part of FS Development to store Finance Lead RecordType Id</shortDescription>
+        <value>0120l0000009kbc</value>
+    </labels>
+    <labels>
+        <fullName>Finance_Lead_Record_type_IN</fullName>
+        <categories>Process Builder IN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This is created as part of FS IN Development to store Finance Lead RecordType Id</shortDescription>
+        <value>0120l0000007lZ8AAI</value>
+    </labels>
+    <labels>
         <fullName>Finance_Proposal</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3893,6 +4098,14 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Gender</shortDescription>
         <value>Gender</value>
+    </labels>
+    <labels>
+        <fullName>General_Task_Recordtype_id</fullName>
+        <categories>Process Builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>General Task Recordtype id</shortDescription>
+        <value>012280000006I8L</value>
     </labels>
     <labels>
         <fullName>GenericUploaderErrorMsg</fullName>
@@ -4109,6 +4322,13 @@ please contact the number below.</value>
         <value>IN</value>
     </labels>
     <labels>
+        <fullName>INDealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INDealer (This is used by IN Market for dealer access check)</shortDescription>
+        <value>INDealer</value>
+    </labels>
+    <labels>
         <fullName>INGeneric</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -4121,6 +4341,21 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>India Phone number Search Validation Controller</shortDescription>
         <value>+91</value>
+    </labels>
+    <labels>
+        <fullName>INRetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INRetail</shortDescription>
+        <value>INRetail</value>
+    </labels>
+    <labels>
+        <fullName>INSendToAutoLineErrorMsg</fullName>
+        <categories>India</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSendToAutoLineErrorMsg</shortDescription>
+        <value>This functionality is not available as AutoLine is not used in this market.</value>
     </labels>
     <labels>
         <fullName>IN_Address_Line_1_Length_validation</fullName>
@@ -4457,12 +4692,26 @@ please contact the number below.</value>
         <shortDescription>Insurance Proposal</shortDescription>
         <value>Insurance Proposal</value>
     </labels>
+	<labels>
+        <fullName>InternalIdpSettingName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InternalIdpSettingName</shortDescription>
+        <value>MBTHCommunitySSOSetup</value>
+    </labels>
     <labels>
         <fullName>IntProfileName</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>This is used in Trigger</shortDescription>
         <value>IntegrationAPI</value>
+    </labels>
+     <labels>
+        <fullName>IntVehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IntVehicle</shortDescription>
+        <value>Interested Vehicle Information</value>
     </labels>
     <labels>
         <fullName>Interest</fullName>
@@ -4499,6 +4748,36 @@ please contact the number below.</value>
         <protected>false</protected>
         <shortDescription>Invoiced</shortDescription>
         <value>Invoiced</value>
+    </labels>
+    <labels>
+        <fullName>InvalidContact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InvalidContact</shortDescription>
+        <value>Home/Work phone number must be in any of the following formats : 
+Country Code (+90) and City Code 3 digits (xxx) and PhoneNumber 7 digits (xxxxxxx)</value>
+    </labels>
+    <labels>
+        <fullName>InvalidEmail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InvalidEmail</shortDescription>
+        <value>Invalid Email Address!</value>
+    </labels>
+    <labels>
+        <fullName>InvalidMobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InvalidMobile</shortDescription>
+        <value>Mobile phone number must be in any of the following formats : 
+Country Code (+90) And Mobile Number 10 (5xxxxxxxxx) digits only. Starting with 5.</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_City_Code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid_City_Code</shortDescription>
+        <value>Home Phone/Work Phone has invalid City Code.</value>
     </labels>
     <labels>
         <fullName>JP</fullName>
@@ -5659,6 +5938,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <shortDescription>MarketMY</shortDescription>
         <value>MY</value>
     </labels>
+    <labels>
+        <fullName>MarketLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MarketLabel</shortDescription>
+        <value>Market</value>
+    </labels>
 	   <labels>
         <fullName>MarketAU</fullName>
         <categories>Australia</categories>
@@ -5895,6 +6181,13 @@ Below Lead is Assigned to you kindly click on below link for Lead details.</valu
         <protected>false</protected>
         <shortDescription>For Vehicle Picker</shortDescription>
         <value>Mileage</value>
+    </labels>
+    <labels>
+        <fullName>Mileage_Start</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mileage_Start</shortDescription>
+        <value>Mileage Start</value>
     </labels>
     <labels>
         <fullName>Mobile</fullName>
@@ -6272,6 +6565,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>No Match Found</shortDescription>
         <value>No Match Found</value>
     </labels>
+	<labels>
+        <fullName>No_matched_customer_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Match Found</shortDescription>
+        <value>No matched customer found</value>
+    </labels>
     <labels>
         <fullName>No_Result_Found</fullName>
         <language>en_US</language>
@@ -6422,6 +6722,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>Notify_To_Dealer3</shortDescription>
         <value>You cannot notify to the dealer because Dealer Contact is not &apos;Yes&apos;.</value>
+    </labels>
+    <labels>
+        <fullName>NumericContact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NumericContact</shortDescription>
+        <value>Contact Number must be numeric!</value>
     </labels>
     <labels>
         <fullName>Occupation</fullName>
@@ -6664,6 +6971,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Page Element - Previous</shortDescription>
         <value>Previous</value>
     </labels>
+	<labels>
+        <fullName>PageParameters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PageParameters</shortDescription>
+        <value>Id</value>
+    </labels>
     <labels>
         <fullName>Pages</fullName>
         <language>en_US</language>
@@ -6720,7 +7034,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>PersonAccountDedupValidation</shortDescription>
-        <value>First Name , Last Name and any of the contact number ( Workphone or HomePhone or Mobile) are mandatory for online deduplication and creation of person account</value>
+        <value>First Name , Last Name and any of the contact number (Mobile or Home Phone or Work Phone) are mandatory for online deduplication and creation of person account</value>
     </labels>
     <labels>
         <fullName>PersonAccountSearchError</fullName>
@@ -6741,7 +7055,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>PersonAccountSearchErrorMessage</shortDescription>
-        <value>For Customer Search First Name, Last Name, Status, Data Source and City is required</value>
+        <value>For Customer Search First Name, Last Name, Data Source and Personal Agreement is required</value>
     </labels>
     <labels>
         <fullName>PersonAccount_Record_Type_From_Account</fullName>
@@ -6801,6 +7115,14 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <shortDescription>Phone</shortDescription>
         <value>Phone</value>
     </labels>
+     <labels>
+        <fullName>PersonalInfo</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonalInfo</shortDescription>
+        <value>Please check the Personal Agreement before saving the Personal Information!</value>
+    </labels>
+    
     <labels>
         <fullName>PhoneSales</fullName>
         <language>en_US</language>
@@ -7117,6 +7439,13 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
         <protected>false</protected>
         <shortDescription>PostalCodeValidationANZ</shortDescription>
         <value>Please enter valid Postal code</value>
+    </labels>
+    <labels>
+        <fullName>Preferred</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Preferred</shortDescription>
+        <value>Preferred</value>
     </labels>	
     <labels>
         <fullName>Previous</fullName>
@@ -8154,6 +8483,7 @@ Points:Needs priorities, clarification, background and status suspected -&gt; co
     </labels>
     <labels>
         <fullName>Retention_Lead_Owner</fullName>
+        <categories>Process Builder</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Retention Lead Owner</shortDescription>
@@ -9698,6 +10028,27 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Select Option None</shortDescription>
         <value>--None--</value>
+    </labels>	
+    <labels>
+        <fullName>Select_Template_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Template 1</shortDescription>
+        <value>Select Template 1</value>
+    </labels>
+    <labels>
+        <fullName>Select_Template_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Template 2</shortDescription>
+        <value>Select Template 2</value>
+    </labels>
+    <labels>
+        <fullName>Select_Template_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Template 3</shortDescription>
+        <value>Select Template 3</value>
     </labels>
     <labels>
         <fullName>Select_User</fullName>
@@ -10163,6 +10514,34 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>T1</shortDescription>
         <value>T1</value>
     </labels>
+	    <labels>
+        <fullName>Purchased_Only_Non_BDC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Purchased(Only Non BDC)</shortDescription>
+        <value>Purchased(Only Non BDC)</value>
+    </labels>
+	    <labels>
+        <fullName>Order_Placed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Order Placed</shortDescription>
+        <value>Order Placed</value>
+    </labels>
+	    <labels>
+        <fullName>On_going</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>On-going</shortDescription>
+        <value>On-going</value>
+    </labels>
+	    <labels>
+        <fullName>Not_Started</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not Started</shortDescription>
+        <value>Not Started</value>
+    </labels>
     <labels>
         <fullName>T2</fullName>
         <language>en_US</language>
@@ -10191,6 +10570,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>TH_CAC_LeadstatusPurchasedError</shortDescription>
         <value>SARI changing lead status to “Purchased ”,please enter Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle</value>
     </labels>
+	<labels>
+        <fullName>TH_FS_Contract_TextBoxId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TH_FS_Contract_TextBoxId</shortDescription>
+        <value>CF00N0l000001BkCI</value>
+    </labels>
     <labels>
         <fullName>TH_Not_authorized_to_create_MB_Vehicle_record</fullName>
         <language>en_US</language>
@@ -10210,14 +10596,14 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH_SARIDealerlead status error</shortDescription>
-        <value>SARI changing lead statust to &quot;Purchased&quot; please enter Purchase Date</value>
+        <value>SARI changing lead status to &quot;Purchased&quot;, please enter Purchase Date</value>
     </labels>
     <labels>
         <fullName>TH_SARI_DealerOrderplacedError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TH_SARI_DealerOrderplacedError</shortDescription>
-        <value>SARI changing lead statust to Order Placed,please enter OrderPlaced Date</value>
+        <value>SARI changing lead status to Order Placed,please enter OrderPlaced Date</value>
     </labels>
     <labels>
         <fullName>TH_SERVICE_BOOKING</fullName>
@@ -10241,12 +10627,12 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>TR</shortDescription>
         <value>TR</value>
     </labels>
-    <labels>
+   <labels>
         <fullName>TRAddressMandatory</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TRAddressMandatory</shortDescription>
-        <value>As you have opted for Postal opt in, Address Line 1 and Address Line 2 are Mandatory.</value>
+        <value>You have entered Address Line 1 / Address Line 2 , Please provide the corresponding DOC Permission.</value>
     </labels>
     <labels>
         <fullName>TRCountry</fullName>
@@ -10274,7 +10660,7 @@ To develop service Transfer permission, assess the service of the staff and the 
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TRPhone</shortDescription>
-        <value>As you have opted for Phone, Please enter atleast one contact Information.</value>
+        <value>You have input a Contact number. Please enter corresponding DoC permission.</value>
     </labels>
     <labels>
         <fullName>TRPhoneCountryCode</fullName>
@@ -10284,11 +10670,18 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>+90</value>
     </labels>
     <labels>
+        <fullName>TRRetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRRetail</shortDescription>
+        <value>TRRetail</value>
+    </labels>
+    <labels>
         <fullName>TRSMS</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>TRSMS</shortDescription>
-        <value>As you have opted for SMS, Please enter a valid Mobile Number.</value>
+        <value>You have input a Email address. Please enter corresponding DoC permission.</value>
     </labels>
     <labels>
         <fullName>TRZipCode</fullName>
@@ -10296,6 +10689,762 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>TRZipCode</shortDescription>
         <value>ZIP CODE should be 5 digits.</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey1_2_Q1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey1&amp;2 Q1</shortDescription>
+        <value>Is the answer you received regarding your request sufficient for you?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey1_2_Q2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey1&amp;2 Q2</shortDescription>
+        <value>Did the result satisfied you?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey1_2_Q3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey1&amp;2 Q3</shortDescription>
+        <value>Are you satisfied with the service quality of the call center?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey1_2_Q4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey1&amp;2 Q4</shortDescription>
+        <value>How easy was it to conclude your claim?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey3_4_Q1_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey3&amp;4 Q1 P1</shortDescription>
+        <value>On the phone call we made on</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey3_4_Q1_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey3&amp;4 Q1 P2</shortDescription>
+        <value>you indicated that you would like to contact Dealer</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey3_4_Q1_P3_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey3&amp;4 Q1 P3 1</shortDescription>
+        <value>on your vehicle purchase request. Did the Dealer</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey3_4_Q1_P3_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey3&amp;4 Q1 P3 2</shortDescription>
+        <value>on your service request. Did the Dealer</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey3_4_Q1_P4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey3&amp;4 Q1 P4</shortDescription>
+        <value>call you?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey3_4_Q2_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey3&amp;4 Q2 P1</shortDescription>
+        <value>Have you been satisfied with the interest of our customer consultant?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey3_4_Q2_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey3&amp;4 Q2 P2</shortDescription>
+        <value>Do you prefer to communicate another Dealer?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey5_6_Provide_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey5&amp;6 Provide Address</shortDescription>
+        <value>Please provide communication address</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey5_6_Provide_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey5&amp;6 Provide Email</shortDescription>
+        <value>Please provide email</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey5_6_Q1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey5&amp;6 Q1</shortDescription>
+        <value>Are you still using your vehicle?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey5_6_Q2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey5&amp;6 Q2</shortDescription>
+        <value>May I have your e-mail adress please?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey5_6_Q3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey5&amp;6 Q3</shortDescription>
+        <value>May I have your communication address please?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey5_Q4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey5 Q4</shortDescription>
+        <value>Could you please share your expectation about Platinum program?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey5_Q5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey5 Q5</shortDescription>
+        <value>What kind of events, offers makes you satisfied?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey7_Q1_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey7 Q1 P1</shortDescription>
+        <value>Thank you for participating in our event on</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey7_Q1_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey7 Q1 P2</shortDescription>
+        <value>We hope you enjoy our event.</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR1</shortDescription>
+        <value>BMW</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR10</shortDescription>
+        <value>Fiat</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR11</shortDescription>
+        <value>Jeep</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR12</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR12</shortDescription>
+        <value>Land Rover</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR13</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR13</shortDescription>
+        <value>Mazda</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR14</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR14</shortDescription>
+        <value>Nissan</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR15</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR15</shortDescription>
+        <value>Porche</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR16</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR16</shortDescription>
+        <value>Renault</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR17</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR17</shortDescription>
+        <value>Ford</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR18</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR18</shortDescription>
+        <value>Hyundai</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR19</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR19</shortDescription>
+        <value>Lexus</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR2</shortDescription>
+        <value>Audi</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR20</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR20</shortDescription>
+        <value>Mini Cooper</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR21</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR21</shortDescription>
+        <value>Peugeot</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR22</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR22</shortDescription>
+        <value>Kia</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR23</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR23</shortDescription>
+        <value>Chevrolet</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR24</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR24</shortDescription>
+        <value>Citroen</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR25</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR25</shortDescription>
+        <value>Seat</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR26</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR26</shortDescription>
+        <value>Alfa Romeo</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR27</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR27</shortDescription>
+        <value>Jaguar</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR28</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR28</shortDescription>
+        <value>Dacia</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR3</shortDescription>
+        <value>Volkswagen</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR4</shortDescription>
+        <value>Honda</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR5</shortDescription>
+        <value>Range Rover</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR6</shortDescription>
+        <value>Volvo</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR7</shortDescription>
+        <value>Opel</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR8</shortDescription>
+        <value>Skoda</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_BR9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 BR9</shortDescription>
+        <value>Toyota</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q10</shortDescription>
+        <value>Do you still intend to purchase?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q11</shortDescription>
+        <value>Would you like us to guide you to the authorized dealer?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q12</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q12</shortDescription>
+        <value>Are you interested in Mercedes-Benz Rental ?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q1_P1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q1 P1</shortDescription>
+        <value>Good morning/evening, I am</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q1_P2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q1 P2</shortDescription>
+        <value>from Mercedes-Benz Turk Customer Contact Center. May I talk with</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q2</shortDescription>
+        <value>Following phone conversation will be recorded for service quality purposes. It’s seen in the system that you got in touch with a Mercedes Benz dealer to purchase a car but you haven’t purchased yet. We would like to hear your comments to provide you a better service quality</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q3</shortDescription>
+        <value>Did you purchase any vehicle after you visited the dealer?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q4</shortDescription>
+        <value>Have a nice drive! Was it a Mercedes-Benz car or any other brand? (Would you mind to inform us about the brand?)</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q5</shortDescription>
+        <value>Is it registered to your name?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q6</shortDescription>
+        <value>May I learn the brand name you bought ?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q7</shortDescription>
+        <value>May I learn the reason you preffered another brand if you don’t mind?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q8</shortDescription>
+        <value>May I learn the dealer name ?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_Q9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 Q9</shortDescription>
+        <value>Would you mind to tell the reason?</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN1</shortDescription>
+        <value>Postponement</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN10</shortDescription>
+        <value>Waiting for the medical report of disabled customers</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN11</shortDescription>
+        <value>Still being in touch with the retailer</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN12</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN12</shortDescription>
+        <value>Personal reasons</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN13</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN13</shortDescription>
+        <value>Market conditions/ the situation of the country</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN14</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN14</shortDescription>
+        <value>Falling short of the vehicle</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN15</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN15</shortDescription>
+        <value>Waiting for new models</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN16</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN16</shortDescription>
+        <value>Others</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN17</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN17</shortDescription>
+        <value>Considering competitor brands</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN18</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN18</shortDescription>
+        <value>Mercedes-Benz Rental</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN19</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN19</shortDescription>
+        <value>Retailer haven&apos;t get in touch</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN2</shortDescription>
+        <value>The price of the vehicle</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN20</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN20</shortDescription>
+        <value>Lack of test vehicle</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN21</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN21</shortDescription>
+        <value>Renault motor</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN22</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN22</shortDescription>
+        <value>Dissatisfaction of Guarantee / Aftersales services</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN3</shortDescription>
+        <value>“I will have a talk with the retailer again.”</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN4</shortDescription>
+        <value>Giving up the purchasing</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN5</shortDescription>
+        <value>Dissatisfaction of retailer/salesman</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN6</shortDescription>
+        <value>Lack of the vehicle demanded in the retailer/lead time</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN7</shortDescription>
+        <value>Finance conditions/MBFT</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN8</shortDescription>
+        <value>Lack of intention to purchase before going to retailer</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RN9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RN9</shortDescription>
+        <value>Dissatisfaction of the terms of 2.hand/trading</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY1</shortDescription>
+        <value>The price of the vehicle</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY10</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY10</shortDescription>
+        <value>Perception of young/sportive brands (BMW)</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY11</shortDescription>
+        <value>Falling short of new models</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY12</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY12</shortDescription>
+        <value>Dissatisfaction of the terms of 2.hand/trading</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY13</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY13</shortDescription>
+        <value>Others</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY14</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY14</shortDescription>
+        <value>Competitor brand choice for additional vehicle</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY15</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY15</shortDescription>
+        <value>Renault engine</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY16</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY16</shortDescription>
+        <value>Retailer haven&apos;t get in touch</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY17</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY17</shortDescription>
+        <value>Dissatisfaction of aftersales services</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY18</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY18</shortDescription>
+        <value>Disabled report</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY19</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY19</shortDescription>
+        <value>Delivery lead time</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY2</shortDescription>
+        <value>Dissatisfaction of retailer/salesman</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY3</shortDescription>
+        <value>Inadequate equipment and performance of the vehicle</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY4</shortDescription>
+        <value>Lack of the vehicle demanded in the retailer</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY5</shortDescription>
+        <value>Recommendation or wish of family/friends</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY6</shortDescription>
+        <value>Finance conditions/MBFT</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY7</shortDescription>
+        <value>Taking the vehicle for small/low</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY8</shortDescription>
+        <value>Personal reasons</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey8_RY9</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey8 RY9</shortDescription>
+        <value>Loyalty to the old brand</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey_Comments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey Comments</shortDescription>
+        <value>Additional Comments</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey_Op1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey Op1</shortDescription>
+        <value>It was easy</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey_Op2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey Op2</shortDescription>
+        <value>So So</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey_Op3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey Op3</shortDescription>
+        <value>It was not easy</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey_RecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR_Survey_RecordType</shortDescription>
+        <value>Record Type of record doesn&apos;t match Survey Name</value>
+    </labels>
+    <labels>
+        <fullName>TR_Survey_Share_Views</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TR Survey Share Views</shortDescription>
+        <value>Could you please share your views about our service?</value>
     </labels>
     <labels>
         <fullName>TargetVIN</fullName>
@@ -10604,6 +11753,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>This Lead is already converted</shortDescription>
         <value>This Lead is already converted</value>
     </labels>
+	<labels>
+        <fullName>This_function_cannot_be_used</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This function can not be used</shortDescription>
+        <value>This function can not be used</value>
+    </labels>
     <labels>
         <fullName>This_will_convert_the_record_type_of_Leads_Please_confirm</fullName>
         <language>en_US</language>
@@ -10715,6 +11871,27 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Touch Point</shortDescription>
         <value>Touch Point</value>
+    </labels>
+    <labels>
+        <fullName>TradeIn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TradeIn</shortDescription>
+        <value>Trade In Vehicle Information</value>
+    </labels>
+    <labels>
+        <fullName>TradeInEdit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TradeInEdit</shortDescription>
+        <value>Edit Trade In Details</value>
+    </labels>
+    <labels>
+        <fullName>TradeInVeh</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TradeInVeh</shortDescription>
+        <value>Trade-In Vehicle</value>
     </labels>
     <labels>
         <fullName>Trade_In_related_information</fullName>
@@ -11326,6 +12503,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>Year</value>
     </labels>
     <labels>
+        <fullName>Year_Manufacture</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Year_Manufacture</shortDescription>
+        <value>Year of Manufacture</value>
+    </labels>
+    <labels>
         <fullName>Year_of_Purchase</fullName>
         <categories>flow</categories>
         <language>en_US</language>
@@ -11522,6 +12706,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <value>ZIPCODE is mandatory.</value>
     </labels>
     <labels>
+        <fullName>ZipPostalCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZipPostalCode</shortDescription>
+        <value>Zip/Postal Code</value>
+    </labels>
+    <labels>
         <fullName>Zipcode</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -11598,6 +12789,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Need contact Information</shortDescription>
         <value>Please Enter Atleast one contact Information</value>
+    </labels>
+    <labels>
+        <fullName>contact_information1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>contact_information1</shortDescription>
+        <value>Please provide the Email/Work Phone/Home Phone/Mobile before filling the associated Status!</value>
     </labels>
     <labels>
         <fullName>contact_invalid</fullName>
@@ -12152,6 +13350,13 @@ To develop service Transfer permission, assess the service of the staff and the 
         <shortDescription>Url for Rug max static</shortDescription>
         <value>/RUGCollaboration/resource/1507784070000/Rug_max</value>
     </labels>
+	<labels>
+        <fullName>URLGeneratorTH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>URLGeneratorTH</shortDescription>
+        <value>&amp;id=</value>
+    </labels>
     <labels>
         <fullName>assignRugPermissionSet</fullName>
         <language>en_US</language>
@@ -12254,5 +13459,75 @@ To develop service Transfer permission, assess the service of the staff and the 
         <protected>false</protected>
         <shortDescription>Integration Inf</shortDescription>
         <value>Integration Inf</value>
+    </labels>
+	<labels>
+        <fullName>VR_Fields_Sync</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VR Fields Sync</shortDescription>
+        <value>OwnerID,Status_1__c,End_Reason__c</value>
+    </labels>
+	<labels>
+        <fullName>JPALSharingGCCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label is created to provide sharing on GC Code</shortDescription>
+        <value>GC0008652;</value>
+    </labels>
+	<labels>
+        <fullName>Dup_Number_Last_Modification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label is created to enter last modified date days</shortDescription>
+        <value>60</value>
+    </labels>
+	<labels>
+        <fullName>NonALEPNotification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label is created to provide fexibility on GC Code EP Notification</shortDescription>
+        <value>GC0008652;</value>
+    </labels>
+	<labels>
+        <fullName>JPYanasedealerGCCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label is created to provide fexibility on GC Code For Yanase dealer</shortDescription>
+        <value>GC0008652;</value>
+    </labels>
+	<labels>
+        <fullName>isInformaticaUserJP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label is created to provide fexibility on GC Code For Yanase dealer</shortDescription>
+        <value>true</value>
+    </labels>
+	<labels>
+        <fullName>InfomraticaUserLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Check for Informatica user</shortDescription>
+        <value>integration.inf@infosys.com</value>
+    </labels>
+	<labels>
+        <fullName>Days30</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label is created for lead lost update</shortDescription>
+        <value>-30</value>
+    </labels>
+	<labels>
+        <fullName>Days60</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label is created for lead lost update</shortDescription>
+        <value>-60</value>
+    </labels>
+	<labels>
+        <fullName>Days90</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label is created for lead lost update</shortDescription>
+        <value>-90</value>
     </labels>
 </CustomLabels>

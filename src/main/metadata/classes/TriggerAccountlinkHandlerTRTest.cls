@@ -86,7 +86,7 @@ public class TriggerAccountlinkHandlerTRTest {
                            // ownerid=user1.id,
                            PersonHasOptedOutOfEmail=True,
                            Opt_In_Email__c=true,
-                           Data_Source__c='Past data',
+                           Data_Source__c='Employee Referral',
                            //owner=user1,
                            //PersonBirthdate=date.today(),
                            
@@ -176,7 +176,7 @@ public class TriggerAccountlinkHandlerTRTest {
                                  // ownerid=user1.id,
                                  PersonHasOptedOutOfEmail=True,
                                  Opt_In_Email__c=true,
-                                 Data_Source__c='Past data',
+                                 Data_Source__c='Employee Referral',
                                  //owner=user1,
                                  //PersonBirthdate=,
                                  

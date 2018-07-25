@@ -1,8 +1,8 @@
 @RestResource(urlMapping='/stouchCompanyDetails/*')
 global class stouchCompanyDetails {
-	public static final Id retailCompanyId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
+  public static final Id retailCompanyId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     Public static Map<Id,User> users;
-	global interface stouchPersonDetailsInterface {
+  global interface stouchPersonDetailsInterface {
     }
 
     private class stouchPersonDetailsClass implements stouchPersonDetailsInterface {
@@ -36,6 +36,7 @@ global class stouchCompanyDetails {
         leadMaps.put('Dealer_GC_Code__c', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_GC_Code__c))?' ':leads.Assigned_dealer__r.Dealer_GC_Code__c);
         leadMaps.put('Dealer_GS_Code__c', (leads==null || String.ISBlank(leads.Assigned_dealer__r.Dealer_GS_Code__c))?' ':leads.Assigned_dealer__r.Dealer_GS_Code__c);
         leadMaps.put('MBK_Lead_Data_Source', (leads==null || String.ISBlank(leads.MBK_Lead_DataSource__c))?' ':leads.MBK_Lead_DataSource__c);
+        leadMaps.put('corporateLead', leads==null ?'No':'Yes');
         return leadMaps;
     }
     @HttpPost
@@ -45,13 +46,18 @@ global class stouchCompanyDetails {
         String ucid=(String)cObjMap.get('Company_UCID__c');
         String fromDate=(String)cObjMap.get('fromDate');
         String toDate=(String)cObjMap.get('toDate');
+		String market=(String)cObjMap.get('MD__c');
         Map<String,Object> personDetails=new Map<String,Object>();
+		if(String.isBlank(market)){ 
         Account acc=[select id,Ucid__c,LastName,Mobile__c,Email__c,PersonBirthdate,Individual_Home_Phone__c,
-                     Work_Phone__c,(select id,Address_Line_1__c,City__c,Zipcode__c,Province__c,District__c,
+                     Work_Phone__c,Industry,(select id,Address_Line_1__c,City__c,Zipcode__c,Province__c,District__c,
                      Address_Line_2__c,Address_Type__c from Addresses__r order by LastModifiedDate limit 1), 
                      Personal_Information_Third_Party_Release__c,Personal_Agreement__c,Personal_Abroad_Agreement__c,
                      Agreement_to_commit_info_processing__c,DMS_Retailer_ID__c,DMS_Customer_ID__c,
-                     (select id,fromRole__c,OwnerId,fromRole__r.DMS_Retailer_ID__c,Retail_DMS_Customer_Id__c from Account_Links__r where recordtypeid=:retailCompanyId),
+                     (select id,fromRole__c,OwnerId,fromRole__r.DMS_Retailer_ID__c,Retail_DMS_Customer_Id__c,retail_mobile__c,Retail_Individual_Home_Phone__c,
+                     Retail_Work_Phone__c,retail_email__c,retail_company_name__c,Retail_ZipCode__c,Retail_Province__c,Retail_City__c,
+                     Retail_Address_Line_1__c,Retail_Distinct__c,Retail_Address_Line_2__c,torole__r.mobile__c,torole__r.Email__c,
+                     torole__r.Individual_Home_Phone__c,torole__r.Work_Phone__c from Account_Links__r where recordtypeid=:retailCompanyId),
                      MBK_Data_Source__c,(select id,Name,Dealer_Lead_status__c,Lead_Type__c,Source_Campaign__c,
                      Lead_Priority__c,Interested_Vehicle_Note__c,Re_visit__c,Preferred_Contact_Time__c,Preferred_Contact_Date__c,
                      Current_Vehicle_1_Text__c,Current_Vehicle_2_Text__c,Test_Drive_Date__c,Dealer_Comments__c,
@@ -61,28 +67,15 @@ global class stouchCompanyDetails {
                      from Account where ucid__c=:ucid limit 1];
         
         personDetails.put('Company__c', String.ISBlank(acc.Company__c)?' ':acc.Company__c);
-        personDetails.put('Company_Name__c', String.ISBlank(acc.Company_Name__c)?' ':acc.Company_Name__c);
+        //personDetails.put('Company_Name__c', String.ISBlank(acc.Company_Name__c)?' ':acc.Company_Name__c);
         personDetails.put('Company_Legal_Form__c', String.ISBlank(acc.Company_Legal_Form__c)?' ':acc.Company_Legal_Form__c);
         personDetails.put('MBK_Data_Source__c', String.ISBlank(acc.MBK_Data_Source__c)?' ':acc.MBK_Data_Source__c);
         personDetails.put('Commercial_Reg_No__c', String.ISBlank(acc.Commercial_Reg_No__c)?' ':acc.Commercial_Reg_No__c);
         personDetails.put('Vat_No__c', String.ISBlank(acc.Vat_No__c)?' ':acc.Vat_No__c);
+        personDetails.put('Industry', String.ISBlank(acc.Industry)?' ':acc.Industry);
         
-        personDetails.put('CompanyPostCode', ' ');
-        personDetails.put('CompanyMailingState', ' ');
-        personDetails.put('CompanyMailingCity', ' ');
-        personDetails.put('CompanyMailingAddress', ' ');
-        personDetails.put('CompanyTown', ' ');
         personDetails.put('Address_Type__c', ' ');
         if(acc.Addresses__r.size()!=0){
-            Map<String,String> prefectureValues=new Map<String,String>{'Hokkaido' =>'Incheon','Aomori' =>'Gyeongsangnam-do','Iwate' =>'Chungcheongnam-do','Akita' =>'Gyeonggi-do',
-            														'Fukushima' =>'Busan','Ibaraki' =>'Jeollabuk-do','Gunma' =>'Sejong-si','Chiba' =>'Gyeongsangbuk-do',
-            														'Ishikawa' =>'Jeju-do','Fukui' =>'Daegu','Gifu' =>'Seoul','Aichi' =>'Gangwon-do','Hyogo' =>'Jeollanam-do',
-            														'Hiroshima' =>'Ulsan','Kagawa' =>'Chungcheongbuk-do','Ehime' =>'Gwangju','Fukuoka' =>'Daejeon'};
-            personDetails.put('CompanyPostCode', String.ISBlank(acc.Addresses__r[0].Zipcode__c)?' ':acc.Addresses__r[0].Zipcode__c);
-            personDetails.put('CompanyMailingState', String.ISBlank(acc.Addresses__r[0].Province__c)?' ':prefectureValues.get(acc.Addresses__r[0].Province__c));
-            personDetails.put('CompanyMailingCity', String.ISBlank(acc.Addresses__r[0].City__c)?' ':acc.Addresses__r[0].City__c);
-            personDetails.put('CompanyMailingAddress', String.ISBlank(acc.Addresses__r[0].Address_Line_1__c)?' ':acc.Addresses__r[0].Address_Line_1__c);
-            personDetails.put('CompanyTown', String.ISBlank(acc.Addresses__r[0].District__c)?' ':acc.Addresses__r[0].District__c);
             personDetails.put('Address_Type__c', String.ISBlank(acc.Addresses__r[0].Address_Type__c)?' ':acc.Addresses__r[0].Address_Type__c);
         }
         personDetails.put('Company_UCID__c', String.ISBlank(acc.Ucid__c)?' ':acc.Ucid__c);
@@ -90,22 +83,45 @@ global class stouchCompanyDetails {
         personDetails.put('Owner', ' ');
         personDetails.put('Retailer_ID',' ');
         personDetails.put('CompanyDMSID',' ');
+        personDetails.put('CompanyMobile', ' ');
+        personDetails.put('CompanyEmail', ' ');
+        personDetails.put('Individual_Home_Phone__c', ' ');
+        personDetails.put('Work_Phone__c', ' ');
+        personDetails.put('Company_Name__c', ' ');
+        personDetails.put('CompanyPostCode', ' ');
+        personDetails.put('CompanyMailingState', ' ');
+        personDetails.put('CompanyMailingCity', ' ');
+        personDetails.put('CompanyMailingAddress', ' ');
+        personDetails.put('CompanyMailingAddressLine2', ' ');
+        personDetails.put('CompanyTown', ' ');
         if(acc.Account_Links__r.size()!=0){
+            Map<String,String> prefectureValues=new Map<String,String>{'Hokkaido' =>'Incheon','Aomori' =>'Gyeongsangnam-do','Iwate' =>'Chungcheongnam-do','Akita' =>'Gyeonggi-do',
+                                        'Fukushima' =>'Busan','Ibaraki' =>'Jeollabuk-do','Gunma' =>'Sejong-si','Chiba' =>'Gyeongsangbuk-do',
+                                        'Ishikawa' =>'Jeju-do','Fukui' =>'Daegu','Gifu' =>'Seoul','Aichi' =>'Gangwon-do','Hyogo' =>'Jeollanam-do',
+                                        'Hiroshima' =>'Ulsan','Kagawa' =>'Chungcheongbuk-do','Ehime' =>'Gwangju','Fukuoka' =>'Daejeon'};
             User usr=[select id,federationIdentifier from User where id=:acc.Account_Links__r[0].OwnerId];
             personDetails.put('Owner', String.ISBlank(usr.federationIdentifier)?' ':usr.federationIdentifier);
-        	personDetails.put('Retailer_ID',String.ISBlank(acc.Account_Links__r[0].fromRole__r.DMS_Retailer_ID__c)?' ':acc.Account_Links__r[0].fromRole__r.DMS_Retailer_ID__c);
-        	personDetails.put('CompanyDMSID',String.ISBlank(acc.Account_Links__r[0].Retail_DMS_Customer_Id__c)?' ':acc.Account_Links__r[0].Retail_DMS_Customer_Id__c);
+            personDetails.put('Retailer_ID',String.ISBlank(acc.Account_Links__r[0].fromRole__r.DMS_Retailer_ID__c)?' ':acc.Account_Links__r[0].fromRole__r.DMS_Retailer_ID__c);
+            personDetails.put('CompanyDMSID',String.ISBlank(acc.Account_Links__r[0].Retail_DMS_Customer_Id__c)?' ':acc.Account_Links__r[0].Retail_DMS_Customer_Id__c);
+            personDetails.put('CompanyMobile', String.ISBlank(acc.Account_Links__r[0].torole__r.mobile__c)?' ':acc.Account_Links__r[0].torole__r.mobile__c);
+            
+            personDetails.put('CompanyEmail', String.ISBlank(acc.Account_Links__r[0].torole__r.Email__c)?' ':acc.Account_Links__r[0].torole__r.Email__c);
+            personDetails.put('Individual_Home_Phone__c', String.ISBlank(acc.Account_Links__r[0].torole__r.Individual_Home_Phone__c)?' ':acc.Account_Links__r[0].torole__r.Individual_Home_Phone__c);
+            personDetails.put('Work_Phone__c', String.ISBlank(acc.Account_Links__r[0].torole__r.Work_Phone__c)?' ':acc.Account_Links__r[0].torole__r.Work_Phone__c);
+            personDetails.put('Company_Name__c', String.ISBlank(acc.Account_Links__r[0].Retail_Company_Name__c)?' ':acc.Account_Links__r[0].Retail_Company_Name__c);
+            
+            personDetails.put('CompanyPostCode', String.ISBlank(acc.Account_Links__r[0].Retail_Zipcode__c)?' ':acc.Account_Links__r[0].Retail_Zipcode__c);
+            personDetails.put('CompanyMailingState', String.ISBlank(acc.Account_Links__r[0].Retail_Province__c)?' ':prefectureValues.get(acc.Account_Links__r[0].Retail_Province__c));
+            personDetails.put('CompanyMailingCity', String.ISBlank(acc.Account_Links__r[0].Retail_City__c)?' ':acc.Account_Links__r[0].Retail_City__c);
+            personDetails.put('CompanyMailingAddress', String.ISBlank(acc.Account_Links__r[0].Retail_Address_Line_1__c)?' ':acc.Account_Links__r[0].Retail_Address_Line_1__c);
+            personDetails.put('CompanyTown', String.ISBlank(acc.Account_Links__r[0].Retail_Distinct__c)?' ':acc.Account_Links__r[0].Retail_Distinct__c);
+            personDetails.put('CompanyMailingAddressLine2', String.ISBlank(acc.Account_Links__r[0].Retail_Address_Line_2__c)?' ':acc.Account_Links__r[0].Retail_Address_Line_2__c);
         }
         
         personDetails.put('Personal_Information_Third_Party_Release__c',String.ISBlank(acc.Personal_Information_Third_Party_Release__c)?' ':acc.Personal_Information_Third_Party_Release__c);
         personDetails.put('Personal_Agreement__c', String.ISBlank(acc.Personal_Agreement__c)?' ':acc.Personal_Agreement__c);
         personDetails.put('Personal_Abroad_Agreement__c', String.ISBlank(acc.Personal_Abroad_Agreement__c)?' ':acc.Personal_Abroad_Agreement__c);
         personDetails.put('Personal_Agreement_commit__c', String.ISBlank(acc.Agreement_to_commit_info_processing__c)?' ':acc.Agreement_to_commit_info_processing__c);
-        
-        personDetails.put('CompanyMobile', String.ISBlank(acc.Mobile__c)?' ':acc.Mobile__c);
-        personDetails.put('CompanyEmail', String.ISBlank(acc.Email__c)?' ':acc.Email__c);
-        personDetails.put('Individual_Home_Phone__c', String.ISBlank(acc.Individual_Home_Phone__c)?' ':acc.Individual_Home_Phone__c);
-        personDetails.put('Work_Phone__c', String.ISBlank(acc.Work_Phone__c)?' ':acc.Work_Phone__c);
         
         List<Object> leadList=new List<Object>();
         List<Id> userIds=new List<Id>();
@@ -121,6 +137,10 @@ global class stouchCompanyDetails {
         }
         personDetails.put('leadList', leadList);
         system.debug(personDetails);
+		}
+        else if(market=='TH'){
+            personDetails=StouchCompanyDetailsTH.getCompanyDetailsTH(ucid,fromDate,toDate,retailCompanyId);
+        }
         stouchPersonDetailsClass spdc= new stouchPersonDetailsClass();
         spdc.companyDetails=personDetails;
         return spdc;

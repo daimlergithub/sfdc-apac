@@ -27,8 +27,8 @@ window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.
            
          <!--Sarath added the code here-->               
              <apex:pageBlockSectionItem >                 
-                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Market__c.Label}"/>
-                <apex:inputField value="{!acclnkdealer.Market__c}"/> 
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Missing_Flag__c.Label}"/>
+                <apex:inputField value="{!acclnkdealer.Missing_Flag__c}"/> 
          </apex:pageBlockSectionItem>
          <!--Ended-->
               
@@ -89,7 +89,10 @@ window.open("{!URLFOR($Site.Prefix)}/{!acclnkdealer.id}/e?retURL={!URLFOR($Site.
                 <apex:outputlink value="#" onclick="window.open('{!URLFOR($Site.prefix)}/{!acclnkdealer.Retail_Sales_Consultant__r.id}')">{!acclnkdealer.Retail_Sales_Consultant__r.Name}</apex:outputlink>
            </apex:pageBlockSectionItem>
          
-            
+             <apex:pageBlockSectionItem >                 
+                <apex:outputLabel value="{!$ObjectType.Account_Link__c.fields.Market__c.Label}"/>
+                <apex:inputField value="{!acclnkdealer.Market__c}"/> 
+         </apex:pageBlockSectionItem>
         
           
         </apex:pageBlockSection>

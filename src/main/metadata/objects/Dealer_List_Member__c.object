@@ -371,6 +371,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',IF(ISPICKVAL($User.Market__c, 'KR'), '
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	 <fields>
+        <fullName>VehicleRelationship_New__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>VehicleRelationship New</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND (2 OR 3 OR 4)</booleanFilter>
+            <filterItems>
+                <field>$Source.NewAccount__c</field>
+                <operation>equals</operation>
+                <valueField>Vehicle_Relationship__c.Contact__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Vehicle_Relationship__c.Car_Relation__c</field>
+                <operation>equals</operation>
+                <value>Purchaser</value>
+            </filterItems>
+            <filterItems>
+                <field>Vehicle_Relationship__c.Car_Relation__c</field>
+                <operation>equals</operation>
+                <value>Sales Contact Target</value>
+            </filterItems>
+            <filterItems>
+                <field>Vehicle_Relationship__c.Car_Relation__c</field>
+                <operation>equals</operation>
+                <value>Aftersales Contact Target 1</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Vehicle_Relationship__c</referenceTo>
+        <relationshipLabel>Dealer List Members</relationshipLabel>
+        <relationshipName>Dealer_List_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>VehicleRelationship__c</fullName>
         <externalId>false</externalId>

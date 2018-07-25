@@ -1,8 +1,8 @@
 /**
-** Class		: DispatcherLeadEditControllerIN 
-** Description	: Class to redirect lead edit page on the basis of recordType
-** Created By	: Prem Kumar
-** Date			: 29/03/2018
+** Class        : DispatcherLeadEditControllerIN 
+** Description  : Class to redirect lead edit page on the basis of recordType
+** Created By   : Prem Kumar
+** Date         : 29/03/2018
 **/
 
 public class DispatcherLeadEditControllerIN {
@@ -19,12 +19,19 @@ public class DispatcherLeadEditControllerIN {
             leadPage.setRedirect(true);
             return leadPage;
         }
-        else
+        else if(recTypeName == System.Label.Sales_Lead)
+
         {
             PageReference leadPage = new PageReference('/apex/SalesLeadEditPage');
             leadPage.getParameters().put('id', opp.id);
             leadPage.setRedirect(true);
             return leadPage;            
         }
+        else if(recTypeName == 'Finance Lead'){
+            PageReference leadPage = new PageReference('/'+opp.id+'/e?nooverride=1&retURL=%2F'+opp.id);
+            //leadPage.getParameters().put('id', opp.id);
+            return leadPage;     
+        }
+        return null;
     }
 }

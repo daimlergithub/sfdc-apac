@@ -10,14 +10,14 @@
         <editHeading>true</editHeading>
         <label>Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>First_Name__c</field>
-            </layoutItems>
-            <layoutItems>
+			<layoutItems>
                 <behavior>Required</behavior>
                 <field>Last_Name__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>First_Name__c</field>
+            </layoutItems>            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Last_Name_Native__c</field>
@@ -29,10 +29,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Model_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Type_of_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -60,7 +56,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Type_of_Vehicle__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Customer_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Purpose_of_Purchasing__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -69,6 +73,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Comments__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>

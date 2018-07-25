@@ -56,14 +56,16 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-	    <fields>
+        <fields>
         <fullName>Market__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -91,12 +93,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>MY</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+	    <picklistValues>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>false</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -317,12 +328,14 @@ Modify Reason:
             <picklistValues>
                 <fullName>Dealer Outlet</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 </picklistValues>
             <picklistValues>
                 <fullName>Mercedes Call Catalogue</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -339,12 +352,14 @@ Modify Reason:
             <picklistValues>
                 <fullName>Mercedes-Benz School of Excelence</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mercedes-Benz Owner Hotline</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                  </picklistValues>
@@ -355,6 +370,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>24 hours Touring Support</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -371,6 +387,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Dealers</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -382,30 +399,35 @@ Modify Reason:
             <picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Event</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Campaign</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 </picklistValues>
             <picklistValues>
                 <fullName>Letter</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
              </picklistValues>
             <picklistValues>
                 <fullName>Letter to Executive</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -417,6 +439,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Email</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -428,6 +451,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>My Mercedes</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -447,6 +471,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Outbound Call</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -458,6 +483,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
@@ -877,7 +903,8 @@ IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;,
 IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
 IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
 IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, &apos;IN&apos;), &apos;IN&apos;,
+IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;)))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -918,6 +945,19 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Lead</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Primary_Address__c</fullName>
@@ -966,6 +1006,16 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Return_Date__c</fullName>
+        <description>The date when the deliver was returned to the mail sender</description>
+        <externalId>false</externalId>
+        <label>Return Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Sales_Department__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Manager will pick up the record and forward it for approval based on this 'Sales' checkbox.</description>
@@ -995,22 +1045,27 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             <picklistValues>
                 <fullName>Home</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Business</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Address 1</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -1018,6 +1073,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             <picklistValues>
                 <fullName>Other Address 2</fullName>
 				<default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -1025,6 +1081,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             <picklistValues>
                 <fullName>Other Address 3</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -1032,6 +1089,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
             <picklistValues>
                 <fullName>Temporary</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1068,6 +1126,33 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Sent_Date_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Date 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sent_Date_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Date 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sent_Date_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Date 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Sent_Date__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>The date when the deliver was ordered to the mail sender</inlineHelpText>
@@ -1093,6 +1178,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1101,14 +1187,17 @@ Modify Reason:
             <picklistValues>
                 <fullName>to be sent</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Failed</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 			    <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1117,14 +1206,17 @@ Modify Reason:
             <picklistValues>
                 <fullName>Returned</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Success</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1136,6 +1228,15 @@ Modify Reason:
 				 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approving</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1160,6 +1261,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1168,14 +1270,17 @@ Modify Reason:
             <picklistValues>
                 <fullName>to be sent</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Failed</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1184,14 +1289,17 @@ Modify Reason:
             <picklistValues>
                 <fullName>Returned</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Success</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1203,6 +1311,15 @@ Modify Reason:
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approving</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1227,6 +1344,7 @@ Modify Reason:
             <picklistValues>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1235,14 +1353,17 @@ Modify Reason:
             <picklistValues>
                 <fullName>to be sent</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Failed</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1251,14 +1372,17 @@ Modify Reason:
             <picklistValues>
                 <fullName>Returned</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Success</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -1270,6 +1394,15 @@ Modify Reason:
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approving</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1290,14 +1423,17 @@ Modify Reason:
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sent</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Returned</fullName>
@@ -1305,14 +1441,17 @@ Modify Reason:
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Success</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Approving</fullName>
@@ -1320,14 +1459,17 @@ Modify Reason:
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>to be sent</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Not send</fullName>
@@ -1335,14 +1477,22 @@ Modify Reason:
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Rejected</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1445,6 +1595,18 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Yanase_Regional_GroupId__c</fullName>
+        <externalId>false</externalId>
+        <formula>Assigned_Dealer__r.Outlet_General_GroupID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Yanase Regional GroupId</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Zip_Code__c</fullName>
@@ -2016,7 +2178,55 @@ Modify Reason:
         <searchResultsAdditionalFields>Sent_Date__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-   <validationRules>
+    <validationRules>
+        <fullName>Actual_DM_Material1</fullName>
+        <active>true</active>
+        <description>Please make sure both Actual DM Material and the status has a value.</description>
+        <errorConditionFormula>((Actual_DM_Material1__c != Null &amp;&amp; ISPICKVAL(Status1__c, "")) || (Actual_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) &amp;&amp; if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorDisplayField>Actual_DM_Material1__c</errorDisplayField>
+        <errorMessage>Please make sure both Actual DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_DM_Material1_Sent_date</fullName>
+        <active>true</active>
+        <description>Please make sure both Actual DM Material and the status  and Sent date has a value when status is 'To be sent'.</description>
+        <errorConditionFormula>(Actual_DM_Material1__c != Null &amp;&amp; (ISPICKVAL(Status1__c, "To be sent") || ISPICKVAL(Status1__c, "Returned")) &amp;&amp;  ISNULL( Sent_Date_1__c ) ) &amp;&amp; if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorDisplayField>Sent_Date_1__c</errorDisplayField>
+        <errorMessage>Date Mandatory when status is To be Sent/Retruned</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_DM_Material2</fullName>
+        <active>true</active>
+        <description>Please make sure both Actual DM Material and the status has a value.</description>
+        <errorConditionFormula>((Actual_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, "")) || (Actual_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) &amp;&amp; if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorDisplayField>Actual_DM_Material2__c</errorDisplayField>
+        <errorMessage>Please make sure both Actual DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_DM_Material2_Sent_Date</fullName>
+        <active>true</active>
+        <description>Please make sure both Actual DM Material and the status and Sent date has a value when status is 'To be sent'.</description>
+        <errorConditionFormula>(Actual_DM_Material2__c != Null &amp;&amp; (ISPICKVAL(Status2__c, "To be sent") ||ISPICKVAL(Status2__c, "Returned") ) &amp;&amp; ISNULL( Sent_Date_2__c ) ) &amp;&amp; if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorDisplayField>Sent_Date_2__c</errorDisplayField>
+        <errorMessage>Date Mandatory when status is To be Sent/Returned</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_DM_Material3</fullName>
+        <active>true</active>
+        <description>Please make sure both Actual DM Material and the status has a value.</description>
+        <errorConditionFormula>((Actual_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, "")) || (Actual_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) &amp;&amp; if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorDisplayField>Actual_DM_Material3__c</errorDisplayField>
+        <errorMessage>Please make sure both Actual DM Material and the status has a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_DM_Material3_Sent_Date</fullName>
+        <active>true</active>
+        <description>Please make sure both Actual DM Material and the status and Sent date has a value when status is 'To be sent'.</description>
+        <errorConditionFormula>(Actual_DM_Material3__c != Null &amp;&amp; (ISPICKVAL(Status3__c, "To be sent") || ISPICKVAL(Status3__c, "Returned")) &amp;&amp; ISNULL( Sent_Date_3__c ) ) &amp;&amp; if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false) &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorDisplayField>Sent_Date_3__c</errorDisplayField>
+        <errorMessage>Sent Date Mandatory when status is To be Sent/Returned</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Add_Address_NoOfDigits</fullName>
         <active>true</active>
         <description>Additional Address should be less than or equal to 50 letters.</description>
@@ -2045,11 +2255,24 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>Attention should be less than or equal to 50 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Delivery_date_is_mandatory</fullName>
+        <active>true</active>
+        <description>Delivery date is mandatory</description>
+        <errorConditionFormula>AND( ISPICKVAL(Market__c, 'TR') ,
+
+AND(ISPICKVAL(Status__c, 'Sent'), ISBLANK(Sent_Date__c))
+ )</errorConditionFormula>
+        <errorDisplayField>Sent_Date__c</errorDisplayField>
+        <errorMessage>If the status is “Sent” then the “Sent Date” must be mandatory which is the delivery date.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Expected_DM_Material1</fullName>
         <active>true</active>
         <description>Expected DM Material1 has a value, but the Status 1 is null.
 OR Status 1 is selected, but the Expected DM Material1 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, &quot;&quot;)) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, &quot;&quot;)))) &amp;&amp;  OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material1__c != Null &amp;&amp;  ISPICKVAL(Status1__c, "")) || (Expected_DM_Material1__c = Null &amp;&amp; NOT(ISPICKVAL(Status1__c, "")))) 
+&amp;&amp;  OR(MD__c = 'JP', MD__c = 'KR', MD__c = 'TH', if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), if(AND(MD__c=='IN',$Permission.INGeneric),true,false)) 
+&amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material1__c</errorDisplayField>
         <errorMessage>Please make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -2058,7 +2281,9 @@ OR Status 1 is selected, but the Expected DM Material1 is null.</description>
         <active>true</active>
         <description>Expected DM Material2 has a value, but the Catalogue Printing check 2  is null.
 OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, &quot;&quot;)) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material2__c != Null &amp;&amp; ISPICKVAL(Status2__c, "")) || (Expected_DM_Material2__c = Null &amp;&amp; NOT(ISPICKVAL(Status2__c, "")))) 
+&amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),if(AND(MD__c=='IN',$Permission.INGeneric),true,false)) 
+&amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material2__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -2067,7 +2292,9 @@ OR Catalogue Printing check 2  is selected, but the Expected DM Material2 is nul
         <active>true</active>
         <description>Expected DM Material3 has a value, but the Catalogue Printing check 3  is null.
 OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is null.</description>
-        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, &quot;&quot;)) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, &quot;&quot;)))) &amp;&amp; OR(MD__c = &apos;JP&apos;,MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
+        <errorConditionFormula>((Expected_DM_Material3__c != Null &amp;&amp; ISPICKVAL(Status3__c, "")) || (Expected_DM_Material3__c = Null &amp;&amp; NOT(ISPICKVAL(Status3__c, "")))) 
+&amp;&amp; OR(MD__c = 'JP',MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),if(AND(MD__c=='IN',$Permission.INGeneric),true,false)) 
+&amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
         <errorDisplayField>Expected_DM_Material3__c</errorDisplayField>
         <errorMessage>Pleaes make sure both Expected DM Material and the status has a value.</errorMessage>
     </validationRules>
@@ -2075,8 +2302,8 @@ OR Catalogue Printing check 3  is selected, but the Expected DM Material3 is nul
         <fullName>Insufficient_Stock</fullName>
         <active>true</active>
         <description>US-DM-003:
-7. If Expected DM material&apos;s stock reaches Stock alert level, Data loader will report an error message &quot;&quot;Insufficient Stock&quot;&quot;. And this record will not be uploaded successfully.&quot;</description>
-        <errorConditionFormula>ISPICKVAL(Status__c , &apos;Sent&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)) &amp;&amp; 
+7. If Expected DM material's stock reaches Stock alert level, Data loader will report an error message ""Insufficient Stock"". And this record will not be uploaded successfully."</description>
+        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; OR(MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),if(AND(MD__c=='IN',$Permission.INGeneric),true,false),if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false)) &amp;&amp; 
 ( 
 Actual_DM_Material1__r.Threshold__c &gt; Actual_DM_Material1__r.Stock__c 
 || 
@@ -2150,6 +2377,15 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>A selected DM Material does not have a sufficient stock</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Planned_Send_date_is_mandatory</fullName>
+        <active>false</active>
+        <description>Planned send date is mandatory</description>
+        <errorConditionFormula>AND( ISPICKVAL(Market__c, 'TR') ,
+AND(ISPICKVAL(Status__c, 'to be sent'), ISBLANK(Sent_Date__c)))</errorConditionFormula>
+        <errorDisplayField>Sent_Date__c</errorDisplayField>
+        <errorMessage>If the status is “To be sent” then the “Date” must be mandatory which is the planned send date.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Province_NoOfDigits</fullName>
         <active>true</active>
         <errorConditionFormula>AND(LEN(Province__c)&gt;4, 
@@ -2159,10 +2395,21 @@ MD__c = 'JP')</errorConditionFormula>
         <errorMessage>Province should be less than or equal to 4 letters.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Return_date_is_mandatory</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(ISPICKVAL(Market__c, 'TR') , 
+
+AND(ISPICKVAL(Status__c, 'Returned'), ISBLANK(Return_Date__c)) 
+)</errorConditionFormula>
+        <errorDisplayField>Return_Date__c</errorDisplayField>
+        <errorMessage>If the status is “Returned” then the “Returned Date” must be mandatory which is the Return date.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>TitleOfHonor_is_Required</fullName>
         <active>true</active>
         <description>TitleOfHonor__c is null or blank</description>
-        <errorConditionFormula>ISPICKVAL( TitleOfHonor__c , &apos;Null&apos;)|| ISPICKVAL( TitleOfHonor__c , &apos;&apos;) &amp;&amp; OR(MD__c = &apos;KR&apos;,MD__c = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false))</errorConditionFormula>
+		<errorConditionFormula>ISPICKVAL( TitleOfHonor__c , 'Null')|| ISPICKVAL( TitleOfHonor__c , '') 
+&amp;&amp; OR(MD__c = 'KR',MD__c = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),if(AND(MD__c=='IN',$Permission.INGeneric),true,false))</errorConditionFormula>
         <errorDisplayField>TitleOfHonor__c</errorDisplayField>
         <errorMessage>TitleOfHonor is required.</errorMessage>
     </validationRules>

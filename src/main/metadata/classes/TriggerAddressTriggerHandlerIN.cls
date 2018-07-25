@@ -26,8 +26,9 @@ public class TriggerAddressTriggerHandlerIN implements TriggerHandlerIf{
         //update primary address on account
         if ((isAfter && (isInsert || isUpdate))){
             system.debug('inside after trigger before util check');
-            if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
+            if(Util_getPermissions.checkCustomPermission(Label.INGeneric) && INTriggerRecursionCheck.inAddrAftInsUpd == false){
                 system.debug('inside after trigger');
+                INTriggerRecursionCheck.inAddrAftInsUpd = true;
                 AddressHelperIN.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
             }
         }
@@ -61,5 +62,11 @@ public class TriggerAddressTriggerHandlerIN implements TriggerHandlerIf{
 
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){                
         //Integration related code to be added here.
+        List<Address__c> addrNewList = Trigger.new;
+            if (isAfter && (isInsert || isUpdate) && INTriggerRecursionCheck.inAddrAftInsUpd == false && addrNewList[0].md__c == 'IN'){
+                system.debug('inside after trigger');
+                INTriggerRecursionCheck.inAddrAftInsUpd = true;
+                AddressHelperIN.updatePrimaryAddressOnAccount((map<id,Address__c>)trigger.newMap);
+            }
     }
 }

@@ -672,59 +672,59 @@
         <label>Activity Status</label>
         <picklist>
             <picklistValues>
-                <fullName>not started</fullName>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>no answer</fullName>
+                <fullName>No Answer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>need call back</fullName>
+                <fullName>Need Call Back</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>busy</fullName>
+                <fullName>Busy</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>reject</fullName>
+                <fullName>Reject</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>wrong number</fullName>
+                <fullName>Wrong Number</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>no such person</fullName>
+                <fullName>No Such Person</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>invalid data</fullName>
+                <fullName>Invalid Data</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>reservation</fullName>
+                <fullName>Reservation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>failed to send SMS</fullName>
+                <fullName>Failed To Send SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>failed to send Email</fullName>
+                <fullName>Failed To Send Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>failed to send fax</fullName>
+                <fullName>Failed To Send fax</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>invalid call</fullName>
+                <fullName>Invalid Call</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>call transfer</fullName>
+                <fullName>Call Transfer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1411,6 +1411,18 @@
                 <fullName>Trade-in</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>FollowUp1</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>FollowUp2</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>FollowUp3</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1432,12 +1444,14 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR','NA'))))))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>

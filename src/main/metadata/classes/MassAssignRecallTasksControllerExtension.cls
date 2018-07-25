@@ -41,6 +41,7 @@ public class MassAssignRecallTasksControllerExtension {
     public String taskOwnerIds{get; set;}
     //ADD END CHAOS CR-000136 2013/12/5    
     public Boolean canByNum {get; set;}
+    public Boolean byAccount {get; set;}
     
         public List<SelectOption> getassignmentItems() {
         List<SelectOption> options = new List<SelectOption>();
@@ -61,13 +62,25 @@ public class MassAssignRecallTasksControllerExtension {
         }
         return null;
     }
- 
+   
+   public PageReference displayByAccount(){
+       System.debug('byacc>>>>'+th.By_Account__c);
+        if(th.By_Account__c == true){
+         System.debug('byacc>>>>1'+th.By_Account__c);
+            byAccount = false;
+        }else{
+         System.debug('byacc>>>>2'+th.By_Account__c);
+            byAccount = true;
+        }
+        return null;
+    }
     
     public MassAssignRecallTasksControllerExtension(Apexpages.StandardController stdController) {
         controller = stdController;               
         this.th = (OB_Task_Handing__c)stdController.getRecord();
         this.assignment = 'Assignment';
         this.canByNum = true;
+        this.byAccount = true;
         String dn = ApexPages.currentPage().getParameters().get('dealername');
         if(dn!=null && dn.length()>0){
             dn = EncodingUtil.urlDecode(dn, 'UTF-8');
@@ -81,7 +94,8 @@ public class MassAssignRecallTasksControllerExtension {
     
     public PageReference applyFilters(){
         // MOD START CHAOS Ticket147654 2014/4/14
-        String sql = 'Select Count() From Task Where ' + getFilters() + ' limit 40000';
+        String md='JP';
+        String sql = 'Select Count() From Task Where ' + getFilters() +   'limit 40000';
          system.debug('++++++++++++++++++++++++++++'+sql);
         // MOD END CHAOS Ticket147654 2014/4/14
         th.Tasks_Found__c = Database.countQuery(sql);
@@ -122,8 +136,8 @@ public class MassAssignRecallTasksControllerExtension {
     // ADD END CHAOS CR-000265 2013/12/5
     
     private String getFilters(){
-        
-        String sql = 'Createddate >= LAST_N_MONTHS:6 And Status = \'Open\' ';
+        String Market='JP';
+        String sql = '   Createddate >= LAST_N_MONTHS:6 And  Status = \'Open\' ';
         
         //ADD START Shuang Li US-SMART_SSI-007
         sql += ' And RecordType.DeveloperName In (\'smart_SSI_Task\', \'SSI_Task\',\'OB_Call\', \'OB_Task\', \'Welcome_Call\')';
@@ -149,8 +163,8 @@ public class MassAssignRecallTasksControllerExtension {
         }
         
         if(th.From__c!=null){
-            fd = Datetime.newInstance(th.From__c, Time.newInstance(0, 0, 0, 0));
-            sql += ' And CreatedDate >= :fd';
+            //fd = Datetime.newInstance(th.From__c, Time.newInstance(0, 0, 0, 0));
+            //sql += ' And CreatedDate >= :fd';
         }
         
         if(th.To__c!=null){
@@ -359,8 +373,12 @@ public class MassAssignRecallTasksControllerExtension {
                 // Please select Evenly Location or input By Number first.
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, ERROR_MSG_1));
             }
-            
-            List<String> ids = csrIds.split(';');
+                        if(th.By_Account__c == false && th.Evenly_Location__c == false && th.By_Number__c == null){
+                // Please select by account Evenly Location or input By Number first.
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, ERROR_MSG_1));
+            }
+        
+                List<String> ids = csrIds.split(';');
             for(Integer i=0;i<ids.size();i++){
                 ids[i] = ids[i].trim();
             }
@@ -376,7 +394,7 @@ public class MassAssignRecallTasksControllerExtension {
             List<Task> allTasks = new List<Task>();
             List<Task> assignTasks = new List<Task>();
             // MOD START CHAOS Ticket147654 2014/4/14
-            String sql = 'Select Id, OwnerId, WhatId, What.Type From Task Where ' + getFilters() + ' Order By Dealer_Name__c'  + ' limit 40000';
+            String sql = 'Select Id, OwnerId, WhatId, What.Type,UCID__c From Task Where ' + getFilters() + ' Order By Dealer_Name__c'  + ' limit 40000';
             allTasks = Database.query(sql);
             //for(List<Task> tasks : Database.query(sql)){
             //    allTasks.addAll(tasks);
@@ -419,7 +437,7 @@ public class MassAssignRecallTasksControllerExtension {
 
                 queryIds = queryIds.subString(0, queryIds.length()-1);
                 String queryStr = 
-                    'Select Id, OwnerId From Task Where Id In (' + queryIds + ') ';
+                    'Select Id, OwnerId ,UCID__c From Task Where Id In (' + queryIds + ') ';
                 BatchAssignTasks batcher = new BatchAssignTasks(queryStr, users);
                 Database.executeBatch(batcher, 200);
                 this.th.Tasks_Found__c = this.th.Tasks_Found__c - assignTasks.size();

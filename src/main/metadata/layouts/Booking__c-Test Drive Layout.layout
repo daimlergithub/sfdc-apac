@@ -57,6 +57,10 @@
                 <behavior>Edit</behavior>
                 <field>Lead__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Opportunity__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Assigned_Dealer_Outlet__c</field>

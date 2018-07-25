@@ -4,16 +4,20 @@
  * Created Date : 5-april-2017
  * this class will count the case complaint amount for thailand market if the record type is MB complaint 
  */
-public class CaseHelperTH {
+public without sharing class CaseHelperTH {
     private static final String alkCompanyRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
     private static final String alkpersonRecordTypeId = Schema.SObjectType.Account_link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
     private static final String PersonRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     private static final String AccountCompanyId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+	private static final String mbcomplaint = Schema.SObjectType.case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+	private static final String nquiry = Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
     Date myDate = date.newinstance(1900, 1, 7);
     private static user userid=[select id,usertype,Dealer_nd_code__c from user where id=:userinfo.getUserId()];
     public static boolean booleanCampaignUpdate = true;
     public Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+    public Id caseFSINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.FS_INQUIRY);
     public Id caseMBComplaintRec_Id = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.MB_COMPLAINT);
+    public ID caseFSComplaintRec_Id = Schema.SObjectType.case.getRecordTypeInfosByName().get('FS Complaint').getRecordTypeId();
     public List < Id > tmpCaseIds = new List < Id > ();
     public List < Account > updateAccount = new List < Account > ();
     public Map < Id, List < Id >> accountCaseMap = new Map < Id, List < Id >> ();
@@ -53,6 +57,21 @@ public class CaseHelperTH {
                     else if(caserec.priority=='E'){
                         updatedeadine(caserec,360);
                     }*/
+                }
+                
+                else if(caserec.RecordTypeId == caseFSComplaintRec_Id  || caserec.RecordTypeId == caseFSINquiryId){
+                    //Update Deadline
+                   string dayOfWeek = System.now().format('E');
+                    if (dayOfWeek == 'Sun' || dayOfWeek == 'Sat') {
+                        caserec.DeadLine__c = System.Now() + 2;
+
+                    } else {
+                        caserec.DeadLine__c = System.Now() + 1;
+                    } 
+                    //Update Overdue //SF-TH 70
+                    if (caserec.DeadLine__c!=null && caserec.DeadLine__c > System.Now()){
+                        caserec.Overdue__c = 'N';
+                    }
                 }
             }
         }
@@ -256,7 +275,7 @@ public class CaseHelperTH {
     }
     public void updateCaseOwnerDependsonPrimaryCaseDealer(List < Case > caselist, boolean isInsertFlag) {
         set < Id > accset = new set < ID > ();
-
+		List < Case > caselst = new List < case > ();
         if (isInsertFlag) {
             for (Case cas: caselist) {
                 if (cas.Case_Dealer__c != null) {
@@ -281,9 +300,14 @@ public class CaseHelperTH {
         if (dealerndcode.size() > 0) {
             for (Case c: caselist) {
                 if (c.Case_Dealer__c != null) {
-                    c.ownerid = dealerndcode.get(c.Case_Dealer__c).Dealer_Lead_Gate_Keeper__c;
+                    Case c1= new case();
+                    c1.id=c.Id;
+                    c1.ownerid = dealerndcode.get(c.Case_Dealer__c).Dealer_Lead_Gate_Keeper__c;
+                    caselst.add(c1);
                 }
             }
+            if(caselst.size() > 0)
+            update caselst; 
         }
     }
    /* public void updatedeadine(
@@ -421,10 +445,11 @@ public class CaseHelperTH {
         set < caseShare > caseshare = new set < caseShare > ();
         set < id > casesharingtorevoke = new set < id > ();
         set < String > sharingrevokefromgroups = new set < String > ();
-        List < Case > caselisttoiterat = [select id, createdby.usertype, createdby.Dealer_nd_code__c, Case_Dealer__c, Case_Dealer__r.Dealer_nd_code__c, ownerId from Case where id IN: caselist];
+        List<Case> caselisttoiterat = [select id,ownerid,createdby.usertype,createdbyid,createdby.Dealer_nd_code__c, Case_Dealer__c, Case_Dealer__r.Dealer_nd_code__c from Case where id IN: caselist];
         Set < id > idset = new Set < id > ();
         for (Case c: caselisttoiterat) {
             idset.add(c.ownerid);
+            idset.add(c.createdbyid);
         }
         Map < id, User > usr = new map < id, User > ([select id, name, Dealer_nd_code__c, usertype from user where id IN: idset]);
         //below if part will work at the time of insert
@@ -442,11 +467,21 @@ public class CaseHelperTH {
                     lstcase.add(casesrec);
                 }
             } else {
-
-                //if trigger new map value is filled and  oldmap assigned dealer is null then share records with new assigned value
-                //system.debug(((Case)trigger.oldmap.get(casesrec.id)).owner!=((Case)trigger.newmap.get(casesrec.id)).owner);
-                system.debug(((Case) trigger.oldmap.get(casesrec.id)).ownerId + '  ' + ((Case) trigger.newmap.get(casesrec.id)).ownerId);
-                if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c == null && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
+					
+                if (usr!=null && usr.get(casesrec.ownerid)!=null && (usr.get(casesrec.ownerid).dealer_nd_code__c!=null||usr.get(casesrec.ownerid).dealer_nd_code__c==null) && ((case) trigger.oldmap.get(casesrec.id)).ownerId != ((case) trigger.newmap.get(casesrec.id)).ownerId) {
+						
+                        if(usr.get(casesrec.ownerid).dealer_nd_code__c==null){
+                            String grpName = 'TH' +casesrec.createdby.dealer_nd_code__c; //usr.get(casesrec.ownerid).dealer_nd_code__c;
+                            dealerndcodeset.add(grpName);
+                            lstcase.add(casesrec);
+                            
+                        }else{
+                            String grpName = 'TH' + casesrec.createdby.dealer_nd_code__c;
+                            dealerndcodeset.add(grpName);
+                            lstcase.add(casesrec);
+                        }
+                }
+                else if (((Case) trigger.newmap.get(casesrec.id)).Case_Dealer__c != null && ((Case) trigger.oldMap.get(casesrec.id)).Case_Dealer__c == null && casesrec.Case_Dealer__r.Dealer_nd_code__c != null) {
                     String grpName = 'TH' + casesrec.Case_Dealer__r.Dealer_nd_code__c;
                     dealerndcodeset.add(grpName);
                     lstcase.add(casesrec);
@@ -478,11 +513,18 @@ public class CaseHelperTH {
                 //this if part will applicable for Salesforce users
                 String grpName = 'TH' + caseid.Case_Dealer__r.Dealer_nd_code__c;
                 String createdGrpName = 'TH' + caseid.createdby.Dealer_nd_code__c;
+                 String createdGrpName1='TH'+usr.get(caseid.ownerid).dealer_nd_code__c;
                 if (gp.name == grpName) {
                     caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseShare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
                 } //this else part will applicable for Dealer users
                 else if (gp.name == createdGrpName && caseid.createdby.Usertype == 'PowerPartner') {
                     caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseShare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
+                }
+                else if (gp.name == createdGrpName1 /*&& usr.get(leadid.ownerid).usertype == 'PowerPartner'*/) {
+                    //always created by shouuld have access on records
+                    caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseshare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
+                    //if Owner id is changed then share the record with respective dealers
+                    caseshare.add(new caseShare(CaseId = caseid.id, UserOrGroupId = gp.id, RowCause = Schema.caseshare.Rowcause.manual, CaseAccessLevel = 'EDIT'));
                 }
             }
         }
@@ -497,8 +539,11 @@ public class CaseHelperTH {
                 database.delete([select id from caseShare where Id IN: casesharingtorevoke and UserOrGroupId IN: sharingrevokefromgroups]);
             }
         }
-
     }
+
+
+  
+
 
     //after checking the checkbox field '1st reminder','2nd reminder' and 'escalated to MBTH', send email to gatekeeper(case owner)
     public static void sendReminderEmail(Map < Id, sObject > newCaseMap, Map < Id, sObject > oldCaseMap) {
@@ -506,7 +551,13 @@ public class CaseHelperTH {
         List < Case > caseId2ndRemLst = new List < Case > ();
         List < Case > caseIdEscltnLst = new List < Case > ();
         List < Messaging.SingleEmailMessage > mails = new List < Messaging.SingleEmailMessage > ();
-
+        //Fetch the FS Recordtype ID'sObject
+        List<Id> CaseFsRecordTypeList=new List<Id>(); 
+        for(RecordType rt:[SELECT Id FROM RecordType WHERE SobjectType='Case' and name in ('FS Inquiry', 'FS Complaint')]){
+            CaseFsRecordTypeList.add(rt.id);
+        }
+        //Fetch the Group Memebers from the FS_ESCALATE_TO_MBTH_Queue for sending mails for FS Development
+        List<GroupMember> GroupMemberList=[Select UserOrGroupId From GroupMember where Group.DeveloperName ='FS_ESCALATE_TO_MBTH_Queue'];
         for (Id caseId: newCaseMap.keySet()) {
             Case newCaseObj = (Case) newCaseMap.get(caseId);
             Case oldCaseObj = (Case) oldCaseMap.get(caseId);
@@ -542,11 +593,19 @@ public class CaseHelperTH {
             if (caseIdEscltnLst.size() > 0) {
                 Id templateId = [select Id from EmailTemplate where developerName = 'Case_escalated_to_MBTH_Notification'].Id;
                 for (Case caseObj: caseIdEscltnLst) {
+                    if(!CaseFsRecordTypeList.contains(caseObj.recordtypeId))
                     mails.add(EmailMessage.createSingleEmailMessage(caseObj.OwnerId, templateId, caseObj.Id));
+                else if(GroupMemberList.size()>0) {
+                    for(GroupMember gm:GroupMemberList){
+                        mails.add(EmailMessage.createSingleEmailMessage(gm.UserOrGroupId, templateId, caseObj.Id));
+                    }
+                }
                 }
             }
             if (mails != null && mails.size() > 0 && !test.isRunningTest())
+                
                 Messaging.sendEmail(mails);
+                
         }
     }
 public static void changeDealerAccount(List<case> triggernew){
@@ -576,8 +635,8 @@ for(case re:triggernew){
             }   
         }
     }
-	// call informatica URL for sending case updates back to COS
-	public static void callCaseUpdateInformaticaURL(Map<Id,sObject> newCaseMap)
+    // call informatica URL for sending case updates back to COS
+    public static void callCaseUpdateInformaticaURL(Map<Id,sObject> newCaseMap,Map<Id,sObject> oldCaseMap)
     {
         List<Id> caseIdLst=new List<Id>();
         if(newCaseMap!=null && newCaseMap.size()>0)
@@ -585,11 +644,50 @@ for(case re:triggernew){
             for(Id caseId:newCaseMap.keySet())
             {
                 Case caseObj=(Case)newCaseMap.get(caseId);
-                if(caseObj.COS_Ticket_Number__c!=null)
+                Case OldCaseObj=(Case)oldCaseMap.get(caseId);
+                if(caseObj.COS_Ticket_Number__c!=null && caseObj.status!=oldCaseObj.Status)
                    caseIdLst.add(caseId);
             }
         }
         if(caseIdLst.size()>0)
             CDMInformatica_Services.sendCaseDetailsToCOS(caseIdLst, 'TH', 'Update');
+    }
+	//SFDCTH-704
+    public static void updateCaseClass(List<Case> newCaseList){
+        for(Case casrec:newCaseList){
+            if(casrec.recordtypeid==mbcomplaint){
+                if(casrec.MBTH_Case_Class__c==null){
+                    casrec.MBTH_Case_Class__c='Complaint';
+                }
+                if(casrec.MBTH_Case_Type__c==null){
+                    casrec.MBTH_Case_Type__c='After Sales';
+                }
+                if(casrec.MBTH_Case_Subtype__c==null){
+                    casrec.MBTH_Case_Subtype__c='Vehicle/Technical problem';
+                }
+                if(casrec.MBTH_Related_Department__c==null){
+                    casrec.MBTH_Related_Department__c='Workshop';
+                }
+                
+            }
+        }
+    }
+	
+	public static void updatestatusfields(List<Case> newCaseList,Map<Id,Case>oldcasesMap){
+        Id userid = UserInfo.getUserId(); 
+        for(Case casrec:newCaseList){
+            if(oldcasesMap.get(casrec.Id).status != casrec.status && (casrec.recordTypeId == mbcomplaint || casrec.recordTypeId == nquiry)){
+                if(casrec.status == 'In Progress' && casrec.In_Progress_Start_DateTime__c == null  && casrec.InProgress_By__c == null)
+                {
+                    casrec.In_Progress_Start_DateTime__c = System.now();
+                    casrec.InProgress_By__c = userid;
+                }
+                if(casrec.status == 'Solved' && casrec.Solved_DateTime__c == null  && casrec.Solved_By__c == null)
+                {
+                    casrec.Solved_DateTime__c = System.now();
+                    casrec.Solved_By__c = userid;
+                }
+            }
+        }
     }
 }

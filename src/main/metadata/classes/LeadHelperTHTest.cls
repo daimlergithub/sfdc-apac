@@ -134,6 +134,7 @@ insert casetrigger;
         
 		LeadHelperTH.booleanCampaignUpdate=true;
         lead.Assigned_Dealer__c = null;
+        lead.CAC_Lead_Status__c ='Lost(Dealer)';
         update lead;       
         
         list<Lead__c> ld=new  list<Lead__c>();
@@ -141,6 +142,7 @@ insert casetrigger;
 		LeadHelperTH lr=new LeadHelperTH();
         
          LeadHelperTH.updateOwnership(accid,ld);
+        new LeadTriggerHandlerTH().handleIntegrationTrigger(true,true,true,true,true);
          test.stoptest();
           
         }     

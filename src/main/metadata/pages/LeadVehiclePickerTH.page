@@ -1102,7 +1102,7 @@
         <!-- <td style="vertical-align: top;">{!$Label.Vehicle_Picker_Purchased}&nbsp;</td><td> -->        
         <!--<td style="vertical-align: top;">  {!if(Lead__c.Recordtype.Name='Sales Leads',"Purchased Vechicle","Serviced Vechicle")}</td>-->    
         
-        <td style="vertical-align: top;">  <apex:outputLabel value="{!$Label.Vehicle_Picker_Purchased}" rendered="{!(Lead__c.Recordtype.Name='Sales Leads')}" />             
+        <td style="vertical-align: top;">  <apex:outputLabel value="{!$Label.Vehicle_Picker_Purchased}" rendered="{!(Lead__c.Recordtype.Name='Sales Leads')||(Lead__c.Recordtype.Name='Finance Lead')}" />             
         <apex:outputLabel value="{!$Label.Vehicle_Picker_Service}" rendered="{!(Lead__c.Recordtype.Name='Aftersales Leads')}" /></td>
         <td>                        
         <input type="text" ng-model="purchasedVehicleDetails"  disabled="disabled" style="width:300px" /> 

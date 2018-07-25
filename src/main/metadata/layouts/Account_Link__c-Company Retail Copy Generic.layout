@@ -21,6 +21,10 @@
                 <field>Retail_Company_Name__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_Vat_No__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_OptOutContact_Reason__c</field>
             </layoutItems>
@@ -48,6 +52,30 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_Sales_Sanction__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Email_OptIn__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Phone_OptIn__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Opt_In_Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Opt_In_SMS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Opt_In_Phone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Opt_In_Mail__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -62,7 +90,10 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_UCID__c</field>
             </layoutItems>
-            
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MB_Online_Id__c</field>
+            </layoutItems>          
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Company_Name_Native1__c</field>
@@ -75,15 +106,29 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Postal_OptOut__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Sales_Consultant__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Postal_OptIn__c</field>
+            </layoutItems>
+	     
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_SMS_OptIn__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Opt_In_Mobile__c</field>
             </layoutItems>
+           
+            
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_Sales_Consultant__c</field>
-            </layoutItems>
-            
+                <field>Service_Advisor__c</field>
+			</layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction_Comment__c</field>
@@ -97,6 +142,18 @@
         <editHeading>true</editHeading>
         <label>Contact Information</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Mobile__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Work_Phone__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_Email__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Retail_Company_Phone__c</field>
@@ -113,10 +170,7 @@
                 <behavior>Edit</behavior>
                 <field>Retail_Address_Type__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Distinct__c</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Address_Line_1__c</field>
@@ -139,10 +193,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Retail_Vat_No__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Retail_Agreement__c</field>
             </layoutItems>
         </layoutColumns>
@@ -151,17 +201,35 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_Company_Other_Phone__c</field>
             </layoutItems>
+            
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_City__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_ZipCode__c</field>
+                <field>Retail_Suburb__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_State_City__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Province__c</field>
             </layoutItems>
-            <layoutItems>
+            
+	    <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_City__c</field>
+                <field>Retail_Distinct__c</field>
+            </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_country__c</field>
+            </layoutItems>
+	    <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_ZipCode__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -212,6 +280,10 @@
                 <behavior>Edit</behavior>
                 <field>Retail_LastModifiedDate__c</field>
             </layoutItems>
+	    <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>OwnerId</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -222,10 +294,7 @@
                 <behavior>Readonly</behavior>
                 <field>Retail_Dealer_CompanyCode__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
+            
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Last_Modified_User_Type__c</field>

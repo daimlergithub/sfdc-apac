@@ -91,7 +91,7 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
         Set<Id> campaignIdSet = new Set<Id>();
        
         Map<Id, List<Campaign_Member__c>> campaignIdToCampaignMemberListMap =  new Map<Id, List<Campaign_Member__c>>();
-         list<account>pList   = [select id,recordtypeid,personcontactid from account where id in:pMap.keyset()];
+         list<account>pList   = [select id,recordtypeid,personcontactid  from account where id in:pMap.keyset()];
          for(account a:pList)
          {
          system.debug('+++++++++++++++'+pList );
@@ -116,7 +116,10 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                     task.WhatID = camp.Id;
                     task.Status = 'Open';
                     task.Type = 'Campaign';
-                    task.subject = 'Campaign Auto Creation';
+                    //task.subject = 'Campaign Auto Creation';
+                    if(campaignMemberRec.Campaign_Id__r.Name  !=null){
+                    task.subject = campaignMemberRec.Campaign_Id__r.Name + '（レスポンス対応）';
+                    }
                     task.ownerId = camp.Campaign_CCC_Manager__c;
                     task.priority = 'Normal';
                     task.RecordTypeId = taskRecTypeId;
@@ -383,10 +386,10 @@ global class Batch_AutoResponseJP implements Database.Batchable<SObject>, Databa
                                                     'Purchase_Timing__c',
                                                     'Lead_Desired_Service__c',
                                                     'UsVIN__c',
-													'Finance_Product_Name__c',
+                                                    'Finance_Product_Name__c',
                                                     'Cross_Point_Model__c',
-                                                    'Contact_Id__r.personcontactid'
-                                                    
+                                                    'Contact_Id__r.personcontactid',
+            										'Campaign_Id__r.Name'                                                    
                                                 };
                                                 
         

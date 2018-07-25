@@ -84,9 +84,10 @@ public class CalloutHandlerService {
        return response;     
     }
 	/** Added by Dhanamjaya & Narendra to Handle Call outs Through Post method*/
-	public static HttpResponse sendCalloutForPost(String method, String endpoint, Integer timeout, Map<String,String> headerKeyByValue, String Status,String Body)
+	public static HttpResponse sendCalloutForPost(String method, String endpoint, Integer timeout, Map<String,String> headerKeyByValue, String Status,String Body, String market)
     {
         // Perform HTTP Callout
+		Boolean isExceptionOccured = false;
         String responseString = null;
         HttpResponse response = new HttpResponse();
         HttpRequest request;
@@ -104,16 +105,23 @@ public class CalloutHandlerService {
 						request.setHeader(headerKey, headerKeyByValue.get(headerKey));
 					}	
 			}
-			CustomLogUtil.CustomLoggingEntry('Call for post' + request.getbody() +'-- '+endpoint);
 			response = h.send(request);            
             //responseString = processCalloutResponse(response, status);  
            
         }
         catch (Exception ex){
+			isExceptionOccured = true;
+            if(market=='MY'){
+                CustomLogUtil.CustomLoggingEntryRecordIds(request.getbody(),endpoint, ''+ex.getMessage(), market);  
+            }
             processFailure(status, ex, request, response);                     
         }
-        
-       return response;     
+        if(!isExceptionOccured && response.getStatusCode() != 200 && market=='MY'){
+            CustomLogUtil.CustomLoggingEntryRecordIds(request.getbody(),endpoint, ''+response.getBody(), market);
+        }
+        else if(Market != 'MY')
+		CustomLogUtil.CustomLoggingEntry('Call for post' + request.getbody() +'-- '+endpoint); 
+        return response;     
     }	
 
 

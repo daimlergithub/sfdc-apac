@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>FS_Address_Sharing_to_WS_Group</fullName>
+        <sharedTo>
+            <group>All_Wholesale_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Share FS address to WS group users.</description>
+        <name>FS_Address_Sharing_to_WS_Group</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>FS_Address_Sharing_for_MBIndiaFS</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBIndiaFS_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>FS Address with Market as IN, will have access as Read only for everyone in MBIndiaFS Management</description>
+        <name>FS Address Sharing for MBIndiaFS</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>FS_Address_Sharing_MY</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Share FS Address to MY MBFS users.</description>
+        <name>FS Address Sharing MY for MBFS</name>
+    </criteriaBasedRules>
+</CustomObjectSharingRules>

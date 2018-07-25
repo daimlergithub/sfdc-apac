@@ -405,16 +405,16 @@ global without sharing class LeadVehiclePickerMYController {
     global static void updateVehicleDetails(String vehicleDetails) {
         UtilConstant utilConst = new UtilConstant(); 
         Vehicle__c leadVehicle = new Vehicle__c();
-        List<Car_Model__c> carModel;    
-        Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
-        if(vehicleAttributes.get('Lookup') == 'false'){ 
+        List<Car_Model__c> carModel;
+		Map<String, String> vehicleAttributes = (Map<String, String>)JSON.deserialize(vehicleDetails, Map<String, String>.class);
+		if(vehicleAttributes.get('Lookup') == 'false'){ 
             leadVehicle.Brand__c = vehicleAttributes.get('Brand');
             leadVehicle.Class__c = vehicleAttributes.get('Class');
             leadVehicle.Colour__c = vehicleAttributes.get('Colour');
             leadVehicle.Trim__c = vehicleAttributes.get('Trim');
             leadVehicle.Model_Description__c = vehicleAttributes.get('Model');
             String mileageVal = vehicleAttributes.get('Mileage');
-            carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
+			carModel = [Select Id from Car_Model__c Where Brand__c =:vehicleAttributes.get('Brand') AND Series__c =:vehicleAttributes.get('Class') AND Name =:vehicleAttributes.get('Model') ORDER BY CreatedDate ASC NULLS LAST];
             if (!mileageVal.equals('')){
                 leadVehicle.NextMileage__c = Integer.valueof(vehicleAttributes.get('Mileage'));
             }

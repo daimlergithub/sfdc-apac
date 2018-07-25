@@ -3,7 +3,7 @@
     <customButtons>Assign_to_Leads</customButtons>
     <customButtons>Convert_Lead</customButtons>
     <customButtons>Send_to_Autoline</customButtons>
-    <customButtons>Print_PDF</customButtons>
+    <customButtons>OPROARTS_LA_01_process_sheet</customButtons>
     <customButtons>Merge</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
@@ -179,6 +179,10 @@
                 <behavior>Edit</behavior>
                 <field>Invoice_Amount_History__c</field>
             </layoutItems>
+			 <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bookout_Followup_Date2__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -228,6 +232,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Invoice_Number_History__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bookout_Followup_Date1__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bookout_Followup_Date3__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

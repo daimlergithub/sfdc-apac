@@ -568,6 +568,24 @@ public class CaseHelperBase {
         return mAccToDLGKUser;
     }
     
+	 // call informatica URL for sending case updates back to COS
+  public void callCaseUpdateInformaticaURL(Map<Id,sObject> newCaseMap)
+    {
+        List<Id> caseIdLst=new List<Id>();
+        String market=System.Label.MarketMY;
+        if(newCaseMap!=null && newCaseMap.size()>0)
+        {
+            for(Id caseId:newCaseMap.keySet())
+            {
+                Case caseObj=(Case)newCaseMap.get(caseId);
+                if(caseObj.COS_Ticket_Number__c!=null)
+                   caseIdLst.add(caseId);
+            }
+        }
+        if(caseIdLst.size()>0)
+            CDMInformatica_Services.sendCaseDetailsToCOS(caseIdLst, market, 'Update');
+    }
+	
 /* Data Migration Explicit Fix - Santosh Mohanty */
     public static void updatemarket(List<Case> caseList){        
         

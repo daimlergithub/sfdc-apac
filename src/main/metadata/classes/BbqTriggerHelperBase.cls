@@ -12,14 +12,14 @@ public class BbqTriggerHelperBase {
         BbqTaskData__c bbqTask = BbqTaskData__c.getValues('CreateTask');
         Integer activityDays=integer.valueOf(bbqTask.taskActivityDate__c);
         String recordType=bbqTask.taskRecordType__c;        
-        Integer reminderDays=integer.valueOf(bbqTask.taskReminderDate__c);
+        Integer reminderDays=integer.valueOf(bbqTask.taskReminderDate__c); 
         Id TaskRecTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(recordType).getRecordTypeId();
         Map<string, BbqCreateTask__c> bbqCT = BbqCreateTask__c.getAll();  
         List<Task> taskList = new List<Task>();
         For (referral__c ref:refNew){
             if (ref.Status__c == 'Submitted'){               
                 //BbqCreateTask__c bbqCT = BbqCreateTask__c.getValues(ref.Market__c);//get out of loopp	      
-               	Task tsk =new Task();    
+                Task tsk =new Task();    
                 tsk.RecordTypeId     = TaskRecTypeId;
                 tsk.WhatId           = ref.Id; 
                 if (bbqCT!=null && ref.Market__c!=null && bbqCT.get(ref.Market__c) != null){
@@ -65,16 +65,26 @@ public class BbqTriggerHelperBase {
         if (empRefList == null || empRefList.size() == 0) {
             return;
         }
-        list<Employee__c> employeeList=[SELECT Id,ReferralsCreated__c,ReferralsWon__c,Email__c FROM Employee__c where Id in : empRefList];
+        list<Employee__c> employeeList=[SELECT Id,ReferralsCreated__c,market__c,ReferralsWon__c,Email__c FROM Employee__c where Id in : empRefList];
         list<Employee__c> empList=new list<Employee__c>();
         for(referral__c ref:refferalList){
             for(Employee__c emp: employeeList){
                 if(ref.ReferredEmployee__c == emp.id){
+                    //Modified Here  for Referral Created__c :: For counting JP and SG referrals Count
                     if(trigger.Isinsert){
-                        emp.ReferralsCreated__c=emp.ReferralsCreated__c+1;
-                    }
-                    if(ref.Status__c=='Won' && (refOldMap.get(ref.id).status__c != refNewMap.get(ref.id).status__c)){
-                        emp.ReferralsWon__c=emp.ReferralsWon__c+1;
+                        if(emp.Market__c=='SG'){
+                            emp.ReferralsCreated__c=emp.ReferralsCreated__c+1;
+                        }
+                    }else if(trigger.isupdate) { 
+                        if(emp.market__c=='JP' && ref.Lead__c!=null && refOldMap.get(ref.id)!=null && (refOldMap.get(ref.id).Lead__c == null)){
+                            emp.ReferralsCreated__c=emp.ReferralsCreated__c+1;
+                            
+                        }else if(emp.market__c=='JP' && ref.Lead__c == null && refOldMap.get(ref.id)!= null && (refOldMap.get(ref.id).Lead__c != null)){
+                            emp.ReferralsCreated__c=emp.ReferralsCreated__c-1;
+                        } 
+                        if(ref.Status__c=='Won' && (refOldMap.get(ref.id).status__c != refNewMap.get(ref.id).status__c)){
+                            emp.ReferralsWon__c=emp.ReferralsWon__c+1;
+                        }
                     }
                     empList.add(emp); 
                 }	

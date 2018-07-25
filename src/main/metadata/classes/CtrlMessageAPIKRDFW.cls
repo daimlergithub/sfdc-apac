@@ -5,6 +5,7 @@
  * Author		: I2MAX
  * Date			: 2017.09.29
  * Description	: 메시지 전송, Task log)	
+ * added comment for testing auto merge
 */
 global class CtrlMessageAPIKRDFW {
 

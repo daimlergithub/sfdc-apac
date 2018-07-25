@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>MBT Reports - Age Range by Vehicle Class</description>
+    <filter>
+        <criteriaItems>
+            <column>Account$MD__c</column>
+            <operator>equals</operator>
+            <value>TR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Age_Range__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Vehicle_Relationships2__r$Vehicle_ID__c.Class__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>MBT Reports - Age Range by Vehicle Class</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Account_with_Vehicle_Relationships__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account.Vehicle_Relationships2__r$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

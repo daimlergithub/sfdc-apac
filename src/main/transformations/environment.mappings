@@ -1,5 +1,5 @@
 dev_okoeth=oliver.koeth@nttdata.com.market
-dev_58demo=oliver.koeth@58demo.com,falk.lehmann@58demo.org,raghuprasad.halakere@58demo.org,sukumar.rajashekaran@58demo.org
+dev_58demo=oliver.koeth@58demo.com,falk.lehmann@58demo.org,sukumar.rajashekaran@58demo.org
 
 # only the CI server is allowed to deploy to CI sandbox!
 dev_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.ci
@@ -61,9 +61,7 @@ dev_sb_asia_dev20=sivaramakrishna.aduri@asia.daimler-apac.com.asiadev20
 dev_sb_asia_dev26=saranyavss.gotrala@nttdata.com.dev26
 dev_sb_asia_dev15=arun.iyer.ntt@mbj.daimler-apac.com.asiadev15,infosys_technolo.naga_malleswara@daimler.com.mbj.asiadev15
 dev_sb_asia_ssotest=arun.iyer.ntt@asia.daimler-apac.com.ssotest
-dev_sb_asia_mrdev=deployment.user@mbj.daimler-apac.com.mrdev
-dev_sb_asia_mr=arun.iyer.ntt@mbj.daimler-apac.com.mr
-dev_sb_asia_mrfull=arun.iyer.ntt@mbj.daimler-apac.com.mrfull
+dev_sb_asia_mr=deployment.user@mbj.daimler-apac.com.mr
 dev_sb_asia_dev16=avishek.roy@daimler.com.apac.asiadev16
 dev_sb_asia_buildtest=deployment.user@mbj.daimler-apac.com.buildtest
 dev_sb_asia_k7dryrun=deployment.user@mbj.daimler-apac.com.k7dryrun
@@ -99,17 +97,14 @@ dev_sb_asia_uatasia=karthik.chakrapani@daimler.com.uatasia
 dev_asiadevTh1=pavankumar_01@infosys.com.asiadevth1
 dev_sb_asiaDevTh4=dhanamjaya.d@infosys.com.asiadevth4,prabhata_rath@infosys.com.asiadevth4
 dev_sb_asia_THX=tejbir.singh02@infosys.com.asiadevthx
-
+dev_sb_asiaDevThailand11=abhishek.mohanty01@infosys.com.thailand11
 # ASIA MY Development
 dev_sb_asiaDevMY4=sanjay_nandi@infosys.com.asiadevmy4
+dev_sb_asiaDevMY8=laqshay.arora@infosys.com.asiadevmy8
 dev_sb_asiaDevMY9=mohammedtouseef.a@infosys.com.asiadevmy9
 dev_sb_asia_devcdm=karthik.chakrapani@daimler.com.asiadevcdm
 dev_sb_asia_cisummer17=karthik.chakrapani@daimler.com.cisummer17
 dev_sb_asiaDevMY7=pratyasha.mishra@infosys.com.asiadevmy7
 dev_sb_asia_i2max2=release.admin@daimler.com.asiai2max2
-dev_sb_asia_cispr18=release.admin@daimler.com.cispr18
-dev_sb_asia_sitspr18=release.admin@daimler.com.testspr18
-dev_sb_asia_uatspr18=release.admin@daimler.com.uatspr18
-dev_sb_asia_asiadeven4=debasmita.kundu@daimler.com.asiadeven4
-dev_sb_asia_deven3=saurabh.juyal@infosys.com.asiadeven3
-dev_sb_asia_asiadeven1=sreekalyani.b@infosys.com.asiadeven1
+dev_sb_asia_cispr18=karthik.chakrapani@daimler.com.cispr18
+dev_sb_asia_testspr18=karthik.chakrapani@daimler.com.testspr18

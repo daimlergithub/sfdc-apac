@@ -7,10 +7,16 @@
 */
 public class AccountlinkHelperIN{
 
-   
+    AccountLinkHelperBase alb=new AccountLinkHelperBase();
     public void ValidateC2CAfterUpdateInsert(List<Account_link__C> acclinklist,String Market,boolean isinsert, boolean isupdate,Map<id,sobject> oldmapAL ){
-        AccountLinkHelperBase.validateC2C(acclinklist,Label.IN,isinsert,isupdate,oldmapAL );
+        AccountLinkHelperBase.validateC2C(acclinklist,Label.IN,isinsert,isupdate,oldmapAL);
     }
-    
-   
+    //Start 07042018 : Namitha added to invoke share retailcopy and Account as part of ph2.
+    public  void afterInsertEventShareRetailCopy(List<Account_link__C> acclinklist){
+        alb.afterInsertEventShareRetailCopy(acclinklist);
+    }
+    public  void afterInsertEventShareAccount(List<Account_link__C> acclinklist){
+        alb.afterInsertEventShareAccount(acclinklist);
+    }
+    //ends
 }

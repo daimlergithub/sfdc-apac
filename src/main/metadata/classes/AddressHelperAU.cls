@@ -4,6 +4,7 @@
                2.update Primary_Address_Display__c field on account on update of address(updatePrimaryAddressOnAccount)
     Create By: Honey
 */
+
 public with sharing class AddressHelperAU {
 
     public static void updateAddressOnAccount(list<Address__c> listNewAddress){
@@ -30,6 +31,12 @@ public with sharing class AddressHelperAU {
     public static void updatemarket(List<Address__c> addList){                   
         AddressHelperBase.updatemarket(addList);                    
     }
+
+    /*  Update Unnormalized Address */
+    public static void updateUnnormalizedAddress(List<Address__c> addList){                   
+        AddressHelperBase.updateUnnormalizedAddress(addList);                    
+    }
+    
   public static void updateAddressRetailCopies(map<ID,Address__c> newMap, string MarketDiscriminator){
     AddressHelperBase.updateAddressRetailCopies(newMap, MarketDiscriminator);
   }

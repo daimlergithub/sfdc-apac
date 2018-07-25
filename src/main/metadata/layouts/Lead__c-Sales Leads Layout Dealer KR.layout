@@ -393,6 +393,10 @@
                 <behavior>Edit</behavior>
                 <field>Sales_Consultant__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>DMS_Sent_Flag__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -8,7 +8,7 @@ public class createRetailCopyTRTest {
     private static Account companyacc;
     public static Account dealer;
     public static Contact con ;
-    public static user user_Obj; 
+    public static user user_Obj;
     public static user usr; 
     private static List<Account_Link__c> alkList = new List<Account_Link__c>();
     private static Id alkIndividualRecordTypeId = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
@@ -26,39 +26,24 @@ public class createRetailCopyTRTest {
         system.runAs(user_Obj){   
             dealer = (Account)UtilTestData.createSobject(new Account(market__c='TR'), UtilTestData.ACCOUNT_RT_DEALER);
             personAcc = new Account(Dealer_Default_Flag__c=false,
-                                    Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '046234824',Home_Phone_2__c = '025645435',Work_Phone__c = '023482322',
-                                    Status__c='NoCustomer',Email__c = 'testemail@test.com',Email2__c = 'testemail2@test.com',Email3__c = 'testemail3@test.com',
-                                    City__c='Beijing',
+                                    Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '',Work_Phone__c = '',
+                                    Status__c='Prospect',Email__c = 'testemail@test.com',
+                                    City__c='Istanbul',
                                     Gender__c = 'Male',
-                                    Phone = '0801801110',
-                                    Area_code__c = '0101',
+                                    Phone = '',
                                     MD__c = 'TR',
                                     Market__c = 'TR',
-                                    LastName = '刈乾冠寒刊勘',
-                                    FirstName = '刈乾冠寒刊勘',
+                                    LastName = 'Turan',
+                                    FirstName = 'Arif',
                                     Salutation = 'Unknown',      
-                                    Province__c = 'Shanghai',
-                                    data_source__c='Past Data',
+                                    Province__c = 'Istanbul',
+                                    data_source__c='MBT Event',
                                     ZipCode__c= '12347',
-                                    Mobile__c = '023482832',
-                                    Mobile2__c = '035456232',
-                                    Primary_Email__c = 'Email1',
-                                    Primary_Fax__c = 'FAX2',
-                                    Primary_Phone__c ='Other2',
+                                    Mobile__c = '',
                                     Main_Dealer__c = dealer.Id,
                                     RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
             
-            insert personAcc;  
-            
-            
-            
-            account= new Account();
-            account.Phone='09844650654';
-            account.FirstName = 'Test';
-            account.Mobile__c = '023482832';
-            account.Data_Source__c  = 'Test4';
-            account.market__c='TR';
-            account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
+            insert personAcc;
             
             address=new Address__c();
             address.Address_Type__c='Home';
@@ -70,12 +55,12 @@ public class createRetailCopyTRTest {
             address.Address_Line_1__c='testaddress1';
             address.Address_Line_2__c='testaddress2';
             address.Customer__c=personAcc.id;
-            address.TitleOfHonor__c = 'To Person';  
+            address.TitleOfHonor__c = 'To Person';
             
             
             insert address;
             Id RetailPerson = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId();
-            Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', Market__c='TR',ToRole__c = personAcc.id,fromrole__c=account.id, ReCordTypeId = RetailPerson);
+            Account_Link__c acclnk = new Account_Link__c(Name = 'Test Name', Market__c='TR',ToRole__c = personAcc.id,fromrole__c=personAcc.id, ReCordTypeId = RetailPerson);
             insert acclnk; 
             
         }
@@ -116,19 +101,26 @@ public class createRetailCopyTRTest {
                                      RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId());
             
             insert companyacc;
-            //accountlist.add(companyacc);
             
-            // insert accountlist;  
+            personAcc = new Account(Dealer_Default_Flag__c=false,
+                                    Dealer_DMS_SR_Code__c='test code 2',Individual_Home_Phone__c = '',Work_Phone__c = '',
+                                    Status__c='Prospect',Email__c = 'testemail@test.com',
+                                    City__c='Istanbul',
+                                    Gender__c = 'Male',
+                                    Phone = '',
+                                    MD__c = 'TR',
+                                    Market__c = 'TR',
+                                    LastName = 'Turan',
+                                    FirstName = 'Arif',
+                                    Salutation = 'Unknown',      
+                                    Province__c = 'Istanbul',
+                                    data_source__c='MBT Event',
+                                    ZipCode__c= '12347',
+                                    Mobile__c = '',
+                                    Main_Dealer__c = dealer.Id,
+                                    RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
             
-            
-            account= new Account();
-            account.Phone='09844650654';
-            account.FirstName = 'Test';
-            account.Mobile__c = '+905778963214';
-            account.Market__c = 'TR';
-            account.Data_Source__c  = 'Test4';
-            account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
-            account.market__c='TR';
+            insert personAcc;
             address=new Address__c();
             address.Address_Type__c='Home';
             address.Province__c='test1';
@@ -145,7 +137,7 @@ public class createRetailCopyTRTest {
             insert address;
             
             Id RetailCompany = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId();
-            Account_Link__c acclnkcom = new Account_Link__c(Name = 'Test Name', market__c='TR',ToRole__c = companyacc.id,fromrole__c=account.id, ReCordTypeId = RetailCompany);
+            Account_Link__c acclnkcom = new Account_Link__c(Name = 'Test Name', market__c='TR',ToRole__c = companyacc.id,fromrole__c=personAcc.id, ReCordTypeId = RetailCompany);
             insert acclnkcom;
             
         }
@@ -270,13 +262,10 @@ public class createRetailCopyTRTest {
             address.Province__c='Ayas';
             address.City__c='Ankara';
             address.District__c='Ayas';
-            //address.Block__c='test3';
             address.Address_Line_1__c='testaddressone';
             address.Address_Line_2__c='testaddresstwo';
             address.Customer__c=companyacc.id;
-            address.Market__c='TR';
-            //address.TitleOfHonor__c = 'To Person';  
-            
+            address.Market__c='TR';           
             
             insert address;
             
@@ -355,7 +344,7 @@ public class createRetailCopyTRTest {
                                     FirstName = '刈乾冠寒刊勘',
                                     Salutation = 'Unknown',      
                                     Province__c = 'Shanghai',
-                                    data_source__c='Past Data',
+                                    data_source__c='MBT Event',
                                     ZipCode__c= '12347',
                                     Mobile__c = '023482832',
                                     Mobile2__c = '035456232',

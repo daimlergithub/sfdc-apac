@@ -62,7 +62,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Read</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>Address_Kanji_Katakana__c</fullName>
         <externalId>false</externalId>
@@ -148,11 +148,24 @@
         <type>Email</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Employee_Company__c</fullName>
+        <description>Used to display the employee Company in the Referral object to use it in the Email template</description>
+        <externalId>false</externalId>
+        <formula>Text(ReferredEmployee__r.Company__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Employee Company</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Employee_Name__c</fullName>
         <description>used to display employee name from the email template</description>
         <externalId>false</externalId>
-        <formula>ReferredEmployee__r.First_Name__c + '  '+ ReferredEmployee__r.Last_Name__c</formula>
+        <formula>ReferredEmployee__r.Last_Name__c+' '+ReferredEmployee__r.First_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Employee Name</label>
         <required>false</required>
@@ -240,6 +253,15 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>Lead_Status__c</fullName>
         <description>Status of the lead created by the callcenter</description>
@@ -252,6 +274,30 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>	
+    <fields>
+        <fullName>Purpose_of_Purchasing__c</fullName>
+        <externalId>false</externalId>
+        <label>Types of purchase</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New customer for MB brand</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchasing additional vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Repl. of Long term owned MB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Lead__c</fullName>
@@ -613,5 +659,5 @@
         <searchResultsAdditionalFields>Market__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Read</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

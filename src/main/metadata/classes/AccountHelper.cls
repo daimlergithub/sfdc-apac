@@ -1,5 +1,5 @@
 /**
-** Utility for Account trigger
+**  Utility for Account trigger
 ** when Allow Data Sharing changed to yes, update lead's owner
 ** Created By: Bing Bai
 ** Date: 2013-06-05
@@ -39,5 +39,6 @@ public class AccountHelper {
         if(leads.size() > 0) {
             LeadHelper.UpdateLeadOwnerFromContact(dealerIds, leads);
         }
+		
     }   
 }

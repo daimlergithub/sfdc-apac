@@ -328,6 +328,10 @@
                 <behavior>Edit</behavior>
                 <field>Recommended_Dealer__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>DMS_Sent_Flag__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -17,12 +17,12 @@ public class VehicleRelationshipHelperTRTest {
         AccountFieldsList[0].name='compname1';
         AccountFieldsList[0].Mobile__c='9856321478';
         AccountFieldsList[0].Market__c='TR'; 
-        AccountFieldsList[0].Data_Source__c='Past data';
+        AccountFieldsList[0].Data_Source__c='MBT Event';
         AccountFieldsList[1].RecordTypeId=RecordTypeAccessService.getRecordTypeId('Account',Label.Company);
         AccountFieldsList[1].name='compname2';
         AccountFieldsList[1].Mobile__c='9856321478';
         AccountFieldsList[1].Market__c='TR'; 
-        AccountFieldsList[1].Data_Source__c='Past data';
+        AccountFieldsList[1].Data_Source__c='MBT Event';
       
         insert AccountFieldsList;
         

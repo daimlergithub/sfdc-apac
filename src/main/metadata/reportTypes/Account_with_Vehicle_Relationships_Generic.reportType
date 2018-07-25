@@ -8,7 +8,7 @@
         <outerJoin>false</outerJoin>
         <relationship>Vehicle_Relationships2__r</relationship>
     </join>
-    <label>Account with Vehicle</label>
+    <label>Account with Vehicle Generic</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>

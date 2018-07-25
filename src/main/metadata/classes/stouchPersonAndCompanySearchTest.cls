@@ -4,6 +4,8 @@ Public class stouchPersonAndCompanySearchTest {
     public static Account dealer=new Account();
     public static Account_link__c alk=new Account_link__c();
     public static Account_link__c alk2=new Account_link__c();
+    public static Account_link__c alkPerson=new Account_link__c();
+    public static Account_link__c alk2Person=new Account_link__c();
     public static void createTestrecord(){
         Profile p=[select id from Profile where name='MBK Dealer HQ CS/ CR'];
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', Md__c='KR',Individual_Home_Phone__c='010-9885-7857', RecordTypeId = dealerType, Name = 'test dealer',Dealer_GC_Code__c = 'Test123',Dealer_nd_Code__C='12345');
@@ -20,21 +22,31 @@ Public class stouchPersonAndCompanySearchTest {
                                  RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female',OwnerId=user.id);
         alk2= new Account_Link__c(Name='new al',Md__c='KR',toRole__c=cmp2.id,fromrole__c=dealer.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
                                  RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Company').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female',OwnerId=user.id);
+        alkPerson= new Account_Link__c(Name='new al',Md__c='KR',toRole__c=accObj1.id,fromrole__c=dealer.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+                                 RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female',OwnerId=user.id);
+        alk2Person= new Account_Link__c(Name='new al',Md__c='KR',toRole__c=accObj1.id,fromrole__c=dealer.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
+                                 RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Retail Person').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female',OwnerId=user.id);
         
         Account_link__c alk3= new Account_Link__c(Name='new al',Md__c='KR',toRole__c=accobj1.id,fromrole__c=cmp.id,Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',
                                  RecordTypeId=Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(),Retail_DMS_Customer_ID__c='1122',Retail_Gender__c='Female',OwnerId=user.id);
-        insert new List<Sobject>{alk,alk2,alk3};
+        insert new List<Sobject>{alk,alk2,alkPerson,alk2Person,alk3};
        
     }
-    @istest static void stouchCompanySearchTestMethod(){
+    static user createTestUser(){
         UserRole r = new UserRole(DeveloperName = 'MyCustomRole', Name = 'My Role');
         insert r;
         user u=TestUtils.IntegrationAPIUser();
         u.UserRoleId=r.Id;
         update u;
+        return u;        
+    }
+    @istest static void stouchCompanySearchTestMethod(){
+        user u=createTestUser();
         test.startTest();
         system.runas(u){
             createTestrecord();
+            alk2.Retail_Related_Company__c = alk.Id;
+            update  new List<Sobject>{alk2};
             RestRequest request = new RestRequest();
             request.requestUri =
                 'https://test.salesforce.com/services/apexrest/stouchPersonSearch/';
@@ -56,6 +68,8 @@ Public class stouchPersonAndCompanySearchTest {
         user u1=TestUtils.IntegrationAPIUser();
         Account_link__c akpl=new Account_link__c ( Name='new al',Md__c='KR',Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',OwnerId=u1.id);
         insert akpl;
+        //Account_link__c akp2=new Account_link__c ( Name='new al',Md__c='TH',Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',OwnerId=u1.id);
+        //insert akp2;
        
         test.starttest();
         system.runas(u1){
@@ -65,11 +79,52 @@ Public class stouchPersonAndCompanySearchTest {
             request.httpMethod = 'POST';
             request.addHeader('Content-Type', 'application/json');
             
-            request.requestBody = Blob.valueOf('{"Input_IDS":["'+akpl.id+'"],"Rec_count":"1"}');
+            request.requestBody = Blob.valueOf('{"Input_IDS":["'+akpl.id+'"],"Rec_count":"1","MD__c":""}');
             RestContext.request = request;
             stouchPersonSearch.PersonSearchResult();
         }
           test.stopTest();
     }  
-     
+    @istest static void ThPersonSearchResultTestMethod(){
+        user u1=TestUtils.IntegrationAPIUser();
+        Account_link__c akpl=new Account_link__c ( Name='new al',Md__c='TH',Retail_LastName__c='heii',Retail_Full_Name__c='saranya Gotrala',Retail_Full_Name_Title__c='Mrs',Retail_FirstName__c='Saru',OwnerId=u1.id);
+        insert akpl;
+       
+        test.starttest();
+        system.runas(u1){
+            RestRequest request = new RestRequest();
+            request.requestUri =
+                'https://test.salesforce.com/services/apexrest/stouchPersonSearch/';
+            request.httpMethod = 'POST';
+            request.addHeader('Content-Type', 'application/json');
+            request.requestBody = Blob.valueOf('{"Input_IDS":["'+akpl.id+'"],"Rec_count":"1","MD__c":"TH"}');
+            RestContext.request = request;
+            stouchPersonSearch.PersonSearchResult();
+        }
+          test.stopTest();
+    }
+    @istest static void ThstouchCompanySearchTestMethod(){
+        user u=createTestUser();
+        test.startTest();
+        system.runas(u){
+            createTestrecord();
+            alk2.Retail_Related_Company__c = alk.Id;
+            update  new List<Sobject>{alk2};
+            RestRequest request = new RestRequest();
+            request.requestUri =
+                'https://test.salesforce.com/services/apexrest/stouchCompanySearch/';
+            request.httpMethod = 'POST';
+            request.addHeader('Content-Type', 'application/json');
+            
+            request.requestBody = Blob.valueOf('{"Input_IDS":["'+alk.id+'","'+alk2.id+'"],"Rec_count":"1","MD__c":"TH"}');
+            RestContext.request = request;
+            String jsonText=JSON.serialize(stouchCompanySearch.PersonSearchResult());
+            Map<String, Object> cObjMap = (Map<String, Object>) JSON.deserializeUntyped(jsonText);
+            List<Object> list1=(List<Object>)(cObjMap.get('Out_CompanyDetails'));
+            Map<String,Object> map1=(Map<String,Object>)list1[0];
+            system.debug(map1);
+            system.debug(map1.get('Company_Name__c'));
+        }
+        test.stopTest();
+    }     
 }

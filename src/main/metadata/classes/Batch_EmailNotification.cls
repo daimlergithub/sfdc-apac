@@ -30,7 +30,7 @@ global class Batch_EmailNotification implements Database.Batchable<sObject> ,Dat
            
          
          If(DealerIds.size() >0){
-          List<User> UseList = [Select id,profile.name,email,contactId,contact.AccountId from User where contact.AccountId=:DealerIds AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ]; 
+          List<User> UseList = [Select id,profile.name,email,contactId,contact.AccountId from User where isActive =true AND contact.AccountId=:DealerIds AND ((profile.Name='Japan Dealer Sales Manager') OR (profile.Name='Japan Dealer Service Manager') ) ]; 
           
           For(Participating_Dealer__c parDealer : Scope){
           For(User u : UseList  )

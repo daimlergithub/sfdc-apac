@@ -62,7 +62,8 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -88,6 +89,10 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IN</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>false</restrictedPicklist>
@@ -2642,7 +2647,8 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -3393,6 +3399,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>Touring support Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>ServicePackage for Business</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
@@ -4754,6 +4764,18 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Yanase_Regional_GroupId__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR(RecordType.Name == 'Contract',RecordType.Name == 'Lease_Contract',RecordType.Name == 'Loan_Contract',RecordType.Name == 'Service') , Related_Dealer__r.Outlet_General_GroupID__c,'')</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Yanase Regional GroupId</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>livetime__c</fullName>
         <externalId>false</externalId>
@@ -5825,6 +5847,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
                 <fullName>smart touring support 6 years Plan</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ServicePackage for Business</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Product_Variation__c</picklist>
@@ -6628,6 +6654,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ServicePackage for Business</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7713,6 +7743,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ServicePackage for Business</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8870,6 +8904,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
             <values>
                 <fullName>Welcome Plan Plus</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ServicePackage for Business</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10049,6 +10087,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
                 <fullName>Welcome Plan Plus</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ServicePackage for Business</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Product_Variation__c</picklist>
@@ -10419,6 +10461,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             </values>
 			<values>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>IN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11202,6 +11248,10 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
                 <fullName>Welcome Plan Plus</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ServicePackage for Business</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Product_Variation__c</picklist>
@@ -11260,6 +11310,50 @@ IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
             <picklist>Service_Code__c</picklist>
             <values>
                 <fullName>Blank</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>1year inspection</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Accessories</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Dealer Campaign</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>First MOT</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MB 1year inspection</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MB Safety check</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MOT</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Outside Order</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Quick Service</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Re-Repair</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Service Transfer</fullName>
                 <default>false</default>
             </values>
             <values>

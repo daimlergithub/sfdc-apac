@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Receivable</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Receivables</value>
+    </caseValues>
+    <fields>
+        <label><!-- FS Contract --></label>
+        <name>FS_Contract__c</name>
+        <relationshipLabel><!-- Receivables --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Gross Outstanding --></label>
+        <name>Gross_Outstanding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interest Outstanding --></label>
+        <name>Interest_Outstanding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation><!-- IN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JP</masterLabel>
+            <translation><!-- JP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KR</masterLabel>
+            <translation><!-- KR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MY</masterLabel>
+            <translation><!-- MY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TH</masterLabel>
+            <translation><!-- TH --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Principal Outstanding --></label>
+        <name>Principal_Outstanding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Outstanding --></label>
+        <name>Total_Outstanding__c</name>
+    </fields>
+    <fields>
+        <label><!-- VAT/GST on Rentals --></label>
+        <name>VATGST_on_Rentals__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

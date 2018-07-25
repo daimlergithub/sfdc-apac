@@ -25829,6 +25829,10 @@
         <apexPage>AddressSearchValidation</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
+	<pageAccesses>
+        <apexPage>AddressSearchValidationCDM</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>AddressSelectionforExistingCustomer</apexPage>
         <enabled>true</enabled>

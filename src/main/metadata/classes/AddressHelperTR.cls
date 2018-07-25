@@ -38,7 +38,7 @@ public with sharing class AddressHelperTR {
                             system.debug(addr.Preferred__c+addr.Market__c);
                             if(addr.Preferred__c ==True && addr.Market__c=='TR')
                                 acc.Primary_Address_Reference__c =addr.Id; 
-                                                           
+                            acc.Primary_Address_Display__c =  acc.Primary_Address_Display__c.replaceAll('null','');                              
                             updateAccntMap.put(acc.Id, acc);
                         }
                     } 
@@ -55,7 +55,44 @@ public with sharing class AddressHelperTR {
     } 
 
     public static void validateSameAddressType(List<Address__c> triggerNew,map<id,Address__c> addressOldMap,boolean isInsert,boolean isUpdate){
-        AddressHelperBase.validateSameAddressType(triggerNew,addressOldMap,isInsert,isUpdate,System.Label.MarketMY);
+       set<id> accountId = new set<id>(); 
+        if(IsInsert){                
+            //get the related accountIds
+            for(Address__c add:triggerNew){
+                accountId.add(add.Customer__c);
+            }
+            
+            
+            for(Address__c addresList:[select Address_Type__c,customer__c from Address__c where Customer__c IN:accountId]){
+                for(Address__c addType:triggerNew){
+                    if(
+                        (addType.MD__c==System.Label.TR)&& 
+                        (addType.Address_Type__c=='Home' ||addType.Address_Type__c=='Business') && 
+                        (addresList.Address_Type__c==addType.Address_Type__c)
+                    ){                   
+                        addType.Address_Type__c.adderror(Label.AddressType_Validation);                               
+                    }
+               
+                }
+            }
+        
+        }
+        if(isUpdate){
+            for(Address__c add:triggerNew){                 
+                Address__c oldaddress = addressOldMap.get(add.Id);                     
+                if(oldaddress.Address_Type__c!= add.Address_Type__c){
+                    accountId.add(add.Customer__c);                         
+                }
+            }
+            for(Address__c addresList:[select Address_Type__c from Address__c where Customer__c IN:accountId]){
+                for(Address__c addType:triggerNew){
+                    if((addType.MD__c==System.Label.TR)&& (addType.Address_Type__c=='Home' ||addType.Address_Type__c=='Business') && 
+                    ((addresList.Address_Type__c==addType.Address_Type__c)&&(addType.Address_Type__c!=null))){                                           
+                        addType.Address_Type__c.adderror(Label.AddressType_Validation);
+                    }
+                }                
+            }
+        }
     } 
 
         public static void updatePrimaryAddressOnAccount(map<ID,Address__c> newMap){
@@ -65,11 +102,15 @@ public with sharing class AddressHelperTR {
         for(Address__c add:newMap.values()){
             accountId.add(add.Customer__c);
         } 
-        for(Account acc:[select id,Primary_Address_Reference__c from Account where id IN:accountId]){
+        for(Account acc:[select id,Primary_Address_Reference__c,market__c from Account where id IN:accountId]){
             if((acc.Primary_Address_Reference__c!=null)&&(newMap.containsKey(acc.Primary_Address_Reference__c))){
                 if(newMap.get(acc.Primary_Address_Reference__c).Customer__c==acc.id){
                     Address__c add = newMap.get(acc.Primary_Address_Reference__c);
-                    acc.Primary_Address_Display__c=add.Province__c+add.City__c+add.District__c+add.Address_Line_1__c+add.Address_Line_2__c;
+                    acc.Primary_Address_Display__c=add.Address_Line_1__c+add.Address_Line_2__c+add.zipcode__c+add.District__c+add.Province__c+add.City__c+add.Country__c;
+                     if(acc.Market__C == 'TR')
+                        acc.Primary_Address_Display__c = add.Address_Line_1__c + ' ' + add.Address_Line_2__c+' '+add.Zipcode__c+' '+add.District__c+' '+add.Province__c + ' ' + add.City__c+' ' +add.Country__c;                  
+                    acc.Primary_Address_Display__c =  acc.Primary_Address_Display__c.replaceAll('null','');   
+                    system.debug('-----'+acc.Primary_Address_Display__c);
                     accountList.add(acc);
                 }
             }

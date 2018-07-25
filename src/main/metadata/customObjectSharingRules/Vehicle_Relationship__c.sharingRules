@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+	    <fullName>IN_Share_VRs_with_FS_Users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Retail,Vehicle Relationship</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>IN Share VRs with FS Users</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IN_Share_VRs_with_MPC</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vehicle Relationship Retail,Vehicle Relationship</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>IN Share VRs with MPC</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_MarketVehicle_Relatioship_Readable_to_MBJ_IT_Dept</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
@@ -63,6 +99,19 @@
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <name>MBMY Vehicle Relationship Sharing Rule</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MBFS_Vehicle_Relationship_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>MBFS Vehicle Relationship Sharing Rule</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Read_Write_of_Vehicle_to_CAC</fullName>
@@ -127,6 +176,33 @@
         <accessLevel>Read</accessLevel>
         <description>Thailand Users will be able to see the Vehicle Relationship records coming from Autoline</description>
         <name>TH_Vehicle_Relationship_Readable</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TH_FS_Vehicle_Relationship_Readable</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Thailand FS Users will be able to see the Vehicle Relationship records coming from Autoline</description>
+        <name>TH_FS_Vehicle_Relationship_Readable</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>VR_Permission_TR</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTR_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>VR Permission TR</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>soft_deleted_share_with_R_W_to_data_mgr</fullName>

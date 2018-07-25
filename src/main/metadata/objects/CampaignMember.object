@@ -16,10 +16,10 @@
         <actionName>ConvertLead</actionName>
         <type>Default</type>
     </actionOverrides>
-    <!--<actionOverrides>
-        <actionName>Create_Opportunity</actionName>
+    <actionOverrides>
+        <actionName>CreateOpportunity</actionName>
         <type>Default</type>
-    </actionOverrides>-->
+    </actionOverrides>
     <actionOverrides>
         <actionName>Delete</actionName>
         <type>Default</type>
@@ -44,49 +44,6 @@
         <externalId>false</externalId>
         <label>isTestRunning</label>
         <type>Checkbox</type>
-    </fields>
-	    <fields>
-        <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
-IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
-IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
-IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
-        <externalId>false</externalId>
-        <label>Market</label>
-        <picklist>
-            <picklistValues>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>false</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Accompany_Name__c</fullName>
@@ -599,7 +556,8 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
 		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 		IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
 		IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
-		IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA'))))))</defaultValue>
+  IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+		IF(ISPICKVAL($User.Market__c, 'TH'), 'TH','NA')))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -607,6 +565,56 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <required>true</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN', 
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+	    <picklistValues>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Member_Latest_Update_Time__c</fullName>
@@ -1070,6 +1078,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <errorConditionFormula>AND(TEXT( Market__c ) != TEXT( $User.Market__c ) ,$Profile.Name != &apos;IntegrationAPI&apos;, NOT(isTestRunning__c))</errorConditionFormula>
         <errorDisplayField>Market__c</errorDisplayField>
         <errorMessage>You are allowed to create record for your home market only</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Campaign_Member_MD_Cannot_be_Changed</fullName>
+        <active>true</active>
+        <description>MD field of Campaign Member should be same as user's Market field</description>
+        <errorConditionFormula>AND(TEXT( Market__c ) !=(MD__c) ,$Profile.Name != 'IntegrationAPI',  $Permission.INGeneric, NOT(isTestRunning__c))</errorConditionFormula>
+        <errorDisplayField>MD__c</errorDisplayField>
+        <errorMessage>You are allowed to create or edit records for your home market only</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>De_Dup</fullName>

@@ -43,6 +43,10 @@
                 <behavior>Readonly</behavior>
                 <field>VehicleRelationship__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>VehicleRelationship_New__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Zip_Code_Finance__c</field>

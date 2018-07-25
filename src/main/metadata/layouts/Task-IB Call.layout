@@ -128,7 +128,7 @@
                 <field>IB_Call_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>CallDisposition</field>
             </layoutItems>
             <layoutItems>

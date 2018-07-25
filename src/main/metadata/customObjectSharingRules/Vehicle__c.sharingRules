@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
+        <fullName>IN_Vehicle_Readable_to_India_Call_Centre</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,MB</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>IN_Vehicle_Readable_to_India_Call_Centre</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+	    <fullName>IN_Vehicle_Readable_to_India_Call_Centre_FS</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,MB</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>IN_Vehicle_Readable_to_India_Call_Centre_FS</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>JP_MarketVehicle_Readable_to_MBJ_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinates>MBJ_IT_Department</roleAndSubordinates>
@@ -57,6 +93,25 @@
         <name>JP Vehicle Readable to MBJ Dealers</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MB_Vehicle_to_be_shared_with_all</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Vehicle records of MB type to be shared with all WS and retail users for MY.</description>
+        <name>MB_Vehicle_to_be_shared_with_all</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>MY_Vehicle_Readable_to_Malaysia_Call_Centre</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
@@ -74,6 +129,26 @@
         <accessLevel>Read</accessLevel>
         <name>MY_Vehicle_Readable_to_Malaysia_Call_Centre</name>
     </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Vehicle_to_be_shared_with_FS_users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,MB,Vehicle Product</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Sharing of Vehicle to all FS Users.</description>
+        <name>Vehicle to be shared with FS users</name>
+    </criteriaBasedRules>
+	
     <criteriaBasedRules>
         <fullName>READ_WRITE_for_Vehicle_to_CAC</fullName>
         <sharedTo>
@@ -137,24 +212,42 @@
         <accessLevel>Read</accessLevel>
         <name>TH_Vehicle_Readable_to_Thailand_Call_Centre</name>
     </criteriaBasedRules>
-	<criteriaBasedRules>
-        <fullName>MB_Vehicle_to_be_shared_with_all</fullName>
+    <criteriaBasedRules>
+        <fullName>Vehicle_Permission_TR</fullName>
         <sharedTo>
-            <roleAndSubordinates>MBMY_Management</roleAndSubordinates>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
-            <field>MD__c</field>
+            <field>Market__c</field>
             <operation>equals</operation>
-            <value>MY</value>
+            <value>TR</value>
         </criteriaItems>
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>MB</value>
+            <value>Competitor,MB</value>
         </criteriaItems>
         <accessLevel>Read</accessLevel>
-		<description>Vehicle records of MB type to be shared with all WS and retail users for MY.</description>
-        <name>MB_Vehicle_to_be_shared_with_all</name>
+        <name>Vehicle Permission TR</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Vehicle_Sharing_FS</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,MB,Vehicle Product</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <description>Sharing of Vehicle to all FS Users.</description>
+        <name>Vehicle Sharing FS</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Vehicle_Sharing_for_MBK</fullName>

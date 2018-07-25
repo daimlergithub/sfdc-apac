@@ -31,6 +31,10 @@ public class AccountlinkHelperTRTest {
              AccountlinkhelperTR.updateOnPostalOptout(acclinklist);
             AccountlinkhelperTR.updateOnEmailOptout(acclinklist);
             AccountlinkhelperTR.updateOnPhoneSMSoptout(acclinklist);
+            acclnk.Retail_Phone_OptIn__c = false;
+            acclnk.Retail_SMS_OptIn__c = false;
+            update acclnk;
+             AccountlinkhelperTR.updateOnPhoneSMSoptout(acclinklist);
             test.stopTest();
     
     }

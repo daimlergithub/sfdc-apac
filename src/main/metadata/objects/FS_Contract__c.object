@@ -78,7 +78,7 @@
         <label>Asset Model</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -92,7 +92,7 @@
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>Book_Received_Date__c</fullName>
@@ -156,7 +156,7 @@ To store the Contract ID coming from RMW.</description>
         <label>Contract ID</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
@@ -168,7 +168,7 @@ To store the Contract ID coming from RMW.</description>
         <label>Dealer</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -256,12 +256,12 @@ In general, BU will use the type of contract to customize proper offers to custo
         <fullName>Flat_Rate__c</fullName>
         <externalId>false</externalId>
         <label>Flat Rate</label>
-        <precision>18</precision>
+        <precision>11</precision>
         <required>false</required>
-        <scale>2</scale>
+        <scale>4</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>Frequency__c</fullName>
@@ -336,7 +336,7 @@ In general, BU will use the type of contract to customize proper offers to custo
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>Pay_day__c</fullName>
@@ -401,7 +401,7 @@ In general, BU will use the type of contract to customize proper offers to custo
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -419,7 +419,7 @@ In general, BU will use the type of contract to customize proper offers to custo
     <fields>
         <fullName>Rentals_NextDue__c</fullName>
         <externalId>false</externalId>
-        <label>Rentals NextDue</label>
+        <label>Next Due Rental</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -484,7 +484,7 @@ In general, BU will use the type of contract to customize proper offers to custo
         <relationshipLabel>FS Contracts</relationshipLabel>
         <relationshipName>FS_Contracts</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -495,7 +495,7 @@ In general, BU will use the type of contract to customize proper offers to custo
         <label>Sales Person</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -589,18 +589,45 @@ In general, BU will use the type of contract to customize proper offers to custo
     </fields>
     <label>FS Contract</label>
     <listViews>
-        <fullName>All</fullName>
+        <fullName>All_MBLT_FS_Contracts</fullName>
+        <columns>NAME</columns>
+        <columns>Borrower__c</columns>
+        <columns>Retail_FS_Borrower__c</columns>
+        <columns>DealerName__c</columns>
+        <columns>SalesPersonName__c</columns>
+        <columns>Asset_Model__c</columns>
+        <columns>Rental_Amount__c</columns>
+        <columns>Rental_Mode__c</columns>
+        <columns>CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
-        <label>All</label>
+        <filters>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <label>All FS Contracts</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>MBLT</role>
+        </sharedTo>
     </listViews>
     <nameField>
-        <displayFormat>H-{000000}</displayFormat>
         <label>Contract No.</label>
-        <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
     </nameField>
     <pluralLabel>FS Contracts</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Borrower__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Retail_FS_Borrower__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Registration_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Registration_Location__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Asset_Model__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Rental_Amount__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Payment_Mode__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>Private</sharingModel>
     <startsWith>Vowel</startsWith>
 </CustomObject>
+

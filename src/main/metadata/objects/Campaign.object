@@ -66,7 +66,9 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -92,6 +94,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+	    <picklistValues>
+                <fullName>TR</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>false</restrictedPicklist>
@@ -369,22 +379,28 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>MB</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
                 <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
@@ -392,6 +408,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>StarElite</fullName>
                 <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EQ</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Certified</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -431,6 +457,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Auto Show</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -438,6 +465,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Finance</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -445,6 +473,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Loyalty Program</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -452,6 +481,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Competitions and Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -459,6 +489,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Interview</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -466,6 +497,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Recall</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -473,6 +505,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Product Issue</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -480,6 +513,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>New Car Launch</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -487,6 +521,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Ad-hoc</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -494,12 +529,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Ongoing</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -587,13 +624,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Email</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Mail</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -601,19 +641,24 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Call</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Website</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -621,6 +666,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Social Media</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -629,6 +675,17 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>Mobile Showroom</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Postal</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -989,8 +1046,9 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>New Customer Acquisition</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Promotion on Technical accessories and collections</fullName>
@@ -1010,29 +1068,45 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
-                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>After Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
 				<controllingFieldValues>MY</controllingFieldValues>
             </picklistValues>
             <picklistValues>
-                <fullName>Finance</fullName>
+                <fullName>Sales and After-Sales</fullName>
                 <default>false</default>
-                <controllingFieldValues>JP</controllingFieldValues>
-                <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brand</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1051,101 +1125,124 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>A-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Estate</fullName>
                 <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Coupe</fullName>
                 <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E Coupe Sport</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-CLASS</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Concept Car</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
@@ -1220,7 +1317,9 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>E-Class Coupe</fullName>
                 <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL 63 AMG</fullName>
@@ -1236,6 +1335,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>GenericModel</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C55 AMG</fullName>
@@ -1266,6 +1366,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>E-Class Sport Sedan</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 AMG</fullName>
@@ -1276,16 +1377,265 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>CLA-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA 45 AMG</fullName>
                 <default>false</default>
                 <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A-Class Hatchback</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A-Class Saloon</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B-Class Tourer</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLS Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Saloon</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Estate</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Saloon</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLA SUV</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC SUV</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLS SUV</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Class SUV</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SL Roadster</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLC Roadster</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Saloon</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S-Class Saloon Long</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG A 45</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG CLA 45</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG C 63 S</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG C 63 S Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG E 63 S</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GLE 63 S Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT R</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT C Edition 50</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT S</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT Roadster</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT C Roadster</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG SLC 43</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG S 63 Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG S 63 Cabriolet</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart forfour Hatchback</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>smart</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart fortwo Cabriolet</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>smart</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart fortwo Coupe</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>smart</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1522,77 +1872,105 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>A-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>B-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>G-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>R-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-Class</fullName>
                 <default>false</default>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
@@ -1612,17 +1990,83 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
                 <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
                 <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA 45 AMG</fullName>
                 <default>false</default>
                 <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLS-Class</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLC-Class</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>EQ</controllingFieldValues>
+                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>MB Certified</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT Coupé</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT Roadster</fullName>
+                <default>false</default>
+                <controllingFieldValues>AMG</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart forfour</fullName>
+                <default>false</default>
+                <controllingFieldValues>smart</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart fortwo</fullName>
+                <default>false</default>
+                <controllingFieldValues>smart</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart EQ forfour</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart EQ fortwo</fullName>
+                <default>false</default>
+                <controllingFieldValues>EQ</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1836,6 +2280,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Campaign Organized by Central</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -1843,6 +2288,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Extended Activities from Central’s Campaign</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -1850,12 +2296,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Local Campaign on Festivals</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Campaign Organized by Dealer</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -1888,26 +2336,32 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Road Show</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Test Drive</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Auto Show</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Festival</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>New Car Launch</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -1938,6 +2392,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
@@ -2086,6 +2541,36 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>survey_Model</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Pop-Up Store</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Event for Fleet Clients</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Event for ÖMG</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Display</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dining Event</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Launch Event</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -2120,10 +2605,12 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>OB Call</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MMS</fullName>
@@ -2134,12 +2621,15 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>eDM</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -2151,6 +2641,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Segmentation Only</fullName>
@@ -2167,6 +2658,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>Event</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -2175,17 +2667,21 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <picklistValues>
                 <fullName>eMail</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Survey</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
-				<controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>KakaoTalk</fullName>
@@ -2204,6 +2700,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <default>false</default>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Postal</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2577,12 +3083,13 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'IN') ,'IN',  
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA')))))))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
@@ -2633,6 +3140,7 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Number</type>
+	<defaultValue>0</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2700,6 +3208,7 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Number</type>
+	<defaultValue>0</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2880,25 +3389,69 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <externalId>false</externalId>
         <label>Purpose</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Brand Enhancement</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>CN</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Acquisition</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>CN</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Increase Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>CN</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Loyalty</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>CN</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Increase after Sales</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>CN</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retention</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -4211,17 +4764,41 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <externalId>false</externalId>
         <label>Segmentation Base</label>
         <picklist>
+            <controllingField>Market__c</controllingField>
             <picklistValues>
                 <fullName>Customer</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>CN</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>CN</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Contract</fullName>
                 <default>false</default>
+                <controllingFieldValues>AU</controllingFieldValues>
+                <controllingFieldValues>CN</controllingFieldValues>
+                <controllingFieldValues>IN</controllingFieldValues>
+                <controllingFieldValues>JP</controllingFieldValues>
+                <controllingFieldValues>KR</controllingFieldValues>
+                <controllingFieldValues>MY</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -4337,6 +4914,81 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <controllingField>Market__c</controllingField>
+            <picklistValues>
+                <fullName>Planned</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Started</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Execution_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Execution Type</label>
+        <picklist>
+            <controllingField>Execution_Type__c</controllingField>
+            <picklistValues>
+                <fullName>Face Book</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+                <controllingFieldValues>Social Media</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+                <controllingFieldValues>Social Media</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+                <controllingFieldValues>Social Media</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+                <controllingFieldValues>Social Media</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <controllingFieldValues>Social Media</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Submission_Due_Date__c</fullName>
         <externalId>false</externalId>
         <label>Submission Due Date</label>
@@ -4365,27 +5017,32 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <picklistValues>
                 <fullName>Contact</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Case</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>None</fullName>
@@ -4576,6 +5233,33 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>User_Type__c</fullName>
+        <defaultValue>if($UserRole.Name=='MBTH','TH-MPC',
+if($Profile.Name == 'Thailand Dealer Delegate Admin','TH-MPC',
+if($UserRole.Name=='MBLT','TH-FS','')))</defaultValue>
+        <description>This field will be used to identify whether the campaign is created by MPC user or FS user.</description>
+        <externalId>false</externalId>
+        <label>User Type</label>
+        <picklist>
+            <controllingField>Market__c</controllingField>
+            <picklistValues>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+                <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Venue__c</fullName>
         <description>Venue of the Campaign</description>
         <externalId>false</externalId>
@@ -4751,6 +5435,30 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <role>IT_Manager</role>
         </sharedTo>
     </listViews>
+	    <listViews>
+
+        <fullName>All_IN_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </filters>
+        <label>All Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
 	<listViews>
         <fullName>All_MBTH_Campaigns</fullName>
         <columns>CAMPAIGN.NAME</columns>
@@ -4776,6 +5484,27 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <sharedTo>
             <group>THUsers</group>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_MBLT_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </filters>
+        <label>All Campaigns</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>MBLT</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -5083,6 +5812,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>EQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MB</fullName>
                 <default>false</default>
             </values>
@@ -5357,6 +6090,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -6219,6 +6956,44 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
                 <fullName>Case</fullName>
@@ -6286,6 +7061,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>CAC_CRM_Campaign</fullName>
@@ -6325,6 +7111,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EQ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6594,6 +7384,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -7468,6 +8262,44 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
                 <fullName>Contact</fullName>
@@ -7519,6 +8351,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>CAC_Campaign</fullName>
@@ -7558,6 +8401,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EQ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7803,6 +8650,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -8708,6 +9559,44 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
                 <fullName>Contact</fullName>
@@ -8763,6 +9652,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>CAS_Marketing_Campaign</fullName>
@@ -8802,6 +9702,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EQ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9071,6 +9975,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -9765,6 +10673,44 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
                 <fullName>Contact</fullName>
@@ -9816,6 +10762,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Campaign_Execution</fullName>
@@ -9855,6 +10812,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EQ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10132,6 +11093,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -10830,6 +11795,44 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
                 <fullName>Case</fullName>
@@ -10897,6 +11900,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
    <recordTypes>
         <fullName>Campaign_Execution_Complex</fullName>
@@ -10936,6 +11950,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EQ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11201,6 +12219,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -11934,6 +12956,48 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Face Book</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
                 <fullName>Case</fullName>
@@ -12001,6 +13065,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Campaign_Execution_Complex_Lock</fullName>
@@ -12039,6 +13114,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EQ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12304,6 +13383,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -13006,6 +14089,48 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Face Book</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
                 <fullName>Case</fullName>
@@ -13070,6 +14195,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13171,6 +14307,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EQ</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13453,6 +14593,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
             </values>
@@ -13516,7 +14660,19 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>A-Class Hatchback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A-Class Saloon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>B-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B-Class Tourer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13524,7 +14680,15 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>C-Class Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Saloon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13544,11 +14708,19 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>CLA Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>CLA-Class</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13580,6 +14752,14 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>E-Class Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Saloon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>E-Class Sport Sedan</fullName>
                 <default>false</default>
             </values>
@@ -13593,6 +14773,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>G-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Class SUV</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13620,11 +14804,35 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLA SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLA-Class</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS SUV</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13641,6 +14849,66 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG A 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG C 63 S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG C 63 S Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG CLA 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG E 63 S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GLE 63 S Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT C Edition 50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT C Roadster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT Roadster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG S 63 Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG S 63 Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG SLC 43</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13664,11 +14932,31 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class Saloon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class Saloon Long</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S55 AMG</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>S65 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL Roadster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13681,6 +14969,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>SL63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC Roadster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13701,6 +14993,18 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart forfour Hatchback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart fortwo Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart fortwo Coupe</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13782,11 +15086,31 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLS-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>ML-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT Coupé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT Roadster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13806,11 +15130,31 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>SLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>SLK-Class</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart EQ forfour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart EQ fortwo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart forfour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart fortwo</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14013,11 +15357,23 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Survey</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>eDM</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14067,6 +15423,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -14080,6 +15440,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+	    <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14503,6 +15867,48 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+	<picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
@@ -14571,6 +15977,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Central_Marketing_Campaign</fullName>
@@ -14613,7 +16030,15 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>EQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Certified</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14709,11 +16134,19 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>Postal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14875,6 +16308,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -15089,6 +16526,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>Charity</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Dining Event</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Festival</fullName>
                 <default>false</default>
@@ -15109,6 +16550,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Pop-Up Store</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Prints relevant</fullName>
                 <default>false</default>
@@ -15121,8 +16566,24 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>Showroom Event</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Special Event for Fleet Clients</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Event for ÖMG</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Sports Marketing</fullName>
+                <default>false</default>
+            </values>
+	    <values>
+                <fullName>Vehicle Display</fullName>
+                <default>false</default>
+            </values>
+	    <values>
+                <fullName>Vehicle Launch Event</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15150,6 +16611,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15277,6 +16742,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Increase after Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15580,6 +17049,48 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+	<picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Face Book</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
@@ -15632,6 +17143,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>MB_Best_Practice</fullName>
@@ -15672,6 +17194,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             <values>
                 <fullName>MB</fullName>
                 <default>true</default>
+            </values>
+	    <values>
+                <fullName>EQ</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -15936,6 +17462,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -16467,6 +17997,7 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>TH</fullName>
                 <default>false</default>
             </values>
+	    
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
@@ -16522,6 +18053,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Increase Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase after Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16821,6 +18356,48 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+	<picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Face Book</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
@@ -16886,6 +18463,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16989,8 +18577,16 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>AMG</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>EQ</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>MB</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>MB Certified</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17097,12 +18693,20 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>Mail</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Postal</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17280,6 +18884,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+	<values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>After Sales</fullName>
                 <default>false</default>
@@ -17292,6 +18900,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>Sales</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Sales and After-Sales</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Car_Model__c</picklist>
@@ -17300,7 +18912,19 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>A-Class Hatchback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A-Class Saloon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>B-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B-Class Tourer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17308,7 +18932,15 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>C-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>C-Class Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Saloon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17328,11 +18960,19 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>CLA Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>CLA-Class</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>CLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17364,6 +19004,14 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>E-Class Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Saloon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>E-Class Sport Sedan</fullName>
                 <default>false</default>
             </values>
@@ -17377,6 +19025,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>G-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Class SUV</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17404,11 +19056,35 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLA SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLA-Class</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE SUV</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-CLASS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLS SUV</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17425,6 +19101,66 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG A 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG C 63 S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG C 63 S Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG CLA 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG E 63 S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GLE 63 S Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT C Edition 50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT C Roadster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT Roadster</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG S 63 Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG S 63 Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG SLC 43</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17448,11 +19184,31 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>S-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class Saloon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class Saloon Long</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S55 AMG</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>S65 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL Roadster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17465,6 +19221,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>SL63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLC Roadster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17485,6 +19245,18 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart forfour Hatchback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart fortwo Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart fortwo Coupe</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17745,11 +19517,31 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLS-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>ML-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT Coupé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT Roadster</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17769,11 +19561,31 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>SLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>SLK-Class</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart EQ forfour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart EQ fortwo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart forfour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart fortwo</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17952,6 +19764,54 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>survey_SSI</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Festival</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Car Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Pop-Up Store</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Display</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Launch Event</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Special Event for Fleet Clients</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Dining Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Event for ÖMG</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Execution_Type__c</picklist>
@@ -18034,6 +19894,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -18047,6 +19911,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+	    <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18108,6 +19976,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Increase after Sales</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>Retention</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18778,6 +20650,48 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+	<picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Face Book</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
@@ -18843,6 +20757,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18888,7 +20813,19 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>EQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Certified</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18992,11 +20929,19 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>Postal</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>SMS</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Social Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19163,6 +21108,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
             <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
+	    <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
             </values>
@@ -19560,6 +21509,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>Auto Show</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Dining Event</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Charity</fullName>
                 <default>false</default>
@@ -19584,6 +21537,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Pop-Up Store</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Prints relevant</fullName>
                 <default>false</default>
@@ -19596,10 +21553,27 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <fullName>Showroom Event</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Special Event for Fleet Clients</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Event for ÖMG</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Sports Marketing</fullName>
                 <default>false</default>
             </values>
+	    <values>
+                <fullName>Vehicle Display</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Launch Event</fullName>
+                <default>false</default>
+            </values>
+
             <values>
                 <fullName>Test Drive</fullName>
                 <default>false</default>
@@ -19617,6 +21591,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>OB Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19748,6 +21726,14 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Increase Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Increase after Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20035,6 +22021,48 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+	<picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Face Book</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
@@ -20100,6 +22128,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20145,6 +22184,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
             <values>
+                <fullName>EQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MB</fullName>
                 <default>false</default>
             </values>
@@ -20419,6 +22462,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -21293,6 +23340,48 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Execution_Type__c</picklist>
+            <values>
+                <fullName>Face Book</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Task_Created_By__c</picklist>
             <values>
                 <fullName>Case</fullName>
@@ -21357,6 +23446,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21663,6 +23763,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -22612,6 +24716,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
 	<recordTypes>
         <fullName>Campaign_Execution_MBK_Wholesale_to_Dealer</fullName>
@@ -22916,6 +25031,10 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         </picklistValues>
         <picklistValues>
             <picklist>Campaign_Type__c</picklist>
+            <values>
+                <fullName>Brand</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Familiarization workshop for dormant customers</fullName>
                 <default>false</default>
@@ -23716,6 +25835,17 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>User_Type__c</picklist>
+            <values>
+                <fullName>TH-FS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH-MPC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
 	<searchLayouts>
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
@@ -23858,6 +25988,12 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; !Act
         <errorMessage>Campaign status Completed you cant change End Date</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Campaign_Type_and_Purpose_Mandatory</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISPICKVAL(Market__c, 'TR') ,$Profile.Name != 'IntegrationAPI',OR( ISPICKVAL( Campaign_Type__c , ''), ISPICKVAL( Purpose__c , '')  ))</errorConditionFormula>
+        <errorMessage>Please enter Campaign Type and Campaign Purpose!</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Campaign_Validation_Rule</fullName>
         <active>true</active>
         <errorConditionFormula>AND(ISNEW(),(RecordType.Name='CAS Marketing Campaign'),IF( IsActive == TRUE,TRUE,FALSE))</errorConditionFormula>
@@ -23867,7 +26003,8 @@ UPPER(MD__c) = 'TH' &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp; !Act
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !=&apos;IntegrationAPI&apos;,ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,&quot;DM&quot;),OR(UPPER(MD__c) = &apos;JP&apos;,UPPER(MD__c) = &apos;KR&apos;,UPPER(MD__c) = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"),
+OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',UPPER(MD__c) = 'TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),if(AND(ISPICKVAL(Market__c,'TR'),$Permission.TRGeneric),true,false)))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>DM Material is reqired when execution type is DM.</errorMessage>
     </validationRules>
@@ -23938,8 +26075,8 @@ ISCHANGED( Min_Car_Age__c ),
 ISCHANGED( Max_Car_Age__c ),
 ISCHANGED( Purpose__c )
 ),
-$Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)))</errorConditionFormula>
-        <errorMessage>You cann&apos;t change this record when Status is published or closed.</errorMessage>
+$Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,if(AND(MD__c==&apos;MY&apos;,$Permission.MYGeneric),true,false),if(AND(MD__c==&apos;IN&apos;,$Permission.INGeneric),true,false)))</errorConditionFormula>
+        <errorMessage>You cannot change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Parent_Campaign_Status_Ongoing</fullName>
@@ -23959,7 +26096,7 @@ $Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,if
 	<validationRules>
         <fullName>Parent_Campign_Not_Same_Generic</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( PRIORVALUE(ParentId ) &lt;&gt; ParentId,RecordType.Name = $Label.Campaign_Execution_Simple, $Permission.MYGeneric ,Create_Task__c = TRUE, $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND( PRIORVALUE(ParentId ) &lt;&gt; ParentId,RecordType.Name = $Label.Campaign_Execution_Simple, $Permission.MYGeneric ,$Permission.INGeneric,Create_Task__c = TRUE, $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>ParentId</errorDisplayField>
         <errorMessage>You cannot change Parent Campaign as task is already created for this campaign.</errorMessage>
     </validationRules>
@@ -23972,7 +26109,7 @@ $Profile.Name != &apos;IntegrationAPI&apos;, OR(UPPER(MD__c) = &apos;TH&apos;,if
 	 <validationRules>
         <fullName>Planning_Design_Campaign_Active_MY</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Planning_Design_Campaign&apos;,ISNEW(),IsActive = True, $Permission.MYGeneric,$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = 'Planning_Design_Campaign',ISNEW(),IsActive = True, ($Permission.MYGeneric || $Permission.INGeneric),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
         <errorMessage>Parent Campaign can&apos;t be active if there aren&apos;t any associated campaign execution record.</errorMessage>
     </validationRules>
@@ -23989,7 +26126,7 @@ PRIORVALUE(Consolidated_List_Completed__c) = TRUE,NOT(ISCHANGED(Child_Campaign_S
         <errorConditionFormula>AND( ISBLANK(Template__c), 
 OR( 
 ISPICKVAL(Execution_Type__c ,"SMS"), ISPICKVAL(Execution_Type__c ,"MMS"), ISPICKVAL(Execution_Type__c ,"eDM") 
-),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'TH')
+),$Profile.Name != 'IntegrationAPI',OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'TH',ISPICKVAL(Market__c,'TR'))
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
         <errorMessage>When Execution Type is SMS/MMS/eDM, SMS/MMS/eDM Template is Required.</errorMessage>
@@ -24418,72 +26555,80 @@ else
         <masterLabel>[OPRO]DM Print(OPR)</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。
-//
-// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。
-// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。
+        <url>// これは、OPROARTS Live サーバで生成された OPROARTS Live - Force.com API の利用サンプルです。 
+// 
+// OPROARTS Live - Force.com API の情報は、https://www2.opro.net/jp_arts/support.html からご覧になれます。 
+// Visualforce の情報は、http://www.salesforce.com/us/developer/docs/pages/index.htm (Salesforce.com) からご覧になれます。 
 
 
-// ---- BEGIN ----
-{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+// ---- BEGIN ---- 
+{!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")} 
+{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")} 
 
-var tpArray = (function () {
-var dmmaterial_type = '{!Campaign.DM_Material__c}';
-switch(dmmaterial_type){
-case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
-case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
-case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
-case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
-case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
-case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
-case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
-case 'Company Account': return 'p04_CompanyAccount';brak;
-case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
-case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
-case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
-case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
-case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
-case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting';brak;
-default:return 'p07_CustomerAddressOnlyPrinting';brak;
-}
-}());
+var tpArray = (function () { 
+var dmmaterial_type = '{!Campaign.DM_Material__c}'; 
+switch(dmmaterial_type){ 
+case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak; 
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak; 
+case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak; 
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak; 
+case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak; 
+case 'Direct Mail Print': return 'p03_DirectMailPrint';brak; 
+case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak; 
+case 'Company Account': return 'p04_CompanyAccount';brak; 
+case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
+case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
+case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak; 
+case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting';brak; 
+case 'DM_ラベル（３×７）': return 'p08_Label37';brak; 
+case 'Label（３×７）': return 'p08_Label37';brak; 
+case 'DM_ラベル（２×６）': return 'p09_Label26';brak; 
+case 'Label（２×６）': return 'p09_Label26';brak; 
+case 'DM_ラベル（２×４）': return 'p10_Label24';brak; 
+case 'Label（２×４）': return 'p10_Label24';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting';brak; 
+} 
+}()); 
 
-OPROARTS.Live.fF.action({
-// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。
-// このパラメータを省略することはできません。
-tp:tpArray,
+OPROARTS.Live.fF.action({ 
+// tp: 配備済みテンプレートの名称を指定します。複数指定することもできます。 
+// このパラメータを省略することはできません。 
+tp:tpArray, 
 
-// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。
-// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。
-fe:false,
+// フォントの埋め込むかどうかを指定します。true もしくは false で指定します。 
+// fm パラメータが'PDF'の場合に有効です。また、テンプレートで埋め込み可能なフォントが使用されている必要があります。 
+fe:false, 
 
-// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。
-// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。
-createsAttach:false,
+// createsAttach: 作成されたドキュメントをオブジェクトに添付するかどうかを指定します。true もしくは false で指定します。 
+// 添付できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+createsAttach:false, 
 
-// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。
-// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。
-// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。
-// - taskSubject: 活動履歴の件名
-// - taskComment: 活動履歴のコメント
-// 無指定の場合は、システムの初期値が適用されます。
-createsTask:false,
+// createsTask: 作成されたドキュメントを活動履歴に登録するかどうかを指定します。true もしくは false で指定します。 
+// 活動履歴に登録できないオブジェクトの場合、このパラメータを true で指定しないでください。 
+// このパラメータに true を指定した場合、次の追加パラメータを指定することができます。 
+// - taskSubject: 活動履歴の件名 
+// - taskComment: 活動履歴のコメント 
+// 無指定の場合は、システムの初期値が適用されます。 
+createsTask:false, 
 
-// title: ダウンロード・添付・活動履歴のファイル名を指定します。
-title:'',
+// title: ダウンロード・添付・活動履歴のファイル名を指定します。 
+title:'', 
 
-oprLimitPages:10000,
+oprLimitPages:10000, 
 
-// objectId: 帳票オブジェクトのIDを指定します。
-objectId:'{!JSENCODE(Campaign.Id)}',
+// objectId: 帳票オブジェクトのIDを指定します。 
+objectId:'{!JSENCODE(Campaign.Id)}', 
 
-// OPROARTS Live - Force.com API に必要な諸パラメータです。
-// このパラメータを編集しないでください。
-api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}']
-}).url("https://benz.pd.oproarts.com/liveffbb/action").opr();
-// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。
-// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。
-// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。
+// OPROARTS Live - Force.com API に必要な諸パラメータです。 
+// このパラメータを編集しないでください。 
+api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Session_ID)}','{!JSENCODE($Api.Partner_Server_URL_220)}'] 
+}).url("https://benz.pd.oproarts.com/liveffbb/action").opr(); 
+// 作成するドキュメントの形式のメソッドを呼び出します。'pdf()','opr()','print()'を指定します。 
+// 'opr()','print()'を使用する場合、OPRO X Browser をクライアントPCにインストールしてください。 
+// ※ pdf(), opr() のかわりに pdfPreview(), oprPreview() メソッドを指定すると、プレビュー用のドキュメントが生成されます。この出力はカウントされません。 
 // ---- END ----</url>
     </webLinks>
     <webLinks>
@@ -24502,24 +26647,32 @@ api:['{!JSENCODE($Organization.Id)}','{!JSENCODE($User.Id)}','{!JSENCODE($Api.Se
 
 // ---- BEGIN ----
 {!REQUIRESCRIPT("https://s.oproarts.com/js/live_ff-1.20.js")}
+{!REQUIRESCRIPT("/soap/ajax/30.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/24.0/apex.js")}
 
-var tpArray = (function () {
-var dmmaterial_type = '{!Campaign.DM_Material__c}';
-switch(dmmaterial_type){
-case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak;
-case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak;
-case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak;
-case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak;
-case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak;
-case 'Direct Mail Print': return 'p03_DirectMailPrint';brak;
-case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak;
-case 'Company Account': return 'p04_CompanyAccount';brak;
-case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
-case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak;
-case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
-case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak;
-case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak;
-case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting';brak;
+var tpArray = (function () { 
+var dmmaterial_type = '{!Campaign.DM_Material__c}'; 
+switch(dmmaterial_type){ 
+case 'DM_MB1年点検のご案内（縦長）': return 'p01_VehicleCheckUp_noDate';brak; 
+case 'Vehicle Check-up (no date).xls(Image)': return 'p01_VehicleCheckUp_noDate';brak; 
+case 'DM_1年/2年点検、車検のご案内（縦長）': return 'p02_VehicleInspection_withDate';brak; 
+case 'Vehicle Inspection (with date)': return 'p02_VehicleInspection_withDate';brak; 
+case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMailPrint';brak; 
+case 'Direct Mail Print': return 'p03_DirectMailPrint';brak; 
+case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount';brak; 
+case 'Company Account': return 'p04_CompanyAccount';brak; 
+case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
+case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate';brak; 
+case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
+case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate';brak; 
+case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting';brak; 
+case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting';brak; 
+case 'DM_ラベル（３×７）': return 'p08_Label37';brak; 
+case 'Label（３×７）': return 'p08_Label37';brak; 
+case 'DM_ラベル（２×６）': return 'p09_Label26';brak; 
+case 'Label（２×６）': return 'p09_Label26';brak; 
+case 'DM_ラベル（２×４）': return 'p10_Label24';brak; 
+case 'Label（２×４）': return 'p10_Label24';brak; 
 default:return 'p07_CustomerAddressOnlyPrinting';brak;
 }
 }());

@@ -193,6 +193,10 @@
                 <behavior>Readonly</behavior>
                 <field>Quotation_Number__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Quotation_Model__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Quotation_Print_Date__c</field>

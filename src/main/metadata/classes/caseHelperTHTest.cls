@@ -2,6 +2,7 @@
 public with sharing class caseHelperTHTest{
 final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     final static Id caseINquiryId = UtilRecordType.getRecordTypeIdByName('Case', UtilConstant.INQUIRY);
+     public static id fsinq =RecordTypeAccessService.getRecordTypeId('case','FS Inquiry');//FS Complaint
     public List<Id> tmpCaseIds = new List<Id>();
     public Static List<Account> insertAccount = new List<Account>();
     public Static List<Account> updateAccounts = new List<Account>();
@@ -21,22 +22,29 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
     public static void createtestData(){
         Trigger__C casetrigger=new Trigger__C(name='TriggerCaseTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseTriggerHandlerTH',Trigger_Name__c='CaseTrigger',update__c=true);
     insert casetrigger;
-        Group gr=new Group(Name='12345');
+        List<Group> gr=new List<group>();
+        gr.add(new Group(Name='12345'));
+         gr.add(new Group(Name='FS_ESCALATE_TO_MBTH_Queue'));
+        
         insert gr;
+        
+        //FS_ESCALATE_TO_MBTH_Queue
+        groupmember gm=new groupmember(groupid=gr[1].id,userorgroupid=user1.id);
+        insert gm;
         EmailTemplate et1 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_1st_Reminder_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');
     EmailTemplate et2 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_2nd_Reminder_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');        
     EmailTemplate et3 = new EmailTemplate(isActive = true,Name = 'testTemplate',DeveloperName = 'Case_escalated_to_MBTH_Notification',TemplateType = 'text',FolderId = UserInfo.getUserId(),Body = '');                
         //Insert new List<EmailTemplate>{et1,et2,et3};
         
-        personAcc = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
+        personAcc = new Account(Foundation_Date__c=system.today(),RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
       insertAccount.add(personAcc);
         Account accObj1 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);
         insertAccount.add(accObj1);
-        Account accObj2 = new Account(RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);
+        Account accObj2 = new Account(Foundation_Date__c=system.today(),RecordTypeId = recordTypeAccDealerObjId,Name = 'Mercedez',Individual_Home_Phone__c='+66-12-123-789',Dealer_ND_Code__c='12345',Dealer_Lead_Gate_Keeper__c=user1.Id);
         insertAccount.add(accObj2);
         //personAcc2 = new Account(Primary_Address_Reference__c=objAddress.Id,RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
     //insert personAcc2;
-    Account accObj3 = new Account(RecordTypeId = recordTypeAccCompanyAccountObjId ,Name = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
+    Account accObj3 = new Account(Foundation_Date__c=system.today(),RecordTypeId = recordTypeAccCompanyAccountObjId ,Name = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
         insertAccount.add(accObj3);
         insert insertAccount;
         address__c objAddress=new Address__C(Customer__c=insertAccount[0].id,Province__c='ACT',Address_Type__c = 'Home',ZipCode__c ='1234567',MD__c = 'TH');
@@ -51,18 +59,23 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
         update updateAccounts;
        
         
-        Case c1 = new Case(Subject='testing',accountid=insertAccount[0].id,Recordtypeid=MBRecordtypeid,MD__c='TH');
+        Case c1 = new Case(Subject='testing1',accountid=insertAccount[0].id,Recordtypeid=caseINquiryId,MD__c='TH');
          insertCases.add(c1);
-        Case c2 = new Case(Subject='testing',accountid=insertAccount[3].id,Recordtypeid=MBRecordtypeid,MD__c='TH',Case_Dealer__c=insertAccount[1].Id);
+        Case c2 = new Case(Subject='testing2',COS_Ticket_Number__c='123',accountid=insertAccount[3].id,Recordtypeid=MBRecordtypeid,MD__c='TH',Case_Dealer__c=insertAccount[1].Id);
          insertCases.add(c2);
-        Case c3 = new Case(Subject='testing',accountid=insertAccount[0].id,Recordtypeid=MBRecordtypeid,MD__c='TH',Case_Dealer__c=insertAccount[1].Id);
+        Case c3 = new Case(Subject='testing3',accountid=insertAccount[0].id,Recordtypeid=fsinq,MD__c='TH',Case_Dealer__c=insertAccount[1].Id);
          insertCases.add(c3);
+       
+       
         insert insertCases;
-        insertCases.clear();
-        Case c4 = new Case(Subject='testing',parentId=c1.id,Case_RepeatCause__c='2=Others',accountid=insertAccount[0].id,Recordtypeid=MBRecordtypeid,MD__c='TH');
-        insertCases.add(c4);
-        Case c5 = new Case(Subject='testing',parentId=c1.id,Case_RepeatCause__c='2=Others',accountid=insertAccount[0].id,Recordtypeid=caseMBComplaintRec_Id,MD__c='TH');
+        
+        Case c4 = new Case(Subject='testing4',status='Closed',parentId=insertCases[0].id,Case_RepeatCause__c='2=Others',accountid=insertAccount[0].id,Recordtypeid=MBRecordtypeid,MD__c='TH');
+        
+        insert c4;
+        //insertCases.add(c4);
+        Case c5 = new Case(Subject='testing5',parentId=insertCases[0].id,Case_RepeatCause__c='2=Others',accountid=insertAccount[0].id,Recordtypeid=caseMBComplaintRec_Id,MD__c='TH');
         insertCases.add(c5);
+        insertCases.clear();
         insert insertCases;
         insertCases.clear();
         //CaseHelperTH.booleanCampaignUpdate=true;
@@ -70,7 +83,7 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
         c3.MBTH_1st_Reminder__c=true;
         c3.MBTH_2nd_Reminder__c=true;
         c3.MBTH_Escalated_to_MBTH__c=true;   
-        c2.Case_Dealer__c=null;
+        c2.Case_Dealer__c=null;   
         insertCases.add(c3);
         insertCases.add(c2);
         update insertCases;
@@ -79,42 +92,5 @@ final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosB
         system.runAs(user1){
             createtestData();
         }
-    }
-    static testMethod void integrationSFDCToCOSTest()
-    {
-        Test.startTest();
-        CallOutHandlerSettingDFW__c coh = new CallOutHandlerSettingDFW__c();
-        coh.Name = 'CalloutValues';
-        coh.DEFAULT_CALLOUT_TIME__c = '10000';
-        coh.MAX_CALLOUT_TIME__c ='120000';  
-        coh.FAILED_STATUS__c='failed';
-        coh.JSON_CONTENT_TYPE__c ='application/json';
-        coh.KO_STATUS__c='KO';       
-        coh.OK_STATUS__c='OK';
-        coh.PLAIN_TEXT_CONTENT_TYPE__c='text/plain';
-        coh.QUEUED_STATUS__c='Queued';
-        coh.REQUEST_BODY_NAME__c='request body';
-        coh.REQUEST_CERT_NAME__c='request cert';
-        coh.REQUEST_HEADERS_NAME__c='request headers';
-        coh.RESPONSE_NAME__c='response';
-        DMLManagerService.insertAsSystem(coh);   
-        Map<string,CallOutHandlerSettingDFW__c> cohMap = CallOutHandlerSettingDFW__c.getAll();
-        Trigger__C casetrigger=new Trigger__C(name='TriggerCaseTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseTriggerHandlerTH',Trigger_Name__c='CaseTrigger',update__c=true);
-    	insert casetrigger;
-        Trigger__C caseCommenttrigger=new Trigger__C(name='CaseCommentTriggerTH',after__c=true,before__c=true,delete__c=true,enabled__c=true,insert__c=true,Market__c='TH',Trigger_Handler__c='CaseCommentTriggerHandlerTH',Trigger_Name__c='CaseCommentTrigger',update__c=true);
-    	insert caseCommenttrigger;
-        CDM_Integration_URLs__c caseUpdateUrl=new CDM_Integration_URLs__c(Name='TH-Case Update',Context__c='Case',Country__c='TH',Informatica_URL__c='https://ps1w2.rt.informaticacloud.com/active-bpel/public/rt/001FL6/pd-TH-FS-Salesforce-COS',Type__c='Update');
-        insert caseUpdateUrl;
-        personAcc = new Account(RecordTypeId = recordTypeAccPersonAccountObjId,LastName = 'Mercedez',Allow_Data_Sharing__c='Yes',Individual_Home_Phone__c='+66-12-123-789');
-      	insert personAcc;
-        
-        Case c1 = new Case(Subject='testing',accountid=personAcc.id,Recordtypeid=recordTypeFSInquiry_Id,MD__c='TH',COS_Ticket_Number__c='T56498');
-        insert c1;
-        c1.Description='test';
-        update c1;
-        CaseComment cc1=new CaseComment(CommentBody='test',parentId=c1.Id);
-        insert cc1;
-        Test.setMock(HttpCalloutMock.class, new MockHttpResponseGeneratorCase());
-        Test.stopTest();
     }
 }

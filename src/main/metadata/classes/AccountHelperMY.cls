@@ -1,10 +1,10 @@
 /**
 * Utility for Trigger on Account for MY(Malaysia)
 * Author: Mohammed Touseef Ahmed
-* Created Date : 2017-01-23
+* Created Date :2017-01-23
 *History:
     Author                         Date                    Description
-    Mohd Touseef(MT20170913)    2017/09/13            //MT20170913- Added market Descrminator MY
+    Mohd Touseef(MT20170913)    2017/09/13            //MT20170913 - Added market Descrminator MY 
     
 */
 
@@ -86,7 +86,7 @@ public class AccountHelperMY{
             
     */
     public static void createAccountLinkCDM(list<Account> listNewAccounts,map<id,Account> accountOldMap){
-        AccountHelperBase.DealerCommAccountlinkcreatecdm(listNewAccounts,accountOldMap);        
+        AccountHelperBase.DealerCommAccountlinkcreatecdm(listNewAccounts,accountOldMap,Label.MY);        
     }
      @future(callout=true)
     public static void entityNotifyUpdate(string updateType,String sfdcId,String MarketDiscriminator,string serlializedObject){
@@ -94,6 +94,7 @@ public class AccountHelperMY{
     }
 	 public static void updatePrimaryAddressDetailsOnALK(List<Account> newAcc, Map<ID, Account> oldAccMap){
         AccountHelperBase.updatePrimaryAddressDetailsOnALK(newAcc, oldAccMap);
+		//Change
     } 
     
          /**

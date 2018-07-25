@@ -1,6 +1,9 @@
 global class Batch_RefreshButton implements Database.Batchable<sObject>{
     global final String query;
-    
+      global Map<Id, String> errorMap {get; set;}
+  global Map<Id, String> successMap {get; set;}
+   global list<Id> successlist=new list<ID>();
+  global Map<Id, SObject> IdToSObjectMap {get; set;}
     global Batch_RefreshButton(String q){
         query = q;
         system.debug('++++++++++++++++++'+query);
@@ -8,7 +11,7 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
-        return Database.getQueryLocator([select id,Name,Vehicle__c ,Retail_Copy__c,Vehicle_ExternalLink__c,Address__r.Name,Finance_Address__c,Preferred_Dealer__c,Preferred_Dealer__r.Dealer_GC_Code__c,Campaign_ID__r.Parent.Driven_Type__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.District__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Contract__r.Contractor_Address1_Native__c , Contract__r.Contractor_Address3_Native__c,Campaign_ID__c,Vehicle_Relationship__r.vehicle_address__r.name,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Contract__r.Contractor_Address1__c,Contract__r.Contractor_Address3__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Vehicle__r.NextInspectionDate__c,Vehicle__r.LastWorkDate__c,Vehicle__r.LastServiceDate__c,Vehicle__r.LastInspectionDate__c,Vehicle__r.NextServiceDate__c,Address__r.District__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c from campaign_Member__c WHERE Campaign_ID__c =: query] );
+        return Database.getQueryLocator([select id,Name,Vehicle__c ,Postal_OptOut__c,OptOutContact_Reason__c,Retail_Copy__c,Vehicle_ExternalLink__c,Address__r.Name,Finance_Address__c,Preferred_Dealer__c,Preferred_Dealer__r.Dealer_GC_Code__c,Campaign_ID__r.Parent.Driven_Type__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.District__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Contract__r.Contractor_Address1_Native__c , Contract__r.Contractor_Address3_Native__c,Campaign_ID__c,Vehicle_Relationship__r.vehicle_address__r.name,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Contract__r.Contractor_Address1__c,Contract__r.Contractor_Address3__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Vehicle__r.NextInspectionDate__c,Vehicle__r.LastWorkDate__c,Vehicle__r.LastServiceDate__c,Vehicle__r.LastInspectionDate__c,Vehicle__r.NextServiceDate__c,Address__r.District__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c from campaign_Member__c WHERE Campaign_ID__c =: query] );
     }
     
     global void execute(Database.BatchableContext BC, List<Campaign_Member__C> scope){
@@ -27,7 +30,7 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
         Map<id,Campaign_Member__c> membertoupdate = new Map<id,Campaign_Member__c>();
      //List<Campaign_Member__c> membertoupdate = new List<Campaign_Member__c>();
         for(campaign_Member__c mem : scope){
-            if(mem.Campaign_ID__r.Parent.Driven_Type__c == 'Joint' && mem.Preferred_Dealer__c != null){
+            if( mem.Preferred_Dealer__c != null){
                 JointPreferedDealer.add(mem.Preferred_Dealer__r.Dealer_GC_Code__c);
                 if(mem.Vehicle__c!=null){
                     Jointvehicle.add(mem.Vehicle__c);
@@ -129,7 +132,7 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             
         }
          Map<Id,Account_Link__c> mapAccSalesLinks = New Map<Id,Account_Link__c>();
-          List<Account_Link__c> Personacclink = [select Id, Name,Vehicle__c , Retail_Sales_Consultant__c,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc ];
+          List<Account_Link__c> Personacclink = [select Id,Retail_Email_OptOut__c,Missing_Flag__c, Retail_Postal_OptOut__c,Retail_OptOutContact_Reason__c, Name,Vehicle__c , Retail_Sales_Consultant__c,fromRole__r.Dealer_GC_Code__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :JointPreferedDealer AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false  order by LastModifiedDate desc ];
        
          System.debug('+++++++++Personacclink++++++++++++'+Personacclink );
         if(!Personacclink.isempty()&&Personacclink.size()>0){
@@ -144,6 +147,10 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
             if(retcamp.Contact_Id__c == acc.toRole__c && retcamp .Preferred_Dealer__r.Dealer_GC_Code__c  == acc.fromRole__r.Dealer_GC_Code__c  ){
             retcamp.Sales_Consultant__c = acc.Retail_Sales_Consultant__c;
              retcamp.Retail_Copy__c = acc.Id;
+              retcamp.Postal_OptOut__c = acc.Retail_Postal_OptOut__c;
+                retcamp.OptOutContact_Reason__c = acc.Retail_OptOutContact_Reason__c;
+                retcamp.Email_OptOut__c= acc.Retail_Email_OptOut__c;
+                    retcamp.Missing_Flag__c= acc.Missing_Flag__c;
             //membertoupdate.add(retcamp);
             membertoupdate.put(retcamp.id,retcamp);
             }
@@ -163,6 +170,56 @@ global class Batch_RefreshButton implements Database.Batchable<sObject>{
     }
     
     global void finish(Database.BatchableContext BC){
+    
+    errorMap = new Map<Id, String>();
+successMap= new Map<Id, String>();
+IdToSObjectMap = new Map<Id, SObject>();
+    
+    
+         if(!errorMap.isEmpty() || !successlist.isempty())
+     {
+         AsyncApexJob a = [SELECT id, ApexClassId,JobItemsProcessed, TotalJobItems,NumberOfErrors, CreatedBy.Email FROM AsyncApexJob WHERE id = :BC.getJobId()];
+       //  camprec=[Select id,name from campaign where id=:campid Limit 1];
+         String body = 'Your batch job '
+             + 'Batch_RefreshButton '
+             + 'has finished. and' 
+             + 'There were '
+             +successlist.size() 
+             +'Sucess and '
+             + errorMap.size()
+             + ' errors. Please find the error list attached to the Case.';
+         
+         // Creating the CSV file
+            String finalstr = 'Id, Name, Error \n';
+            String subject = 'Refresh List for - Apex Batch Error List';
+            String attName = 'Refresh List.csv';
+            for(Id id  : errorMap.keySet()){
+                string err = errorMap.get(id);
+                Campaign_Member__c acct = (Campaign_Member__c) IdToSObjectMap.get(id);
+                string recordString = '"'+id+'","'+acct.Name+'","'+err+'"\n';
+                finalstr = finalstr +recordString;
+            } 
+         // Define the email
+            Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage(); 
+ 
+            // Create the email attachment    
+            Messaging.EmailFileAttachment efa = new Messaging.EmailFileAttachment();
+            efa.setFileName(attName);
+            efa.setBody(Blob.valueOf(finalstr));
+ 
+            // Sets the paramaters of the email
+            email.setSubject( subject );
+			//email.setToAddresses( new String[] {'dinesh.govindaswamy@nttdata.com'} );
+           email.setToAddresses( new String[] {'NTT_Daimler_SO_Team@nttdata.com'} );
+            email.setCcAddresses( new String[] {'atsushi.ogihara@nttdata.com'} );
+            email.setPlainTextBody( body );
+            email.setFileAttachments(new Messaging.EmailFileAttachment[] {efa});
+ 
+            // Sends the email
+            Messaging.SendEmailResult [] r = 
+                Messaging.sendEmail(new Messaging.SingleEmailMessage[] {email});   
+ 
+     }
        
 
 }

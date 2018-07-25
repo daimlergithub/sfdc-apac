@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Retail_FirstName__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Retail_LastName__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.toRole__c</field>
+    </columns>
+    <columns>
+        <field>CUST_LAST_UPDATE_NAME</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Market__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Retail_DMS_Customer_ID__c</field>
+    </columns>
+    <columns>
+        <field>Account_Link__c.Retail_UCID__c</field>
+    </columns>
+    <columns>
+        <field>CUST_RECORDTYPE</field>
+    </columns>
+    <description>MBT Initialization Reports</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_ACC_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Account.Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.Dealer_ND_Code__c</column>
+            <operator>equals</operator>
+            <value>300001</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_LAST_UPDATE_NAME</column>
+            <operator>equals</operator>
+            <value>Integration Inf</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>MBT Initialization Reports</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Account_Link__c@Account_Link__c.fromRole__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account_Link__c.Retail_First_Consent_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

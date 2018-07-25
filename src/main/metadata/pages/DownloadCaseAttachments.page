@@ -1,0 +1,18 @@
+<apex:page standardController="Case" extensions="DownloadCaseAttachmentsController">
+    <script>
+    	var ticketNo='{!ticketId}';
+    	if(ticketNo!=null && ticketNo!='')
+        {
+            var URL='{!endpoint}'+'/'+'{!ticketId}'+'/'+'{!secretKey}';
+            var attachmentTab=window.open(URL,'_blank');
+            var caseId='/{!caseId}';	
+            window.open(caseId,'_self');
+        }else
+        {
+            alert('COS Ticket Number is not available for case.');
+            var caseId='/{!caseId}';	
+            window.open(caseId,'_self');
+        }
+        
+    </script>
+</apex:page>

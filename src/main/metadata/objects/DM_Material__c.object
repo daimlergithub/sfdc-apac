@@ -87,12 +87,14 @@ Modify Reason:
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Smart</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>AMG</fullName>
@@ -320,8 +322,9 @@ Modify Reason:
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
 IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',										  
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
-IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -338,7 +341,9 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',									  
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -366,6 +371,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                 <fullName>MY</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues> 
             <sorted>false</sorted>
         </picklist>
         <required>false</required>
@@ -1924,7 +1937,7 @@ Modify Reason:
                 <fullName>Price List</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart manual</fullName>
@@ -1939,13 +1952,13 @@ Modify Reason:
                 <fullName>MB Magazine</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Journals and magazines</fullName>
                 <default>false</default>
                 <controllingFieldValues>KR</controllingFieldValues>
-				<controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Entrance Ticket</fullName>
@@ -2001,6 +2014,41 @@ Modify Reason:
                 <fullName>Random Act of Kindness</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brochure</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kit</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letter</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Envelope</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ticket</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Present</fullName>
+                <default>false</default>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2236,7 +2284,10 @@ Modify Reason:
     <validationRules>
         <fullName>LabelPrint_NoOfDigit</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,  OR(MD__c ='JP',MD__c ='KR',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false)), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+		<errorConditionFormula>AND(LEN( Label_Printing_Name__c) &gt; 23,
+    OR(MD__c ='JP', MD__c ='KR', if(AND(MD__c=='MY',$Permission.MYGeneric),true,false),	if(AND(MD__c=='IN',$Permission.INGeneric),true,false)),
+    $Profile.Name != 'IntegrationAPI'
+   )</errorConditionFormula>
         <errorDisplayField>Label_Printing_Name__c</errorDisplayField>
         <errorMessage>Label Printing Name should be less than or equal to 23 letters.</errorMessage>
     </validationRules>

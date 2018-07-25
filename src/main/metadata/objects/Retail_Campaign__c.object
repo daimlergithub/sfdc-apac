@@ -473,6 +473,15 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Add_Postal_OptOut__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Add Postal OptOut</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Add_Preferred_Dealer__c</fullName>
         <defaultValue>false</defaultValue>
@@ -2852,7 +2861,7 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Retail_Campaign__c</referenceTo>
-        <relationshipLabel>Retail Campaigns (Parent Campaign)</relationshipLabel>
+        <relationshipLabel>Retail Campaigns (Execution)</relationshipLabel>
         <relationshipName>Retail_Campaigns1</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3036,6 +3045,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <label>Plan Start Date</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	    <fields>
+        <fullName>Publish_Date__c</fullName>
+        <description>Date for the campaign Publish</description>
+        <externalId>false</externalId>
+        <label>Publish Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -16479,7 +16498,7 @@ var userMarket = sforce.connection.query("Select Id, Market__c from User where I
 records = userMarket.getArray("records"); 
 var accid = records[0].Market__c; 
 if(accid=='TH'){ 
-window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;CFOBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 }
 else if(accid=='{!$Label.MarketMY}')
  {  window.open("{!URLFOR($Site.Prefix)}/OBJECT_RETAIL_CAMPAIGN_ID_KEYPREFIX/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID={!URLENCODE(Retail_Campaign__c.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGNS_ID_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
@@ -16621,7 +16640,7 @@ alert('The event has yet to be published or has been closed.');
 if({!Campaign.IsActive}){ 
 
 if('{!Campaign.MD__c}' == 'TH') { 
-window.open("{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;ent={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}"); 
+window.open("{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;ent={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_NAME_FIELD_ID={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH={!Campaign.Publish_Date__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}"); 
 
 } 
 
@@ -16636,7 +16655,7 @@ campaignObj.id="{!Campaign.Id}";
 campaignObj.Activate_for_retail_campaign__c=true;
 campaignObj.IsActive=true; 
 result = sforce.connection.update([campaignObj]);
-window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;Name={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;ent={!Retail_Campaign__c.Id}","_self";
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DESCRIPTION_FIELD_ID={!URLENCODE(Campaign.Description)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_STATUS_FIELD_ID={!Campaign.Status}&amp;Name={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID_TH={!Campaign.Brand__c}&amp;00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_START_DATE_FIELD_ID_TH={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH={!Campaign.Publish_Date__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_END_DATE_FIELD_ID_TH={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;ent={!Retail_Campaign__c.Id}","_self";
 
 }
 
@@ -16724,7 +16743,13 @@ case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_Si
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
 case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
 case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+case 'DM_ラベル（３×７）': return 'p08_Label37_RC';brak; 
+case 'Label（３×７）': return 'p08_Label37_RC';brak; 
+case 'DM_ラベル（２×６）': return 'p09_Label26_RC';brak; 
+case 'Label（２×６）': return 'p09_Label26_RC';brak; 
+case 'DM_ラベル（２×４）': return 'p10_Label24_RC';brak; 
+case 'Label（２×４）': return 'p10_Label24_RC';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
 } 
 }()); 
 
@@ -16797,13 +16822,19 @@ case 'DM_1年/2年点検、車検のご案内(横長）': return 'p03_DirectMail
 case 'Direct Mail Print': return 'p03_DirectMailPrint_RC';brak; 
 case 'DM_汎用　法人宛名・担当名（ハガキ）': return 'p04_CompanyAccount_RC';brak; 
 case 'Company Account': return 'p04_CompanyAccount_RC';brak; 
-case 'DM_Smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
+case 'DM_smart車点検のおしらせ（ハガキ）': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
 case 'Postcard smart Vehicle Inspection Printing (with date)': return 'p05_PostcardSmartVehicleInspectionPrinting_withDate_RC';brak; 
 case 'DM_新車６ヶ月無料点検のご案内（ハガキ）': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
 case 'Six Months Check-up Printing (no date)': return 'p06_SixMonthsCheckUpPrinting_noDate_RC';brak; 
 case 'DM_汎用　顧客宛名・担当名（ハガキ）': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
 case 'Customer Address Only Printing': return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
-default:return 'p07_CustomerAddressOnlyPrinting_RC';brak;
+case 'DM_ラベル（３×７）': return 'p08_Label37_RC';brak; 
+case 'Label（３×７）': return 'p08_Label37_RC';brak; 
+case 'DM_ラベル（２×６）': return 'p09_Label26_RC';brak; 
+case 'Label（２×６）': return 'p09_Label26_RC';brak; 
+case 'DM_ラベル（２×４）': return 'p10_Label24_RC';brak; 
+case 'Label（２×４）': return 'p10_Label24_RC';brak; 
+default:return 'p07_CustomerAddressOnlyPrinting_RC';brak; 
 } 
 }()); 
 
@@ -17384,3 +17415,4 @@ alert('Application status error.');
 }</url>
     </webLinks>
 </CustomObject>
+

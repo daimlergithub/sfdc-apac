@@ -78,11 +78,22 @@
     <fields>
         <fullName>FID_Amount__c</fullName>
         <externalId>false</externalId>
-        <label>FID Amount</label>
+        <label>Rental Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Principal_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Principal Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -91,11 +102,10 @@
         <externalId>false</externalId>
         <label>FS Contract</label>
         <referenceTo>FS_Contract__c</referenceTo>
-        <relationshipLabel>Re Payment Plans</relationshipLabel>
         <relationshipName>Re_Payment_Plans</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
@@ -107,7 +117,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -115,6 +125,17 @@
         <fullName>Insurance_Amount__c</fullName>
         <externalId>false</externalId>
         <label>Insurance Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Interest Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -129,7 +150,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -151,7 +172,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -162,31 +183,19 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
         <fullName>Rental_ID__c</fullName>
         <externalId>false</externalId>
-        <label>Rental ID</label>
+        <label>Rental No</label>
         <length>10</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Rental_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Rental No</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -196,7 +205,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -212,14 +221,14 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <label>Re Payment Plan</label>
+    <label>Rental Plan</label>
     <nameField>
         <displayFormat>RPP-{000000}</displayFormat>
-        <label>Re Payment Plan Name</label>
+        <label>Rental Plan Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Re Payment Plans</pluralLabel>
+    <pluralLabel>Rental Plans</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

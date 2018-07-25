@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case escalation_Inquiry after 48 hours_TR</name>
+    <style>none</style>
+    <subject>Mercedes-Benz Müşteri İletişim Merkezi Hatırlatma | Çağrı Numarası: {!Case.CaseNumber}</subject>
+    <type>text</type>
+</EmailTemplate>

@@ -58,7 +58,7 @@ public  class AccountLinkController
                 //     listdupalk=[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and ((toRole__c=:aid and fromRole__c=:Dealeracc.id) )];
                           
                       
-                acclnkdealer =[Select id,market__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Duplicate_Flag__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__c=:Dealeracc.id and toRole__c=:aid and Retail_Duplicate_Flag__c = False limit 1];
+                acclnkdealer =[Select id,market__c,Name,Missing_Flag__c,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Duplicate_Flag__c,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__c=:Dealeracc.id and toRole__c=:aid and Retail_Duplicate_Flag__c = False limit 1];
             
                  System.debug('&&& venky acclnkdealer %%%'+acclnkdealer);
                    
@@ -75,7 +75,7 @@ public  class AccountLinkController
                     {
                      try{
                      
-                    acclnkdealer  =[Select id,market__c,Retail_Duplicate_Flag__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid and Retail_Duplicate_Flag__c = False limit 1];
+                    acclnkdealer  =[Select id,market__c,Missing_Flag__c,Retail_Duplicate_Flag__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid and Retail_Duplicate_Flag__c = False limit 1];
                     }catch(Exception e1){
                     }
                      }
@@ -87,7 +87,7 @@ public  class AccountLinkController
                 if(acc.recordtypeid ==accCompany_RecordTypeId){
                     try{
                       //  acclnkdealer =[Select id,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,Retail_Sales_Sanction__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId and ((toRole__c=:aid and fromRole__c=:Dealeracc.id)  OR (fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid)) limit 1];
-                     acclnkdealer =[Select id,market__c,Retail_Duplicate_Flag__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId  and fromRole__c=:Dealeracc.id and toRole__c=:aid  and Retail_Duplicate_Flag__c = False limit 1];
+                     acclnkdealer =[Select id,market__c,Missing_Flag__c,Retail_Duplicate_Flag__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId  and fromRole__c=:Dealeracc.id and toRole__c=:aid  and Retail_Duplicate_Flag__c = False limit 1];
             
                  System.debug('&&& venky acclnkdealer %%%'+acclnkdealer);
                     }
@@ -95,7 +95,7 @@ public  class AccountLinkController
                     {
                      if(e.getmessage() !=null)
                     {
-                     acclnkdealer =[Select id,market__c,Name,Retail_Duplicate_Flag__c,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid and Retail_Duplicate_Flag__c = False  limit 1];
+                     acclnkdealer =[Select id,market__c,Name,Missing_Flag__c,Retail_Duplicate_Flag__c,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Selling_Dealer__r.Name,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkCompany_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and toRole__c=:aid and Retail_Duplicate_Flag__c = False  limit 1];
                  }
                     
                     }
@@ -122,7 +122,7 @@ public  class AccountLinkController
             if(listalk.size()==0)
             {
                  if(acc.recordtypeid ==accPerson_RecordTypeId){
-                    acclnkdealer =[Select id,market__c,Retail_Duplicate_Flag__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and Retail_Duplicate_Flag__c = False limit 1];
+                    acclnkdealer =[Select id,market__c,Missing_Flag__c,Retail_Duplicate_Flag__c,Name,Retail_Comments__c,Retail_OptOutContact_Reason__c,Retail_Sales_Consultant__c,Selling_Dealer__c, Retail_Email_OptOut__c,Retail_Fax_OptOut__c,Retail_Phone_OptOut__c,Retail_Postal_OptOut__c,fromRole__r.Dealer_GC_Code__c,Retail_Sales_Sanction__c,Retail_Sales_Sanction_Comment__c,Retail_Sales_Consultant__r.Name,Retail_Visit_OptOut__c,toRole__r.Name,fromRole__r.Name from Account_Link__c  where recordtypeID=:alkPerson_RecordTypeId  and fromRole__r.Dealer_GC_Code__c =:CommGcCode and Retail_Duplicate_Flag__c = False limit 1];
                     
                     }
             }

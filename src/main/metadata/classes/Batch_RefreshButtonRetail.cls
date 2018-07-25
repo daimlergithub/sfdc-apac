@@ -8,7 +8,7 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
-     return Database.getQueryLocator([select id,Name,Retail_Copy__c,Vehicle_ExternalLink__c,Address__r.Name,Vehicle__c,Contact_Id__c,Finance_Address__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Address__r.District__c,Contract__r.Contractor_Address1_Native__c ,Contact_Id__r.Primary_Address_Reference__r.District__c, Contract__r.Contractor_Address3_Native__c,Campaign_ID__c ,Vehicle_Relationship__r.vehicle_address__r.name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c ,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,NextInspectionDate__c,NextServiceDate__c,LastInspectionDate__c,LastServiceDate__c,LastWorkDate__c,Service_Advisor__c,Sales_Consultant__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Retail_Campaign_Id__r.Segmentation_Base__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c  from campaign_Member__c WHERE Retail_Campaign_Id__c =: query]);
+     return Database.getQueryLocator([select id,Name,Retail_Copy__c,Postal_OptOut__c,OptOutContact_Reason__c,Vehicle_ExternalLink__c,Address__r.Name,Vehicle__c,Contact_Id__c,Finance_Address__c,Address__r.Province__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_1__c,Address__c,Vehicle_Relationship__r.vehicle_address__r.Address_Line_2__c,Vehicle_Relationship__r.vehicle_address_picklist__c,Vehicle_Relationship__r.Vehicle_Address_Display__c,Campaign_ID__r.Campaign_Type__c,Campaign_ID__r.Segmentation_Base__c,Vehicle_Relationship__r.vehicle_address__c,Vehicle_Relationship__r.vehicle_address__r.District__c,Address__r.Address_Line_1__c,Address__r.Address_Line_2__c,Contract__c,Contact_Id__r.Primary_Address_Reference__c,Address__r.District__c,Contract__r.Contractor_Address1_Native__c ,Contact_Id__r.Primary_Address_Reference__r.District__c, Contract__r.Contractor_Address3_Native__c,Campaign_ID__c ,Vehicle_Relationship__r.vehicle_address__r.name,Retail_Campaign_Id__r.Parent_Campaign1__r.Campaign_Type__c ,Vehicle_Relationship__r.vehicle_address__r.Province__c,Campaign_ID__r.parent.Campaign_Type__c, Contact_Id__r.Primary_Address_Reference__r.Country__c,NextInspectionDate__c,NextServiceDate__c,LastInspectionDate__c,LastServiceDate__c,LastWorkDate__c,Service_Advisor__c,Sales_Consultant__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_1__c,Retail_Campaign_Id__r.Segmentation_Base__c,Contact_Id__r.Primary_Address_Reference__r.Province__c,Address__r.Block__c,Address__r.City__c,Address__r.ZipCode__c,Address__r.Country__c,Vehicle_Relationship__r.vehicle_address__r.Block__c,Vehicle_Relationship__r.vehicle_address__r.ZipCode__c,Vehicle_Relationship__r.vehicle_address__r.City__c,Contact_Id__r.Primary_Address_Reference__r.Address_Line_2__c,Contact_Id__r.Primary_Address_Reference__r.Block__c,Contact_Id__r.Primary_Address_Reference__r.City__c,Contact_Id__r.Primary_Address_Reference__r.ZipCode__c  from campaign_Member__c WHERE Retail_Campaign_Id__c =: query]);
     }
     
     global void execute(Database.BatchableContext BC, List<Campaign_Member__C> scope){
@@ -114,10 +114,10 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
         }
         }
         Map<Id,Account_Link__c> mapAccSalesLinks = New Map<Id,Account_Link__c>();
-        List<Account_Link__c> Personacclink = [select Id, Name, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false AND Retail_Sales_Consultant__c != null AND toRole__c != null  order by LastModifiedDate desc];
+        List<Account_Link__c> Personacclink = [select Id, Name,Retail_Email_OptOut__c,Missing_Flag__c, Retail_Postal_OptOut__c,Retail_OptOutContact_Reason__c, Retail_Sales_Consultant__c,Retail_Delete_Flag__c,toRole__c,Retail_Duplicate_Flag__c,LastModifiedDate  from Account_Link__c WHERE RecordType.Developername = 'Retail_Person' AND toRole__c IN: contactid AND fromRole__r.Dealer_GC_Code__c = :usr.Dealer_GC_Code__c AND Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false /*AND Retail_Sales_Consultant__c != null*/ AND toRole__c != null  order by LastModifiedDate desc];
         if(!Personacclink.isempty() && Personacclink.size()>0){
             for(Account_Link__c acc :Personacclink){
-               if(acc.Retail_Sales_Consultant__c != null){
+               //if(acc.Retail_Sales_Consultant__c != null){
                /* if(!mapAccSalesLinks.containskey(acc.toRole__c))
                 {
                 mapAccSalesLinks.put(acc.toRole__c,new Account_Link__c());
@@ -127,7 +127,7 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
                  mapAccSalesLinks.put(acc.toRole__c,acc);
                 }*/
                   mapAccSalesLinks.put(acc.toRole__c,acc);
-                }
+               // }
                 
             }
 //            System.debug('^&^&^&^&^&^&^&'+mapAccSalesLinks);
@@ -143,7 +143,11 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
            if(mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c != null) {
                            retcamp.Sales_Consultant__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Sales_Consultant__c;
             }
+            retcamp.Postal_OptOut__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Postal_OptOut__c;
+            retcamp.OptOutContact_Reason__c= mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_OptOutContact_Reason__c;
             retcamp.Retail_Copy__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Id;
+            retcamp.Email_OptOut__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Retail_Email_OptOut__c;
+            retcamp.Missing_Flag__c = mapAccSalesLinks.get(retcamp.Contact_Id__c).Missing_Flag__c;
             }
             
             }
@@ -161,7 +165,7 @@ global class Batch_RefreshButtonRetail implements Database.Batchable<sObject>{
     
     global void finish(Database.BatchableContext BC){
        
-	   
+       
 
 }
 }

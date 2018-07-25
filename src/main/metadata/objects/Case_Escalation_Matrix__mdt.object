@@ -39,6 +39,14 @@
                 <fullName>MB_Complaint</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>FS_Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>FS_Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
             <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>

@@ -163,7 +163,9 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <picklist>
@@ -189,6 +191,14 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+	    <picklistValues>
+                <fullName>TR</fullName>
                 <default>false</default>
             </picklistValues>
             <restrictedPicklist>false</restrictedPicklist>
@@ -467,22 +477,28 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
             <picklistValues>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
@@ -1361,9 +1377,11 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
             <picklistValues>
                 <fullName>AMG</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -1444,7 +1462,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
         <fullName>Category_Code__c</fullName>
         <externalId>false</externalId>
         <label>Category Code</label>
-        <length>5</length>
+        <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1618,6 +1636,28 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+		<fields>
+        <fullName>Color2CodeDescription__c</fullName>
+        <externalId>false</externalId>
+        <label>Color 2 Code Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Color2Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Color 2 Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
 	<fields>
         <fullName>ColorCode__c</fullName>
         <externalId>false</externalId>
@@ -1644,7 +1684,7 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
         <externalId>false</externalId>
         <label>Colour</label>
-        <length>100</length>
+        <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2479,6 +2519,17 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_EuroVIN
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Extended_Warranty_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Extended Warranty Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FinanceExpiryDate__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -2554,121 +2605,156 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
             <picklistValues>
                 <fullName>U</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>D</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>E</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Methanol</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gasoline</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>LPG</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Kerosene</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Light Oil</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gasoline/LPG</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gasoline/Kerosene</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Electricity</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Ethanol</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CNG</fullName>
                 <default>false</default>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>LNG</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>ANG</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hydrogen</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Gasoline/Electricity</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>LPG/Electricity</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Light Oil/Electricity</fullName>
@@ -2676,13 +2762,16 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Petrol</fullName>
@@ -2709,7 +2798,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <fullName>GrossVehicleWeight__c</fullName>
         <externalId>false</externalId>
         <label>Gross Vehicle Weight</label>
-        <precision>5</precision>
+        <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -2721,7 +2810,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <fullName>Height__c</fullName>
         <externalId>false</externalId>
         <label>Height</label>
-        <length>4</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3155,7 +3244,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <fullName>Length__c</fullName>
         <externalId>false</externalId>
         <label>Length</label>
-        <length>5</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3179,8 +3268,10 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'),'JP',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'),'MY',
-IF(ISPICKVAL($User.Market__c, 'TH'),'TH', IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -3382,7 +3473,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ModelY
         <fullName>Model_Description__c</fullName>
         <externalId>false</externalId>
         <label>Model Description</label>
-        <length>40</length>
+        <length>140</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -5393,7 +5484,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ModelY
         <fullName>Modification_Package__c</fullName>
         <externalId>false</externalId>
         <label>Modification Package</label>
-        <length>20</length>
+        <length>40</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -5541,21 +5632,21 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_OptionCodeÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>OptionCode</label>
-        <length>255</length>
-        <required>false</required>
+        <length>1000</length>         		
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
     </fields>
 	<fields>
         <fullName>OptionDescription__c</fullName>
         <externalId>false</externalId>
         <label>Option Description</label>
-        <required>false</required>
+		<length>1000</length>	
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+		<visibleLines>2</visibleLines>
     </fields>
     <fields>
         <fullName>Portal_Vehicle_ID__c</fullName>
@@ -5584,7 +5675,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_Option
         <fullName>Product_Model__c</fullName>
         <externalId>false</externalId>
         <label>Product Model</label>
-        <length>13</length>
+        <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -5767,7 +5858,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_Recall
         <fullName>RidingCapacity__c</fullName>
         <externalId>false</externalId>
         <label>Riding Capacity</label>
-        <length>2</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -5933,7 +6024,7 @@ Attribute in Data Dictionary object Vehicle is Vehicle_Source</description>
         <fullName>SpecificationNumber__c</fullName>
         <externalId>false</externalId>
         <label>Specification Number</label>
-        <length>5</length>
+        <length>12</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -6002,16 +6093,20 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬ÂVehicle_Transmissio
             <picklistValues>
                 <fullName>AT</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MT</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
@@ -6019,94 +6114,119 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬ÂVehicle_Transmissio
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>7-speed automatic transmission</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>4-speed automatic transmission</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>4-speed manual transmission</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>5-speed automatic transmission</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>5-speed manual transmission</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>CVT</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Hand Automatic Transmission</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Stepless automatic one hand transmission</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>6 speed</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>8 speed</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>9 speed</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>MB Powershift (Automatic)</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Telligent Gear/Shift</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Manual</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>SprintShift</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <picklistValues>
                 <fullName>Semi-automatic</fullName>
                 <default>false</default>
                 <controllingFieldValues>TH</controllingFieldValues>
+                <controllingFieldValues>TR</controllingFieldValues>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -6130,7 +6250,7 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_Trimâ€œ</description>
         <externalId>false</externalId>
         <label>Trim</label>
-        <length>100</length>
+        <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -6166,7 +6286,7 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_UsVINÃ¢â‚¬Å“</description>
         <externalId>true</externalId>
         <label>UsVIN</label>
-        <length>17</length>
+        <length>35</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -6234,6 +6354,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Current vehicle</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6241,6 +6362,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Demo/courtesy vehicle</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6248,6 +6370,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Invoiced vehicle</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6255,6 +6378,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Vehicle to be ordered</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6262,6 +6386,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Previous vehicle</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6269,6 +6394,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Quoted Vehicle</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6276,6 +6402,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Vehicle Required</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6283,6 +6410,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Vehicle in stock</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6290,6 +6418,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Part exchange vehicle</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
@@ -6297,6 +6426,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Active</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -6305,6 +6435,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Temporary scrap</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -6313,6 +6444,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Eternal scrap</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>JP</controllingFieldValues>
                 <controllingFieldValues>KR</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
@@ -6321,6 +6453,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             <picklistValues>
                 <fullName>Repossessed</fullName>
                 <default>false</default>
+                <controllingFieldValues>IN</controllingFieldValues>
                 <controllingFieldValues>MY</controllingFieldValues>
                 <controllingFieldValues>TH</controllingFieldValues>
             </picklistValues>
@@ -6429,10 +6562,31 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Warranty_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Warranty Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Weight__c</fullName>
         <externalId>false</externalId>
         <label>Weight</label>
-        <length>10</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -6443,7 +6597,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <fullName>Width__c</fullName>
         <externalId>false</externalId>
         <label>Width</label>
-        <length>4</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -6580,6 +6734,14 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
 			<values>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+	    <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8609,6 +8771,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
+	<picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>MB</fullName>
@@ -8639,6 +8812,14 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
 			<values>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+	    <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11776,6 +11957,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
+	<picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Self_Registered</fullName>
@@ -11805,6 +11997,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
 			<values>
                 <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+	    <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15549,6 +15745,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Role__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+	<picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -19364,6 +19571,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
+	<picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Vehicle_Soft_Deleted</fullName>
@@ -22503,6 +22721,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <searchLayouts>
          <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
@@ -22570,10 +22799,10 @@ Modify Reason:
 	NOT(ISBLANK( EuroVIN__c )),
 	LEN( EuroVIN__c ) &lt;&gt; 17,
 	LEN( EuroVIN__c ) &lt;&gt; 18,
-$Profile.Name != 'IntegrationAPI',
+$Profile.Name != 'IntegrationAPI',$Permission.INGeneric,
  RecordType.DeveloperName = 'MB',
-ISPICKVAL($User.Market__c, 'KR') 
-)</errorConditionFormula>
+OR(ISPICKVAL($User.Market__c, 'KR'),ISPICKVAL($User.Market__c , 'IN') 
+))</errorConditionFormula>
         <errorDisplayField>EuroVIN__c</errorDisplayField>
         <errorMessage>EURO-VIN must be 17 or 18 characters.</errorMessage>
     </validationRules>
@@ -22596,7 +22825,7 @@ Modify Reason:
 NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
 (LEN(  UsVIN__c  )  &lt;&gt; 17) &amp;&amp;  
 (RecordType.DeveloperName = 'MB') &amp;&amp;
- UPPER( MD__c ) = 'JP' &amp;&amp; 
+OR(UPPER( MD__c ) = 'JP' ,UPPER( MD__c ) = 'IN')&amp;&amp; 
 ($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>US VIN must be 17 digits when the record type is MB.</errorMessage>

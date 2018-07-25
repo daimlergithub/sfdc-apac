@@ -24,6 +24,9 @@ public class SendAccountInfoToSPO {
     Public string message{get;set;}
     public Boolean shouldRedirect {public get; private set;}
     public  Boolean ShowHideError{set;get;} 
+	public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Person Account');
+    public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Company');
+    																											   
      //Constructor 
     public SendAccountInfoToSPO(ApexPages.StandardController controller) {
         Acclist =new Account();
@@ -32,7 +35,7 @@ public class SendAccountInfoToSPO {
         shouldRedirect =false;
       AccId=ApexPages.currentPage().getParameters().get('id');
         Acclist=[select id,FirstName,LastName,FirstName_Native_1__c,LastName_Native_1__c ,Name,Company_Name_Native_1__c,LastModifiedDate,
-                Individual_Home_Phone__c,Mobile__c,Email3__c from account where Id=:AccId ];
+                Individual_Home_Phone__c,Mobile__c,Email3__c,MD__c,Market__c from account where Id=:AccId ];
                 AddRecords=[select id,Address_Type__c,Province__c,City__c,District__c,Block__c,Address_Line_1__c,Address_Line_2__c,ZipCode__c from Address__c where Customer__c=:AccId ];
                 for(Address__c ad:AddRecords)
                 {
@@ -66,21 +69,51 @@ public class SendAccountInfoToSPO {
     
     }
       crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType response=new crmasiaDaimlerApacComSfdcnotificatio.SFDCNotificationResponseMessageType();
-  
+    /* Mrinalini2018 */
+        /* Purpose  :    Japan CDM Implementation */
+        Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();
+        Boolean jpSwitchEnableFlag = false;
+        if(!jpSwitchMap.isEmpty() && jpSwitchMap.containsKey('Send to SPO')){
+            jpSwitchEnableFlag= jpSwitchMap.get('Send to SPO').Enable_Flag__c;
+        }
+        HttpResponse res = new HttpResponse();
     try
     {
     if (!Test.isRunningTest())
     {
-      
-    response= UtilWebservice.AccountIfnoSendSPO(AccId,usr.Contact.AccountId);
-     ShowHideError=false; 
-    }
+      /* Mrinalini2018 */
+                if(jpSwitchEnableFlag == true && (Acclist.MD__c == 'JP' || Acclist.Market__c == 'JP')){
+                    Id acctId = Id.ValueOf(AccId);
+                    Set<Id> acctIdSet = new Set<Id>();
+                    acctIdSet.add(acctId);
+                    if(Acclist.RecordTypeId == accPerson_RecordTypeId){
+                        res = CDMInformatica_Services.createCustCdmSpo(acctIdSet, 'JP', 'SPO Person Account', usr.Contact.AccountId);
+                    }
+                    else if (Acclist.RecordTypeId == accCompany_RecordTypeId ){
+                        res = CDMInformatica_Services.createCustCdmSpo(acctIdSet, 'JP', 'SPO Company Account', usr.Contact.AccountId);
+                    }
+					ShowHideError=false;
+                }
+                else{
+                /*Mrinalini2018*/
+				response= UtilWebservice.AccountIfnoSendSPO(AccId,usr.Contact.AccountId);
+				 ShowHideError=false; 
+				}
+	}		 
+	 /* condition added for JP market*/
+            /* Mrinalini2018*/		 
     System.debug('response $%$%$%$%$%$$'+response);
     listAcc =[select id,Warranty_Apply_Status__c,Data_Source__c,Allow_Data_Sharing2__c from Account where id=:AccId];
     System.debug('$%$%$%$%$%$$'+listAcc );
-    If(response!=null)
-   {
-    if(listAcc!=null)
+	Boolean flag = false;
+    
+    if(res != null && Acclist.Market__c =='JP' && jpSwitchEnableFlag == true && res.getStatusCode() == 200){
+         flag = true;
+    }
+	else if(response!=null){
+         flag = true;
+    }
+     If(flag == true && listAcc!=null)
      {
     for(Account acc:listAcc)
     {
@@ -100,11 +133,11 @@ public class SendAccountInfoToSPO {
     }
     }
     }
-    }
+    
 	if(Accupdate !=null)
 	{
     update Accupdate.values(); 
-}	// Update account object Warranty_Apply_Status field
+	}	// Update account object Warranty_Apply_Status field
      System.debug('acc Accupdate'+Accupdate);
      
    

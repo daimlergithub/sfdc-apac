@@ -76,6 +76,56 @@
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
     </fields>
+	    <fields>
+        <fullName>Lead_RecordType__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead__r.RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead RecordType</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	    <fields>
+        <fullName>Lead_DealerLeadStatus__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'Lost') ,$Label.Lost,
+IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'Not Started') ,$Label.Not_Started, 
+IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'On-going'), $Label.On_going, 
+IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'Order Placed'),$Label.Order_Placed , 
+IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'Purchased(Only Non BDC)'), $Label.Purchased_Only_Non_BDC,'' )))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead DealerLeadStatus</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	    <fields>
+        <fullName>Lead_CreatedDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead__r.CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead CreatedDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+	    <fields>
+        <fullName>Lead_AssignedDateTime__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead__r.Assigned_Date_Time__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead AssignedDateTime</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
     <fields>
         <fullName>Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -84,6 +134,19 @@
         <referenceTo>Campaign</referenceTo>
         <relationshipLabel>Campaign Leads</relationshipLabel>
         <relationshipName>Campaign_Leads</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+	 <fields>
+        <fullName>Campaign_member__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign member</label>
+        <referenceTo>Campaign_member__c</referenceTo>
+        <relationshipLabel>Campaign members</relationshipLabel>
+        <relationshipName>Campaign_members</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1296,7 +1359,7 @@ Modify Reason:
         <relationshipLabel>Campaign Leads</relationshipLabel>
         <relationshipName>Campaign_Leads</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
