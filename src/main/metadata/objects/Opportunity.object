@@ -155,6 +155,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>New</fullName>
             <default>false</default>
         </values>

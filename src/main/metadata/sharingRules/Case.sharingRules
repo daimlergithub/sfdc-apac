@@ -32,6 +32,24 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>Case_Permission_TR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Case Permission TR</label>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>Case_Record_Share</fullName>
         <accessLevel>Read</accessLevel>
         <label>Case Record Share</label>
@@ -47,6 +65,44 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>KR</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Case_sharing_For_FS_India</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>To share cases with all FS users of India</description>
+        <label>Case sharing For FS India</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Complaint,FS Inquiry</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Case_sharing_MPC_India</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>to share cases with all users in MPC of India</description>
+        <label>Case sharing MPC India</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -178,6 +234,60 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>FS_Cases_to_be_shared_with_MBMY_Management</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>FS Cases to be shared with MBMY Management</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Complaint,FS Inquiry</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FS_Cases_to_shared_with_MBFS_Management</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>FS Cases to be shared with MBFS Management</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Complaint,FS Inquiry</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FS_Cases_to_shared_with_all_wholesale_users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>FS Cases to be shared with all wholesale users</label>
+        <sharedTo>
+            <group>All_Wholesale_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Complaint,FS Inquiry</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>Inquiry_case_is_shared_with_CAC_with_RW</fullName>
         <accessLevel>Edit</accessLevel>
         <label>Inquiry case is shared with CAC with RW</label>
@@ -235,7 +345,7 @@
             <value>KR</value>
         </criteriaItems>
     </sharingCriteriaRules>
-    <!--<sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>MBLT_Case_sharing</fullName>
         <accessLevel>Edit</accessLevel>
         <description>FS cases should be shared only with FS users.</description>
@@ -246,14 +356,52 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>FS Inquiry,FS Compaint</value>
+            <value>FS Complaint,FS Inquiry</value>
         </criteriaItems>
         <criteriaItems>
             <field>MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
         </criteriaItems>
-    </sharingCriteriaRules>-->
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MPC_Cases_to_shared_with_MBFS_Management</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>MPC Cases to be shared with MBFS Management in Read Only mode</description>
+        <label>MPC Cases to be shared with MBFS Management</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MPC_Cases_to_shared_with_all_FS_manager_users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>MPC Cases to be shared with all FS manager users in Edit mode</description>
+        <label>MPC Cases to be shared with all FS manager users</label>
+        <sharedTo>
+            <group>All_FS_Manger_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
     <sharingCriteriaRules>
         <fullName>MY_Sharing_Cases_to_All_other_MY_users</fullName>
         <accessLevel>Edit</accessLevel>
@@ -266,6 +414,11 @@
             <field>MD__c</field>
             <operation>equals</operation>
             <value>MY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>FS Complaint,FS Inquiry</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -409,7 +562,7 @@
             <value>Central Office,Regional Office</value>
         </criteriaItems>
     </sharingCriteriaRules>
-    <!--<sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>TH_Sharing_Cases_to_All_other_TH_users</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Sharing all the cases to the all users of Thailand</description>
@@ -425,9 +578,9 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>notEqual</operation>
-            <value>FS Inquiry,FS Compaint</value>
+            <value>FS Complaint,FS Inquiry</value>
         </criteriaItems>
-    </sharingCriteriaRules>-->
+    </sharingCriteriaRules>
     <sharingOwnerRules>
         <fullName>CAC_Case_share_to_Hanxue</fullName>
         <accessLevel>Edit</accessLevel>
