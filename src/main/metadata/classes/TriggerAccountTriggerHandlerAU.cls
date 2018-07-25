@@ -49,13 +49,13 @@ public class TriggerAccountTriggerHandlerAU implements TriggerHandlerIf{
         //New Code Block Added on 9/21/2016
         if(isAfter && isInsert && !System.isFuture())
         {   
-             if(Util_GetPermissionList.checkAccessOnUser(Label.AccCDM)){
+             // if(Util_GetPermissionList.checkAccessOnUser(Label.AccCDM)){ // Commented on 2018/may/3 as per Touseef for account create/update issue 
                 if(TriggerRecursiveCheck.run){
                     TriggerRecursiveCheck.runOnce();
                     AccountHelperAU.createUCID(Trigger.new,trigger.isInsert);
                     AccountHelperAU.createUpdateCDMUCID(label.InsertContext,Label.AU,Trigger.new);
                 }  
-            }           
+           // }           
         }                                                                      
          if(isAfter && isInsert )
         {
@@ -66,13 +66,13 @@ public class TriggerAccountTriggerHandlerAU implements TriggerHandlerIf{
         } 
         if(isAfter && isUpdate && !System.isFuture())
         {
-             if(Util_GetPermissionList.checkAccessOnUser(Label.AccCDM)){
+            // if(Util_GetPermissionList.checkAccessOnUser(Label.AccCDM)){ // Commented on 2018/may/3 as per Touseef for account create/update issue 
                 if(TriggerRecursiveCheck.run){
                         TriggerRecursiveCheck.runOnce();
                         AccountHelperAU.createUpdateCDMUCID(Label.UpdateContext,Label.AU,Trigger.new);
                         firstRun=false;
                     }
-            }
+            // }
             //Harshit added to check for User permission-Access Management
             if(Util_GetPermissionList.checkAccessOnUser(Label.updateRetailCopy))
             {                                                                

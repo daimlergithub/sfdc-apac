@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>India Article Type</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>Attachment_10__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 10</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_1__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 1</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_2__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 2</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_3__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 3</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_4__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 4</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_5__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 5</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_6__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 6</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_7__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 7</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_8__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 8</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Attachment_9__c</fullName>
+        <description>This field will let you to add the attachments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to add the attachments</inlineHelpText>
+        <label>Attachment 9</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <description>This field will let you to choose the Category</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to choose the Category</inlineHelpText>
+        <label>Category</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sample1</fullName>
+                    <default>false</default>
+                    <label>Sample1</label>
+                </value>
+                <value>
+                    <fullName>Sample2</fullName>
+                    <default>false</default>
+                    <label>Sample2</label>
+                </value>
+                <value>
+                    <fullName>sample3</fullName>
+                    <default>false</default>
+                    <label>sample3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Departments__c</fullName>
+        <description>This field will let you to choose the Departments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to choose the Departments</inlineHelpText>
+        <label>Departments</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Management</fullName>
+                    <default>false</default>
+                    <label>Management</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Product Management</fullName>
+                    <default>false</default>
+                    <label>Product Management</label>
+                </value>
+                <value>
+                    <fullName>After Sales - Warranty</fullName>
+                    <default>false</default>
+                    <label>After Sales - Warranty</label>
+                </value>
+                <value>
+                    <fullName>After Sales - Marketing</fullName>
+                    <default>false</default>
+                    <label>After Sales - Marketing</label>
+                </value>
+                <value>
+                    <fullName>After Sales - TCM</fullName>
+                    <default>false</default>
+                    <label>After Sales - TCM</label>
+                </value>
+                <value>
+                    <fullName>After Sales - Part</fullName>
+                    <default>false</default>
+                    <label>After Sales - Part</label>
+                </value>
+                <value>
+                    <fullName>After Sales - Recall/Technical</fullName>
+                    <default>false</default>
+                    <label>After Sales - Recall/Technical</label>
+                </value>
+                <value>
+                    <fullName>Admin</fullName>
+                    <default>false</default>
+                    <label>Admin</label>
+                </value>
+                <value>
+                    <fullName>IT</fullName>
+                    <default>false</default>
+                    <label>IT</label>
+                </value>
+                <value>
+                    <fullName>Legal &amp; Compliance</fullName>
+                    <default>false</default>
+                    <label>Legal &amp; Compliance</label>
+                </value>
+                <value>
+                    <fullName>BND</fullName>
+                    <default>false</default>
+                    <label>BND</label>
+                </value>
+                <value>
+                    <fullName>CCC</fullName>
+                    <default>false</default>
+                    <label>CCC</label>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                    <label>Dealer</label>
+                </value>
+                <value>
+                    <fullName>Accounting</fullName>
+                    <default>false</default>
+                    <label>Accounting</label>
+                </value>
+                <value>
+                    <fullName>Collection</fullName>
+                    <default>false</default>
+                    <label>Collection</label>
+                </value>
+                <value>
+                    <fullName>Contract Activation</fullName>
+                    <default>false</default>
+                    <label>Contract Activation</label>
+                </value>
+                <value>
+                    <fullName>Contract Management</fullName>
+                    <default>false</default>
+                    <label>Contract Management</label>
+                </value>
+                <value>
+                    <fullName>Credit</fullName>
+                    <default>false</default>
+                    <label>Credit</label>
+                </value>
+                <value>
+                    <fullName>Customer Service</fullName>
+                    <default>false</default>
+                    <label>Customer Service</label>
+                </value>
+                <value>
+                    <fullName>Insurance</fullName>
+                    <default>false</default>
+                    <label>Insurance</label>
+                </value>
+                <value>
+                    <fullName>Sales</fullName>
+                    <default>false</default>
+                    <label>Sales</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Emergency_Level__c</fullName>
+        <description>This field will let you to choose the Emergency Level</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to choose the Emergency Level</inlineHelpText>
+        <label>Emergency Level</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Information_Level__c</fullName>
+        <description>This field will let you to choose the Information Level</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to choose the Information Level</inlineHelpText>
+        <label>Information Level</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Information_Source__c</fullName>
+        <description>This field will let you to choose the Information Source</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to choose the Information Source</inlineHelpText>
+        <label>Information Source</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Information_Updated_Flag__c</fullName>
+        <description>This field will let you to choose the Information Updated Flag</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will let you to choose the Information Updated Flag</inlineHelpText>
+        <label>Information Updated Flag</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Related_Departments__c</fullName>
+        <description>This Field will let you to choose the Related Departments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This Field will let you to choose the Related Departments</inlineHelpText>
+        <label>Related Departments</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Remarks_for_Internal__c</fullName>
+        <description>This field will tell you to choose Remarks for Internal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will tell you to choose Remarks for Internal</inlineHelpText>
+        <label>Remarks for Internal</label>
+        <length>32768</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <label>Vehicle Brochure</label>
+    <pluralLabel>Vehicle Brochures</pluralLabel>
+</CustomObject>

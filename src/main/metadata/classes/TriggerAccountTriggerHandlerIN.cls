@@ -29,17 +29,22 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
                 AccountHelperIN.updateAccountFieldsBeforeInsert(Trigger.new,trigger.isInsert);
                 AccountHelperBase.updatemarket(Trigger.New);
                 AccountHelperIN.updateAccountCountry(Trigger.new, trigger.isInsert);
+			    AccountHelperIN.updateStandardEmail(Trigger.New); //To populate standard email based on custom email value
             }
         }
         if(isBefore && isUpdate){
             AccountHelperBase.updatemarket(Trigger.New);
             if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
                 AccountHelperIN.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-                AccountHelperIN.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
+                if(INTriggerRecursionCheck.updPriAddressFlag == false){
+                    INTriggerRecursionCheck.updPriAddressFlag = true;
+                    AccountHelperIN.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);                    
+                }
                 AccounthelperIN.updateOnDoNotCall(Trigger.new);
                 AccountHelperIN.updateOnPostalOptout(Trigger.new);
                 AccountHelperIN.updateOnEmailOptout(Trigger.new);
                 AccountHelperIN.updateAgeRange(Trigger.new);
+				AccountHelperIN.updateStandardEmail(Trigger.New); //To populate standard email based on custom email value
                 //AccountHelperIN.activeContracts(Trigger.new);        
             }           
         }
@@ -54,7 +59,10 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
         }                                                                      
         if(isAfter && isInsert ){
             if(Util_getPermissions.checkCustomPermission(Label.INGeneric)){
-                AccountHelperIN.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+                if (INTriggerRecursionCheck.inAccountAftIns == false){
+                    INTriggerRecursionCheck.inAccountAftIns= true;
+                    AccountHelperIN.CreateRetailCopy(Trigger.new,trigger.isInsert,trigger.isUpdate);
+                }
             }                                                                               
         } 
         if(isAfter && isUpdate && !System.isFuture()){
@@ -65,8 +73,11 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
                     firstRun=false;
                 }
             }
-            if(Util_getPermissions.checkCustomPermission(Label.updateRetailCopy)){                                                                
-                AccountHelperIN.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
+            if(Util_getPermissions.checkCustomPermission(Label.updateRetailCopy)){ 
+                if (INTriggerRecursionCheck.inAccountAftUpd == false){
+                    INTriggerRecursionCheck.inAccountAftUpd = true;
+                    AccountHelperIN.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isafter,trigger.new);
+                }
             }
         }
         if(isAfter && isDelete && !System.isFuture()){
@@ -86,7 +97,10 @@ public class TriggerAccountTriggerHandlerIN implements TriggerHandlerIf{
             }
             if(isBefore && isUpdate){
                 AccountHelperIN.updateAccountFieldsBeforeIntUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
-                AccountHelperIN.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
+                if(INTriggerRecursionCheck.updPriAddressFlag == false){
+                    INTriggerRecursionCheck.updPriAddressFlag = true;
+                    AccountHelperIN.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);                    
+                }
                 AccountHelperIN.updateOnDoNotCall(Trigger.new);
                 AccountHelperIN.updateOnPostalOptout(Trigger.new);
                 AccountHelperIN.updateOnEmailOptout(Trigger.new);

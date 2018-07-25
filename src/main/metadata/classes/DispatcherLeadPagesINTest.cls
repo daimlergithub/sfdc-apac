@@ -1,6 +1,6 @@
 /**
 ** Class: DispatcherLeadPagesINTest 
-** Description: Test Class for DispatcherLeadPagesINTest
+** Description: Test Class for DispatcherLeadEditControllerIN, DispatcherLeadDetailsEditCtrlIN and NewSalesLeadController.
 ** Created By: Prem Kumar
 ** Date: 11/04/2018
 **/
@@ -153,5 +153,22 @@ public class DispatcherLeadPagesINTest {
         }
         test.stopTest();
     }
-    
+    @IsTest
+    private static void goToRecordTypePage8() {
+        test.startTest();
+        User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
+        System.runAs(usr){
+            initData();
+            Account acc = [Select Id, Name From Account limit 1];
+            Opportunity oppty = [select Id, AccountId, Name, recordTypeId From Opportunity Where recordTypeId =: afterSalesLeadRecordTypeId limit 1];
+            ApexPages.currentPage().getParameters().put('retURL', null);
+            ApexPages.currentPage().getParameters().put('accid', null);
+            ApexPages.currentPage().getParameters().put('RecordType', afterSalesLeadRecordTypeId);
+            ApexPages.StandardController objStdCtrl = new ApexPages.StandardController(oppty);
+            NewSalesLeadController dispatchCtrl = new NewSalesLeadController(objStdCtrl);
+            dispatchCtrl.opp = oppty;
+            dispatchCtrl.goToRecordTypePage();
+        }
+        test.stopTest();
+    }
 }

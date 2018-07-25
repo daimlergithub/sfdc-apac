@@ -54,35 +54,38 @@ public class sObjectMerge {
                     boolean isVRretailWithDiffDealer=false;
                     boolean isVRwithSameDealer=false;
                     boolean isVRwithDiffDealer=false;
-                    for(Vehicle_Relationship__c goldenVrObj:goldenVRLst)
-                    {
-                        //if duplicate VR record found
-                        if(dupVrObj.RecordTypeId==goldenVrObj.RecordTypeId && dupVrObj.Euro_Vin__c==goldenVrObj.Euro_Vin__c && dupVrObj.Car_Relation__c==goldenVrObj.Car_Relation__c)
-                        {
-                            isRecordFound=true;
-                            //check if they are under same dealership with vehicle relationship(Wholesale) record type
-                            if(dupVrObj.RecordTypeId==vehicleReltnshpRecordTypeId && dupVrObj.Selling_Dealer__c!=null && goldenVrObj.Selling_Dealer__c!=null && dupVrObj.Selling_Dealer__r.Dealer_ND_Code__c==goldenVrObj.Selling_Dealer__r.Dealer_ND_Code__c)
-                            {
-								isVRwithSameDealer=true;  
-                                break;
-                            }//check if they are under different dealership with vehicle relationship(Wholesale) record type
-                            else if(dupVrObj.RecordTypeId==vehicleReltnshpRecordTypeId && dupVrObj.Selling_Dealer__c!=null && goldenVrObj.Selling_Dealer__c!=null && dupVrObj.Selling_Dealer__r.Dealer_ND_Code__c!=goldenVrObj.Selling_Dealer__r.Dealer_ND_Code__c)
-                            {
-                                isVRwithDiffDealer=true;
-                                break;
-                            }//check if they are under same dealership with vehicle relationship retail record type
-                            else if(dupVrObj.RecordTypeId==vehicleReltnshpRetailRecordTypeId && dupVrObj.Owner_Dealer__c!=null && goldenVrObj.Owner_Dealer__c!=null && dupVrObj.Owner_Dealer__r.Dealer_ND_Code__c==goldenVrObj.Owner_Dealer__r.Dealer_ND_Code__c)
-                            {
-                                isVRretailWithSameDealer=true;
-                                break;
-                            }//check if they are under different dealership with vehicle relationship retail record type
-                            else if(dupVrObj.RecordTypeId==vehicleReltnshpRetailRecordTypeId && dupVrObj.Owner_Dealer__c!=null && goldenVrObj.Owner_Dealer__c!=null && dupVrObj.Owner_Dealer__r.Dealer_ND_Code__c!=goldenVrObj.Owner_Dealer__r.Dealer_ND_Code__c)
-                            {
-                                isVRretailWithDiffDealer=true;
-                                
-                            }
-                        }
-                    }
+					if(goldenVRLst!=null && goldenVRLst.size()>0)
+					{
+	                    for(Vehicle_Relationship__c goldenVrObj:goldenVRLst)
+	                    {
+	                        //if duplicate VR record found
+	                        if(dupVrObj.RecordTypeId==goldenVrObj.RecordTypeId && dupVrObj.Euro_Vin__c==goldenVrObj.Euro_Vin__c && dupVrObj.Car_Relation__c==goldenVrObj.Car_Relation__c)
+	                        {
+	                            isRecordFound=true;
+	                            //check if they are under same dealership with vehicle relationship(Wholesale) record type
+	                            if(dupVrObj.RecordTypeId==vehicleReltnshpRecordTypeId && dupVrObj.Selling_Dealer__c!=null && goldenVrObj.Selling_Dealer__c!=null && dupVrObj.Selling_Dealer__r.Dealer_ND_Code__c==goldenVrObj.Selling_Dealer__r.Dealer_ND_Code__c)
+	                            {
+									isVRwithSameDealer=true;  
+	                                break;
+	                            }//check if they are under different dealership with vehicle relationship(Wholesale) record type
+	                            else if(dupVrObj.RecordTypeId==vehicleReltnshpRecordTypeId && dupVrObj.Selling_Dealer__c!=null && goldenVrObj.Selling_Dealer__c!=null && dupVrObj.Selling_Dealer__r.Dealer_ND_Code__c!=goldenVrObj.Selling_Dealer__r.Dealer_ND_Code__c)
+	                            {
+	                                isVRwithDiffDealer=true;
+	                                break;
+	                            }//check if they are under same dealership with vehicle relationship retail record type
+	                            else if(dupVrObj.RecordTypeId==vehicleReltnshpRetailRecordTypeId && dupVrObj.Owner_Dealer__c!=null && goldenVrObj.Owner_Dealer__c!=null && dupVrObj.Owner_Dealer__r.Dealer_ND_Code__c==goldenVrObj.Owner_Dealer__r.Dealer_ND_Code__c)
+	                            {
+	                                isVRretailWithSameDealer=true;
+	                                break;
+	                            }//check if they are under different dealership with vehicle relationship retail record type
+	                            else if(dupVrObj.RecordTypeId==vehicleReltnshpRetailRecordTypeId && dupVrObj.Owner_Dealer__c!=null && goldenVrObj.Owner_Dealer__c!=null && dupVrObj.Owner_Dealer__r.Dealer_ND_Code__c!=goldenVrObj.Owner_Dealer__r.Dealer_ND_Code__c)
+	                            {
+	                                isVRretailWithDiffDealer=true;
+	                                
+	                            }
+	                        }
+	                    }
+					}
                     //if vehicle relationship record(wholesale) under same dealer or different. 
                     //if vehicle realtionship retail record under same dealer.  
                     if((isVRwithSameDealer || isVRwithDiffDealer || isVRretailWithSameDealer) && isRecordFound)
@@ -268,5 +271,17 @@ public class sObjectMerge {
             }
         }
     }
-    
+    //Auto close tasks in VR
+    public static void autoCloseTasks(set<Id> VRIds)
+    {
+        list<task> tsks = new list<task>();
+        system.debug(VRIds);
+        for(task tk :[select id,whatid,status from task where whatid in : VRIds and status !='Closed']){
+            tk.status = 'Closed';
+            tk.Activity_Status__c = 'Closed';
+            tsks.add(tk);
+        }
+        if(tsks!=null && tsks.size()>0)
+            update tsks;    
+    }
 }

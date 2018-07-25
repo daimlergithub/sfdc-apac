@@ -2436,6 +2436,18 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>FollowUp1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FollowUp2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FollowUp3</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Handover</fullName>
                 <default>false</default>
             </values>
@@ -5184,6 +5196,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Reserved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Returned</fullName>
                 <default>false</default>
             </values>
@@ -5193,6 +5209,10 @@
             </values>
             <values>
                 <fullName>Soft Bounced</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Started</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13181,7 +13201,7 @@
         <errorConditionFormula>OR(AND($Profile.Name != 'IntegrationAPI',	
 RecordType.DeveloperName = 'SSI_Task', 
 ISPICKVAL(Status, 'Closed'), 
-ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR')),AND($Profile.Name != 'IntegrationAPI',ISPICKVAL(Status,'Closed'),ISPICKVAL( Activity_Status__c, '' ),OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false))))</errorConditionFormula>
+ISPICKVAL( Activity_Status__c, '' ),OR(MD__c= 'JP',MD__c='KR')),AND($Profile.Name != 'IntegrationAPI',ISPICKVAL(Status,'Closed'),ISPICKVAL( Activity_Status__c, '' ),OR(MD__c='TH',if(AND(MD__c=='MY',$Permission.MYGeneric),true,false), if(AND(MD__c=='TR',$Permission.TRGeneric),true,false))))</errorConditionFormula>
         <errorDisplayField>Related_Task_Id__c</errorDisplayField>
         <errorMessage>Activity status is required if you close task.</errorMessage>
     </validationRules>

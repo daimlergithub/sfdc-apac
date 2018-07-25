@@ -176,7 +176,7 @@ system.debug('&******************'+cpList);
                 Task tsk = new Task();
                 //SB2017 Sushma Bharti
                 //'IF' condition added for MY for blank subject for auto created tasks
-                if(cpm.Campaign.MD__c!=Label.MarketMY){
+                if(cpm.Campaign.MD__c!=Label.MarketMY||cpm.Campaign.MD__c!=Label.MarketIN){
                 tsk.Subject= strOBCall;
                 } 
                 else{
@@ -186,19 +186,19 @@ system.debug('&******************'+cpList);
                 if(cpm.Campaign.MD__c=='TH'){
                 tsk.RecordTypeId = taskRecordTypeMap.get('OB Call').getRecordTypeId();
                 }
-				//SB2018
-				else if(cpm.Campaign.MD__c==Label.MarketMY){
-				    tsk.RecordTypeId = taskRecordTypeMap.get('OB Call').getRecordTypeId();
-				    if(cpm.Campaign.Enddate!=null){
-						tsk.ActivityDate = cpm.Campaign.Enddate;       
-					}          
-					else if(cpm.Campaign.StartDate!=null){                                                                          
-						tsk.ActivityDate = cpm.Campaign.StartDate;       
-					}
-					else{
-							tsk.ActivityDate = date.today();
-					}                                                                              
-				}  
+        //SB2018
+        else if(cpm.Campaign.MD__c==Label.MarketMY||cpm.Campaign.MD__c==Label.MarketIN){
+            tsk.RecordTypeId = taskRecordTypeMap.get('OB Call').getRecordTypeId();
+            if(cpm.Campaign.Enddate!=null){
+            tsk.ActivityDate = cpm.Campaign.Enddate;       
+          }          
+          else if(cpm.Campaign.StartDate!=null){                                                                          
+            tsk.ActivityDate = cpm.Campaign.StartDate;       
+          }
+          else{
+              tsk.ActivityDate = date.today();
+          }                                                                              
+        }  
                 tsk.Status = strOpenStatus;
                 tsk.DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c); 
                 tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);
@@ -210,18 +210,18 @@ system.debug('&******************'+cpList);
                 {
                     tsk.ActivityDate = cpm.Campaign.EndDate;
                 }
-				//SB2018
-			    else if(loggedinUser.Market__c==Label.MarketMY){
-				    if(cpm.Campaign.Enddate!=null){
-						tsk.ActivityDate = cpm.Campaign.Enddate;       
-					}          
-					else if(cpm.Campaign.StartDate!=null){                                                                          
-						tsk.ActivityDate = cpm.Campaign.StartDate;       
-					}
-					else{
-							tsk.ActivityDate = date.today();
-					}                                                                              
-				} 
+        //SB2018
+          else if(loggedinUser.Market__c==Label.MarketMY||loggedinUser.Market__c==Label.MarketIN){
+            if(cpm.Campaign.Enddate!=null){
+            tsk.ActivityDate = cpm.Campaign.Enddate;       
+          }          
+          else if(cpm.Campaign.StartDate!=null){                                                                          
+            tsk.ActivityDate = cpm.Campaign.StartDate;       
+          }
+          else{
+              tsk.ActivityDate = date.today();
+          }                                                                              
+        } 
                 else
                 {
                     tsk.ActivityDate = date.today();
@@ -238,7 +238,7 @@ system.debug('&******************'+cpList);
                        tsk.OwnerId =usr_th[0].Id;
                     }
                     else{
-                    if(loggedinUser.Market__c==Label.MarketMY || loggedinUser.Market__c=='KR'){
+                    if(loggedinUser.Market__c==Label.MarketMY || loggedinUser.Market__c=='KR'||loggedinUser.Market__c=='IN' || loggedinUser.Market__c=='TR'){
                     tsk.OwnerId = cpm.Campaign.OwnerId;
                     }
                     else{
@@ -283,7 +283,7 @@ system.debug('&******************'+cpList);
             Task tsk = new Task();
             //SB2017 Sushma Bharti
             //'IF' condition added for MY for blank subject for auto created tasks
-            if(cpm.Campaign.MD__c!='MY'){
+            if(cpm.Campaign.MD__c!='MY'||cpm.Campaign.MD__c!='IN'){
             tsk.Subject= strSMS;
             } 
                 else{
@@ -296,11 +296,12 @@ system.debug('&******************'+cpList);
             }
             else
             {
-                if(loggedinUser.Market__c=='KR')
+                if(loggedinUser.Market__c=='KR' || loggedinUser.Market__c=='TR')
                 {
                     tsk.OwnerId = cpm.Campaign.OwnerId;
                 }
-                tsk.OwnerId = usr.Id;
+                else
+                    tsk.OwnerId = usr.Id;
             }
             tsk.Activity_Status__c = strVeriStatus;
             tsk.Phone__c = cpm.Contact.MobilePhone;
@@ -335,7 +336,7 @@ system.debug('&******************'+cpList);
            Task tsk = new Task();
             //SB2017 Sushma Bharti
             //'IF' condition added for MY for blank subject for auto created tasks
-            if(cpm.Campaign.MD__c!='MY'){
+            if(cpm.Campaign.MD__c!='MY'||cpm.Campaign.MD__c!='IN'){
             tsk.Subject= mms;
             } 
                 else{
@@ -348,11 +349,12 @@ system.debug('&******************'+cpList);
             }
             else
             {
-                if(loggedinUser.Market__c=='KR')
+                if(loggedinUser.Market__c=='KR' || loggedinUser.Market__c=='TR')
                 {
                     tsk.OwnerId = cpm.Campaign.OwnerId;
                 }
-                tsk.OwnerId = usr.Id;
+                else
+                    tsk.OwnerId = usr.Id;
             }
             tsk.Activity_Status__c = strVeriStatus;
             tsk.Phone__c = cpm.Contact.MobilePhone;
@@ -386,7 +388,7 @@ system.debug('&******************'+cpList);
             Task tsk = new Task();
             //SB2017 Sushma Bharti
             //'IF' condition added for MY for blank subject for auto created tasks
-            if(cpm.Campaign.MD__c!='MY')
+            if(cpm.Campaign.MD__c!='MY'||cpm.Campaign.MD__c!='IN')
             {
             tsk.Subject= strKkTlk;
             } 
@@ -419,6 +421,10 @@ system.debug('&******************'+cpList);
                 tsk.SMS_Content__c = cpm.Campaign.Content_Preview__c;
                 tsk.SMSTemplateID__c = cpm.Campaign.Template__c;
             }
+            if(loggedinUser.Market__c=='TR')
+            {
+                    tsk.OwnerId = cpm.Campaign.OwnerId;
+            }
             tsk.UniqueCampaignGenerateTask__c = uniqueTaskField;
             taskList.add(tsk);
         } 
@@ -428,7 +434,7 @@ system.debug('&******************'+cpList);
             Task tsk = new Task();
             //SB2017 Sushma Bharti
             //'IF' condition added for MY for blank subject for auto created tasks
-            if(cpm.Campaign.MD__c!='MY'){
+            if(cpm.Campaign.MD__c!='MY'||cpm.Campaign.MD__c!='IN'){
             tsk.Subject= streDM; 
             } 
                 else{
@@ -441,11 +447,12 @@ system.debug('&******************'+cpList);
             }
             else
             {
-                if(loggedinUser.Market__c=='KR')
+                if(loggedinUser.Market__c=='KR' || loggedinUser.Market__c=='TR')
                 {
                     tsk.OwnerId = cpm.Campaign.OwnerId;
                 }
-                tsk.OwnerId = usr.Id;
+                else
+                    tsk.OwnerId = usr.Id;
             }
             tsk.Status = strCloseStatus;
             tsk.Campaign_eDM_Template_Subject__c = cpm.Campaign.Template__r.Subject__c;
@@ -475,7 +482,7 @@ system.debug('&******************'+cpList);
            Task tsk = new Task();
             //SB2017 Sushma Bharti
             //'IF' condition added for MY for blank subject for auto created tasks
-            if(cpm.Campaign.MD__c!='MY'){
+            if(cpm.Campaign.MD__c!='MY'||cpm.Campaign.MD__c!='IN'){
             tsk.Subject = strDM; 
             } 
                 else{
@@ -488,11 +495,12 @@ system.debug('&******************'+cpList);
             }
             else
             {
-                if(loggedinUser.Market__c=='KR')
+                if(loggedinUser.Market__c=='KR' || loggedinUser.Market__c=='TR')
                 {
                     tsk.OwnerId = cpm.Campaign.OwnerId;
                 }
-                tsk.OwnerId = usr.Id;
+                else
+                    tsk.OwnerId = usr.Id;
             }
             tsk.Status = strOpenStatus;
             tsk.WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId);

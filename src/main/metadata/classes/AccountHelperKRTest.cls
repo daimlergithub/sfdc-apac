@@ -340,7 +340,7 @@ public class AccountHelperKRTest {
                                 //MD__c = 'JP',
                                 name = 'tes company name',
                                 //Salutation = 'Unknown', 
-                                Commercial_Reg_No__c='test',     
+                                Commercial_Reg_No__c='1234',     
                                 Province__c = 'Shanghai',
                                 ZipCode__c= '1003465',
                                 Mobile__c = '010-999-0000',
@@ -370,7 +370,7 @@ public class AccountHelperKRTest {
         map<id,Account> oldMap = new map<id,Account>();
          oldMap.put(listCampaign.id, listCampaign);
          personAcc13.name = 'tes name1';
-         personAcc13.Commercial_Reg_No__c='test1';
+         personAcc13.Commercial_Reg_No__c='1234';
          personAcc13.Fax='035456232';
          personAcc13.Allow_Data_Sharing2__c='Yes';
          personAcc13.Gender__c='Female';
@@ -438,7 +438,7 @@ public class AccountHelperKRTest {
                                 //MD__c = 'JP',
                                 name = 'tes company name',
                                 //Salutation = 'Unknown', 
-                                Commercial_Reg_No__c='test',     
+                                Commercial_Reg_No__c='1234',     
                                 Province__c = 'Shanghai',
                                 ZipCode__c= '1003465',
                                 Mobile__c = '010-999-0000',
@@ -465,7 +465,7 @@ public class AccountHelperKRTest {
         map<id,Account> oldMap = new map<id,Account>();
          oldMap.put(listCampaign.id, listCampaign);
          
-         personAcc13.Commercial_Reg_No__c='test1';
+         personAcc13.Commercial_Reg_No__c='1234';
          
          personAcc13.Gender__c='Female';
          personAcc13.Allow_Data_Sharing2__c='Yes';

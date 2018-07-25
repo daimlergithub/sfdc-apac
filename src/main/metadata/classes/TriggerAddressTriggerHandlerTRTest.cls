@@ -64,7 +64,7 @@ public class TriggerAddressTriggerHandlerTRTest{
             account.Status__c = 'Prospect';
             account.Data_Source__c  = 'Test4';
             account.Market__c = 'TR';
-            account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
+            upsert account;       
             
             
             address=new Address__c();

@@ -89,6 +89,19 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Campaign_member__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign member</label>
+        <referenceTo>Campaign_Member__c</referenceTo>
+        <relationshipLabel>Campaign members</relationshipLabel>
+        <relationshipName>Campaign_members</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Central_Campaign_Name__c</fullName>
         <externalId>false</externalId>
         <formula>Campaign__r.Parent.Parent.Name</formula>
@@ -196,6 +209,28 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_AssignedDateTime__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead__r.Assigned_Date_Time__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead AssignedDateTime</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Lead_CreatedDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead__r.CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead CreatedDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Lead_DataSource__c</fullName>
@@ -1504,6 +1539,22 @@ Modify Reason:
         </valueSet>
     </fields>
     <fields>
+        <fullName>Lead_DealerLeadStatus__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'Lost') ,$Label.Lost,
+IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'Not Started') ,$Label.Not_Started, 
+IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'On-going'), $Label.On_going, 
+IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'Order Placed'),$Label.Order_Placed , 
+IF(ISPICKVAL(Lead__r.Dealer_Lead_Status__c, 'Purchased(Only Non BDC)'), $Label.Purchased_Only_Non_BDC,'' )))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead DealerLeadStatus</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Lead_InfoSourceSub__c</fullName>
         <externalId>false</externalId>
         <label>Lead InfoSourceSub</label>
@@ -1946,6 +1997,18 @@ Modify Reason:
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lead_RecordType__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lead__r.RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead RecordType</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Lead_Source__c</fullName>

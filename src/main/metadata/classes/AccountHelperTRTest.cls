@@ -12,13 +12,19 @@ public class AccountHelperTRTest {
             Account Acc = TestUtils.createPersonAccountAsUserAsOwner(user1);
             list<Account> list2=new list<Account>();
             list2.add(Acc);
-            acc.Social_ID__c =Decimal.Valueof('56897456987');
+            acc.social_id__c ='11900313862';
             acc.Personal_Agreement__c = 'No';
+            acc.Mobile__c='';
+            acc.Email__c='';
+            update acc;
             //Update Account            
             Acc = TestUtils.UpdateAccount(Acc.id);  
             Account acc2 = TestUtils.createCompanyAccount(user1);
             acc2.Primary_Address_Reference__c = TestUtils.createAddressTR(acc2.ID).ID;
-            acc2.Vat_No__c='5896547896';
+            acc2.Vat_No__c='8360043469';
+            acc2.Personal_Agreement__c = 'Yes';
+            acc2.Mobile__c='';
+            acc2.Email__c='';
             update acc2;
             list<Account> list3=new list<Account>();
             list3.add(acc2);
@@ -26,7 +32,9 @@ public class AccountHelperTRTest {
             
             AccountHelperTR.updateAccountFieldsBeforeInsert(list2,True);
             //AccountHelperTR.entityNotifyUpdate(acc);
-            AccountHelperTR.validateSocialIdTR(acc);
+            acc.social_id__c ='11900313862';
+            AccountHelperTR.validateSocialIdTR(acc,'SocId');
+            AccountHelperTR.validateSocialIdTR(acc2,'SocI');
             AccountHelperTR.validateVATNoTR(acc2);
             AccountHelperTR.updateOnDoNotCall(List2);
             AccountHelperTR.updateOnPostalOptout(list3);
@@ -67,7 +75,8 @@ public class AccountHelperTRTest {
             Account_Link__c CAcclink = TestUtils.createAccLink('Retail Person', acc2.Id);//company account
             AccountHelperTR.updateRetailCopy(True,True,True,list3);
             AccountHelperTR.createUCID(list2,True);
-            
+            AccountHelperTR.errorOnDOCPermissions(list2);
+            AccountHelperTR.errorOnDOCPermissions(list3);
             List<Account_Link__c>  retailCopyList = [select id from Account_Link__c where toRole__c =:acc.Id AND (RecordtypeId =:retailPerson_RecordTypeId OR RecordtypeId =:retailCompany_RecordTypeId)];
             
            
@@ -103,8 +112,13 @@ public class AccountHelperTRTest {
             list<Account> list3=new list<Account>();
             list3.add(acc2);
             list3.add(acc1);
-            
+            PhoneAreaCode__c ph1 = new PhoneAreaCode__c();
+            ph1.name='test code1';
+            ph1.Country_Code__c = '+90';
+            ph1.Phone_Area_Code__c = '233';
+            insert ph1;
             AccountHelperTR.updateAccountFieldsBeforeInsert(list2,True);
+            AccountHelperTR.validateProvinceCodes(list2);
             AccountHelperTR.updateOnDoNotCall(List2);
             AccountHelperTR.updateOnPostalOptout(List2);
             AccountHelperTR.updateOnEmailOptout(List2);
@@ -118,7 +132,8 @@ public class AccountHelperTRTest {
             }catch(Exception e){}
            
             AccountHelperTR.createUCID(list2,True);
-           
+           AccountHelperTR.errorOnDOCPermissions(list2);
+            AccountHelperTR.errorOnDOCPermissions(list3);
             AccountHelperTR.updateRetailCopy(True,True,True,list2);
            
             test.stopTest();

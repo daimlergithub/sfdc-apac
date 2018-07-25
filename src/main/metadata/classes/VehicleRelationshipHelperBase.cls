@@ -166,25 +166,31 @@ Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){
 		 
 		
         List<Account> vehicleAmountToUpdate=new List<Account>();                
-        for(Account acc : [Select Id,Vehicle_amount__c From Account Where Id IN:Company_AccountId LIMIT 50000]){
-		
-		  
-				if(mapVehRel.get(acc.Id)!=Null){               
-					set<Id> setVehicleIds=mapVehRel.get(acc.Id);                 
-					if(setVehicleIds!=Null && setVehicleIds.size()>99){
-						acc.vehicle_amount__c=99;
-					}
-					else{       
-						acc.vehicle_amount__c=setVehicleIds.size();
-						acc.Status__c=Label.Customer_Cust; 
-					}
-					vehicleAmountToUpdate.add(acc);
-				}  
-				else{
-					acc.vehicle_amount__c=0;
-					acc.Status__c=Label.ProspectStatus;   
-					vehicleAmountToUpdate.add(acc);
-				} 
+        for(Account acc : [Select Id,Vehicle_amount__c,Market__c From Account Where Id IN:Company_AccountId LIMIT 50000]){
+            
+            
+            if(mapVehRel.get(acc.Id)!=Null){               
+                set<Id> setVehicleIds=mapVehRel.get(acc.Id);                 
+                if(setVehicleIds!=Null && setVehicleIds.size()>99){
+                    acc.vehicle_amount__c=99;
+                }
+                else{       
+                    acc.vehicle_amount__c=setVehicleIds.size();
+                    acc.Status__c=Label.Customer_Cust; 
+                }
+                vehicleAmountToUpdate.add(acc);
+            }  
+            else{
+                if(Account_Vehicle_Updates__c.getInstance(acc.Market__c) != null){
+                    acc.vehicle_amount__c = Account_Vehicle_Updates__c.getInstance(acc.Market__c).Vehicle_Amount__c;
+                    acc.Status__c = Account_Vehicle_Updates__c.getInstance(acc.Market__c).Status__c;
+                }
+                else{
+                    acc.vehicle_amount__c = 0;
+                    acc.Status__c=Label.ProspectStatus;
+                }
+                vehicleAmountToUpdate.add(acc);
+            } 
 			 
         }
         if(!vehicleAmountToUpdate.isEmpty())
@@ -286,7 +292,7 @@ Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){
             }
         }
         List<Account> vehicleAmountToUpdate=new List<Account>();                
-        for(Account acc : [Select Id,Vehicle_amount__c From Account Where Id IN:ContactIds AND (NOT Id IN : setIgnoredAccounts) LIMIT 50000]){
+        for(Account acc : [Select Id,Vehicle_amount__c,Market__c From Account Where Id IN:ContactIds AND (NOT Id IN : setIgnoredAccounts) LIMIT 50000]){
             if(mapVehRel.get(acc.Id)!=Null){               
                 set<Id> setVehicleIds=mapVehRel.get(acc.Id);                 
                 if(setVehicleIds!=Null && setVehicleIds.size()>99){
@@ -299,8 +305,14 @@ Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){
                 vehicleAmountToUpdate.add(acc);
             }  
             else{
-                acc.vehicle_amount__c=0;
-                acc.Status__c=Label.ProspectStatus;   
+                if(Account_Vehicle_Updates__c.getInstance(acc.Market__c) != null){
+                    acc.vehicle_amount__c = Account_Vehicle_Updates__c.getInstance(acc.Market__c).Vehicle_Amount__c;
+                    acc.Status__c = Account_Vehicle_Updates__c.getInstance(acc.Market__c).Status__c;
+                }
+                else{
+                    acc.vehicle_amount__c = 0;
+                    acc.Status__c=Label.ProspectStatus;
+                }
                 vehicleAmountToUpdate.add(acc);
             } 
         }
@@ -366,7 +378,7 @@ Public static void updateVehicleAmount_Company(Set<Id> Company_AccountId){
         if(!lstAccLink.isEmpty())
             DMLManagerService.insertAsSystem(lstAccLink);    
     }    
- /*Start - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */   
+ /*Start - Added by Prem as a part of Vehicle/Vehicle relationship management Phase 2 */   
      //This method wil share Vehicle Relationship,vehicle,account records to the dealers depends on the Owner Dealer Field once record type is 'Vehicle Relationship Retail'
  //This method also will revoke access once Owner Dealer got changed
 public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relationship__c> vehicleRellist,boolean isinsertcontext, String Market){
@@ -533,5 +545,5 @@ public static void afterInsertUpdateSharerecordsWithDealers(List<Vehicle_Relatio
         }
     }
   }
-  /*End - Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */  
+  /*End - Added by Prem as a part of Vehicle/Vehicle relationship management Phase 2 */  
 }

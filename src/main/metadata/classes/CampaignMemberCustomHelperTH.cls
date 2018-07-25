@@ -16,7 +16,7 @@ public void CampaignmemberssharewithsubDealers(List<Campaign_member__c> campmemb
     List<Campaign_member__share> campmembershare = new List<Campaign_member__share>();
     for(Campaign_member__c re:[Select id,Createdby.Dealer_Nd_code__c from Campaign_member__c where id IN :campmember]){
             if(Userinfo.getUserType()=='PowerPartner'&& re.createdby.dealer_nd_code__C!=null){
-                idwithndcode.put(re.id,re.createdby.dealer_nd_code__C);
+                idwithndcode.put(re.id,'TH'+re.createdby.dealer_nd_code__C);
             }
     }
     for(Group g:[select Name from group where name IN : idwithndcode.values() ]){
@@ -62,7 +62,7 @@ public void  campaignMemberHelperBeforeInsert(List<Campaign_Member__c> campmembe
     }
     //This method will copy address,vehicle,vehiclerelationships,retail copy data to campaign member 
     public static void MapCampaignMemberfieldsbasedOnContact(List<Campaign_Member__c> newlist) {     
-        Map<id,address__c> addmap =new Map<id,Address__c>();
+        Map<id,Account> addmap =new Map<id,Account>();
         Set<id> accid=new Set<id>();
         Set<Campaign_Member__c> cmpwithcontact=new  Set<Campaign_Member__c>();
         for(Campaign_Member__c campme:newlist){
@@ -72,16 +72,21 @@ public void  campaignMemberHelperBeforeInsert(List<Campaign_Member__c> campmembe
             //we are going to use this in for loop
                 cmpwithcontact.add(campme);
         }
-        //fetch the preffered address of the Customer 
-        for(Address__c add:[select id,Customer__c,Address_Line_1__c,Address_Line_2__c,Sub_District__c,District__c,Province__c,ZipCode__c from address__c where Customer__c IN :accid and Preferred__c=true and md__c='TH' limit 50000])
-            	addmap.put(add.Customer__c,add);
-        if(addmap.size()>0){
-            for(Campaign_Member__c camp:cmpwithcontact){
-                if(addmap.containskey(camp.Contact_Id__c)){
-                   camp.Address__c= addmap.get(camp.Contact_Id__c).id;
-                   camp.Customer_Complete_Address__c=addmap.get(camp.Contact_Id__c).Address_Line_1__c+','+addmap.get(camp.Contact_Id__c).Address_Line_2__c+','+addmap.get(camp.Contact_Id__c).Sub_District__c+','+addmap.get(camp.Contact_Id__c).Province__c+','+addmap.get(camp.Contact_Id__c).ZipCode__c;
-                }
+        //fetch the preffered address of the Customer
+        Map<id,account> accmap=new Map<id,account>([select id,firstname,LastName,Individual_Home_Phone__c,Work_Phone__c,Primary_Address_Reference__c,Primary_Address_Reference__r.Address_Line_1__c,Primary_Address_Reference__r.Address_Line_2__c,Primary_Address_Reference__r.Sub_District__c,Primary_Address_Reference__r.District__c,Primary_Address_Reference__r.Preferred__c,Primary_Address_Reference__r.Province__c,Primary_Address_Reference__r.ZipCode__c from account where id IN:accid and md__c='TH' limit 50000]); 
+        for(Campaign_Member__c camp:cmpwithcontact){
+            
+            if(accmap.containskey(camp.Contact_Id__c)){
+                camp.Customer_FirstName__c=accmap.get(camp.Contact_Id__c).firstName;
+                camp.Customer_lastName__c=accmap.get(camp.Contact_Id__c).LastName;
+                camp.Customer_HomePhone__c=accmap.get(camp.Contact_Id__c).Individual_Home_Phone__c;
+                camp.Customer_WorkPhone__c=accmap.get(camp.Contact_Id__c).Work_Phone__c;
+                if(accmap.get(camp.Contact_Id__c).Primary_Address_Reference__c!=null && accmap.get(camp.Contact_Id__c).Primary_Address_Reference__r.preferred__c){
+                  camp.Address__c= accmap.get(camp.Contact_Id__c).Primary_Address_Reference__c;
+                  camp.Customer_Complete_Address__c=accmap.get(camp.Contact_Id__c).Primary_Address_Reference__r.Address_Line_1__c+','+accmap.get(camp.Contact_Id__c).Primary_Address_Reference__r.Address_Line_2__c+','+accmap.get(camp.Contact_Id__c).Primary_Address_Reference__r.Sub_District__c+','+accmap.get(camp.Contact_Id__c).Primary_Address_Reference__r.Province__c+','+accmap.get(camp.Contact_Id__c).Primary_Address_Reference__r.ZipCode__c;
+               }
             }
+            
         }
     }
 }

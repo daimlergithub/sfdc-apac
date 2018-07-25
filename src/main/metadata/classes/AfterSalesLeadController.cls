@@ -22,6 +22,8 @@ public with sharing class AfterSalesLeadController {
       public static integer chkcomp;
       public boolean valSuccess = true;
       public Id leadrecTypeId {get;set;}
+      public String userMarket {get;set;}
+    
     
     //This is used for interested vehicle
     public list<Lead_Details__c> intVehicle {get;set;} 
@@ -35,6 +37,8 @@ public with sharing class AfterSalesLeadController {
     public list<Lead_Details__c> allVehicles = new list<Lead_Details__c>();
     
     public list<Vehicle_Relationship__c> vehRel {get;set;}
+    
+    public User uObj;
 
     
     public AfterSalesLeadController(ApexPages.StandardController controller) {
@@ -44,7 +48,8 @@ public with sharing class AfterSalesLeadController {
         string accID = ApexPages.currentPage().getParameters().get('accID');
         if(accID.length() != 0)
             opp.accountId = accID; 
-        User uObj = [SELECT Id,Market__c  FROM User WHERE Id=:UserInfo.getUserId()] ;      
+        uObj = [SELECT Id,Market__c  FROM User WHERE Id=:UserInfo.getUserId()] ;
+        userMarket = uObj.Market__c;
         recTypeId = UtilRecordType.getRecordTypeIdByName('Opportunity', System.Label.Aftersales_Lead);
         opp.RecordTypeId = recTypeId;
         opp.Market__c = uObj.Market__c;
@@ -72,7 +77,7 @@ public with sharing class AfterSalesLeadController {
     ld.Vehicle_Model_Type__c = 'Own Sellable';
     leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
         ld.RecordTypeId = leadrecTypeId;
-        
+        ld.Market__c = uObj.Market__c;
         intVehicle.add(ld);
         return null;
     }
@@ -85,7 +90,7 @@ public with sharing class AfterSalesLeadController {
     cld.Vehicle_Model_Type__c = 'Competitor';
     leadrecTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
         cld.RecordTypeId = leadrecTypeId;
-        
+        cld.Market__c = uObj.Market__c;
         compVehc.add(cld);
         return null;
     }
@@ -107,6 +112,8 @@ public with sharing class AfterSalesLeadController {
                     l.Class__c = cm.series__c;
                     l.color__c = cm.colour__c;
                     l.trim__C = cm.trim__c;
+                    l.Brand_Picklist__c = cm.Brand__c;
+                    l.Class_Picklist__c = cm.Series__c;
                 }
             }
         }
@@ -192,23 +199,36 @@ public with sharing class AfterSalesLeadController {
     Vehmake();
         system.debug('valSuccess: '+valSuccess);
         if(valSuccess) {
+            //added flag to check opportunity errors out and prevent further processing - 201/6/22 rajesh
+            Boolean oppErrFlag = false;
         try{
             DMLManagerService.insertAsSystem(opp);
         }
         catch (DmlException e){
+			valSuccess = false ; 					
+            oppErrFlag = true;
             ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
         }
+            //added below to prevent loss of interested vehicle information on opportunity error
+        if (oppErrFlag == true){
+            return null;
+        }
 
-
+		//Sada added if condition as part of defect DF -272 on 2018/june/22
+			if(valSuccess) {
         allVehicles = new list<Lead_Details__c>();
         //added for loops so that lead detail is not inserted if user oest not pick any model
         for(integer i=0;i<intVehicle.size();i++){
         system.debug('intmodel:' + intVehicle[i].Car_Model__c);
-        if(intVehicle[i].Car_Model__c!= null) allVehicles.add(intVehicle[i]);
+            if(intVehicle[i].Car_Model__c!= null || intVehicle[i].brand_picklist__c != null || intVehicle[i].class_picklist__c != null) {
+                allVehicles.add(intVehicle[i]);
+            }
         }
         for(integer i=0;i<compVehc.size();i++){
         system.debug('comptmodel:' + compVehc[i].Car_Model__c);
-        if(compVehc[i].Car_Model_Competitor__c!= null) allVehicles.add(compVehc[i]);
+            if(compVehc[i].Car_Model_Competitor__c!= null || compVehc[i].brand_picklist__c != null || compVehc[i].class_picklist__c != null) {
+                allVehicles.add(compVehc[i]);
+            }
         }
             for(integer i=0;i<tradeVehc.size();i++){
         system.debug('trademodel:' + tradeVehc[i].Car_Model__c);
@@ -226,7 +246,8 @@ system.debug(allvehicles.size()+'00000000'+allVehicles);
         catch(DmlException e){
             ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));                                          
         }
-        }        
+        }    
+		}			
         PageReference oppPage = new ApexPages.StandardController(opp).view();
         oppPage.setRedirect(true);
         return oppPage;

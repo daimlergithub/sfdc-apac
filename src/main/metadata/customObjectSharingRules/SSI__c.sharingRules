@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <ownerRules>
+        <fullName>OB_CSR_to_SSI_SV</fullName>
+        <sharedTo>
+            <role>SSI_Supervisor</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>OB_CSR</role>
+        </sharedFrom>
+        <accessLevel>Edit</accessLevel>
+        <description>Share OB CSR Profile&apos;s SSI Data to SSI Superviser</description>
+        <name>OB CSR to SSI SV</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>SSI_SV_To_CRM_Manager_CAC_Data_Mgt</fullName>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SSI_Supervisor</role>
+        </sharedFrom>
+        <accessLevel>Read</accessLevel>
+        <name>SSI SV To CRM Manager - CAC &amp; Data Mgt</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>SSI_SV_To_QC_Supervisor</fullName>
+        <sharedTo>
+            <role>CAC_QC_SV_TM</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SSI_Supervisor</role>
+        </sharedFrom>
+        <accessLevel>Read</accessLevel>
+        <name>SSI SV To QC Supervisor</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>SSI_SV_To_SSI_SV</fullName>
+        <sharedTo>
+            <role>SSI_Supervisor</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SSI_Supervisor</role>
+        </sharedFrom>
+        <accessLevel>Edit</accessLevel>
+        <name>SSI SV To SSI SV</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>SSI_SV_To_SSI_TL</fullName>
+        <sharedTo>
+            <role>SSI_TL</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SSI_Supervisor</role>
+        </sharedFrom>
+        <accessLevel>Edit</accessLevel>
+        <name>SSI SV To SSI TL</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Share_R_with_data_manager</fullName>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <accessLevel>Read</accessLevel>
+        <name>Share R with data manager</name>
+    </ownerRules>
+</CustomObjectSharingRules>

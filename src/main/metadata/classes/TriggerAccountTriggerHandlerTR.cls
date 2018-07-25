@@ -46,21 +46,27 @@ public class TriggerAccountTriggerHandlerTR implements TriggerHandlerIf{
             list<Account> socialAcc = (list<Account>)trigger.new;
             for(Account acc : socialAcc){
                 if(acc.Social_id__C!=Null && acc.RecordTypeId== accPerson_RecordTypeId){
-                boolean validId=AccountHelperTR.validateSocialIdTR(acc);
-                if(!validId){                   
-                    acc.Social_id__C.addError(Label.SocialIdError);
+                    boolean validId=AccountHelperTR.validateSocialIdTR(acc,'SocId');
+                    if(!validId){                   
+                        acc.Social_id__C.addError(Label.SocialIdError);
+                    }
                 }
-              }
             }
             list<Account> vatAcc = (list<Account>)trigger.new;
             for(Account acc : vatAcc){
                 system.debug('start validation for VAT');
-                if(acc.Vat_No__c!=Null && acc.RecordTypeId== accCompany_RecordTypeId){
-                boolean validVAT=AccountHelperTR.validateVATNoTR(acc);
-                if(!validVAT){                   
-                    acc.Vat_No__c.addError(Label.VATNOError);
+                if(acc.Vat_No__c!=Null && acc.RecordTypeId== accCompany_RecordTypeId && string.valueof(acc.Vat_No__c).length() < 11){
+                    boolean validVAT=AccountHelperTR.validateVATNoTR(acc);
+                    if(!validVAT){                   
+                        acc.Vat_No__c.addError(Label.VATNOError);
+                    }
                 }
-              }
+                else if(acc.Vat_No__c!=Null && acc.RecordTypeId== accCompany_RecordTypeId && string.valueof(acc.Vat_No__c).length() == 11){
+                    boolean validVAT=AccountHelperTR.validateSocialIdTR(acc,'VatNo');
+                    if(!validVAT){                   
+                        acc.Vat_No__c.addError(Label.SocialIdError);
+                    }
+                }
             }
             //end of social id and VAT validation
            
@@ -68,10 +74,11 @@ public class TriggerAccountTriggerHandlerTR implements TriggerHandlerIf{
             if(Util_GetPermissionList.checkAccessOnUser(Label.TRGeneric)){
                 AccountHelperTR.updateAccountFieldsBeforeUpdate(Trigger.new,(Map<Id,Account>)Trigger.OldMap,Trigger.isUpdate);
                 AccountHelperTR.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
-                
+                 AccountHelperTR.errorOnDOCPermissions(Trigger.new);
+                 AccountHelperTR.validateProvinceCodes(Trigger.new);
                 AccountHelperTR.updateOnDoNotCall(Trigger.new);
                 AccountHelperTR.updateOnPostalOptout(Trigger.new);
-                //AccountHelperTR.UpdateKVKFields(Trigger.new);
+                AccountHelperTR.UpdateKVKFields(Trigger.new);
                 AccountHelperTR.updateOnEmailOptout(Trigger.new);
                 AccountHelperTR.updateOnSMSoptout(Trigger.new);
                 AccountHelperTR.updateOnPhoneoptout(Trigger.new);
@@ -145,6 +152,7 @@ public class TriggerAccountTriggerHandlerTR implements TriggerHandlerIf{
                 AccountHelperTR.updatePrimaryAddressdisplay(Trigger.new,Trigger.isUpdate,(Map<Id,Account>)Trigger.OldMap);
                 AccountHelperTR.updateOnDoNotCall(Trigger.new);
                 AccountHelperTR.updateOnPostalOptout(Trigger.new);
+                 AccountHelperTR.validateProvinceCodes(Trigger.new);
                 AccountHelperTR.updateOnEmailOptout(Trigger.new);
                 AccountHelperTR.updateOnSMSoptout(Trigger.new);
                 AccountHelperTR.updateOnPhoneoptout(Trigger.new);

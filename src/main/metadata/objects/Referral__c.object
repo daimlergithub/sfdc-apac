@@ -83,6 +83,15 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Company_Name__c</fullName>
         <externalId>false</externalId>
         <label>Company Name</label>
@@ -164,10 +173,23 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Employee_Company__c</fullName>
+        <description>Used to display the employee Company in the Referral object to use it in the Email template</description>
+        <externalId>false</externalId>
+        <formula>Text(ReferredEmployee__r.Company__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Employee Company</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Employee_Name__c</fullName>
         <description>used to display employee name from the email template</description>
         <externalId>false</externalId>
-        <formula>ReferredEmployee__r.First_Name__c + '  '+ ReferredEmployee__r.Last_Name__c</formula>
+        <formula>ReferredEmployee__r.Last_Name__c+' '+ReferredEmployee__r.First_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Employee Name</label>
         <required>false</required>
@@ -546,29 +568,28 @@
     <fields>
         <fullName>Purpose_of_Purchasing__c</fullName>
         <externalId>false</externalId>
-        <label>Purpose of Purchasing</label>
+        <label>Types of purchase</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>As a new customer</fullName>
+                    <fullName>New customer for MB brand</fullName>
                     <default>false</default>
-                    <label>As a new customer</label>
+                    <label>New customer for MB brand</label>
                 </value>
                 <value>
-                    <fullName>As an additional car</fullName>
+                    <fullName>Purchasing additional vehicle</fullName>
                     <default>false</default>
-                    <label>As an additional car</label>
+                    <label>Purchasing additional vehicle</label>
                 </value>
                 <value>
-                    <fullName>As a replacement car</fullName>
+                    <fullName>Repl. of Long term owned MB</fullName>
                     <default>false</default>
-                    <label>As a replacement car</label>
+                    <label>Repl. of Long term owned MB</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -672,11 +693,9 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Last_Name__c</columns>
         <columns>First_Name__c</columns>
         <columns>Lead__c</columns>
         <columns>Lead_Status__c</columns>
-        <columns>Employee_Name__c</columns>
         <columns>Market__c</columns>
         <columns>Model_Type__c</columns>
         <columns>ReferredEmployee__c</columns>

@@ -938,7 +938,7 @@ public class TaskHelper {
             }   
         }
          if(leadId != Null && !leadId.isEmpty()){
-            lstLead = [Select Id,RecordTypeId,Task_Update_Flag__c,Next_Contact_Customer_Date__c,Contact_Date__c,Visited_Showroom_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c, 
+            lstLead = [Select Id,RecordTypeId,Delivery_Followup_Date1__c,Delivery_Followup_Date2__c,Delivery_Followup_Date3__c,Bookout_Followup_Date1__c,Bookout_Followup_Date2__c,Bookout_Followup_Date3__c,Task_Update_Flag__c,Next_Contact_Customer_Date__c,Contact_Date__c,Visited_Showroom_Date__c,Needs_Check_Date__c,Product_Proposal_Date__c, 
             Finance_Proposal_Date__c,Insurance_Proposal_Date__c,ServiceProgram_Proposal_Date__c,
             Simple_Estimation_Date__c,Test_Drive_Date__c,Trade_in_Date__c from Lead__c where Id =:leadId];
         }
@@ -971,6 +971,37 @@ public class TaskHelper {
                         le1.Contact_Date__c =t1.Activity_Date__c;
                         mainLead.add(le1);
                     }
+                    else if(t1.intention_status__c=='FollowUp1' && t1.Activity_Date__c!=NULL && le1.RecordTypeId == SalesLeadRectypeID)
+                    {
+                        le1.Delivery_Followup_Date1__c = t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                     else if(t1.intention_status__c=='FollowUp2' && t1.Activity_Date__c!=NULL && le1.RecordTypeId == SalesLeadRectypeID)
+                    {
+                        le1.Delivery_Followup_Date2__c = t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                     else if(t1.intention_status__c=='FollowUp3' && t1.Activity_Date__c!=NULL && le1.RecordTypeId == SalesLeadRectypeID)
+                    {
+                        le1.Delivery_Followup_Date3__c = t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                     else if(t1.intention_status__c=='FollowUp1' && t1.Activity_Date__c!=NULL && le1.RecordTypeId == AfterSalesLeadRectypeID)
+                    {
+                        le1.Bookout_Followup_Date1__c = t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                     else if(t1.intention_status__c=='FollowUp2' && t1.Activity_Date__c!=NULL && le1.RecordTypeId == AfterSalesLeadRectypeID)
+                    {
+                        le1.Bookout_Followup_Date2__c = t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+                     else if(t1.intention_status__c=='FollowUp3' && t1.Activity_Date__c!=NULL && le1.RecordTypeId == AfterSalesLeadRectypeID)
+                    {
+                        le1.Bookout_Followup_Date3__c = t1.Activity_Date__c;
+                        mainLead.add(le1);
+                    }
+
                     else if(t1.intention_status__c=='Visited' && t1.Activity_Date__c!=NULL)
                     {
                         le1.Visited_Showroom_Date__c = t1.Activity_Date__c;

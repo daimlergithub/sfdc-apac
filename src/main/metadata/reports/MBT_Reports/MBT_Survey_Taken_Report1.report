@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Account__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Vehicle_Relationship__c.Selling_Dealer__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Campaign__c</field>
+    </columns>
+    <columns>
+        <field>SurveyTaker__c.Survey_Taking_Status__c</field>
+    </columns>
+    <description>MBT Survey Taken Report</description>
+    <format>Tabular</format>
+    <name>MBT Survey Taken Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$SurveyTaker__c@SurveyTaker__c.SurveyTakenByVehicle__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SurveyTaker__c.Survey_Taken_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -8,6 +8,15 @@
 global class BbqRankCalculation implements Schedulable,Database.Batchable<sObject>,Database.Stateful {
     //04172018 - added Market variable, custom setting variable and constructors; default constructor for SG for backward compatibility
     private String sMkt;
+    Integer referralCount=0;
+    Integer referralWonCount=0;
+    Integer rankRefJP2 = 1;
+    Integer rankRef = 1;
+    Integer rankRefJP = 1;
+    Map<Decimal, Integer> refPointsMapJP =  new Map<Decimal, Integer>();            
+    Map<Decimal, Integer> refPointsMap =  new Map<Decimal, Integer>();        
+    Map<Decimal, Integer> refPointsMapJP2 =  new Map<Decimal, Integer>();
+            
     List<BBQRankingMarkets__c> lstMarkets = BBQRankingMarkets__c.getAll().values();
     Integer MktSize = lstMarkets.size();
     Integer currMkt;
@@ -40,8 +49,7 @@ global class BbqRankCalculation implements Schedulable,Database.Batchable<sObjec
     }
     global void execute(Database.BatchableContext bc, List<Employee__c> referralRankList){
         list<Employee__c> refList=new List<Employee__c>();
-        Map<Decimal, Integer> refPointsMap =  new Map<Decimal, Integer>();
-        Integer rankRef = 1;
+        
         for(Employee__c ref: referralRankList){
             if (refPointsMap.size()>0 && refPointsMap.get(ref.points__c)!=null){
                 ref.Rank__c = refPointsMap.get(ref.points__c);    
@@ -62,15 +70,17 @@ global class BbqRankCalculation implements Schedulable,Database.Batchable<sObjec
             list<period> periodList=[Select StartDate,EndDate From Period Where type = 'Quarter' and StartDate = THIS_FISCAL_QUARTER];
             Date dstartday = periodList[0].StartDate;      
             Date dendDay = periodList[0].EndDate;  
-            list<Employee__c> empList1=new list<Employee__c>();
-            Map<Decimal, Integer> refPointsMapJP =  new Map<Decimal, Integer>();
-            Integer rankRefJP = 1;
-            list<Employee__c> employeeList=[SELECT Id,No_of_referral__c,(select id from referral__r where CreatedDate>= :dstartday AND CreatedDate <= :dendDay) 
+            list<Employee__c> empList1=new list<Employee__c>();            
+            list<Employee__c> employeeList=[SELECT Id,No_of_referral__c,(select id from referral__r where (CreatedDate>= :dstartday AND CreatedDate <= :dendDay) AND Lead__c!=null ) 
                                             FROM Employee__c 
                                             where market__c='JP'];
             
+            //06142018 - added below Code for getting all referral Count in current quarter.
+            referralCount=[select count() from referral__C where CreatedDate = THIS_QUARTER and lead__c !=null];
+            
             for(Employee__c emp:employeeList){
                 emp.No_of_referral__c=emp.referral__r.size();
+                emp.AllReferralsCreated__c=referralCount;
             } 
             if(employeeList.size()>0)
                 update employeeList;
@@ -78,8 +88,9 @@ global class BbqRankCalculation implements Schedulable,Database.Batchable<sObjec
                           FROM Employee__c 
                           where market__c='JP' order by No_of_referral__c DESC];
             for(Employee__c emp:employeeList){
-                
-                if (refPointsMapJP.size()>0 && refPointsMapJP.get(emp.No_of_referral__c)!=null){
+                if(emp.No_of_referral__c==0){
+                    emp.Rank_of_Employee_with_referrals_made__c=0;
+                }else if (refPointsMapJP.size()>0 && refPointsMapJP.get(emp.No_of_referral__c)!=null){
                     emp.Rank_of_Employee_with_referrals_made__c = refPointsMapJP.get(emp.No_of_referral__c);    
                 }else{
                     emp.Rank_of_Employee_with_referrals_made__c = rankRefJP; 
@@ -93,14 +104,17 @@ global class BbqRankCalculation implements Schedulable,Database.Batchable<sObjec
             } 
             //update no of referrals won this quarter and rank for it
             list<Employee__c> empList2=new list<Employee__c>();
-            Map<Decimal, Integer> refPointsMapJP2 =  new Map<Decimal, Integer>();
-            Integer rankRefJP2 = 1;
+            
             list<Employee__c> employeeListJP=[SELECT Id,No_of_closed_Won__c,(select id,Last_Name__c from referral__r where Status__c='Won' AND (CreatedDate>= :dstartday AND CreatedDate <= :dendDay)) 
                                               FROM Employee__c 
                                               where market__c='JP'];
             
+            //06142018 - added below Code for getting all referrals Won Count in current quarter.            
+            referralWonCount=[SELECT count() FROM Referral__c WHERE CreatedDate = THIS_QUARTER and lead__c != null and Status__c = 'Won' ];
+            
             for(Employee__c emp:employeeListJP){
                 emp.No_of_closed_Won__c=emp.referral__r.size();
+                emp.AllReFerralsWonCreated__c=referralWonCount;
             } 
             if(employeeListJP.size()>0)
                 update employeeListJP;
@@ -108,7 +122,9 @@ global class BbqRankCalculation implements Schedulable,Database.Batchable<sObjec
                             FROM Employee__c 
                             where market__c='JP' order by No_of_closed_Won__c DESC];
             for(Employee__c emp:employeeListJP){
-                if (refPointsMapJP2.size()>0 && refPointsMapJP2.get(emp.No_of_closed_Won__c)!=null){
+                if(emp.No_of_closed_Won__c==0){
+                    emp.Rank_of_Employee_with_closed_won__c=0;
+                }else if (refPointsMapJP2.size()>0 && refPointsMapJP2.get(emp.No_of_closed_Won__c)!=null){
                     emp.Rank_of_Employee_with_closed_won__c = refPointsMapJP2.get(emp.No_of_closed_Won__c);    
                 }else{
                     emp.Rank_of_Employee_with_closed_won__c = rankRefJP2; 

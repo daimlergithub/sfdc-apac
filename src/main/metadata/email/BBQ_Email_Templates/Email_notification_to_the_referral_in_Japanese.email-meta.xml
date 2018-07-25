@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email Notification to Referral in Japanese</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Daimler</letterhead>
+    <name>Email notification to the referral in Japanese</name>
+    <style>freeForm</style>
+    <subject>メルセデス・ベンツ日本株式会社より「紹介販売プログラム」によるご紹介のお知らせ</subject>
+    <textOnly>{!Referral__c.Last_Name_Native__c} {!Referral__c.First_Name_Native__c} 様、
+
+
+この度はメルセデス・ベンツ及びスマートのご購入を検討いただき誠にありがとうございます。
+
+弊社の「紹介販売プログラム (BBQ アプリ)」を通じて、{!Referral__c.Company_Name__c} 従業員 {!Referral__c.Employee_Name__c} よりお客様が {!Referral__c.Model_Type__c} の購入を検討頂いていることをご紹介をいただきました。
+
+
+
+お客様の情報及びご購入希望車種情報を紹介時にご選択いただいたメルセデス・ベンツ正規販売店に弊社から提供させていただき、近日中に販売店よりお客様にご連絡をさせていただきます。
+
+
+なお、紹介をキャンセルされたい場合、または紹介された覚えがない場合は至急メルセデスコールまでお電話にてご連絡ください。
+
+
+メルセデスコール0120-190-610
+
+営業時間 24時間365日 年中無休
+
+※システムメンテナンス等によりサービスを休止する場合があります。あらかじめご了承下さい。
+
+
+■ 紹介販売プログラムについて
+
+• すでに販売店と商談が始まっている場合は、本紹介販売プログラムの対象外となります。
+
+• 紹介完了のEメールを受信後6か月以内に新車を登録いただいた場合、紹介販売記念品として、弊社よりメルセデス・ベンツ正規販売店または Mercedes me Tokyo/Osaka でのアクセサリ/コレクション購入時に利用可能な3万円分のクーポン、または Mercedes me Tokyo でのみご利用可能な送迎付き特別ディナー (Mercedes-Benz SPECIAL DINNER COURSE) ペアチケットをお渡しさせていただきます(送迎場所は東京23区内に限らせていただきます)。
+
+• 紹介販売記念品の第三者への譲渡、換金などは一切できません。
+
+• 購入後の車両等の不具合・故障の修理点検・保証作業の実施その他車両等に関するお問い合わせについては、正規販売店が対応させていただきます。
+
+
+■ 個人情報の取扱いについて
+
+弊社によるお客様の個人情報の取扱いについては以下のリンクよりご確認いただけます。
+
+https://member.mercedes-benz.co.jp/bbq_terms/HandlingofPersonalInformation_J.pdf
+
+
+==================================================================
+
+【「紹介販売プログラム (BBQ アプリ)」に関するお問い合わせ先】
+
+・メルセデス・ベンツ日本株式会社
+
+メルセデスコール：0120‐190‐610
+
+・営業時間/24時間365日 年中無休
+
+※システムメンテナンス等によりサービスを休止する場合があります。
+
+　あらかじめご了承ください。
+
+
+　　ホームページ：http://www.mercedes-benz.co.jp/
+
+
+■このメールは送信専用のアドレスより配信しております。
+
+恐れ入りますが返信はお控えください。
+
+
+==================================================================</textOnly>
+    <type>html</type>
+</EmailTemplate>

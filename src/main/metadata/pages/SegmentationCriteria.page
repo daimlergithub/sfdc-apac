@@ -7,8 +7,12 @@
     <apex:stylesheet value="{!URLFOR($Resource.RetailCampaignSegmentation)}"/> 
     
     <script>
-
-
+    
+ if ($User.MD__c = 'JP')
+ {
+alert('{!$Label.This_function_cannot_be_used}');
+  }
+  
         var filterNames = '';
         var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;LastWorkDate__c;LastInspectionDate__c;';
 

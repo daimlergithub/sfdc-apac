@@ -10,10 +10,16 @@
 
 public class TriggerAccountLinkTriggerHandlerJP 
     implements TriggerHandlerIf
-{ 
+{ 	
+	Map<String, JP_Switch__c> jpSwitchMap = JP_Switch__c.getAll();
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore,boolean isDelete,boolean isAfter)
     {
-        if(LeadUtil.isAcctrigger )
+			Boolean CDMRCCreation = false;	
+				if(!jpSwitchMap.isEmpty() && jpSwitchMap.containsKey('CDM RC Creation and Update')){
+					CDMRCCreation = jpSwitchMap.get('CDM RC Creation and Update').Enable_Flag__c;
+				}		
+		
+		if(LeadUtil.isAcctrigger )
         {
             if(Trigger.isBefore && Trigger.isInsert)
             {        
@@ -40,6 +46,9 @@ public class TriggerAccountLinkTriggerHandlerJP
                 }
                 AccountLinkHelper.deleteduplicatec2calk(Trigger.new);
                 //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
+				if (!System.isFuture() && CDMRCCreation) {
+					AccountLinkHelperBase.CDMAccountlinkContextGroup(trigger.new,'JP',Label.InsertContext );
+				}
             }
             if(Trigger.isAfter && Trigger.isDelete)
             {
@@ -59,7 +68,12 @@ public class TriggerAccountLinkTriggerHandlerJP
                 LeadUtil.Share2contactUpdate=false;
                 }
                 AccountLinkHelper.updateAccountlinks(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
-                
+                if (!System.isFuture() && CDMRCCreation) {
+				 if (TriggerRecursiveCheck.run2 && !System.isFuture()) {
+                     TriggerRecursiveCheck.runOnce2();
+                     AccountLinkHelperBase.CDMAccountlinkContextGroup(trigger.new, 'JP', Label.UpdateContext); 
+                    }   
+				}
                 //AccountLinkHelper.updateAccountlinksonPrimaryAddress(trigger.new ,oldmap ,trigger.isUpdate,trigger.isinsert);
             }
         }

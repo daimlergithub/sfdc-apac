@@ -16,7 +16,6 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf {
             LeadHelperBase.updatemarket(Trigger.New);
             leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new, trigger.isupdate);
             leadRS.leadValidation(Trigger.new);
-
             leadRS.updateOwner(Trigger.new);
         }
 
@@ -24,10 +23,9 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf {
             leadRS.leadValidation(trigger.new);
             leadRS.updateOwnerwithDealer(Trigger.new);
             LeadHelperTH.changeDealerAccount(Trigger.new);
-            system.debug('naren');
         }
         if (Trigger.isafter && (Trigger.isinsert || Trigger.isUpdate) && usr.Profile.Name != 'IntegrationAPI') {
-
+		LeadHelperTH.UpdateRetailCampaingAmount(trigger.new);
             if (LeadHelperTH.booleanCampaignUpdate) {
                 LeadHelperTH.booleanCampaignUpdate = false;
                 leadRS.updateAllWorkflowsActionsAfterInsert(Trigger.new, trigger.isupdate);
@@ -49,11 +47,28 @@ public class LeadTriggerHandlerTH implements TriggerHandlerIf {
                 }
             }
         }
-
-
     }
     public void handleIntegrationTrigger(boolean isInsert, boolean isUpdate, boolean isBefore, boolean isDelete, boolean isAfter) {
         // Implementation to addedd as required in market
+		LeadHelperTH leadRS = new LeadHelperTH();
+		//Added below code for Calling Informatica service for Integration user By Ashish Jadhav 23 july, 2018 for Update
+        List<Lead__c> leadList = Trigger.new;
+        Map<Id,SObject> leadOldMap= Trigger.oldMap;
+        if(!isDelete){
+            if(leadList != null && leadList.size() > 0 && leadList[0].MD__c == 'TH'){
+                if (Trigger.isafter && Trigger.isinsert) {
+                    Map<Id, Lead__c> ldForCDM = new Map<Id, Lead__c>();
+                    for (Lead__c ld: leadList){
+                        if (String.isnotblank(ld.StouchLeadID__c)){
+                            ldForCDM.put(ld.id,ld);
+                        }
+                    }
+                    System.debug('call to CDM Service');
+                    if(ldForCDM != null && ldForCDM.size() > 0)
+                        leadRS.CdmLeadcreate(trigger.new, (Map < Id, Lead__C > ) ldForCDM);
+                }
+            }
+        }
     }
 
 }

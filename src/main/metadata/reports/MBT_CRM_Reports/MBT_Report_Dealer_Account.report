@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Dealer_Address_EN__c</field>
+    </columns>
+    <columns>
+        <field>Account.Dealer_ND_Code__c</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>Account.Dealer_GC_Code__c</field>
+    </columns>
+    <columns>
+        <field>Account.Dealer_GS_Code__c</field>
+    </columns>
+    <columns>
+        <field>Account.Dealer_Alternate_Name__c</field>
+    </columns>
+    <description>MBT Report - Dealer Account</description>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Account.Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Market__c</column>
+            <operator>equals</operator>
+            <value>TR</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>MBT Report - Dealer Account</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

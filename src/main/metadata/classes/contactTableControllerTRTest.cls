@@ -22,30 +22,31 @@ public class contactTableControllerTRTest {
         objAccount.RecordTypeId = personAccRecordTypeId;
         objAccount.Dealer_DMS_SR_Code__c='test code 2';
         objAccount.Individual_Home_Phone__c = '+905698745698';
-        objAccount.Home_Phone_2__c = '+911234567890';
-        objAccount.Work_Phone__c = '+911234567890';
-        objAccount.Status__c='NoCustomer';
+        //objAccount.Home_Phone_2__c = '+911234567890';
+        objAccount.Work_Phone__c = '+905698745698';
+        objAccount.Mobile__c='+905698745698';
+        objAccount.Status__c='Prospect';
         objAccount.Email__c = 'testemail@test.com';
-        objAccount.Email2__c = 'testemail2@test.com';
-        objAccount.Email3__c = 'testemail3@test.com';
-        objAccount.City__c='Beijing';
+        //objAccount.Email2__c = 'testemail2@test.com';
+        //objAccount.Email3__c = 'testemail3@test.com';
+        objAccount.City__c='Ankara';
         objAccount.Gender__c = 'Male';
-        objAccount.Phone = '+911234567890';
-        objAccount.Fax = '+911234567890';
-        objAccount.Area_code__c = '010';
-        objAccount.MD__c = 'TR';
+        objAccount.Phone = '+905234567890';
+        //objAccount.Fax = '+911234567890';
+        //objAccount.Area_code__c = '010';
+        //objAccount.MD__c = 'TR';
 		objAccount.Market__c = 'TR';
         objAccount.LastName = 'galaxy1';
         objAccount.FirstName = 'First Name';
         objAccount.Salutation = 'Unknown';
-        objAccount.Province__c = 'Shanghai';
+        objAccount.Province__c = 'Akyurt';
         objAccount.ZipCode__c= '10023';
-        objAccount.Data_Source__c='Email';
-        objAccount.Mobile__c = '+911234567890';
-        objAccount.Mobile2__c = '+911234567891';
-        objAccount.Primary_Email__c = 'Email1';
-        objAccount.Primary_Fax__c = 'FAX2';
-        objAccount.Primary_Phone__c ='Other2';
+        objAccount.Data_Source__c='MBT Event';
+        
+        //objAccount.Mobile2__c = '+911234567891';
+        //objAccount.Primary_Email__c = 'Email1';
+        //objAccount.Primary_Fax__c = 'FAX2';
+        //objAccount.Primary_Phone__c ='Other2';
         insert objAccount;
 	 }		
     }    
@@ -60,30 +61,30 @@ public class contactTableControllerTRTest {
         objAccount.RecordTypeId = personAccRecordTypeId;
         objAccount.Dealer_DMS_SR_Code__c='test code 2';
         objAccount.Individual_Home_Phone__c = '';
-        objAccount.Home_Phone_2__c = '';
-        objAccount.Work_Phone__c = '';
+        //objAccount.Home_Phone_2__c = '';
+        objAccount.Work_Phone__c = '+905234567890';
         objAccount.Status__c='NoCustomer';
         objAccount.Email__c = 'testemail@test.com';
-        objAccount.Email2__c = 'testemail2@test.com';
-        objAccount.Email3__c = 'testemail3@test.com';
-        objAccount.City__c='Beijing';
+        //objAccount.Email2__c = 'testemail2@test.com';
+        //objAccount.Email3__c = 'testemail3@test.com';
+        objAccount.City__c='Ankara';
         objAccount.Gender__c = 'Male';
         objAccount.Phone = '';
-        objAccount.Fax = '';
-        objAccount.Area_code__c = '010';
+        //objAccount.Fax = '';
+        //objAccount.Area_code__c = '010';
         objAccount.MD__c = 'TR';
 		objAccount.Market__c = 'TR';
         objAccount.LastName = 'galaxy1';
         objAccount.FirstName = 'First Name';
-        objAccount.Salutation = 'Unknown';
-        objAccount.Province__c = 'Shanghai';
+        //objAccount.Salutation = 'Unknown';
+        objAccount.Province__c = 'Akyurt';
         objAccount.ZipCode__c= '10023';
-        objAccount.Data_Source__c='Email';
-        objAccount.Mobile__c = '+911234567890';
-        objAccount.Mobile2__c = '';
-        objAccount.Primary_Email__c = 'Email1';
-        objAccount.Primary_Fax__c = 'FAX2';
-        objAccount.Primary_Phone__c ='Other2';
+        objAccount.Data_Source__c='MBT Event';
+        objAccount.Mobile__c = '+905234567890';
+        //objAccount.Mobile2__c = '';
+        //objAccount.Primary_Email__c = 'Email1';
+        //objAccount.Primary_Fax__c = 'FAX2';
+        //objAccount.Primary_Phone__c ='Other2';
         insert objAccount;
 		}		
     } 
@@ -98,30 +99,30 @@ public class contactTableControllerTRTest {
         objAccount.RecordTypeId = personAccRecordTypeId;
         objAccount.Dealer_DMS_SR_Code__c='test code 2';
         objAccount.Individual_Home_Phone__c = '';
-        objAccount.Home_Phone_2__c = '';
+        //objAccount.Home_Phone_2__c = '';
         objAccount.Work_Phone__c = '';
-        objAccount.Status__c='NoCustomer';
+        objAccount.Status__c='Prospect';
         objAccount.Email__c = 'testemail@test.com';
-        objAccount.Email2__c = 'testemail2@test.com';
-        objAccount.Email3__c = 'testemail3@test.com';
-        objAccount.City__c='Beijing';
+        //objAccount.Email2__c = 'testemail2@test.com';
+        //objAccount.Email3__c = 'testemail3@test.com';
+        objAccount.City__c='Ankara';
         objAccount.Gender__c = 'Male';
         objAccount.Phone = '';
-        objAccount.Fax = '';
+        //objAccount.Fax = '';
         objAccount.Area_code__c = '010';
         objAccount.Market__c = 'TR';
 		objAccount.MD__c = 'TR';
         objAccount.LastName = 'galaxy1';
         objAccount.FirstName = 'First Name';
-        objAccount.Salutation = 'Unknown';
-        objAccount.Province__c = 'Shanghai';
+        //objAccount.Salutation = 'Unknown';
+        objAccount.Province__c = 'Akyurt';
         objAccount.ZipCode__c= '10023';
         objAccount.Data_Source__c='Email';
-        objAccount.Mobile__c = '1234567890';
-        objAccount.Mobile2__c = '';
-        objAccount.Primary_Email__c = 'Email1';
-        objAccount.Primary_Fax__c = 'FAX2';
-        objAccount.Primary_Phone__c ='Other2';
+        objAccount.Mobile__c = '';
+        //objAccount.Mobile2__c = '';
+        //objAccount.Primary_Email__c = 'Email1';
+        //objAccount.Primary_Fax__c = 'FAX2';
+        //objAccount.Primary_Phone__c ='Other2';
         insert objAccount;
 		}		
     } 
@@ -166,6 +167,18 @@ public class contactTableControllerTRTest {
     
     public static testMethod void UpdateAccountTest1() {
         createTestData1();
+		system.runas(usr){
+        ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
+        ContactTableController ctc = new ContactTableController(sc);
+        test.startTest();
+        ctc.EditAccount();
+        ctc.UpdateAccountTR();
+        test.stoptest();
+        system.assertEquals(objAccount.Individual_Home_Phone__c,'');
+		}
+    }
+    public static testMethod void UpdateAccountTest2() {
+        createTestData2();
 		system.runas(usr){
         ApexPages.StandardController sc = new ApexPages.StandardController(objAccount);
         ContactTableController ctc = new ContactTableController(sc);

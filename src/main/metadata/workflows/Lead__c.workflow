@@ -1175,7 +1175,7 @@ Purchased_Date_Time__c
             <name>Lead_Customer_Intention_OB_Call_Task</name>
             <type>Task</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( CONTAINS($Profile.Name,'MBF'),MD__c='JP', RecordType.Name ='Sales Leads', NOT(ISNULL(Existing_Contract__c)),  ISPICKVAL(Existing_Contract__r.Status__c,'Active'),ISPICKVAL(Existing_Contract__r.Sales_Type__c, 'Retail'),NOT(ispickval(Customer_Intention__c ,'')), AND(NOT(IsPICKVAL(Finance_Product_Name__c,'Re-loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Start Up Plan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Normal Loan')) ,NOT(IsPICKVAL(Finance_Product_Name__c,'Dual Auto Loan')),NOT(IsPICKVAL(Finance_Product_Name__c,'Welcome Plan Plus')),NOT(IsPICKVAL(Finance_Product_Name__c,'Super Welcome Plan Plus'))))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>

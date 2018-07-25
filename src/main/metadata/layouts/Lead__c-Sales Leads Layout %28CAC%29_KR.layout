@@ -53,9 +53,9 @@
                 <field>Is_Assigned__c</field>
             </layoutItems>
 			<layoutItems>
-+                <behavior>Edit</behavior>
-+                <field>Lost_Status_Tracking__c</field>
-+            </layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lost_Status_Tracking__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Lost_Dealer_Date__c</field>
@@ -234,6 +234,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Sales_Consultant__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>DMS_Sent_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

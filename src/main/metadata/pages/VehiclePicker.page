@@ -109,10 +109,14 @@
            }
            if($scope.leadVehicles.CompetitorVehicle.Class != ""){
              $scope.vehicleClass = $scope.leadVehicles.CompetitorVehicle.Class;
+             console.log($scope.selectedCompetitorClasses);
              $scope.selectedCompetitorClasses = $scope.vehicleClass;
+             console.log($scope.vehicleClass);
            }
            if($scope.leadVehicles.CompetitorVehicle.Model != ""){
+             console.log($scope.leadVehicles.CompetitorVehicle.Model);
              $scope.vehicleModel = $scope.leadVehicles.CompetitorVehicle.Model;
+             console.log($scope.vehicleModel);
              $scope.selectedCompetitorModel = $scope.vehicleModel;
            }
            if($scope.leadVehicles.CompetitorVehicle.Colour)
@@ -127,6 +131,7 @@
              $scope.competitorRecType = $scope.leadVehicles.CompetitorVehicle.RecordType;
        }
        
+       console.log($scope.leadVehicles.CurrentVehicle1);
        console.log($scope.leadVehicles.CurrentVehicle1);
        /*CURRENT VEHICLE1 : Vehicle Intitialization details*/
        if($scope.leadVehicles.CurrentVehicle1 != undefined){
@@ -286,6 +291,7 @@
                         $scope.classModel = $scope.brand_class_modelWrap[1];
                         $scope.relatedClasses = $scope.brandsClasses[selected_Brand];
                         $scope.models = $scope.classModel[selected_Class];
+                        
                         $scope.$apply();
              });
         }
@@ -299,11 +305,15 @@
       
          /*Set the initial Model values for the vehicle which is already selected*/
          $scope.setModelValue = function(class_selected){
-            $scope.models = $scope.classModel[class_selected];
+            console.log(class_selected);
+            $scope.models = $scope.classModel[class_selected].sort();
+            console.log($scope.models);
          }
         
          $scope.getSelectedModel = function (model_value){
+            console.log(model_value);
             $scope.selectedModel = model_value;
+            console.log($scope.selectedModel);
          }              
             
          $scope.refreshLookupData = function(details){
@@ -448,6 +458,7 @@
             }
                 console.log($scope.status_type);
                 /*Fetch the car models based on status types here*/
+                console.log(selectedBrand);
                 $scope.getCarModelsForLeadVehicle($scope.status_type, selectedBrand, selectedClass+selectedBrand);
                 
           }  
@@ -462,28 +473,47 @@
           $scope.saveDetail = function (vehicleType, operation) {   
               console.log(vehicleType);
               console.log(operation);
+              console.log($scope.models);
+              console.log(document.getElementById("modelItems").value);
+              console.log(document.getElementById("brandItems").value);
+              
               $scope.brands.sort(function (a, b) {
                            return a.toLowerCase().localeCompare(b.toLowerCase());
                                  });
-              $scope.relatedClasses.sort();
-              $scope.models.sort();
+              $scope.relatedClasses.sort(function (a, b) {
+                           return a.toLowerCase().localeCompare(b.toLowerCase());
+                                 });
+                                
+              /*$scope.models.sort();*/
+             
               $scope.vehicleDetail = false;
               $scope.leadVehicletype = vehicleType; 
-              $scope.recordId = '{!currentRecordId}';             
+              
+              $scope.recordId = '{!currentRecordId}'; 
+              console.log($scope.recordId);            
               $scope.brandVal = document.getElementById("brandItems").value;
+              console.log($scope.brands[$scope.brandVal]); 
               $scope.classVal = document.getElementById("classItems").value;
+              console.log($scope.relatedClasses[$scope.classVal]); 
               $scope.colourVal = document.getElementById("colourValue").value;
+              console.log($scope.colourVal); 
               $scope.trimVal = document.getElementById("trimValue").value;
+              console.log($scope.trimVal ); 
               console.log($scope.interestedamgValue.value);
               $scope.amgVal = $scope.interestedamgValue.value;       
               console.log($scope.amgVal);
+              
               $scope.modelVal = document.getElementById("modelItems").value;
+               console.log($scope.models[$scope.modelVal]);
+               
               $scope.mileage = document.getElementById("mileageValue").value; 
               
-              
+              console.log($scope.brands[parseInt($scope.brandVal)]);
+              console.log($scope.relatedClasses[parseInt($scope.classVal)]);
+              console.log($scope.models[parseInt($scope.modelVal)]);
               $scope.vehicleAttributes = [ { 
                                              Brand:$scope.brands[parseInt($scope.brandVal)], Class:$scope.relatedClasses[parseInt($scope.classVal)],
-                                             Colour:$scope.colourVal, Model:$scope.models[$scope.modelVal],
+                                             Colour:$scope.colourVal, Model:$scope.models[parseInt($scope.modelVal)],
                                              Trim:$scope.trimVal,AMG:$scope.interestedamgValue.value,Mileage:$scope.mileage, LeadVehicleType:$scope.leadVehicletype,
                                              CurrentRecordId:$scope.recordId, Lookup:"false", Operation:operation
                                            }
@@ -821,7 +851,7 @@
                 </tr>
                 <tr>
                     <td>{!$label.Model}</td>
-                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCompetitorModel)" ng-model="selectedCompetitorModel" ng-options="model for model in models | orderBy:'toString()'"></select></td>
+                    <td><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedCompetitorModel)" ng-model="selectedCompetitorModel" ng-options="model for model in models"></select></td>
                     <td>{!$label.Mileage}</td>
                     <td><input id="mileageValue" type="text" ng-model="c_vehicleMilage" style="width:150px" /></td>
                 </tr> 
@@ -1051,4 +1081,3 @@
     </html>
 </apex:form>
 </apex:page>
-

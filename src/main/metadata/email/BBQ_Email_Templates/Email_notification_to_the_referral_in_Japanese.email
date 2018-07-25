@@ -1,0 +1,68 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#000000; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" style="" face="Arial, sans-serif" size="4"><font style="">{!Referral__c.Last_Name__c}</font><font style="">&nbsp;&nbsp;</font><font style="">{!Referral__c.First_Name__c}&nbsp;</font>様、</font></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><o:p><font color="#ffffff" face="Arial, sans-serif" size="4">&nbsp;</font></o:p></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" face="Arial, sans-serif" size="4"><span lang="JA" style="">この度はメルセデス・ベンツ及びスマートのご購入を検討いただき誠にありがとうございます。</span><o:p></o:p></font></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font face="Arial, sans-serif" size="4" color="#ffffff"><span style="background-color: rgb(0, 0, 0);"><span lang="JA" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">弊社の「紹介販売プログラム</span><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">&nbsp;(BBQ&nbsp;</span><span lang="JA" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">アプリ</span><span style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">)</span><span lang="JA" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">」を通じて、</span></span>{!Referral__c.Employee_Company__c}&nbsp;<span lang="JA" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">従業員</span><span lang="JA" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">&nbsp;</span><span lang="JA" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">{!Referral__c.Employee_Name__c}&nbsp;よりお客様が&nbsp;</span><span lang="JA" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">{!Referral__c.Model_Type__c}&nbsp;の購入を検討頂いていることをご紹介をいただきました。</span></font></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff"><span style="background-color: rgb(0, 0, 0);"><span lang="JA" style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><font size="4" face="Arial, sans-serif"><br></font></span></span></font></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">お客様の情報及びご購入希望車種情報を紹介時にご選択いただいたメルセデス・ベンツ正規販売店に弊社から提供させていただき、近日中に販売店よりお客様にご連絡をさせていただきます。</span><o:p></o:p></font></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><o:p><font color="#ffffff" size="4" face="Arial, sans-serif">&nbsp;</font></o:p></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif" style=""><span lang="JA" style="">なお、紹介をキャンセルされたい場合、または紹介された覚えがない場合は至急メルセデスコールまでお電話にてご連絡ください。</span><font color="#000000"><o:p></o:p></font></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><o:p><font color="#ffffff" size="4" face="Arial, sans-serif">&nbsp;</font></o:p></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">メルセデスコール</span>0120-190-610<o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">営業時間</span> 24<span lang="JA" style="">時間</span>365<span lang="JA" style="">日</span><span lang="JA"> </span><span lang="JA" style="">年中無休</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">※システムメンテナンス等によりサービスを休止する場合があります。あらかじめご了承下さい。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style=""><br></span></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font size="4" face="Arial, sans-serif"><span lang="JA" style=""><font color="#ffffff">紹介プログラム ID:&nbsp;&nbsp;</font></span><font color="#ffffff">{!Referral__c.Name}</font></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><o:p><font color="#ffffff" size="4" face="Arial, sans-serif">&nbsp;</font></o:p></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">■</span><span lang="JA"> </span><span lang="JA" style="">紹介販売プログラムについて</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin: 0in 0in 0.0001pt 14.2pt; text-indent: -14.2pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">•</span>&nbsp;&nbsp;&nbsp; <span lang="JA" style="">すでに販売店と商談が始まっている場合は、本紹介販売プログラムの対象外となります。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin: 0in 0in 0.0001pt 14.2pt; text-indent: -14.2pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">•</span>&nbsp;&nbsp;&nbsp; <span lang="JA" style="">紹介完了の</span>E<span lang="JA" style="">メールを受信後</span>6<span lang="JA" style="">か月以内に新車を登録いただいた場合、紹介販売記念品として、弊社よりメルセデス・ベンツ正規販売店または</span>
+Mercedes me Tokyo/Osaka <span lang="JA" style="">でのアクセサリ</span>/<span lang="JA" style="">コレクション購入時に利用可能な</span>3<span lang="JA" style="">万円分のクーポン、または</span> Mercedes me Tokyo <span lang="JA" style="">でのみご利用可能な送迎付き特別ディナー</span>
+(Mercedes-Benz SPECIAL DINNER COURSE) <span lang="JA" style="">ペアチケットをお渡しさせていただきます</span>(<span lang="JA" style="">送迎場所は東京</span>23<span lang="JA" style="">区内に限らせていただきます</span>)<span lang="JA" style="">。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin: 0in 0in 0.0001pt 14.2pt; text-indent: -14.2pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">•</span>&nbsp;&nbsp;&nbsp; <span lang="JA" style="">紹介販売記念品の第三者への譲渡、換金などは一切できません。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin: 0in 0in 0.0001pt 14.2pt; text-indent: -14.2pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">•</span>&nbsp;&nbsp;&nbsp; <span lang="JA" style="">購入後の車両等の不具合・故障の修理点検・保証作業の実施その他車両等に関するお問い合わせについては、正規販売店が対応させていただきます。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><o:p><font color="#ffffff" size="4" face="Arial, sans-serif">&nbsp;</font></o:p></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">■</span><span lang="JA"> </span><span lang="JA" style="">個人情報の取扱いについて</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">弊社によるお客様の個人情報の取扱いについては以下のリンクよりご確認いただけます。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0);"><font color="#ffffff" size="4" face="Arial, sans-serif"><a href="https://member.mercedes-benz.co.jp/bbq_terms/HandlingofPersonalInformation_J.pdf" target="_blank">https://member.mercedes-benz.co.jp/bbq_terms/HandlingofPersonalInformation_J.pdf</a><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><o:p><font color="#ffffff" size="4" face="Arial, sans-serif">&nbsp;</font></o:p></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif">==================================================================<o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">【「紹介販売プログラム</span> (BBQ <span lang="JA" style="">アプリ</span>)<span lang="JA" style="">」に関するお問い合わせ先】</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">・メルセデス・ベンツ日本株式会社</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif">&nbsp; <span lang="JA" style="">メルセデスコール：</span>0120<span lang="JA" style="">‐</span>190<span lang="JA" style="">‐</span>610<o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">・営業時間</span>/24<span lang="JA" style="">時間</span>365<span lang="JA" style="">日</span><span lang="JA"> </span><span lang="JA" style="">年中無休</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">※システムメンテナンス等によりサービスを休止する場合があります。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">　あらかじめご了承ください。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><o:p><font color="#ffffff" size="4" face="Arial, sans-serif">&nbsp;</font></o:p></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">　　ホームページ：</span>http://www.mercedes-benz.co.jp/<o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><o:p><font color="#ffffff" size="4" face="Arial, sans-serif">&nbsp;</font></o:p></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">■このメールは送信専用のアドレスより配信しております。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif"><span lang="JA" style="">恐れ入りますが返信はお控えください。</span><o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"><font color="#ffffff" size="4" face="Arial, sans-serif">==================================================================<o:p></o:p></font></p><p class="MsoNormal" style="color: rgb(0, 0, 0); margin-bottom: 0.0001pt; line-height: normal;"></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; margin-bottom: 0.0001pt; line-height: normal;"><br></p><span style="color: rgb(255, 255, 255); font-family: &quot;Yu Mincho&quot;, serif; font-size: 12pt; font-size: 12pt;"></span><p style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"></p>]]></td>
+</tr>
+</table>

@@ -38,7 +38,7 @@ public class AftersalesLeadEditControllerInTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];
-            Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
+            Opportunity oppty = [select Id, AccountId,market__c, Name From Opportunity limit 1];
             System.debug('oppty==>' + oppty);
             ApexPages.currentPage().getParameters().put('id', oppty.Id);
             ApexPages.StandardController objStdCtrl = new ApexPages.StandardController(oppty);
@@ -64,7 +64,7 @@ public class AftersalesLeadEditControllerInTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];
-            Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
+            Opportunity oppty = [select Id, AccountId, Name,market__C From Opportunity limit 1];
             System.debug('oppty==>' + oppty);
             ApexPages.currentPage().getParameters().put('id', oppty.Id);
             ApexPages.StandardController objStdCtrl = new ApexPages.StandardController(oppty);
@@ -82,6 +82,7 @@ public class AftersalesLeadEditControllerInTest {
                     lDet.Color__c = cm.Colour__c;
                     lDet.Trim__c = cm.Trim__c;
                     lDet.Mileage__c = '40';
+                    //lDet.market__C = 'IN';
                     lDet.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
                     ldList.add(lDet);
                 }
@@ -92,6 +93,7 @@ public class AftersalesLeadEditControllerInTest {
                     lDet.Color__c = cm.Colour__c;
                     lDet.Trim__c = cm.Trim__c;
                     lDet.Mileage__c = '40';
+                    //lDet.market__C = 'IN';
                     lDet.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
                     ldList.add(lDet);
                 } 
@@ -101,6 +103,7 @@ public class AftersalesLeadEditControllerInTest {
             lDet1.Related_Lead__c = oppty.Id;
             lDet1.Trim__c = 'Medium';
             lDet1.Mileage__c = '40';
+            //lDet1.market__C = 'IN';
             lDet1.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
             ldList.add(lDet1);
             asLeadCtrl.allVehiclesList = ldList;
@@ -122,7 +125,7 @@ public class AftersalesLeadEditControllerInTest {
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];
-            Opportunity oppty = [select Id, AccountId, Name From Opportunity limit 1];
+            Opportunity oppty = [select Id, AccountId,Name,market__C From Opportunity limit 1];
             System.debug('oppty==>' + oppty);
             ApexPages.currentPage().getParameters().put('id', oppty.Id);
             ApexPages.StandardController objStdCtrl = new ApexPages.StandardController(oppty);
@@ -141,6 +144,7 @@ public class AftersalesLeadEditControllerInTest {
                     lDet.Trim__c = cm.Trim__c;
                     lDet.Preferred__c = true;
                     lDet.Mileage__c = '40';
+                    //lDet.market__C = 'IN';
                     lDet.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Interested_Record_Type);
                     ldList.add(lDet);
                 }
@@ -152,6 +156,7 @@ public class AftersalesLeadEditControllerInTest {
                     lDet.Preferred__c = true;
                     lDet.Trim__c = cm.Trim__c;
                     lDet.Mileage__c = '40';
+                    //lDet.market__C = 'IN';
                     lDet.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
                     ldList.add(lDet);
                 } 
@@ -161,6 +166,7 @@ public class AftersalesLeadEditControllerInTest {
             lDet1.Related_Lead__c = oppty.Id;
             lDet1.Trim__c = 'Medium';
             lDet1.Mileage__c = '40';
+            //lDet1.market__C = 'IN';
             lDet1.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead_Details__c', System.Label.Lead_Detail_Competitor_Record_Type);
             ldList.add(lDet1);
             asLeadCtrl.allVehiclesList = ldList;

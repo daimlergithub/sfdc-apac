@@ -34,4 +34,54 @@ public with sharing class CustomLogUtil
         
                 customLog.clear();
     }
+	
+	//Added by Sushma for MY specific requirement
+    public static void CustomLoggingEntryRecordIds(String RequestBody, String endpoint, String exceptionMsg, String Market)
+    {
+   
+        if(!CustomDebugLogEnabled) return;
+        else
+        {
+            if(Market == 'MY')
+            DebugLogInsertMY(RequestBody, endpoint, exceptionMsg, Market);
+        }       
+    }
+    
+    public static void DebugLogInsertMY(String RequestBody, String endpoint, String exceptionMsg, String Market)
+    {   
+        if(requestBody!=Null)
+        {   
+            String interfaceName = '';
+            Map < String, CDM_Integration_URLs__c > mapURLs = CDM_Integration_URLs__c.getAll();
+            for (string str: mapURLs.keyset()){
+                if (mapURLs.get(str).Informatica_URL__c == endpoint && mapURLs.get(str).country__c == Market)
+                    interfaceName = str;
+            } 
+            List<Custom_Debug_Info__c> lcdi = new List<Custom_Debug_Info__c>();    
+            List<Object> fieldList = (List<Object>)JSON.deserializeUntyped(requestBody);
+            List<Map<String,Object>> listJson=new List<Map<String,Object>>();
+            for(Object fld : fieldList){    
+                Map<String,Object> data = (Map<String,Object>)fld;              
+                listJson.add(data);
+            }
+            for(Map<String,Object> l:listJson){
+                for(String str:l.keyset()){
+                    if(str!='attributes'){
+                        Custom_Debug_Info__c cdi = new Custom_Debug_Info__c();
+                        cdi.Attribute_Name__c = str;
+                        cdi.recordID__c = ''+l.get(str);
+                        cdi.Group_by_Record__c = ''+l.get('CaseID');
+                        cdi.Logging_Date_Time__c = System.now();
+                        cdi.Error_Logged_By__c = 'SFDC';
+                        cdi.Custom_Debug_Log_Data__c = exceptionMsg;
+                        cdi.Interface_Name__c = interfaceName;
+                        lcdi.add(cdi);
+                    }   
+                }
+            } 
+            if(lcdi!=NULL || !lcdi.isEmpty()){
+                //Database.insert(lcdi, false);               
+            } 
+        }    
+    }
 }

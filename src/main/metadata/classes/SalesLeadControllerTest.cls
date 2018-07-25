@@ -5,6 +5,7 @@
 ** Date: 10-April-2018
 **/
 
+
 @IsTest
 public class SalesLeadControllerTest {
     
@@ -65,6 +66,38 @@ public class SalesLeadControllerTest {
     private static void testSaveOpportunity2() {
         test.startTest();
         User usr = TestUtils.createGenericAdminUser('India', 'Asia/Kolkata', 'IN');
+        System.runAs(usr){
+            initData();
+            Account acc = [Select Id, Name From Account limit 1];
+            Opportunity oppty = [select Id, Name From Opportunity Where AccountId =: acc.Id];
+            ApexPages.currentPage().getParameters().put('recordType','Sales Lead');
+            ApexPages.currentPage().getParameters().put('accID', acc.Id);
+            ApexPages.StandardController objsc = new ApexPages.StandardController(oppty);
+            SalesLeadController slc = new SalesLeadController(objsc);
+            PageReference pageRef = Page.SalesLeadPage;
+            
+            List<Car_Model__c> carModelList = TestUtils.createBulkCarModel(7);
+            list<Lead_Details__c> ldList = TestUtils.createBulkLeadDetails(oppty, carModelList);
+            for(Lead_Details__c ld : ldList){
+                ld.Preferred__c = true;
+                slc.allVehicles.add(ld);
+            }
+            slc.AddIntRecord();
+            slc.AddCompRecord();
+            slc.UpdateModInfo();
+            slc.Vehrel();
+            slc.PreferredChk();
+            slc.PreferredChkComp();
+            slc.saveOpp();
+            slc.Cancel();
+        }
+        test.stopTest();
+    }
+    
+       @IsTest
+    private static void testSaveOpportunity3() {
+        test.startTest();
+        User usr = TestUtils.createGenericAdminUser('Australia', 'Asia/Kolkata', 'AU');
         System.runAs(usr){
             initData();
             Account acc = [Select Id, Name From Account limit 1];

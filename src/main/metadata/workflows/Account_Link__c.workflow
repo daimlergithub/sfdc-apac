@@ -20,6 +20,15 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+		<fieldUpdates>
+        <fullName>Update_field_to_inactive</fullName>
+        <field>Active__c</field>
+        <literalValue>0</literalValue>
+        <name>Update field to inactive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Email Notification Opt-in%2FOpt -Out</fullName>
         <actions>
@@ -55,5 +64,33 @@ Retail_SMS_OptIn__c = true)
         <active>true</active>
         <formula>NOT(ISBLANK(Retail_DMS_Customer_ID__c))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+	    <rules>
+        <fullName>TH_Inactive C2C AccountLink</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account_Link__c.MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account_Link__c.End_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account_Link__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Contact2Contact</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_field_to_inactive</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account_Link__c.End_Date__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
 </Workflow>

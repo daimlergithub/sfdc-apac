@@ -1,5 +1,61 @@
 <apex:page standardController="Account" extensions="AddressSearchValidationController" action="{!goToMarketSpecificPage}"> 
 
+<style>
+    /* This is for the full screen DIV */
+    .popupBackground {
+        /* Background color */
+        background-color:black;
+        opacity: 0.20;
+        filter: alpha(opacity = 20);
+    
+        /* Dimensions */
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 998;
+        position: absolute;
+        
+        /* Mouse */
+        cursor:wait;
+    }
+ 
+    /* This is for the message DIV */
+    .PopupPanel {
+        /* Background color */
+        border: solid 2px blue;
+        background-color: white;
+ 
+        /* Dimensions */
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        top: 50%;
+        height: 50px;
+        margin-top: -25px;
+        z-index: 999;
+        position: fixed;
+        
+        /* Mouse */
+        cursor:pointer;
+    }
+</style>
+<apex:actionStatus id="statusSaveTrip" stopText="" >
+    <apex:facet name="start">
+        <div>
+            <div class="popupBackground" />
+            <div class="PopupPanel">
+                <table border="0" width="100%" height="100%">
+                    <tr>
+                        <td align="center"><b>{!$Label.Please_Wait}</b></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </apex:facet>
+</apex:actionStatus>
+
     <apex:pageMessages id="msgs" escape="False" />
     <apex:includeScript value="/support/console/20.0/integration.js"/>
     <apex:includeScript value="{!$Resource.jQuery}" />
@@ -279,6 +335,8 @@
                     <apex:inputField label="{!$Label.Email2_Acc}" value="{!objPersonAccount.Email2__c}" />
                     <apex:inputField value="{!objPersonAccount.PersonBirthdate}" />
                     <apex:inputField value="{!objPersonAccount.VIN__c}" />
+                    <apex:inputField value="{!objPersonAccount.Fax}" />
+                    <apex:inputField value="{!objPersonAccount.Fax2__c}" />
                     <!--MD Changes - Added by Santosh Mohanty-->
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
@@ -289,7 +347,7 @@
                     </apex:pageBlockSectionItem>
                     </apex:pageBlockSection>
                     <apex:pageBlockSection id="PersonAccBlock1" title="{!$Label.Allow_data_sharing2}" rendered="{!If(OR(AND(RecordType == 'Person Account',Editmode,OR(ISPICKVAL($User.Market__c,'JP'),ISPICKVAL($User.Market__c,'JP')))),true,false)}">
-                    <apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" /> 
+                    <apex:inputField value="{!objPersonAccount.Allow_Data_Sharing2__c}" required="true"/> 
                     <br>  </br>
                     <apex:inputField value="{!objPersonAccount.Acquisition_Objective_Method__c}" />
                     <apex:inputField value="{!objPersonAccount.Details_of_Acquisition__c}" />
@@ -347,6 +405,8 @@
                     <apex:outputField label="{!$Label.Email2_Acc}" value="{!objPersonAccount.Email2__c}" />
                     <apex:outputField value="{!objPersonAccount.PersonBirthdate}" />
                     <apex:outputField value="{!objPersonAccount.VIN__c}" />
+                    <apex:outputField value="{!objPersonAccount.Fax}" />
+                    <apex:outputField value="{!objPersonAccount.Fax2__c}" />
 
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
@@ -381,10 +441,9 @@
                         </apex:outputPanel>
                     </apex:pageBlockSectionItem> 
                                 
-                    <apex:inputField value="{!objAccount.Email__c}" />
-                    <apex:inputField value="{!objAccount.Status__c}" /> 
-                
-                   <apex:pageBlockSectionItem >     
+               
+
+                      <apex:pageBlockSectionItem >     
                         <apex:outputLabel value="{!$ObjectType.Account.fields.Mobile__c.Label}" />      
                         <apex:outputPanel >     
                           <apex:inputText value="{!mbCountryCode}" id="mbCountryCode" style="width:30px" />                                      
@@ -405,15 +464,24 @@
                         </apex:outputPanel>                             
                     </apex:pageBlockSectionItem> 
                                
-                                                        
-                    
-                    <apex:pageBlockSectionItem >
-                    
+                    <apex:inputField value="{!objAccount.Email__c}" />
+                     <apex:inputField value="{!objAccount.Opt_In_Email__c}" />
+             
+                 <apex:pageBlockSectionItem >
                     </apex:pageBlockSectionItem>
-                    <apex:pageBlockSectionItem >
+                    
+                   
+                    <apex:inputField value="{!objAccount.Opt_In_Phone__c}" />
+
+                       <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
                        <apex:inputField value="{!objAccount.Market__c}"/>
+                        
                     </apex:pageBlockSectionItem>
+                     <apex:inputField value="{!objAccount.Opt_In_SMS3__c}" />
+                      <apex:inputField value="{!objAccount.Status__c}" /> 
+                   <apex:inputField value="{!objAccount.Opt_In_Mail__c}" /> 
+                   
                     
                     </apex:pageBlockSection>
         <!--   AU/NZ MARKET Company Account  - End -->
@@ -496,13 +564,21 @@
  
  
                     <apex:inputField value="{!objAccount.Email__c}" />
-                    <apex:inputField value="{!objAccount.PersonBirthdate}" />
+                    <apex:inputField value="{!objAccount.Opt_In_Email__c}" />
                     <apex:inputField value="{!objAccount.Status__c}" /> 
-                   <apex:pageBlockSectionItem >
+                    <apex:inputField value="{!objAccount.Opt_In_SMS3__c}" />
+                    
+                                    
+            
+                    <apex:inputField value="{!objAccount.PersonBirthdate}" />
+                    <apex:inputField value="{!objAccount.Opt_In_Phone__c}" /> 
+                    <apex:pageBlockSectionItem >
                        <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
                        <apex:inputField value="{!objAccount.Market__c}"/>
-                    </apex:pageBlockSectionItem>                    
-            
+                    </apex:pageBlockSectionItem>    
+                    
+                    <apex:inputField value="{!objAccount.Opt_In_Mail__c}" />  
+                 
 
                     </apex:pageBlockSection>
                                    
@@ -650,7 +726,8 @@
                        <apex:outputLabel value="{!$ObjectType.Account.fields.Market__c.Label}"/>
                        <apex:inputField value="{!objAccount.Market__c}"/>
                     </apex:pageBlockSectionItem>
-                    <apex:inputField value="{!objAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>                      
+                    <apex:inputField value="{!objAccount.MBK_Data_Source__c}" rendered="{!if(Market =='KR',True,false)}"/>
+					<apex:inputField value="{!objAccount.Industry}" rendered="{!if(Market =='KR',True,false)}" required="true"/>					
                 </apex:pageBlockSection>       
         <!--  KOREA MARKET Company Account - End -->
          
@@ -1507,7 +1584,7 @@
                         <apex:commandButton id="Savebtn1" action="{!onLineDeduplication}" value="{!$Label.Save_Button_JP}" rendered="{!if(And(market=='JP',Editmode) ,True,false)}" rerender="redirectPanel,msgs,cnfm,AddrJPKRPBS1,PersonAccBlock3,PersonAccBlock2,PB1,form,companyBlock1"   status="actStatusId"/>
                     </apex:outputPanel> 
                         <apex:outputPanel >
-                    <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button_JP}" rendered="{!if(And(market=='JP',Readonly) ,True,false)}" status="actStatusId"/>
+                    <apex:commandButton id="Savebtn2" action="{!saveAccount}" value="{!$Label.Save_Button_JP}" rendered="{!if(And(market=='JP',Readonly) ,True,false)}" status="statusSaveTrip" reRender="form,msgs"/>
                     </apex:outputPanel>    
 
                     <apex:outputPanel id="redirectPanel">                  
@@ -1587,18 +1664,21 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.firstName.Label}">                    
                         <apex:outputField value="{!cr.firstName}"/>
                     </apex:Column>
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+				<!--	 <apex:Column headerValue="{!$ObjectType.Account.fields.UCID__c.Label}">                    
+                        <apex:outputField value="{!cr.UCID__c}"/>
+                    </apex:Column>-->
+                   <!-- <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
                         <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
-                    </apex:Column>
+                    </apex:Column>-->
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Phone.Label}">                    
                         <apex:outputField value="{!cr.Mobile__c}"/>
                     </apex:Column>
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>
                     </apex:Column>
-                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                  <!--   <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
-                    </apex:Column>
+                    </apex:Column>-->
                      <apex:Column headerValue="{!$Label.Address_for_Address_data}" >               
                         <apex:outputtext value="{!AddressDetails}" />
                     </apex:Column>                     
@@ -1655,19 +1735,21 @@
                     </apex:Column>                     
                 </apex:PageBlockTable>
                 </apex:PageBlock>      -->        
-                <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!if(And(market=='JP',Readonly,CompanyConfirmedMatch) ,True,false)}"  >
-                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP',Readonly) ,True,false)}">
+                <apex:pageBlock title="{!$Label.Confirmed_Match}" rendered="{!if(And(market=='JP'|| market == 'KR',Readonly,CompanyConfirmedMatch) ,True,false)}"  >
+                <apex:PageBlockTable Columns="7" value="{!objAccountDeDup}" var="cr" rendered="{!if(And(market=='JP'|| market == 'KR',Readonly) ,True,false)}">
                      
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId !=null}">  
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{And(!$User.ContactId !=null,market == 'JP')}">  
                         <apex:outputLink value="/apex/AddressSelectionforExistingCustomer?id={!cr.Id}" rendered="{!$User.ContactId !=null}">{!cr.Name}</apex:outputLink>    
                     </apex:Column>
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!$User.ContactId ==null}">  
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{And(!$User.ContactId ==null,market == 'JP')}">  
                         <apex:outputLink value="/{!cr.Id}" rendered="{!$User.ContactId ==null}">{!cr.Name}</apex:outputLink>    
                     </apex:Column> 
-                    <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
+                   <!-- <apex:Column headerValue="{!$ObjectType.Account.fields.Dealer_Address_EN__c.Label}">                    
                         <apex:outputField value="{!cr.Dealer_Address_EN__c}"/>
+                    </apex:Column>-->
+                    <apex:Column headerValue="{!$ObjectType.Account.fields.Name.Label}" rendered="{!if(market == 'KR',true,false)}">  
+                        <apex:outputLink value="/{!cr.Id}">{!cr.Name}</apex:outputLink>    
                     </apex:Column>
-                    
                      <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
                     </apex:Column>
@@ -1677,9 +1759,9 @@
                     <apex:Column headerValue="{!$ObjectType.Account.fields.Email__c.Label}">                    
                         <apex:outputField value="{!cr.Email__c}"/>
                     </apex:Column>
-                     <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
+                    <!-- <apex:Column headerValue="{!$ObjectType.Account.fields.VIN__c.Label}">                    
                         <apex:outputField value="{!cr.VIN__c}"/>
-                    </apex:Column>
+                    </apex:Column>-->
                      <apex:Column headerValue="{!$Label.Address_for_Address_data}" >                    
                         <apex:outputtext value="{!AddressDetails}"/>
                     </apex:Column>                     

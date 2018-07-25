@@ -1,0 +1,26 @@
+Dear {!Case.Case_Dealer__c} ,
+
+There is a new case registered with us {!Case.CreatedDate} on {!Case.Case_Dealer__c}
+
+Case Number : {!Case.CaseNumber}
+Customer Name : {!Case.Account}
+Vehicle : {!Case.Vehicle__c}
+VIN No : {!Case.US_VIN__c}
+Case Class : {!Case.Case_Class__c}
+Case Type : {!Case.MBTH_Case_Type__c}
+Case Sub type : {!Case.MBTH_Case_Subtype__c}
+Subject : {!Case.Subject}
+
+Description : {!Case.Subject}
+Your urgent attention is required to resolve the concern, at the earliest.
+
+Note : This email is only meant as a notification about the ageing of the concern, and does not intend to convey that that concern is left unattended at any level.
+
+Thanks and Best Regards
+
+{!Case.OwnerFullName}
+
+Customer Relationship Management
+
+Mercedez-Benz India Private Limited
+Toll Free : 1800-102-9222

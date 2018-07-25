@@ -18,20 +18,24 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Full_Name__c</field>
+                <behavior>Edit</behavior>
+                <field>Retail_DMS_Customer_ID__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Salutation__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_FirstName__c</field>
+                <behavior>Readonly</behavior>
+                <field>Retail_Full_Name__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_LastName__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_FirstName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -64,21 +68,23 @@
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_DMS_Customer_ID__c</field>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_Full_Name_Native__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_UCID__c</field>
+                <field>Retail_LastName_Native__c</field>
             </layoutItems>
             
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Retail_ID_Type__c</field>
+                <field>Retail_FirstName_Native__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_ID_Number__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             
             <layoutItems>
@@ -96,6 +102,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Sales_Sanction_Comment__c</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Missing_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -128,6 +138,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+				<field>Retail_Province__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Retail_City__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Retail_Distinct__c</field>
             </layoutItems>
             <layoutItems>
@@ -146,6 +164,15 @@
         <layoutColumns>
             
             <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_Fax__c</field>
             </layoutItems>
@@ -156,14 +183,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Retail_ZipCode__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_Province__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_City__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -255,6 +274,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Retail_Position__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Retail_Preferred_Language__c</field>
             </layoutItems>
             <layoutItems>
@@ -268,7 +291,7 @@
                 <field>Retail_Gender__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>Retail_Industry__c</field>
             </layoutItems>
             <layoutItems>
@@ -290,8 +313,7 @@
         <layoutColumns>
             
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>fromRole__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -303,29 +325,25 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>LastModifiedById</field>
+            </layoutItems>
+		</layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>fromRole__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Retail_Dealer_CompanyCode__c</field>            
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>LastModifiedById</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Last_Modified_User_Type__c</field>
-            </layoutItems>
-			<layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_CreatedDate__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Retail_LastModifiedDate__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Retail_Dealer_CompanyCode__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -345,17 +363,29 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <excludeButtons>NewEvent</excludeButtons>
+   <relatedLists>
         <fields>TASK.SUBJECT</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>SentTime__c</fields>
+        <fields>Activity_Date__c</fields>
+        <fields>Intention_Status__c</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>TASK.CREATED_DATE</fields>
+        <fields>TASK.LAST_UPDATE_DATE_ONLY</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>LogCall</excludeButtons>
-        <excludeButtons>MailMerge</excludeButtons>
-        <excludeButtons>SendEmail</excludeButtons>
-        <excludeButtons>ViewAll</excludeButtons>
         <fields>TASK.SUBJECT</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>SentTime__c</fields>
+        <fields>Activity_Date__c</fields>
+        <fields>Intention_Status__c</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>TASK.CREATED_DATE</fields>
+        <fields>TASK.LAST_UPDATE_DATE_ONLY</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

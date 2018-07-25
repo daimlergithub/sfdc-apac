@@ -340,54 +340,65 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Purchaser</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Sales Contact Target</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Aftersales Contact Target 1</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Aftersales Contact Target 2</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Self-registered</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Dealer</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Other</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Unknown</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Driver</valueName>
             </valueSettings>
             <valueSettings>
@@ -398,6 +409,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Aftersales</valueName>
             </valueSettings>
         </valueSet>
@@ -2274,58 +2286,114 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
                     <default>false</default>
                     <label>Updated EndDate</label>
                 </value>
+                <value>
+                    <fullName>Deceased</fullName>
+                    <default>false</default>
+                    <label>Deceased</label>
+                </value>
+                <value>
+                    <fullName>Company vehicle</fullName>
+                    <default>false</default>
+                    <label>Company vehicle</label>
+                </value>
+                <value>
+                    <fullName>Car rental</fullName>
+                    <default>false</default>
+                    <label>Car rental</label>
+                </value>
+                <value>
+                    <fullName>Others Vehicle</fullName>
+                    <default>false</default>
+                    <label>Others Vehicle</label>
+                </value>
+                <value>
+                    <fullName>Total Loss</fullName>
+                    <default>false</default>
+                    <label>Total Loss</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Replacement</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Bought Competitors</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Sold</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Handover</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Warranty system</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>MB Online</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>DMS</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Others</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <valueName>Updated EndDate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <valueName>Total Loss</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Deceased</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Company vehicle</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Car rental</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TR</controllingFieldValue>
+                <valueName>Others Vehicle</valueName>
             </valueSettings>
         </valueSet>
     </fields>
@@ -2821,11 +2889,12 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
     <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
+IF(ISPICKVAL($User.Market__c, 'IN'),'IN', 
 IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'),'JP',
 IF(ISPICKVAL($User.Market__c, 'MY'),'MY',
 IF(ISPICKVAL($User.Market__c, 'TH'),'TH',
-IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -3074,13 +3143,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_MainUsage
     </fields>
     <fields>
         <fullName>Market__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, 'IN') ,'IN',
-IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -3124,6 +3194,11 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
                     <fullName>IN</fullName>
                     <default>false</default>
                     <label>IN</label>
+                </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                    <label>TR</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -3425,17 +3500,20 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownershi
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Private</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Company</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Other</valueName>
             </valueSettings>
         </valueSet>
@@ -5184,6 +5262,17 @@ Modify Reason:
         </valueSet>
     </fields>
     <fields>
+        <fullName>Task_Limit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Purchase_Date__c +1050</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Task_Limit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Technology__c</fullName>
         <description>Survey Infromation
 What factors were influential in your purchase decision?
@@ -5243,6 +5332,15 @@ This field is visible for Wholesale and Retail.</description>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>To Be Deleted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Total_Loss__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Total Loss</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -5794,15 +5892,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Home Phone</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Mobile</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Work Phone</valueName>
             </valueSettings>
             <valueSettings>
@@ -5820,6 +5921,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>None</valueName>
             </valueSettings>
         </valueSet>
@@ -5945,6 +6047,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Warranty_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Vehicle_ID__r.Warranty_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Warranty Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Web_Auto__c</fullName>
@@ -6179,26 +6293,31 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Home Address</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Other Address 1</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Other Address 2</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Other Address 3</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Work address</valueName>
             </valueSettings>
             <valueSettings>
@@ -6343,11 +6462,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <field>MD__c</field>
             <operation>equals</operation>
             <value>TH</value>
-        </filters>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Vehicle_Relationship__c.Vehicle_Relationship</value>
         </filters>
         <label>All MBTH Vehicle Relationships</label>
         <language>en_US</language>
@@ -6545,6 +6659,715 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
     <pluralLabel>Vehicle Relationship</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
+        <fullName>Self_Registered</fullName>
+        <active>true</active>
+        <description>Self Registered VR</description>
+        <label>Self Registered</label>
+        <picklistValues>
+            <picklist>Additional_Offer__c</picklist>
+            <values>
+                <fullName>1 year free servicing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Brand__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Car_Relation__c</picklist>
+            <values>
+                <fullName>Aftersales Contact Target 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchaser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Contact Target</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Class_Summary__c</picklist>
+            <values>
+                <fullName>A-Class</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Considered_Make_1__c</picklist>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Considered_Make_2__c</picklist>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Customer_Type__c</picklist>
+            <values>
+                <fullName>Alternative Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Company Car SPM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Car Rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBJ Online Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Design__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Driver_Relationship__c</picklist>
+            <values>
+                <fullName>Daughter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>End_Reason__c</picklist>
+            <values>
+                <fullName>Bought Competitors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replacement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Total Loss</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Finance_Method__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leased Arranged Elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leased Through Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leased Through MBF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan Arranged Elsewhere</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan through Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan through MBF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual loan through Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual loan through MBF</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fleet_Category__c</picklist>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Luxury__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Magazine__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mail__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Main_Usage__c</picklist>
+            <values>
+                <fullName>Hearse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taxi</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market__c</picklist>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Used__c</picklist>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Newspaper__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owner_Relation__c</picklist>
+            <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Performance__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Apply_Status__c</picklist>
+            <values>
+                <fullName>Reject</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Previous_Make__c</picklist>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Previous_Year__c</picklist>
+            <values>
+                <fullName>%3C1980</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Price__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Purchase_Intent__c</picklist>
+            <values>
+                <fullName>Refinance existing vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replace existing vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>RegistrationProvince__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Safety__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesType__c</picklist>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>T</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Y</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_1__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Z</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Currently Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previously Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TV__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Technology__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TradeIn_Year__c</picklist>
+            <values>
+                <fullName>%3C1980</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UsedWarranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Validity__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Phone_picklist__c</picklist>
+            <values>
+                <fullName>Home Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home Phone 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Phone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Apply_Status__c</picklist>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Sent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Web_Auto__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Web_MB__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Word_Mouth__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vehicle_address_picklist__c</picklist>
+            <values>
+                <fullName>Home Address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work address</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vehicle_fax_picklist__c</picklist>
+            <values>
+                <fullName>FAX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work FAX</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vehicle_mail_picklist__c</picklist>
+            <values>
+                <fullName>Email Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email Work</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyMercedes Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>Vehicle_Relationship</fullName>
         <active>true</active>
         <description>Active vehicle relationship</description>
@@ -6683,6 +7506,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Car rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Handover</fullName>
                 <default>false</default>
             </values>
@@ -6691,11 +7526,19 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Others Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Replacement</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Total Loss</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6796,6 +7639,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -6809,6 +7656,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7351,7 +8202,19 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Car rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>DMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deceased</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7367,11 +8230,19 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Others Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Replacement</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Total Loss</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7460,6 +8331,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -7473,6 +8348,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8092,6 +8971,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Total Loss</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Warranty system</fullName>
                 <default>false</default>
             </values>
@@ -8673,7 +9556,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <active>true</active>
         <description>End date is not null
 AND End reason is null.</description>
-        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c) = 'MY',$Permission.MYGeneric)))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),OR(UPPER(MD__c) = 'JP',UPPER(MD__c) = 'KR',AND(UPPER(MD__c) = 'MY',$Permission.MYGeneric)
+,
+AND(UPPER(MD__c) = 'IN',$Permission.INGeneric) 
+))</errorConditionFormula>
         <errorDisplayField>End_Reason__c</errorDisplayField>
         <errorMessage>End Reason is mandatory, if End Date is selected.</errorMessage>
     </validationRules>
@@ -8715,7 +9601,7 @@ NOT(ISBLANK(PRIORVALUE(Contact__c))),NOT(ISNEW()),ISCHANGED(Contact__c))</errorC
 {!REQUIRESCRIPT($Site.Prefix &amp; "/support/console/30.0/integration.js")} 
 if('{!User.ContactId}' =='') { 
 
-window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;CF00N2800000IiU23={!Vehicle_Relationship__c.Vehicle_ID__c} '); 
+window.open('OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID={!Vehicle_Relationship__c.Vehicle_ID__c} '); 
 } 
 if('{!User.ContactId}' !='') 
 { 
@@ -8724,7 +9610,7 @@ records = ContactObject.getArray("records");
 var accid = records[0].AccountID; 
 var accname = records[0].Account.Name; 
 
-window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID="+accid+"&amp;OBJECT_CASE_CASE_DEALER_ID="+accname+"&amp;CF00N2800000IiU23={!Vehicle_Relationship__c.Vehicle_ID__c} ") 
+window.open("{!URLFOR($Site.Prefix)}OBJECT_LEAD_ID?RecordType=OBJECT_LEAD_AFTERSALES_RECORD_TYPE_ID&amp;ent=Vehicle_Relationship__c&amp;OBJECT_LEAD_CONTACT_ID={!Vehicle_Relationship__c.Contact__c}&amp;OBJECT_LEAD_CONTACT_ID_lkid={!Vehicle_Relationship__c.ContactId__c}&amp;OBJECT_CASE_CASE_DEALER_ID_LKID="+accid+"&amp;OBJECT_CASE_CASE_DEALER_ID="+accname+"&amp;OBJECT_VEHICLE_RELATIONSHIP_VEHICLE_ID={!Vehicle_Relationship__c.Vehicle_ID__c} ") 
 }</url>
     </webLinks>
     <webLinks>

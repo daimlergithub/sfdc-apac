@@ -24481,6 +24481,43 @@
         <field>Vehicle__c.last_updated__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<!-- FLS for SWT Vehicle -->
+<fieldPermissions>
+    <editable>false</editable>
+    <field>Vehicle__c.SpecificationNumber__c</field>
+    <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+    <editable>false</editable>
+    <field>Vehicle__c.GrossVehicleWeight__c</field>
+    <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+    <editable>false</editable>
+    <field>Vehicle__c.ColorCode__c</field>
+    <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+    <editable>false</editable>
+    <field>Vehicle__c.Color2Code__c</field>
+    <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+    <editable>false</editable>
+    <field>Vehicle__c.Color2CodeDescription__c</field>
+    <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+    <editable>false</editable>
+    <field>Vehicle__c.InteriorCode__c</field>
+    <readable>true</readable>
+</fieldPermissions>
+<fieldPermissions>
+    <editable>false</editable>
+    <field>Vehicle__c.OptionDescription__c</field>
+    <readable>true</readable>
+</fieldPermissions>
+<!-- FLS for SWT Vehicle END-->
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>

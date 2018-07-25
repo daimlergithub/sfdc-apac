@@ -15,6 +15,8 @@ public class AccountHelperTH {
      **  Created By: Mohammed Touseef Ahmed
      **  Date: 2017-20-02
      **/
+	public static Id accPersonsd_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Person Account Soft Deleted');
+    public static Id accCompanysd_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Company Soft Deleted');
     public static Id accPerson_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Person Account');
     public static Id accCompany_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Company');
     public static Id dealer_RecordTypeId = RecordTypeAccessService.getRecordTypeId('Account', 'Dealer');
@@ -313,16 +315,23 @@ public class AccountHelperTH {
                     Pattern p = Pattern.compile('[0-9]{13}');
                     Matcher m = p.matcher(acc.ID_Number__c);
                     if (!m.matches()) {
-                        acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty, and 13 characters, containing only number');
+                        acc.ID_Number__c.addError('ID Number: If ID Type is National ID, ID Number must not be empty and should be of 13 characters containing only number');
                     } else {
                         integer sum = 0;
                         Integer Remainder;
                         for (integer i = 0; i < acc.ID_Number__c.length() - 1; i++) {
                             sum = sum + (integer.valueOf(acc.ID_Number__c.substring(i, i + 1))) * (13 - i);
                         }
-                        remainder = 11 - (math.mod(sum, 11));
-                        if (remainder != integer.valueOf(acc.ID_Number__c.substring(12, 13))) {
-                            acc.ID_Number__c.addError('ID Number: Invalid National id');
+						remainder=11-(math.mod(sum,11));
+                        if(remainder==11){
+                            if (integer.valueOf(acc.ID_Number__c.substring(12, 13))!=1) {
+                            acc.ID_Number__c.addError('ID Number: Invalid National ID');
+
+
+                        }
+                        }
+                        else if (remainder != integer.valueOf(acc.ID_Number__c.substring(12, 13))) {
+                            acc.ID_Number__c.addError('ID Number: Invalid National ID');
 
 
                         }
@@ -638,7 +647,7 @@ public class AccountHelperTH {
                     Account_Link__c acclnk = new Account_Link__c();
                     if (retailacc.RecordTypeId == accCompany_RecordTypeId) {
                         acclnk.LastModifiedDate__c = retailacc.LastmodifiedDate;
-                        acclnk.Retail_Country__c = retailacc.Country__c;
+                        //acclnk.Retail_Country__c = retailacc.Country__c;
                         acclnk.createddate__c = retailacc.createdDate;
                         acclnk.Retail_Preferred_Language__c = 'Thai';
                         acclnk.Retail_UCID__c = retailacc.UCID__c;
@@ -676,7 +685,7 @@ public class AccountHelperTH {
                         }
                     } else if (retailacc.RecordTypeId == accPerson_RecordTypeId) {
                         acclnk.Retail_ID_Type__c = retailacc.ID_Type__c;
-                        acclnk.Retail_Country__c = retailacc.Country__c;
+                        //acclnk.Retail_Country__c = retailacc.Country__c;
                         acclnk.Retail_ID_Number__c = retailacc.ID_Number__c;
                         acclnk.LastModifiedDate__c = retailacc.LastmodifiedDate;
                         acclnk.createddate__c = retailacc.createdDate;
@@ -835,7 +844,7 @@ public class AccountHelperTH {
             toRole__r.Name, toRole__r.Company_Name_Native_1__c, toRole__r.Commercial_Reg_No__c, toRole__r.Vat_No__c,
             toRole__r.Foundation_Date__c, toRole__r.ID_Number__c, toRole__r.Website, toRole__r.ID_Type__c, toRole__r.Primary_Address_Reference__r.CreatedDate,
             toRole__r.Primary_Address_Reference__r.LastModifiedDate, toRole__r.MBTH_Nationality__c, toRole__r.Preferred_Radio_Station__c, toRole__r.Personal_Agreement__c, toRole__r.First_Consent_Date__c, toRole__r.Updated_Consent_Date__c, toRole__r.First_Consent_User__c, toRole__r.Updated_Consent_User__c, toRole__r.PersonDoNotCall, toRole__r.Postal_Opt_Out__c, toRole__r.Visit_Opt_Out__c, toRole__r.PersonHasOptedOutOfEmail, toRole__r.PersonHasOptedOutOfFax
-            from Account_Link__c WHERE toRole__c IN: AccountIds AND(RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany)
+            from Account_Link__c WHERE (Retail_Delete_Flag__c = false AND Retail_Duplicate_Flag__c = false) and toRole__c IN: AccountIds AND(RecordTypeID =: RetailPerson OR RecordTypeID =: RetailCompany)
         ];
         //Account link iteration
         for (Account_Link__c acclnk: Accountlinklist) {
@@ -845,7 +854,7 @@ public class AccountHelperTH {
                 acclnk.Retail_ID_Number__c = acclnk.toRole__r.ID_Number__c;
                 acclnk.Retail_Abroad_Agreement__c = acclnk.toRole__r.Personal_Abroad_Agreement__c;
                 acclnk.Retail_Information_Third_Party_Release__c = acclnk.toRole__r.Agreement_to_commit_info_processing__c;
-                acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
+                //acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
                 acclnk.Retail_Agreement_Info_Processing__c = acclnk.toRole__r.Personal_Information_Third_Party_Release__c;
                 acclnk.Retail_LastName__c = acclnk.toRole__r.LastName;
                 acclnk.Retail_FirstName__c = acclnk.toRole__r.FirstName;
@@ -881,7 +890,7 @@ public class AccountHelperTH {
             //Checking the Company RecordType
             if (acclnk.toRole__r.RecordType.Name == 'Company') {
                 acclnk.Retail_Company_Name__c = acclnk.toRole__r.name;
-                acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
+                //acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
                 acclnk.Retail_Company_Name_Native1__c = acclnk.toRole__r.Company_Name_Native_1__c;
                 acclnk.Retail_Commercial_Reg_No__c = acclnk.toRole__r.Commercial_Reg_No__c;
                 acclnk.Retail_Preferred_Language__c = acclnk.toRole__r.Preferred_Language__c;
@@ -920,7 +929,7 @@ public class AccountHelperTH {
                 acclnk.Retail_ZipCode__c = (acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c != null ? acclnk.toRole__r.Primary_Address_Reference__r.ZipCode__c : '');
                 acclnk.Retail_Address_CreatedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.CreatedDate);
                 acclnk.Retail_Address_LastModifiedDate__c = Date.ValueOf(acclnk.toRole__r.Primary_Address_Reference__r.LastModifiedDate);
-
+				acclnk.Retail_Country__c = acclnk.toRole__r.country__c;
 
             } //End if for Sales Address
 
@@ -1190,5 +1199,77 @@ It would be replaced by Informatica/Middleware  */
             if(accShareLst!=null && accShareLst.size()>0)
                 insert accShareLst;
         }
+    }
+	public static void revokesoftdeleteAccess(Set<Id> accids)
+    {
+        
+        List<Accountshare> accsharelist = new List<Accountshare> ([select id from Accountshare where accountid in : accids and RowCause = 'Manual']);
+        if(accsharelist.size() >0)
+        {
+            Database.delete(accsharelist, false);
+        }
+    }
+	public static void accesschange(List<Account> accountNewList, Map<Id,SObject> accountOldMap)
+    {
+        Map<Id,Id>UserAccountMap = new Map<Id,Id>();
+        Set<Id> Userids=new Set<Id>();
+        Set<String>Dealerndcode = new set<String>();
+        
+        for(Account accl: accountNewList)
+        {
+            Userids.add(accl.createdById);
+            
+        }
+        Map <Id, User> Dealerdelegateadmin = new Map<Id, User>([select id,profile.name,Dealer_DMS_Retailer_ID__c from User where id in :Userids and isPortalenabled = true and Market__c = 'TH']);
+        for(User us: Dealerdelegateadmin.values())
+        {
+            if(us.Dealer_DMS_Retailer_ID__c != null || us.Dealer_DMS_Retailer_ID__c != '')
+            {
+                String dmscode = 'Delegate' + us.Dealer_DMS_Retailer_ID__c ;
+                Dealerndcode.add(dmscode);
+            }
+        }
+        Map<String,Group> g = new Map<String,Group>();
+        for(Group gr: [select id,Developername from group where Developername in : Dealerndcode])
+        {
+            g.put(gr.Developername, gr);
+        }
+        for(Account accl: accountNewList)
+        {   
+            Account oldAcc=(Account)accountOldMap.get(accl.Id);
+            if(oldAcc != null && oldAcc.recordtypeId !=accl.recordtypeId && (accl.recordtypeId == accPersonsd_RecordTypeId ||  accl.recordtypeId == accCompanysd_RecordTypeId))
+            {
+                if(Dealerdelegateadmin.containskey(accl.CreatedbyId)){
+                    String groupname = 'Delegate' + Dealerdelegateadmin.get(accl.CreatedbyId).Dealer_DMS_Retailer_ID__c;
+                    if( g.containskey(groupname))
+                    UserAccountMap.put(accl.Id,g.get(groupname).Id);
+                }
+            }
+                
+        }
+        if(UserAccountMap.size() > 0)
+        grantDelegateAdminAccess(accountNewList, UserAccountMap);
+    }
+    
+    public static void grantDelegateAdminAccess(list<Account> alst, Map<Id,Id> AccDelegateGroupmap)
+    {
+        List<AccountShare> accShareLst= new List<AccountShare>();
+        for(Account al: alst)
+        {
+            if(AccDelegateGroupmap.containskey(al.id))
+            {
+                AccountShare accShare=new AccountShare();
+                accShare.AccountId = al.Id;
+                accShare.UserOrGroupId = AccDelegateGroupmap.get(al.id);
+                accShare.AccountAccessLevel = 'Read';
+                accShare.CaseAccessLevel = 'Read';
+                accShare.OpportunityAccessLevel = 'None';
+                accShare.RowCause = Schema.AccountShare.RowCause.Manual;
+                accShareLst.add(accShare); 
+            }
+        }
+        if(accShareLst.size() > 0)
+             Database.insert(accShareLst, false);
+            
     }
 }

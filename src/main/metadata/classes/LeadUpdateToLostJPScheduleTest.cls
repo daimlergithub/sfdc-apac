@@ -15,9 +15,9 @@ public class LeadUpdateToLostJPScheduleTest {
         List<Lead__c> leadlist;
         map<id,Lead__c> leadOldMap;
         Account_Link__c acclink;
-        Date daysBack30 = System.today().addDays(-30);
-        Date daysBack60 = System.today().addDays(-60);
-        Date daysBack90 = System.today().addDays(-90);
+        Date daysBack30 =  System.today().addDays(Integer.valueof(Label.Days30));
+        Date daysBack60 = System.today().addDays(Integer.valueof(Label.Days60));
+        Date daysBack90 = System.today().addDays(Integer.valueof(Label.Days90));
         String personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(); 
         Id DealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(); 
         Id companyRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId(); 

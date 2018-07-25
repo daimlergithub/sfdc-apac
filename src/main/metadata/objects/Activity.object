@@ -160,435 +160,715 @@
         <fullName>Activity_CommChannel__c</fullName>
         <externalId>false</externalId>
         <label>Activity CommChannel</label>
-        <picklist>
-            <picklistValues>
-                <fullName>0=inbound call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1=outbound call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2=email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3=fax</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4=direct mail/post</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5=sms</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6=web</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>7=social media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>8=SSI Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>9=CSI Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0=inbound call</fullName>
+                    <default>false</default>
+                    <label>0=inbound call</label>
+                </value>
+                <value>
+                    <fullName>1=outbound call</fullName>
+                    <default>false</default>
+                    <label>1=outbound call</label>
+                </value>
+                <value>
+                    <fullName>2=email</fullName>
+                    <default>false</default>
+                    <label>2=email</label>
+                </value>
+                <value>
+                    <fullName>3=fax</fullName>
+                    <default>false</default>
+                    <label>3=fax</label>
+                </value>
+                <value>
+                    <fullName>4=direct mail/post</fullName>
+                    <default>false</default>
+                    <label>4=direct mail/post</label>
+                </value>
+                <value>
+                    <fullName>5=sms</fullName>
+                    <default>false</default>
+                    <label>5=sms</label>
+                </value>
+                <value>
+                    <fullName>6=web</fullName>
+                    <default>false</default>
+                    <label>6=web</label>
+                </value>
+                <value>
+                    <fullName>7=social media</fullName>
+                    <default>false</default>
+                    <label>7=social media</label>
+                </value>
+                <value>
+                    <fullName>8=SSI Call</fullName>
+                    <default>false</default>
+                    <label>8=SSI Call</label>
+                </value>
+                <value>
+                    <fullName>9=CSI Call</fullName>
+                    <default>false</default>
+                    <label>9=CSI Call</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Activity_DataSource__c</fullName>
         <externalId>false</externalId>
         <label>Activity DataSource</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Partners</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3rd party data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Web/Mobile Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BBAC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealers</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-mail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Partners</fullName>
+                    <default>false</default>
+                    <label>Partners</label>
+                </value>
+                <value>
+                    <fullName>3rd party data</fullName>
+                    <default>false</default>
+                    <label>3rd party data</label>
+                </value>
+                <value>
+                    <fullName>Event</fullName>
+                    <default>false</default>
+                    <label>Event</label>
+                </value>
+                <value>
+                    <fullName>Web/Mobile Phone</fullName>
+                    <default>false</default>
+                    <label>Web/Mobile Phone</label>
+                </value>
+                <value>
+                    <fullName>BBAC</fullName>
+                    <default>false</default>
+                    <label>BBAC</label>
+                </value>
+                <value>
+                    <fullName>OB Call</fullName>
+                    <default>false</default>
+                    <label>OB Call</label>
+                </value>
+                <value>
+                    <fullName>IB Call</fullName>
+                    <default>false</default>
+                    <label>IB Call</label>
+                </value>
+                <value>
+                    <fullName>Dealers</fullName>
+                    <default>false</default>
+                    <label>Dealers</label>
+                </value>
+                <value>
+                    <fullName>MB Magazine</fullName>
+                    <default>false</default>
+                    <label>MB Magazine</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>E-mail</fullName>
+                    <default>false</default>
+                    <label>E-mail</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Activity_DataSubSource__c</fullName>
         <externalId>false</externalId>
         <label>Activity DataSubSource</label>
-        <picklist>
-            <controllingField>Activity_DataSource__c</controllingField>
-            <picklistValues>
-                <fullName>Air China</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jingdong mall</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Taobao station</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cooperation media</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>China telecom / 189 mailbox</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dunhill</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>D&amp;G</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HUGO BOSS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bank of communications</fullName>
-                <default>false</default>
-                <controllingFieldValues>Partners</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TNT</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Axciom</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G2</fullName>
-                <default>false</default>
-                <controllingFieldValues>3rd party data</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto Show</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Event</fullName>
-                <default>false</default>
-                <controllingFieldValues>Event</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz interactive community</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sina Blog</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SMART official website</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bitauto</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pcauto</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Baidu</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interaction through</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SoHu</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SNS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz website _ pre-sale</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ test drive</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ star gruppo</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes - Benz _ contact us _ product manual and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart_ contact us _ product manual and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart_ contact us _ pre-sale</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart_ contact us _ test drive</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C web special</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Xcar</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Autohome</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>QQ</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NetEase</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart interactive community</fullName>
-                <default>false</default>
-                <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site information</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Auto show information</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telephone</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Energy source</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Voice mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-mail</fullName>
-                <default>false</default>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>OB Call</fullName>
-                <default>false</default>
-                <controllingFieldValues>OB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BBAC switching</fullName>
-                <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Road rescue switching</fullName>
-                <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IB Call</fullName>
-                <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz Financial</fullName>
-                <default>false</default>
-                <controllingFieldValues>IB Call</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealers nomination</fullName>
-                <default>false</default>
-                <controllingFieldValues>Dealers</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Magazine Response Card</fullName>
-                <default>false</default>
-                <controllingFieldValues>MB Magazine</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SSI</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DMS</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle administration office</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Used car</fullName>
-                <default>false</default>
-                <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fax</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Short message</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VVIP</fullName>
-                <default>false</default>
-                <controllingFieldValues>Other</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-newsletter</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz E-brochure and price list</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-                <controllingFieldValues>E-mail</controllingFieldValues>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Activity_DataSource__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Air China</fullName>
+                    <default>false</default>
+                    <label>Air China</label>
+                </value>
+                <value>
+                    <fullName>Jingdong mall</fullName>
+                    <default>false</default>
+                    <label>Jingdong mall</label>
+                </value>
+                <value>
+                    <fullName>Taobao station</fullName>
+                    <default>false</default>
+                    <label>Taobao station</label>
+                </value>
+                <value>
+                    <fullName>Cooperation media</fullName>
+                    <default>false</default>
+                    <label>Cooperation media</label>
+                </value>
+                <value>
+                    <fullName>China telecom / 189 mailbox</fullName>
+                    <default>false</default>
+                    <label>China telecom / 189 mailbox</label>
+                </value>
+                <value>
+                    <fullName>Dunhill</fullName>
+                    <default>false</default>
+                    <label>Dunhill</label>
+                </value>
+                <value>
+                    <fullName>D&amp;G</fullName>
+                    <default>false</default>
+                    <label>D&amp;G</label>
+                </value>
+                <value>
+                    <fullName>HUGO BOSS</fullName>
+                    <default>false</default>
+                    <label>HUGO BOSS</label>
+                </value>
+                <value>
+                    <fullName>Bank of communications</fullName>
+                    <default>false</default>
+                    <label>Bank of communications</label>
+                </value>
+                <value>
+                    <fullName>TNT</fullName>
+                    <default>false</default>
+                    <label>TNT</label>
+                </value>
+                <value>
+                    <fullName>Axciom</fullName>
+                    <default>false</default>
+                    <label>Axciom</label>
+                </value>
+                <value>
+                    <fullName>G2</fullName>
+                    <default>false</default>
+                    <label>G2</label>
+                </value>
+                <value>
+                    <fullName>Auto Show</fullName>
+                    <default>false</default>
+                    <label>Auto Show</label>
+                </value>
+                <value>
+                    <fullName>Other Event</fullName>
+                    <default>false</default>
+                    <label>Other Event</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz interactive community</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz interactive community</label>
+                </value>
+                <value>
+                    <fullName>ML web special</fullName>
+                    <default>false</default>
+                    <label>ML web special</label>
+                </value>
+                <value>
+                    <fullName>B web special</fullName>
+                    <default>false</default>
+                    <label>B web special</label>
+                </value>
+                <value>
+                    <fullName>Sina Blog</fullName>
+                    <default>false</default>
+                    <label>Sina Blog</label>
+                </value>
+                <value>
+                    <fullName>SMART official website</fullName>
+                    <default>false</default>
+                    <label>SMART official website</label>
+                </value>
+                <value>
+                    <fullName>Bitauto</fullName>
+                    <default>false</default>
+                    <label>Bitauto</label>
+                </value>
+                <value>
+                    <fullName>E web special</fullName>
+                    <default>false</default>
+                    <label>E web special</label>
+                </value>
+                <value>
+                    <fullName>Pcauto</fullName>
+                    <default>false</default>
+                    <label>Pcauto</label>
+                </value>
+                <value>
+                    <fullName>Baidu</fullName>
+                    <default>false</default>
+                    <label>Baidu</label>
+                </value>
+                <value>
+                    <fullName>GLK web special</fullName>
+                    <default>false</default>
+                    <label>GLK web special</label>
+                </value>
+                <value>
+                    <fullName>Interaction through</fullName>
+                    <default>false</default>
+                    <label>Interaction through</label>
+                </value>
+                <value>
+                    <fullName>SoHu</fullName>
+                    <default>false</default>
+                    <label>SoHu</label>
+                </value>
+                <value>
+                    <fullName>SNS</fullName>
+                    <default>false</default>
+                    <label>SNS</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz website _ pre-sale</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz website _ pre-sale</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz _ contact us _ test drive</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz _ contact us _ test drive</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz _ contact us _ star gruppo</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz _ contact us _ star gruppo</label>
+                </value>
+                <value>
+                    <fullName>Mercedes - Benz _ contact us _ product manual and price list</fullName>
+                    <default>false</default>
+                    <label>Mercedes - Benz _ contact us _ product manual and price list</label>
+                </value>
+                <value>
+                    <fullName>Smart_ contact us _ product manual and price list</fullName>
+                    <default>false</default>
+                    <label>Smart_ contact us _ product manual and price list</label>
+                </value>
+                <value>
+                    <fullName>Smart_ contact us _ pre-sale</fullName>
+                    <default>false</default>
+                    <label>Smart_ contact us _ pre-sale</label>
+                </value>
+                <value>
+                    <fullName>Smart_ contact us _ test drive</fullName>
+                    <default>false</default>
+                    <label>Smart_ contact us _ test drive</label>
+                </value>
+                <value>
+                    <fullName>C web special</fullName>
+                    <default>false</default>
+                    <label>C web special</label>
+                </value>
+                <value>
+                    <fullName>Xcar</fullName>
+                    <default>false</default>
+                    <label>Xcar</label>
+                </value>
+                <value>
+                    <fullName>Autohome</fullName>
+                    <default>false</default>
+                    <label>Autohome</label>
+                </value>
+                <value>
+                    <fullName>QQ</fullName>
+                    <default>false</default>
+                    <label>QQ</label>
+                </value>
+                <value>
+                    <fullName>NetEase</fullName>
+                    <default>false</default>
+                    <label>NetEase</label>
+                </value>
+                <value>
+                    <fullName>Smart interactive community</fullName>
+                    <default>false</default>
+                    <label>Smart interactive community</label>
+                </value>
+                <value>
+                    <fullName>Site information</fullName>
+                    <default>false</default>
+                    <label>Site information</label>
+                </value>
+                <value>
+                    <fullName>Auto show information</fullName>
+                    <default>false</default>
+                    <label>Auto show information</label>
+                </value>
+                <value>
+                    <fullName>Telephone</fullName>
+                    <default>false</default>
+                    <label>Telephone</label>
+                </value>
+                <value>
+                    <fullName>Energy source</fullName>
+                    <default>false</default>
+                    <label>Energy source</label>
+                </value>
+                <value>
+                    <fullName>Voice mail</fullName>
+                    <default>false</default>
+                    <label>Voice mail</label>
+                </value>
+                <value>
+                    <fullName>E-mail</fullName>
+                    <default>false</default>
+                    <label>E-mail</label>
+                </value>
+                <value>
+                    <fullName>OB Call</fullName>
+                    <default>false</default>
+                    <label>OB Call</label>
+                </value>
+                <value>
+                    <fullName>BBAC switching</fullName>
+                    <default>false</default>
+                    <label>BBAC switching</label>
+                </value>
+                <value>
+                    <fullName>Road rescue switching</fullName>
+                    <default>false</default>
+                    <label>Road rescue switching</label>
+                </value>
+                <value>
+                    <fullName>IB Call</fullName>
+                    <default>false</default>
+                    <label>IB Call</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz Financial</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz Financial</label>
+                </value>
+                <value>
+                    <fullName>Dealers nomination</fullName>
+                    <default>false</default>
+                    <label>Dealers nomination</label>
+                </value>
+                <value>
+                    <fullName>Magazine Response Card</fullName>
+                    <default>false</default>
+                    <label>Magazine Response Card</label>
+                </value>
+                <value>
+                    <fullName>SSI</fullName>
+                    <default>false</default>
+                    <label>SSI</label>
+                </value>
+                <value>
+                    <fullName>DMS</fullName>
+                    <default>false</default>
+                    <label>DMS</label>
+                </value>
+                <value>
+                    <fullName>Vehicle administration office</fullName>
+                    <default>false</default>
+                    <label>Vehicle administration office</label>
+                </value>
+                <value>
+                    <fullName>Used car</fullName>
+                    <default>false</default>
+                    <label>Used car</label>
+                </value>
+                <value>
+                    <fullName>Fax</fullName>
+                    <default>false</default>
+                    <label>Fax</label>
+                </value>
+                <value>
+                    <fullName>Short message</fullName>
+                    <default>false</default>
+                    <label>Short message</label>
+                </value>
+                <value>
+                    <fullName>VVIP</fullName>
+                    <default>false</default>
+                    <label>VVIP</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz E-newsletter</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz E-newsletter</label>
+                </value>
+                <value>
+                    <fullName>Mercedes-Benz E-brochure and price list</fullName>
+                    <default>false</default>
+                    <label>Mercedes-Benz E-brochure and price list</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Fax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>Short message</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Other</controllingFieldValue>
+                <valueName>VVIP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Air China</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Jingdong mall</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Taobao station</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Cooperation media</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>China telecom / 189 mailbox</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Dunhill</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>D&amp;G</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>HUGO BOSS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Partners</controllingFieldValue>
+                <valueName>Bank of communications</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-mail</controllingFieldValue>
+                <valueName>Mercedes-Benz E-newsletter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-mail</controllingFieldValue>
+                <valueName>Mercedes-Benz E-brochure and price list</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-mail</controllingFieldValue>
+                <valueName>Other</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3rd party data</controllingFieldValue>
+                <valueName>TNT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3rd party data</controllingFieldValue>
+                <valueName>Axciom</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3rd party data</controllingFieldValue>
+                <valueName>G2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <valueName>Auto Show</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Event</controllingFieldValue>
+                <valueName>Other Event</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz interactive community</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>ML web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>B web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Sina Blog</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>SMART official website</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Bitauto</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>E web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Pcauto</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Baidu</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>GLK web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Interaction through</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>SoHu</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>SNS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz website _ pre-sale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz _ contact us _ test drive</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz _ contact us _ star gruppo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Mercedes - Benz _ contact us _ product manual and price list</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Smart_ contact us _ product manual and price list</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Smart_ contact us _ pre-sale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Smart_ contact us _ test drive</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>C web special</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Xcar</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Autohome</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>QQ</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>NetEase</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Web/Mobile Phone</controllingFieldValue>
+                <valueName>Smart interactive community</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Site information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Auto show information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Telephone</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Energy source</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>Voice mail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BBAC</controllingFieldValue>
+                <valueName>E-mail</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OB Call</controllingFieldValue>
+                <valueName>OB Call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IB Call</controllingFieldValue>
+                <valueName>BBAC switching</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IB Call</controllingFieldValue>
+                <valueName>Road rescue switching</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IB Call</controllingFieldValue>
+                <valueName>IB Call</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IB Call</controllingFieldValue>
+                <valueName>Mercedes-Benz Financial</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Dealers</controllingFieldValue>
+                <valueName>Dealers nomination</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MB Magazine</controllingFieldValue>
+                <valueName>Magazine Response Card</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>SSI</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>DMS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>Vehicle administration office</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mercedes-Benz</controllingFieldValue>
+                <valueName>Used car</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Activity_Date__c</fullName>
@@ -602,371 +882,462 @@
         <externalId>false</externalId>
         <inlineHelpText>Activity Purpose</inlineHelpText>
         <label>Activity Purpose</label>
-        <picklist>
-            <picklistValues>
-                <fullName>0=welcome call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2=data cleansing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3=feedback for service request</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4=DM return</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5=SMS survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6=Outbound survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0=welcome call</fullName>
+                    <default>false</default>
+                    <label>0=welcome call</label>
+                </value>
+                <value>
+                    <fullName>2=data cleansing</fullName>
+                    <default>false</default>
+                    <label>2=data cleansing</label>
+                </value>
+                <value>
+                    <fullName>3=feedback for service request</fullName>
+                    <default>false</default>
+                    <label>3=feedback for service request</label>
+                </value>
+                <value>
+                    <fullName>4=DM return</fullName>
+                    <default>false</default>
+                    <label>4=DM return</label>
+                </value>
+                <value>
+                    <fullName>5=SMS survey</fullName>
+                    <default>false</default>
+                    <label>5=SMS survey</label>
+                </value>
+                <value>
+                    <fullName>6=Outbound survey</fullName>
+                    <default>false</default>
+                    <label>6=Outbound survey</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Activity_Resolution__c</fullName>
         <externalId>false</externalId>
         <label>Activity Resolution</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Send Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CSR Answer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FAQ &amp; CSR Answer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Call Transfer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FAQ Answer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CSR Answer &amp; Solution</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Send Email</fullName>
+                    <default>false</default>
+                    <label>Send Email</label>
+                </value>
+                <value>
+                    <fullName>CSR Answer</fullName>
+                    <default>false</default>
+                    <label>CSR Answer</label>
+                </value>
+                <value>
+                    <fullName>FAQ &amp; CSR Answer</fullName>
+                    <default>false</default>
+                    <label>FAQ &amp; CSR Answer</label>
+                </value>
+                <value>
+                    <fullName>Call Transfer</fullName>
+                    <default>false</default>
+                    <label>Call Transfer</label>
+                </value>
+                <value>
+                    <fullName>FAQ Answer</fullName>
+                    <default>false</default>
+                    <label>FAQ Answer</label>
+                </value>
+                <value>
+                    <fullName>CSR Answer &amp; Solution</fullName>
+                    <default>false</default>
+                    <label>CSR Answer &amp; Solution</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Activity_Status__c</fullName>
         <externalId>false</externalId>
         <label>Activity Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>not started</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>no answer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>need call back</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>busy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>reject</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>wrong number</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>no such person</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>invalid data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>reservation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>failed to send SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>failed to send Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>failed to send fax</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>invalid call</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>call transfer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Need Verification</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Failed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Returned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Success</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail-Technical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail-Content</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail-Blacklist</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Click</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Subscribe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unsubscribe</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hard Bounced</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Soft Bounced</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Requested</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Error</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Successful</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>QC Successful</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Number Does Not Exist</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unanswered</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fax</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Engaged</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Phone Shut Down</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Insufficient Fund</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Number Expired</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Out of Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Voice Mail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Call Limitation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wrong Number (Not the person's phone number within the address book)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unauthorized Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unable to Contact Qualified Interviewee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interviewed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Language Obstacle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No Purchase</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Status</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Expired</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interview Reservation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Status (Transfer to dealer)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejection During the Probing Question Phase</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejection During the Main Part of the Interview</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Sold</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Politely Decline</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inconsistent Car Model</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not the Car Purchase Decision Maker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inconsistent Car Pick Up Time</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fail-Invalid Number</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Repeat</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Language Issue</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reserved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Started</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Feedback</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Waiting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Postponement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>not started</fullName>
+                    <default>false</default>
+                    <label>not started</label>
+                </value>
+                <value>
+                    <fullName>no answer</fullName>
+                    <default>false</default>
+                    <label>no answer</label>
+                </value>
+                <value>
+                    <fullName>need call back</fullName>
+                    <default>false</default>
+                    <label>need call back</label>
+                </value>
+                <value>
+                    <fullName>busy</fullName>
+                    <default>false</default>
+                    <label>busy</label>
+                </value>
+                <value>
+                    <fullName>reject</fullName>
+                    <default>false</default>
+                    <label>reject</label>
+                </value>
+                <value>
+                    <fullName>wrong number</fullName>
+                    <default>false</default>
+                    <label>wrong number</label>
+                </value>
+                <value>
+                    <fullName>no such person</fullName>
+                    <default>false</default>
+                    <label>no such person</label>
+                </value>
+                <value>
+                    <fullName>invalid data</fullName>
+                    <default>false</default>
+                    <label>invalid data</label>
+                </value>
+                <value>
+                    <fullName>reservation</fullName>
+                    <default>false</default>
+                    <label>reservation</label>
+                </value>
+                <value>
+                    <fullName>failed to send SMS</fullName>
+                    <default>false</default>
+                    <label>failed to send SMS</label>
+                </value>
+                <value>
+                    <fullName>failed to send Email</fullName>
+                    <default>false</default>
+                    <label>failed to send Email</label>
+                </value>
+                <value>
+                    <fullName>failed to send fax</fullName>
+                    <default>false</default>
+                    <label>failed to send fax</label>
+                </value>
+                <value>
+                    <fullName>invalid call</fullName>
+                    <default>false</default>
+                    <label>invalid call</label>
+                </value>
+                <value>
+                    <fullName>call transfer</fullName>
+                    <default>false</default>
+                    <label>call transfer</label>
+                </value>
+                <value>
+                    <fullName>Need Verification</fullName>
+                    <default>false</default>
+                    <label>Need Verification</label>
+                </value>
+                <value>
+                    <fullName>Sent</fullName>
+                    <default>false</default>
+                    <label>Sent</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Open</fullName>
+                    <default>false</default>
+                    <label>Open</label>
+                </value>
+                <value>
+                    <fullName>Returned</fullName>
+                    <default>false</default>
+                    <label>Returned</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Fail-Technical</fullName>
+                    <default>false</default>
+                    <label>Fail-Technical</label>
+                </value>
+                <value>
+                    <fullName>Fail-Content</fullName>
+                    <default>false</default>
+                    <label>Fail-Content</label>
+                </value>
+                <value>
+                    <fullName>Fail-Blacklist</fullName>
+                    <default>false</default>
+                    <label>Fail-Blacklist</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Click</fullName>
+                    <default>false</default>
+                    <label>Click</label>
+                </value>
+                <value>
+                    <fullName>Subscribe</fullName>
+                    <default>false</default>
+                    <label>Subscribe</label>
+                </value>
+                <value>
+                    <fullName>Unsubscribe</fullName>
+                    <default>false</default>
+                    <label>Unsubscribe</label>
+                </value>
+                <value>
+                    <fullName>Hard Bounced</fullName>
+                    <default>false</default>
+                    <label>Hard Bounced</label>
+                </value>
+                <value>
+                    <fullName>Soft Bounced</fullName>
+                    <default>false</default>
+                    <label>Soft Bounced</label>
+                </value>
+                <value>
+                    <fullName>Requested</fullName>
+                    <default>false</default>
+                    <label>Requested</label>
+                </value>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>false</default>
+                    <label>Valid</label>
+                </value>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+                <value>
+                    <fullName>Successful</fullName>
+                    <default>false</default>
+                    <label>Successful</label>
+                </value>
+                <value>
+                    <fullName>QC Successful</fullName>
+                    <default>false</default>
+                    <label>QC Successful</label>
+                </value>
+                <value>
+                    <fullName>Number Does Not Exist</fullName>
+                    <default>false</default>
+                    <label>Number Does Not Exist</label>
+                </value>
+                <value>
+                    <fullName>Unanswered</fullName>
+                    <default>false</default>
+                    <label>Unanswered</label>
+                </value>
+                <value>
+                    <fullName>Fax</fullName>
+                    <default>false</default>
+                    <label>Fax</label>
+                </value>
+                <value>
+                    <fullName>Engaged</fullName>
+                    <default>false</default>
+                    <label>Engaged</label>
+                </value>
+                <value>
+                    <fullName>Phone Shut Down</fullName>
+                    <default>false</default>
+                    <label>Phone Shut Down</label>
+                </value>
+                <value>
+                    <fullName>Insufficient Fund</fullName>
+                    <default>false</default>
+                    <label>Insufficient Fund</label>
+                </value>
+                <value>
+                    <fullName>Number Expired</fullName>
+                    <default>false</default>
+                    <label>Number Expired</label>
+                </value>
+                <value>
+                    <fullName>Out of Service</fullName>
+                    <default>false</default>
+                    <label>Out of Service</label>
+                </value>
+                <value>
+                    <fullName>Voice Mail</fullName>
+                    <default>false</default>
+                    <label>Voice Mail</label>
+                </value>
+                <value>
+                    <fullName>Call Limitation</fullName>
+                    <default>false</default>
+                    <label>Call Limitation</label>
+                </value>
+                <value>
+                    <fullName>Wrong Number (Not the person's phone number within the address book)</fullName>
+                    <default>false</default>
+                    <label>Wrong Number (Not the person's phone number within the address book)</label>
+                </value>
+                <value>
+                    <fullName>Unauthorized Dealer</fullName>
+                    <default>false</default>
+                    <label>Unauthorized Dealer</label>
+                </value>
+                <value>
+                    <fullName>Unable to Contact Qualified Interviewee</fullName>
+                    <default>false</default>
+                    <label>Unable to Contact Qualified Interviewee</label>
+                </value>
+                <value>
+                    <fullName>Interviewed</fullName>
+                    <default>false</default>
+                    <label>Interviewed</label>
+                </value>
+                <value>
+                    <fullName>Language Obstacle</fullName>
+                    <default>false</default>
+                    <label>Language Obstacle</label>
+                </value>
+                <value>
+                    <fullName>No Purchase</fullName>
+                    <default>false</default>
+                    <label>No Purchase</label>
+                </value>
+                <value>
+                    <fullName>Other Status</fullName>
+                    <default>false</default>
+                    <label>Other Status</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+                <value>
+                    <fullName>Interview Reservation</fullName>
+                    <default>false</default>
+                    <label>Interview Reservation</label>
+                </value>
+                <value>
+                    <fullName>Other Status (Transfer to dealer)</fullName>
+                    <default>false</default>
+                    <label>Other Status (Transfer to dealer)</label>
+                </value>
+                <value>
+                    <fullName>Rejection During the Probing Question Phase</fullName>
+                    <default>false</default>
+                    <label>Rejection During the Probing Question Phase</label>
+                </value>
+                <value>
+                    <fullName>Rejection During the Main Part of the Interview</fullName>
+                    <default>false</default>
+                    <label>Rejection During the Main Part of the Interview</label>
+                </value>
+                <value>
+                    <fullName>Vehicle Sold</fullName>
+                    <default>false</default>
+                    <label>Vehicle Sold</label>
+                </value>
+                <value>
+                    <fullName>Politely Decline</fullName>
+                    <default>false</default>
+                    <label>Politely Decline</label>
+                </value>
+                <value>
+                    <fullName>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
+                    <default>false</default>
+                    <label>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</label>
+                </value>
+                <value>
+                    <fullName>Inconsistent Car Model</fullName>
+                    <default>false</default>
+                    <label>Inconsistent Car Model</label>
+                </value>
+                <value>
+                    <fullName>Not the Car Purchase Decision Maker</fullName>
+                    <default>false</default>
+                    <label>Not the Car Purchase Decision Maker</label>
+                </value>
+                <value>
+                    <fullName>Inconsistent Car Pick Up Time</fullName>
+                    <default>false</default>
+                    <label>Inconsistent Car Pick Up Time</label>
+                </value>
+                <value>
+                    <fullName>Fail-Invalid Number</fullName>
+                    <default>false</default>
+                    <label>Fail-Invalid Number</label>
+                </value>
+                <value>
+                    <fullName>Repeat</fullName>
+                    <default>false</default>
+                    <label>Repeat</label>
+                </value>
+                <value>
+                    <fullName>Language Issue</fullName>
+                    <default>false</default>
+                    <label>Language Issue</label>
+                </value>
+                <value>
+                    <fullName>Reserved</fullName>
+                    <default>false</default>
+                    <label>Reserved</label>
+                </value>
+                <value>
+                    <fullName>Started</fullName>
+                    <default>false</default>
+                    <label>Started</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Feedback</fullName>
+                    <default>false</default>
+                    <label>Feedback</label>
+                </value>
+                <value>
+                    <fullName>Waiting</fullName>
+                    <default>false</default>
+                    <label>Waiting</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Assignment_Status__c</fullName>
@@ -982,31 +1353,38 @@
         <fullName>Call_Category__c</fullName>
         <externalId>false</externalId>
         <label>Call Category</label>
-        <picklist>
-            <picklistValues>
-                <fullName>RSA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Complaint</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sales Leads</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aftersales leads</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>RSA</fullName>
+                    <default>false</default>
+                    <label>RSA</label>
+                </value>
+                <value>
+                    <fullName>Inquiry</fullName>
+                    <default>false</default>
+                    <label>Inquiry</label>
+                </value>
+                <value>
+                    <fullName>Complaint</fullName>
+                    <default>false</default>
+                    <label>Complaint</label>
+                </value>
+                <value>
+                    <fullName>Sales Leads</fullName>
+                    <default>false</default>
+                    <label>Sales Leads</label>
+                </value>
+                <value>
+                    <fullName>Aftersales leads</fullName>
+                    <default>false</default>
+                    <label>Aftersales leads</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Called__c</fullName>
@@ -1022,19 +1400,23 @@
         <fullName>Caller_Type__c</fullName>
         <externalId>false</externalId>
         <label>Caller Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Customer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Center</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Customer</fullName>
+                    <default>false</default>
+                    <label>Customer</label>
+                </value>
+                <value>
+                    <fullName>Service Center</fullName>
+                    <default>false</default>
+                    <label>Service Center</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Caller__c</fullName>
@@ -1098,85 +1480,105 @@
         <fullName>Communication_Method__c</fullName>
         <externalId>false</externalId>
         <label>Communication Method</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Face2Face</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fax</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Web Site</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+                <value>
+                    <fullName>DM</fullName>
+                    <default>false</default>
+                    <label>DM</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Face2Face</fullName>
+                    <default>false</default>
+                    <label>Face2Face</label>
+                </value>
+                <value>
+                    <fullName>Fax</fullName>
+                    <default>false</default>
+                    <label>Fax</label>
+                </value>
+                <value>
+                    <fullName>Phone</fullName>
+                    <default>false</default>
+                    <label>Phone</label>
+                </value>
+                <value>
+                    <fullName>SMS</fullName>
+                    <default>false</default>
+                    <label>SMS</label>
+                </value>
+                <value>
+                    <fullName>Web Site</fullName>
+                    <default>false</default>
+                    <label>Web Site</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Communication_Type__c</fullName>
         <externalId>false</externalId>
         <label>Communication Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Feedback</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gen. Note</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inbound</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Outbound</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ToDo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Feedback</fullName>
+                    <default>false</default>
+                    <label>Feedback</label>
+                </value>
+                <value>
+                    <fullName>Gen. Note</fullName>
+                    <default>false</default>
+                    <label>Gen. Note</label>
+                </value>
+                <value>
+                    <fullName>Inbound</fullName>
+                    <default>false</default>
+                    <label>Inbound</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Outbound</fullName>
+                    <default>false</default>
+                    <label>Outbound</label>
+                </value>
+                <value>
+                    <fullName>ToDo</fullName>
+                    <default>false</default>
+                    <label>ToDo</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Communication_date__c</fullName>
@@ -1185,7 +1587,17 @@
         <required>false</required>
         <type>Date</type>
     </fields>
-	<fields>
+    <fields>
+        <fullName>Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.ContractNumber__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Number</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contract__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1194,20 +1606,7 @@
         <relationshipLabel>Activities1</relationshipLabel>
         <relationshipName>Activities1</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-	 <fields>
-        <fullName>Contract_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>Contract__r.ContractNumber__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Contract Number</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -1324,97 +1723,135 @@
         <fullName>IB_Status__c</fullName>
         <externalId>false</externalId>
         <label>IB Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Error</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>false</default>
+                    <label>Valid</label>
+                </value>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Intention_Status__c</fullName>
         <externalId>false</externalId>
         <label>Intention Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Contact</fullName>
-                <default>false</default>
-            </picklistValues>
-			<picklistValues>
-                <fullName>Handover</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Visited</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Needs Check</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Product Proposal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance Proposal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Insurance Proposal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Service Program Proposal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Simple Estimation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hand Back</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trade In</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Retain Payout</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Retain Refinance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quoted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trade-in</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Contact</fullName>
+                    <default>false</default>
+                    <label>Contact</label>
+                </value>
+                <value>
+                    <fullName>Handover</fullName>
+                    <default>false</default>
+                    <label>Handover</label>
+                </value>
+                <value>
+                    <fullName>Visited</fullName>
+                    <default>false</default>
+                    <label>Visited</label>
+                </value>
+                <value>
+                    <fullName>Needs Check</fullName>
+                    <default>false</default>
+                    <label>Needs Check</label>
+                </value>
+                <value>
+                    <fullName>Product Proposal</fullName>
+                    <default>false</default>
+                    <label>Product Proposal</label>
+                </value>
+                <value>
+                    <fullName>Finance Proposal</fullName>
+                    <default>false</default>
+                    <label>Finance Proposal</label>
+                </value>
+                <value>
+                    <fullName>Insurance Proposal</fullName>
+                    <default>false</default>
+                    <label>Insurance Proposal</label>
+                </value>
+                <value>
+                    <fullName>Service Program Proposal</fullName>
+                    <default>false</default>
+                    <label>Service Program Proposal</label>
+                </value>
+                <value>
+                    <fullName>Simple Estimation</fullName>
+                    <default>false</default>
+                    <label>Simple Estimation</label>
+                </value>
+                <value>
+                    <fullName>Test Drive</fullName>
+                    <default>false</default>
+                    <label>Test Drive</label>
+                </value>
+                <value>
+                    <fullName>Hand Back</fullName>
+                    <default>false</default>
+                    <label>Hand Back</label>
+                </value>
+                <value>
+                    <fullName>Trade In</fullName>
+                    <default>false</default>
+                    <label>Trade In</label>
+                </value>
+                <value>
+                    <fullName>Retain Payout</fullName>
+                    <default>false</default>
+                    <label>Retain Payout</label>
+                </value>
+                <value>
+                    <fullName>Retain Refinance</fullName>
+                    <default>false</default>
+                    <label>Retain Refinance</label>
+                </value>
+                <value>
+                    <fullName>Quoted</fullName>
+                    <default>false</default>
+                    <label>Quoted</label>
+                </value>
+                <value>
+                    <fullName>Trade-in</fullName>
+                    <default>false</default>
+                    <label>Trade-in</label>
+                </value>
+                <value>
+                    <fullName>FollowUp1</fullName>
+                    <default>false</default>
+                    <label>FollowUp1</label>
+                </value>
+                <value>
+                    <fullName>FollowUp2</fullName>
+                    <default>false</default>
+                    <label>FollowUp2</label>
+                </value>
+                <value>
+                    <fullName>FollowUp3</fullName>
+                    <default>false</default>
+                    <label>FollowUp3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>InteractionIds__c</fullName>
@@ -1432,12 +1869,14 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
-        <defaultValue>IF(ISPICKVAL($User.Market__c, &apos;AU&apos;) ,&apos;AU&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;CN&apos;), &apos;CN&apos;, 
-IF(ISPICKVAL($User.Market__c, &apos;JP&apos;), &apos;JP&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;KR&apos;), &apos;KR&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;TH&apos;), &apos;TH&apos;,
-IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))))</defaultValue>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH',
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'MY'), 'MY',
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR','NA'))))))))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
@@ -1445,13 +1884,13 @@ IF(ISPICKVAL($User.Market__c, &apos;MY&apos;), &apos;MY&apos;,&apos;NA&apos;))))
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Message__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(BEGINS($Profile.Name, &apos;MBK Dealer&apos;), 
-HYPERLINK(&apos;/MBKorea/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;) , 
-HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link&apos;, &apos;_Blank&apos;))</formula>
-		<label>Message</label>
+        <formula>IF(BEGINS($Profile.Name, 'MBK Dealer'), 
+HYPERLINK('/MBKorea/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank') , 
+HYPERLINK('/apex/PageMessagePopupKRDFW?Id='&amp;Id, 'Message Link', '_Blank'))</formula>
+        <label>Message</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -1484,62 +1923,98 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <fullName>OB_Status__c</fullName>
         <externalId>false</externalId>
         <label>OB Status</label>
-        <picklist>
-            <controllingField>Result__c</controllingField>
-            <picklistValues>
-                <fullName>no answer</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>busy</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>reject</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>wrong number</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>no such person</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>invalid data</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>reservation</fullName>
-                <default>false</default>
-                <controllingFieldValues>Unsolved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>successful</fullName>
-                <default>false</default>
-                <controllingFieldValues>Solved</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Repeat</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Language Issue</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <controllingField>Result__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>no answer</fullName>
+                    <default>false</default>
+                    <label>no answer</label>
+                </value>
+                <value>
+                    <fullName>busy</fullName>
+                    <default>false</default>
+                    <label>busy</label>
+                </value>
+                <value>
+                    <fullName>reject</fullName>
+                    <default>false</default>
+                    <label>reject</label>
+                </value>
+                <value>
+                    <fullName>wrong number</fullName>
+                    <default>false</default>
+                    <label>wrong number</label>
+                </value>
+                <value>
+                    <fullName>no such person</fullName>
+                    <default>false</default>
+                    <label>no such person</label>
+                </value>
+                <value>
+                    <fullName>invalid data</fullName>
+                    <default>false</default>
+                    <label>invalid data</label>
+                </value>
+                <value>
+                    <fullName>reservation</fullName>
+                    <default>false</default>
+                    <label>reservation</label>
+                </value>
+                <value>
+                    <fullName>successful</fullName>
+                    <default>false</default>
+                    <label>successful</label>
+                </value>
+                <value>
+                    <fullName>Repeat</fullName>
+                    <default>false</default>
+                    <label>Repeat</label>
+                </value>
+                <value>
+                    <fullName>Language Issue</fullName>
+                    <default>false</default>
+                    <label>Language Issue</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Solved</controllingFieldValue>
+                <controllingFieldValue>Unsolved</controllingFieldValue>
+                <valueName>no answer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solved</controllingFieldValue>
+                <controllingFieldValue>Unsolved</controllingFieldValue>
+                <valueName>busy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solved</controllingFieldValue>
+                <valueName>reject</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solved</controllingFieldValue>
+                <valueName>wrong number</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solved</controllingFieldValue>
+                <valueName>no such person</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solved</controllingFieldValue>
+                <valueName>invalid data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Solved</controllingFieldValue>
+                <valueName>successful</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Unsolved</controllingFieldValue>
+                <valueName>reservation</valueName>
+            </valueSettings>
+        </valueSet>
     </fields>
     <fields>
         <fullName>OfficePhone__c</fullName>
@@ -1609,48 +2084,59 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <fullName>Priority__c</fullName>
         <externalId>false</externalId>
         <label>Priority</label>
-        <picklist>
-            <picklistValues>
-                <fullName>1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>6</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>7</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>8</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>9</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
-    </fields> 
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+                <value>
+                    <fullName>7</fullName>
+                    <default>false</default>
+                    <label>7</label>
+                </value>
+                <value>
+                    <fullName>8</fullName>
+                    <default>false</default>
+                    <label>8</label>
+                </value>
+                <value>
+                    <fullName>9</fullName>
+                    <default>false</default>
+                    <label>9</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <fields>
         <fullName>QC_Quantity__c</fullName>
         <externalId>false</externalId>
@@ -1665,55 +2151,68 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <fullName>Reason__c</fullName>
         <externalId>false</externalId>
         <label>Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Initial Attempt</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2nd Attempt</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3rd Attempt</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quote Follow Up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Enquiry Follow Up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Scheduled Call Back</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New Enquiry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer Follow up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Follow up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer Contact</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Initial Attempt</fullName>
+                    <default>false</default>
+                    <label>Initial Attempt</label>
+                </value>
+                <value>
+                    <fullName>2nd Attempt</fullName>
+                    <default>false</default>
+                    <label>2nd Attempt</label>
+                </value>
+                <value>
+                    <fullName>3rd Attempt</fullName>
+                    <default>false</default>
+                    <label>3rd Attempt</label>
+                </value>
+                <value>
+                    <fullName>Quote Follow Up</fullName>
+                    <default>false</default>
+                    <label>Quote Follow Up</label>
+                </value>
+                <value>
+                    <fullName>Enquiry Follow Up</fullName>
+                    <default>false</default>
+                    <label>Enquiry Follow Up</label>
+                </value>
+                <value>
+                    <fullName>Scheduled Call Back</fullName>
+                    <default>false</default>
+                    <label>Scheduled Call Back</label>
+                </value>
+                <value>
+                    <fullName>New Enquiry</fullName>
+                    <default>false</default>
+                    <label>New Enquiry</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+                <value>
+                    <fullName>Customer Follow up</fullName>
+                    <default>false</default>
+                    <label>Customer Follow up</label>
+                </value>
+                <value>
+                    <fullName>Dealer Follow up</fullName>
+                    <default>false</default>
+                    <label>Dealer Follow up</label>
+                </value>
+                <value>
+                    <fullName>Dealer Contact</fullName>
+                    <default>false</default>
+                    <label>Dealer Contact</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Related_Task_Id__c</fullName>
@@ -1725,7 +2224,7 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	  <fields>
+    <fields>
         <fullName>Related_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -1734,27 +2233,29 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <relationshipLabel>Activities</relationshipLabel>
         <relationshipName>Activities</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Result__c</fullName>
         <externalId>false</externalId>
         <label>Result</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Solved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unsolved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Solved</fullName>
+                    <default>false</default>
+                    <label>Solved</label>
+                </value>
+                <value>
+                    <fullName>Unsolved</fullName>
+                    <default>false</default>
+                    <label>Unsolved</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>SMSTemplateID__c</fullName>
@@ -1774,7 +2275,7 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields> 
+    </fields>
     <fields>
         <fullName>SentTime__c</fullName>
         <externalId>false</externalId>
@@ -1815,24 +2316,29 @@ HYPERLINK(&apos;/apex/PageMessagePopupKRDFW?Id=&apos;&amp;Id, &apos;Message Link
 noted by Lio on 10.28.2013</description>
         <externalId>false</externalId>
         <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Valid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Invalid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Error</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
-    </fields> 
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>false</default>
+                    <label>Valid</label>
+                </value>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <fields>
         <fullName>Survey_Taken__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -1928,19 +2434,92 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <fullName>Welcome_Call_Source__c</fullName>
         <externalId>false</externalId>
         <label>Welcome Call Source</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Unsuccessful SSI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Welcome Call</fullName>
-                <default>true</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unsuccessful SSI</fullName>
+                    <default>false</default>
+                    <label>Unsuccessful SSI</label>
+                </value>
+                <value>
+                    <fullName>Welcome Call</fullName>
+                    <default>true</default>
+                    <label>Welcome Call</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>avayajp__AgentID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>AgentID</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avayajp__Called__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number that was called by the originator. (DNIS)</description>
+        <externalId>false</externalId>
+        <label>Called</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>avayajp__Caller__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number that was dialed by the originator of the call. (ANI)</description>
+        <externalId>false</externalId>
+        <label>Caller</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>avayajp__OriginalUCID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>OriginalUCID</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avayajp__StationID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>内線番号</description>
+        <externalId>false</externalId>
+        <label>StationID</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>avayajp__UCID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Universal Call ID for the Avaya telephone system.</description>
+        <externalId>false</externalId>
+        <label>UCID</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>avayajp__UUI__c</fullName>
+        <deprecated>false</deprecated>
+        <description>User-to-User Information as provided by the CTI link</description>
+        <externalId>false</externalId>
+        <label>UUI</label>
+        <length>96</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>eDM_Template_ID__c</fullName>
@@ -1971,10 +2550,35 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>icrt__AeGuide_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to identify the Sales Guide matching the task</description>
+        <externalId>false</externalId>
+        <label>Guide Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllActivities</fullName>
-        <filterScope>Team</filterScope>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <operation>equals</operation>
+        </filters>
         <label>All Activities</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>All_Un_assinged_OB_Task</fullName>
@@ -2093,7 +2697,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <columns>TASK.PRIORITY</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>TASK.LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns> 
+        <columns>UPDATEDBY_USER.ALIAS</columns>
         <columns>SMS_Content__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -2105,6 +2709,56 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <language>en_US</language>
         <sharedTo>
             <role>IB_TL</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>DM</fullName>
+        <booleanFilter>1 OR 2 OR 3 OR 4 OR 5</booleanFilter>
+        <columns>TASK.SUBJECT</columns>
+        <columns>EVENT.START_DATE_TIME</columns>
+        <columns>EVENT.END_DATE_TIME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>REMINDER_DATE_TIME</columns>
+        <columns>IS_REMINDER_SET</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>TASK.RECORDTYPE</columns>
+        <columns>OWNER_ROLE</columns>
+        <filterScope>Team</filterScope>
+        <filters>
+            <field>CORE.USERS.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>小川戸</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>粕尾</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>新藤</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>宮谷</value>
+        </filters>
+        <filters>
+            <field>CORE.USERS.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>宮森</value>
+        </filters>
+        <label>DMチーム</label>
+        <language>ja</language>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
         </sharedTo>
     </listViews>
     <listViews>
@@ -2126,7 +2780,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <fullName>My_Call_Being_QC</fullName>
         <columns>TASK.SUBJECT</columns>
         <columns>TASK.CALLTYPE</columns>
-        <columns>TASK.CALLDURATION</columns> 
+        <columns>TASK.CALLDURATION</columns>
         <columns>Generate_QC__c</columns>
         <filterScope>Mine</filterScope>
         <filters>
@@ -2505,8 +3159,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
+        <excludedStandardButtons>NewTask</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>

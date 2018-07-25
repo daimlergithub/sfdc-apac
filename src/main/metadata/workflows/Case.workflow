@@ -116,6 +116,17 @@
         <template>unfiled$public/Case_escalation_Inquiry_after_48_hours_MY</template>
     </alerts>
     <alerts>
+        <fullName>Case_escalation_Inquiry_after_48_hours_TR</fullName>
+        <description>Case escalation_Inquiry after 48 hours_TR</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+       
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_48_hours_TR</template>
+    </alerts>
+    <alerts>
         <fullName>Case_escalation_Inquiry_after_72_hours_MY</fullName>
         <description>Case escalation_Inquiry after 72 hours_MY</description>
         <protected>false</protected>
@@ -125,6 +136,36 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_escalation_Inquiry_after_72_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_Inquiry_after_72_hours_TR</fullName>
+        <description>Case escalation_Inquiry after 72 hours_TR</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_72_hours_TR</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_Inquiry_after_96_hours_TR</fullName>
+        <description>Case escalation_Inquiry after 96 hours_TR</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+      
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_96_hours_TR</template>
     </alerts>
     <alerts>
         <fullName>Case_escalation_MB_Complaint_after_120_hours_MY</fullName>
@@ -147,6 +188,17 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_escalation_Inquiry_after_24_hours_MY</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_escalation_MB_Complaint_after_24_hours_TR</fullName>
+        <description>Case escalation_MB Complaint after 24 hours_TR</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_escalation_Inquiry_after_24_hours_TR</template>
     </alerts>
     <alerts>
         <fullName>Case_escalation_for_Inquiry_after_120_hours_MY</fullName>
@@ -317,6 +369,31 @@
         <template>unfiled$public/Case_Deadline_Notification_TH_3</template>
     </alerts>
     <alerts>
+        <fullName>Deadline_Notification_to_Owner_before_1_hour_TR</fullName>
+        <description>Deadline Notification to Owner before 1 hour</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Deadline_Notification_TR</template>
+    </alerts>
+    
+    <alerts>
+        <fullName>Email_Notification_for_User_on_case_creation</fullName>
+        <description>Email_Notification_for_User_on_case_creation</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Creation_Notification</template>
+    </alerts>
+    <alerts>
         <fullName>Email_to_Dealer_Gatekeeper_Case</fullName>
         <description>Email to Dealer Gatekeeper Case</description>
         <protected>false</protected>
@@ -335,6 +412,20 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Change_Retail_Campaign_Inquiry_Assignment_To_Dealer_Notification</template>
+ </alerts>
+    <alerts>
+        <fullName>Escalate_Case_to_Case_owner_Manager_TR</fullName>
+        <description>Escalate Case to Case owner Manager</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Case_Owner_manager__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_Escalation_Notification_TR</template>
     </alerts>
     <alerts>
         <fullName>Send_Email_To_Case_Owner</fullName>
@@ -444,6 +535,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_USVin</fullName>
+        <description>This is used for IN market to update US VIN based on US market</description>
+        <field>US_VIN__c</field>
+        <formula>Vehicle__r.UsVIN__c</formula>
+        <name>Update USVin</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Approval_Update</fullName>
         <field>Status</field>
         <literalValue>Final approval done</literalValue>
@@ -457,6 +558,36 @@
         <field>EuroVIN__c</field>
         <formula>Vehicle__r.EuroVIN__c</formula>
         <name>Update EuroVIN</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_FS_Vehicle_Brand</fullName>
+        <description>This is created as part of FS Development for Thailand Market</description>
+        <field>Vehicle_Brand_text__c</field>
+        <formula>TEXT(Vehicle__r.Brand__c)</formula>
+        <name>Update Vehicle Brand</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_FS_Vehicle_Class</fullName>
+        <description>This is created as part of FS Development for Thailand Market</description>
+        <field>Vehicle_Class_text__c</field>
+        <formula>TEXT(Vehicle__r.Class__c)</formula>
+        <name>Update Vehicle Class</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_FS_Vehicle_Registration_Number</fullName>
+        <description>This is created as part of FS Development for Thailand Market</description>
+        <field>Vehicle_Registration_Number__c</field>
+        <formula>Vehicle__r.RegistrationNo__c</formula>
+        <name>Update Vehicle Registration Number</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -490,6 +621,42 @@
         <operation>Literal</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Check_Flag_24H</fullName>
+        <field>CheckFlag_24H__c</field>
+        <literalValue>1</literalValue>
+        <name>Check Flag 24H</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Check_Flag_48H</fullName>
+        <field>CheckFlag_48H__c</field>
+        <literalValue>1</literalValue>
+        <name>Check Flag 48H</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Check_Flag_72_H</fullName>
+        <field>CheckFlag_72H__c</field>
+        <literalValue>1</literalValue>
+        <name>Check Flag 72 H</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Check_Flag_96H</fullName>
+        <field>CheckFlag_96H__c</field>
+        <literalValue>1</literalValue>
+        <name>Check Flag 96H</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>ChangeStatusforApproval</fullName>
@@ -913,6 +1080,27 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<fieldUpdates>
+        <fullName>UpdateCaseOwnerMY</fullName>
+        <description>Update the owner of the case to MY FS Inquiry Team Queue</description>
+        <field>OwnerId</field>
+        <lookupValue>MY_FS_Inquiry_Team_Queue</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>UpdateCaseOwnerMY</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+	<fieldUpdates>
+        <fullName>Deadline_Update</fullName>
+        <description>Update the deadline of the case to 24 hours from NOW</description>
+        <field>DeadLine__c</field>
+		<formula>NOW()+1</formula>
+        <name>Deadline Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>UpdateOwnerManager</fullName>
         <field>Case_Owner_manager__c</field>
@@ -975,6 +1163,24 @@
         <field>Complaint_Creator_Department__c</field>
         <literalValue>Dealer</literalValue>
         <name>Update Creator Department to Dealer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_MD_value</fullName>
+        <field>MD__c</field>
+        <formula>UPPER(&apos;TR&apos;)</formula>
+        <name>Update MD value</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Market_Value</fullName>
+        <field>Market__c</field>
+        <literalValue>TR</literalValue>
+        <name>Update Market Value</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -1200,6 +1406,18 @@
             <name>Update_EuroVIN</name>
             <type>FieldUpdate</type>
         </actions>
+        <actions>
+            <name>Update_FS_Vehicle_Brand</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_FS_Vehicle_Class</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_FS_Vehicle_Registration_Number</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>true</active>
         <formula>Vehicle__c  &lt;&gt; null&amp;&amp; MD__c =&apos;TH&apos;</formula>
         <triggerType>onAllChanges</triggerType>
@@ -1236,7 +1454,22 @@
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-    <rules>
+	<rules>
+        <fullName>UpdateCaseOwnerCOS_MY</fullName>
+        <actions>
+            <name>UpdateCaseOwnerMY</name>
+            <type>FieldUpdate</type>
+        </actions>
+		<actions>
+            <name>Deadline_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update the owner of the case coming from COS for MY.</description>
+        <formula>AND(OR(AND(!ISNULL( COS_Ticket_Number__c ),!ISBLANK( COS_Ticket_Number__c )),OR(RecordType.Name = "FS Complaint", RecordType.Name = "FS Inquiry")),ISPICKVAL(Market__c, 'MY'))</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+	<rules>
         <fullName>Case Deadline Notification JP</fullName>
         <active>true</active>
         <criteriaItems>
@@ -1379,6 +1612,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Case.DeadLine__c</field>
             <operation>notEqual</operation>
@@ -1413,6 +1647,17 @@
             <timeLength>-1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Auto Populate US VIN</fullName>
+        <actions>
+            <name>Update_USVin</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This is used for IN market to auto populate US VIN</description>
+        <formula>Vehicle__c &lt;&gt; null &amp;&amp; MD__c =&apos;IN&apos;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Case Deadline Notification TH</fullName>
@@ -1502,6 +1747,49 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case Deadline Notification TR</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Case.DeadLine__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>When deadline date and time has been set on the case then an automated email gets sent to the case owners an hour before the deadline and will be escalated to the case owner&apos;s manager after it surpasses the deadline.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Deadline_Notification_to_Owner_before_1_hour_TR</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Escalate_Case_to_Case_owner_Manager_TR</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.DeadLine__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Case Deadline%3A Dealer Notification KR After 240 hours</fullName>
         <active>false</active>
         <description>When deadline date and time has been set on the case then an automated mail gets sent to the case owners 240 hours after the deadline,If the case Priority is C and Green &lt;= 2.</description>
@@ -1538,6 +1826,68 @@
         <description>If Case Owner changed, email need to send to case owner.</description>
         <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos; &amp;&amp; NOT(ISCHANGED(Case_Dealer__c))</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case escalation after 24 hours_TR</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Awaiting Feedback From Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_MB_Complaint_after_24_hours_TR</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Check_Flag_24H</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_ after 72 hours_TR</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Awaiting Feedback From Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_72_hours_TR</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Check_Flag_72_H</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>72</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Case escalation_Inquiry after 120 hours_MY</fullName>
@@ -2024,6 +2374,69 @@
         </workflowTimeTriggers>
     </rules>
     <rules>
+        <fullName>Case escalation_after 48 hours_TR</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Awaiting Feedback From Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <description>This is used to send email notification after 48 hours for TR</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_48_hours_TR</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Check_Flag_48H</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>48</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Case escalation_after 96 hours_TR</fullName>
+        <actions>
+            <name>Case_owner_manager_update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Awaiting Feedback From Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_escalation_Inquiry_after_96_hours_TR</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Check_Flag_96H</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>96</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Case handling level Assignment Notification to Dealer</fullName>
         <actions>
             <name>Case_handing_level_email_to_Notification</name>
@@ -2162,7 +2575,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>(1 AND 2 AND 3) OR ((1 OR 6) AND 5  AND 4)</booleanFilter>
+        <booleanFilter>(1 AND 2 AND 3) OR ((1 OR 6) AND 5  AND 4) OR (1 AND 5  AND 7)</booleanFilter>
         <criteriaItems>
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
@@ -2192,6 +2605,11 @@
             <field>Case.RecordTypeId</field>
             <operation>equals</operation>
             <value>Inquiry</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
         </criteriaItems>
         <description>When a MB Complaint created by Dealer, Update Complaint Creator Department To Dealer.</description>
         <triggerType>onCreateOnly</triggerType>
@@ -2268,6 +2686,20 @@
         <description>Set the Overdue as Yes When the Case deadline has missed out</description>
         <formula>IF(DeadLine__c&lt;Now(), true, false)</formula>
         <triggerType>onAllChanges</triggerType>
+</rules>
+    <rules>
+        <fullName>Email_Notification_for_User_on_case_creation</fullName>
+        <actions>
+            <name>Email_Notification_for_User_on_case_creation</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>Inquiry Share to Regional Office</fullName>
@@ -2296,6 +2728,25 @@
             <timeLength>1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Outbound_call_task_when_carecall_flag_is_true</fullName>
+        <actions>
+            <name>Lead_Customer_Intention_OB_Call_Task</name>
+            <type>Task</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.CareCall__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>PopulateCarDetails</fullName>
@@ -2347,8 +2798,8 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <description>This WF is created for Sending email to gate keeper for Thailand wholesale users</description>
-        <formula>AND( MD__c = &apos;TH&apos;, ISPICKVAL( Owner:User.UserType,&apos;Standard&apos;), OR( AND( ISNEW(), NOT(ISBLANK(Case_Dealer__c )) ), AND( ISCHANGED(Case_Dealer__c ), NOT(ISBLANK(Case_Dealer__c )) ) ,ischanged(OwnerId)), OR(RecordType.Name=&apos;Inquiry&apos;, RecordType.Name=&apos;MB Complaint&apos; ), Case_Creator__r.Id &lt;&gt; OwnerId )</formula>
+        <description>This WF is created for Sending email to gate keeper for Thailand wholesale users and India wholesale user</description>
+        <formula>AND( OR(MD__c = &apos;TH&apos;, MD__c = &apos;IN&apos;), ISPICKVAL( Owner:User.UserType,&apos;Standard&apos;), OR( AND( ISNEW(), NOT(ISBLANK(Case_Dealer__c )) ), AND( ISCHANGED(Case_Dealer__c ), NOT(ISBLANK(Case_Dealer__c )) ) ,ischanged(OwnerId)), OR(RecordType.Name=&apos;Inquiry&apos;, RecordType.Name=&apos;MB Complaint&apos; ), Case_Creator__r.Id &lt;&gt; OwnerId )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -2362,13 +2813,13 @@
         <formula>AND( MD__c = &apos;TH&apos;, ISPICKVAL( Owner:User.UserType,&apos;PowerPartner&apos;), OR( AND( ISNEW(), NOT(ISBLANK(Case_Dealer__c )) ), AND( ISCHANGED(Case_Dealer__c ), NOT(ISBLANK(Case_Dealer__c )) ),ischanged(OwnerId) ), OR(RecordType.Name=&apos;Inquiry&apos;, RecordType.Name=&apos;MB Complaint&apos; ), Case_Creator__r.Id &lt;&gt; OwnerId )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
+   <rules>
         <fullName>Share to Regional Office</fullName>
         <actions>
             <name>Change_Case_Owner_to_CCC_Team</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Case.Share_to_Regional_Office__c</field>
             <operation>equals</operation>
@@ -2448,8 +2899,22 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos; &amp;&amp; Owner:User.Profile.Name!=&apos;Korea Call Center&apos; &amp;&amp; (CONTAINS( Owner:User.Profile.Name,&apos;Korea&apos;)||Owner:User.Profile.Name==&apos;MBK Support Profile&apos;)</formula>
+        <formula>OR((ISCHANGED(OwnerId) &amp;&amp; MD__c = &apos;KR&apos; &amp;&amp; Owner:User.Profile.Name!=&apos;Korea Call Center&apos; &amp;&amp; (CONTAINS( Owner:User.Profile.Name,&apos;Korea&apos;)||Owner:User.Profile.Name==&apos;MBK Support Profile&apos;)),  AND(ISNULL(Escalate_Date_to_CO__c) ,IsEscalated = TRUE ,$Permission.INGeneric))</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Market on Case Creation</fullName>
+        <actions>
+            <name>Update_MD_value</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Market_Value</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( ISPICKVAL( Origin , &apos;E-Mail&apos;) , Owner:Queue.QueueName = &apos;CCC_Global&apos;)</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
         <fullName>UpdateCaseOwnerCOS</fullName>
@@ -2462,4 +2927,15 @@
         <formula>!ISNULL( COS_Ticket_Number__c )&amp;&amp;!ISBLANK( COS_Ticket_Number__c )&amp;&amp;ISPICKVAL(Market__c, &apos;TH&apos;)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
+    <tasks>
+        <fullName>Lead_Customer_Intention_OB_Call_Task</fullName>
+        <assignedToType>owner</assignedToType>
+        <description>Please Take the OB Call from Customer</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>General</priority>
+        <protected>false</protected>
+        <status>Open</status>
+        <subject>Case Customer Intention OB Call Task</subject>
+    </tasks>
 </Workflow>

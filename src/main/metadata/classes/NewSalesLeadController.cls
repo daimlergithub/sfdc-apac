@@ -10,6 +10,7 @@ public with sharing class NewSalesLeadController {
     public string rec {get;set;}
      
     public NewSalesLeadController(ApexPages.StandardController controller) {
+        
     }
     
     public PageReference goToRecordTypePage() {        
@@ -18,6 +19,8 @@ public with sharing class NewSalesLeadController {
         string accId = ApexPages.currentPage().getParameters().get('retURL');
         if(accID != NULL){
             system.debug('inside'+accid);
+	    if(userInfo.getUserType() == 'PowerPartner')
+                accID = accID.right(accID.Length()-accID.lastIndexOf('/'));
             accID = accId.replace('/','');
             if(accID.startsWith('001')){
                 accID = accID;
@@ -33,6 +36,7 @@ public with sharing class NewSalesLeadController {
         }
         rec = opp.recordtypeid;
         rec = UtilRecordType.getRecordTypeNameById('Opportunity',rec);
+        system.debug('checkkkkkkkkkkkk'+rec);
         if(rec == Label.Aftersales_Lead){
             PageReference leadPage = new PageReference('/apex/AfterSalesLeadPage'+'?accid='+accID);
             leadPage.setRedirect(true);
@@ -42,6 +46,14 @@ public with sharing class NewSalesLeadController {
             PageReference leadPage = new PageReference('/apex/SalesLeadPage'+'?accid='+accID);
             leadPage.setRedirect(true);
             return leadPage;            
+        }
+        else if (rec == 'Finance Lead'){
+            
+            String newPageUrl = '/006/e?retURL=%2F006%2Fo&RecordType='+opp.recordtypeid+'&ent=Opportunity&nooverride=1';
+            PageReference leadPage = new PageReference(newPageUrl);
+            //leadPage.setRedirect(true);
+            return leadPage;
+            //return null;
         }
         return null;
     }

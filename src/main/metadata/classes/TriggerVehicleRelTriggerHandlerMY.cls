@@ -38,18 +38,23 @@ public class TriggerVehicleRelTriggerHandlerMY implements TriggerHandlerIf{
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter){
+		Logic_Switch__c ls = Logic_Switch__c.getValues('VRRealTimeSharingInf');
         List<Vehicle_Relationship__c> vehicleNewList = Trigger.new;
         if(!isDelete && !vehicleNewList.isEmpty() && vehicleNewList.size() > 0 && vehicleNewList[0].MD__c == Label.MY){
             if(trigger.isAfter && (trigger.isInsert)){
                 VehicleRelationshipHelperMY.OnAfterInsert(Trigger.new);
 				VehicleRelationshipHelperMY.OnAfterInsert_company_account(Trigger.new);
-                VehicleRelationshipHelperMY.afterInsertUpdateSharerecordsWithDealers(Trigger.New,true);       /*Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */             
+				if(ls != NULL && ls.execute__c){
+					VehicleRelationshipHelperMY.afterInsertUpdateSharerecordsWithDealers(Trigger.New,true);       /*Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */   
+				}				
             }
             if(trigger.isAfter && Trigger.isUpdate) {
                 Map<Id,Vehicle_Relationship__c> oldmapVehicleRelship = (Map<Id,Vehicle_Relationship__c>)Trigger.oldmap;
                 VehicleRelationshipHelperMY.OnAfterUpdate(Trigger.new,oldmapVehicleRelship);
 				VehicleRelationshipHelperMY.OnAfterUpdate_Company_Account(Trigger.new,oldmapVehicleRelship);
-                VehicleRelationshipHelperMY.afterInsertUpdateSharerecordsWithDealers(Trigger.New,false);     /*Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */               
+				if(ls != NULL && ls.execute__c){
+					VehicleRelationshipHelperMY.afterInsertUpdateSharerecordsWithDealers(Trigger.New,false);     /*Added by Laqshay Arora as a part of Vehicle/Vehicle relationship management Phase 2 */   
+				}
             }    
             if(trigger.isAfter && Trigger.isDelete) {
                 VehicleRelationshipHelperMY.OnAfterDelete(Trigger.old);

@@ -35,6 +35,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>MB_Online_Id__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Portal_Message_Opt_Out__c</field>
             </layoutItems>
             <layoutItems>

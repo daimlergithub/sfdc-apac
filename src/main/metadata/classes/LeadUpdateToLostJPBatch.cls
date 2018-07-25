@@ -1,11 +1,11 @@
 global class LeadUpdateToLostJPBatch implements Database.batchable<sObject>{
-global Date daysBack30 = System.today().addDays(-30);
-global Date daysBack60 = System.today().addDays(-60);
-global Date daysBack90 = System.today().addDays(-90);
-   
+  
 global string query='Select id,Lead_Latest_Phase__c,Assigned_Dealer__c,RecordType.Name,Appointment_DateTime__c,LastModifiedDate,Dealer_Lead_Status__c,Dealer_Lost_Reason__c,Lost_Situation__c,Contact__r.Data_Source__c,Lead_DataSource__c from Lead__c  where (MD__c=\'JP\' OR Market__c=\'JP\') AND CAC_Lead_Status__c=\'Allocated\' AND Assigned_Dealer__r.Dealer_ND_Code__c !=\'\' AND Assigned_Dealer__r.Dealer_Group__c =\'Yanase\' AND Lead_DataSource__c =\'Dealer Outlet\' AND ((Dealer_Lead_Status__c != \'Order Placed\' OR Dealer_Lead_Status__c != \'Lost\' OR Dealer_Lead_Status__c != \'Purchased(Only Non BDC)\') AND ((RecordType.Name =\'Sales Leads\' AND (Lead_Latest_Phase__c = \'Quotation\' OR Lead_Latest_Phase__c = \'CA Submission\' OR Lead_Latest_Phase__c = \'Finance Quotation\') AND LastModifiedDate  <= :daysBack90 ) OR  (RecordType.Name =\'Sales Leads\' AND Lead_Latest_Phase__c =\'Order Placed\' AND LastModifiedDate  <= :daysBack60) OR  (RecordType.Name =\'Aftersales Leads\' AND Appointment_DateTime__c != null AND Appointment_DateTime__c <=  :daysBack30)) )';
  
-global Database.QueryLocator start(Database.BatchableContext BC){
+global Database.QueryLocator start(Database.BatchableContext BC){ 
+    Date daysBack30 =  System.today().addDays(Integer.valueof(Label.Days30));
+    Date daysBack60 = System.today().addDays(Integer.valueof(Label.Days60));
+    Date daysBack90 = System.today().addDays(Integer.valueof(Label.Days90));  
     if(Test.isRunningTest()){
        daysBack30 = System.today();
 	   daysBack60 = System.today();

@@ -1,6 +1,9 @@
 global class Batch_Consolidation implements Database.Batchable<sObject> ,Database.stateful{
     global final String query;
-    
+      global Map<Id, String> errorMap {get; set;}
+  global Map<Id, String> successMap {get; set;}
+   global list<Id> successlist=new list<ID>();
+  global Map<Id, SObject> IdToSObjectMap {get; set;}
     global Batch_Consolidation  (String q){
         query = q;
         system.debug('++++++++++++++++++'+query);
@@ -25,7 +28,7 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
    
    }
    
-   List<Dealer_List_Member__c> DealList = [Select id,Name,NewAccount__c,List_Maintenance_CM_Status__c,Participating_Dealer__c,Campaign_Member__c From Dealer_List_Member__c Where Participating_Dealer__c =:parId];
+   List<Dealer_List_Member__c> DealList = [Select id,Name,NewAccount__c,VehicleRelationship__c,VehicleRelationship_New__r.Vehicle_Id__c,List_Maintenance_CM_Status__c,Participating_Dealer__c,Campaign_Member__c From Dealer_List_Member__c Where Participating_Dealer__c =:parId];
    
    For(Participating_Dealer__c par : scope){
        
@@ -79,7 +82,7 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
        
        } 
        
-       list<Dealer_List_Member__c> dealerListDupe = [select id,Name,NewAccount__c From Dealer_List_Member__c Where NewAccount__c =:aid AND Campaign__c =: query];
+       list<Dealer_List_Member__c> dealerListDupe = [select id,Name,VehicleRelationship__c,VehicleRelationship_New__r.Vehicle_Id__c,NewAccount__c From Dealer_List_Member__c Where NewAccount__c =:aid AND Campaign__c =: query];
        
             If(dealerListDupe.Size()>1){
             
@@ -87,7 +90,7 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
             }
        
        
-       list<Dealer_List_Member__c> dealerListNew = [select id,Name,NewAccount__c,List_Maintenance_CM_Status__c,Participating_Dealer__r.Dealer__c From Dealer_List_Member__c where Id =: mid AND List_Maintenance_CM_Status__c = 'New' ];
+       list<Dealer_List_Member__c> dealerListNew = [select id,Name,VehicleRelationship__c,VehicleRelationship_New__r.Vehicle_Id__c,NewAccount__c,List_Maintenance_CM_Status__c,Participating_Dealer__r.Dealer__c From Dealer_List_Member__c where Id =: mid AND List_Maintenance_CM_Status__c = 'New' ];
        
           for(Dealer_List_Member__c dlistMem : dealerListNew  ){
               
@@ -100,6 +103,14 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
              //if(DupeChecker == true){
              camInsert.Preferred_Dealer__c = dlistMem.Participating_Dealer__r.Dealer__c; 
              //}
+             
+             if(dlistMem.VehicleRelationship_New__c != null){
+             
+             camInsert.Vehicle_Relationship__c = dlistMem.VehicleRelationship_New__c;
+             camInsert.Vehicle__c = dlistMem.VehicleRelationship_New__r.Vehicle_Id__c;
+             
+             }
+             
               if(!dupliCheck.contains(dlistMem.NewAccount__c ))
               {
                   
@@ -117,7 +128,53 @@ global class Batch_Consolidation implements Database.Batchable<sObject> ,Databas
     }
     
     global void finish(Database.BatchableContext BC){
-    
+    errorMap = new Map<Id, String>();
+    successMap= new Map<Id, String>();
+    IdToSObjectMap = new Map<Id, SObject>();
+         if(!errorMap.isEmpty() || !successlist.isempty())
+     {
+         AsyncApexJob a = [SELECT id, ApexClassId,JobItemsProcessed, TotalJobItems,NumberOfErrors, CreatedBy.Email FROM AsyncApexJob WHERE id = :BC.getJobId()];
+       //  camprec=[Select id,name from campaign where id=:campid Limit 1];
+         String body = 'Your batch job '
+             + 'Batch_Consolidation '
+             + 'has finished. and' 
+             + 'There were '
+             +successlist.size() 
+             +'Sucess and '
+             + errorMap.size()
+             + ' errors. Please find the error list attached to the Case.';
+         
+         // Creating the CSV file
+            String finalstr = 'Id, Name, Error \n';
+            String subject = 'Consolidation List for - Apex Batch Error List';
+            String attName = 'Consolidation List.csv';
+            for(Id id  : errorMap.keySet()){
+                string err = errorMap.get(id);
+                Campaign_Member__c acct = (Campaign_Member__c) IdToSObjectMap.get(id);
+                string recordString = '"'+id+'","'+acct.Name+'","'+err+'"\n';
+                finalstr = finalstr +recordString;
+            } 
+         // Define the email
+            Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage(); 
+ 
+            // Create the email attachment    
+            Messaging.EmailFileAttachment efa = new Messaging.EmailFileAttachment();
+            efa.setFileName(attName);
+            efa.setBody(Blob.valueOf(finalstr));
+ 
+            // Sets the paramaters of the email
+            email.setSubject( subject );
+            //email.setToAddresses( new String[] {'dinesh.govindaswamy@nttdata.com'} );
+            email.setToAddresses( new String[] {'NTT_Daimler_SO_Team@nttdata.com'} );
+           email.setCcAddresses( new String[] {'atsushi.ogihara@nttdata.com'} );
+            email.setPlainTextBody( body );
+            email.setFileAttachments(new Messaging.EmailFileAttachment[] {efa});
+ 
+            // Sends the email
+            Messaging.SendEmailResult [] r = 
+                Messaging.sendEmail(new Messaging.SingleEmailMessage[] {email});   
+ 
+     }
      List<Campaign> newcamlist = New List<campaign>();
      Set<id> sid = New Set<id>();
      Set<id> aid = New Set<id>();

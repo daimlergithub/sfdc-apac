@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CaseSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>CAC_Complaint_share_to_Hanxue</fullName>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>CAC Complaint share to Hanxue</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>Share_Case_to_Tracking_User_MBJ</fullName>
+        <sharedTo>
+            <group>MBJ_MC_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Share Case to Tracking User - MBJ</description>
+        <name>Share Case to Tracking User - MBJ</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CAC_Inquiry_share_to_Hanxue</fullName>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,Chrysler Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>CAC Inquiry share to Hanxue</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Case_Permission_TR</fullName>
+        <sharedTo>
+            <roleAndSubordinates>MBTR_Management</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Market__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Case Permission TR</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Case_Record_Share</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>S24h - MMC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>Case Record Share</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+	    <fullName>Case_sharing_For_FS_India</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndiaFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Complaint,FS Inquiry</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>To share cases with all FS users of India</description>
+        <name>Case sharing For FS India</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Case_sharing_MPC_India</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBIndia_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>IN</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>to share cases with all users in MPC of India</description>
+        <name>Case sharing MPC India</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>ComplaintShareCentralOffice</fullName>
+        <sharedTo>
+            <role>AS_Service_Technical_Director</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Contact__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>ComplaintShareCentralOffice</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>ComplaintShareCentralPLWL</fullName>
+        <sharedTo>
+            <role>PL_WL_Team</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Contact__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>ComplaintShareCentralPLWL</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>ComplaintShareEast</fullName>
+        <sharedTo>
+            <role>Regional_CRM_Mgr_E</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Contact__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>East</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>ComplaintShareEast</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>ComplaintShareNorth</fullName>
+        <sharedTo>
+            <role>Regional_CRM_Mgr_N</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Contact__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>North</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>ComplaintShareNorth</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>ComplaintShareSouth</fullName>
+        <sharedTo>
+            <role>Regional_CRM_Mgr_S</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Contact__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>South</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>ComplaintShareSouth</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>ComplaintShareWest</fullName>
+        <sharedTo>
+            <role>Regional_CRM_Mgr_W</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Contact__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>West</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>ComplaintShareWest</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Inquiry_case_is_shared_with_CAC_with_RW</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,Chrysler Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Inquiry case is shared with CAC with RW</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>JP_MarketCase_Readable_to_MBJ_IT_Dept</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_IT_Department</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>JP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Allow_Data_Sharing__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>View all records of all Japan object with MD__c = 'JP' for all Roles used in Japan</description>
+        <name>JP_MarketCase_Readable_to_MBJ_IT_Dept</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBDA_CASE</fullName>
+        <sharedTo>
+            <role>IB_CSR</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MBDA Complaint,MBDA Inquiry</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>MBDA CASE</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MBK_Case_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBK_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>KR</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>MBK Case Sharing Rule</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+    <fullName>MBLT_Case_sharing</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBLT</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Inquiry,FS Complaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>FS cases should be shared only with FS users.</description>
+        <name>MBLT_Case_sharing</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Central_East_Case_to_Regional</fullName>
+        <sharedTo>
+            <role>Regional_CRM_Mgr_E</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>00G90000001Wm15</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Handling_Level__c</field>
+            <operation>equals</operation>
+            <value>Central Office,Regional Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>East</value>
+        </criteriaItems>
+        <booleanFilter>(1 or 2) AND 3</booleanFilter>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Share Central East Case to Regional</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Central_North_Case_to_Regional</fullName>
+        <sharedTo>
+            <role>Regional_CRM_Mgr_N</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>00G90000001Wm15</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Handling_Level__c</field>
+            <operation>equals</operation>
+            <value>Central Office,Regional Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>North</value>
+        </criteriaItems>
+        <booleanFilter>(1 or 2) AND 3</booleanFilter>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Share Central North Case to Regional</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Central_South_Case_to_Regional</fullName>
+        <sharedTo>
+            <role>Regional_CRM_Mgr_S</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>00G90000001Wm15</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Handling_Level__c</field>
+            <operation>equals</operation>
+            <value>Central Office,Regional Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>South</value>
+        </criteriaItems>
+        <booleanFilter>(1 or 2) AND 3</booleanFilter>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Share Central South Case to Regional</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Central_West_Case_to_Regional</fullName>
+        <sharedTo>
+            <role>Regional_CRM_Mgr_W</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>00G90000001Wm15</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Handling_Level__c</field>
+            <operation>equals</operation>
+            <value>Central Office,Regional Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>West</value>
+        </criteriaItems>
+        <booleanFilter>(1 or 2) AND 3</booleanFilter>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Share Central West Case to Regional</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_Non_Dealer_Case_to_CAC_with_readwrite</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MB Complaint</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Share Non Dealer Case to CAC with readwrite</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Share_RO_CO_Cases_to_Central</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AS_Service_Technical_Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Handling_Level__c</field>
+            <operation>equals</operation>
+            <value>Central Office,Regional Office</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Share RO/CO Cases to Central</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TH_Sharing_Cases_to_All_other_TH_users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>TH</value>
+        </criteriaItems>
+	<criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>FS Inquiry,FS Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Sharing all the cases to the all users of Thailand</description>
+        <name>TH_Sharing_Cases_to_All_other_TH_users</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MY_Sharing_Cases_to_All_other_MY_users</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+		</criteriaItems>
+		<criteriaItems>
+			<field>RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>FS Inquiry,FS Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Sharing all the cases to the all users of Malaysia</description>
+        <name>MY_Sharing_Cases_to_All_other_MY_users</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>FS_Cases_to_shared_with_MBFS_Management</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+		</criteriaItems>
+		<criteriaItems>	
+			<field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Inquiry,FS Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description></description>
+        <name>FS Cases to be shared with MBFS Management</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MPC_Cases_to_shared_with_MBFS_Management</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBFS_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+		</criteriaItems>
+		<criteriaItems>	
+			<field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <description>MPC Cases to be shared with MBFS Management in Read Only mode</description>
+        <name>MPC Cases to be shared with MBFS Management</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>FS_Cases_to_be_shared_with_MBMY_Management</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBMY_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+			</criteriaItems>
+			<criteriaItems>
+			<field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Inquiry,FS Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <description></description>
+        <name>FS Cases to be shared with MBMY Management</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>FS_Cases_to_shared_with_all_wholesale_users</fullName>
+        <sharedTo>
+            <group>All_Wholesale_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+			</criteriaItems>
+			<criteriaItems>
+			<field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FS Inquiry,FS Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description></description>
+        <name>FS Cases to be shared with all wholesale users</name>
+    </criteriaBasedRules>
+	<criteriaBasedRules>
+        <fullName>MPC_Cases_to_shared_with_all_FS_manager_users</fullName>
+        <sharedTo>
+            <group>All_FS_Manger_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MD__c</field>
+            <operation>equals</operation>
+            <value>MY</value>
+			</criteriaItems>
+			<criteriaItems>
+			<field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Inquiry,MB Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>MPC Cases to be shared with all FS manager users in Edit mode</description>
+        <name>MPC Cases to be shared with all FS manager users</name>
+    </criteriaBasedRules>
+    <ownerRules>
+        <fullName>CAC_Case_share_to_Hanxue</fullName>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>CAC Owned Case share to Hanxue</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Central_PL_WL_user_share_to_Central_PL_WL_users</fullName>
+        <sharedTo>
+            <role>PL_WL_Team</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>PL_WL_Team</role>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Central PL/WL user share to Central PL/WL users</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Central_office_share_to_central</fullName>
+        <sharedTo>
+            <role>AS_Service_Technical_Director</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>AS_Service_Technical_Director</role>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>When the MB  complaint case owner changed from central queue to one specific central user, share the</description>
+        <name>Central office share to central</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Central_sees_Regional</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AS_Service_Technical_Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Regional_CRM_Mgr_E</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Central sees Regional</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Central_sees_Regional_N</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AS_Service_Technical_Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Regional_CRM_Mgr_N</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Central sees Regional N</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Central_sees_Regional_S</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AS_Service_Technical_Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Regional_CRM_Mgr_S</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Central sees Regional S</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Central_sees_Regional_W</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>AS_Service_Technical_Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Regional_CRM_Mgr_W</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Central sees Regional W</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>MBF_Case_Records_Sharing_MBJ</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_CRM_Department_non_Approver</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>MBF Case Records Sharing MBJ</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>MBF_Case_Records_Sharing_to_MBJ</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>MBJ_CRM_Department_Approver</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>MBF_CRM_Depeartment</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>MBF Case Records Sharing to MBJ</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Share_with_CAC_Data_CRM_with_R_only</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CRM_Manager_Wholesale_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
+        </sharedFrom>
+        <caseAccessLevel>Read</caseAccessLevel>
+        <name>Share with CAC Data CRM with R only</name>
+    </ownerRules>
+</CaseSharingRules>

@@ -37,7 +37,7 @@
 
 
         var filterNames = '';
-        var dateInputClass = 'PersonBirthdate; LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;LastWorkDate__c;LastInspectionDate__c;';
+        var dateInputClass = 'PersonBirthdate;Alk_Record_Created_Date__c;Account_Record_Created_Date__c;Lead_Record_Created_Date__c;LastServiceDate__c; NextServiceDate__c; LastServiceDate__c; Registration_Date__c; Expected_Registration_Date__c; Expected_Close_Date__c; FirstRegistrationDate__c; End_Date__c;EndDate__c; NextServiceDate__c; NextInspectionDate__c;LastWorkDate__c;LastInspectionDate__c;';
 
          $(document).ready(function(){
             $('#filterSelect option').each(function(){
@@ -68,15 +68,15 @@
          function CallSOQL() 
         {
        
-              document.getElementById('retail1').value='Retail_Postal_OptOut__c';
-                document.getElementById('crie').value=false;
+             // document.getElementById('retail1').value='Retail_Postal_OptOut__c';
+              //  document.getElementById('crie').value=false;
                 document.getElementById('vrfiletr').value='End_Date__c'; 
                 
                 showCriteria(document.getElementById('vrfiletr'));
                 document.getElementById('VrTableDateInput1').value='null'; 
                 document.getElementById('vrcfilter').value='Service_Dealer__c';
                 document.getElementById('selectop').value='Equals';
-                document.getElementById('vrif').value='{!accnames}';
+               document.getElementById('vrif').value='{!accnames}';  
                 
                  
                 addEmptyFilterItem('VehicleRetailcopyTable', 'AND', false); 
@@ -98,9 +98,9 @@
         {
               document.getElementById('retail1').value='Selling_Dealer__c';
                showCriteria(document.getElementById('retail1'));
-               addEmptyFilterItem('AccountRetailCopyTable', 'AND', false);
+             //  addEmptyFilterItem('AccountRetailCopyTable', 'AND', false);
                document.getElementById('selectoptionretailcopy').value='Equals';
-                document.getElementById('crie').value='{!accnames}'; 
+                 document.getElementById('crie').value='{!accnames}'; 
                 document.getElementById('vrfiletr').value='End_Date__c'; 
                 showCriteria(document.getElementById('vrfiletr'));
                 document.getElementById('vfilter').value='Car_Model__r.Model_Name__c';
@@ -113,11 +113,11 @@
 //         document.getElementById('retail1').value='Retail_OptOutContact_Reason__c';
 //                document.getElementById('selectoptionretailcopy').value='Exclude';
 //                document.getElementById('crie').value='Product Info (Aftersales)';
-                document.getElementById('retail1').value='Retail_Postal_OptOut__c';
-                document.getElementById('crie').value=false;
+              //  document.getElementById('retail1').value='Retail_Postal_OptOut__c';
+             //   document.getElementById('crie').value=false;
                 document.getElementById('vrcfilter').value='Service_Dealer__c';
                 document.getElementById('selectop').value='Equals';
-                document.getElementById('vrif').value='{!accnames}';
+               document.getElementById('vrif').value='{!accnames}'; 
                 document.getElementById('contractrel').value='Product_Name__c';
                 showCriteria(document.getElementById('contractrel'));
                 addEmptyFilterItem('ContractrelatedTable', 'AND', false);
@@ -271,9 +271,23 @@
                     return false;
                 }
             });
+            //to display the extra date field for alk filter
+            jQueryFieldRow.find('.criteriaalk').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
             
             //to display the extra TO lable for for lead filter
             jQueryFieldRow.find('.criteriaToLead').children().each(function(){
+                if(this.style.display == 'block'){
+                    this.style.display = 'none';
+                    return false;
+                }
+            });
+            //to display the extra TO lable for for lead filter
+            jQueryFieldRow.find('.criteriaToalk').children().each(function(){
                 if(this.style.display == 'block'){
                     this.style.display = 'none';
                     return false;
@@ -644,9 +658,9 @@
         <apex:pageMessages />
         <span style="display:none"><apex:inputField value="{!account.PersonBirthdate}"/></span>
         <apex:pageBlock >
-         <input type="button" value="Select Template 1" onClick="CallSOQL()"/> Description 1  <br></br> <br></br>
-         <input type="button" value="Select Template 2" onClick="selecttemplate2()"/> Description 2  <br></br> <br></br>
-         <input type="button" value="Select Template 3" onClick="selecttemplate3()"/>  Description 3  <br></br> <br></br>
+         <input type="button" value="{!$Label.Select_Template_1}" onClick="CallSOQL()"/> {!$Label.Description_1} <br></br> <br></br>
+         <input type="button" value="{!$Label.Select_Template_2}" onClick="selecttemplate2()"/> {!$Label.Description_2}  <br></br> <br></br>
+         <input type="button" value="{!$Label.Select_Template_3}" onClick="selecttemplate3()"/>  {!$Label.Description_3} <br></br> <br></br>
          </apex:pageBlock>
         <apex:pageBlock id="block">
             <div id="filterBody" style="margin:10px;">
@@ -673,7 +687,8 @@
                                     <option value="Interest_Model__c">{!$ObjectType.Account.Fields.Interest_Model__c.Label}</option>
                                     <option value="Vehicle_Amount__c">{!$ObjectType.Account.Fields.Vehicle_Amount__c.Label}</option>                                   
                                     <option value="Status__c">{!$ObjectType.Account.Fields.Status__c.Label}</option>
-                                    <option value="Customer_Lifecycle_Phase__c">{!$Label.Customer_Stage}</option>
+                                    <option value="Customer_Lifecycle_Phase__c">{!$Label.Customer_Stage}</option>                                    
+                                     <option value="Account_Record_Created_Date__c">{!$ObjectType.Account.Fields.Account_Record_Created_Date__c.Label}</option>
                                 </select>
                             </td>
                              <td><span class="notDate">
@@ -711,7 +726,7 @@
                                 <input class="dateInput" id="customerTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/>
                                </td>
-                               <td class="criteriaBirthdate1"><span id ="tologicAcc" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
+                               <td class="criteriaBirthdate"><span id ="tologicAcc" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
                             
                             <td class="criteriaBirthdate" id="a1">
                             <input style="display:none;" class="dateInput2 dateInput" id="s" size="12" type="text"
@@ -745,7 +760,7 @@
                             <td>
                                 <select onchange="showCriteria(this);" id="retail1"> 
                                     <!--<option value="Sales_Representative__c">{!$ObjectType.Account_Link__c.Fields.Sales_Representative__c.Label}</option>-->
-                                    <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>
+                                    <!-- <option value="Retail_Postal_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Postal_OptOut__c.Label}</option>-->
                                     <option value="Retail_Sales_Consultant__c">{!$ObjectType.Account_Link__c.Fields.Retail_Sales_Consultant__c.Label}</option>
                                     <option value="Selling_Dealer__c">{!$ObjectType.Account_Link__c.Fields.Selling_Dealer__c.Label}</option>
                                     <option value="Retail_Visit_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Visit_OptOut__c.Label}</option>
@@ -755,6 +770,7 @@
                                     <option value="Retail_Fax_OptOut__c">{!$ObjectType.Account_Link__c.Fields.Retail_Fax_OptOut__c.Label}</option>
                                     <option value="Retail_Email_OptOut__c">{!$Label.Retail_Email_OptOut}</option>
                                     <option value="Retail_OptOutContact_Reason__c">{!$ObjectType.Account_Link__c.Fields.Retail_OptOutContact_Reason__c.Label}</option>
+                                    <option value="Alk_Record_Created_Date__c">{!$ObjectType.Account_Link__c.Fields.Alk_Record_Created_Date__c.Label}</option>
                                 </select>
                             </td>
                             <td><span class="notDate">
@@ -780,9 +796,17 @@
                              <apex:selectList styleClass="Retail_OptOutContact_Reason__c" size="5" multiselect="true">
                                     <apex:selectOptions value="{!RetailOptOutContactReason}"></apex:selectOptions>
                                 </apex:selectList>
+                                <input class="dateInput" id="customerTableDateInput13" size="12" type="text" 
+                                    onfocus="DatePicker.pickDate(true, this.id, false);"/>
                             </td>
-                            <td></td>
-                            <td></td>
+                            
+                            <!-- <td class="criteriaToalk"><span id ="tologicAccsss" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>-->
+                               <td class="criteriaToalk"><span id="tologicLeadacc" class="dateInput2 dateInput" style="display:none;"><center>To</center></span></td>
+                            
+                            <td class="criteriaalk" id="a17">
+                            <input style="display:none;" class="dateInput2 dateInput" id="sss" size="12" type="text"
+                                    onfocus="getcube(),DatePicker.pickDate(true, this.id, false);"/>
+                             </td>
                             <td class="logic"></td>
                             <td></td>
                         </tr>
@@ -829,6 +853,7 @@
                                     <option value="Expected_Close_Date__c">
                                         {!$ObjectType.Lead__c.Fields.Expected_Close_Date__c.Label}
                                     </option> 
+                                    <option value="Lead_Record_Created_Date__c">{!$ObjectType.Lead__c.Fields.Lead_Record_Created_Date__c.Label}</option>
                                 </select> 
                             </td>
                             <td><span class="notDate">
@@ -959,10 +984,10 @@
                             <td class="criteria">
                                 <input class="inputText" type="text"/>
                                   <apex:inputField value="{!vehicleRel.New_Used__c}" styleClass="New_Used__c" style="display:block;"/> 
-                            <!--    <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>  -->
+                            <!--    <apex:inputField value="{!vehicleRel.Customer_Type__c}" styleClass="Customer_Type__c"/>  
                                     <apex:selectList styleClass="Customer_Type__c" size="1" multiselect="false" >
                                     <apex:selectOptions value="{!Democarflag}"></apex:selectOptions>
-                                </apex:selectList>
+                                </apex:selectList> -->
                                 <input class="dateInput" id="VrTableDateInput1" size="12" type="text" 
                                     onfocus="DatePicker.pickDate(true, this.id, false);"/> 
                             </td>

@@ -5,6 +5,11 @@
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
       <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_PLANNING_AND_DESIGN_RECORDTYPE</token>
     </changetext>
+		<changetext>
+      <filename>objects\Retail_Campaign__c.object</filename>
+      <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
+      <token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH</token>
+    </changetext>
 	<changetext>
       <filename>objects\Retail_Campaign__c.object</filename>
       <xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_TH']/url/text()</xpath>
@@ -1190,7 +1195,7 @@
 		<token tokenonly="true">OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX</token>
 	</changetext>
 		<changetext>
-		<filename>objects\Campaign_Member__C.object</filename>
+		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_MEMBER_WEBLINK_OBJECTS_KEYPREFIX</token>
 	</changetext>
@@ -1200,7 +1205,7 @@
 		<token tokenonly="true">OBJECT_CAMPAIGN_RECORDTYPE_CAC_CAMPAIGN_ID</token>
 	</changetext>
 	<changetext>
-		<filename>objects\Campaign_Member__C.object</filename>
+		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Retail_Campaign_Member']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK__NEW_CAMPAIGN_MEMBER_ID</token>
 	</changetext>
@@ -1731,6 +1736,11 @@
 	</changetext>
 	<changetext>
 		<filename>objects\Campaign_Member__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='RetailCampaignExport']/url/text()</xpath>
+		<token tokenonly="true">RETAIL_CAMPAIGN_MEMBER_REPORT_ID_TH</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Member__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='ExportCampaign']/url/text()</xpath>
 		<token tokenonly="true">CAMPAIGN_MEMBER_REPORT_ID</token>
 	</changetext>
@@ -1908,4 +1918,3 @@
 		</permissions>
 	</defaultpermissions>
 </transformations>
-

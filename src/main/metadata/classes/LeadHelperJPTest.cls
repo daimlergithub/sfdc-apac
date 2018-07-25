@@ -307,6 +307,7 @@ public class LeadHelperJPTest
             
             LeadHelperJP.updateCustomerStage(listNewLeads,oldMap,LeadNewMap);
             LeadHelperJP.createAccountLinkFromDealer(listNewLeads, LeadNewMap, accountId, dealerIdId, accouMap);
+            LeadHelperJP.updateCustomerStageByInformatica(listNewLeads,oldMap,LeadNewMap);
             Test.StopTest();
         }
         
@@ -628,7 +629,83 @@ public class LeadHelperJPTest
         }
         
     }
-    
+     public static testMethod void beforeinsertUpdateVIN()
+    {  
+     Id recordTypeVehicleObjId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
+         Vehicle__c   vehicleObj = new Vehicle__c(RecordTypeId = recordTypeVehicleObjId,Brand__c = 'Maybach',UsVIN__c ='12369854789632147',EuroVIN__c ='tlikkkkkkkklllll66',CurrentMileage__c=5000,NextMileage__c=6000);
+            insert vehicleObj;
+            Id recordTypeVehicleObjIdOne = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('Self Registered').getRecordTypeId();
+         Vehicle__c   vehicleObj1 = new Vehicle__c(RecordTypeId = recordTypeVehicleObjIdOne,Brand__c = 'Maybach',UsVIN__c ='12369854789632147',EuroVIN__c ='tlikkkkkkkklllll66',CurrentMileage__c=5000,NextMileage__c=6000);
+            insert vehicleObj1;
+            List<Lead__C> listNewLeads=new List<Lead__C>();
+            
+            //map<id,Lead__C> LeadNewMap=new map<id,Lead__C>();
+           map<id,lead__C> oldMap = new map<id,lead__C>();
+            objAccount= new Account();
+            objAccount.RecordtypeId=personAccRecordTypeId;
+            objAccount.LastName='Test Person 1st';
+            //objAccount.Type='Personal';
+            objAccount.Status__c='Active';
+            objAccount.Province__c='Province1';
+            objAccount.City__c='Test';
+            objAccount.ZipCode__c = '1004235';
+            objAccount.Email__c='test@mbj.com';
+            objAccount.Mobile__c ='0435488899';
+            objAccount.Phone = '08022420181';
+            
+            objAccount.Customer_Lifecycle_Phase__c = 'Care';
+            
+            insert objAccount;
+            
+            objAccount2= new Account();
+            objAccount2.RecordtypeId=personAccRecordTypeId;
+            objAccount2.LastName='Test Person 1st';
+            //objAccount.Type='Personal';
+            objAccount2.Status__c='Active';
+            objAccount2.Province__c='Province1';
+            objAccount2.City__c='Test';
+            objAccount2.ZipCode__c = '1004209';
+            objAccount2.Email__c='test@mbj.com';
+            objAccount2.Mobile__c ='0435488899';
+            objAccount2.Phone = '08022420181';
+            
+            objAccount2.Customer_Lifecycle_Phase__c = 'Care';
+            
+            insert objAccount2;
+            
+            lead1 = new lead__C();
+            lead1.MD__c = 'JP';
+            lead1.Contact__c = objAccount.id;
+            
+            lead1.CAC_Lead_Status__c = 'New';
+            lead1.Lead_Assignment_Notification_Done__c=false;
+            lead1.Person_Assign_Notificaton_Done__c=false;
+            lead1.AfterSales_Vehicle__c = vehicleObj.id; 
+            lead1.recordTypeId =Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
+            listNewLeads.add(lead1);
+           
+            lead2 = new lead__C();
+            lead2.MD__c = 'JP';
+            lead2.Contact__c = objAccount2.id;
+            lead2.CAC_Lead_Status__c = 'New';
+            lead2.Lead_Assignment_Notification_Done__c=false;
+            lead2.Person_Assign_Notificaton_Done__c=false;
+            lead2.AfterSales_Vehicle__c = vehicleObj1.id; 
+            lead2.recordTypeId =Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
+            listNewLeads.add(lead2);
+            insert listNewLeads;
+            
+           Test.StartTest();
+            LeadHelperJP.UpdateafterSalesVin(listNewLeads,oldMap);
+            
+            Test.StopTest(); 
+            
+            
+            
+            
+              
+    }
+
     
     
 }

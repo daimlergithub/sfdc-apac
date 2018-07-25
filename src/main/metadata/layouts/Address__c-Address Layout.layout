@@ -60,10 +60,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Province__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Temp_ZipCode__c</field>
             </layoutItems>
             <layoutItems>
@@ -113,7 +109,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Defualt_address__c</field>
+                <field>Default_address__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

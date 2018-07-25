@@ -14,10 +14,10 @@ public class AccountlinkhelperTR{
     //Added by Hildaa for Data of Consent Information
     public static void updateOnPostalOptout(list<Account_link__C> listNewAccounts){
        for(Account_link__C acclnk: listNewAccounts){
-            if(acclnk.Retail_Postal_OptOut__c){
-                acclnk.Retail_Postal_OptIn__c = false;
-                //acclnk.Retail_Address_Line_1__c = '';
-                //acclnk.Retail_Address_Line_2__c = '';
+            if(!acclnk.Retail_Postal_OptIn__c){
+                //acclnk.Retail_Postal_OptIn__c = false;
+                acclnk.Retail_Address_Line_1__c = '';
+                acclnk.Retail_Address_Line_2__c = '';
             }
        }
     }
@@ -27,8 +27,8 @@ public class AccountlinkhelperTR{
     */
     public static void updateOnEmailOptout(list<Account_link__C> listNewAccounts){        
         for(Account_link__C acc: listNewAccounts){
-            if(acc.Retail_Email_OptOut__c){
-                acc.Retail_Email_OptIn__c = false;
+            if(!acc.Retail_Email_OptIn__c){
+                //acc.Retail_Email_OptIn__c = false;
                 acc.Retail_Email__c = '';
             }
         }
@@ -36,22 +36,22 @@ public class AccountlinkhelperTR{
     
     public static void updateOnPhoneSMSoptout(list<Account_link__C> listNewAccounts){
         for(Account_link__C acc: listNewAccounts){
-            if(acc.Retail_Phone_OptOut__c && acc.Retail_SMS_OptOut__c){
+            if(!acc.Retail_Phone_OptIn__c && !acc.Retail_SMS_OptIn__c){
                 acc.Retail_Mobile__c = '';
         acc.Retail_Individual_Home_Phone__c = '';
         acc.Retail_Work_Phone__c = '';
             }
-      else if(acc.Retail_Phone_OptOut__c && acc.Retail_SMS_OptIn__c)
-      {
-        acc.Retail_Individual_Home_Phone__c = '';
-        acc.Retail_Work_Phone__c = '';
-      }
-      if(acc.Retail_Phone_OptOut__c ){
+            else if(!acc.Retail_Phone_OptIn__c && acc.Retail_SMS_OptIn__c)
+            {
+                acc.Retail_Individual_Home_Phone__c = '';
+                
+            }
+            /*if(acc.Retail_Phone_OptOut__c ){
                 acc.Retail_Phone_OptIn__c = false;
             }
             if(acc.Retail_SMS_OptOut__c ){
                 acc.Retail_SMS_OptIn__c = false;
-            }
+            }*/
             
         }
     }

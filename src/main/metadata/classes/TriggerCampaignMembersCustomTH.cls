@@ -13,6 +13,11 @@ public class TriggerCampaignMembersCustomTH implements TriggerHandlerIf
                CampaignMemberCustomHelperTH.MapCampaignMemberfieldsbasedOnContact(Trigger.new);
         }
     }
+         if(Trigger.IsUpdate){
+         if(Trigger.isbefore){
+               CampaignMemberCustomHelperTH.MapCampaignMemberfieldsbasedOnContact(Trigger.new);
+        }
+    }
     if(Trigger.isDelete){
     CampaignMemberCustomHelperTH.beforeDeleteOperation(Trigger.old);
     }

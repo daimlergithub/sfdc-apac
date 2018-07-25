@@ -8187,11 +8187,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Statement__c.Transction_Description__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Address__c.Account_Link__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8283,11 +8278,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Address__c.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.Defualt_address__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14504,11 +14494,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Customer_Key_Credential__c.Borrower__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Customer_Key_Credential__c.Defualt_bank__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -29186,10 +29171,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Case.EventDataLoad</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <recordType>Case.FS_Compaint</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

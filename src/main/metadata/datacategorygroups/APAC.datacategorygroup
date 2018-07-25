@@ -5,6 +5,150 @@
         <dataCategory>
             <dataCategory>
                 <dataCategory>
+                    <label>Names</label>
+                    <name>Names</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Locations</label>
+                    <name>Locations</name>
+                </dataCategory>
+                <label>Dealer</label>
+                <name>DealerIN</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Overview</label>
+                    <name>OverviewIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Values</label>
+                    <name>ValuesIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Brand History</label>
+                    <name>Brand_HistoryIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Address/Map</label>
+                    <name>Address_Map_IN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Key contact people</label>
+                    <name>key_contact_people_IN</name>
+                </dataCategory>
+				<label>Company</label>
+                <name>Company</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Anti-trust</label>
+                    <name>Anti_trust_IN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Competition laws</label>
+                    <name>Competition_laws_IN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Integrity code</label>
+                    <name>Integrity_code_IN</name>
+                </dataCategory>
+                <label>Legal and Compliance</label>
+                <name>Legal_and_Compliance</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Car/Model pairs</label>
+                    <name>Car_Model_pairs_IN</name>
+                </dataCategory>
+                <label>Product</label>
+                <name>ProductIN</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Finance</label>
+                    <name>FinanceIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Insurance</label>
+                    <name>InsurnceIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Agility</label>
+                    <name>AgilityIN</name>
+                </dataCategory>
+                <label>DFS</label>
+                <name>DFS</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Campaign</label>
+                    <name>CampaignIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Care</label>
+                    <name>CareIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Event</label>
+                    <name>EventIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Retail Portals</label>
+                    <name>Retail_PortalsIN</name>
+                </dataCategory>
+                <label>Marketing and CRM</label>
+                <name>Marketing_and_CRMIN</name>
+            </dataCategory>
+            <dataCategory>
+				<dataCategory>
+                    <label>Spares</label>
+                    <name>SparesIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Warranty</label>
+                    <name>WarrantyIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Accessories/Boutique</label>
+                    <name>Accessories_BoutiqueIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Maintenance</label>
+                    <name>MaintenanceIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Insurance</label>
+                    <name>InsurnceIN1</name>
+                </dataCategory>
+                <label>After-Sales</label>
+                <name>After-SalesIN</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>New Car</label>
+                    <name>New_CarIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Pre-Owned Car</label>
+                    <name>PreOwned_CarIN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Accessories</label>
+                    <name>AccessoriesIN1</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Insurance</label>
+                    <name>InsuranceIN2</name>
+                </dataCategory>
+                <label>Sales</label>
+                <name>SalesIN1</name>
+            </dataCategory>
+            <label>India</label>
+            <name>India</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
                     <label>Script - Overview</label>
                     <name>Script_Overview</name>
                 </dataCategory>

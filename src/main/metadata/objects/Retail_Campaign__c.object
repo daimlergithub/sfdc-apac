@@ -5707,13 +5707,19 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>Dealer_Name__c</columns>
         <columns>Record_Type_Name__c</columns>
         <columns>Status__c</columns>
         <columns>Start_Date__c</columns>
         <columns>Close_Date__c</columns>
         <columns>Campaign_Type__c</columns>
         <filterScope>Everything</filterScope>
-        <label>All</label>
+        <filters>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>新6</value>
+        </filters>
+        <label>車点検（Minami）</label>
         <language>zh_CN</language>
     </listViews>
     <listViews>
@@ -5742,6 +5748,33 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
         <sharedTo>
             <group>THUsers</group>
             <roleAndSubordinatesInternal>MBTH</roleAndSubordinatesInternal>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Osam</fullName>
+        <columns>NAME</columns>
+        <columns>Showroom__c</columns>
+        <columns>Dealer_Name__c</columns>
+        <columns>Record_Type_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Close_Date__c</columns>
+        <columns>Campaign_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>equals</operation>
+            <value>2018年Q1セントラルDM Sクラス</value>
+        </filters>
+        <filters>
+            <field>Showroom__c</field>
+            <operation>contains</operation>
+            <value>中野</value>
+        </filters>
+        <label>All_Osam</label>
+        <language>zh_CN</language>
+        <sharedTo>
+            <group>Group41</group>
         </sharedTo>
     </listViews>
     <listViews>
@@ -17500,7 +17533,7 @@ var userMarket = sforce.connection.query("Select Id, Market__c from User where I
 records = userMarket.getArray("records"); 
 var accid = records[0].Market__c; 
 if(accid=='TH'){ 
-window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!URLENCODE(Retail_Campaign__c.Name)}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
+window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=OBJECT_RETAIL_CAMPAIGN_WEBLINK_CREATE_CHILD_RETAIL_CAMPAIGN_ID&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!URLENCODE(Retail_Campaign__c.Name)}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;CF00N2800000A9CoY={!Retail_Campaign__c.Approver__c}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}"); 
 }
 else if(accid=='{!$Label.MarketMY}')
  {  window.open("{!URLFOR($Site.Prefix)}/a16/e?RecordType=01228000001Dg4E&amp;ent=Retail_Campaign__c&amp;CF00N2800000IkqaW={!URLENCODE(Retail_Campaign__c.Name)}&amp;CF00N2800000IkqaW_lkid={!Retail_Campaign__c.Id}&amp;retURL={!Retail_Campaign__c.Id}&amp;cancelURL={!URLFOR($Site.Prefix)}/{!Retail_Campaign__c.Id}");
@@ -17679,7 +17712,7 @@ alert(result[0].errors.message);
 if({!Campaign.IsActive}){ 
 
 if('{!Campaign.MD__c}' == 'TH') { 
-window.open("{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000IkqaO={!URLENCODE(Campaign.Description)}&amp;00N2800000Ikqad={!Campaign.Status}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9Cpq={!URLENCODE(Campaign.Name)}&amp;00N5D000000wWSh={!Campaign.Publish_Date__c}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}"); 
+window.open("{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000IkqaO={!URLENCODE(Campaign.Description)}&amp;00N2800000Ikqad={!Campaign.Status}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9Cpq={!URLENCODE(Campaign.Name)}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH={!Campaign.Publish_Date__c}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;Name={!URLENCODE(Campaign.Name)}&amp;CF00N2800000A9CpR={!URLENCODE(Retail_Campaign__c.Parent_CampaignId__c)}&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;ent={!Retail_Campaign__c.Id}&amp;00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}"); 
 
 } 
 
@@ -17694,7 +17727,7 @@ campaignObj.id="{!Campaign.Id}";
 campaignObj.Activate_for_retail_campaign__c=true;
 campaignObj.IsActive=true; 
 result = sforce.connection.update([campaignObj]);
-window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000IkqaO={!URLENCODE(Campaign.Description)}&amp;00N2800000Ikqad={!Campaign.Status}&amp;Name={!Campaign.Name}&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;00N5D000000wWSh={!Campaign.Publish_Date__c}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;ent={!Retail_Campaign__c.Id}","_self";
+window.top.location.href="{!JSENCODE($Site.BaseUrl)}"+"/a16/e?retURL=/a16/o&amp;RecordType=01228000001Dg4F&amp;00N2800000IkqaO={!URLENCODE(Campaign.Description)}&amp;00N2800000Ikqad={!Campaign.Status}&amp;Name={!Campaign.Name}&amp;00N2800000A9Cod={!Campaign.Brand__c}&amp;00N2800000A9CpR={!Retail_Campaign__c.Parent_CampaignId__c}&amp;CF00N2800000A9CpR_lkid={!Retail_Campaign__c.Parent_CampaignId__c}&amp;00N2800000Ikqac={!Campaign.StartDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PUBLISH_DATE_FIELD_ID_TH={!Campaign.Publish_Date__c}&amp;00N2800000IkqaM={!Campaign.EndDate}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_APPROVER_FIELD_ID={!Campaign.Approver__c}&amp;ent={!Retail_Campaign__c.Id}","_self";
 
 }
 

@@ -14,7 +14,13 @@ public class contactTableControllerTest {
     private static UserRole role;
     public static string teststring='test';
     static void createTestData() {
-        
+        Profile p1 = [select id,name from profile WHERE Name='System Administrator']; 
+        usr = new User(Alias = 'standt', Email='testUser@testorg.com', 
+                         EmailEncodingKey='UTF-8', LastName='Test', LanguageLocaleKey='en_US', 
+                         LocaleSidKey='en_US', ProfileId = p1.Id, Market__c='KR',
+                         TimeZoneSidKey='America/Los_Angeles', UserName='testuser1@testorg.com'+String.valueof(DateTime.now().getTime()), isActive=true);
+        insert usr;
+        system.runAs(usr){
         objAccount = new Account();
         objAccount.RecordTypeId = personAccRecordTypeId;
         objAccount.Dealer_DMS_SR_Code__c='test code 2';
@@ -30,6 +36,7 @@ public class contactTableControllerTest {
         objAccount.Phone = '000-0000-9642';
         objAccount.Area_code__c = '0101';
         objAccount.MD__c = 'KR';
+        objAccount.Market__c = 'KR';
         objAccount.LastName = 'galaxy1';
         objAccount.FirstName = 'First Name';
         objAccount.Salutation = 'Unknown';
@@ -42,6 +49,7 @@ public class contactTableControllerTest {
         objAccount.Primary_Fax__c = 'FAX2';
         objAccount.Primary_Phone__c ='Other2';
         insert objAccount; 
+        }
         
     }      
     
@@ -431,6 +439,7 @@ public class contactTableControllerTest {
     insert PhoneAreaCodesList;
     List<String> AccountFields=new List<String>();
     AccountFields.add('Lastname');
+    AccountFields.add('Firstname');
     AccountFields.add('Individual_Home_Phone__c');
     AccountFields.add('Work_Phone__c');
     AccountFields.add('fax');
@@ -438,18 +447,21 @@ public class contactTableControllerTest {
     AccountFields.add('MD__c');
     List<Account> AccountFieldsList=DataFactoryServices.createRecords('Account',AccountFields,'',3);
     AccountFieldsList[0].Lastname='Lastname1';
+    AccountFieldsList[0].Firstname='Fname1';
     AccountFieldsList[0].Individual_Home_Phone__c='+6003123654789';
     AccountFieldsList[0].Work_Phone__c='+60825634789541';
     AccountFieldsList[0].fax='+60827896541';
     AccountFieldsList[0].Mobile__c='+609856321478';
     AccountFieldsList[0].MD__c='MY';
     AccountFieldsList[1].Lastname='Lastname2';
+    AccountFieldsList[1].Firstname='Fname2';
     AccountFieldsList[1].Individual_Home_Phone__c='';
     AccountFieldsList[1].Work_Phone__c='';
     AccountFieldsList[1].fax='';
     AccountFieldsList[1].Mobile__c='';
     AccountFieldsList[1].MD__c='MY';
     AccountFieldsList[2].Lastname='Lastname3';
+    AccountFieldsList[2].Firstname='Fname2';
     AccountFieldsList[2].Individual_Home_Phone__c='+601236547895';
     AccountFieldsList[2].Work_Phone__c='+601234857612';
     AccountFieldsList[2].fax='+601024563075';

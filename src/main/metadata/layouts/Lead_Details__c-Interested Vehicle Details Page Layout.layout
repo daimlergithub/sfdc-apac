@@ -23,6 +23,10 @@
                 <behavior>Edit</behavior>
                 <field>Color__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Car_Model_Text__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -252,6 +252,16 @@
                         </apex:outputText>
                     </apex:column>
                                      
+                   <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_3__c.Label}" >
+                        <apex:outputText value="{!row.Address_Line_3__c}" style="width:10%; white-space:none;">
+                        </apex:outputText>
+                    </apex:column>
+
+                   <apex:column headerValue="Suburb" >
+                        <apex:outputField value="{!row.Suburb__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>
+                    
                     <apex:column headerValue="State/City" >
                         <apex:outputField value="{!row.State_City__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
@@ -333,15 +343,15 @@
                         </apex:outputText>
                     </apex:column>
                     
-                     <apex:column headerValue="City">
+                     <apex:column headerValue="{!$Label.City}">
                         <apex:outputText value="{!row.City__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>         
-                    <apex:column headerValue="State/Province" >
+                    <apex:column headerValue="{!$Label.S5_City} " >
                         <apex:outputField value="{!row.Province__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>                  
-                    <apex:column headerValue="District">
+                    <apex:column headerValue="{!$Label.District}">
                         <apex:outputText value="{!row.District__c}" style="width:10%; white-space:nowrap;">
                         </apex:outputText>
                     </apex:column>
@@ -349,19 +359,23 @@
                   
                     
                     
-                    <apex:column headerValue="Postal Code" >
+                    <apex:column headerValue="{!$Label.ZipPostalCode}" >
                         <apex:outputField value="{!row.ZipCode__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>
-                    
-                    <apex:column headerValue="Country" rendered="{!IF(($Permission.MYGeneric),true,false)}">
+                    <!-- fix for MT-44 -->
+                    <apex:column headerValue="{!$Label.Country_Label}" >
                         <apex:outputField value="{!row.Country__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
                     </apex:column>                  
                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}" >
                         <apex:outputField value="{!row.Preferred__c}" style="width:10%; white-space:none;">
                         </apex:outputField>
-                    </apex:column>     
+                    </apex:column>  
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}" >
+                        <apex:outputField value="{!row.Foreign_Nationals__c}" style="width:10%; white-space:none;">
+                        </apex:outputField>
+                    </apex:column>                  
                     
                   
                                    
@@ -724,7 +738,7 @@
                 </apex:pageBlockSection>
 				
                 <!--2018/march/23 Sada Added to AU/NZ Market as per US 2/3 -->
-                <apex:pageBlockSection title="Address Information" columns="2" id="pbsANZ" rendered="{!IF(($Permission.AUGeneric),true,false)}">       
+                <apex:pageBlockSection title="Address Information" columns="2" id="pbsANZ" rendered="{!IF(($Permission.AUGeneric || $Permission.NZGeneric),true,false)}">       
                                                 
                     <apex:pageBlockSectionItem >        
                             
@@ -767,13 +781,7 @@
                          <apex:inputText id="inpZip" value="{!zip}"/>       
                 </apex:pageBlockSectionItem>
                         
-               <apex:pageblockSectionItem >       
-                    <apex:outputLabel value="Status"/>      
-                    <apex:inputField value="{!addressobj.Status__c}"/>      
-                 </apex:pageblockSectionItem>   
-                 
-
-                 
+                  
                  <apex:pageblockSectionItem >       
                     <apex:outputLabel value="Preferred"/>       
                     <apex:inputField value="{!addressobj.Preferred__c}"/>       
@@ -871,8 +879,8 @@
                         <apex:outputLabel value="{!$ObjectType.Address__c.fields.Address_Type__c.Label}"/>      
                         <apex:inputField value="{!addressobj.Address_Type__c}" />  
                     </apex:pageBlockSectionItem>        
-                    
-                    <apex:inputField value="{!addressobj.Market__c }" />        
+                    <!-- Fix for MT - 29 -->
+                    <apex:inputField value="{!addressobj.Market__c }" html-disabled="true"/>        
                     <apex:inputField value="{!addressobj.Address_Line_1__c}"/>                          
                     <apex:inputField value="{!addressobj.Address_Line_2__c}"/>          
                           
@@ -883,49 +891,57 @@
                  </apex:pageblockSectionItem>  
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
                              
-                        <apex:outputLabel value="City"/>       
+                        <apex:outputLabel value="{!$Label.City}"/>       
                             <apex:selectList size="1" value="{!city}" id="slprovinceTR" onchange="loadProvince(this.value)">       
                                 <apex:selectOptions value="{!lstCity}"/>                             
                             </apex:selectList>  
                      </apex:pageBlockSectionItem>   
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">      
                              
-                        <apex:outputLabel value="City"/>       
+                        <apex:outputLabel value="{!$Label.City}"/>       
                         <apex:inputText id="slCityTR" value="{!city}"/>  
                      </apex:pageBlockSectionItem>   
                      <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
-                        <apex:outputLabel value="State/Province"/>      
+                        <apex:outputLabel value="{!$Label.S5_City} "/>      
                          <apex:selectList size="1" value="{!province}" id="slProvinceTR" onchange="loadDistrict(this.value)">     
                             <apex:selectOptions value="{!lstProvince}"/>                                
                         </apex:selectList>      
                     </apex:pageBlockSectionItem>        
                             
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">        
-                        <apex:outputLabel value="State/Province"/>      
+                        <apex:outputLabel value="{!$Label.S5_City} "/>      
                          <apex:inputText id="slProvinceTR" value="{!province}"/>      
                     </apex:pageBlockSectionItem>        
                             
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==false,true,false)}">      
-                        <apex:outputLabel value="District"/>      
+                        <apex:outputLabel value="{!$Label.District}"/>      
                          <apex:selectList size="1" value="{!District}" id="slDistrictTR" >     
                             <apex:selectOptions value="{!lstDistrict}"/>                                
                         </apex:selectList>      
                     </apex:pageBlockSectionItem>        
                             
                     <apex:pageBlockSectionItem rendered="{!IF(IsForeignNational==true,true,false)}">        
-                        <apex:outputLabel value="District"/>      
+                        <apex:outputLabel value="{!$Label.District}"/>      
                          <apex:inputText id="slDistrictTR" value="{!District}"/>      
                     </apex:pageBlockSectionItem>     
                             
                       
                             
                     <apex:pageBlockSectionItem >        
-                        <apex:outputLabel value="Zip/Postal Code"/>      
+                        <apex:outputLabel value="{!$Label.ZipPostalCode}"/>      
                          <apex:inputText id="slzipTR" value="{!zip}"/>      
                     </apex:pageBlockSectionItem>                    
-                
+                   <apex:pageblockSectionItem >       
+                    <apex:outputLabel value="{!$ObjectType.Address__c.fields.Status__c.Label}"/>      
+                    <apex:inputField value="{!addressobj.Status__c}"/>      
+                 </apex:pageblockSectionItem> 
+                <!-- fix for MT-40 -->
+                <apex:pageblockSectionItem >       
+                    <apex:outputLabel value="{!$ObjectType.Address__c.fields.Foreign_Nationals__c.Label}"/>      
+                    <apex:inputField value="{!addressobj.Foreign_Nationals__c}" onchange="ForeignNationalFields(this.value)"/>      
+                 </apex:pageblockSectionItem>                
                  <apex:pageblockSectionItem >       
-                    <apex:outputLabel value="Preferred"/>       
+                    <apex:outputLabel value="{!$ObjectType.Address__c.fields.Preferred__c.Label}"/>       
                     <apex:inputField value="{!addressobj.Preferred__c}"/>       
                  </apex:pageblockSectionItem>     
                             
@@ -940,7 +956,7 @@
                       <apex:param name="districtselected" value="" /> 
                  </apex:actionFunction> 
                  
-                 <apex:actionFunction name="LoadSubDistrict" action="{!LoadSubDistrict}" reRender="pbsTH">  
+                 <apex:actionFunction name="LoadSubDistrict" action="{!LoadSubDistrict}" reRender="pbsTH,pbsTR">  
                       <apex:param name="subdistrictselected" value="" /> 
                 </apex:actionFunction>
                 
@@ -954,7 +970,7 @@
                 <apex:pageBlockButtons location="bottom">
                     <apex:commandButton action="{!AutoFillAddress}" value="{!$Label.Auto_fill}" rendered="{!If(market=='JP' ,true,false)}"/>
                     <apex:commandButton value="{!$Label.Address_Search}" action="{!AddressSearch}" rendered="false"/>
-                     <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH', NOT($Permission.MYGeneric || $Permission.INGeneric || $Permission.AUGeneric || $Permission.NZGeneric) ),true,false)}"/> <!--oncomplete="hideTable();"-->
+                     <apex:commandButton value="{!$Label.Validate}" action="{!ValidateAddressSearch}" reRender="addfrm" rendered="{!IF(AND(market!='TH',market!='TR', NOT($Permission.MYGeneric || $Permission.INGeneric || $Permission.AUGeneric || $Permission.NZGeneric) ),true,false)}"/> <!--oncomplete="hideTable();"-->
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddress}"  reRender="redirectPanel,pgmsg"   rendered="{!IF((market='KR' || market='JP'),true,false)}"/>
                     <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressTH}" onComplete="refreshPrimaryTab();" reRender="addressPageBlockId,redirectPanel,pgmsg" rendered="{!IF(market=='TH',true,false)}"/>
                    <apex:commandButton value="{!$Label.Save_Button}" action="{!SaveAddressMY}"  reRender="redirectPanel,pgmsg"   rendered="{!IF($Permission.MYGeneric || market =='TR',true,false)}"/>

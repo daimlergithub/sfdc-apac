@@ -1204,12 +1204,16 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Mercedes-Benz</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Maybach</valueName>
             </valueSettings>
             <valueSettings>
@@ -1936,11 +1940,15 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>AMG</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Other</valueName>
             </valueSettings>
             <valueSettings>
@@ -2029,7 +2037,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
         <fullName>Category_Code__c</fullName>
         <externalId>false</externalId>
         <label>Category Code</label>
-        <length>5</length>
+        <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2294,7 +2302,7 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle is "Vehicle_Colour"</description>
         <externalId>false</externalId>
         <label>Colour</label>
-        <length>100</length>
+        <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3254,6 +3262,17 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_EuroVIN
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Extended_Warranty_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Extended Warranty Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FinanceExpiryDate__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -3445,113 +3464,151 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Methanol</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Gasoline</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Kerosene</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Light Oil</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Gasoline/LPG</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Gasoline/Kerosene</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Electricity</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Ethanol</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Hydrogen</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Gasoline/Electricity</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>LPG/Electricity</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Light Oil/Electricity</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Others</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>U</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>D</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>E</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>LPG</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>CNG</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>LNG</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>ANG</valueName>
             </valueSettings>
             <valueSettings>
@@ -3573,7 +3630,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <fullName>GrossVehicleWeight__c</fullName>
         <externalId>false</externalId>
         <label>Gross Vehicle Weight</label>
-        <precision>5</precision>
+        <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -3585,7 +3642,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_FirstR
         <fullName>Height__c</fullName>
         <externalId>false</externalId>
         <label>Height</label>
-        <length>4</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4205,7 +4262,7 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <fullName>Length__c</fullName>
         <externalId>false</externalId>
         <label>Length</label>
-        <length>5</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4238,8 +4295,10 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157; LastServiceDat
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU'),'AU', 
 IF(ISPICKVAL($User.Market__c, 'CN'),'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'),'JP',
+IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'),'MY',
-IF(ISPICKVAL($User.Market__c, 'TH'),'TH', IF(ISPICKVAL($User.Market__c, 'KR'),'KR','NA'))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR','')))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market Discriminator</label>
         <length>2</length>
@@ -4265,7 +4324,9 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP', 
 IF(ISPICKVAL($User.Market__c, 'TH'), 'TH', 
 IF(ISPICKVAL($User.Market__c, 'MY'), 'MY', 
-IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
+IF(ISPICKVAL($User.Market__c, 'IN'), 'IN',
+IF(ISPICKVAL($User.Market__c, 'KR'), 'KR', 
+IF(ISPICKVAL($User.Market__c, 'TR'), 'TR',''))))))))</defaultValue>
         <externalId>false</externalId>
         <label>Market</label>
         <required>false</required>
@@ -4304,6 +4365,16 @@ IF(ISPICKVAL($User.Market__c, 'KR'), 'KR',''))))))</defaultValue>
                     <fullName>MY</fullName>
                     <default>false</default>
                     <label>MY</label>
+                </value>
+                <value>
+                    <fullName>IN</fullName>
+                    <default>false</default>
+                    <label>IN</label>
+                </value>
+                <value>
+                    <fullName>TR</fullName>
+                    <default>false</default>
+                    <label>TR</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -7938,7 +8009,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_ModelY
         <fullName>Modification_Package__c</fullName>
         <externalId>false</externalId>
         <label>Modification Package</label>
-        <length>20</length>
+        <length>40</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8105,21 +8176,21 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_OptionCodeÃ¢â‚¬Å“</description>
         <externalId>false</externalId>
         <label>OptionCode</label>
-        <length>255</length>
-        <required>false</required>
+        <length>1000</length>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
     </fields>
     <fields>
         <fullName>OptionDescription__c</fullName>
         <externalId>false</externalId>
         <label>Option Description</label>
-        <required>false</required>
+        <length>1000</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
     </fields>
     <fields>
         <fullName>Portal_Vehicle_ID__c</fullName>
@@ -8148,7 +8219,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_Option
         <fullName>Product_Model__c</fullName>
         <externalId>false</externalId>
         <label>Product Model</label>
-        <length>13</length>
+        <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8331,7 +8402,7 @@ Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_Recall
         <fullName>RidingCapacity__c</fullName>
         <externalId>false</externalId>
         <label>Riding Capacity</label>
-        <length>2</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8527,7 +8598,7 @@ Attribute in Data Dictionary object Vehicle is Vehicle_Source</description>
         <fullName>SpecificationNumber__c</fullName>
         <externalId>false</externalId>
         <label>Specification Number</label>
-        <length>5</length>
+        <length>12</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8699,90 +8770,119 @@ Attribute in Data Dictionary object Vehicle isÃ¢â‚¬Â&#157;Vehicle_Transmi
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>AT</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>MT</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>JP</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Unknown</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>7-speed automatic transmission</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>4-speed automatic transmission</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>4-speed manual transmission</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>5-speed automatic transmission</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>5-speed manual transmission</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>CVT</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Hand Automatic Transmission</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Stepless automatic one hand transmission</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>6 speed</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>8 speed</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>9 speed</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>MB Powershift (Automatic)</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Telligent Gear/Shift</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Manual</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>SprintShift</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
+                <controllingFieldValue>TR</controllingFieldValue>
                 <valueName>Semi-automatic</valueName>
             </valueSettings>
         </valueSet>
@@ -8802,7 +8902,7 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle is â€&#157;Vehicle_Trimâ€œ</description>
         <externalId>false</externalId>
         <label>Trim</label>
-        <length>100</length>
+        <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8838,7 +8938,7 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle is Ã¢â‚¬Â&#157;Vehicle_UsVINÃ¢â‚¬Å“</description>
         <externalId>true</externalId>
         <label>UsVIN</label>
-        <length>17</length>
+        <length>35</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -8985,6 +9085,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Active</valueName>
             </valueSettings>
             <valueSettings>
@@ -8992,6 +9093,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Temporary scrap</valueName>
             </valueSettings>
             <valueSettings>
@@ -8999,65 +9101,76 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Eternal scrap</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Current vehicle</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Demo/courtesy vehicle</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Invoiced vehicle</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Vehicle to be ordered</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Previous vehicle</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Quoted Vehicle</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Vehicle Required</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Vehicle in stock</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>KR</controllingFieldValue>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Part exchange vehicle</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>TH</controllingFieldValue>
                 <controllingFieldValue>MY</controllingFieldValue>
+                <controllingFieldValue>IN</controllingFieldValue>
                 <valueName>Repossessed</valueName>
             </valueSettings>
         </valueSet>
@@ -9172,10 +9285,35 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Warranty_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Warranty Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Legal</fullName>
+                    <default>false</default>
+                    <label>Legal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Weight__c</fullName>
         <externalId>false</externalId>
         <label>Weight</label>
-        <length>10</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9186,7 +9324,7 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         <fullName>Width__c</fullName>
         <externalId>false</externalId>
         <label>Width</label>
-        <length>4</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -11089,6 +11227,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -11102,6 +11244,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11428,6 +11574,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Role__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -12584,6 +12741,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
             <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>JP</fullName>
                 <default>false</default>
             </values>
@@ -12597,6 +12758,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14600,6 +14765,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Self_Registered</fullName>
@@ -16323,6 +16499,10 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
             </values>
             <values>
                 <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18373,6 +18553,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
         </picklistValues>
         <picklistValues>
             <picklist>Vehicle_Role__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -22188,6 +22379,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Vehicle_Soft_Deleted</fullName>
@@ -25327,6 +25529,17 @@ YEAR(TODAY()) - YEAR(FirstRegistrationDate__c)-1)</formula>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Warranty_Type__c</picklist>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
@@ -25386,10 +25599,10 @@ Modify Reason:
 	NOT(ISBLANK( EuroVIN__c )),
 	LEN( EuroVIN__c ) &lt;&gt; 17,
 	LEN( EuroVIN__c ) &lt;&gt; 18,
-$Profile.Name != 'IntegrationAPI',
+$Profile.Name != 'IntegrationAPI',$Permission.INGeneric,
  RecordType.DeveloperName = 'MB',
-ISPICKVAL($User.Market__c, 'KR') 
-)</errorConditionFormula>
+OR(ISPICKVAL($User.Market__c, 'KR'),ISPICKVAL($User.Market__c , 'IN') 
+))</errorConditionFormula>
         <errorDisplayField>EuroVIN__c</errorDisplayField>
         <errorMessage>EURO-VIN must be 17 or 18 characters.</errorMessage>
     </validationRules>
@@ -25412,7 +25625,7 @@ Modify Reason:
 NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
 (LEN(  UsVIN__c  )  &lt;&gt; 17) &amp;&amp;  
 (RecordType.DeveloperName = 'MB') &amp;&amp;
- UPPER( MD__c ) = 'JP' &amp;&amp; 
+OR(UPPER( MD__c ) = 'JP' ,UPPER( MD__c ) = 'IN')&amp;&amp; 
 ($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>US VIN must be 17 digits when the record type is MB.</errorMessage>

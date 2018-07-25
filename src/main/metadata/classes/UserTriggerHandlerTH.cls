@@ -7,7 +7,8 @@ public class UserTriggerHandlerTH implements TriggerHandlerIf {
     }*/
         if(Trigger.isAfter && (trigger.isUpdate||trigger.isInsert)){
             //UserHelperTH.ShareUsersToDealersAfterInsertAndUpdate(Trigger.new,Trigger.isupdate,trigger.old);
-            UserHelperTH.shareRecordsAfterInsertAndUpdate(Trigger.new);
+			//UserHelperTH.AddUserstoPGsTH(Trigger.newMap,Trigger.oldMap);
+            UserHelperTH.shareRecordsAfterInsertAndUpdate(Trigger.newMap,Trigger.oldMap);
         }
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete,boolean isAfter)

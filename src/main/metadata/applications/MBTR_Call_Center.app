@@ -4,19 +4,14 @@
     <description>MBTR Call Center</description>
     <label>MBTR Call Center</label>
     <tab>standard-Account</tab>
+<tab>Account_Link__c</tab>
     <tab>standard-Case</tab>
-    <tab>Claim__c</tab>
     <tab>Tasks</tab>
-    <tab>Lead__c</tab>
+    <tab>standard-Opportunity</tab>
     <tab>Vehicle__c</tab>
     <tab>Vehicle_Relationship__c</tab>
     <tab>standard-Campaign</tab>
-    <tab>Account_Link__c</tab>
-    <tab>DM_Request__c</tab>
-    <tab>Retail_Task__c</tab>
-    <tab>Recall__c</tab>
-    <tab>Survey__c</tab>
-    <tab>Survey_Question__c</tab>
-    <tab>SurveyQuestionResponse__c</tab>
-    <tab>SurveyTaker__c</tab>
+    
+   <tab>standard-report</tab>
+   <tab>standard-Dashboard</tab>
 </CustomApplication>

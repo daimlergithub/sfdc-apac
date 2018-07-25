@@ -26,8 +26,9 @@ public class TriggerAccountLinkTriggerHandlerKR
         }     
         if(isBefore && isInsert)
         {        
+		    Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap; 
             system.debug('Entered before TRIGGER');
-            
+            AccountLinkHelperKR.beforeInsertUpdateEvent(Trigger.new, oldmap);
             AccountLinkHelperKR.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
             AccountLinkHelperKR.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );
            
@@ -36,7 +37,9 @@ public class TriggerAccountLinkTriggerHandlerKR
         if(isBefore && isUpdate)
         {
             /* Data Migration Explicit Fix - Santosh Mohanty */
-            AccountLinkHelper.updatemarket(Trigger.New);
+			AccountLinkHelper.updatemarket(Trigger.New);
+			Map<Id,Account_Link__c> oldmap = (Map<Id,Account_Link__c>)Trigger.oldmap;
+			AccountLinkHelperKR.beforeInsertUpdateEvent(Trigger.new, oldmap);
             system.debug('Entered b efore update TRIGGER');
             AccountLinkHelperKR.updateRetailCopy(trigger.isUpdate,trigger.isinsert, trigger.isBefore ,trigger.new);
             AccountLinkHelperKR.updateRetailCopyfromC2C(Trigger.isUpdate, Trigger.isBefore,Trigger.isInsert, trigger.new );

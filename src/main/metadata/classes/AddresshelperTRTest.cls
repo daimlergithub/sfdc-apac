@@ -1,6 +1,6 @@
 @isTest
 public class AddresshelperTRTest {
-    private static Account account;
+    private static Account acc;
     private static Address__c address,address2;
     private static List<Address__c> addressList=new List<Address__c>();
     
@@ -30,14 +30,12 @@ public class AddresshelperTRTest {
             sysSet.Name=p1.Name;
             DMLManagerService.insertAsSystem(sysSet);
             
-            account= new Account();
-            account.Phone='5478964785';
-            account.FirstName = 'Test';
-            account.LastName = 'Test';
-            account.Status__c = 'Prospect';
-            account.Data_Source__c  = 'Test4';
-            account.Market__c = 'TR';
-            account = (Account)UtilTestData.createSobject(account,UtilConstant.person_Account);        
+            acc = TestUtils.createPersonAccountAsUserAsOwner(user1);
+            acc.social_id__c ='11900313862';
+            acc.Personal_Agreement__c = 'No';
+            acc.Mobile__c='';
+            acc.Email__c='abc@gmail.com';
+            update acc;
             
             
             address=new Address__c();
@@ -48,8 +46,7 @@ public class AddresshelperTRTest {
             
             address.Address_Line_1__c='testaddress1';
             address.Address_Line_2__c='testaddress2';
-            address.Customer__c=account.id;
-            address.TitleOfHonor__c = 'To Person'; 
+            address.Customer__c=acc.id;
             address.Preferred__c = true;
             address.country__c = 'Turkey';
             address.ZipCode__c = '07025';
@@ -65,8 +62,7 @@ public class AddresshelperTRTest {
            
             address2.Address_Line_1__c='testaddress1';
             address2.Address_Line_2__c='testaddress2';
-            address2.Customer__c=account.id;
-            address2.TitleOfHonor__c = 'To Person'; 
+            address2.Customer__c=acc.id;
             address2.Preferred__c = true;
             address2.country__c = 'Turkey';
             address2.ZipCode__c = '07025';
@@ -77,15 +73,14 @@ public class AddresshelperTRTest {
                 insert address2;
             }catch(Exception e){}
             
-            account.Primary_Address_Reference__c=address.id;
-            update account;
+            acc.Primary_Address_Reference__c=address.id;
+            update acc;
             map<id,Address__c> addressOldMap=new map<id,Address__c>();
             addressOldMap.put(address.id,address);
             test.startTest();
             TriggerRecursiveCheck.run = true;
             
             try{
-                // update address;
                 AddressHelperTR.updateAddressOnAccount(addressList);
                 AddressHelperBase.updatemarket(addressList); 
                 AddressHelperTR.updatePrimaryAddressOnAccount(addressOldMap);
@@ -97,7 +92,7 @@ public class AddresshelperTRTest {
                 delete address;
             }catch(Exception e){}
             test.stopTest();
-            account = [select Primary_Address_Display__c from Account where id =:address.Customer__c ];
+            acc = [select Primary_Address_Display__c from Account where id =:address.Customer__c ];
         }
     }
 }

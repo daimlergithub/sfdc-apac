@@ -4,7 +4,7 @@
     <description>MBTR Master Data Management</description>
     <label>MBTR Master Data Management</label>
     <tab>standard-Account</tab>
-    <tab>standard-Lead</tab>
+    <tab>standard-Opportunity</tab>
     <tab>standard-Campaign</tab>
     <tab>Retail_Campaigns</tab>
     <tab>standard-Case</tab>
